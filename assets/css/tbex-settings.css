@@ -1,0 +1,241 @@
+/**
+ * // assets/css/tbex-settings
+ * @package Toolbar Extras - Assets
+ * @since   1.0.0
+ */
+
+.settings_page_toolbar-extras #wpbody-content .wrap {
+	width: 70vw;
+}
+
+.tbex-icon:before {
+	display: inline-block;
+	margin-right: 3px;
+	/* top: 5px !important; */
+	vertical-align: baseline;
+}
+
+.tbex-version {
+	color: #c7c7c7;
+	font-size: 90%;
+	margin-left: 10px;
+}
+
+.tbex-intro {
+	margin-bottom: 40px;
+	margin-top: 40px;
+}
+
+.nav-tab-wrapper a.nav-tab:before {
+	line-height: 1.2;
+	margin-right: 3px;
+}
+
+.nav-tab-wrapper a.nav-tab {
+	margin-right: 5px;
+	padding-right: 13px;
+}
+
+.tbex-settings-section,
+.tbex-as-section {
+	margin-top: 20px;
+	padding-top: 10px;
+}
+
+.bg-local-default {
+	background-color: #0073aa;
+	display: inline-block;
+	width: 28px;
+	height: 22px;
+}
+
+.tbex-align-middle {
+	vertical-align: middle !important;
+}
+
+.tbex-desc-newcontent:before {
+	vertical-align: bottom;
+}
+
+.tbex-about-support {
+	display: block;
+	overflow: hidden;
+}
+
+.tbex-as-column {
+	float: left;
+	margin-bottom: 20px;
+	margin-top: 40px;
+	padding: 0 40px 20px;
+	width: 41%;
+}
+
+.tbex-as-column.first-as {
+	border-right: 1px solid #c7c7c7;  /* #ccc; */
+}
+
+.tbex-as-column ul {
+	list-style-type: square;
+	margin-left: 15px;
+}
+
+.rtl .tbex-as-column ul {
+	margin-right: 15px;
+}
+
+.tbex-as-section {
+	display: block;
+}
+
+.tbex-inner {
+	margin-top: 30px;
+}
+
+.tbex-quote-icon:before {
+	clear: left;
+	color: #c7c7c7;
+	float: left;
+	font-size: 44px;
+	margin-left: -20px;
+	padding-right: 40px;
+	padding-bottom: 20px;
+}
+
+.tbex-quote {
+	display: inline-block;
+	font-size: 110%;
+}
+
+.tbex-cite.cite-first {
+	margin-top: 15px;
+}
+
+.tbex-cite {
+	clear: right;
+	float: right;
+}
+
+.tbex-copyright {
+	float: right;
+}
+
+.rtl .tbex-copyright {
+	margin-right: 80px;
+}
+
+.tbex-heart-icon:before {
+	clear: right;
+	color: #c7c7c7;
+	display: table;
+	float: right;
+	font-size: 96px;
+	/* margin-right: 60px; */
+	padding-bottom: 20px;
+	padding-left: 20px;
+}
+
+.tbex-heart-icon:hover:before,
+.second-as:hover .tbex-heart-icon:before {
+	color: #ff0000;
+}
+
+/* .tbex-donate {
+	font-size: 22px !important;
+	padding: 5px 20px !important;
+	height: 40px !important;
+} */
+
+.tbex-button {
+	margin: 5px 23px 20px !important;
+}
+
+.tbex-share {
+	display: inline-block;
+	padding: 10px 20px;
+	text-decoration: none;
+}
+
+.tbex-share .dashicons-before:before {
+	font-size: 30px;
+	padding-right: 10px;
+	vertical-align: text-bottom;
+}
+
+.rtl .tbex-share .dashicons-before:before {
+	padding-left: 10px;
+}
+
+.tbex-smiley:before {
+	clear: left;
+	float: left;
+	font-size: 100px;
+	padding: 10px;
+	width: 140px;
+	height: 120px;
+}
+
+
+@media only screen and (max-width: 1500px) {
+
+	.settings_page_toolbar-extras #wpbody-content .wrap {
+		width: 75vw;
+	}
+	
+}
+
+@media only screen and (max-width: 1193px) {
+
+	.tbex-as-column {
+		width: 38%;
+	}
+	
+}
+
+@media only screen and (max-width: 960px) {
+
+	.settings_page_toolbar-extras #wpbody-content .wrap {
+		width: 85vw;
+	}
+	
+}
+
+@media only screen and (max-width: 790px) {
+
+	.tbex-as-column {
+		float: none;
+		width: 90%;  /* 84vw; */
+	}
+
+	.tbex-as-column.second-as {
+		margin-top: -20px;
+	}
+
+	.tbex-as-column.first-as {
+		border-right: none;
+	}
+
+	.tbex-quote {
+		margin-right: 30px;  /* 80px; */
+	}
+
+	.tbex-heart-icon:before {
+		margin-right: 20px;
+	}
+	
+}
+
+@media only screen and (max-width: 782px) {
+
+	/* .settings_page_toolbar-extras #wpbody-content .wrap {
+		width: 95vw;
+	} */
+	
+}
+
+@media only screen and (max-width: 782px) {
+
+	.tbex-as-column {
+		padding: 0 20px 20px;
+	}
+	
+}

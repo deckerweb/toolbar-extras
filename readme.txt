@@ -1,0 +1,250 @@
+=== Toolbar Extras ===
+Contributors: daveshine, deckerweb, wpautobahn
+Donate link: https://www.paypal.me/deckerweb
+Tags: toolbar, adminbar, admin bar, elementor, page builder, themes, menu, links, settings, usability, deckerweb, ddwtoolbar
+Requires at least: 4.6
+Tested up to: 4.9.4
+Requires PHP: 5.4
+Stable tag: 1.0.0
+License: GPL-2.0+
+License URI: https://opensource.org/licenses/GPL-2.0
+
+Building sites with Elementor? Your work will get easier & faster with Toolbar Extras. With extended plugin & theme support baked right in.
+
+== Description ==
+
+Quick Access to Your Site Building Resources - Big Time Saver. Perfect for Non-Techies and Non-Coder Designers.
+This smart WordPress plugin just adds some missed and **very useful admin links** to your Toolbar / Admin Bar. Save scrolling and time. Access settings and content pages faster from one central area in the Admin Dashboard AND when on the frontend of your site.
+
+Out of the box the plugin includes support for dozens of awesome Plugins and Themes. Create Elementor templates right from the Toolbar, jump to Granular Controls settings or with one click you are on the Plugin Installer page to upload a new Elementor premium Add-On. Yes, it's so easy and fast. I released this plugin to the public to speed up your site building process even more - as the plugin already helps myself for a long time.
+
+= Features - What the Plugin Does =
+- Adds Page Builder links: Elementor & Elementor Pro - for example just add a new Elementor Template from the Toolbar, where Elementor builder loads right away and you begin building, yeah! :)
+- Adds links for Elementor Add-On Plugins
+- Adds links for Elementor-friendly Themes, that also Support Elementor Theme Builder (Pro Version 2.0+)
+- Adds links for general, very useful Plugins (for Site Builders/ Designers/ Developers)
+- Enhances "New Content" section (under "+ New") with more links - for content types, as well as Plugin & Theme installs
+- Adds new groups & links to "Site" section (under your Website Title in Toolbar)
+- Automatic detection of Local Development Environment - to better differentiate your development and live sites (works best with the App "Local by Flywheel")
+- Adds support for creating an "internal" new Menu for Admins which hooks into the Toolbar - using the regular WordPress nav menu system! (Menu location is: "Site Toolbar Menu")
+- Adds useful external resource links to most of the above mentioned sections (could be disabled, of course!)
+- A few smart tweaks to change some behevior of WordPress as well as some plugins - all regarding the Toolbar
+- Some links/ tools aimed for developers (disabled by default, though)
+- Adds plugin settings page (under "Settings > Toolbar Extras") so you have control over what is displayed and what's not!
+- Any code is only loaded if needed - Example: if a supported plugin is not active, the links for it won't even be loaded code-wise!
+- Non-Techie and Non-Coder Designer friendly :)
+- Clean and efficient code
+- Developer friendly - offering quite a few action hooks and filters for customization if needed
+- Fully internationalized and translateable - also tested/optimized for RTL languages
+
+= Elementor & Elementor Pro Support =
+- Adds lots of Elementor **Quick Jump Links** to the Toolbar
+- Perfect for **all Elementor users**!
+- **Elementor** (free) version 2.x (and also former 1.x)
+- **Elementor Pro** (Premium) version 1.x and also (upcoming) version 2.x
+
+= Supported Themes/ Frameworks =
+- [**Astra**](https://wordpress.org/themes/astra/), including **Astra Pro** (Add-On) (both by Brainstorm Force)
+- [**GeneratePress**](https://wordpress.org/themes/generatepress/), including **GeneratePress Premium** (Add-On) (both by Tom Usborne)
+- [**OceanWP**](https://wordpress.org/themes/oceanwp/), including Suite Premium Extras (Add-Ons)
+- [**Genesis Framework** (Premium, by StudioPress)](http://deckerweb.de/go/genesis/)
+- **Suite of "Twenty 20.." default themes**, like *[Twenty Seventeen](https://wordpress.org/themes/twentyseventeen/)*
+- [**Elementor Hello Theme**](https://github.com/pojome/elementor-hello-theme)
+- *(Support for a few more great Themes is coming very soon...!)*
+
+= Support for Elementor Add-On Plugins =
+- [**Granular Controls for Elementor** (free, by Zulfikar Nore)](https://wordpress.org/plugins/granular-controls-for-elementor/)
+- [**Header Footer for Elementor** (free, by Brainstorm Force)](https://wordpress.org/plugins/header-footer-elementor/)
+- [**PopBoxes for Elementor** (free, by Zulfikar Nore)](https://wordpress.org/plugins/modal-for-elementor/)
+- [**Elementor Extras** (Premium, by Namogo)]
+- [**Ultimate Addons for Elementor** (Premium, by Brainstorm Force)]
+- [**PowerPack Elements** (Premium, by IdeaBox Creations)]
+- [**AnyWhere Elementor** (free, by WebTechStreet)](https://wordpress.org/plugins/anywhere-elementor/)
+- [**AnyWhere Elementor Pro** (Premium, by WebTechStreet)]
+- [**Templementor - Persistent Elementor Templates** (free, by Lcweb)](https://wordpress.org/plugins/templementor/)
+- [**Addons for Elementor** (free, by Livemesh)](https://wordpress.org/plugins/addons-for-elementor/)
+- [**Addons for Elementor Pro** (Premium, by Livemesh)]
+- [**Essential Addons for Elementor Lite** (free, by Codetic)](https://wordpress.org/plugins/essential-addons-for-elementor-lite/)
+- [**Essential Addons for Elementor Pro** (Premium, by Codetic)]
+- [**Element Pack for Elementor** (Premium, by BdThemes)]
+- [**Debug Elementor** (free, by Rami Yushuvaev)](https://wordpress.org/plugins/debug-elementor/)
+- [**Elementor Contact Form DB** (free, by Sean Barton)](https://www.sean-barton.co.uk/2017/04/elementor-contact-form-db-free-plugin/)
+- [**Lenix Elementor Leads addon** (free, by Lenix)](https://wordpress.org/plugins/lenix-elementor-leads-addon/)
+- [**Extra Privacy for Elementor** (free, by Marian Heddesheimer)](https://wordpress.org/plugins/extra-privacy-for-elementor/)
+- [**Portfolio for Elementor** (free, by WpPug)](https://wordpress.org/plugins/portfolio-elementor/)
+- *(Support for even more Elementor Add-Ons is coming very soon...)*
+
+= Support for general useful Plugins =
+- [**Central Color Palette** (free, by Gáravo)](https://wordpress.org/plugins/kt-tinymce-color-grid/)
+- [**Simple CSS** (free, by Tom Usborne)](https://wordpress.org/plugins/simple-css/)
+- [**Code Snippets** (free, by Shea Bunge)](https://wordpress.org/plugins/code-snippets/)
+- [**Simple Custom CSS and JS** (free/Pro, by Diana Burduja)](https://wordpress.org/plugins/custom-css-js/)
+- [**Customizer Export Import** (free, by The Beaver Builder Team)](https://wordpress.org/plugins/customizer-export-import/)
+- [**One Click Demo Import** (free, by ProteusThemes)](https://wordpress.org/plugins/one-click-demo-import/)
+- [**404page** (free, by Peter Raschendorfer)](https://wordpress.org/plugins/404page/)
+- [**Add From Server** (free, by Dion Hulse)](https://wordpress.org/plugins/add-from-server/) (sadly, no longer available since End of March 2018...)
+- [**Gravity Forms** (Premium, by Rocketgenius, Inc.)] (Smart Integration & Smart Tweaks)
+- [**Popup Maker** (free, by Daniel Iser)](https://wordpress.org/plugins/popup-maker/) (requieres v1.7+)
+- [**Smart Slider 3** (free/Premium, by Nextend)](https://wordpress.org/plugins/smart-slider-3/)
+- [**Instant IDE** (Premium, by CobaltApps)]
+- [**All-in-one Migration** (free, by ServMask)](https://wordpress.org/plugins/all-in-one-wp-migration/)
+- [**UpdraftPlus** (free, by UpdraftPlus.Com, DavidAnderson)](https://wordpress.org/plugins/updraftplus/)
+- [**Duplicator** (free, by Snap Creek)](https://wordpress.org/plugins/duplicator/)
+- *(Support for some more general Plugins is coming soon...)*
+
+= Support & Compatibility for more plugins =
+Toolbar Extras supports even more plugins as listed here. Also, the plugin was tested with a lot of other plugins adding stuff to the Toolbar - and all works very well. We try to be not in the way of other plugins but rather work well together. This being said, Toolbar Extras even allows you to tweak the (Toolbar) behavior of a few selected plugins. This is really cool to save space in this bar and make the appearance overall a lot cleaner.
+
+For full list of supported plugins and compatibility **[visit our website at https://toolbarextras.com/features/](https://toolbarextras.com/features/)**
+
+= Important: Required/ Recommended for plugin usage =
+- Required: User has role `Administrator` (needed capabilities `manage_options` and `edit_theme_options`)
+- Required: Toolbar/ Admin Bar is enabled (user profile settings in WordPress)
+- Required: User is logged in (of course)
+- Recommended: Plugin's settings are enabled to show the wanted links (or any filter/ constant in code)
+- Recommended: Elementor Page Builder is installed & activated - Toolbar Extras plugin integrates fully with Elementor (Pro included) and is optimized for it
+
+= Translations =
+- English (United States) - (en_US) = default, always included
+- [German (informal, default)](https://translate.wordpress.org/locale/de/default/wp-plugins/toolbar-extras) - (de_DE)
+- [German (formal)](https://translate.wordpress.org/locale/de/formal/wp-plugins/toolbar-extras) - (de_DE_formal)
+- .pot file (`toolbar-extras.pot`) for translators is always included :)
+
+= Be a Contributor =
+If you want to translate, go to the Translation Portal at [translate.wordpress.org](https://translate.wordpress.org/projects/wp-plugins/toolbar-extras).
+
+You can also contribute code-wise via our [Toolbar Extras GitHub Repository](https://github.com/deckerweb/toolbar-extras) - and see where you can help.
+
+= Documentation and Support =
+- For documentation and tutorials go to our [Documentation](https://docs.toolbarextras.com/).
+- If you have any more questions, visit our support on the [Plugin's Forum](https://wordpress.org/support/plugin/elementor).
+- For more information about features, FAQs and documentation, check out our website at [Toolbar Extras Plugin](https://toolbar-extras.com/).
+
+= Liked Toolbar Extras Plugin? =
+- Join our [Facebook Community Group](https://www.facebook.com/groups/ToolbarExtras/).
+- Or rate us on [WordPress](https://wordpress.org/support/plugin/toolbar-extras/reviews/?filter=5/#new-post) :)
+
+= This Plugin ... =
+- ... scratches my own itch!
+- ... is *Quality Made in Germany*
+- ... was created with love (plus some coffee) :-) - [if you like it consider donating](https://www.paypal.me/deckerweb)
+
+== Installation ==
+
+= Minimum Requirements =
+
+* WordPress version 4.6 or higher
+* PHP version 5.4 or higher
+* MySQL version 5.0 or higher
+
+= We Recommend Your Host Supports at least: =
+
+* PHP version 7.0 or higher
+* MySQL version 5.6 or higher
+
+= Installation =
+
+1. Install using the WordPress built-in Plugin installer (via Plugins > Add New - search for "toolbar extras"), or Extract the ZIP file and drop the contents in the `wp-content/plugins/` directory of your WordPress installation.
+2. Activate the plugin through the 'Plugins' menu in WordPress.
+3. Go to 'Settings > Toolbar Extras' to adjust any options for this plugin
+4. Go to 'Appearance > Menus' to add & edit an optional Toolbar Menu (for Admins only).
+5. Now enjoy building your site - and let the Toolbar work for you ;-)
+
+For documentation and tutorials visit our [Knowledge Base](https://docs.toolbarextras.com/).
+
+== Frequently Asked Questions ==
+
+**Why another Toolbar plugin, there are already some others!?**
+You're right! If you're happy with one of the others then that's absolutely great and you don't need to add or switch anything! :) I just made this new plugin here for my very own needs. Since I love to give back to the Community and as some kind of an open source evangelist I like to release my stuff to the public - for free!
+
+Plugin developer David Decker: *What has proved its day to day usage and usefullness on more than 100 installs before, could be used by many other site builders as well, right? :-)))*
+
+**Why is the Administrator Role required?**
+This plugin only works and makes sense for Administrator users (and Super Admins in Multisite) just because the links it adds to the Toolbar require those permissions for the original supported plugins and themese.
+
+Example: The Elementor settings page requires the capability `manage_options` - by default, only Administrators have this capability. So Toolbar Extras "inherits" those capabilities (permissions) as well.
+
+So, to see anything added to the Toolbar, it is required the user must have the cababilities of `manage_options` and `edit_theme_options`. As long as these are in place, Toolbar Extras is the perfect companion! :-)
+
+(Note: Implementing other roles/ capabilities is not planned, and it makes no sense, really. It would require the codebase to be bloated with all those additional permission conditions and would give only very very few (if any at all!) additional links for roles like "Editor" or lower.)
+
+**Is Elementor required for this plugin?**
+Technically Elementor is not required. However, without Elementor being activated this plugin (Toolbar Extras) doesn't make much sense. The plugin supports deactivation of Elementor, though (for development, testing, whatever). When you do that (maybe for testing something) nothing strange will happen; I've included a fallback. Toolbar Extras acts smart :)
+
+I totally recommend Elementor - so, with it active, this plugin here will make the perfect sense!
+
+**Is Elementor Pro required for this plugin?**
+Absolutely not. The supported links in Toolbar Extras will only be displayed once Elementor Pro is active.
+
+However, I strongly recommend Elementor Pro as it is so useful for Non-Coder Designers site builders.
+
+**Will other page builders be supported, beyond Elementor?**
+This is planned middle to long-term. Nothing is set in stone yet.
+
+**Will other Themes be supported?**
+Yes, absolutely. - In general the Theme support here is considered as "a nice bonus". And, I will only ever add Themes that work well with Page Builders (mostly Elementor) and are well established. If you have recommendations you can contact me.
+
+**Will other Plugins be supported?**
+Yes, absolutely. - Though, we won't support every plugin under the sun, of course. For support to be included, the plugin has to meet at least one - better all - of the following conditions:
+
+* is useful for site-builders and/or developers
+* enhances the supported Page Builder
+* has own settings/ admin pages or own post types/ page with data input
+* additionally it should have a good reputation and be just useful (yes, say that again!)
+
+== Screenshots ==
+
+1. Toolbar Extras: New Network specific menu items located in "My Sites" toolbar parent item. ([Click here for larger version of screenshot](https://www.dropbox.com/s/m6w6h8icr44e568/screenshot-1.png)).
+
+2. Toolbar Extras: Included plugin support for Network aware plugins. ([Click here for larger version of screenshot](https://www.dropbox.com/s/ztu9haeh48eg6lr/screenshot-2.png)).
+
+3. Toolbar Extras: New Sub Site/ Blog items located in the parent item for each site. ([Click here for larger version of screenshot](https://www.dropbox.com/s/a0qhymxlpkn1qox/screenshot-3.png)).
+
+4. Toolbar Extras: New (Sub) Site specific menu items - plus included plugin support for useful site specific plugins. ([Click here for larger version of screenshot](https://www.dropbox.com/s/w0aoaxwfqfw7iq2/screenshot-4.png)).
+
+5. Toolbar Extras: How the optional Nav Menu for Super Admins works. ([Click here for larger version of screenshot](https://www.dropbox.com/s/7u83c0g5ehk4ozq/screenshot-5.png)).
+
+6. Toolbar Extras: Plugin's help tab on Nav Menu admin page. ([Click here for larger version of screenshot](https://www.dropbox.com/s/dt6kkxqsh7yvbfn/screenshot-6.png)).
+
+== Changelog ==
+
+= 1.0.0 - 2018-04-?? =
+* *Plugin launch. Everything's new!*
+* New: Including support for 17 Themes/ Frameworks (which all work well with Elementor, including the Theme Builder since Pro v2.0+)
+* New: Including support for 19 Add-On plugins (free + Premium) for Elementor
+* New: Including support for 35 general useful plugins for Non-Coder site builders as well as developers
+* New: Including support for 10 Genesis specific plugins
+
+== Upgrade Notice =
+
+= 1.0.0 =
+Plugin launch. Everything's new!
+
+== Donate ==
+Enjoy using *Toolbar Extras*? **Please consider [making a donation](https://www.paypal.me/deckerweb)** - every donation helps to support the project's continued development, maintenance and support.
+**Thank you very much in advance for your support!**
+
+== Credits ==
+Credit where credit is due. The following code, classes and libraries were used for this plugin, all GPL. Note: credit is also referenced in the code doc block inline where used.
+
+* Class "Persist Admin notices Dismissal" by Agbonghama Collins and Andy Fragen (GPLv2 or later)
+* Script "Dashicons Picker" by Brad Vincent (GPLv2 or later)
+* Code for frontend toolbar by Daniel James (GPLv3)
+* Code for displaying additional results within plugin installer search results by Remy Perona (GPLv2 or later)
+
+
+== Translations ==
+
+* English - default, always included
+* German (de_DE): Deutsch - immer dabei! :-)
+* For custom and update-secure language files please upload them to `/wp-content/languages/toolbar-extras/` (just create this folder) - This enables you to use fully custom translations that won't be overridden on plugin updates. Also, complete custom English wording is possible with that as well, just use a language file like `toolbar-extras-en_US.mo/.po` to achieve that (for creating one see the following tools).
+
+**Easy WordPress.org plugin translation platform with GlotPress platform:** [**Translate "Toolbar Extras"...**](https://translate.wordpress.org/projects/wp-plugins/toolbar-extras)
+
+*Note:* All my plugins are internationalized/ translateable by default. This is very important for all users worldwide. So please contribute your language to the plugin to make it even more useful. For translating and validating I recommend the awesome ["Poedit Editor"](http://www.poedit.net/), which works fine on Windows, macOS and Linux.
+
+== Additional Info ==
+**Idea Behind / Philosophy:** Just a little lightweight plugin for all the Non-Coder site builders out there using Elementor page builder - making their daily work and life just a little easier.
+
+== Last but not least ==
+**Special Thanks go out to my family for allowing me to do such spare time projects (aka free plugins) and supporting me in every possible way!**
