@@ -67,9 +67,9 @@ function ddw_tbex_settings_cb_is_local_dev() {
 
 	?>
 		<select name="tbex-options-development[is_local_dev]" id="tbex-options-development-is_local_dev">
-			<option value="auto" <?php selected( $tbex_options[ 'is_local_dev' ], 'auto' ); ?>><?php _e( 'Auto', 'toolbar-extras' ); ?></option>
-			<option value="yes" <?php selected( $tbex_options[ 'is_local_dev' ], 'yes' ); ?>><?php _e( 'Yes', 'toolbar-extras' ); ?></option>
-			<option value="no" <?php selected( $tbex_options[ 'is_local_dev' ], 'no' ); ?>><?php _e( 'No', 'toolbar-extras' ); ?></option>
+			<option value="auto" <?php selected( sanitize_key( $tbex_options[ 'is_local_dev' ] ), 'auto' ); ?>><?php _e( 'Auto', 'toolbar-extras' ); ?></option>
+			<option value="yes" <?php selected( sanitize_key( $tbex_options[ 'is_local_dev' ] ), 'yes' ); ?>><?php _e( 'Yes', 'toolbar-extras' ); ?></option>
+			<option value="no" <?php selected( sanitize_key( $tbex_options[ 'is_local_dev' ] ), 'no' ); ?>><?php _e( 'No', 'toolbar-extras' ); ?></option>
 		</select>
 		<label for="tbex-options-development[is_local_dev]">
 			<span class="description"><?php echo sprintf( __( 'Default: %s', 'toolbar-extras' ), '<code>' . __( 'Auto', 'toolbar-extras' ) . '</code>' ); echo '<br />' . sprintf( __( 'Note: %s means automatic detection based on your current server/domain values.', 'toolbar-extras' ), __( 'Auto', 'toolbar-extras' ) ); ?></span>
@@ -89,7 +89,7 @@ function ddw_tbex_settings_cb_local_dev_bg_color() {
 	$tbex_options = get_option( 'tbex-options-development' );
 
 	?>
-		<input type="text" class="tbex-color-picker" id="tbex-options-development-local_dev_bg_color" name="tbex-options-development[local_dev_bg_color]" value="<?php echo $tbex_options[ 'local_dev_bg_color' ]; ?>" data-default-color="#0073aa" />
+		<input type="text" class="tbex-color-picker" id="tbex-options-development-local_dev_bg_color" name="tbex-options-development[local_dev_bg_color]" value="<?php echo sanitize_hex_color( $tbex_options[ 'local_dev_bg_color' ] ); ?>" data-default-color="#0073aa" />
 		<label for="tbex-options-development[local_dev_bg_color]">
 			<span class="description"><?php echo sprintf( __( 'Default: %s', 'toolbar-extras' ), '<div class="bg-local-default tbex-align-middle"></div><code class="tbex-align-middle">#0073aa</code>' ); ?></span>
 		</label>
@@ -108,7 +108,7 @@ function ddw_tbex_settings_cb_local_dev_icon() {
 	$tbex_options = get_option( 'tbex-options-development' );
 
 	?>
-		<input class="regular-text" type="text" id="tbex-options-development-local_dev_icon" name="tbex-options-development[local_dev_icon]" value="<?php echo $tbex_options[ 'local_dev_icon' ]; ?>" />
+		<input class="regular-text" type="text" id="tbex-options-development-local_dev_icon" name="tbex-options-development[local_dev_icon]" value="<?php echo strtolower( sanitize_html_class( $tbex_options[ 'local_dev_icon' ] ) ); ?>" />
 		<input class="button dashicons-picker" type="button" data-target="#tbex-options-development-local_dev_icon" value="<?php _e( 'Choose Icon', 'toolbar-extras' ); ?>" />
 		<br />
 		<label for="tbex-options-development[local_dev_icon]">
@@ -137,7 +137,7 @@ function ddw_tbex_settings_cb_local_dev_icon() {
 
 
 /**
- * Setting (Input): Local Dev Name
+ * Setting (Input, Text): Local Dev Name
  *
  * @since 1.0.0
  */
@@ -146,7 +146,7 @@ function ddw_tbex_settings_cb_local_dev_name() {
 	$tbex_options = get_option( 'tbex-options-development' );
 
 	?>
-		<input type="text" class="regular-text" id="tbex-options-development-local_dev_name" name="tbex-options-development[local_dev_name]" value="<?php echo $tbex_options[ 'local_dev_name' ]; ?>" />
+		<input type="text" class="regular-text" id="tbex-options-development-local_dev_name" name="tbex-options-development[local_dev_name]" value="<?php echo wp_filter_nohtml_kses( $tbex_options[ 'local_dev_name' ] ); ?>" />
 		<label for="tbex-options-development[local_dev_name]">
 			<span class="description"><?php echo sprintf( __( 'Default: %s', 'toolbar-extras' ), '<code>' . __( 'Local Development Website', 'toolbar-extras' ) . '</code>' ); ?></span>
 		</label>
@@ -165,7 +165,7 @@ function ddw_tbex_settings_cb_local_dev_viewport() {
 	$tbex_options = get_option( 'tbex-options-development' );
 
 	?>
-		<input type="number" class="small-text" id="tbex-options-development-local_dev_viewport" name="tbex-options-development[local_dev_viewport]" value="<?php echo $tbex_options[ 'local_dev_viewport' ]; ?>" step="1" min="0" />
+		<input type="number" class="small-text" id="tbex-options-development-local_dev_viewport" name="tbex-options-development[local_dev_viewport]" value="<?php echo absint( $tbex_options[ 'local_dev_viewport' ] ); ?>" step="1" min="0" />
 		<label for="tbex-options-development[local_dev_viewport]">
 			<span class="description"><?php echo sprintf( __( 'Default: %s (in Pixel)', 'toolbar-extras' ), '<code>1030</code>' ); ?></span>
 		</label>
@@ -188,8 +188,8 @@ function ddw_tbex_settings_cb_use_dev_mode() {
 
 	?>
 		<select name="tbex-options-development[use_dev_mode]" id="tbex-options-development-use_dev_mode">
-			<option value="yes" <?php selected( $tbex_options[ 'use_dev_mode' ], 'yes' ); ?>><?php _e( 'Yes', 'toolbar-extras' ); ?></option>
-			<option value="no" <?php selected( $tbex_options[ 'use_dev_mode' ], 'no' ); ?>><?php _e( 'No', 'toolbar-extras' ); ?></option>
+			<option value="yes" <?php selected( sanitize_key( $tbex_options[ 'use_dev_mode' ] ), 'yes' ); ?>><?php _e( 'Yes', 'toolbar-extras' ); ?></option>
+			<option value="no" <?php selected( sanitize_key( $tbex_options[ 'use_dev_mode' ] ), 'no' ); ?>><?php _e( 'No', 'toolbar-extras' ); ?></option>
 		</select>
 		<label for="tbex-options-development[use_dev_mode]">
 			<span class="description"><?php echo sprintf( __( 'Default: %s', 'toolbar-extras' ), '<code>' . __( 'No', 'toolbar-extras' ) . '</code>' ); ?></span>
@@ -209,7 +209,7 @@ function ddw_tbex_settings_cb_rapid_dev_icon() {
 	$tbex_options = get_option( 'tbex-options-development' );
 
 	?>
-		<input class="regular-text" type="text" id="tbex-options-development-rapid_dev_icon" name="tbex-options-development[rapid_dev_icon]" value="<?php echo $tbex_options[ 'rapid_dev_icon' ]; ?>" />
+		<input class="regular-text" type="text" id="tbex-options-development-rapid_dev_icon" name="tbex-options-development[rapid_dev_icon]" value="<?php echo strtolower( sanitize_html_class( $tbex_options[ 'rapid_dev_icon' ] ) ); ?>" />
 		<input class="button dashicons-picker" type="button" data-target="#tbex-options-development-rapid_dev_icon"  value="<?php _e( 'Choose Icon', 'toolbar-extras' ); ?>" />
 		<br />
 		<label for="tbex-options-development[rapid_dev_icon]">
@@ -238,7 +238,7 @@ function ddw_tbex_settings_cb_rapid_dev_icon() {
 
 
 /**
- * Setting (Input): Rapid Dev Name
+ * Setting (Input, Text): Rapid Dev Name
  *
  * @since 1.0.0
  */
@@ -247,7 +247,7 @@ function ddw_tbex_settings_cb_rapid_dev_name() {
 	$tbex_options = get_option( 'tbex-options-development' );
 
 	?>
-		<input type="text" class="regular-text" id="tbex-options-development-rapid_dev_name" name="tbex-options-development[rapid_dev_name]" value="<?php echo $tbex_options[ 'rapid_dev_name' ]; ?>" />
+		<input type="text" class="regular-text" id="tbex-options-development-rapid_dev_name" name="tbex-options-development[rapid_dev_name]" value="<?php echo wp_filter_nohtml_kses( $tbex_options[ 'rapid_dev_name' ] ); ?>" />
 		<label for="tbex-options-development[rapid_dev_name]">
 			<span class="description"><?php echo sprintf( __( 'Default: %s', 'toolbar-extras' ), '<code>' . __( 'Rapid Dev', 'toolbar-extras' ) . '</code>' ); ?></span>
 		</label>

@@ -1,6 +1,6 @@
 <?php
 
-// items-edit-nav-menus
+// includes/items-edit-nav-menus
 
 /**
  * Prevent direct access to this file.

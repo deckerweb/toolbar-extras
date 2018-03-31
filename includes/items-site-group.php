@@ -1,6 +1,6 @@
 <?php
 
-//items-site-group.php
+// includes/items-site-group.php
 
 /**
  * Prevent direct access to this file.

@@ -1,6 +1,6 @@
 <?php
 
-//functions-conditionals
+// includes/functions-conditionals
 
 /**
  * Prevent direct access to this file.
@@ -23,14 +23,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 function ddw_tbex_is_localhost() {
 
 	/** Array of known local hosts */
-	$known_local_hosts = apply_filters(
-		'tbex_filter_known_local_hosts',
-		array(
-			'localhost',
-			'127.0.0.1',
-			'127.0.0.0',
-			'::1',
-		)
+	$known_local_hosts = array(
+		'localhost',
+		'127.0.0.1',
+		'127.0.0.0',
+		'::1',
+		'http://localhost',
+		'https://localhost',
+		'http://127.0.0.1',
+		'https://127.0.0.1',
+		'http://127.0.0.0',
+		'https://127.0.0.0'
 	);
 
 	$known_local_hosts = array_map( 'esc_attr', $known_local_hosts );
@@ -38,10 +41,12 @@ function ddw_tbex_is_localhost() {
 	/** Set local state */
 	$is_local = FALSE;
 
+	$server_name = strtolower( sanitize_text_field( $_SERVER[ 'SERVER_NAME' ] ) );
+
 	/** Check server environment */
-	if ( in_array( $_SERVER[ 'REMOTE_ADDR' ], $known_local_hosts )
-		|| ( strpos( $_SERVER[ 'SERVER_NAME' ], '.local' ) !== FALSE )
-		|| ( strpos( $_SERVER[ 'SERVER_NAME' ], 'localhost' ) !== FALSE )
+	if ( in_array( esc_url( $_SERVER[ 'REMOTE_ADDR' ] ), $known_local_hosts )
+		|| ( strpos( $server_name, '.local' ) !== FALSE )
+		|| ( strpos( $server_name, 'localhost' ) !== FALSE )
 	) {
 
 		$is_local = TRUE;
@@ -76,7 +81,7 @@ function ddw_tbex_show_toolbar_items() {
 	 *
 	 * @since 1.0.0
 	 */
-	$tbex_cap_default = esc_attr(
+	$tbex_cap_default = sanitize_key(
 		apply_filters(
 			'tbex_filter_capability_all',
 			'manage_options'
@@ -91,7 +96,7 @@ function ddw_tbex_show_toolbar_items() {
 	 */
 	if ( ! is_user_logged_in()
 		|| ! is_admin_bar_showing()
-		|| ! current_user_can( strtolower( esc_attr( $tbex_cap_default ) ) )	// allows for custom filtering the required role/capability
+		|| ! current_user_can( $tbex_cap_default )	// allows for custom filtering the required role/capability
 		|| ! ddw_tbex_display_items()	// allows for custom disabling
 	) {
 

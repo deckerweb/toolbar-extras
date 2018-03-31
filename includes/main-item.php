@@ -1,6 +1,6 @@
 <?php
 
-//main-item
+// includes/main-item
 
 /**
  * Prevent direct access to this file.

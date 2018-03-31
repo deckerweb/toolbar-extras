@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: Toolbar Extras\n"
-"POT-Creation-Date: 2018-03-31 00:02+0200\n"
+"POT-Creation-Date: 2018-03-31 22:31+0200\n"
 "PO-Revision-Date: 2018-03-31 00:02+0200\n"
 "Last-Translator: David Decker DECKERWEB.de -- http://deckerweb.de/\n"
 "Language-Team: David Decker DECKERWEB.de -- http://deckerweb.de/\n"
@@ -75,7 +75,7 @@ msgstr ""
 #: includes/admin/views/help-content-menus.php:35
 #: includes/admin/views/notice-plugins-welcome.php:40
 #: includes/admin/views/settings-tab-about-support.php:39
-#: includes/functions-global.php:849 includes/string-switcher.php:347
+#: includes/functions-global.php:863 includes/string-switcher.php:380
 #: uninstall.php:42 uninstall.php:52
 msgid "Toolbar Extras"
 msgstr ""
@@ -348,7 +348,7 @@ msgid "About &amp; Support"
 msgstr ""
 
 #: includes/admin/views/help-content-menus.php:35
-#: includes/functions-global.php:849
+#: includes/functions-global.php:863
 msgid "Plugin"
 msgstr ""
 
@@ -407,8 +407,9 @@ msgid "Added Menu Location by the plugin - only for %s:"
 msgstr ""
 
 #. translators: %s - String "Multisite" (for Multisite) or "Site"
+#. translators: %s - Label for type of installation ("Multisite" or "Site")
 #: includes/admin/views/help-content-menus.php:94
-#: includes/string-switcher.php:354
+#: includes/string-switcher.php:388
 #, php-format
 msgid "%s Toolbar Menu"
 msgstr ""
@@ -615,7 +616,7 @@ msgid "Free product support @ WordPress.org plugin forum"
 msgstr ""
 
 #: includes/admin/views/settings-tab-about-support.php:87
-#: includes/functions-global.php:656
+#: includes/functions-global.php:670
 msgid "Support Forum"
 msgstr ""
 
@@ -624,7 +625,7 @@ msgid "Plugin documentation &amp; Knowledge Base articles"
 msgstr ""
 
 #: includes/admin/views/settings-tab-about-support.php:91
-#: includes/functions-global.php:662
+#: includes/functions-global.php:676
 msgid "Documentation"
 msgstr ""
 
@@ -633,7 +634,7 @@ msgid "Facebook Community Group for Toolbar Extras plugin"
 msgstr ""
 
 #: includes/admin/views/settings-tab-about-support.php:95
-#: includes/functions-global.php:665
+#: includes/functions-global.php:679
 msgid "Facebook Group"
 msgstr ""
 
@@ -1025,8 +1026,8 @@ msgstr ""
 #: includes/elementor-addons/items-header-footer-builder.php:49
 #: includes/elementor-addons/items-templementor.php:46
 #: includes/elementor-addons/items-templementor.php:50
-#: includes/elementor-official/items-elementor-core.php:72
-#: includes/elementor-official/items-elementor-core.php:76
+#: includes/elementor-official/items-elementor-core.php:73
+#: includes/elementor-official/items-elementor-core.php:77
 msgid "All Templates"
 msgstr ""
 
@@ -1036,8 +1037,8 @@ msgstr ""
 #: includes/elementor-addons/items-header-footer-builder.php:62
 #: includes/elementor-addons/items-templementor.php:59
 #: includes/elementor-addons/items-templementor.php:63
-#: includes/elementor-official/items-elementor-core.php:134
-#: includes/elementor-official/items-elementor-core.php:138
+#: includes/elementor-official/items-elementor-core.php:136
+#: includes/elementor-official/items-elementor-core.php:140
 #: includes/themes/items-oceanwp.php:94 includes/themes/items-oceanwp.php:98
 msgid "New Template"
 msgstr ""
@@ -1048,8 +1049,8 @@ msgstr ""
 #: includes/elementor-addons/items-header-footer-builder.php:77
 #: includes/elementor-addons/items-templementor.php:74
 #: includes/elementor-addons/items-templementor.php:78
-#: includes/elementor-official/items-elementor-core.php:149
-#: includes/elementor-official/items-elementor-core.php:153
+#: includes/elementor-official/items-elementor-core.php:151
+#: includes/elementor-official/items-elementor-core.php:155
 #: includes/themes/items-oceanwp.php:109 includes/themes/items-oceanwp.php:113
 msgid "New Template Builder"
 msgstr ""
@@ -1355,97 +1356,99 @@ msgctxt "Elementor title attribute name"
 msgid "Elementor Page Builder"
 msgstr ""
 
-#: includes/elementor-official/items-elementor-core.php:88
+#: includes/elementor-official/items-elementor-core.php:89
 msgid "Template Types"
 msgstr ""
 
-#: includes/elementor-official/items-elementor-core.php:92
-msgid "Elementor Template Types"
+#. translators: %1$s - Name of "Elementor" Page Builder
+#: includes/elementor-official/items-elementor-core.php:94
+#, php-format
+msgid "%s Template Types"
 msgstr ""
 
-#. translators: Elementor Library type
-#: includes/elementor-official/items-elementor-core.php:102
+#. translators: Elementor Template type
+#: includes/elementor-official/items-elementor-core.php:104
 msgctxt "Elementor Template type"
 msgid "Content (Pages)"
 msgstr ""
 
-#: includes/elementor-official/items-elementor-core.php:106
+#: includes/elementor-official/items-elementor-core.php:108
 msgid "Template Type: Content (Pages)"
 msgstr ""
 
 #. translators: Elementor Template type
-#: includes/elementor-official/items-elementor-core.php:116
+#: includes/elementor-official/items-elementor-core.php:118
 msgctxt "Elementor Template type"
 msgid "Sections"
 msgstr ""
 
-#: includes/elementor-official/items-elementor-core.php:120
+#: includes/elementor-official/items-elementor-core.php:122
 msgid "Template Type: Section Blocks"
 msgstr ""
 
-#: includes/elementor-official/items-elementor-core.php:181
-#: includes/elementor-official/items-elementor-core.php:185
-#: includes/elementor-official/items-elementor-core.php:252
-#: includes/elementor-official/items-elementor-core.php:256
+#: includes/elementor-official/items-elementor-core.php:183
+#: includes/elementor-official/items-elementor-core.php:187
+#: includes/elementor-official/items-elementor-core.php:254
+#: includes/elementor-official/items-elementor-core.php:258
 #: includes/plugins/items-blox.php:92
 msgid "General"
 msgstr ""
 
-#: includes/elementor-official/items-elementor-core.php:194
-#: includes/elementor-official/items-elementor-core.php:198
+#: includes/elementor-official/items-elementor-core.php:196
+#: includes/elementor-official/items-elementor-core.php:200
 msgid "Style"
 msgstr ""
 
-#: includes/elementor-official/items-elementor-core.php:207
-#: includes/elementor-official/items-elementor-core.php:211
+#: includes/elementor-official/items-elementor-core.php:209
+#: includes/elementor-official/items-elementor-core.php:213
 msgid "Advanced"
 msgstr ""
 
-#: includes/elementor-official/items-elementor-core.php:223
-#: includes/elementor-official/items-elementor-core.php:227
-#: includes/elementor-official/items-elementor-core.php:361
+#: includes/elementor-official/items-elementor-core.php:225
+#: includes/elementor-official/items-elementor-core.php:229
+#: includes/elementor-official/items-elementor-core.php:363
 msgid "Role Manager"
 msgstr ""
 
-#: includes/elementor-official/items-elementor-core.php:265
-#: includes/elementor-official/items-elementor-core.php:269
+#: includes/elementor-official/items-elementor-core.php:267
+#: includes/elementor-official/items-elementor-core.php:271
 msgid "General Tools"
 msgstr ""
 
-#: includes/elementor-official/items-elementor-core.php:278
-#: includes/elementor-official/items-elementor-core.php:282
+#: includes/elementor-official/items-elementor-core.php:280
+#: includes/elementor-official/items-elementor-core.php:284
 msgid "Replace URL"
 msgstr ""
 
-#: includes/elementor-official/items-elementor-core.php:291
-#: includes/elementor-official/items-elementor-core.php:295
+#: includes/elementor-official/items-elementor-core.php:293
+#: includes/elementor-official/items-elementor-core.php:297
 msgid "Version Control"
 msgstr ""
 
-#: includes/elementor-official/items-elementor-core.php:304
-#: includes/elementor-official/items-elementor-core.php:308
+#: includes/elementor-official/items-elementor-core.php:306
+#: includes/elementor-official/items-elementor-core.php:310
 #: includes/plugins/items-genesis-coming-soon-page.php:40
 msgid "Maintenance Mode"
 msgstr ""
 
-#: includes/elementor-official/items-elementor-core.php:317
-#: includes/elementor-official/items-elementor-core.php:321
+#: includes/elementor-official/items-elementor-core.php:319
+#: includes/elementor-official/items-elementor-core.php:323
 #: includes/plugins/items-health-check.php:45
 #: includes/plugins/items-health-check.php:49
 msgid "System Info"
 msgstr ""
 
 #. translators: Elementor "Role Manager" displayed in "my-account" Toolbar submenu - it's only a small area please use a short translation term!
-#: includes/elementor-official/items-elementor-core.php:356
+#: includes/elementor-official/items-elementor-core.php:358
 msgctxt "Elementor Role Manager"
 msgid "Role Manager"
 msgstr ""
 
-#: includes/elementor-official/items-elementor-core.php:420
+#: includes/elementor-official/items-elementor-core.php:422
 msgid "Official Elementor Blog"
 msgstr ""
 
-#: includes/elementor-official/items-elementor-core.php:428
+#: includes/elementor-official/items-elementor-core.php:430
 msgid "Official Elementor YouTube Channel"
 msgstr ""
 
@@ -1460,7 +1463,7 @@ msgstr ""
 #. translators: Theme creative group - links to Customizer, default "Customize Design"
 #: includes/elementor-official/items-elementor-hello-theme.php:45
 #: includes/elementor-official/items-elementor-hello-theme.php:49
-#: includes/string-switcher.php:93 includes/themes/items-generatepress.php:61
+#: includes/string-switcher.php:100 includes/themes/items-generatepress.php:61
 #: includes/themes/items-generatepress.php:65
 msgid "Customize Design"
 msgstr ""
@@ -1562,21 +1565,21 @@ msgstr ""
 msgid "https://deckerweb.de/"
 msgstr ""
 
-#: includes/functions-global.php:164
+#: includes/functions-global.php:165
 msgid "No Page Builder registered"
 msgstr ""
 
-#: includes/functions-global.php:505
+#: includes/functions-global.php:519
 #, php-format
 msgid "Customize %s"
 msgstr ""
 
-#: includes/functions-global.php:545
+#: includes/functions-global.php:559
 #, php-format
 msgid "All %s"
 msgstr ""
 
-#: includes/functions-global.php:552
+#: includes/functions-global.php:566
 #, php-format
 msgid "New %s"
 msgstr ""
@@ -1584,7 +1587,7 @@ msgstr ""
 #. translators: %s - Name of current active Theme or Parent Theme (static!)
 #. translators: (Static) Theme name Astra - optionally white labeled string
 #. translators: (Static) Theme name OceanWP - optionally white labeled string
-#: includes/functions-global.php:583 includes/themes/items-astra.php:59
+#: includes/functions-global.php:597 includes/themes/items-astra.php:59
 #: includes/themes/items-oceanwp.php:46
 #, php-format
 msgid "Theme: %s"
@@ -1592,133 +1595,133 @@ msgstr ""
 
 #. translators: %s - Name of current active Theme or Parent Theme (static!)
 #. translators: (Static) Theme name OceanWP - optionally white labeled string
-#: includes/functions-global.php:592 includes/themes/items-astra.php:64
+#: includes/functions-global.php:606 includes/themes/items-astra.php:64
 #: includes/themes/items-oceanwp.php:51
 #, php-format
 msgid "Active Theme: %s"
 msgstr ""
 
-#: includes/functions-global.php:659
+#: includes/functions-global.php:673
 msgid "Support Contact"
 msgstr ""
 
-#: includes/functions-global.php:668
+#: includes/functions-global.php:682
 msgid "Official Support"
 msgstr ""
 
-#: includes/functions-global.php:671
+#: includes/functions-global.php:685
 msgid "Official Site"
 msgstr ""
 
-#: includes/functions-global.php:674
+#: includes/functions-global.php:688
 msgid "Official Blog"
 msgstr ""
 
-#: includes/functions-global.php:677
+#: includes/functions-global.php:691
 msgid "Development @ GitHub"
 msgstr ""
 
-#: includes/functions-global.php:680
+#: includes/functions-global.php:694
 msgid "GitHub Issues"
 msgstr ""
 
 #. translators: Title attribute for linked text
-#: includes/functions-global.php:682
+#: includes/functions-global.php:696
 msgid "GitHub Issues (Bug Tracker)"
 msgstr ""
 
-#: includes/functions-global.php:685
+#: includes/functions-global.php:699
 msgid "Community Translations"
 msgstr ""
 
 #. translators: Title attribute for linked text
-#: includes/functions-global.php:687
+#: includes/functions-global.php:701
 msgid "Community Translations (at WordPress.org)"
 msgstr ""
 
-#: includes/functions-global.php:690
+#: includes/functions-global.php:704
 msgid "Translate Pro Plugin"
 msgstr ""
 
-#: includes/functions-global.php:693
+#: includes/functions-global.php:707
 msgid "YouTube Channel"
 msgstr ""
 
-#: includes/functions-global.php:696
+#: includes/functions-global.php:710
 msgid "YouTube Tutorials"
 msgstr ""
 
-#: includes/functions-global.php:699
+#: includes/functions-global.php:713
 msgid "Knowledge Base"
 msgstr ""
 
 #. translators: Title attribute for linked text
-#: includes/functions-global.php:701
+#: includes/functions-global.php:715
 msgid "Knowledge Base Articles"
 msgstr ""
 
-#: includes/functions-global.php:704
+#: includes/functions-global.php:718
 msgid "Tutorials"
 msgstr ""
 
 #. translators: Title attribute for linked text
-#: includes/functions-global.php:706
+#: includes/functions-global.php:720
 msgid "Tutorial Articles"
 msgstr ""
 
-#: includes/functions-global.php:709
+#: includes/functions-global.php:723
 msgid "User Forum"
 msgstr ""
 
-#: includes/functions-global.php:712
+#: includes/functions-global.php:726
 msgid "Community Forum"
 msgstr ""
 
-#: includes/functions-global.php:715
+#: includes/functions-global.php:729
 msgid "My Account"
 msgstr ""
 
-#: includes/functions-global.php:718
+#: includes/functions-global.php:732
 msgid "Code Reference"
 msgstr ""
 
-#: includes/functions-global.php:721
+#: includes/functions-global.php:735
 msgid "Pro Docs"
 msgstr ""
 
-#: includes/functions-global.php:724
+#: includes/functions-global.php:738
 msgid "Pro: Documentation"
 msgstr ""
 
-#: includes/functions-global.php:727
+#: includes/functions-global.php:741
 msgid "Pro: Modules Documentation"
 msgstr ""
 
-#: includes/functions-global.php:730
+#: includes/functions-global.php:744
 msgid "Pro: Facebook Group"
 msgstr ""
 
-#: includes/functions-global.php:733
+#: includes/functions-global.php:747
 msgid "Pro: Support"
 msgstr ""
 
-#: includes/functions-global.php:736
+#: includes/functions-global.php:750
 msgid "Pro: Official Site"
 msgstr ""
 
-#: includes/functions-global.php:739
+#: includes/functions-global.php:753
 msgid "Pro: APIs"
 msgstr ""
 
-#: includes/functions-global.php:742
+#: includes/functions-global.php:756
 msgid "Slack Channel"
 msgstr ""
 
-#: includes/functions-global.php:745
+#: includes/functions-global.php:759
 msgid "External Resource"
 msgstr ""
 
-#: includes/functions-global.php:845
+#: includes/functions-global.php:859
 msgid "You have no sufficient permission to edit this special menu."
 msgstr ""
 
@@ -2714,89 +2717,90 @@ msgstr ""
 msgid "Create Staging Clone"
 msgstr ""
 
-#: includes/string-switcher.php:70
+#: includes/string-switcher.php:75
 msgctxt "Toolbar main item, fallback if no supported Page Builder active"
 msgid "Customize"
 msgstr ""
 
 #. translators: %1$s - Word Elementor
-#: includes/string-switcher.php:137
+#: includes/string-switcher.php:148
 #, php-format
 msgid "%1$s Library"
 msgstr ""
 
 #. translators: %1$s - Word Elementor
 #. translators: %1$s - Astra Pro name
-#: includes/string-switcher.php:162 includes/themes/items-astra.php:421
+#: includes/string-switcher.php:175 includes/themes/items-astra.php:421
 #, php-format
 msgid "%1$s Settings"
 msgstr ""
 
 #. translators: %1$s - Word Elementor
-#: includes/string-switcher.php:187
+#: includes/string-switcher.php:202
 #, php-format
 msgid "%1$s Tools"
 msgstr ""
 
 #. translators: %1$s - Word Elementor
-#: includes/string-switcher.php:212
+#: includes/string-switcher.php:229
 #, php-format
 msgid "%1$s Resources"
 msgstr ""
 
 #. translators: %1$s - Word Elementor
-#: includes/string-switcher.php:237
+#: includes/string-switcher.php:256
 #, php-format
 msgid "%1$s Community"
 msgstr ""
 
 #. translators: %1$s - Word Elementor
-#: includes/string-switcher.php:262
+#: includes/string-switcher.php:283
 #, php-format
 msgid "%1$s Developers"
 msgstr ""
 
-#: includes/string-switcher.php:283
+#: includes/string-switcher.php:307
 msgctxt "Toolbar New Content section"
 msgid "With Builder"
 msgstr ""
 
-#: includes/string-switcher.php:300
+#: includes/string-switcher.php:330
 msgctxt "Toolbar New Content section"
 msgid "Create with Builder"
 msgstr ""
 
 #. translators: Super Admin user role - plural & singular variant
-#: includes/string-switcher.php:317
+#: includes/string-switcher.php:351
 msgid "Super Admins"
 msgstr ""
 
-#: includes/string-switcher.php:317
+#: includes/string-switcher.php:351
 msgid "Super Admin"
 msgstr ""
 
 #. translators: Super Admin user role - plural & singular variant
-#: includes/string-switcher.php:320
+#: includes/string-switcher.php:354
 msgid "Admins"
 msgstr ""
 
-#: includes/string-switcher.php:320
+#: includes/string-switcher.php:354
 msgid "Admin"
 msgstr ""
 
-#: includes/string-switcher.php:346
+#: includes/string-switcher.php:379
 msgid "via Plugin"
 msgstr ""
 
-#: includes/string-switcher.php:348
+#: includes/string-switcher.php:381
 msgid "Multisite"
 msgstr ""
 
-#: includes/string-switcher.php:348
+#: includes/string-switcher.php:381
 msgid "Site"
 msgstr ""
 
-#: includes/string-switcher.php:361
+#. translators: %3$s - Label for type of installation ("Multisite" or "Site")
+#: includes/string-switcher.php:396
 #, php-format
 msgid "%3$s Toolbar Menu"
 msgstr ""

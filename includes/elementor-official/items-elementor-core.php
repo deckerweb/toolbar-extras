@@ -1,6 +1,6 @@
 <?php
 
-//items-elementor-core
+// includes/elementor-official/items-elementor-core
 
 
 /**
@@ -46,6 +46,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_items_elementor_core', 99 );
  * @since  1.0.0
  *
  * @uses   ddw_tbex_is_elementor_version()
+ * @uses   ddw_tbex_string_elementor()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -89,7 +90,8 @@ function ddw_tbex_items_elementor_core() {
 					'href'   => '',
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Elementor Template Types', 'toolbar-extras' )
+						/* translators: %1$s - Name of "Elementor" Page Builder */
+						'title'  => sprintf( esc_attr__( '%s Template Types', 'toolbar-extras' ), ddw_tbex_string_elementor() )
 					)
 				)
 			);
@@ -98,7 +100,7 @@ function ddw_tbex_items_elementor_core() {
 					array(
 						'id'     => 'elementor-library-pages',
 						'parent' => 'elibrary-types',
-						/* translators: Elementor Library type */
+						/* translators: Elementor Template type */
 						'title'  => esc_attr_x( 'Content (Pages)', 'Elementor Template type', 'toolbar-extras' ),
 						'href'   => esc_url( admin_url( 'edit.php?post_type=elementor_library&elementor_library_type=page' ) ),
 						'meta'   => array(

@@ -1,6 +1,6 @@
 <?php
 
-//items-web-group
+// includes/tems-web-group
 
 /**
  * Prevent direct access to this file.

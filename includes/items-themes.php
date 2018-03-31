@@ -1,6 +1,6 @@
 <?php
 
-//items-themes
+// includes/items-themes
 
 /**
  * Prevent direct access to this file.

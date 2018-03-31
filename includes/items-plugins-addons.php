@@ -1,6 +1,6 @@
 <?php
 
-//items-plugins-addons
+// includes/items-plugins-addons
 
 /**
  * NOTE: For plugins aimed at Developers, see file "items-dev-mode.php"!

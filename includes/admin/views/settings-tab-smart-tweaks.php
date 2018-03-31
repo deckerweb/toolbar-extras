@@ -66,8 +66,8 @@ function ddw_tbex_settings_cb_toolbar_front_color() {
 
 	?>
 		<select name="tbex-options-tweaks[toolbar_front_color]" id="tbex-options-tweaks-toolbar_front_color">
-			<option value="yes" <?php selected( $tbex_options[ 'toolbar_front_color' ], 'yes' ); ?>><?php _e( 'Yes', 'toolbar-extras' ); ?></option>
-			<option value="no" <?php selected( $tbex_options[ 'toolbar_front_color' ], 'no' ); ?>><?php _e( 'No', 'toolbar-extras' ); ?></option>
+			<option value="yes" <?php selected( sanitize_key( $tbex_options[ 'toolbar_front_color' ] ), 'yes' ); ?>><?php _e( 'Yes', 'toolbar-extras' ); ?></option>
+			<option value="no" <?php selected( sanitize_key( $tbex_options[ 'toolbar_front_color' ] ), 'no' ); ?>><?php _e( 'No', 'toolbar-extras' ); ?></option>
 		</select>
 		<label for="tbex-options-tweaks[toolbar_front_color]">
 			<span class="description"><?php echo sprintf( __( 'Default: %s', 'toolbar-extras' ), '<code>' . __( 'Yes', 'toolbar-extras' ) . '</code>' ); ?></span>
@@ -94,8 +94,8 @@ function ddw_tbex_settings_cb_use_web_group() {
 
 	?>
 		<select name="tbex-options-tweaks[use_web_group]" id="tbex-options-tweaks-use_web_group">
-			<option value="yes" <?php selected( $tbex_options[ 'use_web_group' ], 'yes' ); ?>><?php _e( 'Yes', 'toolbar-extras' ); ?></option>
-			<option value="no" <?php selected( $tbex_options[ 'use_web_group' ], 'no' ); ?>><?php _e( 'No', 'toolbar-extras' ); ?></option>
+			<option value="yes" <?php selected( sanitize_key( $tbex_options[ 'use_web_group' ] ), 'yes' ); ?>><?php _e( 'Yes', 'toolbar-extras' ); ?></option>
+			<option value="no" <?php selected( sanitize_key( $tbex_options[ 'use_web_group' ] ), 'no' ); ?>><?php _e( 'No', 'toolbar-extras' ); ?></option>
 		</select>
 		<label for="tbex-options-tweaks[use_web_group]">
 			<span class="description"><?php echo sprintf( __( 'Default: %s', 'toolbar-extras' ), '<code>' . __( 'No', 'toolbar-extras' ) . '</code>' ); ?></span>
@@ -119,8 +119,8 @@ function ddw_tbex_settings_cb_remove_wp_logo() {
 
 	?>
 		<select name="tbex-options-tweaks[remove_wp_logo]" id="tbex-options-tweaks-remove_wp_logo">
-			<option value="yes" <?php selected( $tbex_options[ 'remove_wp_logo' ], 'yes' ); ?>><?php _e( 'Yes', 'toolbar-extras' ); ?></option>
-			<option value="no" <?php selected( $tbex_options[ 'remove_wp_logo' ], 'no' ); ?>><?php _e( 'No', 'toolbar-extras' ); ?></option>
+			<option value="yes" <?php selected( sanitize_key( $tbex_options[ 'remove_wp_logo' ] ), 'yes' ); ?>><?php _e( 'Yes', 'toolbar-extras' ); ?></option>
+			<option value="no" <?php selected( sanitize_key( $tbex_options[ 'remove_wp_logo' ] ), 'no' ); ?>><?php _e( 'No', 'toolbar-extras' ); ?></option>
 		</select>
 		<label for="tbex-options-tweaks[remove_wp_logo]">
 			<span class="description"><?php echo sprintf( __( 'Default: %s', 'toolbar-extras' ), '<code>' . __( 'No', 'toolbar-extras' ) . '</code>' ); ?></span>
@@ -141,8 +141,8 @@ function ddw_tbex_settings_cb_remove_front_customizer() {
 
 	?>
 		<select name="tbex-options-tweaks[remove_front_customizer]" id="tbex-options-tweaks-remove_front_customizer">
-			<option value="yes" <?php selected( $tbex_options[ 'remove_front_customizer' ], 'yes' ); ?>><?php _e( 'Yes', 'toolbar-extras' ); ?></option>
-			<option value="no" <?php selected( $tbex_options[ 'remove_front_customizer' ], 'no' ); ?>><?php _e( 'No', 'toolbar-extras' ); ?></option>
+			<option value="yes" <?php selected( sanitize_key( $tbex_options[ 'remove_front_customizer' ] ), 'yes' ); ?>><?php _e( 'Yes', 'toolbar-extras' ); ?></option>
+			<option value="no" <?php selected( sanitize_key( $tbex_options[ 'remove_front_customizer' ] ), 'no' ); ?>><?php _e( 'No', 'toolbar-extras' ); ?></option>
 		</select>
 		<label for="tbex-options-tweaks[remove_front_customizer]">
 			<span class="description"><?php echo sprintf( __( 'Default: %s', 'toolbar-extras' ), '<code>' . __( 'No', 'toolbar-extras' ) . '</code>' ); ?></span>
@@ -163,8 +163,8 @@ function ddw_tbex_settings_cb_rehook_gravityforms() {
 
 	?>
 		<select name="tbex-options-tweaks[rehook_gravityforms]" id="tbex-options-tweaks-rehook_gravityforms">
-			<option value="yes" <?php selected( $tbex_options[ 'rehook_gravityforms' ], 'yes' ); ?>><?php _e( 'Yes', 'toolbar-extras' ); ?></option>
-			<option value="no" <?php selected( $tbex_options[ 'rehook_gravityforms' ], 'no' ); ?>><?php _e( 'No', 'toolbar-extras' ); ?></option>
+			<option value="yes" <?php selected( sanitize_key( $tbex_options[ 'rehook_gravityforms' ] ), 'yes' ); ?>><?php _e( 'Yes', 'toolbar-extras' ); ?></option>
+			<option value="no" <?php selected( sanitize_key( $tbex_options[ 'rehook_gravityforms' ] ), 'no' ); ?>><?php _e( 'No', 'toolbar-extras' ); ?></option>
 		</select>
 		<label for="tbex-options-tweaks[rehook_gravityforms]">
 			<span class="description"><?php echo sprintf( __( 'Default: %s', 'toolbar-extras' ), '<code>' . __( 'No', 'toolbar-extras' ) . '</code>' ); ?></span>
@@ -188,8 +188,8 @@ function ddw_tbex_settings_cb_rehook_smartslider() {
 
 	?>
 		<select name="tbex-options-tweaks[rehook_smartslider]" id="tbex-options-tweaks-rehook_smartslider">
-			<option value="yes" <?php selected( $tbex_options[ 'rehook_smartslider' ], 'yes' ); ?>><?php _e( 'Yes', 'toolbar-extras' ); ?></option>
-			<option value="no" <?php selected( $tbex_options[ 'rehook_smartslider' ], 'no' ); ?>><?php _e( 'No', 'toolbar-extras' ); ?></option>
+			<option value="yes" <?php selected( sanitize_key( $tbex_options[ 'rehook_smartslider' ] ), 'yes' ); ?>><?php _e( 'Yes', 'toolbar-extras' ); ?></option>
+			<option value="no" <?php selected( sanitize_key( $tbex_options[ 'rehook_smartslider' ] ), 'no' ); ?>><?php _e( 'No', 'toolbar-extras' ); ?></option>
 		</select>
 		<label for="tbex-options-tweaks[rehook_smartslider]">
 			<span class="description"><?php echo sprintf( __( 'Default: %s', 'toolbar-extras' ), '<code>' . __( 'No', 'toolbar-extras' ) . '</code>' ); ?></span>
@@ -213,8 +213,8 @@ function ddw_tbex_settings_cb_remove_updraftplus() {
 
 	?>
 		<select name="tbex-options-tweaks[remove_updraftplus]" id="tbex-options-tweaks-remove_updraftplus">
-			<option value="yes" <?php selected( $tbex_options[ 'remove_updraftplus' ], 'yes' ); ?>><?php _e( 'Yes', 'toolbar-extras' ); ?></option>
-			<option value="no" <?php selected( $tbex_options[ 'remove_updraftplus' ], 'no' ); ?>><?php _e( 'No', 'toolbar-extras' ); ?></option>
+			<option value="yes" <?php selected( sanitize_key( $tbex_options[ 'remove_updraftplus' ] ), 'yes' ); ?>><?php _e( 'Yes', 'toolbar-extras' ); ?></option>
+			<option value="no" <?php selected( sanitize_key( $tbex_options[ 'remove_updraftplus' ] ), 'no' ); ?>><?php _e( 'No', 'toolbar-extras' ); ?></option>
 		</select>
 		<label for="tbex-options-tweaks[remove_updraftplus]">
 			<span class="description"><?php echo sprintf( __( 'Default: %s', 'toolbar-extras' ), '<code>' . __( 'Yes', 'toolbar-extras' ) . '</code>' ); ?></span>
@@ -238,8 +238,8 @@ function ddw_tbex_settings_cb_remove_members() {
 
 	?>
 		<select name="tbex-options-tweaks[remove_members]" id="tbex-options-tweaks-remove_members">
-			<option value="yes" <?php selected( $tbex_options[ 'remove_members' ], 'yes' ); ?>><?php _e( 'Yes', 'toolbar-extras' ); ?></option>
-			<option value="no" <?php selected( $tbex_options[ 'remove_members' ], 'no' ); ?>><?php _e( 'No', 'toolbar-extras' ); ?></option>
+			<option value="yes" <?php selected( sanitize_key( $tbex_options[ 'remove_members' ] ), 'yes' ); ?>><?php _e( 'Yes', 'toolbar-extras' ); ?></option>
+			<option value="no" <?php selected( sanitize_key( $tbex_options[ 'remove_members' ] ), 'no' ); ?>><?php _e( 'No', 'toolbar-extras' ); ?></option>
 		</select>
 		<label for="tbex-options-tweaks[remove_members]">
 			<span class="description"><?php echo sprintf( __( 'Default: %s', 'toolbar-extras' ), '<code>' . __( 'No', 'toolbar-extras' ) . '</code>' ); ?></span>
@@ -265,8 +265,8 @@ function ddw_tbex_settings_cb_remove_cobaltapps() {
 
 	?>
 		<select name="tbex-options-tweaks[remove_cobaltapps]" id="tbex-options-tweaks-remove_cobaltapps">
-			<option value="yes" <?php selected( $tbex_options[ 'remove_cobaltapps' ], 'yes' ); ?>><?php _e( 'Yes', 'toolbar-extras' ); ?></option>
-			<option value="no" <?php selected( $tbex_options[ 'remove_cobaltapps' ], 'no' ); ?>><?php _e( 'No', 'toolbar-extras' ); ?></option>
+			<option value="yes" <?php selected( sanitize_key( $tbex_options[ 'remove_cobaltapps' ] ), 'yes' ); ?>><?php _e( 'Yes', 'toolbar-extras' ); ?></option>
+			<option value="no" <?php selected( sanitize_key( $tbex_options[ 'remove_cobaltapps' ] ), 'no' ); ?>><?php _e( 'No', 'toolbar-extras' ); ?></option>
 		</select>
 		<label for="tbex-options-tweaks[remove_cobaltapps]">
 			<span class="description"><?php echo sprintf( __( 'Default: %s', 'toolbar-extras' ), '<code>' . __( 'No', 'toolbar-extras' ) . '</code>' ); ?></span>
@@ -292,8 +292,8 @@ function ddw_tbex_settings_cb_remove_customcsspro() {
 
 	?>
 		<select name="tbex-options-tweaks[remove_customcsspro]" id="tbex-options-tweaks-remove_customcsspro">
-			<option value="yes" <?php selected( $tbex_options[ 'remove_customcsspro' ], 'yes' ); ?>><?php _e( 'Yes', 'toolbar-extras' ); ?></option>
-			<option value="no" <?php selected( $tbex_options[ 'remove_customcsspro' ], 'no' ); ?>><?php _e( 'No', 'toolbar-extras' ); ?></option>
+			<option value="yes" <?php selected( sanitize_key( $tbex_options[ 'remove_customcsspro' ] ), 'yes' ); ?>><?php _e( 'Yes', 'toolbar-extras' ); ?></option>
+			<option value="no" <?php selected( sanitize_key( $tbex_options[ 'remove_customcsspro' ] ), 'no' ); ?>><?php _e( 'No', 'toolbar-extras' ); ?></option>
 		</select>
 		<label for="tbex-options-tweaks[remove_customcsspro]">
 			<span class="description"><?php echo sprintf( __( 'Default: %s', 'toolbar-extras' ), '<code>' . __( 'No', 'toolbar-extras' ) . '</code>' ); ?></span>
@@ -319,8 +319,8 @@ function ddw_tbex_settings_cb_remove_apspider() {
 
 	?>
 		<select name="tbex-options-tweaks[remove_apspider]" id="tbex-options-tweaks-remove_apspider">
-			<option value="yes" <?php selected( $tbex_options[ 'remove_apspider' ], 'yes' ); ?>><?php _e( 'Yes', 'toolbar-extras' ); ?></option>
-			<option value="no" <?php selected( $tbex_options[ 'remove_apspider' ], 'no' ); ?>><?php _e( 'No', 'toolbar-extras' ); ?></option>
+			<option value="yes" <?php selected( sanitize_key( $tbex_options[ 'remove_apspider' ] ), 'yes' ); ?>><?php _e( 'Yes', 'toolbar-extras' ); ?></option>
+			<option value="no" <?php selected( sanitize_key( $tbex_options[ 'remove_apspider' ] ), 'no' ); ?>><?php _e( 'No', 'toolbar-extras' ); ?></option>
 		</select>
 		<label for="tbex-options-tweaks[remove_apspider]">
 			<span class="description"><?php echo sprintf( __( 'Default: %s', 'toolbar-extras' ), '<code>' . __( 'No', 'toolbar-extras' ) . '</code>' ); ?></span>
@@ -344,8 +344,8 @@ function ddw_tbex_settings_cb_remove_mstba_siteextgroup() {
 
 	?>
 		<select name="tbex-options-tweaks[remove_mstba_siteextgroup]" id="tbex-options-tweaks-remove_mstba_siteextgroup">
-			<option value="yes" <?php selected( $tbex_options[ 'remove_mstba_siteextgroup' ], 'yes' ); ?>><?php _e( 'Yes', 'toolbar-extras' ); ?></option>
-			<option value="no" <?php selected( $tbex_options[ 'remove_mstba_siteextgroup' ], 'no' ); ?>><?php _e( 'No', 'toolbar-extras' ); ?></option>
+			<option value="yes" <?php selected( sanitize_key( $tbex_options[ 'remove_mstba_siteextgroup' ] ), 'yes' ); ?>><?php _e( 'Yes', 'toolbar-extras' ); ?></option>
+			<option value="no" <?php selected( sanitize_key( $tbex_options[ 'remove_mstba_siteextgroup' ] ), 'no' ); ?>><?php _e( 'No', 'toolbar-extras' ); ?></option>
 		</select>
 		<label for="tbex-options-tweaks[remove_mstba_siteextgroup]">
 			<span class="description"><?php echo sprintf( __( 'Default: %s', 'toolbar-extras' ), '<code>' . __( 'Yes', 'toolbar-extras' ) . '</code>' ); ?></span>

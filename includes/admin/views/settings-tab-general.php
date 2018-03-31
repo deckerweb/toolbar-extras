@@ -147,7 +147,7 @@ function ddw_tbex_settings_cb_main_item_icon() {
 	$tbex_options = get_option( 'tbex-options-general' );
 
 	?>
-		<input class="regular-text" type="text" id="tbex-options-general-main_item_icon" name="tbex-options-general[main_item_icon]" value="<?php echo $tbex_options[ 'main_item_icon' ]; ?>" />
+		<input class="regular-text" type="text" id="tbex-options-general-main_item_icon" name="tbex-options-general[main_item_icon]" value="<?php echo strtolower( sanitize_html_class( $tbex_options[ 'main_item_icon' ] ) ); ?>" />
 		<input class="button dashicons-picker" type="button" data-target="#tbex-options-general-main_item_icon" value="<?php _e( 'Choose Icon', 'toolbar-extras' ); ?>" />
 		<br />
 		<label for="tbex-options-general[main_item_icon]">
@@ -176,7 +176,7 @@ function ddw_tbex_settings_cb_main_item_icon() {
 
 
 /**
- * Setting (Input): Main Item Name
+ * Setting (Input, Text): Main Item Name
  *
  * @since 1.0.0
  */
@@ -185,7 +185,7 @@ function ddw_tbex_settings_cb_main_item_name() {
 	$tbex_options = get_option( 'tbex-options-general' );
 
 	?>
-		<input type="text" class="regular-text" id="tbex-options-general-main_item_name" name="tbex-options-general[main_item_name]" value="<?php echo $tbex_options[ 'main_item_name' ]; ?>" />
+		<input type="text" class="regular-text" id="tbex-options-general-main_item_name" name="tbex-options-general[main_item_name]" value="<?php echo wp_filter_nohtml_kses( $tbex_options[ 'main_item_name' ] ); ?>" />
 		<label for="tbex-options-general[main_item_name]">
 			<span class="description">
 				<?php echo sprintf(
@@ -209,7 +209,7 @@ function ddw_tbex_settings_cb_main_item_priority() {
 	$tbex_options = get_option( 'tbex-options-general' );
 
 	?>
-		<input type="number" class="small-text" id="tbex-options-general-main_item_priority" name="tbex-options-general[main_item_priority]" value="<?php echo $tbex_options[ 'main_item_priority' ]; ?>" step="1" min="0" />
+		<input type="number" class="small-text" id="tbex-options-general-main_item_priority" name="tbex-options-general[main_item_priority]" value="<?php echo absint( $tbex_options[ 'main_item_priority' ] ); ?>" step="1" min="0" />
 		<label for="tbex-options-general[main_item_priority]">
 			<span class="description"><?php echo sprintf( __( 'Default: %s', 'toolbar-extras' ), '<code>71</code>' ); ?></span>
 		</label>
@@ -222,7 +222,7 @@ function ddw_tbex_settings_cb_main_item_priority() {
 
 
 /**
- * Setting (Input): Elementor Name
+ * Setting (Input, Text): Elementor Name
  *
  * @since 1.0.0
  */
@@ -231,7 +231,7 @@ function ddw_tbex_settings_cb_elementor_name() {
 	$tbex_options = get_option( 'tbex-options-general' );
 
 	?>
-		<input type="text" class="regular-text" id="tbex-options-general-elementor_name" name="tbex-options-general[elementor_name]" value="<?php echo $tbex_options[ 'elementor_name' ]; ?>" />
+		<input type="text" class="regular-text" id="tbex-options-general-elementor_name" name="tbex-options-general[elementor_name]" value="<?php echo wp_filter_nohtml_kses( $tbex_options[ 'elementor_name' ] ); ?>" />
 		<label for="tbex-options-general[elementor_name]">
 			<span class="description">
 				<?php echo sprintf(
@@ -256,8 +256,8 @@ function ddw_tbex_settings_cb_display_items_resources() {
 
 	?>
 		<select name="tbex-options-general[display_items_resources]" id="tbex-options-general-display_items_resources">
-			<option value="yes" <?php selected( $tbex_options[ 'display_items_resources' ], 'yes' ); ?>><?php _e( 'Yes', 'toolbar-extras' ); ?></option>
-			<option value="no" <?php selected( $tbex_options[ 'display_items_resources' ], 'no' ); ?>><?php _e( 'No', 'toolbar-extras' ); ?></option>
+			<option value="yes" <?php selected( sanitize_key( $tbex_options[ 'display_items_resources' ] ), 'yes' ); ?>><?php _e( 'Yes', 'toolbar-extras' ); ?></option>
+			<option value="no" <?php selected( sanitize_key( $tbex_options[ 'display_items_resources' ] ), 'no' ); ?>><?php _e( 'No', 'toolbar-extras' ); ?></option>
 		</select>
 		<label for="tbex-options-general[display_items_resources]">
 			<span class="description"><?php echo sprintf( __( 'Default: %s', 'toolbar-extras' ), '<code>' . __( 'Yes', 'toolbar-extras' ) . '</code>' ); ?></span>
@@ -278,8 +278,8 @@ function ddw_tbex_settings_cb_display_items_theme() {
 
 	?>
 		<select name="tbex-options-general[display_items_theme]" id="tbex-options-general-display_items_theme">
-			<option value="yes" <?php selected( $tbex_options[ 'display_items_theme' ], 'yes' ); ?>><?php _e( 'Yes', 'toolbar-extras' ); ?></option>
-			<option value="no" <?php selected( $tbex_options[ 'display_items_theme' ], 'no' ); ?>><?php _e( 'No', 'toolbar-extras' ); ?></option>
+			<option value="yes" <?php selected( sanitize_key( $tbex_options[ 'display_items_theme' ] ), 'yes' ); ?>><?php _e( 'Yes', 'toolbar-extras' ); ?></option>
+			<option value="no" <?php selected( sanitize_key( $tbex_options[ 'display_items_theme' ] ), 'no' ); ?>><?php _e( 'No', 'toolbar-extras' ); ?></option>
 		</select>
 		<label for="tbex-options-general[display_items_theme]">
 			<span class="description"><?php echo sprintf( __( 'Default: %s', 'toolbar-extras' ), '<code>' . __( 'Yes', 'toolbar-extras' ) . '</code>' ); ?></span>
@@ -300,8 +300,8 @@ function ddw_tbex_settings_cb_display_items_plugins() {
 
 	?>
 		<select name="tbex-options-general[display_items_plugins]" id="tbex-options-general-display_items_plugins">
-			<option value="yes" <?php selected( $tbex_options[ 'display_items_plugins' ], 'yes' ); ?>><?php _e( 'Yes', 'toolbar-extras' ); ?></option>
-			<option value="no" <?php selected( $tbex_options[ 'display_items_plugins' ], 'no' ); ?>><?php _e( 'No', 'toolbar-extras' ); ?></option>
+			<option value="yes" <?php selected( sanitize_key( $tbex_options[ 'display_items_plugins' ] ), 'yes' ); ?>><?php _e( 'Yes', 'toolbar-extras' ); ?></option>
+			<option value="no" <?php selected( sanitize_key( $tbex_options[ 'display_items_plugins' ] ), 'no' ); ?>><?php _e( 'No', 'toolbar-extras' ); ?></option>
 		</select>
 		<label for="tbex-options-general[display_items_plugins]">
 			<span class="description"><?php echo sprintf( __( 'Default: %s', 'toolbar-extras' ), '<code>' . __( 'Yes', 'toolbar-extras' ) . '</code>' ); ?></span>
@@ -322,8 +322,8 @@ function ddw_tbex_settings_cb_display_items_addons() {
 
 	?>
 		<select name="tbex-options-general[display_items_addons]" id="tbex-options-general-display_items_addons">
-			<option value="yes" <?php selected( $tbex_options[ 'display_items_addons' ], 'yes' ); ?>><?php _e( 'Yes', 'toolbar-extras' ); ?></option>
-			<option value="no" <?php selected( $tbex_options[ 'display_items_addons' ], 'no' ); ?>><?php _e( 'No', 'toolbar-extras' ); ?></option>
+			<option value="yes" <?php selected( sanitize_key( $tbex_options[ 'display_items_addons' ] ), 'yes' ); ?>><?php _e( 'Yes', 'toolbar-extras' ); ?></option>
+			<option value="no" <?php selected( sanitize_key( $tbex_options[ 'display_items_addons' ] ), 'no' ); ?>><?php _e( 'No', 'toolbar-extras' ); ?></option>
 		</select>
 		<label for="tbex-options-general[display_items_addons]">
 			<span class="description"><?php echo sprintf( __( 'Default: %s', 'toolbar-extras' ), '<code>' . __( 'Yes', 'toolbar-extras' ) . '</code>' ); ?></span>
@@ -344,8 +344,8 @@ function ddw_tbex_settings_cb_display_items_new_content() {
 
 	?>
 		<select name="tbex-options-general[display_items_new_content]" id="tbex-options-general-display_items_new_content">
-			<option value="yes" <?php selected( $tbex_options[ 'display_items_new_content' ], 'yes' ); ?>><?php _e( 'Yes', 'toolbar-extras' ); ?></option>
-			<option value="no" <?php selected( $tbex_options[ 'display_items_new_content' ], 'no' ); ?>><?php _e( 'No', 'toolbar-extras' ); ?></option>
+			<option value="yes" <?php selected( sanitize_key( $tbex_options[ 'display_items_new_content' ] ), 'yes' ); ?>><?php _e( 'Yes', 'toolbar-extras' ); ?></option>
+			<option value="no" <?php selected( sanitize_key( $tbex_options[ 'display_items_new_content' ] ), 'no' ); ?>><?php _e( 'No', 'toolbar-extras' ); ?></option>
 		</select>
 		<label for="tbex-options-general[display_items_new_content]">
 			<span class="description"><?php echo sprintf( __( 'Default: %s', 'toolbar-extras' ), '<code>' . __( 'Yes', 'toolbar-extras' ) . '</code>' ); ?></span>
@@ -366,8 +366,8 @@ function ddw_tbex_settings_cb_display_items_site_group() {
 
 	?>
 		<select name="tbex-options-general[display_items_site_group]" id="tbex-options-general-display_items_site_group">
-			<option value="yes" <?php selected( $tbex_options[ 'display_items_site_group' ], 'yes' ); ?>><?php _e( 'Yes', 'toolbar-extras' ); ?></option>
-			<option value="no" <?php selected( $tbex_options[ 'display_items_site_group' ], 'no' ); ?>><?php _e( 'No', 'toolbar-extras' ); ?></option>
+			<option value="yes" <?php selected( sanitize_key( $tbex_options[ 'display_items_site_group' ] ), 'yes' ); ?>><?php _e( 'Yes', 'toolbar-extras' ); ?></option>
+			<option value="no" <?php selected( sanitize_key( $tbex_options[ 'display_items_site_group' ] ), 'no' ); ?>><?php _e( 'No', 'toolbar-extras' ); ?></option>
 		</select>
 		<label for="tbex-options-general[display_items_site_group]">
 			<span class="description"><?php echo sprintf( __( 'Default: %s', 'toolbar-extras' ), '<code>' . __( 'Yes', 'toolbar-extras' ) . '</code>' ); ?></span>
@@ -388,8 +388,8 @@ function ddw_tbex_settings_cb_display_items_edit_menus() {
 
 	?>
 		<select name="tbex-options-general[display_items_edit_menus]" id="tbex-options-general-display_items_edit_menus">
-			<option value="yes" <?php selected( $tbex_options[ 'display_items_edit_menus' ], 'yes' ); ?>><?php _e( 'Yes', 'toolbar-extras' ); ?></option>
-			<option value="no" <?php selected( $tbex_options[ 'display_items_edit_menus' ], 'no' ); ?>><?php _e( 'No', 'toolbar-extras' ); ?></option>
+			<option value="yes" <?php selected( sanitize_key( $tbex_options[ 'display_items_edit_menus' ] ), 'yes' ); ?>><?php _e( 'Yes', 'toolbar-extras' ); ?></option>
+			<option value="no" <?php selected( sanitize_key( $tbex_options[ 'display_items_edit_menus' ] ), 'no' ); ?>><?php _e( 'No', 'toolbar-extras' ); ?></option>
 		</select>
 		<label for="tbex-options-general[display_items_edit_menus]">
 			<span class="description"><?php echo sprintf( __( 'Default: %s', 'toolbar-extras' ), '<code>' . __( 'Yes', 'toolbar-extras' ) . '</code>' ); ?></span>
@@ -410,8 +410,8 @@ function ddw_tbex_settings_cb_display_items_user_group() {
 
 	?>
 		<select name="tbex-options-general[display_items_user_group]" id="tbex-options-general-display_items_user_group">
-			<option value="yes" <?php selected( $tbex_options[ 'display_items_user_group' ], 'yes' ); ?>><?php _e( 'Yes', 'toolbar-extras' ); ?></option>
-			<option value="no" <?php selected( $tbex_options[ 'display_items_user_group' ], 'no' ); ?>><?php _e( 'No', 'toolbar-extras' ); ?></option>
+			<option value="yes" <?php selected( sanitize_key( $tbex_options[ 'display_items_user_group' ] ), 'yes' ); ?>><?php _e( 'Yes', 'toolbar-extras' ); ?></option>
+			<option value="no" <?php selected( sanitize_key( $tbex_options[ 'display_items_user_group' ] ), 'no' ); ?>><?php _e( 'No', 'toolbar-extras' ); ?></option>
 		</select>
 		<label for="tbex-options-general[display_items_user_group]">
 			<span class="description"><?php echo sprintf( __( 'Default: %s', 'toolbar-extras' ), '<code>' . __( 'Yes', 'toolbar-extras' ) . '</code>' ); ?></span>
@@ -432,8 +432,8 @@ function ddw_tbex_settings_cb_display_items_tbex_settings() {
 
 	?>
 		<select name="tbex-options-general[display_items_tbex_settings]" id="tbex-options-general-display_items_tbex_settings">
-			<option value="yes" <?php selected( $tbex_options[ 'display_items_tbex_settings' ], 'yes' ); ?>><?php _e( 'Yes', 'toolbar-extras' ); ?></option>
-			<option value="no" <?php selected( $tbex_options[ 'display_items_tbex_settings' ], 'no' ); ?>><?php _e( 'No', 'toolbar-extras' ); ?></option>
+			<option value="yes" <?php selected( sanitize_key( $tbex_options[ 'display_items_tbex_settings' ] ), 'yes' ); ?>><?php _e( 'Yes', 'toolbar-extras' ); ?></option>
+			<option value="no" <?php selected( sanitize_key( $tbex_options[ 'display_items_tbex_settings' ] ), 'no' ); ?>><?php _e( 'No', 'toolbar-extras' ); ?></option>
 		</select>
 		<label for="tbex-options-general[display_items_tbex_settings]">
 			<span class="description"><?php echo sprintf( __( 'Default: %s', 'toolbar-extras' ), '<code>' . __( 'Yes', 'toolbar-extras' ) . '</code>' ); ?></span>
@@ -454,8 +454,8 @@ function ddw_tbex_settings_cb_display_items_demo_import() {
 
 	?>
 		<select name="tbex-options-general[display_items_demo_import]" id="tbex-options-general-display_items_demo_import">
-			<option value="yes" <?php selected( $tbex_options[ 'display_items_demo_import' ], 'yes' ); ?>><?php _e( 'Yes', 'toolbar-extras' ); ?></option>
-			<option value="no" <?php selected( $tbex_options[ 'display_items_demo_import' ], 'no' ); ?>><?php _e( 'No', 'toolbar-extras' ); ?></option>
+			<option value="yes" <?php selected( sanitize_key( $tbex_options[ 'display_items_demo_import' ] ), 'yes' ); ?>><?php _e( 'Yes', 'toolbar-extras' ); ?></option>
+			<option value="no" <?php selected( sanitize_key( $tbex_options[ 'display_items_demo_import' ] ), 'no' ); ?>><?php _e( 'No', 'toolbar-extras' ); ?></option>
 		</select>
 		<label for="tbex-options-general[display_items_demo_import]">
 			<span class="description"><?php echo sprintf( __( 'Default: %s', 'toolbar-extras' ), '<code>' . __( 'Yes', 'toolbar-extras' ) . '</code>' ); ?></span>
@@ -475,7 +475,7 @@ function ddw_tbex_settings_cb_demo_import_icon() {
 	$tbex_options = get_option( 'tbex-options-general' );
 
 	?>
-		<input class="regular-text" type="text" id="tbex-options-general-demo_import_icon" name="tbex-options-general[demo_import_icon]" value="<?php echo $tbex_options[ 'demo_import_icon' ]; ?>" />
+		<input class="regular-text" type="text" id="tbex-options-general-demo_import_icon" name="tbex-options-general[demo_import_icon]" value="<?php echo strtolower( sanitize_html_class( $tbex_options[ 'demo_import_icon' ] ) ); ?>" />
 		<input class="button dashicons-picker" type="button" data-target="#tbex-options-general-demo_import_icon" value="<?php _e( 'Choose Icon', 'toolbar-extras' ); ?>" />
 		<br />
 		<label for="tbex-options-general[demo_import_icon]">
@@ -514,8 +514,8 @@ function ddw_tbex_settings_cb_external_links_blank() {
 
 	?>
 		<select name="tbex-options-general[external_links_blank]" id="tbex-options-general-external_links_blank">
-			<option value="yes" <?php selected( $tbex_options[ 'external_links_blank' ], 'yes' ); ?>><?php _e( 'Yes', 'toolbar-extras' ); ?></option>
-			<option value="no" <?php selected( $tbex_options[ 'external_links_blank' ], 'no' ); ?>><?php _e( 'No', 'toolbar-extras' ); ?></option>
+			<option value="yes" <?php selected( sanitize_key( $tbex_options[ 'external_links_blank' ] ), 'yes' ); ?>><?php _e( 'Yes', 'toolbar-extras' ); ?></option>
+			<option value="no" <?php selected( sanitize_key( $tbex_options[ 'external_links_blank' ] ), 'no' ); ?>><?php _e( 'No', 'toolbar-extras' ); ?></option>
 		</select>
 		<label for="tbex-options-general[external_links_blank]">
 			<span class="description"><?php echo sprintf( __( 'Default: %s', 'toolbar-extras' ), '<code>' . __( 'Yes', 'toolbar-extras' ) . '</code>' ); ?></span>
@@ -542,7 +542,7 @@ function ddw_tbex_settings_cb_tbex_tbmenu_priority() {
 	$tbex_options = get_option( 'tbex-options-general' );
 
 	?>
-		<input type="number" class="small-text" id="tbex-options-general-tbex_tbmenu_priority" name="tbex-options-general[tbex_tbmenu_priority]" value="<?php echo $tbex_options[ 'tbex_tbmenu_priority' ]; ?>" step="1" min="0" />
+		<input type="number" class="small-text" id="tbex-options-general-tbex_tbmenu_priority" name="tbex-options-general[tbex_tbmenu_priority]" value="<?php echo absint( $tbex_options[ 'tbex_tbmenu_priority' ] ); ?>" step="1" min="0" />
 		<label for="tbex-options-general[tbex_tbmenu_priority]">
 			<span class="description"><?php echo sprintf( __( 'Default: %s', 'toolbar-extras' ), '<code>9999</code>' ); ?></span>
 		</label>
@@ -573,7 +573,7 @@ function ddw_tbex_settings_cb_tbex_tbmenu_icon() {
 	}
 
 	?>
-		<input class="regular-text" type="text" id="tbex-options-general-tbex_tbmenu_icon" name="tbex-options-general[tbex_tbmenu_icon]" value="<?php echo $tbex_options[ 'tbex_tbmenu_icon' ]; ?>" />
+		<input class="regular-text" type="text" id="tbex-options-general-tbex_tbmenu_icon" name="tbex-options-general[tbex_tbmenu_icon]" value="<?php echo strtolower( sanitize_html_class( $tbex_options[ 'tbex_tbmenu_icon' ] ) ); ?>" />
 		<input class="button dashicons-picker" type="button" data-target="#tbex-options-general-tbex_tbmenu_icon" value="<?php _e( 'Choose Icon', 'toolbar-extras' ); ?>" />
 		<br />
 		<label for="tbex-options-general[tbex_tbmenu_icon]">

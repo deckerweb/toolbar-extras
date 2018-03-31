@@ -1,6 +1,6 @@
 <?php
 
-// functions-global
+// includes/functions-global
 
 /**
  * Prevent direct access to this file.
@@ -23,10 +23,10 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function ddw_tbex_get_option( $type = '', $option_key = '' ) {
 
-	$type   = strtolower( esc_attr( $type ) );
+	$type   = sanitize_key( $type );
 	$option = get_option( 'tbex-options-' . $type );
 
-	return $option[ strtolower( esc_attr( $option_key ) ) ];
+	return $option[ sanitize_key( $option_key ) ];
 
 }  // end function
 
@@ -56,7 +56,7 @@ function ddw_tbex_info_values() {
 		'license'           => 'GPL-2.0+',
 		'url_license'       => 'https://opensource.org/licenses/GPL-2.0',
 		'first_code'        => '2012',
-		'url_donate'        => 'https://www.buymeacoffee.com/daveshine',
+		'url_donate'        => 'https://www.paypal.me/deckerweb',
 		'url_plugin'        => 'https://toolbarextras.com/',
 		'url_github'        => 'https://github.com/deckerweb/toolbar-extras',
 		'url_github_issues' => 'https://github.com/deckerweb/toolbar-extras/issues',
@@ -79,7 +79,7 @@ function ddw_tbex_info_values() {
  *
  * @uses   ddw_tbex_info_values()
  *
- * @param  string $url_key String of value key
+ * @param  string $url_key String of value key from array of ddw_tbex_info_values()
  * @param  bool   $raw     If raw escaping or regular escaping of URL gets used
  * @return string URL for info value.
  */
@@ -87,7 +87,7 @@ function ddw_tbex_get_info_url( $url_key = '', $raw = FALSE ) {
 
 	$tbex_info = (array) ddw_tbex_info_values();
 
-	$output = esc_url( strtolower( esc_attr( $tbex_info[ $url_key ] ) ) );
+	$output = esc_url( sanitize_key( $tbex_info[ $url_key ] ) );
 
 	if ( TRUE === $raw ) {
 		$output = esc_url_raw( esc_attr( $tbex_info[ $url_key ] ) );
@@ -107,7 +107,7 @@ function ddw_tbex_get_info_url( $url_key = '', $raw = FALSE ) {
  *
  * @param  string $url_key String of value key
  * @param  string $text    String of text and link attribute
- * @param  string $class   String of CSS class 
+ * @param  string $class   String of CSS class
  * @return string HTML markup for linked URL.
  */
 function ddw_tbex_get_info_link( $url_key = '', $text = '', $class = '' ) {
@@ -159,7 +159,8 @@ function ddw_tbex_coding_years( $first_year = '' ) {
  */
 function ddw_tbex_get_pagebuilders() {
 
-	$builders_test = array(
+	/** Set builders array */
+	$builders = array(
 		'default-none' => array(
 			'label'      => esc_attr__( 'No Page Builder registered', 'toolbar-extras' ),
 			'title'      => '',
@@ -168,9 +169,21 @@ function ddw_tbex_get_pagebuilders() {
 		),
 	);
 
-	$builders = array();
+	/** Allow the array to be filtered (= adding more builders) */
+	$builders = (array) apply_filters( 'tbex_filter_get_pagebuilders', $builders );
 
-	return (array) apply_filters( 'tbex_filter_get_pagebuilders', $builders );
+	/** Escape the values of the array */
+	foreach ( $builders as $pagebuilder ) {
+
+		$pagebuilder[ 'label' ]      = esc_attr( $pagebuilder[ 'label' ] );
+		$pagebuilder[ 'title' ]      = esc_attr( $pagebuilder[ 'title' ] );
+		$pagebuilder[ 'title_attr' ] = esc_html( $pagebuilder[ 'title_attr' ] );
+		$pagebuilder[ 'admin_url' ]  = esc_url( $pagebuilder[ 'admin_url' ] );
+
+	}  // end foreach
+
+	/** Return registered builders */
+	return (array) $builders;
 
 }  // end function
 
@@ -186,12 +199,10 @@ function ddw_tbex_get_pagebuilders() {
  * @return bool TRUE if checked builder is in the registered array, otherwise FALSE.
  */
 function ddw_tbex_is_pagebuilder_registered( $builder = '' ) {
-	
+
 	$all_builders = (array) ddw_tbex_get_pagebuilders();
 
-	$builder = strtolower( esc_attr( $builder ) );
-
-	return array_key_exists( $builder, $all_builders );
+	return array_key_exists( sanitize_key( $builder ), $all_builders );
 
 }  // end function
 
@@ -269,7 +280,8 @@ function ddw_tbex_id_main_item() {
 			apply_filters(
 				'tbex_filter_id_main_item',
 				'tbex-toolbar-extras'
-			)
+			),
+			'tbex-toolbar-extras'	// fallback
 		)
 	);
 
@@ -290,7 +302,8 @@ function ddw_tbex_parent_id_site_group() {
 			apply_filters(
 				'tbex_filter_parent_id_site_group',
 				'site-name'
-			)
+			),
+			'site-name'		// fallback
 		)
 	);
 
@@ -311,7 +324,8 @@ function ddw_tbex_id_sites_browser() {
 			apply_filters(
 				'tbex_filter_id_sites_browser',
 				'tbex-sites-browser'
-			)
+			),
+			'tbex-sites-browser'	// fallback
 		)
 	);
 
@@ -403,7 +417,7 @@ function ddw_tbex_item_title_with_settings_icon( $string = '', $settings_type = 
 
 	$output = sprintf(
 		'<span class="dashicons-before %1$s ab-icon"></span><span class="ab-label">%2$s</span>',
-		ddw_tbex_get_option( strtolower( esc_attr( $settings_type ) ), strtolower( esc_attr( $option_key ) ) ),
+		ddw_tbex_get_option( sanitize_key( $settings_type ), sanitize_key( $option_key ) ),
 		esc_attr( $string )
 	);
 
@@ -429,7 +443,7 @@ function ddw_tbex_item_title_with_settings_icon( $string = '', $settings_type = 
 function ddw_tbex_customizer_focus( $type = '', $focus = '', $preview_url = '', $return_url = '' ) {
 
 	/** Check autofocus type for the 3 possible values */
-	switch ( strtolower( esc_attr( $type ) ) ) {
+	switch ( sanitize_key( $type ) ) {
 
 		case 'panel':
 			$type = 'autofocus[panel]';
@@ -446,7 +460,7 @@ function ddw_tbex_customizer_focus( $type = '', $focus = '', $preview_url = '', 
 	}  // end switch
 
 	/** Get the autofocus type */
-	$query[ $type ] = strtolower( esc_attr( $focus ) );
+	$query[ $type ] = sanitize_key( $focus );
 
 	/** Determine preview URL */
 	$url = ( empty( $preview_url ) ) ? '' : 'url';
@@ -538,19 +552,19 @@ function ddw_tbex_restrict_super_admin_menu_access() {
 function ddw_tbex_string_cpt( $type = '', $element = '' ) {
 
 	/** Check type for the 2 possible values */
-	switch ( strtolower( esc_attr( $type ) ) ) {
+	switch ( sanitize_key( $type ) ) {
 
 		case 'all':
 			$string = sprintf(
 				esc_attr__( 'All %s', 'toolbar-extras' ),
-				$element
+				esc_attr( $element )
 			);
 			break;
 
 		case 'new':
 			$string = sprintf(
 				esc_attr__( 'New %s', 'toolbar-extras' ),
-				$element
+				esc_attr( $element )
 			);
 			break;
 
@@ -585,7 +599,7 @@ function ddw_tbex_string_theme_title( $title_attr = '', $child = '' ) {
 	);
 
 	/** Optional build link title attribute */
-	if ( 'attr' === strtolower( esc_attr( $title_attr ) ) ) {
+	if ( 'attr' === sanitize_key( $title_attr ) ) {
 
 		$theme_title = sprintf(
 			/* translators: %s - Name of current active Theme or Parent Theme (static!) */
@@ -618,7 +632,7 @@ function ddw_tbex_string_theme_title( $title_attr = '', $child = '' ) {
  *   'translations-pro'       - Pro Translations (Translate Pro Plugin)
  *   'youtube-channel'        - YouTube Channel
  *   'youtube-tutorials'      - YouTube Tutorials
- *   'knowledge-base'         - Knowledge 
+ *   'knowledge-base'         - Knowledge
  *   'tutorials'              - Tutorials
  *   'user-forum'             - User Forum
  *   'community-forum'        - Community Forum
@@ -632,7 +646,7 @@ function ddw_tbex_string_theme_title( $title_attr = '', $child = '' ) {
  *   'pro-official-site'      - Pro: Official Site
  *   'pro-apis'               - Pro: APIs
  *   'slack-channel'          - Slack Channel
- * 
+ *
  * @since  1.0.0
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
@@ -650,7 +664,7 @@ function ddw_tbex_resource_item( $type = '', $id = '', $parent = '', $url = '', 
 	$title = '';
 
 	/** Switch between resources types for different titles/ title attributes */
-	switch ( strtolower( esc_attr( $type ) ) ) {
+	switch ( sanitize_key( $type ) ) {
 
 		case 'support-forum':
 			$title = esc_attr__( 'Support Forum', 'toolbar-extras' );
@@ -749,8 +763,8 @@ function ddw_tbex_resource_item( $type = '', $id = '', $parent = '', $url = '', 
 	/** Build array with arguments of Toolbar item */
 	$toolbar_item = $GLOBALS[ 'wp_admin_bar' ]->add_node(
 		array(
-			'id'     => sanitize_html_class( $id ),
-			'parent' => sanitize_html_class( $parent ),
+			'id'     => strtolower( sanitize_html_class( $id ) ),
+			'parent' => strtolower( sanitize_html_class( $parent ) ),
 			'title'  => $title,
 			'href'   => esc_url( $url ),
 			'meta'   => array(
@@ -775,7 +789,7 @@ function ddw_tbex_resource_item( $type = '', $id = '', $parent = '', $url = '', 
  * @uses   get_nav_menu_locations()
  *
  * @param  string $single_menu_location ID string of Menu location
- * @return string String of nav menu ID if menu set to menu location, 
+ * @return string String of nav menu ID if menu set to menu location,
  *                otherwise empty string.
  */
 function ddw_tbex_get_menu_id_from_menu_location( $single_menu_location ) {
@@ -789,7 +803,7 @@ function ddw_tbex_get_menu_id_from_menu_location( $single_menu_location ) {
 	if ( isset( $menu_locations[ esc_attr( $single_menu_location ) ] ) ) {
 
 		/** Get ID of nav menu */
-		$menu_id = $menu_locations[ esc_attr( $single_menu_location ) ];
+		$menu_id = absint( $menu_locations[ esc_attr( $single_menu_location ) ] );
 
 	} // end if
 
@@ -823,22 +837,22 @@ function ddw_tbex_restrict_nav_menu_edit_access( $single_menu_location, $checked
 		return;
 	}
 
-	$menu_id = ddw_tbex_get_menu_id_from_menu_location( $single_menu_location );
+	$menu_id = absint( ddw_tbex_get_menu_id_from_menu_location( esc_attr( $single_menu_location ) ) );
 
 	/**
 	 * Only for admin users remove edit access to the appended restricted admin menu.
 	 *  - only in edit menu context for nav-menus.php
 	 *  - only for the ID of the menu appended to our menu location.
 	 */
-	if ( ( current_user_can( esc_attr( $checked_capability ) ) /*|| current_user_can( 'administrator' )*/ )
+	if ( ( current_user_can( esc_attr( $checked_capability ) ) )
 		&& 'nav-menus.php' === $GLOBALS[ 'pagenow' ]
 		&& (
 				isset( $_GET[ 'action' ] )
-				&& 'edit' == $_GET[ 'action' ]
+				&& 'edit' === sanitize_key( wp_unslash( $_GET[ 'action' ] ) )
 			)
 		&& (
 				isset( $_GET[ 'menu' ] )
-				&& $menu_id == $_GET[ 'menu' ]
+				&& $menu_id === absint( $_GET[ 'menu' ] )
 			)
 	) {
 

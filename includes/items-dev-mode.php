@@ -1,6 +1,6 @@
 <?php
 
-//items-dev-mode
+// includes/items-dev-mode
 
 /**
  * Prevent direct access to this file.

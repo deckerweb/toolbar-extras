@@ -694,7 +694,7 @@ function ddw_tbex_validate_settings_general( $input ) {
 	);
 
 	foreach( $cssclasses_fields as $cssclass ) {
-		$parsed[ $cssclass ] = sanitize_html_class( $input[ $cssclass ] );
+		$parsed[ $cssclass ] = strtolower( sanitize_html_class( $input[ $cssclass ] ) );
 	}
 
 	/** Save integer fields */
@@ -723,7 +723,7 @@ function ddw_tbex_validate_settings_general( $input ) {
 	);
 
 	foreach( $select_fields as $select ) {
-		$parsed[ $select ] = strip_tags( $input[ $select ] );
+		$parsed[ $select ] = sanitize_key( $input[ $select ] );
 	}
 
 	/** Return the sanitized user input value(s) */
@@ -765,7 +765,7 @@ function ddw_tbex_validate_settings_smart_tweaks( $input ) {
 	);
 
 	foreach( $select_fields as $select ) {
-		$parsed[ $select ] = strip_tags( $input[ $select ] );
+		$parsed[ $select ] = sanitize_key( $input[ $select ] );
 	}
 
 	/** Return the sanitized user input value(s) */
@@ -807,7 +807,7 @@ function ddw_tbex_validate_settings_development( $input ) {
 	);
 
 	foreach( $cssclasses_fields as $cssclass ) {
-		$parsed[ $cssclass ] = sanitize_html_class( $input[ $cssclass ] );
+		$parsed[ $cssclass ] = strtolower( sanitize_html_class( $input[ $cssclass ] ) );
 	}
 
 	/** Save integer fields */
@@ -835,7 +835,7 @@ function ddw_tbex_validate_settings_development( $input ) {
 	);
 
 	foreach( $select_fields as $select ) {
-		$parsed[ $select ] = strip_tags( $input[ $select ] );
+		$parsed[ $select ] = sanitize_key( $input[ $select ] );
 	}
 
 	/** Return the sanitized user input value(s) */
@@ -1004,7 +1004,7 @@ function ddw_tbex_settings_create_admin_page() {
 				<p>
 			</div>
 
-			<?php $active_tab = isset( $_GET[ 'tab' ] ) ? sanitize_text_field( urldecode( $_GET[ 'tab' ] ) ) : 'general'; ?>
+			<?php $active_tab = isset( $_GET[ 'tab' ] ) ? sanitize_key( wp_unslash( $_GET[ 'tab' ] ) ) : 'general'; ?>
 		 
 			<h2 class="nav-tab-wrapper">
 				<a href="<?php echo $url_general; ?>" class="dashicons-before dashicons-admin-generic nav-tab <?php echo ( 'general' === $active_tab ) ? 'nav-tab-active' : ''; ?>">

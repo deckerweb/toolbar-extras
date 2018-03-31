@@ -1,6 +1,6 @@
 <?php
 
-// global-super-admin-menu
+// includes/global-super-admin-menu
 
 /**
  * Prevent direct access to this file.

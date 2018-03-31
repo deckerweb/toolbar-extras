@@ -1,6 +1,6 @@
 <?php
 
-//smart-tweaks
+// includes/smart-tweaks
 
 /**
  * Prevent direct access to this file.

@@ -1,6 +1,6 @@
 <?php
 
-//items-user
+// includes/items-user
 
 /**
  * Prevent direct access to this file.

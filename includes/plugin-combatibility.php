@@ -1,6 +1,6 @@
 <?php
 
-// plugin-combatibility
+// includes/plugin-combatibility
 
 /**
  * Prevent direct access to this file.

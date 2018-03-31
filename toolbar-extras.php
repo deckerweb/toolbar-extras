@@ -360,10 +360,6 @@ function ddw_tbex_run_plugin_activation() {
 		return;
 	}
 
-	/** Check Nonce/ Admin referer */
-	$plugin = isset( $_REQUEST[ 'plugin' ] ) ? $_REQUEST[ 'plugin' ] : '';
-	check_admin_referer( 'activate-plugin_' . $plugin );
-
 	/**
 	 * During run of the activation hook no other hooks and functions are
 	 *   available, so we need to load them temporarily.

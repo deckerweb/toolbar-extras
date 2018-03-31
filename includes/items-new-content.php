@@ -1,6 +1,6 @@
 <?php
 
-//items-wp-new-content
+// includes/items-wp-new-content
 
 /**
  * Prevent direct access to this file.

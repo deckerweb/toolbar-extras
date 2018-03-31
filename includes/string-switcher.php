@@ -1,6 +1,6 @@
 <?php
 
-// string-switcher
+// includes/string-switcher
 
 /**
  * Prevent direct access to this file.
@@ -23,9 +23,11 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function ddw_tbex_string_local_dev_environment() {
 
-	$output = apply_filters(
-		'tbex_filter_string_local_dev',
-		ddw_tbex_get_option( 'development', 'local_dev_name' )
+	$output = esc_attr(
+		apply_filters(
+			'tbex_filter_string_local_dev',
+			ddw_tbex_get_option( 'development', 'local_dev_name' )
+		)
 	);
 
 	return $output;
@@ -44,9 +46,11 @@ function ddw_tbex_string_local_dev_environment() {
  */
 function ddw_tbex_string_main_item() {
 
-	$output = apply_filters(
-		'tbex_filter_string_main_item',
-		ddw_tbex_get_option( 'general', 'main_item_name' )
+	$output = esc_attr(
+		apply_filters(
+			'tbex_filter_string_main_item',
+			ddw_tbex_get_option( 'general', 'main_item_name' )
+		)
 	);
 
 	return $output;
@@ -63,13 +67,15 @@ function ddw_tbex_string_main_item() {
  */
 function ddw_tbex_string_fallback_item() {
 
-	$output = apply_filters(
-		'tbex_filter_string_fallback_item',
-		/* translators: Toolbar main item, fallback if no supported Page Builder active */
-		esc_attr_x(
-			'Customize',
-			'Toolbar main item, fallback if no supported Page Builder active',
-			'toolbar-extras'
+	$output = esc_attr(
+		apply_filters(
+			'tbex_filter_string_fallback_item',
+			/* translators: Toolbar main item, fallback if no supported Page Builder active */
+			_x(
+				'Customize',
+				'Toolbar main item, fallback if no supported Page Builder active',
+				'toolbar-extras'
+			)
 		)
 	);
 
@@ -87,10 +93,12 @@ function ddw_tbex_string_fallback_item() {
  */
 function ddw_tbex_string_customize_design() {
 
-	$output = apply_filters(
-		'tbex_filter_string_customize_design',
-		/* translators: Theme creative group - links to Customizer, default "Customize Design" */
-		esc_attr__( 'Customize Design', 'toolbar-extras' )
+	$output = esc_attr(
+		apply_filters(
+			'tbex_filter_string_customize_design',
+			/* translators: Theme creative group - links to Customizer, default "Customize Design" */
+			__( 'Customize Design', 'toolbar-extras' )
+		)
 	);
 
 	return $output;
@@ -109,9 +117,11 @@ function ddw_tbex_string_customize_design() {
  */
 function ddw_tbex_string_elementor() {
 
-	$output = apply_filters(
-		'tbex_filter_string_elementor',
-		ddw_tbex_get_option( 'general', 'elementor_name' )
+	$output = esc_attr(
+		apply_filters(
+			'tbex_filter_string_elementor',
+			ddw_tbex_get_option( 'general', 'elementor_name' )
+		)
 	);
 
 	return $output;
@@ -130,12 +140,14 @@ function ddw_tbex_string_elementor() {
  */
 function ddw_tbex_string_elementor_library() {
 
-	$output = apply_filters(
-		'tbex_filter_string_elementor_library',
-		sprintf(
-			/* translators: %1$s - Word Elementor */
-			esc_attr__( '%1$s Library', 'toolbar-extras' ),
-			ddw_tbex_string_elementor()
+	$output = esc_attr(
+		apply_filters(
+			'tbex_filter_string_elementor_library',
+			sprintf(
+				/* translators: %1$s - Word Elementor */
+				__( '%1$s Library', 'toolbar-extras' ),
+				ddw_tbex_string_elementor()
+			)
 		)
 	);
 
@@ -155,12 +167,14 @@ function ddw_tbex_string_elementor_library() {
  */
 function ddw_tbex_string_elementor_settings() {
 
-	$output = apply_filters(
-		'tbex_filter_string_elementor_settings',
-		sprintf(
-			/* translators: %1$s - Word Elementor */
-			esc_attr__( '%1$s Settings', 'toolbar-extras' ),
-			ddw_tbex_string_elementor()
+	$output = esc_attr(
+		apply_filters(
+			'tbex_filter_string_elementor_settings',
+			sprintf(
+				/* translators: %1$s - Word Elementor */
+				__( '%1$s Settings', 'toolbar-extras' ),
+				ddw_tbex_string_elementor()
+			)
 		)
 	);
 
@@ -180,12 +194,14 @@ function ddw_tbex_string_elementor_settings() {
  */
 function ddw_tbex_string_elementor_tools() {
 
-	$output = apply_filters(
-		'tbex_filter_string_elementor_tools',
-		sprintf(
-			/* translators: %1$s - Word Elementor */
-			esc_attr__( '%1$s Tools', 'toolbar-extras' ),
-			ddw_tbex_string_elementor()
+	$output = esc_attr(
+		apply_filters(
+			'tbex_filter_string_elementor_tools',
+			sprintf(
+				/* translators: %1$s - Word Elementor */
+				__( '%1$s Tools', 'toolbar-extras' ),
+				ddw_tbex_string_elementor()
+			)
 		)
 	);
 
@@ -205,12 +221,14 @@ function ddw_tbex_string_elementor_tools() {
  */
 function ddw_tbex_string_elementor_resources() {
 
-	$output = apply_filters(
-		'tbex_filter_string_elementor_resources',
-		sprintf(
-			/* translators: %1$s - Word Elementor */
-			esc_attr__( '%1$s Resources', 'toolbar-extras' ),
-			ddw_tbex_string_elementor()
+	$output = esc_attr(
+		apply_filters(
+			'tbex_filter_string_elementor_resources',
+			sprintf(
+				/* translators: %1$s - Word Elementor */
+				__( '%1$s Resources', 'toolbar-extras' ),
+				ddw_tbex_string_elementor()
+			)
 		)
 	);
 
@@ -230,12 +248,14 @@ function ddw_tbex_string_elementor_resources() {
  */
 function ddw_tbex_string_elementor_community() {
 
-	$output = apply_filters(
-		'tbex_filter_string_elementor_community',
-		sprintf(
-			/* translators: %1$s - Word Elementor */
-			esc_attr__( '%1$s Community', 'toolbar-extras' ),
-			ddw_tbex_string_elementor()
+	$output = esc_attr(
+		apply_filters(
+			'tbex_filter_string_elementor_community',
+			sprintf(
+				/* translators: %1$s - Word Elementor */
+				__( '%1$s Community', 'toolbar-extras' ),
+				ddw_tbex_string_elementor()
+			)
 		)
 	);
 
@@ -255,12 +275,14 @@ function ddw_tbex_string_elementor_community() {
  */
 function ddw_tbex_string_elementor_developers() {
 
-	$output = apply_filters(
-		'tbex_filter_string_elementor_developers',
-		sprintf(
-			/* translators: %1$s - Word Elementor */
-			esc_attr__( '%1$s Developers', 'toolbar-extras' ),
-			ddw_tbex_string_elementor()
+	$output = esc_attr(
+		apply_filters(
+			'tbex_filter_string_elementor_developers',
+			sprintf(
+				/* translators: %1$s - Word Elementor */
+				__( '%1$s Developers', 'toolbar-extras' ),
+				ddw_tbex_string_elementor()
+			)
 		)
 	);
 
@@ -278,9 +300,15 @@ function ddw_tbex_string_elementor_developers() {
  */
 function ddw_tbex_string_newcontent_with_builder() {
 
-	return apply_filters(
-		'tbex_filter_string_newcontent_with_builder',
-		esc_attr_x( 'With Builder', 'Toolbar New Content section', 'toolbar-extras' )
+	return esc_attr(
+		apply_filters(
+			'tbex_filter_string_newcontent_with_builder',
+			_x(
+				'With Builder',
+				'Toolbar New Content section',
+				'toolbar-extras'
+			)
+		)
 	);
 
 }  // end function
@@ -295,9 +323,15 @@ function ddw_tbex_string_newcontent_with_builder() {
  */
 function ddw_tbex_string_newcontent_create_with_builder() {
 
-	return apply_filters(
-		'tbex_filter_string_newcontent_create_with_builder',
-		esc_attr_x( 'Create with Builder', 'Toolbar New Content section', 'toolbar-extras' )
+	return esc_attr(
+		apply_filters(
+			'tbex_filter_string_newcontent_create_with_builder',
+			_x(
+				'Create with Builder',
+				'Toolbar New Content section',
+				'toolbar-extras'
+			)
+		)
 	);
 
 }  // end function
@@ -308,23 +342,22 @@ function ddw_tbex_string_newcontent_create_with_builder() {
  *
  * @since  1.0.0
  *
- * @param  bool $plural If plural form to be used or not
+ * @param  bool $plural If plural form to be used (TRUE) or not (FALSE)
  * @return string Role label based on Multisite context.
  */
 function ddw_tbex_string_maybe_super_admin( $plural = FALSE ) {
 
 	/* translators: Super Admin user role - plural & singular variant */
-	$super_admin = ( $plural ) ? __( 'Super Admins', 'toolbar-extras' ) : __( 'Super Admin', 'toolbar-extras' );
+	$super_admin = ( TRUE === $plural ) ? __( 'Super Admins', 'toolbar-extras' ) : __( 'Super Admin', 'toolbar-extras' );
 
 	/* translators: Super Admin user role - plural & singular variant */
-	$admin = ( $plural ) ? __( 'Admins', 'toolbar-extras' ) : __( 'Admin', 'toolbar-extras' );
+	$admin = ( TRUE === $plural ) ? __( 'Admins', 'toolbar-extras' ) : __( 'Admin', 'toolbar-extras' );
 
 	return esc_html(
 		apply_filters(
 			'tbex_filter_string_maybe_super_admin',
-			/* translators: User roles */
 			is_multisite() ? $super_admin : $admin,
-			(bool) $plural
+			(bool) $plural	// optional filter param
 		)
 	);
 
@@ -351,6 +384,7 @@ function ddw_tbex_string_super_admin_menu_location() {
 	if ( isset( $GLOBALS[ 'wp_customize' ] ) ) {
 
 		$tbex_menu_string = sprintf(
+			/* translators: %s - Label for type of installation ("Multisite" or "Site") */
 			esc_attr__( '%s Toolbar Menu', 'toolbar-extras' ),
 			$string_site_type
 		);
@@ -358,6 +392,7 @@ function ddw_tbex_string_super_admin_menu_location() {
 	} else {
 
 		$tbex_menu_string = sprintf(
+			/* translators: %3$s - Label for type of installation ("Multisite" or "Site") */
 			'<span title="%1$s: %2$s">' . esc_attr__( '%3$s Toolbar Menu', 'toolbar-extras' ) . '</span>',
 			$string_via,
 			$string_plugin,

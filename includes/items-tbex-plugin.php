@@ -1,6 +1,6 @@
 <?php
 
-//items-tbex-plugin.php
+// includes/items-tbex-plugin.php
 
 /**
  * Prevent direct access to this file.

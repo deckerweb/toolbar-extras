@@ -1,6 +1,6 @@
 <?php
 
-//local-dev-environment
+// includes/local-dev-environment
 
 /**
  * Prevent direct access to this file.
@@ -60,7 +60,7 @@ function ddw_tbex_local_dev_toolbar_styles() {
 	$environment_color = ddw_tbex_get_option( 'development', 'local_dev_bg_color' );
 
 	if ( defined( 'TBEX_LOCAL_DEV_COLOR' ) && TBEX_LOCAL_DEV_COLOR ) {
-		$environment_color = sanitize_hex_color( TBEX_LOCAL_DEV_COLOR );		//strtolower( esc_attr( TBEX_LOCAL_DEV_COLOR ) );
+		$environment_color = sanitize_hex_color( TBEX_LOCAL_DEV_COLOR );
 	}
 
 	/** Set minimum viewport width */
