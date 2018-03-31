@@ -49,9 +49,9 @@ function ddw_tbex_notice_plugins_welcome() {
 		esc_attr__( 'Menus', 'toolbar-extras' )
 	);
 
-	/** Display the message */
+	/** Display the message (once dismissed, forever hidden!) */
 	?>
-		<div data-dismissible="tbex-notice-plugins-welcome-1" class="notice notice-success is-dismissible">
+		<div data-dismissible="tbex-notice-plugins-welcome-forever" class="notice notice-success is-dismissible">
 			
 			<h3><?php _e( 'Thank You for Installing and Activating the Toolbar Extras Plugin!', 'toolbar-extras' ); ?></h3>
 			<p><span class="dashicons-before dashicons-admin-generic"></span> <?php echo __( 'You\'ll find the plugin\'s settings under:', 'toolbar-extras' ) . $settings_link; ?></p>
