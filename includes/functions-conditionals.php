@@ -33,7 +33,9 @@ function ddw_tbex_is_localhost() {
 		'http://127.0.0.1',
 		'https://127.0.0.1',
 		'http://127.0.0.0',
-		'https://127.0.0.0'
+		'https://127.0.0.0',
+		'http://::1',
+		'https://::1',
 	);
 
 	$known_local_hosts = array_map( 'esc_attr', $known_local_hosts );

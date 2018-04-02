@@ -110,7 +110,7 @@ function ddw_tbex_build_custom_menu( $wp_admin_bar ) {
 					'href'  => esc_url_raw( $tbex_menu_item->url ),
 					'meta'  => array(
 						'target' => $tbex_menu_item->target,
-						'title'  => $tbex_menu_item->attr_title,
+						'title'  => esc_html( $tbex_menu_item->attr_title ),
             			'class'  => 'tbex-tbmenu ' . implode( ' ', $tbex_menu_item->classes ),
             		)
             	);  // end of array

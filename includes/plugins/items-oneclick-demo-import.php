@@ -1,6 +1,6 @@
 <?php
 
-//items-oneclick-demo-import
+// includes/plugins/items-oneclick-demo-import
 
 /**
  * Prevent direct access to this file.

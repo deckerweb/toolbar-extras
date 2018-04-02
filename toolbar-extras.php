@@ -256,7 +256,7 @@ function ddw_tbex_setup_plugin() {
 
 	/** Add links to Settings and Menu pages to Plugins page */
 	if ( ( is_admin() || is_network_admin() )
-		&& current_user_can( 'edit_theme_options' )
+		&& ( current_user_can( 'edit_theme_options' ) || current_user_can( 'manage_options' ) )
 	) {
 
 		add_filter(

@@ -111,13 +111,13 @@ For full list of supported plugins and compatibility **[visit our website at htt
 - .pot file (`toolbar-extras.pot`) for translators is always included :)
 
 = Be a Contributor =
-If you want to translate, go to the Translation Portal at [translate.wordpress.org](https://translate.wordpress.org/projects/wp-plugins/toolbar-extras).
+If you want to translate, [go to the Translation Portal at translate.wordpress.org](https://translate.wordpress.org/projects/wp-plugins/toolbar-extras).
 
 You can also contribute code-wise via our [Toolbar Extras GitHub Repository](https://github.com/deckerweb/toolbar-extras) - and see where you can help.
 
 = Documentation and Support =
-- For documentation and tutorials go to our [Documentation](https://docs.toolbarextras.com/).
-- If you have any more questions, visit our support on the [Plugin's Forum](https://wordpress.org/support/plugin/elementor).
+- For documentation and tutorials go to our [Documentation](https://toolbarextras.com/).
+- If you have any more questions, visit our support on the [Plugin's Forum](https://wordpress.org/support/plugin/toolbar-extras).
 - For more information about features, FAQs and documentation, check out our website at [Toolbar Extras Plugin](https://toolbar-extras.com/).
 
 = Liked Toolbar Extras Plugin? =
@@ -184,13 +184,18 @@ This is planned middle to long-term. Nothing is set in stone yet.
 **Will other Themes be supported?**
 Yes, absolutely. - In general the Theme support here is considered as "a nice bonus". And, I will only ever add Themes that work well with Page Builders (mostly Elementor) and are well established. If you have recommendations you can contact me.
 
-**Will other Plugins be supported?**
+**Will other third-party Plugins be supported?**
 Yes, absolutely. - Though, we won't support every plugin under the sun, of course. For support to be included, the plugin has to meet at least one - better all - of the following conditions:
 
 * is useful for site-builders and/or developers
 * enhances the supported Page Builder
 * has own settings/ admin pages or own post types/ page with data input
 * additionally it should have a good reputation and be just useful (yes, say that again!)
+
+**Does the Plugin work with Multisite?**
+Yes, it works in Multisite. However it does add almost nothing additional to the Network Admin but rather to the Dashboard of each individual sub-site of the Network.
+
+For Multisite installs I recommend my own plugin **["Multisite Toolbar Additions"](https://wordpress.org/plugins/multisite-toolbar-additions/)** which is like a "sister plugin" of Toolbar Extras (and even was there before it!).
 
 == Screenshots ==
 
@@ -221,15 +226,15 @@ Yes, absolutely. - Though, we won't support every plugin under the sun, of cours
 Plugin launch. Everything's new!
 
 == Donate ==
-Enjoy using *Toolbar Extras*? **Please consider [making a donation](https://www.paypal.me/deckerweb)** - every donation helps to support the project's continued development, maintenance and support.
+Enjoy using *Toolbar Extras*? **[Please consider making a donation](https://www.paypal.me/deckerweb)** - every donation helps to support the project's continued development, maintenance and support.
 **Thank you very much in advance for your support!**
 
 == Credits ==
-Credit where credit is due. The following code, classes and libraries were used for this plugin, all GPL. Note: credit is also referenced in the code doc block inline where used.
+Credit where credit is due. The following code, classes and libraries were used for this plugin, all licensed under the GPL. Note: Credit is also referenced in the code doc block inline where used.
 
 * Class "Persist Admin notices Dismissal" by Agbonghama Collins and Andy Fragen (GPLv2 or later)
 * Script "Dashicons Picker" by Brad Vincent (GPLv2 or later)
-* Code for frontend toolbar by Daniel James (GPLv3)
+* Code for frontend toolbar color by Daniel James (GPLv3)
 * Code for displaying additional results within plugin installer search results by Remy Perona (GPLv2 or later)
 
 
@@ -241,7 +246,7 @@ Credit where credit is due. The following code, classes and libraries were used 
 
 **Easy WordPress.org plugin translation platform with GlotPress platform:** [**Translate "Toolbar Extras"...**](https://translate.wordpress.org/projects/wp-plugins/toolbar-extras)
 
-*Note:* All my plugins are internationalized/ translateable by default. This is very important for all users worldwide. So please contribute your language to the plugin to make it even more useful. For translating and validating I recommend the awesome ["Poedit Editor"](http://www.poedit.net/), which works fine on Windows, macOS and Linux.
+*Note:* All my plugins are internationalized/ translateable by default. This is very important for all users worldwide. So please contribute your language to the plugin to make it even more useful. For translating and validating I recommend the awesome ["Poedit Editor"](https://www.poedit.net/), which works fine on Windows, macOS and Linux.
 
 == Additional Info ==
 **Idea Behind / Philosophy:** Just a little lightweight plugin for all the Non-Coder site builders out there using Elementor page builder - making their daily work and life just a little easier.

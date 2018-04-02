@@ -164,7 +164,7 @@ function ddw_tbex_site_items_devmode_plugin_status() {
 			)
 		);
 
-	}
+	}  // end if
 
 
 	/** MU Plugins (Must Use) and DropIns */
@@ -179,7 +179,7 @@ function ddw_tbex_site_items_devmode_plugin_status() {
 					'id'     => 'wpplugins-mustuse',
 					'parent' => 'wpplugins',
 					'title'  => esc_attr__( 'Must Use (MU)', 'toolbar-extras' ),
-					'href'   => esc_url( admin_url( 'plugins.php?plugin_status=mustuse' ) ),
+					'href'   => esc_url( network_admin_url( 'plugins.php?plugin_status=mustuse' ) ),
 					'meta'   => array(
 						'target' => '',
 						'title'  => esc_attr__( 'Must Use - MU Plugins', 'toolbar-extras' )
@@ -196,7 +196,7 @@ function ddw_tbex_site_items_devmode_plugin_status() {
 					'id'     => 'wpplugins-dropins',
 					'parent' => 'wpplugins',
 					'title'  => esc_attr__( 'Drop-ins', 'toolbar-extras' ),
-					'href'   => esc_url( admin_url( 'plugins.php?plugin_status=dropins' ) ),
+					'href'   => esc_url( network_admin_url( 'plugins.php?plugin_status=dropins' ) ),
 					'meta'   => array(
 						'target' => '',
 						'title'  => esc_attr__( 'Drop-ins - Special Plugins', 'toolbar-extras' )

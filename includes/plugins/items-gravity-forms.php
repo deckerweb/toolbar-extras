@@ -1,6 +1,6 @@
 <?php
 
-// items-gravity-forms
+// includes/plugins/items-gravity-forms
 
 /**
  * Prevent direct access to this file.
@@ -86,7 +86,6 @@ function ddw_tbex_styles_gravityforms() {
 	}
 
 	?>
-
 		<style type='text/css'>
 			#wp-admin-bar-tbex-sitegroup-forms #wp-admin-bar-gform-forms .ab-item.gforms-menu-icon,
 			#wp-admin-bar-tbex-sitegroup-forms #wp-admin-bar-gform-forms .ab-item.gforms-menu-icon:hover {
@@ -96,7 +95,6 @@ function ddw_tbex_styles_gravityforms() {
 				color: inherit !important;
 			}
 		</style>
-
 	<?php
 
 }  // end function

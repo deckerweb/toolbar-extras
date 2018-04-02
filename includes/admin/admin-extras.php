@@ -53,7 +53,7 @@ function ddw_tbex_custom_settings_links( $tbex_links ) {
 	/** Add menu link only if user can 'edit_theme_options' */
 	if ( current_user_can( 'edit_theme_options' ) ) {
 
-		/** Settings Page link */
+		/** Menus Page link */
 		$tbex_menu_link = sprintf(
 			'<a class="dashicons-before dashicons-menu" href="%s" title="%s">%s</a>',
 			esc_url( admin_url( 'nav-menus.php' ) ),

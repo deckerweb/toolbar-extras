@@ -1,6 +1,6 @@
 <?php
 
-//items-github-updater
+// includes/plugins/items-github-updater
 
 /**
  * Prevent direct access to this file.

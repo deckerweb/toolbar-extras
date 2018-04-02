@@ -1,5 +1,7 @@
 <?php
 
+// includes/toolbar-styles
+
 /**
  * Prevent direct access to this file.
  *
@@ -8,23 +10,6 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit( 'Sorry, you are not allowed to access this file directly.' );
 }
-
-
-/**
- * Build content of Dashicon used for main item in the Toolbar.
- *
- * @since 1.0.0
- */
-function ddw_tbex_dashicon_main_item() {
-
-	return absint(
-		apply_filters(
-			'tbex_filter_dashicon_main_item',
-			478
-		)
-	);
-
-}  // end function
 
 
 add_action( 'wp_head', 'ddw_tbex_toolbar_styles', 100 );
@@ -36,7 +21,6 @@ add_action( 'admin_head', 'ddw_tbex_toolbar_styles', 100 );
  *
  * @uses   ddw_tbex_display_items_site()
  * @uses   ddw_tbex_id_main_item()
- * @uses   ddw_tbex_dashicon_main_item()
  * @uses   ddw_tbex_id_sites_browser()
  *
  * @return string CSS styling for selected Toolbar items.
@@ -71,8 +55,6 @@ function ddw_tbex_toolbar_styles() {
 		);
 
 	}  // end if
-
-	/** OK: content: '\f<?php echo ddw_tbex_dashicon_main_item(); ?>'; */
 
 	/** Add our few CSS styles inline: */
 	?>
