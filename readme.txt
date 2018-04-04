@@ -268,7 +268,7 @@ For Multisite installs I recommend my own plugin **["Multisite Toolbar Additions
 
 == Changelog ==
 
-= 1.0.1 - 2018-04-?? =
+= 1.0.1 - 2018-04-04 =
 * Tweak: Improved localization functions.
 * Tweak: Improved Readme.txt
 
