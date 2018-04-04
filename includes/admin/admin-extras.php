@@ -121,11 +121,12 @@ function ddw_tbex_plugin_links( $tbex_links, $tbex_file ) {
 
 
 add_action( 'admin_head-nav-menus.php', 'ddw_tbex_widgets_help_content', 15 );
+add_action( 'load-settings_page_toolbar-extras', 'ddw_tbex_widgets_help_content' );
 /**
  * Create and display plugin help tab content.
- *
- * Load it after core help tabs on Menus admin page.
- * Some plugin menu instructions for super_admins plus general plugin info.
+ *   Load it after core help tabs on Menus admin page.
+ *   Load on plugin's on settings page.
+ *   Some plugin menu instructions for super_admins plus general plugin info.
  *
  * @since  1.0.0
  *
@@ -148,7 +149,7 @@ function ddw_tbex_widgets_help_content() {
 	$GLOBALS[ 'tbex_menu_screen' ]->add_help_tab(
 		array(
 			'id'       => 'tbex-menus-help',
-			'title'    => __( 'Toolbar Extras', 'toolbar-extras' ),
+			'title'    => esc_html__( 'Toolbar Extras', 'toolbar-extras' ),
 			'callback' => apply_filters(
 				'tbex_filter_help_tab_menus',
 				'ddw_tbex_help_tab_content_menus'
@@ -207,7 +208,7 @@ function ddw_tbex_help_info_menu_locations() {
 }  // end function
 
 
-add_filter( 'plugins_api_result', 'ddw_tbex_add_mstba_api_result', 11, 3 );
+add_filter( 'plugins_api_result', 'ddw_tbex_add_plugins_api_results', 11, 3 );
 /**
  * Filter plugin fetching API results to inject plugin "Multisite Toolbar Additions".
  *
@@ -224,7 +225,7 @@ add_filter( 'plugins_api_result', 'ddw_tbex_add_mstba_api_result', 11, 3 );
  *
  * @return array Updated array of results.
  */
-function ddw_tbex_add_mstba_api_result( $result, $action, $args ) {
+function ddw_tbex_add_plugins_api_results( $result, $action, $args ) {
 
 	if ( empty( $args->browse ) ) {
 		return $result;
@@ -242,8 +243,15 @@ function ddw_tbex_add_mstba_api_result( $result, $action, $args ) {
 	}
 
 	/** Check if plugin active */
-	if ( is_plugin_active( 'multisite-toolbar-additions/multisite-toolbar-additions.php' )
-		|| is_plugin_active_for_network( 'multisite-toolbar-additions/multisite-toolbar-additions.php' )
+	if ( ( is_plugin_active( 'elementor/elementor.php' ) || is_plugin_active_for_network( 'elementor/elementor.php' ) )
+		&& ( is_plugin_active( 'granular-controls-for-elementor/granular-controls-elementor.php' ) || is_plugin_active_for_network( 'granular-controls-for-elementor/granular-controls-elementor.php' ) )
+		&& ( is_plugin_active( 'kt-tinymce-color-grid/index.php' ) || is_plugin_active_for_network( 'kt-tinymce-color-grid/index.php' ) )
+		&& ( is_plugin_active( 'simple-css/simple-css.php' ) || is_plugin_active_for_network( 'simple-css/simple-css.php' ) )
+		&& ( is_plugin_active( 'code-snippets/code-snippets.php' ) || is_plugin_active_for_network( 'code-snippets/code-snippets.php' ) )
+		&& ( is_plugin_active( 'debug-elementor/debug-elementor.php' ) || is_plugin_active_for_network( 'debug-elementor/debug-elementor.php' ) )
+		&& ( is_plugin_active( 'customizer-search/customizer-search.php' ) || is_plugin_active_for_network( 'customizer-search/customizer-search.php' ) )
+		&& ( is_plugin_active( 'customizer-export-import/customizer-export-import.php' ) || is_plugin_active_for_network( 'customizer-export-import/customizer-export-import.php' ) )
+		&& ( is_plugin_active( 'cleaner-plugin-installer/cleaner-plugin-installer.php' ) || is_plugin_active_for_network( 'cleaner-plugin-installer/cleaner-plugin-installer.php' ) )
 	) {
 		return $result;
 	}
@@ -251,31 +259,77 @@ function ddw_tbex_add_mstba_api_result( $result, $action, $args ) {
 	/** Grab all slugs from the api results. */
 	$result_slugs = wp_list_pluck( $result->plugins, 'slug' );
 
-	if ( in_array( 'multisite-toolbar-additions', $result_slugs, TRUE ) ) {
+	if ( in_array( 'elementor', $result_slugs, TRUE )
+		&& in_array( 'granular-controls-for-elementor', $result_slugs, TRUE )
+		&& in_array( 'kt-tinymce-color-grid', $result_slugs, TRUE )
+		&& in_array( 'simple-css', $result_slugs, TRUE )
+		&& in_array( 'code-snippets', $result_slugs, TRUE )
+		&& in_array( 'debug-elementor', $result_slugs, TRUE )
+		&& in_array( 'customizer-search', $result_slugs, TRUE )
+		&& in_array( 'customizer-export-import', $result_slugs, TRUE )
+		&& in_array( 'cleaner-plugin-installer', $result_slugs, TRUE )
+	) {
 		return $result;
 	}
 
-	$query_args = array(
-		'slug'   => 'multisite-toolbar-additions',	// plugin slug from wordpress.org
-		'fields' => array(
-			'icons'             => TRUE,
-			'active_installs'   => TRUE,
-			'short_description' => TRUE,
-			'group'             => TRUE,
-		),
+	$query_fields = array(
+		'icons'             => TRUE,
+		'active_installs'   => TRUE,
+		'short_description' => TRUE,
+		'group'             => TRUE,
 	);
 
-	$mstba_data = plugins_api( 'plugin_information', $query_args );
+	$elementor_query_args = array( 'slug' => 'elementor', 'fields' => $query_fields, );
+	$gcfe_query_args      = array( 'slug' => 'granular-controls-for-elementor', 'fields' => $query_fields, );
+	$ccp_query_args       = array( 'slug' => 'kt-tinymce-color-grid', 'fields' => $query_fields, );
+	$simplecss_query_args = array( 'slug' => 'simple-css', 'fields' => $query_fields, );
+	$cs_query_args        = array( 'slug' => 'code-snippets', 'fields' => $query_fields, );
+	$de_query_args        = array( 'slug' => 'debug-elementor', 'fields' => $query_fields, );
+	$czs_query_args       = array( 'slug' => 'customizer-search', 'fields' => $query_fields, );
+	$czei_query_args      = array( 'slug' => 'customizer-export-import', 'fields' => $query_fields, );
+	$cpi_query_args       = array( 'slug' => 'cleaner-plugin-installer', 'fields' => $query_fields, );
 
-	if ( is_wp_error( $mstba_data ) ) {
+	$elementor_data = plugins_api( 'plugin_information', $elementor_query_args );
+	$gcfe_data      = plugins_api( 'plugin_information', $gcfe_query_args );
+	$ccp_data       = plugins_api( 'plugin_information', $ccp_query_args );
+	$simplecss_data = plugins_api( 'plugin_information', $simplecss_query_args );
+	$cs_data        = plugins_api( 'plugin_information', $cs_query_args );
+	$de_data        = plugins_api( 'plugin_information', $de_query_args );
+	$czs_data       = plugins_api( 'plugin_information', $czs_query_args );
+	$czei_data      = plugins_api( 'plugin_information', $czei_query_args );
+	$cpi_data       = plugins_api( 'plugin_information', $cpi_query_args );
+
+	if ( is_wp_error( $elementor_data )
+		&& is_wp_error( $ccp_data )
+		&& is_wp_error( $simplecss_data )
+		&& is_wp_error( $gcfe_data )
+		&& is_wp_error( $cs_data )
+		&& is_wp_error( $de_data )
+		&& is_wp_error( $czs_data )
+		&& is_wp_error( $czei_data )
+		&& is_wp_error( $cpi_data )
+	) {
 		return $result;
 	}
 
+	/** Hook in our results */
 	if ( 'featured' === $args->browse ) {
-		array_push( $result->plugins, $mstba_data );
-	} else {
-		array_unshift( $result->plugins, $mstba_data );
-	}
+
+		/** Set the default to empty */
+		$result->plugins = array();
+
+		/** Hook in our results */
+		array_push( $result->plugins, $elementor_data, $ccp_data, $simplecss_data, $gcfe_data, $cs_data, $de_data, $czs_data, $czei_data, $cpi_data );
+
+	} elseif ( 'recommended' === $args->browse ) {
+
+		array_unshift( $result->plugins, $cpi_data );
+
+	} elseif ( 'popular' === $args->browse ) {
+
+		array_unshift( $result->plugins, $elementor_data );
+
+	}  // end if
 
 	return $result;
 

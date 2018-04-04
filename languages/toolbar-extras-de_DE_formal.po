@@ -319,16 +319,16 @@ msgstr "Toolbar Extras - Einstellungen"
 
 #: includes/admin/tbex-settings.php:996
 msgid "Let the Toolbar Work for You!"
-msgstr "Lass die Toolbar für dich arbeiten!"
+msgstr "Lassen Sie die Toolbar für sich arbeiten!"
 
 #: includes/admin/tbex-settings.php:998
 msgid ""
 "Decide which additional items should be displayed or not. Also use some "
 "smart tweaks or enable development modes."
 msgstr ""
-"Lege fest, welche Toolbar-Links angezeigt werden sollen und welche nicht. "
-"Außerdem kannst du smarte Anpassungen (Tweaks) verwenden oder den Entwickler-"
-"Modus aktivieren."
+"Legen Sie fest, welche Toolbar-Links angezeigt werden sollen und welche "
+"nicht. Außerdem können Sie smarte Anpassungen (Tweaks) verwenden oder den "
+"Entwickler-Modus aktivieren."
 
 #. translators: Settings tab title in WP-Admin
 #: includes/admin/tbex-settings.php:1008
@@ -523,18 +523,18 @@ msgstr "Menüs"
 #: includes/admin/views/notice-plugins-welcome.php:56
 msgid "Thank You for Installing and Activating the Toolbar Extras Plugin!"
 msgstr ""
-"Vielen Dank, dass du das Toolbar Extras Plugin installiert und aktiviert "
-"hast!"
+"Vielen Dank, dass Sie das Toolbar Extras Plugin installiert und aktiviert "
+"haben!"
 
 #: includes/admin/views/notice-plugins-welcome.php:57
 msgid "You'll find the plugin's settings under:"
-msgstr "Du findest die Einstellungen des Plugins unter:"
+msgstr "Sie finden die Einstellungen des Plugins unter:"
 
 #: includes/admin/views/notice-plugins-welcome.php:58
 msgid "To create an (optinal) Admin Toolbar Menu just build a new menu here:"
 msgstr ""
-"Um ein (optionales) Toolbar-Menü für Admins zu erstellen, lege einfach ein "
-"neues Nav-Menü hier an:"
+"Um ein (optionales) Toolbar-Menü für Admins zu erstellen, legen Sie einfach "
+"ein neues Nav-Menü hier an:"
 
 #: includes/admin/views/notice-plugins-welcome.php:59
 #: includes/admin/views/notice-settings-welcome.php:36
@@ -547,14 +547,14 @@ msgstr ""
 #: includes/admin/views/notice-settings-welcome.php:33
 msgid "Welcome to Toolbar Extras - Thank You for Using this Plugin!"
 msgstr ""
-"Willkommen bei Toolbar Extras - Danke, dass du dieses Plugin verwendest!"
+"Willkommen bei Toolbar Extras - Danke, dass Sie dieses Plugin verwenden!"
 
 #: includes/admin/views/notice-settings-welcome.php:34
 msgid ""
 "Below you'll find all options for this plugin as well as all resources for "
 "support."
 msgstr ""
-"Unterhalb findest du alle Optionen für dieses Plugin und ebenso alle "
+"Unterhalb finden Sie alle Optionen für dieses Plugin und ebenso alle "
 "Ressourcen für Support."
 
 #: includes/admin/views/notice-settings-welcome.php:35
@@ -596,7 +596,7 @@ msgstr ""
 "Grundlage im Februar und März 2018 das neue Plugin %2$s geboren - an vielen "
 "Coding-Tagen, schlaflosen Nächten und mit viel zu viel Kaffee. Meine ganze "
 "Leidenschaft und Erfahrung stecken in diesem Werkzeug für alle Site-Builder "
-"da draußen! Ich hoffe, Du wirst das Plugin genauso nützlich und genial "
+"da draußen! Ich hoffe, Sie werden das Plugin genauso nützlich und genial "
 "finden, wie ich selbst. Fröhliches Website-Bauen, yeah!"
 
 #. translators: Plugin title
@@ -619,7 +619,8 @@ msgstr "Die Leidenschaft teilen"
 #: includes/admin/views/settings-tab-about-support.php:47
 msgid "If you find it useful please review the plugin at WordPress.org"
 msgstr ""
-"Wenn dir das Plugin gefällt, schreibe doch eine Rezension bei WordPress.org"
+"Wenn Ihnen das Plugin gefällt, schreiben Sie doch eine Rezension bei "
+"WordPress.org"
 
 #: includes/admin/views/settings-tab-about-support.php:48
 msgid "Write Review"
@@ -631,15 +632,15 @@ msgstr "Das Plugin bei sozialen Medien teilen"
 
 #: includes/admin/views/settings-tab-about-support.php:66
 msgid "I Need Your Support"
-msgstr "Ich brauche deine Unterstützung!"
+msgstr "Ich brauche Ihre Unterstützung!"
 
 #: includes/admin/views/settings-tab-about-support.php:69
 msgid ""
 "Your contribution makes the difference! To support further development and "
 "support/ maintenance of the plugin, please consider donating."
 msgstr ""
-"Dein Beitrag macht den Unterschied! Bitte spende, um die weitere Entwicklung "
-"sowie Support und Pflege des Plugins zu unterstützen."
+"Ihr Beitrag macht den Unterschied! Bitte spenden Sie, um die weitere "
+"Entwicklung sowie Support und Pflege des Plugins zu unterstützen."
 
 #: includes/admin/views/settings-tab-about-support.php:72
 msgid "Donate Now!"
@@ -654,8 +655,8 @@ msgid ""
 "Stay tuned: I want to add more plugin and theme support and hopefully a few "
 "add-ons."
 msgstr ""
-"Sei gespannt: Ich will den Plugin- und Theme-Support für die Toolbar weiter "
-"ausbauen und hoffentlich auch einige Add-Ons veröffentlichen."
+"Seien Sie gespannt: Ich will den Plugin- und Theme-Support für die Toolbar "
+"weiter ausbauen und hoffentlich auch einige Add-Ons veröffentlichen."
 
 #: includes/admin/views/settings-tab-about-support.php:81
 msgid "How To Get Support"
@@ -666,7 +667,7 @@ msgid ""
 "Thank you for using my plugin! I am happy to help and assist with any "
 "question or feedback you have for this plugin."
 msgstr ""
-"Vielen Dank, dass du mein Plugin verwendest! Gerne stehe ich für Hilfe zu "
+"Vielen Dank, dass Sie mein Plugin verwenden! Gerne stehe ich für Hilfe zu "
 "allen Fragen rund um das Plugin zur Verfügung."
 
 #: includes/admin/views/settings-tab-about-support.php:86
@@ -709,15 +710,15 @@ msgid ""
 "When in a Local Development Environment use some elegant tweaks for the "
 "Toolbar."
 msgstr ""
-"Einige elegante Tweaks für die Toolbar verwenden, wenn du dich im Lokalen "
-"Entwicklungsmodus befindest."
+"Einige elegante Tweaks für die Toolbar verwenden, wenn Sie sich im Lokalen "
+"Entwicklungsmodus befinden."
 
 #: includes/admin/views/settings-tab-development.php:45
 msgid ""
 "When in a Development Mode use some special links and tools geared towards "
 "code-savvy developers."
 msgstr ""
-"Wenn du Entwickler bzw. Coder bist, kannst du einige besondere Links und "
+"Wenn Sie Entwickler bzw. Coder sind, können Sie einige besondere Links und "
 "Werkzeuge nutzen."
 
 #: includes/admin/views/settings-tab-development.php:46
@@ -913,11 +914,12 @@ msgstr ""
 #: includes/admin/views/settings-tab-general.php:61
 msgid "Decide which group of items should be shown in the Toolbar - or not."
 msgstr ""
-"Entscheide, welche Links in der Toolbar erscheinen sollen - oder eben nicht."
+"Entscheiden Sie, welche Links in der Toolbar erscheinen sollen - oder eben "
+"nicht."
 
 #: includes/admin/views/settings-tab-general.php:77
 msgid "Use Demo Import/ Site Browser Items or not?"
-msgstr "Willst du Demo Import/ Website-Browser-Links verwenden oder nicht?"
+msgstr "Wollen Sie Demo Import/ Website-Browser-Links verwenden oder nicht?"
 
 #. translators: %1$s - List of supported Themes (names) / %2$s - Name of supported plugin
 #: includes/admin/views/settings-tab-general.php:82
@@ -935,7 +937,7 @@ msgstr ""
 
 #: includes/admin/views/settings-tab-general.php:101
 msgid "Decide which target is used for external links."
-msgstr "Lege fest, welcher Target für externe Links verwendet wird."
+msgstr "Legen Sie fest, welcher Target für externe Links verwendet wird."
 
 #: includes/admin/views/settings-tab-general.php:119
 msgid "Change priority and set a optional icon for this additional menu."
@@ -1016,7 +1018,7 @@ msgid ""
 "Re-hook or remove Toolbar items from certain plugins. These settings below "
 "will only appear below if the supported plugins are installed and activated."
 msgstr ""
-"Verschiebe oder entferne Toolbar-Links von bestimmten Plugins. Die "
+"Verschieben oder entfernen Sie Toolbar-Links von bestimmten Plugins. Die "
 "Einstellungen hier darunter erscheinen nur, wenn die unterstützten Plugins "
 "installiert und aktiviert sind."
 
@@ -1031,7 +1033,7 @@ msgid ""
 "WordPress core which are set in your %s."
 msgstr ""
 "Hinweis: Diese Anpassung funktioniert derzeit nur mit den 8 serienmäßigen "
-"Farbschemen von WordPress Core, welche du in deinen %s festlegen kannst."
+"Farbschemen von WordPress Core, welche Sie in Ihren %s festlegen können."
 
 #: includes/admin/views/settings-tab-smart-tweaks.php:104
 msgid ""
@@ -1047,8 +1049,8 @@ msgstr ""
 "Falls kein Website-Icon festgelegt wurde, wird das Dashicon Globus-Icon "
 "verwendet. Die Ressourcen-Links von WordPress werden entfernt und mit "
 "externen Ressourcen für Website-Builder ersetzt, wie etwa Pingdom, Google "
-"Search Console etc. Dies ist sehr nützlich, wenn du regelmäßig Dinge zu "
-"deiner Website prüfen willst."
+"Search Console etc. Dies ist sehr nützlich, wenn Sie regelmäßig Dinge zu "
+"Ihrer Website prüfen wollen."
 
 #: includes/admin/views/settings-tab-smart-tweaks.php:173
 msgid ""
@@ -1841,8 +1843,8 @@ msgstr "Externe Ressource"
 #: includes/functions-global.php:862
 msgid "You have no sufficient permission to edit this special menu."
 msgstr ""
-"Du hast keine ausreichende Berechtigung, um dieses besondere Menü bearbeiten "
-"zu können."
+"Sie haben keine ausreichende Berechtigung, um dieses besondere Menü "
+"bearbeiten zu können."
 
 #: includes/items-dev-mode.php:52
 msgid "Rapid Development"
@@ -2221,7 +2223,7 @@ msgstr "Google Tag-Manager"
 #: includes/local-dev-environment.php:40
 msgid "Note: You Are Currently In a Local Development Environment"
 msgstr ""
-"Hinweis: Du befindest dich derzeit in einer Lokalen Entwicklungsumgebung"
+"Hinweis: Sie befinden sich derzeit in einer Lokalen Entwicklungsumgebung"
 
 #: includes/plugins/items-404page.php:41 includes/plugins/items-404page.php:45
 #: includes/plugins/items-genesis-404-page.php:37
@@ -3316,11 +3318,11 @@ msgstr "Demos installieren"
 
 #: uninstall.php:41
 msgid "You must be logged in to run this script."
-msgstr "Du musst angemeldet sein, um dieses Skript ausführen zu können."
+msgstr "Sie müssen angemeldet sein, um dieses Skript ausführen zu können."
 
 #: uninstall.php:51
 msgid "You do not have permission to run this script."
-msgstr "Du hast keine Berechtigung, um dieses Skript ausführen zu können."
+msgstr "Sie haben keine Berechtigung, um dieses Skript ausführen zu können."
 
 #. Plugin URI of the plugin/theme
 msgid "https://toolbarextras.com/"

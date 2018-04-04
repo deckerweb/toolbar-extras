@@ -50,6 +50,8 @@ function ddw_tbex_help_tab_content_menus() {
 
 		'&nbsp;&nbsp;' . ddw_tbex_get_info_link( 'url_fb_group', esc_html_x( 'Facebook Group', 'Help tab info', 'toolbar-extras' ), 'button' ) .
 
+		'&nbsp;&nbsp;' . ddw_tbex_get_info_link( 'url_roadmap', esc_html_x( 'Roadmap', 'Help tab info', 'toolbar-extras' ), 'button' ) .
+
 		'&nbsp;&nbsp;' . ddw_tbex_get_info_link( 'url_translate', esc_html_x( 'Translations', 'Help tab info', 'toolbar-extras' ), 'button' ) .
 
 		'&nbsp;&nbsp;' . ddw_tbex_get_info_link( 'url_donate', esc_html_x( 'Donate', 'Help tab info', 'toolbar-extras' ), 'button button-primary' ) .
@@ -71,6 +73,7 @@ function ddw_tbex_help_tab_content_menus() {
  *
  * @since  1.0.0
  *
+ * @uses   ddw_tbex_get_info_link()
  * @uses   ddw_tbex_string_maybe_super_admin()
  * @uses   ddw_tbex_string_super_admin_menu_location()
  *
@@ -107,7 +110,7 @@ function ddw_tbex_help_content_super_admin_menu() {
 		'<li>' . __( 'Setup your links, might mostly be custom links, or any other...', 'toolbar-extras' ) . '</li>' .
 		'<li>' . __( 'Save the new menu to the plugin\'s menu location. That\'s it :)', 'toolbar-extras' ) . '</li>' .
 	'<ul></blockquote>' .
-	'<blockquote><p><em>' . __( 'Please note:', 'toolbar-extras' ) . '</em> ' . __( 'Every parent item = one main Toolbar entry! So best would be to only use one parent item and set all other items as children.', 'toolbar-extras' ) . ' (<a href="https://www.dropbox.com/s/7u83c0g5ehk4ozq/screenshot-5.png" target="_blank" rel="noopener noreferrer">' . __( 'See also this screenshot.', 'toolbar-extras' ) . '</a>)' .
+	'<blockquote><p><em>' . __( 'Please note:', 'toolbar-extras' ) . '</em> ' . __( 'Every parent item = one main Toolbar entry! So best would be to only use one parent item and set all other items as children.', 'toolbar-extras' ) . ' (' . ddw_tbex_get_info_link( 'url_menu_screen', esc_html__( 'See also this screenshot.', 'toolbar-extras' ) ) . '</a>)' .
 		'<br />' . sprintf(
 			/* translators: %s - String "Super Admins" (for Multisite) or "Admins" */
 			__( 'Also, only %s can edit this menu, all other users/ roles will be blocked!', 'toolbar-extras' ),

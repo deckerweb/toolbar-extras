@@ -973,11 +973,6 @@ function ddw_tbex_enqueue_admin_styles_scripts() {
  */
 function ddw_tbex_settings_create_admin_page() {
 
-	// Set class property
-	//$options = get_option( 'tbex-options' );
-
-	// ?page=toolbar-extras&tab=smart-tweaks
-
 	$url_general       = esc_url( add_query_arg( array( 'page' => 'toolbar-extras', 'tab'  => 'general' ), admin_url( 'options-general.php' ) ) );
 	$url_smart_tweaks  = esc_url( add_query_arg( array( 'page' => 'toolbar-extras', 'tab'  => 'smart-tweaks' ), admin_url( 'options-general.php' ) ) );
 	$url_development   = esc_url( add_query_arg( array( 'page' => 'toolbar-extras', 'tab'  => 'development' ), admin_url( 'options-general.php' ) ) );

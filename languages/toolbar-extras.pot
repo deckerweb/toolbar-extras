@@ -3,10 +3,10 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: Toolbar Extras\n"
-"POT-Creation-Date: 2018-03-31 22:31+0200\n"
-"PO-Revision-Date: 2018-03-31 00:02+0200\n"
-"Last-Translator: David Decker DECKERWEB.de -- http://deckerweb.de/\n"
-"Language-Team: David Decker DECKERWEB.de -- http://deckerweb.de/\n"
+"POT-Creation-Date: 2018-04-04 01:47+0200\n"
+"PO-Revision-Date: 2018-04-04 01:47+0200\n"
+"Last-Translator: David Decker DECKERWEB.de -- https://deckerweb.de/\n"
+"Language-Team: David Decker DECKERWEB.de -- https://deckerweb.de/\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -70,32 +70,32 @@ msgstr ""
 #. translators: Label for "Toolbar Extras" sub-menu item in left-hand admin menu
 #. translators: Plugin title
 #. Plugin Name of the plugin/theme
-#: includes/admin/admin-extras.php:151 includes/admin/admin-extras.php:191
+#: includes/admin/admin-extras.php:152 includes/admin/admin-extras.php:192
 #: includes/admin/tbex-settings.php:863
 #: includes/admin/views/help-content-menus.php:35
 #: includes/admin/views/notice-plugins-welcome.php:40
 #: includes/admin/views/settings-tab-about-support.php:39
-#: includes/functions-global.php:863 includes/string-switcher.php:380
+#: includes/functions-global.php:866 includes/string-switcher.php:380
 #: uninstall.php:42 uninstall.php:52
 msgid "Toolbar Extras"
 msgstr ""
 
 #. translators: %1$s - Term: 'The following menu location above is' / %2$s - "Super Admins" or "Admins" / %3$s - Name of plugin ("Toolbar Extras")
-#: includes/admin/admin-extras.php:188
+#: includes/admin/admin-extras.php:189
 #, php-format
 msgid "%1$s only for %2$s."
 msgstr ""
 
-#: includes/admin/admin-extras.php:188
+#: includes/admin/admin-extras.php:189
 #, php-format
 msgid "This is provided by the plugin %3$s."
 msgstr ""
 
-#: includes/admin/admin-extras.php:189
+#: includes/admin/admin-extras.php:190
 msgid "The following menu location above is"
 msgstr ""
 
-#: includes/admin/admin-extras.php:201
+#: includes/admin/admin-extras.php:202
 msgid "See help tab on top right corner for more usage instructions."
 msgstr ""
 
@@ -309,46 +309,46 @@ msgid "Text of Toolbar Item"
 msgstr ""
 
 #. translators: Settings page title in WP-Admin
-#: includes/admin/tbex-settings.php:994
+#: includes/admin/tbex-settings.php:989
 msgid "Toolbar Extras - Settings"
 msgstr ""
 
-#: includes/admin/tbex-settings.php:1001
+#: includes/admin/tbex-settings.php:996
 msgid "Let the Toolbar Work for You!"
 msgstr ""
 
-#: includes/admin/tbex-settings.php:1003
+#: includes/admin/tbex-settings.php:998
 msgid ""
 "Decide which additional items should be displayed or not. Also use some "
 "smart tweaks or enable development modes."
 msgstr ""
 
 #. translators: Settings tab title in WP-Admin
-#: includes/admin/tbex-settings.php:1013
+#: includes/admin/tbex-settings.php:1008
 msgctxt "Plugin settings tab title"
 msgid "General Settings"
 msgstr ""
 
 #. translators: Settings tab title in WP-Admin
-#: includes/admin/tbex-settings.php:1019
+#: includes/admin/tbex-settings.php:1014
 msgctxt "Plugin settings tab title"
 msgid "Smart Tweaks"
 msgstr ""
 
 #. translators: Settings tab title in WP-Admin
-#: includes/admin/tbex-settings.php:1025
+#: includes/admin/tbex-settings.php:1020
 msgctxt "Plugin settings tab title"
 msgid "For Development"
 msgstr ""
 
 #. translators: Settings tab title in WP-Admin
-#: includes/admin/tbex-settings.php:1031
+#: includes/admin/tbex-settings.php:1026
 msgctxt "Plugin settings tab title"
 msgid "About &amp; Support"
 msgstr ""
 
 #: includes/admin/views/help-content-menus.php:35
-#: includes/functions-global.php:863
+#: includes/functions-global.php:866
 msgid "Plugin"
 msgstr ""
 
@@ -377,21 +377,26 @@ msgstr ""
 
 #: includes/admin/views/help-content-menus.php:53
 msgctxt "Help tab info"
-msgid "Translations"
+msgid "Roadmap"
 msgstr ""
 
 #: includes/admin/views/help-content-menus.php:55
+msgctxt "Help tab info"
+msgid "Translations"
+msgstr ""
+
+#: includes/admin/views/help-content-menus.php:57
 msgctxt "Help tab info"
 msgid "Donate"
 msgstr ""
 
 #. translators: %s - String "Super Admins" (for Multisite) or "Admins"
-#: includes/admin/views/help-content-menus.php:83
+#: includes/admin/views/help-content-menus.php:86
 #, php-format
 msgid "Special custom menu for %s"
 msgstr ""
 
-#: includes/admin/views/help-content-menus.php:87
+#: includes/admin/views/help-content-menus.php:90
 msgid ""
 "All menu items via a Custom Menu here - and at all other places in the "
 "Toolbar (a.k.a. Admin Bar) - are only visible and accessable for Super "
@@ -401,59 +406,59 @@ msgid ""
 msgstr ""
 
 #. translators: %s - String "Super Admins" (for Multisite) or "Admins"
-#: includes/admin/views/help-content-menus.php:90
+#: includes/admin/views/help-content-menus.php:93
 #, php-format
 msgid "Added Menu Location by the plugin - only for %s:"
 msgstr ""
 
 #. translators: %s - String "Multisite" (for Multisite) or "Site"
 #. translators: %s - Label for type of installation ("Multisite" or "Site")
-#: includes/admin/views/help-content-menus.php:94
+#: includes/admin/views/help-content-menus.php:97
 #: includes/string-switcher.php:388
 #, php-format
 msgid "%s Toolbar Menu"
 msgstr ""
 
-#: includes/admin/views/help-content-menus.php:96
+#: includes/admin/views/help-content-menus.php:99
 msgid "How to use it?"
 msgstr ""
 
 #. translators: %s - String "Super Admin Toolbar" (for Multisite) or "Admin Toolbar"
-#: includes/admin/views/help-content-menus.php:100
+#: includes/admin/views/help-content-menus.php:103
 #, php-format
 msgid "Create a new menu, set a name like %s"
 msgstr ""
 
 #. translators: %s - String "Super Admin" (for Multisite) or "Admin"
-#: includes/admin/views/help-content-menus.php:103
+#: includes/admin/views/help-content-menus.php:106
 #, php-format
 msgid "%s Toolbar"
 msgstr ""
 
-#: includes/admin/views/help-content-menus.php:107
+#: includes/admin/views/help-content-menus.php:110
 msgid "Setup your links, might mostly be custom links, or any other..."
 msgstr ""
 
-#: includes/admin/views/help-content-menus.php:108
+#: includes/admin/views/help-content-menus.php:111
 msgid "Save the new menu to the plugin's menu location. That's it :)"
 msgstr ""
 
-#: includes/admin/views/help-content-menus.php:110
+#: includes/admin/views/help-content-menus.php:113
 msgid "Please note:"
 msgstr ""
 
-#: includes/admin/views/help-content-menus.php:110
+#: includes/admin/views/help-content-menus.php:113
 msgid ""
 "Every parent item = one main Toolbar entry! So best would be to only use one "
 "parent item and set all other items as children."
 msgstr ""
 
-#: includes/admin/views/help-content-menus.php:110
+#: includes/admin/views/help-content-menus.php:113
 msgid "See also this screenshot."
 msgstr ""
 
 #. translators: %s - String "Super Admins" (for Multisite) or "Admins"
-#: includes/admin/views/help-content-menus.php:113
+#: includes/admin/views/help-content-menus.php:116
 #, php-format
 msgid ""
 "Also, only %s can edit this menu, all other users/ roles will be blocked!"
@@ -471,7 +476,7 @@ msgstr ""
 #: includes/plugins/items-code-snippets.php:89
 #: includes/plugins/items-duplicator.php:83
 #: includes/plugins/items-duplicator.php:87
-#: includes/plugins/items-gravity-forms.php:119
+#: includes/plugins/items-gravity-forms.php:117
 #: includes/plugins/items-simple-custom-css-js.php:180
 #: includes/plugins/items-simple-custom-css-js.php:184
 #: includes/plugins/items-updraftplus.php:70
@@ -616,7 +621,7 @@ msgid "Free product support @ WordPress.org plugin forum"
 msgstr ""
 
 #: includes/admin/views/settings-tab-about-support.php:87
-#: includes/functions-global.php:670
+#: includes/functions-global.php:673
 msgid "Support Forum"
 msgstr ""
 
@@ -625,7 +630,7 @@ msgid "Plugin documentation &amp; Knowledge Base articles"
 msgstr ""
 
 #: includes/admin/views/settings-tab-about-support.php:91
-#: includes/functions-global.php:676
+#: includes/functions-global.php:679
 msgid "Documentation"
 msgstr ""
 
@@ -634,7 +639,7 @@ msgid "Facebook Community Group for Toolbar Extras plugin"
 msgstr ""
 
 #: includes/admin/views/settings-tab-about-support.php:95
-#: includes/functions-global.php:679
+#: includes/functions-global.php:682
 msgid "Facebook Group"
 msgstr ""
 
@@ -1176,7 +1181,7 @@ msgstr ""
 #: includes/elementor-addons/items-powerpack-elements.php:74
 #: includes/elementor-addons/items-powerpack-elements.php:78
 #: includes/plugins/items-blox.php:96
-#: includes/plugins/items-gravity-forms.php:123
+#: includes/plugins/items-gravity-forms.php:121
 #: includes/plugins/items-smart-slider.php:86
 #: includes/plugins/items-smart-slider.php:90
 msgid "General Settings"
@@ -1565,21 +1570,21 @@ msgstr ""
 msgid "https://deckerweb.de/"
 msgstr ""
 
-#: includes/functions-global.php:165
+#: includes/functions-global.php:168
 msgid "No Page Builder registered"
 msgstr ""
 
-#: includes/functions-global.php:519
+#: includes/functions-global.php:522
 #, php-format
 msgid "Customize %s"
 msgstr ""
 
-#: includes/functions-global.php:559
+#: includes/functions-global.php:562
 #, php-format
 msgid "All %s"
 msgstr ""
 
-#: includes/functions-global.php:566
+#: includes/functions-global.php:569
 #, php-format
 msgid "New %s"
 msgstr ""
@@ -1587,7 +1592,7 @@ msgstr ""
 #. translators: %s - Name of current active Theme or Parent Theme (static!)
 #. translators: (Static) Theme name Astra - optionally white labeled string
 #. translators: (Static) Theme name OceanWP - optionally white labeled string
-#: includes/functions-global.php:597 includes/themes/items-astra.php:59
+#: includes/functions-global.php:600 includes/themes/items-astra.php:59
 #: includes/themes/items-oceanwp.php:46
 #, php-format
 msgid "Theme: %s"
@@ -1595,133 +1600,133 @@ msgstr ""
 
 #. translators: %s - Name of current active Theme or Parent Theme (static!)
 #. translators: (Static) Theme name OceanWP - optionally white labeled string
-#: includes/functions-global.php:606 includes/themes/items-astra.php:64
+#: includes/functions-global.php:609 includes/themes/items-astra.php:64
 #: includes/themes/items-oceanwp.php:51
 #, php-format
 msgid "Active Theme: %s"
 msgstr ""
 
-#: includes/functions-global.php:673
+#: includes/functions-global.php:676
 msgid "Support Contact"
 msgstr ""
 
-#: includes/functions-global.php:682
+#: includes/functions-global.php:685
 msgid "Official Support"
 msgstr ""
 
-#: includes/functions-global.php:685
+#: includes/functions-global.php:688
 msgid "Official Site"
 msgstr ""
 
-#: includes/functions-global.php:688
+#: includes/functions-global.php:691
 msgid "Official Blog"
 msgstr ""
 
-#: includes/functions-global.php:691
+#: includes/functions-global.php:694
 msgid "Development @ GitHub"
 msgstr ""
 
-#: includes/functions-global.php:694
+#: includes/functions-global.php:697
 msgid "GitHub Issues"
 msgstr ""
 
 #. translators: Title attribute for linked text
-#: includes/functions-global.php:696
+#: includes/functions-global.php:699
 msgid "GitHub Issues (Bug Tracker)"
 msgstr ""
 
-#: includes/functions-global.php:699
+#: includes/functions-global.php:702
 msgid "Community Translations"
 msgstr ""
 
 #. translators: Title attribute for linked text
-#: includes/functions-global.php:701
+#: includes/functions-global.php:704
 msgid "Community Translations (at WordPress.org)"
 msgstr ""
 
-#: includes/functions-global.php:704
+#: includes/functions-global.php:707
 msgid "Translate Pro Plugin"
 msgstr ""
 
-#: includes/functions-global.php:707
+#: includes/functions-global.php:710
 msgid "YouTube Channel"
 msgstr ""
 
-#: includes/functions-global.php:710
+#: includes/functions-global.php:713
 msgid "YouTube Tutorials"
 msgstr ""
 
-#: includes/functions-global.php:713
+#: includes/functions-global.php:716
 msgid "Knowledge Base"
 msgstr ""
 
 #. translators: Title attribute for linked text
-#: includes/functions-global.php:715
+#: includes/functions-global.php:718
 msgid "Knowledge Base Articles"
 msgstr ""
 
-#: includes/functions-global.php:718
+#: includes/functions-global.php:721
 msgid "Tutorials"
 msgstr ""
 
 #. translators: Title attribute for linked text
-#: includes/functions-global.php:720
+#: includes/functions-global.php:723
 msgid "Tutorial Articles"
 msgstr ""
 
-#: includes/functions-global.php:723
+#: includes/functions-global.php:726
 msgid "User Forum"
 msgstr ""
 
-#: includes/functions-global.php:726
+#: includes/functions-global.php:729
 msgid "Community Forum"
 msgstr ""
 
-#: includes/functions-global.php:729
+#: includes/functions-global.php:732
 msgid "My Account"
 msgstr ""
 
-#: includes/functions-global.php:732
+#: includes/functions-global.php:735
 msgid "Code Reference"
 msgstr ""
 
-#: includes/functions-global.php:735
+#: includes/functions-global.php:738
 msgid "Pro Docs"
 msgstr ""
 
-#: includes/functions-global.php:738
+#: includes/functions-global.php:741
 msgid "Pro: Documentation"
 msgstr ""
 
-#: includes/functions-global.php:741
+#: includes/functions-global.php:744
 msgid "Pro: Modules Documentation"
 msgstr ""
 
-#: includes/functions-global.php:744
+#: includes/functions-global.php:747
 msgid "Pro: Facebook Group"
 msgstr ""
 
-#: includes/functions-global.php:747
+#: includes/functions-global.php:750
 msgid "Pro: Support"
 msgstr ""
 
-#: includes/functions-global.php:750
+#: includes/functions-global.php:753
 msgid "Pro: Official Site"
 msgstr ""
 
-#: includes/functions-global.php:753
+#: includes/functions-global.php:756
 msgid "Pro: APIs"
 msgstr ""
 
-#: includes/functions-global.php:756
+#: includes/functions-global.php:759
 msgid "Slack Channel"
 msgstr ""
 
-#: includes/functions-global.php:759
+#: includes/functions-global.php:762
 msgid "External Resource"
 msgstr ""
 
-#: includes/functions-global.php:859
+#: includes/functions-global.php:862
 msgid "You have no sufficient permission to edit this special menu."
 msgstr ""
 
@@ -2425,8 +2430,8 @@ msgstr ""
 msgid "Forms (via Gravity Forms)"
 msgstr ""
 
-#: includes/plugins/items-gravity-forms.php:132
-#: includes/plugins/items-gravity-forms.php:136
+#: includes/plugins/items-gravity-forms.php:130
+#: includes/plugins/items-gravity-forms.php:134
 #: includes/plugins/items-widget-importer-exporter.php:29
 #: includes/plugins/items-widget-importer-exporter.php:33
 #: includes/themes/items-genesis.php:149 includes/themes/items-genesis.php:153
@@ -2434,18 +2439,18 @@ msgstr ""
 msgid "Import &amp; Export"
 msgstr ""
 
-#: includes/plugins/items-gravity-forms.php:145
-#: includes/plugins/items-gravity-forms.php:149
+#: includes/plugins/items-gravity-forms.php:143
+#: includes/plugins/items-gravity-forms.php:147
 msgid "Export Entries"
 msgstr ""
 
-#: includes/plugins/items-gravity-forms.php:158
-#: includes/plugins/items-gravity-forms.php:162
+#: includes/plugins/items-gravity-forms.php:156
+#: includes/plugins/items-gravity-forms.php:160
 msgid "Export Forms"
 msgstr ""
 
-#: includes/plugins/items-gravity-forms.php:171
-#: includes/plugins/items-gravity-forms.php:175
+#: includes/plugins/items-gravity-forms.php:169
+#: includes/plugins/items-gravity-forms.php:173
 msgid "Import Forms"
 msgstr ""
 

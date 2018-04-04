@@ -1,9 +1,9 @@
-=== Toolbar Extras ===
+=== Toolbar Extras for Elementor - Enhances WordPress Adminbar ===
 Contributors: daveshine, deckerweb, wpautobahn
 Donate link: https://www.paypal.me/deckerweb
 Tags: toolbar, adminbar, admin bar, elementor, page builder, themes, menu, links, settings, usability, deckerweb, ddwtoolbar
 Requires at least: 4.6
-Tested up to: 4.9.4
+Tested up to: 4.9.5
 Requires PHP: 5.4
 Stable tag: 1.0.0
 License: GPL-2.0+
@@ -116,9 +116,9 @@ If you want to translate, [go to the Translation Portal at translate.wordpress.o
 You can also contribute code-wise via our [Toolbar Extras GitHub Repository](https://github.com/deckerweb/toolbar-extras) - and see where you can help.
 
 = Documentation and Support =
-- For documentation and tutorials go to our [Documentation](https://toolbarextras.com/).
+- For more information about features, FAQs and documentation, check out our website at [Toolbar Extras Plugin](https://toolbarextras.com/).
 - If you have any more questions, visit our support on the [Plugin's Forum](https://wordpress.org/support/plugin/toolbar-extras).
-- For more information about features, FAQs and documentation, check out our website at [Toolbar Extras Plugin](https://toolbar-extras.com/).
+- An overview about the ongoing development you'll find on our [Trello Board for the Plugin's Roadmap](https://trello.com/b/JrpjwlX4/toolbar-extras-public-roadmap)
 
 = Liked Toolbar Extras Plugin? =
 - Join our [Facebook Community Group](https://www.facebook.com/groups/ToolbarExtras/).
@@ -150,7 +150,7 @@ You can also contribute code-wise via our [Toolbar Extras GitHub Repository](htt
 4. Go to 'Appearance > Menus' to add & edit an optional Toolbar Menu (for Admins only).
 5. Now enjoy building your site - and let the Toolbar work for you ;-)
 
-For documentation and tutorials visit our [Knowledge Base](https://docs.toolbarextras.com/).
+For documentation and tutorials visit our [Knowledge Base](https://toolbarextras.com/).
 
 == Frequently Asked Questions ==
 
@@ -199,21 +199,63 @@ For Multisite installs I recommend my own plugin **["Multisite Toolbar Additions
 
 == Screenshots ==
 
-1. Toolbar Extras: New Network specific menu items located in "My Sites" toolbar parent item. ([Click here for larger version of screenshot](https://www.dropbox.com/s/m6w6h8icr44e568/screenshot-1.png)).
+1. Toolbar Extras - New "Build" Group with links to Page Builder (Elementor), the current active Theme, plus Add-Ons and Resources
 
-2. Toolbar Extras: Included plugin support for Network aware plugins. ([Click here for larger version of screenshot](https://www.dropbox.com/s/ztu9haeh48eg6lr/screenshot-2.png)).
+2. Toolbar Extras - Build Group with current active Theme (Astra) - detailed Deep-Links into Customizer Sections etc.
 
-3. Toolbar Extras: New Sub Site/ Blog items located in the parent item for each site. ([Click here for larger version of screenshot](https://www.dropbox.com/s/a0qhymxlpkn1qox/screenshot-3.png)).
+3. Toolbar Extras - Build Group with links to Pro version of the Theme (Astra Pro Add-On), plus sub-links, resources
 
-4. Toolbar Extras: New (Sub) Site specific menu items - plus included plugin support for useful site specific plugins. ([Click here for larger version of screenshot](https://www.dropbox.com/s/w0aoaxwfqfw7iq2/screenshot-4.png)).
+4. Toolbar Extras - Build Group - links for Elementor Add-Ons
 
-5. Toolbar Extras: How the optional Nav Menu for Super Admins works. ([Click here for larger version of screenshot](https://www.dropbox.com/s/7u83c0g5ehk4ozq/screenshot-5.png)).
+5. Toolbar Extras - Extensive resources for the active Page Builder (Elementor) - Documentation, Community, even for Developers
 
-6. Toolbar Extras: Plugin's help tab on Nav Menu admin page. ([Click here for larger version of screenshot](https://www.dropbox.com/s/dt6kkxqsh7yvbfn/screenshot-6.png)).
+6. Toolbar Extras - "Local Development Environment" - use the Toolbar to differentiate your various local, development, staging, production, live sites
+
+7. Toolbar Extras - Additional links for "New Content" Group - create Elementor Template from Toolbar - open the Elementor Editor (live Builder) directly with a new template and start editing directly!
+
+8. Toolbar Extras - easily install new Plugins - search for Plugins, or upload ZIP file
+
+9. Toolbar Extras - also, easily install Themes - search for Themes, or upload ZIP file
+
+10. Toolbar Extras - extended "Site" Group - Manage Content - Pages, Posts, Products (when WooCommerce is active) and support for additional plugins as well ...
+
+11. Toolbar Extras - example of supported Plugin "Code Snippets"
+
+12. Toolbar Extras - Nav Menus - jump to admin/ Customizer pages - edit existing menus, including the optional "Toolbar Admin Menu"
+
+13. Toolbar Extras - example for "UpdraftPlus" re-hooked from top-level Toolbar to a sub-item
+
+14. Toolbar Extras - smart tweak: use the same color scheme for Toolbar on the frontend as in the WP-Admin
+
+15. Toolbar Extras - smart tweak: optionally remove WP Logo (and sub-items) and replace with "World" Group - link to your site (new browser tab), plus lots of external resources for site management
+
+16. Toolbar Extras - the "World" Group with site icon (if set in the Customizer)
+
+17. Toolbar Extras - on frontend, deep links are added for the Customizer, to jump directly into a panel, or a section
+
+18. Toolbar Extras - on the right side, add a "User" Group - list roles, do administrative stuff
+
+19. Toolbar Extras - optional "Dev Mode" - links for developers, including the Code Editors
+
+20. Toolbar Extras - optional (Super) Admin Toolbar Menu - filled with custom links ...
+
+21. Toolbar Extras - create this optional Admin Toolbar Menu directly with the WordPress menu system - so easy!
+
+22. Toolbar Extras - plugin's settings page (under "Settings") - tab "General" - all the common settings
+
+23. Toolbar Extras - plugin's settings page (under "Settings") - tab "Smart Tweaks" - change Toolbar behavior of WordPress, plus a few third-party plugins
+
+24. Toolbar Extras - plugin's settings page (under "Settings") - tab "Development" - for setting "Local Development Environment" as well as "Dev Mode"
+
+25. Toolbar Extras - plugin's settings page (under "Settings") - tab "About & Support" - support info etc.
+
+26. Toolbar Extras - easily change the icon of various Toolbar links of the plugin with the Dashicon picker
+
+27. Toolbar Extras - help tab for Admin Toolbar Menu
 
 == Changelog ==
 
-= 1.0.0 - 2018-04-?? =
+= 1.0.0 - 2018-04-03 =
 * *Plugin launch. Everything's new!*
 * New: Including support for 17 Themes/ Frameworks (which all work well with Elementor, including the Theme Builder since Pro v2.0+)
 * New: Including support for 19 Add-On plugins (free + Premium) for Elementor

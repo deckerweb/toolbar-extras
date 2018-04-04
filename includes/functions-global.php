@@ -60,6 +60,9 @@ function ddw_tbex_info_values() {
 		'url_plugin'        => 'https://toolbarextras.com/',
 		'url_github'        => 'https://github.com/deckerweb/toolbar-extras',
 		'url_github_issues' => 'https://github.com/deckerweb/toolbar-extras/issues',
+		'url_roadmap'       => 'https://trello.com/b/JrpjwlX4/toolbar-extras-public-roadmap',
+		'url_video_intro'   => '',
+		'url_menu_screen'   => 'https://www.dropbox.com/s/7u83c0g5ehk4ozq/screenshot-5.png',
 		'url_tweet_en'      => 'https://twitter.com/home?status=Let%20the%20%23WordPress%20%23Toolbar%20work%20for%20you%20-%20with%20Toolbar%20Extras%20%23plugin%3A%20https%3A//toolbarextras.com%20%20Perfect%20for%20site-builders%20via%20%40deckerweb.de',
 		'url_tweet_de'      => 'https://twitter.com/home?status=Lass%20die%20%23WordPress%20%23Toolbar%20f%C3%BCr%20dich%20arbeiten%20-%20mit%20dem%20Toolbar%20Extras%20%23Plugin%3A%20https%3A//toolbarextras.com%20Perfekt%20f%C3%BCr%20Site-Builders%20%3A)%20via%20%40deckerweb.de',
 		'url_fb_share'      => 'https://www.facebook.com/sharer/sharer.php?u=https%3A//toolbarextras.com/',
@@ -87,10 +90,10 @@ function ddw_tbex_get_info_url( $url_key = '', $raw = FALSE ) {
 
 	$tbex_info = (array) ddw_tbex_info_values();
 
-	$output = esc_url( sanitize_key( $tbex_info[ $url_key ] ) );
+	$output = esc_url( $tbex_info[ sanitize_key( $url_key ) ] );
 
 	if ( TRUE === $raw ) {
-		$output = esc_url_raw( esc_attr( $tbex_info[ $url_key ] ) );
+		$output = esc_url_raw( $tbex_info[ esc_attr( $url_key ) ] );
 	}
 
 	return $output;
