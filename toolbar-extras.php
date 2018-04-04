@@ -11,7 +11,7 @@
  * Plugin Name:       Toolbar Extras
  * Plugin URI:        https://toolbarextras.com/
  * Description:       This plugins adds a lot of quick jump links to the WordPress Toolbar helpful for Site Builders who use Elementor and its ecosystem of add-ons and from the theme space.
- * Version:           1.0.0
+ * Version:           1.0.1
  * Author:            David Decker - DECKERWEB
  * Author URI:        https://deckerweb.de/
  * License:           GPL-2.0+
@@ -40,7 +40,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 1.0.0
  */
 /** Plugin version */
-define( 'TBEX_PLUGIN_VERSION', '1.0.0' );
+define( 'TBEX_PLUGIN_VERSION', '1.0.1' );
 
 /** Plugin directory */
 define( 'TBEX_PLUGIN_DIR', trailingslashit( dirname( __FILE__ ) ) );
@@ -87,6 +87,7 @@ add_action( 'init', 'ddw_tbex_load_translations', 1 );
  *
  * @since 1.0.0
  *
+ * @uses  get_user_locale()
  * @uses  get_locale()
  * @uses  load_textdomain() To load translations first from WP_LANG_DIR sub folder.
  * @uses  load_plugin_textdomain() To additionally load default translations from plugin folder (default).
@@ -97,7 +98,11 @@ function ddw_tbex_load_translations() {
 	$tbex_textdomain = 'toolbar-extras';
 
 	/** The 'plugin_locale' filter is also used by default in load_plugin_textdomain() */
-	$locale = apply_filters( 'plugin_locale', get_locale(), $tbex_textdomain );
+	$locale = apply_filters(
+		'plugin_locale',
+		is_admin() ? get_user_locale() : get_locale(),
+		$tbex_textdomain
+	);
 
 	/**
 	 * WordPress languages directory
@@ -111,7 +116,7 @@ function ddw_tbex_load_translations() {
 		$tbex_wp_lang_dir
 	);
 
-	/** Translations: Secondly, look in plugin's "languages" folder = default */
+	/** Translations: Secondly, look in 'wp-content/languages/plugins/' for the proper .mo file (= default) */
 	load_plugin_textdomain(
 		$tbex_textdomain,
 		FALSE,

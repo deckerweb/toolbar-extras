@@ -1,11 +1,11 @@
-=== Toolbar Extras for Elementor - Enhances WordPress Adminbar ===
+=== Toolbar Extras for Elementor - WordPress Adminbar Enhanced ===
 Contributors: daveshine, deckerweb, wpautobahn
 Donate link: https://www.paypal.me/deckerweb
 Tags: toolbar, adminbar, admin bar, elementor, page builder, themes, menu, links, settings, usability, deckerweb, ddwtoolbar
 Requires at least: 4.6
 Tested up to: 4.9.5
 Requires PHP: 5.4
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPL-2.0+
 License URI: https://opensource.org/licenses/GPL-2.0
 
@@ -15,6 +15,8 @@ Building sites with Elementor? Your work will get easier & faster with Toolbar E
 
 Quick Access to Your Site Building Resources - Big Time Saver. Perfect for Non-Techies and Non-Coder Designers.
 This smart WordPress plugin just adds some missed and **very useful admin links** to your Toolbar / Admin Bar. Save scrolling and time. Access settings and content pages faster from one central area in the Admin Dashboard AND when on the frontend of your site.
+
+https://www.youtube.com/watch?v=gu9Z5gW9vq0
 
 Out of the box the plugin includes support for dozens of awesome Plugins and Themes. Create Elementor templates right from the Toolbar, jump to Granular Controls settings or with one click you are on the Plugin Installer page to upload a new Elementor premium Add-On. Yes, it's so easy and fast. I released this plugin to the public to speed up your site building process even more - as the plugin already helps myself for a long time.
 
@@ -36,6 +38,7 @@ Out of the box the plugin includes support for dozens of awesome Plugins and The
 - Clean and efficient code
 - Developer friendly - offering quite a few action hooks and filters for customization if needed
 - Fully internationalized and translateable - also tested/optimized for RTL languages
+- **[Video feature tour throughout the plugin](https://www.youtube.com/watch?v=gu9Z5gW9vq0)**
 
 = Elementor & Elementor Pro Support =
 - Adds lots of Elementor **Quick Jump Links** to the Toolbar
@@ -197,6 +200,16 @@ Yes, it works in Multisite. However it does add almost nothing additional to the
 
 For Multisite installs I recommend my own plugin **["Multisite Toolbar Additions"](https://wordpress.org/plugins/multisite-toolbar-additions/)** which is like a "sister plugin" of Toolbar Extras (and even was there before it!).
 
+**More info on Translations?**
+
+* English - default, always included
+* German (de_DE): Deutsch - immer dabei! :-)
+* For custom and update-secure language files please upload them to `/wp-content/languages/toolbar-extras/` (just create this folder) - This enables you to use fully custom translations that won't be overridden on plugin updates. Also, complete custom English wording is possible with that as well, just use a language file like `toolbar-extras-en_US.mo/.po` to achieve that (for creating one see the following tools).
+
+**Easy WordPress.org plugin translation platform with GlotPress platform:** [**Translate "Toolbar Extras"...**](https://translate.wordpress.org/projects/wp-plugins/toolbar-extras)
+
+*Note:* All my plugins are internationalized/ translateable by default. This is very important for all users worldwide. So please contribute your language to the plugin to make it even more useful. For translating and validating I recommend the awesome ["Poedit Editor"](https://www.poedit.net/), which works fine on Windows, macOS and Linux.
+
 == Screenshots ==
 
 1. Toolbar Extras - New "Build" Group with links to Page Builder (Elementor), the current active Theme, plus Add-Ons and Resources
@@ -255,6 +268,10 @@ For Multisite installs I recommend my own plugin **["Multisite Toolbar Additions
 
 == Changelog ==
 
+= 1.0.1 - 2018-04-?? =
+* Tweak: Improved localization functions.
+* Tweak: Improved Readme.txt
+
 = 1.0.0 - 2018-04-03 =
 * *Plugin launch. Everything's new!*
 * New: Including support for 17 Themes/ Frameworks (which all work well with Elementor, including the Theme Builder since Pro v2.0+)
@@ -263,6 +280,9 @@ For Multisite installs I recommend my own plugin **["Multisite Toolbar Additions
 * New: Including support for 10 Genesis specific plugins
 
 == Upgrade Notice =
+
+= 1.0.1 =
+Maintenance release. Small fixes.
 
 = 1.0.0 =
 Plugin launch. Everything's new!
@@ -278,17 +298,6 @@ Credit where credit is due. The following code, classes and libraries were used 
 * Script "Dashicons Picker" by Brad Vincent (GPLv2 or later)
 * Code for frontend toolbar color by Daniel James (GPLv3)
 * Code for displaying additional results within plugin installer search results by Remy Perona (GPLv2 or later)
-
-
-== Translations ==
-
-* English - default, always included
-* German (de_DE): Deutsch - immer dabei! :-)
-* For custom and update-secure language files please upload them to `/wp-content/languages/toolbar-extras/` (just create this folder) - This enables you to use fully custom translations that won't be overridden on plugin updates. Also, complete custom English wording is possible with that as well, just use a language file like `toolbar-extras-en_US.mo/.po` to achieve that (for creating one see the following tools).
-
-**Easy WordPress.org plugin translation platform with GlotPress platform:** [**Translate "Toolbar Extras"...**](https://translate.wordpress.org/projects/wp-plugins/toolbar-extras)
-
-*Note:* All my plugins are internationalized/ translateable by default. This is very important for all users worldwide. So please contribute your language to the plugin to make it even more useful. For translating and validating I recommend the awesome ["Poedit Editor"](https://www.poedit.net/), which works fine on Windows, macOS and Linux.
 
 == Additional Info ==
 **Idea Behind / Philosophy:** Just a little lightweight plugin for all the Non-Coder site builders out there using Elementor page builder - making their daily work and life just a little easier.
