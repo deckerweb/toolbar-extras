@@ -1,11 +1,11 @@
-=== Toolbar Extras for Elementor - WordPress Adminbar Enhanced ===
+=== Toolbar Extras for Elementor - WordPress Admin Bar Enhanced ===
 Contributors: daveshine, deckerweb, wpautobahn
 Donate link: https://www.paypal.me/deckerweb
 Tags: toolbar, adminbar, admin bar, elementor, page builder, themes, menu, links, settings, usability, deckerweb, ddwtoolbar
 Requires at least: 4.6
 Tested up to: 4.9.5
 Requires PHP: 5.4
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPL-2.0+
 License URI: https://opensource.org/licenses/GPL-2.0
 
@@ -27,7 +27,7 @@ Out of the box the plugin includes support for dozens of awesome Plugins and The
 - Adds links for general, very useful Plugins (for Site Builders/ Designers/ Developers)
 - Enhances "New Content" section (under "+ New") with more links - for content types, as well as Plugin & Theme installs
 - Adds new groups & links to "Site" section (under your Website Title in Toolbar)
-- Automatic detection of Local Development Environment - to better differentiate your development and live sites (works best with the App "Local by Flywheel")
+- Automatic detection of Local Development Environment - to better differentiate your development and live sites (works best with the App "Local by Flywheel" and a `.local` domain)
 - Adds support for creating an "internal" new Menu for Admins which hooks into the Toolbar - using the regular WordPress nav menu system! (Menu location is: "Site Toolbar Menu")
 - Adds useful external resource links to most of the above mentioned sections (could be disabled, of course!)
 - A few smart tweaks to change some behevior of WordPress as well as some plugins - all regarding the Toolbar
@@ -196,9 +196,9 @@ Yes, absolutely. - Though, we won't support every plugin under the sun, of cours
 * additionally it should have a good reputation and be just useful (yes, say that again!)
 
 **Does the Plugin work with Multisite?**
-Yes, it works in Multisite. However it does add almost nothing additional to the Network Admin but rather to the Dashboard of each individual sub-site of the Network.
+Yes, it works in Multisite, you can even activate it Network-wide. However, it does add almost nothing additional to the Network Admin but rather to the Dashboard of each individual sub-site of the Network.
 
-For Multisite installs I recommend my own plugin **["Multisite Toolbar Additions"](https://wordpress.org/plugins/multisite-toolbar-additions/)** which is like a "sister plugin" of Toolbar Extras (and even was there before it!).
+For Multisite installs I currently recommend my own plugin **["Multisite Toolbar Additions"](https://wordpress.org/plugins/multisite-toolbar-additions/)** which is like a "sister plugin" of Toolbar Extras (and even was there before it!).
 
 **More info on Translations?**
 
@@ -268,6 +268,13 @@ For Multisite installs I recommend my own plugin **["Multisite Toolbar Additions
 
 == Changelog ==
 
+= 1.0.2 - 2018-04-05 =
+* New: Added first language packs via WordPress.org translations platform - for German (de_DE - informal) and German Formal (de_DE_formal) - thanks to Team WordPress DE! ;-)
+* New: Added plugin support for "Cleaner Plugin Installer".
+* Tweak: Improved localization on plugin activation.
+* Fix: Fallback function for main item, now with proper URL, plus slightly tweaked string text.
+* Fix: Fatal error related to "Dev Mode" in Multisite context.
+
 = 1.0.1 - 2018-04-04 =
 * Tweak: Improved localization functions.
 * Tweak: Improved Readme.txt
@@ -280,6 +287,9 @@ For Multisite installs I recommend my own plugin **["Multisite Toolbar Additions
 * New: Including support for 10 Genesis specific plugins
 
 == Upgrade Notice =
+
+= 1.0.2 =
+Maintenance release. Small improvements and fixes.
 
 = 1.0.1 =
 Maintenance release. Small fixes.

@@ -157,50 +157,68 @@ function ddw_tbex_items_new_content_installer() {
 			array(
 			'parent' => $addnewgroup,
 			'id'     => 'install-plugin',
-			'title'  => __( 'Install Plugin', 'toolbar-extras' ),
+			'title'  => esc_attr__( 'Install Plugin', 'toolbar-extras' ),
 			'href'   => esc_url( network_admin_url( 'plugin-install.php' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => __( 'Install Plugin - Search via WordPress.org', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Install Plugin - Search via WordPress.org', 'toolbar-extras' )
 			)
 		)
 	);
 
 		$GLOBALS[ 'wp_admin_bar' ]->add_node(
 			array(
-				'parent' => 'install-plugin',
 				'id'     => 'search-plugin-repo',
-				'title'  => __( 'Search Plugin Directory', 'toolbar-extras' ),
+				'parent' => 'install-plugin',
+				'title'  => esc_attr__( 'Search Plugin Directory', 'toolbar-extras' ),
 				'href'   => esc_url( network_admin_url( 'plugin-install.php' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => __( 'Search WordPress.org Plugin Directory', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Search WordPress.org Plugin Directory', 'toolbar-extras' )
 				)
 			)
 		);
 
 		$GLOBALS[ 'wp_admin_bar' ]->add_node(
 			array(
-				'parent' => 'install-plugin',
 				'id'     => 'upload-plugin-zip',
-				'title'  => __( 'Upload ZIP file', 'toolbar-extras' ),
+				'parent' => 'install-plugin',
+				'title'  => esc_attr__( 'Upload ZIP file', 'toolbar-extras' ),
 				'href'   => esc_url( network_admin_url( 'plugin-install.php?tab=upload' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => __( 'Install Plugin - Upload ZIP file', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Install Plugin - Upload ZIP file', 'toolbar-extras' )
 				)
 			)
 		);
 
+		/** Plugin support: "Cleaner Plugin Installer" (by myself :) */
+		if ( defined( 'CLPINST_PLUGIN_BASEDIR' ) ) {
+
+			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				array(
+					'id'     => 'install-plugin-cpi-topics',
+					'parent' => 'install-plugin',
+					'title'  => esc_attr__( 'Topics, Use Cases, Tags', 'toolbar-extras' ),
+					'href'   => esc_url( network_admin_url( 'plugin-install.php?tab=topics' ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => esc_attr__( 'Install Plugins - Curated Topics, Use Cases, Plugin Tags (via WordPress.org)', 'toolbar-extras' )
+					)
+				)
+			);
+
+		}  // end if
+
 		$GLOBALS[ 'wp_admin_bar' ]->add_node(
 			array(
-				'parent' => 'install-plugin',
 				'id'     => 'install-plugin-favorites',
-				'title'  => __( 'Install Favorites', 'toolbar-extras' ),
+				'parent' => 'install-plugin',	
+				'title'  => esc_attr__( 'Install Favorites', 'toolbar-extras' ),
 				'href'   => esc_url( network_admin_url( 'plugin-install.php?tab=favorites' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => __( 'Install Plugins - Favorites (via WordPress.org)', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Install Plugins - Favorites (via WordPress.org)', 'toolbar-extras' )
 				)
 			)
 		);
@@ -208,52 +226,52 @@ function ddw_tbex_items_new_content_installer() {
 	/** Install Themes */
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(
 		array(
-			'parent' => $addnewgroup,
 			'id'     => 'install-theme',
-			'title'  => __( 'Install Theme', 'toolbar-extras' ),
+			'parent' => $addnewgroup,
+			'title'  => esc_attr__( 'Install Theme', 'toolbar-extras' ),
 			'href'   => esc_url( network_admin_url( 'theme-install.php' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => __( 'Install Theme - Search via WordPress.org', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Install Theme - Search via WordPress.org', 'toolbar-extras' )
 			)
 		)
 	);
 
 		$GLOBALS[ 'wp_admin_bar' ]->add_node(
 			array(
-				'parent' => 'install-theme',
 				'id'     => 'search-theme-repo',
-				'title'  => __( 'Search Theme Directory', 'toolbar-extras' ),
+				'parent' => 'install-theme',
+				'title'  => esc_attr__( 'Search Theme Directory', 'toolbar-extras' ),
 				'href'   => esc_url( network_admin_url( 'theme-install.php' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => __( 'Search WordPress Theme Directory', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Search WordPress Theme Directory', 'toolbar-extras' )
 				)
 			)
 		);
 
 		$GLOBALS[ 'wp_admin_bar' ]->add_node(
 			array(
-				'parent' => 'install-theme',
 				'id'     => 'install-theme-favorites',
-				'title'  => __( 'Install Favorites', 'toolbar-extras' ),
+				'parent' => 'install-theme',
+				'title'  => esc_attr__( 'Install Favorites', 'toolbar-extras' ),
 				'href'   => esc_url( network_admin_url( 'theme-install.php?browse=favorites' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => __( 'Install Theme - Favorites (via WordPress.org)', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Install Theme - Favorites (via WordPress.org)', 'toolbar-extras' )
 				)
 			)
 		);
 
 		$GLOBALS[ 'wp_admin_bar' ]->add_node(
 			array(
-				'parent' => 'install-theme',
 				'id'     => 'upload-theme-zip',
-				'title'  => __( 'Upload ZIP file', 'toolbar-extras' ),
+				'parent' => 'install-theme',
+				'title'  => esc_attr__( 'Upload ZIP file', 'toolbar-extras' ),
 				'href'   => esc_url( network_admin_url( 'theme-install.php?upload' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => __( 'Install Theme - Upload ZIP file', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Install Theme - Upload ZIP file', 'toolbar-extras' )
 				)
 			)
 		);

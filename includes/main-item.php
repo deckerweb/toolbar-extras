@@ -33,11 +33,15 @@ add_action( 'admin_bar_menu', 'ddw_tbex_toolbar_main_item', ddw_tbex_main_item_p
  */
 function ddw_tbex_toolbar_main_item() {
 
-	if ( ddw_tbex_is_pagebuilder_active() ) {
-		
-		$default_builder = ddw_tbex_get_default_pagebuilder();
-		$all_builders    = (array) ddw_tbex_get_pagebuilders();
+	/** Get default Page Builder */
+	$default_builder = ddw_tbex_get_default_pagebuilder();
 
+	if ( ddw_tbex_is_pagebuilder_active() && ! empty( $default_builder ) ) {
+		
+		/** Get all registered Page Builders */
+		$all_builders = (array) ddw_tbex_get_pagebuilders();
+
+		/** Add main node for Page Builder context */
 		$GLOBALS[ 'wp_admin_bar' ]->add_node(
 			array(
 				'id'     => ddw_tbex_id_main_item(),
@@ -53,6 +57,7 @@ function ddw_tbex_toolbar_main_item() {
 
 	} else {
 
+		/** Add main node for fallback context */
 		$GLOBALS[ 'wp_admin_bar' ]->add_node(
 			array(
 				'id'     => ddw_tbex_id_main_item(),

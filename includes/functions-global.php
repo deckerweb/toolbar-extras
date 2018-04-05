@@ -240,9 +240,9 @@ function ddw_tbex_is_pagebuilder_active() {
 function ddw_tbex_get_default_pagebuilder() {
 
 	/** Interim setting - will get overhauled, once plugin's extended settings are in place! */
-	$builder = 'elementor';
+	$builder = ddw_tbex_is_elementor_active() ? 'elementor' : '';
 
-	return strtolower( esc_attr( apply_filters( 'tbex_filter_default_pagebuilder', $builder ) ) );
+	return sanitize_key( apply_filters( 'tbex_filter_default_pagebuilder', $builder ) );
 
 }  // end function
 

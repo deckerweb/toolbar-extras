@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Toolbar Extras\n"
-"POT-Creation-Date: 2018-04-04 01:46+0200\n"
-"PO-Revision-Date: 2018-04-04 09:25+0200\n"
+"POT-Creation-Date: 2018-04-05 22:28+0200\n"
+"PO-Revision-Date: 2018-04-05 22:29+0200\n"
 "Last-Translator: David Decker DECKERWEB.de -- https://deckerweb.de/\n"
 "Language-Team: David Decker DECKERWEB.de -- https://deckerweb.de/\n"
 "Language: de_DE\n"
@@ -1960,7 +1960,7 @@ msgstr "Pluginverzeichnis durchsuchen"
 msgid "Search WordPress.org Plugin Directory"
 msgstr "WordPress.org Pluginverzeichnis durchsuchen"
 
-#: includes/items-new-content.php:186 includes/items-new-content.php:252
+#: includes/items-new-content.php:186 includes/items-new-content.php:270
 msgid "Upload ZIP file"
 msgstr "ZIP-Datei hochladen"
 
@@ -1968,35 +1968,46 @@ msgstr "ZIP-Datei hochladen"
 msgid "Install Plugin - Upload ZIP file"
 msgstr "Plugin installieren - ZIP-Datei hochladen"
 
-#: includes/items-new-content.php:199 includes/items-new-content.php:239
+#: includes/items-new-content.php:202
+msgid "Topics, Use Cases, Tags"
+msgstr "Themen &amp; Schlagwörter"
+
+#: includes/items-new-content.php:206
+msgid ""
+"Install Plugins - Curated Topics, Use Cases, Plugin Tags (via WordPress.org)"
+msgstr ""
+"Plugin installieren - Themen, Einsatzzwecke, Plugin-Schlagwörter (via "
+"WordPress.org)"
+
+#: includes/items-new-content.php:217 includes/items-new-content.php:257
 msgid "Install Favorites"
 msgstr "Favoriten installieren"
 
-#: includes/items-new-content.php:203
+#: includes/items-new-content.php:221
 msgid "Install Plugins - Favorites (via WordPress.org)"
 msgstr "Plugin installieren - Favoriten (via WordPress.org)"
 
-#: includes/items-new-content.php:213
+#: includes/items-new-content.php:231
 msgid "Install Theme"
 msgstr "Theme installieren"
 
-#: includes/items-new-content.php:217
+#: includes/items-new-content.php:235
 msgid "Install Theme - Search via WordPress.org"
 msgstr "Theme installieren - Suche via WordPress.org"
 
-#: includes/items-new-content.php:226
+#: includes/items-new-content.php:244
 msgid "Search Theme Directory"
 msgstr "Themeverzeichnis durchsuchen"
 
-#: includes/items-new-content.php:230
+#: includes/items-new-content.php:248
 msgid "Search WordPress Theme Directory"
 msgstr "WordPress.org Themeverzeichnis durchsuchen"
 
-#: includes/items-new-content.php:243
+#: includes/items-new-content.php:261
 msgid "Install Theme - Favorites (via WordPress.org)"
 msgstr "Theme installieren - Favoriten (via WordPress.org)"
 
-#: includes/items-new-content.php:256
+#: includes/items-new-content.php:274
 msgid "Install Theme - Upload ZIP file"
 msgstr "Theme installieren - ZIP-Datei hochladen"
 

@@ -169,7 +169,7 @@ function ddw_tbex_site_items_devmode_plugin_status() {
 
 	/** MU Plugins (Must Use) and DropIns */
 	if ( ! is_multisite()
-		|| ( is_ntwork_admin() && current_user_can( 'manage_network_plugins' ) )
+		|| ( is_network_admin() && current_user_can( 'manage_network_plugins' ) )
 	) {
 
 		if ( apply_filters( 'show_advanced_plugins', TRUE, 'mustuse' ) ) {
