@@ -80,21 +80,24 @@ function ddw_tbex_default_options_smart_tweaks() {
 	$tbex_default_options = array(
 
 		/** Tab: Smart Tweaks */
-		'toolbar_front_color'         => 'yes',			// should be default in Core anyways, so let's do it!
+		'toolbar_front_color'       => 'yes',		// should be default in Core anyways, so let's do it!
 
-		'use_web_group'               => 'no',			// let user decide
+		'use_web_group'             => 'no',		// let user decide
 
-		'remove_wp_logo'              => 'no',			// do not touch by default
-		'remove_front_customizer'     => 'no',			// do not touch by default
-		'remove_updraftplus'          => 'yes',			// remove by default, as their default makes no sense
-		'remove_members'              => 'no',			// do not touch by default
-		'remove_cobaltapps'           => 'no',			// do not touch by default
-		'remove_customcsspro'         => 'no',			// do not touch by default
-		'remove_apspider'             => 'no',			// do not touch by default
-		'remove_mstba_siteextgroup'   => 'yes',			// remove by default
+		'remove_wp_logo'            => 'no',		// do not touch by default
+		'remove_front_customizer'   => 'no',		// do not touch by default
+		'remove_updraftplus'        => 'yes',		// remove by default, as their default makes no sense
+		'remove_members'            => 'no',		// do not touch by default
+		'remove_cobaltapps'         => 'no',		// do not touch by default
+		'remove_customcsspro'       => 'no',		// do not touch by default
+		'remove_apspider'           => 'no',		// do not touch by default
+		'remove_aioseo'             => 'yes',		// remove by default
+		'remove_mstba_siteextgroup' => 'yes',		// remove by default
 
-		'rehook_gravityforms'         => 'no',			// do not touch GF by default
-		'rehook_smartslider'          => 'no',			// do not touch SS3 by default
+		'rehook_gravityforms'       => 'no',		// do not touch GF by default
+		'rehook_smartslider'        => 'no',		// do not touch SS3 by default
+		'rehook_nextgen'            => 'no',		// do not touch SS3 by default
+		'rehook_ithsec'             => 'no',		// do not touch SS3 by default
 
 	);  // end of array
 
@@ -325,7 +328,8 @@ function ddw_tbex_register_settings_general() {
 				__( 'Display Demo Import Items', 'toolbar-extras' ),
 				'ddw_tbex_settings_cb_display_items_demo_import',
 				'tbex_group_general',
-				'tbex-section-demos'
+				'tbex-section-demos',
+				array( 'class' => 'tbex-setting-display-items-demo-import' )
 			);
 
 			add_settings_field(
@@ -333,7 +337,8 @@ function ddw_tbex_register_settings_general() {
 				__( 'Icon Before the Text', 'toolbar-extras' ),
 				'ddw_tbex_settings_cb_demo_import_icon',
 				'tbex_group_general',
-				'tbex-section-demos'
+				'tbex-section-demos',
+				array( 'class' => 'tbex-setting-demo-import-icon' )
 			);
 
 		/** General: 5th section */
@@ -453,7 +458,7 @@ function ddw_tbex_register_settings_smart_tweaks() {
 			'tbex_group_smart_tweaks'
 		);									
 
-			if ( defined( 'RG_CURRENT_VIEW' ) ) {
+			if ( defined( 'RG_CURRENT_VIEW' ) ) {		// Gravity Forms
 
 				add_settings_field(
 					'rehook_gravityforms',
@@ -465,7 +470,7 @@ function ddw_tbex_register_settings_smart_tweaks() {
 
 			}  // end if
 
-			if ( defined( 'NEXTEND_SMARTSLIDER_3_BASENAME' ) ) {
+			if ( defined( 'NEXTEND_SMARTSLIDER_3_BASENAME' ) ) {		// Smart Slider 3
 
 				add_settings_field(
 					'rehook_smartslider',
@@ -477,7 +482,43 @@ function ddw_tbex_register_settings_smart_tweaks() {
 
 			}  // end if
 
-			if ( defined( 'UPDRAFTPLUS_DIR' ) ) {
+			if ( class_exists( 'C_NextGEN_Bootstrap' ) ) {		// NextGen Gallery
+
+				add_settings_field(
+					'rehook_nextgen',
+					__( 'Re-hook NextGen Gallery from Top Level to Site Group', 'toolbar-extras' ),
+					'ddw_tbex_settings_cb_rehook_nextgen',
+					'tbex_group_smart_tweaks',
+					'tbex-section-plugins'
+				);
+
+			}  // end if
+
+			if ( function_exists( 'itsec_load_textdomain' ) ) {		// iThemes Security
+
+				add_settings_field(
+					'rehook_ithsec',
+					__( 'Re-hook iThemes Security from Top Level to Site Group', 'toolbar-extras' ),
+					'ddw_tbex_settings_cb_rehook_ithsec',
+					'tbex_group_smart_tweaks',
+					'tbex-section-plugins'
+				);
+
+			}  // end if
+
+			if ( defined( 'AIOSEOP_VERSION' ) ) {		// All In One SEO Pack
+
+				add_settings_field(
+					'remove_aioseo',
+					__( 'Remove All In One SEO Pack Items', 'toolbar-extras' ),
+					'ddw_tbex_settings_cb_remove_aioseo',
+					'tbex_group_smart_tweaks',
+					'tbex-section-plugins'
+				);
+
+			}  // end if
+
+			if ( defined( 'UPDRAFTPLUS_DIR' ) ) {		// UpdraftPlus
 
 				add_settings_field(
 					'remove_updraftplus',
@@ -489,7 +530,7 @@ function ddw_tbex_register_settings_smart_tweaks() {
 
 			}  // end if
 
-			if ( class_exists( 'Members_Plugin' ) ) {
+			if ( class_exists( 'Members_Plugin' ) ) {		// Members (by Justin Tadlock)
 
 				add_settings_field(
 					'remove_members',
@@ -501,7 +542,7 @@ function ddw_tbex_register_settings_smart_tweaks() {
 
 			}  // end if
 
-			if ( defined( 'IIDE_CURRENT_VERSION' ) ) {
+			if ( function_exists( 'cobalt_apps_admin_bar_menu' ) ) {		// Cobalt Apps Plugins/ Themes
 
 				add_settings_field(
 					'remove_cobaltapps',
@@ -513,7 +554,7 @@ function ddw_tbex_register_settings_smart_tweaks() {
 
 			}  // end if
 
-			if ( function_exists( 'ccp_frame_loader' ) ) {
+			if ( function_exists( 'ccp_frame_loader' ) ) {		// Custom CSS Pro (by WaspThemes)
 
 				add_settings_field(
 					'remove_customcsspro',
@@ -525,7 +566,7 @@ function ddw_tbex_register_settings_smart_tweaks() {
 
 			}  // end if
 
-			if ( function_exists( 'page_spider_init' ) || defined( 'EDD_APSPP_VERSION' ) ) {
+			if ( function_exists( 'page_spider_init' ) || defined( 'EDD_APSPP_VERSION' ) ) {		// Admin Page Spider (Pro)
 
 				add_settings_field(
 					'remove_apspider',
@@ -537,7 +578,7 @@ function ddw_tbex_register_settings_smart_tweaks() {
 
 			}  // end if
 
-			if ( defined( 'MSTBA_PLUGIN_BASEDIR' ) ) {
+			if ( defined( 'MSTBA_PLUGIN_BASEDIR' ) ) {		// Multisite Toolbar Additions
 
 				add_settings_field(
 					'remove_mstba_siteextgroup',
@@ -590,7 +631,8 @@ function ddw_tbex_register_settings_development() {
 				__( 'Set as Local Development Environment', 'toolbar-extras' ),
 				'ddw_tbex_settings_cb_is_local_dev',
 				'tbex_group_development',
-				'tbex-section-local-dev'
+				'tbex-section-local-dev',
+				array( 'class' => 'tbex-setting-is-local-dev' )
 			);
 
 			add_settings_field(
@@ -598,7 +640,8 @@ function ddw_tbex_register_settings_development() {
 				__( 'Background Color of Toolbar', 'toolbar-extras' ),
 				'ddw_tbex_settings_cb_local_dev_bg_color',
 				'tbex_group_development',
-				'tbex-section-local-dev'
+				'tbex-section-local-dev',
+				array( 'class' => 'tbex-setting-local-dev-bg-color' )
 			);
 
 			add_settings_field(
@@ -606,7 +649,8 @@ function ddw_tbex_register_settings_development() {
 				__( 'Icon Before the Text', 'toolbar-extras' ),
 				'ddw_tbex_settings_cb_local_dev_icon',
 				'tbex_group_development',
-				'tbex-section-local-dev'
+				'tbex-section-local-dev',
+				array( 'class' => 'tbex-setting-local-dev-icon' )
 			);
 
 			add_settings_field(
@@ -614,7 +658,8 @@ function ddw_tbex_register_settings_development() {
 				__( 'Display Text in Toolbar', 'toolbar-extras' ),
 				'ddw_tbex_settings_cb_local_dev_name',
 				'tbex_group_development',
-				'tbex-section-local-dev'
+				'tbex-section-local-dev',
+				array( 'class' => 'tbex-setting-local-dev-name' )
 			);
 
 			add_settings_field(
@@ -622,7 +667,8 @@ function ddw_tbex_register_settings_development() {
 				__( 'Minimum Viewport Size to Display the Text', 'toolbar-extras' ),
 				'ddw_tbex_settings_cb_local_dev_viewport',
 				'tbex_group_development',
-				'tbex-section-local-dev'
+				'tbex-section-local-dev',
+				array( 'class' => 'tbex-setting-local-dev-viewport' )
 			);
 
 		/** Development: 2nd section */
@@ -638,7 +684,8 @@ function ddw_tbex_register_settings_development() {
 				__( 'Use Dev Mode?', 'toolbar-extras' ),
 				'ddw_tbex_settings_cb_use_dev_mode',
 				'tbex_group_development',
-				'tbex-section-dev-mode'
+				'tbex-section-dev-mode',
+				array( 'class' => 'tbex-setting-use-dev-mode' )
 			);
 
 			add_settings_field(
@@ -646,7 +693,8 @@ function ddw_tbex_register_settings_development() {
 				__( 'Icon Before the Text', 'toolbar-extras' ),
 				'ddw_tbex_settings_cb_rapid_dev_icon',
 				'tbex_group_development',
-				'tbex-section-dev-mode'
+				'tbex-section-dev-mode',
+				array( 'class' => 'tbex-setting-rapid-dev-icon' )
 			);
 
 			add_settings_field(
@@ -654,7 +702,8 @@ function ddw_tbex_register_settings_development() {
 				__( 'Text of Toolbar Item', 'toolbar-extras' ),
 				'ddw_tbex_settings_cb_rapid_dev_name',
 				'tbex_group_development',
-				'tbex-section-dev-mode'
+				'tbex-section-dev-mode',
+				array( 'class' => 'tbex-setting-rapid-dev-name' )
 			);
 
 }  // end function
@@ -759,9 +808,12 @@ function ddw_tbex_validate_settings_smart_tweaks( $input ) {
 		'remove_cobaltapps',
 		'remove_customcsspro',
 		'remove_apspider',
+		'remove_aioseo',
 		'remove_mstba_siteextgroup',
 		'rehook_gravityforms',
-		'rehook_smartslider'
+		'rehook_smartslider',
+		'rehook_nextgen',
+		'rehook_ithsec'
 	);
 
 	foreach( $select_fields as $select ) {

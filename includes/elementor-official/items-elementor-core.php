@@ -47,6 +47,9 @@ add_action( 'admin_bar_menu', 'ddw_tbex_items_elementor_core', 99 );
  *
  * @uses   ddw_tbex_is_elementor_version()
  * @uses   ddw_tbex_string_elementor()
+ * @uses   ddw_tbex_get_elementor_template_add_new_url()
+ * @uses   ddw_tbex_string_elementor_template_with_builder()
+ * @uses   ddw_tbex_string_elementor_template_create_with_builder()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -149,13 +152,42 @@ function ddw_tbex_items_elementor_core() {
 					'id'     => 'elementor-library-new-builder',
 					'parent' => 'elementor-library',
 					'title'  => esc_attr__( 'New Template Builder', 'toolbar-extras' ),
-					'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'elementor_library' ) ),
+					'href'   => '',		//esc_attr( \Elementor\Utils::get_create_new_post_url( 'elementor_library' ) ),
 					'meta'   => array(
 						'target' => '',
 						'title'  => esc_attr__( 'New Template Builder', 'toolbar-extras' )
 					)
 				)
 			);
+
+				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					array(
+						'id'     => 'et-build-template-page',
+						'parent' => 'elementor-library-new-builder',
+						'title'  => ddw_tbex_string_elementor_template_with_builder( _x( 'Page', 'Elementor Template type', 'toolbar-extras' ) ),
+						'href'   => ddw_tbex_get_elementor_template_add_new_url( 'widget' ),
+						'meta'   => array(
+							'target' => '',
+							'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Page', 'Elementor Template type', 'toolbar-extras' ) )
+						)
+					)
+				);
+
+				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					array(
+						'id'     => 'et-build-template-section',
+						'parent' => 'elementor-library-new-builder',
+						'title'  => ddw_tbex_string_elementor_template_with_builder( _x( 'Section', 'Elementor Template type', 'toolbar-extras' ) ),
+						'href'   => ddw_tbex_get_elementor_template_add_new_url( 'section' ),
+						'meta'   => array(
+							'target' => '',
+							'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Section', 'Elementor Template type', 'toolbar-extras' ) )
+						)
+					)
+				);
+
+			/** Required for Elementor Pro */
+			do_action( 'tbex_after_elementor_library_builder' );
 
 		}  // end if
 
@@ -461,7 +493,7 @@ function ddw_tbex_items_elementor_core_resources() {
 			'elementor-community',
 			'https://www.facebook.com/groups/Elementors/'
 		);
-		
+
 		ddw_tbex_resource_item(
 			'translations-community',
 			'elementor-community-translations',
@@ -474,6 +506,20 @@ function ddw_tbex_items_elementor_core_resources() {
 			'elementor-community-github-issues',
 			'elementor-community',
 			'https://github.com/pojome/elementor/issues'
+		);
+
+		ddw_tbex_resource_item(
+			'community-forum',
+			'elementor-community-elmforums',
+			'elementor-community',
+			'https://elementorforums.com/community/'
+		);
+
+		ddw_tbex_resource_item(
+			'user-forum',
+			'elementor-community-elmtalk',
+			'elementor-community',
+			'//www.elementortalk.com/'
 		);
 
 }  // end function

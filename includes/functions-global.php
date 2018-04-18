@@ -53,6 +53,7 @@ function ddw_tbex_info_values() {
 		'url_snippets'      => 'https://gist.github.com/deckerweb',
 		'author'            => __( 'David Decker - DECKERWEB', 'toolbar-extras' ),
 		'author_uri'        => __( 'https://deckerweb.de/', 'toolbar-extras' ),
+		'author_gravatar'   => 'https://s.gravatar.com/avatar/37f92a97dd59cb35be4f86f3e6b56309?s=',		// size defined at usage!
 		'license'           => 'GPL-2.0+',
 		'url_license'       => 'https://opensource.org/licenses/GPL-2.0',
 		'first_code'        => '2012',
@@ -61,12 +62,16 @@ function ddw_tbex_info_values() {
 		'url_github'        => 'https://github.com/deckerweb/toolbar-extras',
 		'url_github_issues' => 'https://github.com/deckerweb/toolbar-extras/issues',
 		'url_roadmap'       => 'https://trello.com/b/JrpjwlX4/toolbar-extras-public-roadmap',
-		'url_video_intro'   => '',
+		'url_video_intro'   => 'https://www.youtube.com/watch?v=fdDG19Sk0is',
+		'url_video_tour'    => '//www.youtube-nocookie.com/embed/fdDG19Sk0is?rel=0&TB_iframe=true&width=1024&height=576',	// for Thickbox, embed version, no cookies!
+		'url_video_channel' => 'https://www.youtube.com/channel/UCaAPlEcIcWaxW733FvO2CCw',
+		'url_video_plist'   => 'https://www.youtube.com/playlist?list=PL5-Wf0C0GRoyAQs3AY2IgmZoFe9l63Ei_',
 		'url_menu_screen'   => 'https://www.dropbox.com/s/7u83c0g5ehk4ozq/screenshot-5.png',
-		'url_tweet_en'      => 'https://twitter.com/home?status=Let%20the%20%23WordPress%20%23Toolbar%20work%20for%20you%20-%20with%20Toolbar%20Extras%20%23plugin%3A%20https%3A//toolbarextras.com%20%20Perfect%20for%20site-builders%20via%20%40deckerweb.de',
-		'url_tweet_de'      => 'https://twitter.com/home?status=Lass%20die%20%23WordPress%20%23Toolbar%20f%C3%BCr%20dich%20arbeiten%20-%20mit%20dem%20Toolbar%20Extras%20%23Plugin%3A%20https%3A//toolbarextras.com%20Perfekt%20f%C3%BCr%20Site-Builders%20%3A)%20via%20%40deckerweb.de',
+		'url_tweet_en'      => 'https://twitter.com/home?status=Let%20the%20%23WordPress%20%23Toolbar%20work%20for%20you%20-%20with%20Toolbar%20Extras%20%23plugin%3A%20https%3A//toolbarextras.com%20%20Perfect%20for%20site-builders%20via%20%40deckerweb',
+		'url_tweet_de'      => 'https://twitter.com/home?status=Lass%20die%20%23WordPress%20%23Toolbar%20f%C3%BCr%20dich%20arbeiten%20-%20mit%20dem%20Toolbar%20Extras%20%23Plugin%3A%20https%3A//toolbarextras.com%20Perfekt%20f%C3%BCr%20Site-Builders%20%3A)%20via%20%40deckerweb',
 		'url_fb_share'      => 'https://www.facebook.com/sharer/sharer.php?u=https%3A//toolbarextras.com/',
-		'url_gplus_share'   => 'https://plus.google.com/share?url=https%3A//toolbarextras.com/'
+		'url_gplus_share'   => 'https://plus.google.com/share?url=https%3A//toolbarextras.com/',
+		'url_mstba'         => 'https://wordpress.org/plugins/multisite-toolbar-additions/',
 
 	);  // end of array
 
@@ -428,6 +433,57 @@ function ddw_tbex_item_title_with_settings_icon( $string = '', $settings_type = 
 		'tbex_filter_item_title_with_settings_icon',
 		$output
 	);
+
+}  // end function
+
+
+/**
+ * Get all Elementor template types as an array.
+ *   Note: Filter 'tbex_filter_elementor_template_types' allows for plugins to
+ *         add or remove template types.
+ *
+ * @since  1.1.0
+ *
+ * @return array Array of Elementor template types.
+ */
+function ddw_tbex_get_elementor_template_types() {
+
+	$template_types = apply_filters(
+		'tbex_filter_elementor_template_types',
+		array( 'page', 'section', 'widget', 'header', 'footer', 'single', 'archive', )
+	);
+
+	return array_map( 'sanitize_key', $template_types );
+
+}  // end function
+
+
+/**
+ * Create an "Add New" link for an Elementor Library Template Type, including
+ *   the setting of a template type.
+ *
+ * @since  1.1.0
+ *
+ * @uses   ddw_tbex_get_elementor_template_types()
+ * @uses   \Elementor\Utils::get_create_new_post_url()
+ *
+ * @param  string $type Key of the Elementor template type.
+ * @return string URL for adding a new Elementor template, containing the proper
+ *                template type plus the security nonce.
+ */
+function ddw_tbex_get_elementor_template_add_new_url( $type = '' ) {
+
+	/** Fallback to template type 'page' if type parameter is no supported type or is empty */
+	if ( ! in_array( $type, ddw_tbex_get_elementor_template_types() ) || empty( $type ) ) {
+		$type = 'page';
+	}
+
+	/** Create "Add New" URL using Elementor core method */
+	$create_new_post_url = \Elementor\Utils::get_create_new_post_url( 'elementor_library' );
+	$create_new_post_url = add_query_arg( 'template_type', sanitize_key( $type ), $create_new_post_url );
+
+	/** Return the proper URL */
+	return esc_attr( $create_new_post_url );
 
 }  // end function
 

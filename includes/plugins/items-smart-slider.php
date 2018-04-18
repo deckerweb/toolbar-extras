@@ -1,6 +1,6 @@
 <?php
 
-// items-smart-slider
+// includes/plugins/items-smart-slider
 
 /**
  * Prevent direct access to this file.
@@ -12,50 +12,30 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 
-add_action( 'wp_before_admin_bar_render', 'ddw_tbex_remove_items_smartslider', 1 );
-/**
- * Remove items from Smart Slider 3 plugin.
- *
- * @since  1.0.0
- *
- * @uses   ddw_tbex_use_tweak_smartslider()
- *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
- */
-function ddw_tbex_remove_items_smartslider() {
-
-	/** Bail early if Smart Slider 3 tweak should NOT be used */
-	if ( ! ddw_tbex_use_tweak_smartslider() ) {
-		return;
-	}
-
-	$GLOBALS[ 'wp_admin_bar' ]->remove_node( 'smart_slider_3' );
-
-}  // end function
-
-
-add_action( 'wp_before_admin_bar_render', 'ddw_tbex_site_items_smartslider', 1 );
+add_filter( 'admin_bar_menu', 'ddw_tbex_site_items_smartslider' );
 /**
  * Items for Plugin: Smart Slider 3 (free/Premium, by Nextend)
+ *   If tweak setting is active then re-hook from the top to the conditional hook place for galleries & sliders
  *
  * @since  1.0.0
  *
  * @uses   ddw_tbex_use_tweak_smartslider()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @global mixed $wp_admin_bar
+ * @param  obj   $wp_admin_bar Holds all nodes of the Toolbar.
  */
-function ddw_tbex_site_items_smartslider() {
+function ddw_tbex_site_items_smartslider( $wp_admin_bar ) {
 
 	/** Bail early if Smart Slider 3 tweak should NOT be used */
 	if ( ! ddw_tbex_use_tweak_smartslider() ) {
 		return;
 	}
 
-	/** For: Manage Content */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	/** Re-hook for: Manage Content */
+	$wp_admin_bar->add_node(
 		array(
-			'id'     => 'smart_slider_3',	// same as original!
-			'parent' => 'manage-content',	//'tbex-sitegroup-manage-content',
+			'id'     => 'smart_slider_3',			// same as original!
+			'parent' => 'gallery-slider-addons',
 			'title'  => esc_attr__( 'Smart Sliders', 'toolbar-extras' ),
 			'href'   => esc_url( admin_url( 'admin.php?page=smart-slider-3' ) ),
 			'meta'   => array(
@@ -69,7 +49,7 @@ function ddw_tbex_site_items_smartslider() {
 }  // end function
 
 
-add_action( 'wp_before_admin_bar_render', 'ddw_tbex_site_items_smartslider_extend', 100 );
+add_action( 'admin_bar_menu', 'ddw_tbex_site_items_smartslider_extend', 100 );
 /**
  * Resources items for Plugin: Smart Slider 3
  *
@@ -108,7 +88,7 @@ function ddw_tbex_site_items_smartslider_extend() {
 }  // end function
 
 
-add_action( 'wp_before_admin_bar_render', 'ddw_tbex_site_items_smartslider_resources', 200 );
+add_action( 'admin_bar_menu', 'ddw_tbex_site_items_smartslider_resources', 200 );
 /**
  * Resources items for Plugin: Smart Slider 3
  *

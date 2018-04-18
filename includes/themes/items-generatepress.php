@@ -1,7 +1,7 @@
 <?php
 
-//items-generatepress
-//items-generatepress-premium
+// items-generatepress
+// items-generatepress-premium
 
 /**
  * Prevent direct access to this file.
@@ -78,7 +78,6 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_generatepress_customize', 100
  *
  * @uses   ddw_tbex_customizer_focus()
  * @uses   ddw_tbex_string_customize_attr()
- * @uses   ddw_tbex_is_astra_pro_active()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -130,7 +129,7 @@ function ddw_tbex_themeitems_generatepress_customize() {
 
 		$GLOBALS[ 'wp_admin_bar' ]->add_node(
 			array(
-				'id'     => 'gpcmz-bakgrounds',
+				'id'     => 'gpcmz-backgrounds',
 				'parent' => 'theme-creative-customize',
 				/* translators: Autofocus panel in the Customizer */
 				'title'  => esc_attr__( 'Backgrounds', 'toolbar-extras' ),
@@ -173,6 +172,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_generatepress_resources', 120
  * @since 1.0.0
  *
  * @uses  ddw_tbex_display_items_resources()
+ * @uses  ddw_tbex_is_generatepress_premium_active()
  * @uses  ddw_tbex_resource_item()
  */
 function ddw_tbex_themeitems_generatepress_resources() {
@@ -254,10 +254,8 @@ function ddw_tbex_themeitems_generatepress_premium() {
 
 	/** Bail early if Premium version is not active */
 	if ( ! ddw_tbex_is_generatepress_premium_active() ) {
-
 		return;
-
-	}  // end if
+	}
 
 	/** Premium: Page Headers */
 	if ( defined( 'GENERATE_PAGE_HEADER_VERSION' ) ) {

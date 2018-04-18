@@ -73,6 +73,101 @@ function ddw_tbex_tweak_frontend_toolbar_color() {
 }  // end function
 
 
+//add_action( 'wp_before_admin_bar_render', 'ddw_tbex_rehook_items_nextgen_gallery' );
+add_filter( 'admin_bar_menu', 'ddw_tbex_rehook_items_nextgen_gallery' );
+/**
+ * Re-hook items from NextGen Gallery plugin.
+ *
+ * @since  1.1.0
+ *
+ * @uses   ddw_tbex_use_tweak_nextgen()
+ *
+ * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ */
+function ddw_tbex_rehook_items_nextgen_gallery( $wp_admin_bar ) {
+
+	/** Bail early if NextGen Gallery tweak should NOT be used */
+	if ( ! ddw_tbex_use_tweak_nextgen() ) {
+		return;
+	}
+
+	/** Re-hook for: Manage Content */
+	$wp_admin_bar->add_node(
+		array(
+			'id'     => 'ngg-menu',		// same as original!
+			'parent' => 'gallery-slider-addons',
+			'title'  => esc_attr__( 'Galleries', 'toolbar-extras' ),
+			'href'   => esc_url( admin_url( 'admin.php?page=nextgen-gallery' ) ),
+			'meta'   => array(
+				'class'  => 'tbex-ngg',
+				'target' => '',
+				'title'  => esc_attr__( 'Galleries (via NextGen Gallery)', 'toolbar-extras' )
+			)
+		)
+	);
+
+}  // end function
+
+
+add_action( 'wp_before_admin_bar_render', 'ddw_tbex_rehook_items_ithemes_security' );
+/**
+ * Re-hook items from iThemes Security plugin.
+ *
+ * @since  1.1.0
+ *
+ * @uses   ddw_tbex_use_tweak_ithemes_security()
+ *
+ * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ */
+function ddw_tbex_rehook_items_ithemes_security() {
+
+	/** Bail early if iThemes Security tweak should NOT be used */
+	if ( ! ddw_tbex_use_tweak_ithemes_security() ) {
+		return;
+	}
+
+	$GLOBALS[ 'wp_admin_bar' ]->remove_node( 'itsec_admin_bar_menu' );
+
+	/** Re-hook for: Site Group > More Stuff */
+	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		array(
+			'id'     => 'itsec_admin_bar_menu',		// same as original!
+			'parent' => 'tbex-sitegroup-stuff',
+			'title'  => esc_attr_x( 'Security', 'Label for iThemes Security plugin', 'toolbar-extras' ),
+			'href'   => esc_url( admin_url( 'admin.php?page=itsec' ) ),
+			'meta'   => array(
+				'class'  => 'tbex-ngg',
+				'target' => '',
+				'title'  => esc_attr__( 'Security (via iThemes Security)', 'toolbar-extras' )
+			)
+		)
+	);
+
+}  // end function
+
+
+add_action( 'wp_before_admin_bar_render', 'ddw_tbex_tweak_remove_items_aioseo', 15 );
+/**
+ * Remove items from All In One SEO Pack plugin.
+ *
+ * @since  1.0.0
+ *
+ * @uses   ddw_tbex_use_tweak_aioseo()
+ *
+ * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ */
+function ddw_tbex_tweak_remove_items_aioseo() {
+
+	/** Bail early if tweak shouldn't be used */
+	if ( ! ddw_tbex_use_tweak_aioseo() ) {
+		return;
+	}
+
+	$GLOBALS[ 'wp_admin_bar' ]->remove_node( 'all-in-one-seo-pack' );
+
+}  // end function
+
+
 add_action( 'wp_before_admin_bar_render', 'ddw_tbex_tweak_remove_items_updraftplus', 15 );
 /**
  * Remove items from UpdraftPlus plugin.

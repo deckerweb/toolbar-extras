@@ -300,10 +300,8 @@ function ddw_tbex_site_items_devmode_resources() {
  * @since 1.0.0
  */
 if ( class_exists( 'Debug_Elementor' ) ) {
-
 	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-debug-elementor.php' );
-
-}  // end if
+}
 
 
 /**
@@ -311,10 +309,8 @@ if ( class_exists( 'Debug_Elementor' ) ) {
  * @since 1.0.0
  */
 if ( class_exists( '\AceIDE\Editor\IDE' ) ) {
-
 	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-aceide.php' );
-
-}  // end if
+}
 
 
 /**
@@ -322,10 +318,8 @@ if ( class_exists( '\AceIDE\Editor\IDE' ) ) {
  * @since 1.0.0
  */
 if ( defined( 'IIDE_CURRENT_VERSION' ) ) {
-
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-instant-ide.php' );
-
-}  // end if
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-cobalt-instant-ide.php' );
+}
 
 
 /**
@@ -333,10 +327,8 @@ if ( defined( 'IIDE_CURRENT_VERSION' ) ) {
  * @since 1.0.0
  */
 if ( class_exists( 'Theme_Switcha' ) ) {
-
 	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-theme-switcha.php' );
-
-}  // end if
+}
 
 
 /**
@@ -344,7 +336,5 @@ if ( class_exists( 'Theme_Switcha' ) ) {
  * @since 1.0.0
  */
 if ( function_exists( 'wp_migrate_db' ) ) {
-
 	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-wp-db-migrate.php' );
-
-}  // end if
+}

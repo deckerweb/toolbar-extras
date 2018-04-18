@@ -18,6 +18,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_uael', 100 );
  *
  * @since  1.0.0
  *
+ * @uses   \UltimateElementor\Classes\UAEL_Helper::get_white_labels()
  * @uses   ddw_tbex_resource_item()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
@@ -60,18 +61,45 @@ function ddw_tbex_aoitems_uael() {
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
-			array(
-				'id'     => 'ao-uael-whitelabel',
-				'parent' => 'ao-uael',
-				'title'  => esc_attr__( 'Whitelabel Settings', 'toolbar-extras' ),
-				'href'   => esc_url( admin_url( 'options-general.php?page=uael&action=branding' ) ),
-				'meta'   => array(
-					'target' => '',
-					'title'  => esc_attr__( 'Whitelabel Settings', 'toolbar-extras' )
+		/** Google Maps module with extra settings */
+		$module_gmap = \UltimateElementor\Classes\UAEL_Helper::get_admin_settings_option( '_uael_widgets' );
+
+		if ( 'disabled' !== $module_gmap[ 'GoogleMap' ] ) {
+
+			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				array(
+					'id'     => 'ao-uael-googlemaps',
+					'parent' => 'ao-uael',
+					'title'  => esc_attr__( 'Google Map Settings', 'toolbar-extras' ),
+					'href'   => esc_url( admin_url( 'options-general.php?page=uael&action=integration' ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => esc_attr__( 'Google Map Settings', 'toolbar-extras' )
+					)
 				)
-			)
-		);
+			);
+
+		}  // end if
+
+		/** Only show white label settings if they are not hidden */
+		if ( ( ! $uael_whitelabel[ 'agency' ][ 'hide_branding' ] && ddw_tbex_display_uael_witelabel() )
+			|| ddw_tbex_display_uael_witelabel()
+		) {
+
+			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				array(
+					'id'     => 'ao-uael-whitelabel',
+					'parent' => 'ao-uael',
+					'title'  => esc_attr__( 'Whitelabel Settings', 'toolbar-extras' ),
+					'href'   => esc_url( admin_url( 'options-general.php?page=uael&action=branding' ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => esc_attr__( 'Whitelabel Settings', 'toolbar-extras' )
+					)
+				)
+			);
+
+		}  // end if
 
 		/** Group: Resources for Ultimate Addons */
 		if ( ddw_tbex_display_items_resources() ) {

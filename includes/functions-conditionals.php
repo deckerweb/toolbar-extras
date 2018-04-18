@@ -558,17 +558,49 @@ function ddw_tbex_use_tweak_smartslider() {
 
 
 /**
- * Tweak: Remove Members (Role) item from "New Content"?
+ * Tweak: Re-hook NextGen Gallery items from the top to our Site Group or not?
  *
- * @since  1.0.0
+ * @since  1.1.0
  *
  * @uses   ddw_tbex_get_option()
  *
  * @return bool TRUE if tweak should be used (setting 'yes'), otherwise FALSE.
  */
-function ddw_tbex_use_tweak_members() {
+function ddw_tbex_use_tweak_nextgen() {
 
-	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'remove_members' ) ) ? TRUE : FALSE;;
+	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'rehook_nextgen' ) ) ? TRUE : FALSE;;
+
+}  // end function
+
+
+/**
+ * Tweak: Re-hook iThemes Security items from the top to our Site Group or not?
+ *
+ * @since  1.1.0
+ *
+ * @uses   ddw_tbex_get_option()
+ *
+ * @return bool TRUE if tweak should be used (setting 'yes'), otherwise FALSE.
+ */
+function ddw_tbex_use_tweak_ithemes_security() {
+
+	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'rehook_ithsec' ) ) ? TRUE : FALSE;;
+
+}  // end function
+
+
+/**
+ * Tweak: Remove All In One SEO Pack items from the top?
+ *
+ * @since  1.1.0
+ *
+ * @uses   ddw_tbex_get_option()
+ *
+ * @return bool TRUE if tweak should be used (setting 'yes'), otherwise FALSE.
+ */
+function ddw_tbex_use_tweak_aioseo() {
+
+	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'remove_aioseo' ) ) ? TRUE : FALSE;
 
 }  // end function
 
@@ -585,6 +617,22 @@ function ddw_tbex_use_tweak_members() {
 function ddw_tbex_use_tweak_updraftplus() {
 
 	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'remove_updraftplus' ) ) ? TRUE : FALSE;
+
+}  // end function
+
+
+/**
+ * Tweak: Remove Members (Role) item from "New Content"?
+ *
+ * @since  1.0.0
+ *
+ * @uses   ddw_tbex_get_option()
+ *
+ * @return bool TRUE if tweak should be used (setting 'yes'), otherwise FALSE.
+ */
+function ddw_tbex_use_tweak_members() {
+
+	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'remove_members' ) ) ? TRUE : FALSE;;
 
 }  // end function
 
@@ -659,7 +707,8 @@ function ddw_tbex_use_tweak_mstba_siteextgroup() {
  *
  * @since  1.0.0
  *
- * @return bool TRUE if current active Theme/ Child Theme is in the array of supported themes, otherwise FALSE.
+ * @return bool TRUE if current active Theme/ Child Theme is in the array of
+ *              supported themes, otherwise FALSE.
  */
 function ddw_tbex_is_default_twenty() {
 
@@ -682,5 +731,113 @@ function ddw_tbex_is_default_twenty() {
 	);
 
 	return in_array( get_stylesheet(), $supported_twenty );
+
+}  // end function
+
+
+/**
+ * Check if current Theme/ Child Theme is a Hestia theme (by Themeisle), or one
+ *   of the supported child themes.
+ *
+ * @since  1.1.0
+ *
+ * @return bool TRUE if current active Theme/ Child Theme is in the array of
+ *              supported themes, otherwise FALSE.
+ */
+function ddw_tbex_is_theme_hestia() {
+
+	$supported_hestia = array(
+
+		/** Supported official Hestia themes */
+		'hestia',
+
+		/** Supported Hestia child themes */
+		'tiny-hestia',
+	);
+
+	return in_array( get_stylesheet(), $supported_hestia );
+
+}  // end function
+
+
+/**
+ * Check if current Parent Theme belongs to the Framework Themes supported by
+ *   Cobalt Apps plugins.
+ *
+ * @since  1.1.0
+ *
+ * @see    Extender Pro: https://cobaltapps.com/extender-pro-supported-themes/
+ * @see    Themer Pro: https://cobaltapps.com/themer-pro-supported-themes/
+ *
+ * @param  string $plugin Helper "handle" of the supported plugin to check for
+ * @return bool TRUE if current active Parent Theme is in the array of
+ *              supported themes, otherwise FALSE.
+ */
+function ddw_tbex_is_cobalt_supported_theme( $plugin = '' ) {
+
+	$supported_frameworks = array(
+		'genesis',
+		'generatepress',
+		'oceanwp',
+		'astra',
+		'bb-theme',
+		'freelancer',
+	);
+
+	$supported_twenty = array(
+		'twentyseventeen',
+		'twentysixteen',
+	);
+
+	if ( 'extender-pro' === sanitize_key( $plugin ) ) {
+		return in_array( basename( get_template_directory() ), $supported_frameworks );
+	}
+
+	if ( 'themer-pro' === sanitize_key( $plugin ) ) {
+		return in_array( basename( get_template_directory() ), array_merge( $supported_frameworks, $supported_twenty ) );
+	}
+
+	return FALSE;
+
+}  // end function
+
+
+/**
+ * To use the optional hook place for (general) gallery & slider plugins or not.
+ *
+ * @since  1.1.0
+ *
+ * @return bool TRUE if the conditions are met, otherwise FALSE.
+ */
+function ddw_tbex_use_hook_place_gallery_slider() {
+
+	if ( ddw_tbex_use_tweak_nextgen()
+		|| ddw_tbex_use_tweak_smartslider()
+		|| ( class_exists( 'Envira_Gallery_Lite' ) || class_exists( 'Envira_Gallery' ) )
+		|| ( class_exists( 'Soliloquy_Lite' ) || class_exists( 'Soliloquy' ) )
+		|| defined( 'FOOGALLERY_VERSION' )
+		|| class_exists( 'MaxGalleria' )
+	) {
+
+		/** Use Gallery/ Slider hook place */
+		return TRUE;
+
+	}  // end if
+
+	return FALSE;
+
+}  // end function
+
+
+/**
+ * Display item for white label setting of UAEL Add-On at all or not?
+ *
+ * @since  1.1.0
+ *
+ * @return bool TRUE if constant defined & false, otherwise FALSE.
+ */
+function ddw_tbex_display_uael_witelabel() {
+
+	return ( defined( 'WP_UAEL_WL' ) && ! WP_UAEL_WL ) ? TRUE : FALSE;
 
 }  // end function

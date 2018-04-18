@@ -1,7 +1,7 @@
 <?php
 
-//items-oceanwp
-//items-oceanwp-premium
+// items-oceanwp
+// items-oceanwp-premium
 
 /**
  * Prevent direct access to this file.
@@ -13,6 +13,27 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 
+/**
+ * Get OceanWP Theme name by respecting possible white label settings.
+ *
+ * @since  1.1.0
+ *
+ * @return string String of the Theme name.
+ */
+function ddw_tbex_string_oceanwp_theme_name() {
+
+	$owp_theme_name = wp_get_theme( get_template() )->get( 'Name' );
+
+	/** Respect OceanWP White Labeling (if Premium Add-On plugin is active) */
+	if ( function_exists( 'Ocean_White_Label' ) ) {
+		$owp_theme_name = ( ! empty( get_option( 'oceanwp_theme_name' ) ) ) ? esc_attr( get_option( 'oceanwp_theme_name' ) ) : $owp_theme_name;
+	}
+
+	return $owp_theme_name;
+
+}  // end function
+
+
 add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_oceanwp', 100 );
 /**
  * Items for Theme: OceanWP (by Nicolas Lecocq)
@@ -22,6 +43,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_oceanwp', 100 );
  *
  * @since  1.0.0
  *
+ * @uses   ddw_tbex_string_oceanwp_theme_name()
  * @uses   ddw_tbex_customizer_start()
  * @uses   ddw_tbex_string_customize_design()
  * @uses   ddw_tbex_is_elementor_active()
@@ -30,25 +52,18 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_oceanwp', 100 );
  */
 function ddw_tbex_themeitems_oceanwp() {
 
-	/** Respect OceanWP White Labeling (if Premium Add-On plugin is active) */
-	$owp_theme_name = wp_get_theme( get_template() )->get( 'Name' );
-
-	if ( function_exists( 'Ocean_White_Label' ) ) {
-		$owp_theme_name = ( ! empty( get_option( 'oceanwp_theme_name' ) ) ) ? esc_attr( get_option( 'oceanwp_theme_name' ) ) : $owp_theme_name;
-	}
-
 	/** OceanWP creative */
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(
 		array(
 			'id'     => 'theme-creative',
 			'parent' => 'group-active-theme',
-			/* translators: (Static) Theme name OceanWP - optionally white labeled string */
-			'title'  => sprintf( esc_attr__( 'Theme: %s', 'toolbar-extras' ), $owp_theme_name ),
+			/* translators: %s - (Static) Theme name OceanWP - optionally white labeled string */
+			'title'  => sprintf( esc_attr__( 'Theme: %s', 'toolbar-extras' ), ddw_tbex_string_oceanwp_theme_name() ),
 			'href'   => esc_url( admin_url( 'admin.php?page=oceanwp-panel' ) ),
 			'meta'   => array(
 				'target' => '',
-				/* translators: (Static) Theme name OceanWP - optionally white labeled string */
-				'title'  => sprintf( esc_attr__( 'Active Theme: %s', 'toolbar-extras' ), $owp_theme_name )
+				/* translators: %s - (Static) Theme name OceanWP - optionally white labeled string */
+				'title'  => sprintf( esc_attr__( 'Active Theme: %s', 'toolbar-extras' ), ddw_tbex_string_oceanwp_theme_name() )
 			)
 		)
 	);
@@ -302,12 +317,12 @@ function ddw_tbex_themeitems_oceanwp() {
 					'id'     => 'owp-hooks',
 					'parent' => 'oceanwp-hooks',
 					/* translators: Theme name OceanWP - optionally white labeled string */
-					'title'  => sprintf( esc_attr__( '%s Hooks', 'toolbar-extras' ), $owp_theme_name ),
+					'title'  => sprintf( esc_attr__( '%s Hooks', 'toolbar-extras' ), ddw_tbex_string_oceanwp_theme_name() ),
 					'href'   => esc_url( admin_url( 'edit-tags.php?taxonomy=ocean_sidebars' ) ),
 					'meta'   => array(
 						'target' => '',
 						/* translators: Theme name OceanWP - optionally white labeled string */
-						'title'  => sprintf( esc_attr__( '%s Hook Locations', 'toolbar-extras' ), $owp_theme_name )
+						'title'  => sprintf( esc_attr__( '%s Hook Locations', 'toolbar-extras' ), ddw_tbex_string_oceanwp_theme_name() )
 					)
 				)
 			);
@@ -320,12 +335,12 @@ function ddw_tbex_themeitems_oceanwp() {
 			'id'     => 'theme-settings',
 			'parent' => 'group-active-theme',
 			/* translators: Theme name OceanWP - optionally white labeled string */
-			'title'  => sprintf( esc_attr__( '%s Panel', 'toolbar-extras' ), $owp_theme_name ),
+			'title'  => sprintf( esc_attr__( '%s Panel', 'toolbar-extras' ), ddw_tbex_string_oceanwp_theme_name() ),
 			'href'   => esc_url( admin_url( 'admin.php?page=oceanwp-panel' ) ),
 			'meta'   => array(
 				'target' => '',
 				/* translators: Theme name OceanWP - optionally white labeled string */
-				'title'  => sprintf( esc_attr__( '%s Theme Panel', 'toolbar-extras' ), $owp_theme_name )
+				'title'  => sprintf( esc_attr__( '%s Theme Panel', 'toolbar-extras' ), ddw_tbex_string_oceanwp_theme_name() )
 			)
 		)
 	);
@@ -637,31 +652,25 @@ add_action( 'tbex_new_content_before_nav_menu', 'ddw_tbex_new_content_oceanwp' )
  *
  * @since  1.0.0
  *
+ * @uses   ddw_tbex_string_oceanwp_theme_name()
  * @uses   ddw_tbex_is_elementor_active()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
 function ddw_tbex_new_content_oceanwp() {
 
-	/** Respect OceanWP White Labeling (if Premium Add-On plugin is active) */
-	$owp_theme_name = 'OceanWP';
-
-	if ( function_exists( 'Ocean_White_Label' ) ) {
-		$owp_theme_name = esc_attr( get_option( 'oceanwp_theme_name' ) );
-	}
-
 	/** OceanWP Library (Core) */
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(
 		array(
 			'id'     => 'new-oceanwp_library',
 			'parent' => 'new-content',
-			/* translators: Theme name OceanWP - optionally white labeled string */
-			'title'  => sprintf( esc_attr__( '%s Library', 'toolbar-extras' ), $owp_theme_name ),
+			/* translators: %s - (Static) Theme name OceanWP - optionally white labeled string */
+			'title'  => sprintf( esc_attr__( '%s Library', 'toolbar-extras' ), ddw_tbex_string_oceanwp_theme_name() ),
 			'href'   => esc_url( admin_url( 'post-new.php?post_type=oceanwp_library' ) ),
 			'meta'   => array(
 				'target' => '',
-				/* translators: Theme name OceanWP - optionally white labeled string */
-				'title'  => sprintf( esc_attr__( 'New %s Library Template', 'toolbar-extras' ), $owp_theme_name )
+				/* translators: %s - (Static) Theme name OceanWP - optionally white labeled string */
+				'title'  => sprintf( esc_attr__( 'New %s Library Template', 'toolbar-extras' ), ddw_tbex_string_oceanwp_theme_name() )
 			)
 		)
 	);

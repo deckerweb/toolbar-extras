@@ -2,10 +2,10 @@
 Contributors: daveshine, deckerweb, wpautobahn
 Donate link: https://www.paypal.me/deckerweb
 Tags: toolbar, adminbar, admin bar, elementor, page builder, themes, menu, links, settings, usability, deckerweb, ddwtoolbar
-Requires at least: 4.6
+Requires at least: 4.7
 Tested up to: 4.9.5
 Requires PHP: 5.4
-Stable tag: 1.0.2
+Stable tag: 1.1.0
 License: GPL-2.0+
 License URI: https://opensource.org/licenses/GPL-2.0
 
@@ -16,7 +16,7 @@ Building sites with Elementor? Your work will get easier & faster with Toolbar E
 Quick Access to Your Site Building Resources - Big Time Saver. Perfect for Non-Techies and Non-Coder Designers.
 This smart WordPress plugin just adds some missed and **very useful admin links** to your Toolbar / Admin Bar. Save scrolling and time. Access settings and content pages faster from one central area in the Admin Dashboard AND when on the frontend of your site.
 
-https://www.youtube.com/watch?v=gu9Z5gW9vq0
+https://www.youtube.com/watch?v=VB4DcqfYqY4
 
 Out of the box the plugin includes support for dozens of awesome Plugins and Themes. Create Elementor templates right from the Toolbar, jump to Granular Controls settings or with one click you are on the Plugin Installer page to upload a new Elementor premium Add-On. Yes, it's so easy and fast. I released this plugin to the public to speed up your site building process even more - as the plugin already helps myself for a long time.
 
@@ -44,18 +44,24 @@ Out of the box the plugin includes support for dozens of awesome Plugins and The
 - Adds lots of Elementor **Quick Jump Links** to the Toolbar
 - Perfect for **all Elementor users**!
 - **Elementor** (free) version 2.x (and also former 1.x)
-- **Elementor Pro** (Premium) version 1.x and also (upcoming) version 2.x
+- **Elementor Pro** (Premium) version 2.x (and also former 1.x)
 
 = Supported Themes/ Frameworks =
 - [**Astra**](https://wordpress.org/themes/astra/), including **Astra Pro** (Add-On) (both by Brainstorm Force)
 - [**GeneratePress**](https://wordpress.org/themes/generatepress/), including **GeneratePress Premium** (Add-On) (both by Tom Usborne)
-- [**OceanWP**](https://wordpress.org/themes/oceanwp/), including Suite Premium Extras (Add-Ons)
+- [**OceanWP**](https://wordpress.org/themes/oceanwp/), including Suite of Premium Extras (Add-Ons)
 - [**Genesis Framework** (Premium, by StudioPress)](http://deckerweb.de/go/genesis/)
+- [**Page Builder Framework**](https://wordpress.org/themes/page-builder-framework/), including their **Premium Add-On plugin** (both by David Vongries & MapSteps)
+- [**StartWP**](https://wordpress.org/themes/start/), including their **StartWP Extended Add-On plugin** (both free and by Munir Kamal)
 - **Suite of "Twenty 20.." default themes**, like *[Twenty Seventeen](https://wordpress.org/themes/twentyseventeen/)*
 - [**Elementor Hello Theme**](https://github.com/pojome/elementor-hello-theme)
+- [**Freelancer Framework** (free, by Cobalt Apps)]
+- [**Dynamik Website Builder (Child Theme for Genesis)** (Premium, by Cobalt Apps)]
+- [**Beaver Builder Theme** (Premium, by FastLine Media LLC)]
+- [**Hestia**](https://wordpress.org/themes/hestia/), including its Child Themes "Orfeo", "Tiny Hestia", "Christmas Hestia" (all by Themeisle)
 - *(Support for a few more great Themes is coming very soon...!)*
 
-= Support for Elementor Add-On Plugins =
+= Support for Elementor specific Add-On Plugins =
 - [**Granular Controls for Elementor** (free, by Zulfikar Nore)](https://wordpress.org/plugins/granular-controls-for-elementor/)
 - [**Header Footer for Elementor** (free, by Brainstorm Force)](https://wordpress.org/plugins/header-footer-elementor/)
 - [**PopBoxes for Elementor** (free, by Zulfikar Nore)](https://wordpress.org/plugins/modal-for-elementor/)
@@ -70,14 +76,21 @@ Out of the box the plugin includes support for dozens of awesome Plugins and The
 - [**Essential Addons for Elementor Lite** (free, by Codetic)](https://wordpress.org/plugins/essential-addons-for-elementor-lite/)
 - [**Essential Addons for Elementor Pro** (Premium, by Codetic)]
 - [**Element Pack for Elementor** (Premium, by BdThemes)]
+- [**Premium Addons for Elementor** (free, by Leap13)](https://wordpress.org/plugins/premium-addons-for-elementor/)
+- [**Elements Plus!** (free, by The CSSIgniter Team)](https://wordpress.org/plugins/elements-plus/)
 - [**Debug Elementor** (free, by Rami Yushuvaev)](https://wordpress.org/plugins/debug-elementor/)
 - [**Elementor Contact Form DB** (free, by Sean Barton)](https://www.sean-barton.co.uk/2017/04/elementor-contact-form-db-free-plugin/)
 - [**Lenix Elementor Leads addon** (free, by Lenix)](https://wordpress.org/plugins/lenix-elementor-leads-addon/)
+- [**Suite of "Jet Plugins"** by Zemez (all Premium)]
+- [**Elementor Custom Skin** (free, by Liviu Duda)](https://wordpress.org/plugins/ele-custom-skin/)
 - [**Extra Privacy for Elementor** (free, by Marian Heddesheimer)](https://wordpress.org/plugins/extra-privacy-for-elementor/)
 - [**Portfolio for Elementor** (free, by WpPug)](https://wordpress.org/plugins/portfolio-elementor/)
+- [**PT Elementor Addons Lite** (free, by ParamThemes)](https://wordpress.org/plugins/pt-elementor-addons-lite/)
+- [**Elementor Addon Elements** (free, by WebTechStreet)](https://wordpress.org/plugins/addon-elements-for-elementor-page-builder/)
+- [**Elementor Addons & Templates – Sizzify Lite** (free, by Themeisle)](https://wordpress.org/plugins/elementor-addon-widgets/)
 - *(Support for even more Elementor Add-Ons is coming very soon...)*
 
-= Support for general useful Plugins =
+= Support for more useful Plugins for Site-Builders =
 - [**Central Color Palette** (free, by Gáravo)](https://wordpress.org/plugins/kt-tinymce-color-grid/)
 - [**Simple CSS** (free, by Tom Usborne)](https://wordpress.org/plugins/simple-css/)
 - [**Code Snippets** (free, by Shea Bunge)](https://wordpress.org/plugins/code-snippets/)
@@ -85,14 +98,19 @@ Out of the box the plugin includes support for dozens of awesome Plugins and The
 - [**Customizer Export Import** (free, by The Beaver Builder Team)](https://wordpress.org/plugins/customizer-export-import/)
 - [**One Click Demo Import** (free, by ProteusThemes)](https://wordpress.org/plugins/one-click-demo-import/)
 - [**404page** (free, by Peter Raschendorfer)](https://wordpress.org/plugins/404page/)
-- [**Add From Server** (free, by Dion Hulse)](https://wordpress.org/plugins/add-from-server/) (sadly, no longer available since End of March 2018...)
+- [**Add From Server** (free, by Dion Hulse)](https://wordpress.org/plugins/add-from-server/)
 - [**Gravity Forms** (Premium, by Rocketgenius, Inc.)] (Smart Integration & Smart Tweaks)
-- [**Popup Maker** (free, by Daniel Iser)](https://wordpress.org/plugins/popup-maker/) (requieres v1.7+)
+- [**Popup Maker** (free, by Daniel Iser)](https://wordpress.org/plugins/popup-maker/) (requires v1.7+)
 - [**Smart Slider 3** (free/Premium, by Nextend)](https://wordpress.org/plugins/smart-slider-3/)
+- [**Themer Pro** (Premium, by CobaltApps)]
+- [**Extender Pro** (Premium, by CobaltApps)]
+- [**Freelancer DevKit** (Premium, by CobaltApps)]
 - [**Instant IDE** (Premium, by CobaltApps)]
 - [**All-in-one Migration** (free, by ServMask)](https://wordpress.org/plugins/all-in-one-wp-migration/)
 - [**UpdraftPlus** (free, by UpdraftPlus.Com, DavidAnderson)](https://wordpress.org/plugins/updraftplus/)
 - [**Duplicator** (free, by Snap Creek)](https://wordpress.org/plugins/duplicator/)
+- Lots of Genesis-specific plugins as well :-)
+- Suite of "Cherry Plugins" by Zemez (all free), that work well with Elementor (Projects, Service Lists, Team Members, Testimonials)
 - *(Support for some more general Plugins is coming soon...)*
 
 = Support & Compatibility for more plugins =
@@ -136,9 +154,10 @@ You can also contribute code-wise via our [Toolbar Extras GitHub Repository](htt
 
 = Minimum Requirements =
 
-* WordPress version 4.6 or higher
+* WordPress version 4.7 or higher
 * PHP version 5.4 or higher
 * MySQL version 5.0 or higher
+* Administrator user with capabilities `manage_options` and `edit_theme_options` who is logged-in and has the Toolbar (Admin Bar) enabled (user profile)
 
 = We Recommend Your Host Supports at least: =
 
@@ -147,10 +166,10 @@ You can also contribute code-wise via our [Toolbar Extras GitHub Repository](htt
 
 = Installation =
 
-1. Install using the WordPress built-in Plugin installer (via Plugins > Add New - search for "toolbar extras"), or Extract the ZIP file and drop the contents in the `wp-content/plugins/` directory of your WordPress installation.
+1. Install using the WordPress built-in Plugin installer (via **Plugins > Add New** - search for `toolbar extras`), or extract the ZIP file and drop the contents in the `wp-content/plugins/` directory of your WordPress installation.
 2. Activate the plugin through the 'Plugins' menu in WordPress.
-3. Go to 'Settings > Toolbar Extras' to adjust any options for this plugin
-4. Go to 'Appearance > Menus' to add & edit an optional Toolbar Menu (for Admins only).
+3. Go to **Settings > Toolbar Extras** to adjust any options for this plugin
+4. Go to **Appearance > Menus** to add & edit an optional Toolbar Menu (for Admins only).
 5. Now enjoy building your site - and let the Toolbar work for you ;-)
 
 For documentation and tutorials visit our [Knowledge Base](https://toolbarextras.com/).
@@ -163,7 +182,7 @@ You're right! If you're happy with one of the others then that's absolutely grea
 Plugin developer David Decker: *What has proved its day to day usage and usefullness on more than 100 installs before, could be used by many other site builders as well, right? :-)))*
 
 **Why is the Administrator Role required?**
-This plugin only works and makes sense for Administrator users (and Super Admins in Multisite) just because the links it adds to the Toolbar require those permissions for the original supported plugins and themese.
+This plugin only works and makes sense for Administrator users (and Super Admins in Multisite) just because the links it adds to the Toolbar require those permissions for the original supported plugins and themes.
 
 Example: The Elementor settings page requires the capability `manage_options` - by default, only Administrators have this capability. So Toolbar Extras "inherits" those capabilities (permissions) as well.
 
@@ -195,10 +214,15 @@ Yes, absolutely. - Though, we won't support every plugin under the sun, of cours
 * has own settings/ admin pages or own post types/ page with data input
 * additionally it should have a good reputation and be just useful (yes, say that again!)
 
+**Will this Plugin slow down my site?**
+Absolutely not. The plugin will only do its stuff for logged-in Administrator users. It does nothing for visitors of your site. Plugin loads its stuff only when needed and if supported theme/ plugin is active. Plugin was built to be as lightweight as possible.
+
 **Does the Plugin work with Multisite?**
-Yes, it works in Multisite, you can even activate it Network-wide. However, it does add almost nothing additional to the Network Admin but rather to the Dashboard of each individual sub-site of the Network.
+Yes, it works in Multisite, you could even activate it Network-wide. However, it does add almost nothing additional to the Network Admin but rather to the Dashboard of each individual sub-site of the Network. Therefore I recommend to use "Toolbar Extras" only in single installs (default) currently.
 
 For Multisite installs I currently recommend my own plugin **["Multisite Toolbar Additions"](https://wordpress.org/plugins/multisite-toolbar-additions/)** which is like a "sister plugin" of Toolbar Extras (and even was there before it!).
+
+A special Multiste Add-On for Toolbar Extras is planned but no features or date is being set yet.
 
 **More info on Translations?**
 
@@ -268,12 +292,76 @@ For Multisite installs I currently recommend my own plugin **["Multisite Toolbar
 
 == Changelog ==
 
+= 1.1.0 - 2018-04-18 =
+* New: Successfully tested with Elementor Pro 2.0 final release (and many Beta versions before)
+* New: Successfully tested with "Laragon" app on Windows 10 - automatic detection of local sites with `.test` domain worked great
+* New: Added button to Video feature introduction tour on settings page welcome message
+* New: Added links to YouTube tutorial videos on tab "About & Support" on plugin's settings page
+* New: Smart Tweak setting to re-hook "NextGen Gallery" items from the top-level to the Site Group > Galleries (off by default)
+* New: Smart Tweak setting to re-hook "iThemes Security" items from the top-level to the Site Group (off by default)
+* New: Smart Tweak setting to remove "All In One SEO Pack" items from the top-level because they have no real use at all (on by default)
+* Tweak: Improved "Add new Template with Builder" for all Elementor Template Types since Elementor 2.0/ Pro 2.0 - Special Thanks to the Elementor Dev Team! ;-)
+* Tweak: Respect white label settings for Elementor Add-On "PowerPack Elements" (and only show if those settings were not hidden)
+* Tweak: Only show "Astra Pro" white label settings if those settings were not hidden
+* Tweak: Only show "Ultimate Addons for Elementor" white label settings if those settings were not hidden
+* Tweak: Added Google Maps settings options for "Ultimate Addons for Elementor" (since v1.1.0 of this Add-On)
+* Tweak: Extended plugin support for the "WooCommerce" plugin
+* Tweak: Improved the support for re-hooking the "Smart Slider 3" plugin items
+* Tweak: Improved and enhanced the "About & Support" page content
+* Tweak: Improved uninstall functionality: properly delete all (site) Transients
+* Tweak: Updated `.pot` file plus all German translations (formal, informal)
+* Tweak: Enhanced, improved and corrected Readme.txt file here :)
+* Fix: White label name for OceanWP for Library in "New Content" Group
+* Fix: Inline documentation and typo fixes all around
+* **New:** *Extended the Theme support for:*
+ * Page Builder Framework (free & Premium, by David Vongries & MapSteps)
+ * StartWP (free, by Munir Kamal)
+ * Dynamik Website Builder for Genesis (Premium, by Cobalt Apps)
+ * Freelancer Framework (free, by Cobalt Apps)
+ * GBeaver (Child Theme for Genesis) (Premium, by WP Beaver World)
+ * Beaver Builder Theme (Premium, by FastLine Media LLC)
+ * Hestia (free, by Themeisle)
+ * Tiny Hestia (Child Theme for Hestia) (free, by Themeisle)
+ * Ofeo (Child Theme for Hestia) (free, by Themeisle)
+ * Christmas Hestia (Child Theme for Hestia) (free, by Themeisle)
+* **New:** *Extended the Plugin support for Elementor Add-Ons:*
+ * Premium Addons for Elementor (free, by Leap13)
+ * Elements Plus! (free, by The CSSIgniter Team)
+ * Elementor Custom Skin (free, by Liviu Duda)
+ * Power-Ups for Elementor (free, by WpPug)
+ * Press Elements (free/Premium, by Press Elements & Rami Yushuvaev)
+ * JetElements (Premium, by Zemez)
+ * JetMenu (Premium, by Zemez)
+ * JetBlog (Premium, by Zemez)
+ * JetReviews (Premium, by Zemez)
+ * Total Recipe Generator for Elementor (Premium, by SaurabhSharma)
+ * PT Elementor Addons Lite (free, by ParamThemes)
+ * Elementor Addon Elements (free, by WebTechStreet)
+ * Elementor Addons & Templates – Sizzify Lite (free, by Themeisle)
+ * Orbit Fox Companion (free, by Themeisle)
+ * Elementor Google Map Extended (free, by InternetCSS)
+* **New:** *Extended the general Plugin support for:*
+ * WP Show Posts (free/Pro, by Tom Usborne)
+ * StartWP Extended (free, by Munir Kamal)
+ * Freelancer DevKit (Add-On) (Premium, by Cobalt Apps)
+ * Themer Pro (Premium, by Cobalt Apps)
+ * Extender Pro (Premium, by Cobalt Apps)
+ * Genesis Extender (Premium, by Cobalt Apps)
+ * Envira Gallery Lite/Pro (free/Premium, by Envira Gallery Team)
+ * Soliloquy Sliders Lite/Pro (free/Premium, by Soliloquy Team)
+ * Cherry Testimonials (free, by Zemez)
+ * Cherry Team Members (free, by Zemez)
+ * Cherry Services List (free, by Zemez)
+ * Cherry Projects (free, by Zemez)
+ * FooGallery (free, by FooPlugins)
+ * MaxGalleria (free, by Max Foundry)
+
 = 1.0.2 - 2018-04-05 =
 * New: Added first language packs via WordPress.org translations platform - for German (de_DE - informal) and German Formal (de_DE_formal) - thanks to Team WordPress DE! ;-)
-* New: Added plugin support for "Cleaner Plugin Installer".
-* Tweak: Improved localization on plugin activation.
-* Fix: Fallback function for main item, now with proper URL, plus slightly tweaked string text.
-* Fix: Fatal error related to "Dev Mode" in Multisite context.
+* New: Added plugin support for "Cleaner Plugin Installer"
+* Tweak: Improved localization on plugin activation
+* Fix: Fallback function for main item, now with proper URL, plus slightly tweaked string text
+* Fix: Fatal error related to "Dev Mode" in Multisite context
 
 = 1.0.1 - 2018-04-04 =
 * Tweak: Improved localization functions.
@@ -287,6 +375,9 @@ For Multisite installs I currently recommend my own plugin **["Multisite Toolbar
 * New: Including support for 10 Genesis specific plugins
 
 == Upgrade Notice =
+
+= 1.1.0 =
+Feature release: Greatly extended third-party Theme & Plugin/Add-On support; plus more improvements & tweaks, including for Elementor 2.0 / Elementor 2.0 Pro.
 
 = 1.0.2 =
 Maintenance release. Small improvements and fixes.

@@ -163,4 +163,4 @@ function ddw_tbex_new_content_code_snippet() {
 		)
 	);
 
-}  // end if
+}  // end function

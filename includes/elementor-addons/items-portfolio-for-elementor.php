@@ -34,7 +34,7 @@ function ddw_tbex_aoitems_portfolio_for_elementor() {
 			'href'   => esc_url( admin_url( 'edit.php?post_type=elemenfolio' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Templementor - Persistant Elementor Templates (Add-On)', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Portfolio for Elementor (Add-On)', 'toolbar-extras' )
 			)
 		)
 	);

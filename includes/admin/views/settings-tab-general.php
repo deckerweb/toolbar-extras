@@ -262,6 +262,9 @@ function ddw_tbex_settings_cb_display_items_resources() {
 		<label for="tbex-options-general[display_items_resources]">
 			<span class="description"><?php echo sprintf( __( 'Default: %s', 'toolbar-extras' ), '<code>' . __( 'Yes', 'toolbar-extras' ) . '</code>' ); ?></span>
 		</label>
+		<p class="description">
+			<?php _e( 'All external resource links for the Page Builder, supported Themes and Plugins', 'toolbar-extras' ); ?>
+		</p>
 	<?php
 
 }  // end function
@@ -284,6 +287,9 @@ function ddw_tbex_settings_cb_display_items_theme() {
 		<label for="tbex-options-general[display_items_theme]">
 			<span class="description"><?php echo sprintf( __( 'Default: %s', 'toolbar-extras' ), '<code>' . __( 'Yes', 'toolbar-extras' ) . '</code>' ); ?></span>
 		</label>
+		<p class="description">
+			<?php _e( 'All items of the current active theme', 'toolbar-extras' ); ?>
+		</p>
 	<?php
 
 }  // end function
@@ -306,6 +312,9 @@ function ddw_tbex_settings_cb_display_items_plugins() {
 		<label for="tbex-options-general[display_items_plugins]">
 			<span class="description"><?php echo sprintf( __( 'Default: %s', 'toolbar-extras' ), '<code>' . __( 'Yes', 'toolbar-extras' ) . '</code>' ); ?></span>
 		</label>
+		<p class="description">
+			<?php _e( 'All items of the supported general plugins', 'toolbar-extras' ); ?>
+		</p>
 	<?php
 
 }  // end function
@@ -328,6 +337,9 @@ function ddw_tbex_settings_cb_display_items_addons() {
 		<label for="tbex-options-general[display_items_addons]">
 			<span class="description"><?php echo sprintf( __( 'Default: %s', 'toolbar-extras' ), '<code>' . __( 'Yes', 'toolbar-extras' ) . '</code>' ); ?></span>
 		</label>
+		<p class="description">
+			<?php _e( 'All items of the supported Add-On Plugins for the Page Builder', 'toolbar-extras' ); ?>
+		</p>
 	<?php
 
 }  // end function

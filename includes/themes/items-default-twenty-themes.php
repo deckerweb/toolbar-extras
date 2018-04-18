@@ -1,6 +1,6 @@
 <?php
 
-//items-default-twenty-themes
+// includes/themes/items-default-twenty-themes
 
 /**
  * Prevent direct access to this file.

@@ -203,6 +203,81 @@ function ddw_tbex_settings_cb_rehook_smartslider() {
 
 
 /**
+ * Setting (Select): Re-hook NextGen Gallery?
+ *
+ * @since 1.1.0
+ */
+function ddw_tbex_settings_cb_rehook_nextgen() {
+
+	$tbex_options = get_option( 'tbex-options-tweaks' );
+
+	?>
+		<select name="tbex-options-tweaks[rehook_nextgen]" id="tbex-options-tweaks-rehook_nextgen">
+			<option value="yes" <?php selected( sanitize_key( $tbex_options[ 'rehook_nextgen' ] ), 'yes' ); ?>><?php _e( 'Yes', 'toolbar-extras' ); ?></option>
+			<option value="no" <?php selected( sanitize_key( $tbex_options[ 'rehook_nextgen' ] ), 'no' ); ?>><?php _e( 'No', 'toolbar-extras' ); ?></option>
+		</select>
+		<label for="tbex-options-tweaks[rehook_nextgen]">
+			<span class="description"><?php echo sprintf( __( 'Default: %s', 'toolbar-extras' ), '<code>' . __( 'No', 'toolbar-extras' ) . '</code>' ); ?></span>
+		</label>
+		<p class="description">
+			<?php _e( 'This tweak re-hooks the complete NextGen Gallery Toolbar group as a sub-item of the Site Group (Manage Content Media).', 'toolbar-extras' ); ?>
+		</p>
+	<?php
+
+}  // end function
+
+
+/**
+ * Setting (Select): Re-hook iThemes Security?
+ *
+ * @since 1.1.0
+ */
+function ddw_tbex_settings_cb_rehook_ithsec() {
+
+	$tbex_options = get_option( 'tbex-options-tweaks' );
+
+	?>
+		<select name="tbex-options-tweaks[rehook_ithsec]" id="tbex-options-tweaks-rehook_ithsec">
+			<option value="yes" <?php selected( sanitize_key( $tbex_options[ 'rehook_ithsec' ] ), 'yes' ); ?>><?php _e( 'Yes', 'toolbar-extras' ); ?></option>
+			<option value="no" <?php selected( sanitize_key( $tbex_options[ 'rehook_ithsec' ] ), 'no' ); ?>><?php _e( 'No', 'toolbar-extras' ); ?></option>
+		</select>
+		<label for="tbex-options-tweaks[rehook_ithsec]">
+			<span class="description"><?php echo sprintf( __( 'Default: %s', 'toolbar-extras' ), '<code>' . __( 'No', 'toolbar-extras' ) . '</code>' ); ?></span>
+		</label>
+		<p class="description">
+			<?php _e( 'This tweak re-hooks the complete iThemes Security Toolbar group as a sub-item of the Site Group.', 'toolbar-extras' ); ?>
+		</p>
+	<?php
+
+}  // end function
+
+
+/**
+ * Setting (Select): Remove All In One SEO Pack?
+ *
+ * @since 1.1.0
+ */
+function ddw_tbex_settings_cb_remove_aioseo() {
+
+	$tbex_options = get_option( 'tbex-options-tweaks' );
+
+	?>
+		<select name="tbex-options-tweaks[remove_aioseo]" id="tbex-options-tweaks-remove_aioseo">
+			<option value="yes" <?php selected( sanitize_key( $tbex_options[ 'remove_aioseo' ] ), 'yes' ); ?>><?php _e( 'Yes', 'toolbar-extras' ); ?></option>
+			<option value="no" <?php selected( sanitize_key( $tbex_options[ 'remove_aioseo' ] ), 'no' ); ?>><?php _e( 'No', 'toolbar-extras' ); ?></option>
+		</select>
+		<label for="tbex-options-tweaks[remove_aioseo]">
+			<span class="description"><?php echo sprintf( __( 'Default: %s', 'toolbar-extras' ), '<code>' . __( 'Yes', 'toolbar-extras' ) . '</code>' ); ?></span>
+		</label>
+		<p class="description">
+			<?php _e( 'This tweak removes the top-level Toolbar link including sub-items as these items are not useful at all.', 'toolbar-extras' ); ?>
+		</p>
+	<?php
+
+}  // end function
+
+
+/**
  * Setting (Select): Remove UpdraftPlus?
  *
  * @since 1.0.0

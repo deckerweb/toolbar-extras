@@ -106,13 +106,30 @@
 	font-size: 110%;
 }
 
+.tbex-author {
+	margin-top: 15px;
+}
+
+.tbex-author-image,
+.tbex-author-meta {
+	display: inline-block;
+	float: right;
+}
+
+.tbex-author-image {
+	margin-left: 15px;
+}
+
+.tbex-author-meta {
+	text-align: right;
+}
+
 .tbex-cite.cite-first {
 	margin-top: 15px;
 }
 
 .tbex-cite {
-	clear: right;
-	float: right;
+	display: block;
 }
 
 .tbex-copyright {
@@ -149,6 +166,10 @@
 	margin: 5px 23px 20px !important;
 }
 
+.tbex-review {
+	color: orange;
+}
+
 .tbex-share {
 	display: inline-block;
 	padding: 10px 20px;
@@ -169,9 +190,15 @@
 	clear: left;
 	float: left;
 	font-size: 100px;
-	padding: 10px;
+	padding: 10px 10px 40px;
 	width: 140px;
 	height: 120px;
+}
+
+.tbex-videos:before {
+	color: #ff0000;
+	padding-right: 3px;
+	padding-top: 3px;
 }
 
 
@@ -221,14 +248,6 @@
 	.tbex-heart-icon:before {
 		margin-right: 20px;
 	}
-	
-}
-
-@media only screen and (max-width: 782px) {
-
-	/* .settings_page_toolbar-extras #wpbody-content .wrap {
-		width: 95vw;
-	} */
 	
 }
 

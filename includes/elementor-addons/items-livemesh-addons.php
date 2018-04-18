@@ -1,6 +1,6 @@
 <?php
 
-//items-livemesh-addons
+// includes/elementor-addons/items-livemesh-addons
 
 /**
  * Prevent direct access to this file.

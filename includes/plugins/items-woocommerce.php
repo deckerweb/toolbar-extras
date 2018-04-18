@@ -1,6 +1,6 @@
 <?php
 
-//items-woocommerce
+// includes/plugins/items-woocommerce
 
 /**
  * Prevent direct access to this file.
@@ -55,6 +55,35 @@ function ddw_tbex_site_items_woocommerce() {
 		);
 
 	}  // end if
+
+}  // end function
+
+
+add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_wc_plugin', 500 );
+/**
+ * User items for Plugin: WooCommerce
+ *
+ * @since  1.0.0
+ *
+ * @uses   ddw_tbex_customizer_focus()
+ *
+ * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ */
+function ddw_tbex_themeitems_wc_plugin() {
+
+	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		array(
+			'id'     => 'ao-woocommerce-plugin',
+			'parent' => 'theme-creative-customize',
+			/* translators: Autofocus panel in the Customizer */
+			'title'  => esc_attr__( 'WooCommerce (Plugin)', 'toolbar-extras' ),
+			'href'   => ddw_tbex_customizer_focus( 'panel', 'woocommerce' ),
+			'meta'   => array(
+				'target' => ddw_tbex_meta_target(),
+				'title'  => ddw_tbex_string_customize_attr( __( 'WooCommerce (Plugin)', 'toolbar-extras' ) )
+			)
+		)
+	);
 
 }  // end function
 

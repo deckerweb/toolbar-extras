@@ -32,20 +32,47 @@ $tbex_info = (array) ddw_tbex_info_values();
 				<span class="dashicons-before dashicons-format-quote tbex-quote-icon"></span>
 				<?php echo sprintf(
 					/* translators: %1$s - Plugin title (Multisite Toolbar Additions / %2$s - Plugin title (Toolbar Extras) */
-					__( 'When I was building a lot of sites over the last ten years I had the need for a little Toolbar helper plugin where all essential links would be easily accessible and there when I need them. So, I built this plugin to scratch my own itch. The first code was written in 2012 and relased as %1$s. In 2017 I discovered the Elementor Page Builder and fell in love with this tool. Over the months it was more than clear I needed to update or completely rebuild my little plugin to work perfectly with my Elementor suite building process. Of course, I opted for the latter way. So, based on a proven foundation %2$s was born in February and March of 2018 after lots of coding days, sleepless nights and way too much coffee. All my passion and my experience went into it to make an awesome little helper tool for us Site Builders out there. I hope you find it as useful and like it as much as I do. Happy site building, yeah!', 'toolbar-extras' ),
+					__( 'When I was building a lot of sites over the last ten years I had the need for a Toolbar helper plugin where all essential links would be easily accessible and there when I need them. So, I built this plugin to scratch my own itch. The first code was written in 2012 and relased as %1$s. That plugin matured during the next two years and was used on all my install as a foundation. In 2017 I discovered the Elementor Page Builder and immediately fell in love with this tool. Over the months it was more than clear I needed to update or completely rebuild my favorite plugin to work perfectly with my Elementor site building process. Of course, I opted for the latter way. So, based on that proven foundation %2$s was born in February and March of 2018 after lots of coding days, sleepless nights and way too much coffee. All my passion and my experience went into it to make an awesome little helper tool for us Site Builders out there. I hope you find it as useful and like it as much as I do. Happy site building, yeah!', 'toolbar-extras' ),
+					sprintf(
+						'<a href="%1$s" target="_blank" rel="nofollow noopener noreferrer">&#x00BB;%2$s&#x00AB;</a>',
+						ddw_tbex_get_info_url( 'url_mstba' ),
+						/* translators: Plugin title */
+						__( 'Multisite Toolbar Additions', 'toolbar-extras' )
+					),
 					/* translators: Plugin title */
-					'&#x00BB;' . __( 'Multisite Toolbar Additions', 'toolbar-extras' ) . '&#x00AB;',
-					/* translators: Plugin title */
-					'&#x00BB;' . __( 'Toolbar Extras', 'toolbar-extras' ) . '&#x00AB;'
+					'<strong>&#x00BB;' . __( 'Toolbar Extras', 'toolbar-extras' ) . '&#x00AB;</strong>'
 				); ?>
-				<br /><cite class="tbex-cite cite-first">&ndash; <?php echo esc_html( $tbex_info[ 'author' ] ); ?> (<?php _e( 'Plugin author', 'toolbar-extras' ); ?>)</cite>
-				<br /><cite class="tbex-cite"><?php _e( 'March of 2018', 'toolbar-extras' ); ?></cite>
+				<div class="tbex-author">
+					<div class="tbex-author-image"><a href="<?php echo ddw_tbex_get_info_url( 'url_donate' ); ?>" target="_blank" rel="nofollow noopener noreferrer"><?php echo sprintf(
+						'<img src="%1$s%2$s" width="%2$s" height="%2$s" alt="Profile picture" title="%3$s" />',
+						ddw_tbex_get_info_url( 'author_gravatar' ),
+						80,
+						esc_attr__( 'David Decker, Plugin author', 'toolbar-extras' )
+					); ?></a></div>
+					<div class="tbex-author-meta">
+						<cite class="tbex-cite cite-first">&ndash; <?php echo esc_html( $tbex_info[ 'author' ] ); ?> (<?php _e( 'Plugin author', 'toolbar-extras' ); ?>)</cite>
+						<cite class="tbex-cite"><?php _e( 'March &amp; April of 2018', 'toolbar-extras' ); ?></cite>
+					</div>
+					<div class="clear clearfix"></div>
+				</div>
 			</blockquote>
 
 			<h3 class="tbex-as-section tbex-inner"><?php _e( 'Share the Love', 'toolbar-extras' ); ?></h3>
 			<p>
-				<strong><span class="dashicons-before dashicons-star-filled"></span> <?php _e( 'If you find it useful please review the plugin at WordPress.org', 'toolbar-extras' ); ?></strong>
+				<strong><span class="dashicons-before dashicons-star-filled tbex-review"></span> <?php _e( 'If you find it useful please review the plugin at WordPress.org', 'toolbar-extras' ); ?></strong>
 				<br /><?php echo ddw_tbex_get_info_link( 'url_wporg_review', __( 'Write Review', 'toolbar-extras' ), 'button tbex-button' ); ?>
+			</p>
+			<p>
+				<strong><?php _e( 'Subscripe to our YouTube Channel and give our videos a thumbs up', 'toolbar-extras' ); ?></strong>
+				<br /><?php echo sprintf(
+					'<a class="button tbex-button" href="%1$s" target="_blank" rel="noopener noreferrer"><span class="dashicons-before dashicons-video-alt3 tbex-videos"></span> %2$s</a>',
+					ddw_tbex_get_info_url( 'url_video_channel' ),
+					esc_attr__( 'Subscribe YouTube Channel', 'toolbar-extras' )
+				); ?> <?php echo sprintf(
+					'<a class="button tbex-button" href="%1$s" target="_blank" rel="noopener noreferrer"><span class="dashicons-before dashicons-playlist-video tbex-videos"></span> %2$s</a>',
+					ddw_tbex_get_info_url( 'url_video_plist' ),
+					esc_attr__( 'See Playlist for Toolbar Extras', 'toolbar-extras' )
+				); ?>
 			</p>
 			<p>
 				<strong><?php _e( 'Share at Social Media', 'toolbar-extras' ); ?></strong>

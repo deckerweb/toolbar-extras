@@ -72,7 +72,10 @@ function ddw_tbex_settings_cb_is_local_dev() {
 			<option value="no" <?php selected( sanitize_key( $tbex_options[ 'is_local_dev' ] ), 'no' ); ?>><?php _e( 'No', 'toolbar-extras' ); ?></option>
 		</select>
 		<label for="tbex-options-development[is_local_dev]">
-			<span class="description"><?php echo sprintf( __( 'Default: %s', 'toolbar-extras' ), '<code>' . __( 'Auto', 'toolbar-extras' ) . '</code>' ); echo '<br />' . sprintf( __( 'Note: %s means automatic detection based on your current server/domain values.', 'toolbar-extras' ), __( 'Auto', 'toolbar-extras' ) ); ?></span>
+			<span class="description"><?php echo sprintf( __( 'Default: %s', 'toolbar-extras' ), '<code>' . __( 'Auto', 'toolbar-extras' ) . '</code>' ); echo '<br />' . sprintf(
+				/* translators: %s - Status of setting, "Auto" */
+				__( 'Note: %s means automatic detection based on your current server/domain values.', 'toolbar-extras' ), __( 'Auto', 'toolbar-extras' )
+				); ?></span>
 		</label>
 	<?php
 

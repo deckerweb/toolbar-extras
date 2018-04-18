@@ -62,7 +62,7 @@ if ( ! current_user_can( 'install_plugins' ) ) {
  * @since 1.0.0
  *
  * @uses  delete_option()
- * @uses  delete_transient()
+ * @uses  delete_site_transient()
  */
 function ddw_tbex_delete_options_transients() {
 
@@ -70,10 +70,11 @@ function ddw_tbex_delete_options_transients() {
 	delete_option( 'tbex-options-general' );
 	delete_option( 'tbex-options-tweaks' );
 	delete_option( 'tbex-options-development' );
+	delete_option( 'tbex-plugin-version' );
 
 	/** Delete all transients */
-	delete_transient( 'tbex-notice-plugins-welcome' );
-	delete_transient( 'tbex-notice-welcome' );
+	delete_site_transient( 'tbex-notice-plugins-welcome' );
+	delete_site_transient( 'tbex-notice-welcome' );
 
 }  // end function
 

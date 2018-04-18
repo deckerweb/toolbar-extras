@@ -1,6 +1,6 @@
 <?php
 
-//items-genesis-mai-lifestyle
+// includes/themes/items-genesis-mai-lifestyle
 
 /**
  * Prevent direct access to this file.

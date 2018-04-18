@@ -243,18 +243,7 @@ function ddw_tbex_add_plugins_api_results( $result, $action, $args ) {
 	}
 
 	/** Check if plugin active */
-	if ( ( is_plugin_active( 'elementor/elementor.php' ) || is_plugin_active_for_network( 'elementor/elementor.php' ) )
-		&& ( is_plugin_active( 'granular-controls-for-elementor/granular-controls-elementor.php' ) || is_plugin_active_for_network( 'granular-controls-for-elementor/granular-controls-elementor.php' ) )
-		&& ( is_plugin_active( 'kt-tinymce-color-grid/index.php' ) || is_plugin_active_for_network( 'kt-tinymce-color-grid/index.php' ) )
-		&& ( is_plugin_active( 'simple-css/simple-css.php' ) || is_plugin_active_for_network( 'simple-css/simple-css.php' ) )
-		&& ( is_plugin_active( 'code-snippets/code-snippets.php' ) || is_plugin_active_for_network( 'code-snippets/code-snippets.php' ) )
-		&& ( is_plugin_active( 'debug-elementor/debug-elementor.php' ) || is_plugin_active_for_network( 'debug-elementor/debug-elementor.php' ) )
-		&& ( is_plugin_active( 'customizer-search/customizer-search.php' ) || is_plugin_active_for_network( 'customizer-search/customizer-search.php' ) )
-		&& ( is_plugin_active( 'customizer-export-import/customizer-export-import.php' ) || is_plugin_active_for_network( 'customizer-export-import/customizer-export-import.php' ) )
-		&& ( is_plugin_active( 'cleaner-plugin-installer/cleaner-plugin-installer.php' ) || is_plugin_active_for_network( 'cleaner-plugin-installer/cleaner-plugin-installer.php' ) )
-	) {
-		return $result;
-	}
+//
 
 	/** Grab all slugs from the api results. */
 	$result_slugs = wp_list_pluck( $result->plugins, 'slug' );
@@ -288,6 +277,7 @@ function ddw_tbex_add_plugins_api_results( $result, $action, $args ) {
 	$czs_query_args       = array( 'slug' => 'customizer-search', 'fields' => $query_fields, );
 	$czei_query_args      = array( 'slug' => 'customizer-export-import', 'fields' => $query_fields, );
 	$cpi_query_args       = array( 'slug' => 'cleaner-plugin-installer', 'fields' => $query_fields, );
+	$llar_query_args      = array( 'slug' => 'limit-login-attempts-reloaded', 'fields' => $query_fields, );
 
 	$elementor_data = plugins_api( 'plugin_information', $elementor_query_args );
 	$gcfe_data      = plugins_api( 'plugin_information', $gcfe_query_args );
@@ -298,19 +288,7 @@ function ddw_tbex_add_plugins_api_results( $result, $action, $args ) {
 	$czs_data       = plugins_api( 'plugin_information', $czs_query_args );
 	$czei_data      = plugins_api( 'plugin_information', $czei_query_args );
 	$cpi_data       = plugins_api( 'plugin_information', $cpi_query_args );
-
-	if ( is_wp_error( $elementor_data )
-		&& is_wp_error( $ccp_data )
-		&& is_wp_error( $simplecss_data )
-		&& is_wp_error( $gcfe_data )
-		&& is_wp_error( $cs_data )
-		&& is_wp_error( $de_data )
-		&& is_wp_error( $czs_data )
-		&& is_wp_error( $czei_data )
-		&& is_wp_error( $cpi_data )
-	) {
-		return $result;
-	}
+	$llar_data      = plugins_api( 'plugin_information', $llar_query_args );
 
 	/** Hook in our results */
 	if ( 'featured' === $args->browse ) {
@@ -319,11 +297,11 @@ function ddw_tbex_add_plugins_api_results( $result, $action, $args ) {
 		$result->plugins = array();
 
 		/** Hook in our results */
-		array_push( $result->plugins, $elementor_data, $ccp_data, $simplecss_data, $gcfe_data, $cs_data, $de_data, $czs_data, $czei_data, $cpi_data );
+		array_push( $result->plugins, $elementor_data, $ccp_data, $simplecss_data, $gcfe_data, $cs_data, $de_data, $czs_data, $czei_data, $cpi_data, $llar_data );
 
 	} elseif ( 'recommended' === $args->browse ) {
 
-		array_unshift( $result->plugins, $cpi_data );
+		array_unshift( $result->plugins, $cpi_data, $elementor_data );
 
 	} elseif ( 'popular' === $args->browse ) {
 

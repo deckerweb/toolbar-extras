@@ -107,6 +107,20 @@ function ddw_tbex_web_items_external_resources() {
 
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(
 		array(
+			'id'     => 'webr-gtmetrix',
+			'parent' => 'group-web-resources',
+			'title'  => esc_attr__( 'GTmetrix Report', 'toolbar-extras' ),
+			'href'   => 'https://gtmetrix.com/',
+			'meta'   => array(
+				'rel'    => ddw_tbex_meta_rel(),
+				'target' => ddw_tbex_meta_target(),
+				'title'  => esc_attr__( 'GTmetrix Report', 'toolbar-extras' )
+			)
+		)
+	);
+
+	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		array(
 			'id'     => 'webr-google-pagespeed',
 			'parent' => 'group-web-resources',
 			'title'  => esc_attr__( 'Google Page Speed', 'toolbar-extras' ),

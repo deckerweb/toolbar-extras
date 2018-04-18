@@ -57,13 +57,26 @@ function ddw_tbex_items_new_content_types() {
 
 			$GLOBALS[ 'wp_admin_bar' ]->add_node(
 				array(
-					'id'     => 'et-with-builder',
+					'id'     => 'et-page-with-builder',
 					'parent' => 'tbex-elementor-template',
-					'title'  => ddw_tbex_string_newcontent_with_builder(),
-					'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'elementor_library' ) ),
+					'title'  => ddw_tbex_string_elementor_template_with_builder( _x( 'Page', 'Elementor Template type', 'toolbar-extras' ) ),
+					'href'   => ddw_tbex_get_elementor_template_add_new_url( 'page' ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => ddw_tbex_string_newcontent_create_with_builder()
+						'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Page', 'Elementor Template type', 'toolbar-extras' ) )
+					)
+				)
+			);
+
+			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				array(
+					'id'     => 'et-section-with-builder',
+					'parent' => 'tbex-elementor-template',
+					'title'  => ddw_tbex_string_elementor_template_with_builder( _x( 'Section', 'Elementor Template type', 'toolbar-extras' ) ),	//ddw_tbex_string_newcontent_with_builder(),
+					'href'   => ddw_tbex_get_elementor_template_add_new_url( 'section' ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Section', 'Elementor Template type', 'toolbar-extras' ) )		//ddw_tbex_string_newcontent_create_with_builder()
 					)
 				)
 			);
@@ -213,7 +226,7 @@ function ddw_tbex_items_new_content_installer() {
 		$GLOBALS[ 'wp_admin_bar' ]->add_node(
 			array(
 				'id'     => 'install-plugin-favorites',
-				'parent' => 'install-plugin',	
+				'parent' => 'install-plugin',
 				'title'  => esc_attr__( 'Install Favorites', 'toolbar-extras' ),
 				'href'   => esc_url( network_admin_url( 'plugin-install.php?tab=favorites' ) ),
 				'meta'   => array(
@@ -270,6 +283,7 @@ function ddw_tbex_items_new_content_installer() {
 				'title'  => esc_attr__( 'Upload ZIP file', 'toolbar-extras' ),
 				'href'   => esc_url( network_admin_url( 'theme-install.php?upload' ) ),
 				'meta'   => array(
+					'class'  => 'upload-view-toggle page-title-action',
 					'target' => '',
 					'title'  => esc_attr__( 'Install Theme - Upload ZIP file', 'toolbar-extras' )
 				)

@@ -1,6 +1,6 @@
 <?php
 
-//items-codetic-addons
+// includes/elementor-addons/items-codetic-addons
 
 /**
  * Prevent direct access to this file.

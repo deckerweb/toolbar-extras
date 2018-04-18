@@ -1,6 +1,6 @@
 <?php
 
-//items-templementor
+// includes/elementor-addons/items-templementor
 
 /**
  * Prevent direct access to this file.

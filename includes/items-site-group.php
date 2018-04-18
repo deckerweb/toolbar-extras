@@ -155,6 +155,24 @@ function ddw_tbex_site_items_manage_content() {
 			)
 		);
 
+	/** Add conditional hook place for general gallery & slider plugins */
+	if ( ddw_tbex_use_hook_place_gallery_slider()	/* has_filter( 'tbex_filter_is_gallery_slider' ) */ ) {
+
+		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			array(
+				'id'     => 'gallery-slider-addons',
+				'parent' => 'tbex-sitegroup-manage-content',
+				'title'  => esc_attr__( 'Gallery &amp; Slider', 'toolbar-extras' ),
+				'href'   => '',
+				'meta'   => array(
+					'target' => '',
+					'title'  => esc_attr__( 'Galleries &amp; Sliders from Add-On Plugins', 'toolbar-extras' )
+				)
+			)
+		);
+
+	}  // end if
+
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(
 		array(
 			'id'     => 'manage-content-media',

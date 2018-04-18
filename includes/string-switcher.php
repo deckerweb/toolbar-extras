@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @uses   ddw_tbex_get_option()
  *
- * @return string String of local dev notice, fiterable.
+ * @return string String of local dev notice, filterable.
  */
 function ddw_tbex_string_local_dev_environment() {
 
@@ -42,7 +42,7 @@ function ddw_tbex_string_local_dev_environment() {
  *
  * @uses   ddw_tbex_get_option()
  *
- * @return string String of main item, fiterable.
+ * @return string String of main item, filterable.
  */
 function ddw_tbex_string_main_item() {
 
@@ -63,7 +63,7 @@ function ddw_tbex_string_main_item() {
  *
  * @since  1.0.0
  *
- * @return string String of fallback item, fiterable.
+ * @return string String of fallback item, filterable.
  */
 function ddw_tbex_string_fallback_item() {
 
@@ -89,7 +89,7 @@ function ddw_tbex_string_fallback_item() {
  *
  * @since  1.0.0
  *
- * @return string String of item, fiterable.
+ * @return string String of item, filterable.
  */
 function ddw_tbex_string_customize_design() {
 
@@ -113,7 +113,7 @@ function ddw_tbex_string_customize_design() {
  *
  * @uses   ddw_tbex_get_option()
  *
- * @return string String of Elementor word, fiterable.
+ * @return string String of Elementor word, filterable.
  */
 function ddw_tbex_string_elementor() {
 
@@ -338,6 +338,78 @@ function ddw_tbex_string_newcontent_create_with_builder() {
 
 
 /**
+ * Build string for "Add New" Elementor Template with Page Builder:
+ *   "Build New %s" where %s is the template type.
+ *
+ * @since  1.1.0
+ *
+ * @uses   ddw_tbex_get_elementor_template_types()
+ *
+ * @param  string $template_type Name of the Elementor template type
+ * @return string String for New Content section.
+ */
+function ddw_tbex_string_elementor_template_with_builder( $template_type = '' ) {
+
+	/** Fallback if template type is empty */
+	if ( empty( $template_type ) ) {
+		$template_type = _x( 'Content', 'Elementor Template type', 'toolbar-extras' );
+	}
+
+	return esc_attr(
+		apply_filters(
+			'tbex_filter_string_elementor_template_with_builder',
+			sprintf(
+				/* translators: %s - Elementor Template type */
+				_x(
+					'Build New %s',
+					'Toolbar New Content section',
+					'toolbar-extras'
+				),
+				$template_type
+			)
+		)
+	);
+
+}  // end function
+
+
+/**
+ * Build string for "Create with Builder" for Elementor Template with Page Builder:
+ *   "Build New %s" where %s is the template type.
+ *
+ * @since  1.1.0
+ *
+ * @uses   ddw_tbex_get_elementor_template_types()
+ *
+ * @param  string $template_type Name of the Elementor template type
+ * @return string Title attribute String for New Content section.
+ */
+function ddw_tbex_string_elementor_template_create_with_builder( $template_type = '' ) {
+
+	/** Fallback if template type is empty */
+	if ( empty( $template_type ) ) {
+		$template_type = _x( 'Content', 'Elementor Template type', 'toolbar-extras' );
+	}
+
+	return esc_attr(
+		apply_filters(
+			'tbex_filter_string_elementor_template_create_with_builder',
+			sprintf(
+				/* translators: %s - Elementor Template type */
+				_x(
+					'Create New %s Template with Builder',
+					'Toolbar New Content section',
+					'toolbar-extras'
+				),
+				$template_type
+			)
+		)
+	);
+
+}  // end function
+
+
+/**
  * Build string "Super Admin" or "Admin" depending on Multisite context.
  *
  * @since  1.0.0
@@ -403,5 +475,5 @@ function ddw_tbex_string_super_admin_menu_location() {
 
 	/** Output */
 	return $tbex_menu_string;
-	
+
 }  // end function

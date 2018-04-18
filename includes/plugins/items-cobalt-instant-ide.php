@@ -1,7 +1,7 @@
 <?php
 
 //dev-mode
-//items-instant-ide
+//items-cobalt-instant-ide
 
 /**
  * Prevent direct access to this file.

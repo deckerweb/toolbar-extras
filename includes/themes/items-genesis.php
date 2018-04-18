@@ -1,6 +1,6 @@
 <?php
 
-//items-genesis
+// includes/themes/items-genesis
 
 /**
  * Prevent direct access to this file.
@@ -18,6 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since  1.0.0
  *
+ * @param  string $genesis_handle Helper key to identify a settings page
  * @return bool TRUE if settings are active, otherwise FALSE.
  */
 function ddw_tbex_is_genesis_settings_active( $genesis_handle = '' ) {
@@ -69,11 +70,11 @@ function ddw_tbex_themeitems_genesis() {
 		array(
 			'id'     => 'theme-creative',
 			'parent' => 'group-active-theme',
-			'title'  => ddw_tbex_string_theme_title(),
+			'title'  => ddw_tbex_string_theme_title( 'title', 'child' ),
 			'href'   => ddw_tbex_is_genesis_settings_active( 'settings' ) ? esc_url( admin_url( 'admin.php?page=genesis' ) ) : ddw_tbex_customizer_start(),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_theme_title( 'attr' )
+				'title'  => ddw_tbex_string_theme_title( 'attr', 'child' )
 			)
 		)
 	);

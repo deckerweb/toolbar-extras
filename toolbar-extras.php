@@ -11,7 +11,7 @@
  * Plugin Name:       Toolbar Extras
  * Plugin URI:        https://toolbarextras.com/
  * Description:       This plugins adds a lot of quick jump links to the WordPress Toolbar helpful for Site Builders who use Elementor and its ecosystem of add-ons and from the theme space.
- * Version:           1.0.2
+ * Version:           1.1.0
  * Author:            David Decker - DECKERWEB
  * Author URI:        https://deckerweb.de/
  * License:           GPL-2.0+
@@ -20,7 +20,7 @@
  * Domain Path:       /languages/
  * GitHub Plugin URI: https://github.com/deckerweb/toolbar-extras
  * GitHub Branch:     master
- * Requires WP:       4.6
+ * Requires WP:       4.7
  * Requires PHP:      5.4
  *
  * Copyright (c) 2012-2018 David Decker - DECKERWEB
@@ -40,7 +40,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 1.0.0
  */
 /** Plugin version */
-define( 'TBEX_PLUGIN_VERSION', '1.0.2' );
+define( 'TBEX_PLUGIN_VERSION', '1.1.0' );
 
 /** Plugin directory */
 define( 'TBEX_PLUGIN_DIR', trailingslashit( dirname( __FILE__ ) ) );
@@ -98,10 +98,12 @@ function ddw_tbex_load_translations() {
 	$tbex_textdomain = 'toolbar-extras';
 
 	/** The 'plugin_locale' filter is also used by default in load_plugin_textdomain() */
-	$locale = apply_filters(
-		'plugin_locale',
-		is_admin() ? get_user_locale() : get_locale(),
-		$tbex_textdomain
+	$locale = esc_attr(
+		apply_filters(
+			'plugin_locale',
+			get_user_locale(),	//is_admin() ? get_user_locale() : get_locale(),
+			$tbex_textdomain
+		)
 	);
 
 	/**
@@ -346,6 +348,36 @@ function ddw_tbex_creative_items_base_groups() {
 }  // end function
 
 
+add_action( 'plugins_loaded', 'ddw_tbex_plugin_check_version' );
+/**
+ * Update plugin's options to newest version.
+ *
+ * @since 1.1.0
+ *
+ * @uses  ddw_tbex_run_plugin_activation()
+ */
+function ddw_tbex_plugin_check_version() {
+
+	if ( TBEX_PLUGIN_VERSION !== get_option( 'tbex-plugin-version' ) ) {
+		update_option( 'tbex-plugin-version', TBEX_PLUGIN_VERSION );	//ddw_tbex_run_plugin_activation();
+	}
+
+	/** Update plugin version in DB */
+	//
+
+	/** Plugin version v1.1.0 - new options - update */
+	$smart_tweaks_v110 = array(
+		'remove_aioseo'  => 'yes',
+		'rehook_nextgen' => 'no',
+		'rehook_ithsec'  => 'no',
+	);
+
+	$existing_tweaks  = (array) get_option( 'tbex-options-tweaks' );
+	$smart_tweaks_new = update_option( 'tbex-options-tweaks', array_merge( $existing_tweaks, $smart_tweaks_v110 ) );
+
+}  // end function
+
+
 register_activation_hook( __FILE__, 'ddw_tbex_run_plugin_activation' );
 /**
  * On plugin activation register the plugin's options and save their defaults.
@@ -377,5 +409,7 @@ function ddw_tbex_run_plugin_activation() {
 	ddw_tbex_register_settings_general();
 	ddw_tbex_register_settings_smart_tweaks();
 	ddw_tbex_register_settings_development();
+
+//
 
 }  // end function

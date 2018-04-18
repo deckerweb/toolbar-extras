@@ -1,6 +1,6 @@
 <?php
 
-//items-namogo-extras
+// includes/elementor-addons/items-namogo-extras
 
 /**
  * Prevent direct access to this file.
@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_elementor_extras', 100 );
 /**
- * Items for Add-On: Elementor Extras (by Namogo)
+ * Items for Add-On: Elementor Extras (Premium, by Namogo)
  *
  * @since  1.0.0
  *

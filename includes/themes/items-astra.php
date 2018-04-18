@@ -449,18 +449,23 @@ function ddw_tbex_themeitems_astra_pro() {
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
-			array(
-				'id'     => 'theme-settings-whitelabel',
-				'parent' => 'theme-settings',
-				'title'  => esc_attr__( 'White Label', 'toolbar-extras' ),
-				'href'   => esc_url( admin_url( 'themes.php?page=astra&action=white-label' ) ),
-				'meta'   => array(
-					'target' => '',
-					'title'  => esc_attr__( 'White Label Branding', 'toolbar-extras' )
+		/** Only show white label settings if they are not hidden */
+		if ( ! $astra_whitelabel[ 'astra-agency' ][ 'hide_branding' ] ) {
+
+			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				array(
+					'id'     => 'theme-settings-whitelabel',
+					'parent' => 'theme-settings',
+					'title'  => esc_attr__( 'White Label', 'toolbar-extras' ),
+					'href'   => esc_url( admin_url( 'themes.php?page=astra&action=white-label' ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => esc_attr__( 'White Label Branding', 'toolbar-extras' )
+					)
 				)
-			)
-		);
+			);
+
+		}  // end if
 
 }  // end function
 
