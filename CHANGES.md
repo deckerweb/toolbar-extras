@@ -2,6 +2,72 @@
 
 ## Changelog
 
+#### 1.1.0 - 2018-04-18
+
+* New: Successfully tested with Elementor Pro 2.0 final release (and many Beta versions before)
+* New: Successfully tested with "Laragon" app on Windows 10 - automatic detection of local sites with `.test` domain worked great
+* New: Added button to Video feature introduction tour on settings page welcome message
+* New: Added links to YouTube tutorial videos on tab "About & Support" on plugin's settings page
+* New: Smart Tweak setting to re-hook "NextGen Gallery" items from the top-level to the Site Group > Galleries (off by default)
+* New: Smart Tweak setting to re-hook "iThemes Security" items from the top-level to the Site Group (off by default)
+* New: Smart Tweak setting to remove "All In One SEO Pack" items from the top-level because they have no real use at all (on by default)
+* Tweak: Improved "Add new Template with Builder" for all Elementor Template Types since Elementor 2.0/ Pro 2.0 - Special Thanks to the Elementor Dev Team! ;-)
+* Tweak: Respect white label settings for Elementor Add-On "PowerPack Elements" (and only show if those settings were not hidden)
+* Tweak: Only show "Astra Pro" white label settings if those settings were not hidden
+* Tweak: Only show "Ultimate Addons for Elementor" white label settings if those settings were not hidden
+* Tweak: Added Google Maps settings options for "Ultimate Addons for Elementor" (since v1.1.0 of this Add-On)
+* Tweak: Extended plugin support for the "WooCommerce" plugin
+* Tweak: Improved the support for re-hooking the "Smart Slider 3" plugin items
+* Tweak: Improved and enhanced the "About & Support" page content
+* Tweak: Improved uninstall functionality: properly delete all (site) Transients
+* Tweak: Updated `.pot` file plus all German translations (formal, informal)
+* Tweak: Enhanced, improved and corrected Readme.txt file here :)
+* Fix: White label name for OceanWP for Library in "New Content" Group
+* Fix: Inline documentation and typo fixes all around
+* **New:** *Extended the Theme support for:*
+ * Page Builder Framework (free & Premium, by David Vongries & MapSteps)
+ * StartWP (free, by Munir Kamal)
+ * Dynamik Website Builder for Genesis (Premium, by Cobalt Apps)
+ * Freelancer Framework (free, by Cobalt Apps)
+ * GBeaver (Child Theme for Genesis) (Premium, by WP Beaver World)
+ * Beaver Builder Theme (Premium, by FastLine Media LLC)
+ * Hestia (free, by Themeisle)
+ * Tiny Hestia (Child Theme for Hestia) (free, by Themeisle)
+ * Ofeo (Child Theme for Hestia) (free, by Themeisle)
+ * Christmas Hestia (Child Theme for Hestia) (free, by Themeisle)
+* **New:** *Extended the Plugin support for Elementor Add-Ons:*
+ * Premium Addons for Elementor (free, by Leap13)
+ * Elements Plus! (free, by The CSSIgniter Team)
+ * Elementor Custom Skin (free, by Liviu Duda)
+ * Power-Ups for Elementor (free, by WpPug)
+ * Press Elements (free/Premium, by Press Elements & Rami Yushuvaev)
+ * JetElements (Premium, by Zemez)
+ * JetMenu (Premium, by Zemez)
+ * JetBlog (Premium, by Zemez)
+ * JetReviews (Premium, by Zemez)
+ * Total Recipe Generator for Elementor (Premium, by SaurabhSharma)
+ * PT Elementor Addons Lite (free, by ParamThemes)
+ * Elementor Addon Elements (free, by WebTechStreet)
+ * Elementor Addons & Templates – Sizzify Lite (free, by Themeisle)
+ * Orbit Fox Companion (free, by Themeisle)
+ * Elementor Google Map Extended (free, by InternetCSS)
+* **New:** *Extended the general Plugin support for:*
+ * WP Show Posts (free/Pro, by Tom Usborne)
+ * StartWP Extended (free, by Munir Kamal)
+ * Freelancer DevKit (Add-On) (Premium, by Cobalt Apps)
+ * Themer Pro (Premium, by Cobalt Apps)
+ * Extender Pro (Premium, by Cobalt Apps)
+ * Genesis Extender (Premium, by Cobalt Apps)
+ * Envira Gallery Lite/Pro (free/Premium, by Envira Gallery Team)
+ * Soliloquy Sliders Lite/Pro (free/Premium, by Soliloquy Team)
+ * Cherry Testimonials (free, by Zemez)
+ * Cherry Team Members (free, by Zemez)
+ * Cherry Services List (free, by Zemez)
+ * Cherry Projects (free, by Zemez)
+ * FooGallery (free, by FooPlugins)
+ * MaxGalleria (free, by Max Foundry)
+
+
 #### 1.0.2 - 2018-04-05
 
 * New: Added first language packs via WordPress.org translations platform - for German (de_DE - informal) and German Formal (de_DE_formal) - thanks to Team WordPress DE! ;-)
