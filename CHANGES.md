@@ -2,7 +2,7 @@
 
 ## Changelog
 
-#### 1.1.0 - 2018-04-18
+### 1.1.0 - 2018-04-18
 
 * New: Successfully tested with Elementor Pro 2.0 final release (and many Beta versions before)
 * New: Successfully tested with "Laragon" app on Windows 10 - automatic detection of local sites with `.test` domain worked great
@@ -68,7 +68,7 @@
   * MaxGalleria (free, by Max Foundry)
 
 
-#### 1.0.2 - 2018-04-05
+### 1.0.2 - 2018-04-05
 
 * New: Added first language packs via WordPress.org translations platform - for German (de_DE - informal) and German Formal (de_DE_formal) - thanks to Team WordPress DE! ;-)
 * New: Added plugin support for "Cleaner Plugin Installer".
@@ -77,13 +77,13 @@
 * Fix: Fatal error related to "Dev Mode" in Multisite context.
 
 
-#### 1.0.1 - 2018-04-04
+### 1.0.1 - 2018-04-04
 
 * Tweak: Improved localization functions.
 * Tweak: Improved Readme.txt
 
 
-#### 1.0.0 - 2018-04-03
+### 1.0.0 - 2018-04-03
 
 * *Plugin launch. Everything's new!*
 * New: Including support for 17 Themes/ Frameworks (which all work well with Elementor, including the Theme Builder since Pro v2.0+)
@@ -92,6 +92,6 @@
 * New: Including support for 10 Genesis specific plugins
 
 
-#### Version 2018-03-31
+### Version 2018-03-31
 
 * Initial private release on GitHub
