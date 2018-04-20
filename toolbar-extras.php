@@ -11,7 +11,7 @@
  * Plugin Name:       Toolbar Extras
  * Plugin URI:        https://toolbarextras.com/
  * Description:       This plugins adds a lot of quick jump links to the WordPress Toolbar helpful for Site Builders who use Elementor and its ecosystem of add-ons and from the theme space.
- * Version:           1.1.0
+ * Version:           1.1.1
  * Author:            David Decker - DECKERWEB
  * Author URI:        https://deckerweb.de/
  * License:           GPL-2.0+
@@ -40,7 +40,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 1.0.0
  */
 /** Plugin version */
-define( 'TBEX_PLUGIN_VERSION', '1.1.0' );
+define( 'TBEX_PLUGIN_VERSION', '1.1.1' );
 
 /** Plugin directory */
 define( 'TBEX_PLUGIN_DIR', trailingslashit( dirname( __FILE__ ) ) );
@@ -359,11 +359,8 @@ add_action( 'plugins_loaded', 'ddw_tbex_plugin_check_version' );
 function ddw_tbex_plugin_check_version() {
 
 	if ( TBEX_PLUGIN_VERSION !== get_option( 'tbex-plugin-version' ) ) {
-		update_option( 'tbex-plugin-version', TBEX_PLUGIN_VERSION );	//ddw_tbex_run_plugin_activation();
+		update_option( 'tbex-plugin-version', TBEX_PLUGIN_VERSION );
 	}
-
-	/** Update plugin version in DB */
-	//
 
 	/** Plugin version v1.1.0 - new options - update */
 	$smart_tweaks_v110 = array(
@@ -373,7 +370,14 @@ function ddw_tbex_plugin_check_version() {
 	);
 
 	$existing_tweaks  = (array) get_option( 'tbex-options-tweaks' );
-	$smart_tweaks_new = update_option( 'tbex-options-tweaks', array_merge( $existing_tweaks, $smart_tweaks_v110 ) );
+
+	/** Only update option array if the new options are missing still */
+	if ( ! array_key_exists( 'remove_aioseo', $existing_tweaks )
+		|| ! array_key_exists( 'rehook_nextgen', $existing_tweaks )
+		|| ! array_key_exists( 'rehook_ithsec', $existing_tweaks )
+	) {
+		$smart_tweaks_new = update_option( 'tbex-options-tweaks', array_merge( $existing_tweaks, $smart_tweaks_v110 ) );
+	}
 
 }  // end function
 
@@ -409,7 +413,5 @@ function ddw_tbex_run_plugin_activation() {
 	ddw_tbex_register_settings_general();
 	ddw_tbex_register_settings_smart_tweaks();
 	ddw_tbex_register_settings_development();
-
-//
 
 }  // end function

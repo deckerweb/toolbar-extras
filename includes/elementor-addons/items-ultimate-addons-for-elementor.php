@@ -19,6 +19,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_uael', 100 );
  * @since  1.0.0
  *
  * @uses   \UltimateElementor\Classes\UAEL_Helper::get_white_labels()
+ * @uses   ddw_tbex_display_uael_witelabel()
  * @uses   ddw_tbex_resource_item()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]

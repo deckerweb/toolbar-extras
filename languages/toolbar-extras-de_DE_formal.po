@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Toolbar Extras\n"
-"POT-Creation-Date: 2018-04-18 16:01+0200\n"
-"PO-Revision-Date: 2018-04-18 16:01+0200\n"
+"POT-Creation-Date: 2018-04-20 22:12+0200\n"
+"PO-Revision-Date: 2018-04-20 22:13+0200\n"
 "Last-Translator: David Decker DECKERWEB.de -- https://deckerweb.de/\n"
 "Language-Team: David Decker DECKERWEB.de -- https://deckerweb.de/\n"
 "Language: de_DE\n"
@@ -325,15 +325,15 @@ msgid "Text of Toolbar Item"
 msgstr "Text des Toolbar-Links"
 
 #. translators: Settings page title in WP-Admin
-#: includes/admin/tbex-settings.php:1041
+#: includes/admin/tbex-settings.php:1044
 msgid "Toolbar Extras - Settings"
 msgstr "Toolbar Extras - Einstellungen"
 
-#: includes/admin/tbex-settings.php:1048
+#: includes/admin/tbex-settings.php:1051
 msgid "Let the Toolbar Work for You!"
 msgstr "Lassen Sie die Toolbar für sich arbeiten!"
 
-#: includes/admin/tbex-settings.php:1050
+#: includes/admin/tbex-settings.php:1053
 msgid ""
 "Decide which additional items should be displayed or not. Also use some "
 "smart tweaks or enable development modes."
@@ -343,25 +343,25 @@ msgstr ""
 "Entwickler-Modus aktivieren."
 
 #. translators: Settings tab title in WP-Admin
-#: includes/admin/tbex-settings.php:1060
+#: includes/admin/tbex-settings.php:1063
 msgctxt "Plugin settings tab title"
 msgid "General Settings"
 msgstr "Allgemeine Einstellungen"
 
 #. translators: Settings tab title in WP-Admin
-#: includes/admin/tbex-settings.php:1066
+#: includes/admin/tbex-settings.php:1069
 msgctxt "Plugin settings tab title"
 msgid "Smart Tweaks"
 msgstr "Smarte Anpassungen"
 
 #. translators: Settings tab title in WP-Admin
-#: includes/admin/tbex-settings.php:1072
+#: includes/admin/tbex-settings.php:1075
 msgctxt "Plugin settings tab title"
 msgid "For Development"
 msgstr "Für die Entwicklung"
 
 #. translators: Settings tab title in WP-Admin
-#: includes/admin/tbex-settings.php:1078
+#: includes/admin/tbex-settings.php:1081
 msgctxt "Plugin settings tab title"
 msgid "About &amp; Support"
 msgstr "Über &amp; Support"
@@ -503,8 +503,6 @@ msgstr ""
 #: includes/admin/views/notice-plugins-welcome.php:38
 #: includes/elementor-addons/items-elements-plus.php:48
 #: includes/elementor-addons/items-elements-plus.php:52
-#: includes/elementor-addons/items-extra-privacy-for-elementor.php:45
-#: includes/elementor-addons/items-extra-privacy-for-elementor.php:49
 #: includes/elementor-addons/items-internetcss-google-map-extended.php:48
 #: includes/elementor-addons/items-internetcss-google-map-extended.php:52
 #: includes/elementor-addons/items-jetblog.php:48
@@ -1334,8 +1332,8 @@ msgstr "Elementor Pack (Premium-Add-On)"
 #: includes/elementor-addons/items-bdthemes-element-pack.php:52
 #: includes/elementor-addons/items-namogo-extras.php:48
 #: includes/elementor-addons/items-namogo-extras.php:52
-#: includes/elementor-addons/items-ultimate-addons-for-elementor.php:55
-#: includes/elementor-addons/items-ultimate-addons-for-elementor.php:59
+#: includes/elementor-addons/items-ultimate-addons-for-elementor.php:56
+#: includes/elementor-addons/items-ultimate-addons-for-elementor.php:60
 msgid "Activate Widgets"
 msgstr "Widgets aktivieren"
 
@@ -1393,6 +1391,8 @@ msgstr "Codetic Addons"
 #: includes/elementor-addons/items-powerpack-elements.php:59
 #: includes/elementor-addons/items-pt-elementor.php:48
 #: includes/elementor-addons/items-pt-elementor.php:52
+#: includes/elementor-addons/items-widgetkit-for-elementor.php:48
+#: includes/elementor-addons/items-widgetkit-for-elementor.php:52
 msgid "Activate Elements"
 msgstr "Elemente aktivieren"
 
@@ -1451,10 +1451,25 @@ msgstr "Elemente Plus!"
 msgid "Elements Plus! (Add-On)"
 msgstr "Elements Plus! (Premium-Add-On)"
 
-#: includes/elementor-addons/items-extra-privacy-for-elementor.php:32
 #: includes/elementor-addons/items-extra-privacy-for-elementor.php:36
+#: includes/elementor-addons/items-extra-privacy-for-elementor.php:40
 msgid "Extra Privacy"
 msgstr "Extra-Datenschutz"
+
+#: includes/elementor-addons/items-extra-privacy-for-elementor.php:49
+#: includes/elementor-addons/items-extra-privacy-for-elementor.php:53
+msgid "Default Settings"
+msgstr "Allgemeine Einstellungen"
+
+#: includes/elementor-addons/items-extra-privacy-for-elementor.php:62
+#: includes/elementor-addons/items-extra-privacy-for-elementor.php:66
+msgid "Video Settings"
+msgstr "Video-Einstellungen"
+
+#: includes/elementor-addons/items-extra-privacy-for-elementor.php:75
+#: includes/elementor-addons/items-extra-privacy-for-elementor.php:79
+msgid "Google Maps Settings"
+msgstr "Google Maps-Einstellungen"
 
 #: includes/elementor-addons/items-granular-controls.php:35
 msgid "Granular Controls"
@@ -1473,6 +1488,8 @@ msgstr "Granular Controls für Elementor (Add-On)"
 #: includes/plugins/items-blox.php:96
 #: includes/plugins/items-cobalt-extender-pro.php:84
 #: includes/plugins/items-cobalt-extender-pro.php:88
+#: includes/plugins/items-cobalt-genesis-extender.php:84
+#: includes/plugins/items-cobalt-genesis-extender.php:88
 #: includes/plugins/items-cobalt-themer-pro.php:110
 #: includes/plugins/items-cobalt-themer-pro.php:114
 #: includes/plugins/items-gravity-forms.php:121
@@ -1571,6 +1588,8 @@ msgstr "Versionskontrolle"
 
 #: includes/elementor-addons/items-leap13-premium-addons.php:87
 #: includes/elementor-addons/items-leap13-premium-addons.php:91
+#: includes/elementor-addons/items-widgetkit-for-elementor.php:61
+#: includes/elementor-addons/items-widgetkit-for-elementor.php:65
 #: includes/elementor-official/items-elementor-core.php:351
 #: includes/elementor-official/items-elementor-core.php:355
 #: includes/plugins/items-foogallery.php:101
@@ -1808,21 +1827,21 @@ msgstr "Anzeigeeinstellungen"
 msgid "Social Sharing"
 msgstr "Soziales Teilen"
 
-#: includes/elementor-addons/items-ultimate-addons-for-elementor.php:33
+#: includes/elementor-addons/items-ultimate-addons-for-elementor.php:34
 msgid "Ultimate Addons"
 msgstr "Ultimate Addons"
 
-#: includes/elementor-addons/items-ultimate-addons-for-elementor.php:34
+#: includes/elementor-addons/items-ultimate-addons-for-elementor.php:35
 msgid "Ultimate Addons for Elementor (Premium Add-On)"
 msgstr "Ultimate Add-Ons für Elementor (Premium-Add-On)"
 
-#: includes/elementor-addons/items-ultimate-addons-for-elementor.php:73
-#: includes/elementor-addons/items-ultimate-addons-for-elementor.php:77
+#: includes/elementor-addons/items-ultimate-addons-for-elementor.php:74
+#: includes/elementor-addons/items-ultimate-addons-for-elementor.php:78
 msgid "Google Map Settings"
 msgstr "Google Maps-Einstellungen"
 
-#: includes/elementor-addons/items-ultimate-addons-for-elementor.php:93
-#: includes/elementor-addons/items-ultimate-addons-for-elementor.php:97
+#: includes/elementor-addons/items-ultimate-addons-for-elementor.php:94
+#: includes/elementor-addons/items-ultimate-addons-for-elementor.php:98
 msgid "Whitelabel Settings"
 msgstr "Whitelabel-Einstellungen"
 
@@ -1833,6 +1852,14 @@ msgstr "WebTechStreet Addons"
 #: includes/elementor-addons/items-webtechstreet-addons.php:39
 msgid "WebTechStreet Addons (Add-On)"
 msgstr "WebTechStreet Addons (Add-On)"
+
+#: includes/elementor-addons/items-widgetkit-for-elementor.php:35
+msgid "WidgetKit"
+msgstr "WidgetKit"
+
+#: includes/elementor-addons/items-widgetkit-for-elementor.php:39
+msgid "WidgetKit for Elementor (Add-On)"
+msgstr "WidgetKit für Elementor (Add-On)"
 
 #. translators: Label for registered Page Builder, used on plugin's settings page
 #: includes/elementor-official/items-elementor-core.php:29
@@ -1976,6 +2003,7 @@ msgstr "Aktives Theme: Elementor Hello"
 #: includes/themes/items-generatepress.php:61
 #: includes/themes/items-generatepress.php:65
 #: includes/themes/items-hestia.php:46 includes/themes/items-hestia.php:50
+#: includes/themes/items-kava.php:47 includes/themes/items-kava.php:51
 #: includes/themes/items-page-builder-framework.php:62
 #: includes/themes/items-page-builder-framework.php:66
 #: includes/themes/items-startwp.php:61 includes/themes/items-startwp.php:65
@@ -1994,10 +2022,10 @@ msgstr "Template-Typ: Widget-Blöcke"
 
 #. translators: Elementor Template type
 #: includes/elementor-official/items-elementor-pro.php:52
-#: includes/elementor-official/items-elementor-pro.php:134
-#: includes/elementor-official/items-elementor-pro.php:138
-#: includes/elementor-official/items-elementor-pro.php:399
-#: includes/elementor-official/items-elementor-pro.php:403
+#: includes/elementor-official/items-elementor-pro.php:121
+#: includes/elementor-official/items-elementor-pro.php:125
+#: includes/elementor-official/items-elementor-pro.php:373
+#: includes/elementor-official/items-elementor-pro.php:377
 msgctxt "Elementor Template type"
 msgid "Header"
 msgstr "Header"
@@ -2008,10 +2036,10 @@ msgstr "Template-Typ: Header-Blöcke"
 
 #. translators: Elementor Template type
 #: includes/elementor-official/items-elementor-pro.php:66
-#: includes/elementor-official/items-elementor-pro.php:147
-#: includes/elementor-official/items-elementor-pro.php:151
-#: includes/elementor-official/items-elementor-pro.php:412
-#: includes/elementor-official/items-elementor-pro.php:416
+#: includes/elementor-official/items-elementor-pro.php:134
+#: includes/elementor-official/items-elementor-pro.php:138
+#: includes/elementor-official/items-elementor-pro.php:386
+#: includes/elementor-official/items-elementor-pro.php:390
 msgctxt "Elementor Template type"
 msgid "Footer"
 msgstr "Footer"
@@ -2022,10 +2050,10 @@ msgstr "Template-Typ: Footer-Blöcke"
 
 #. translators: Elementor Template type
 #: includes/elementor-official/items-elementor-pro.php:80
-#: includes/elementor-official/items-elementor-pro.php:160
-#: includes/elementor-official/items-elementor-pro.php:164
-#: includes/elementor-official/items-elementor-pro.php:425
-#: includes/elementor-official/items-elementor-pro.php:429
+#: includes/elementor-official/items-elementor-pro.php:147
+#: includes/elementor-official/items-elementor-pro.php:151
+#: includes/elementor-official/items-elementor-pro.php:399
+#: includes/elementor-official/items-elementor-pro.php:403
 msgctxt "Elementor Template type"
 msgid "Single"
 msgstr "Einzel-Inhalte"
@@ -2036,10 +2064,10 @@ msgstr "Template-Typ: Einzel-Inhalte-Blöcke"
 
 #. translators: Elementor Template type
 #: includes/elementor-official/items-elementor-pro.php:94
-#: includes/elementor-official/items-elementor-pro.php:173
-#: includes/elementor-official/items-elementor-pro.php:177
-#: includes/elementor-official/items-elementor-pro.php:438
-#: includes/elementor-official/items-elementor-pro.php:442
+#: includes/elementor-official/items-elementor-pro.php:160
+#: includes/elementor-official/items-elementor-pro.php:164
+#: includes/elementor-official/items-elementor-pro.php:412
+#: includes/elementor-official/items-elementor-pro.php:416
 msgctxt "Elementor Template type"
 msgid "Archive"
 msgstr "Archive"
@@ -2048,47 +2076,39 @@ msgstr "Archive"
 msgid "Template Type: Archive Content Blocks"
 msgstr "Template-Typ: Inhaltsarchive-Blöcke"
 
-#: includes/elementor-official/items-elementor-pro.php:121
-#: includes/elementor-official/items-elementor-pro.php:125
-#: includes/elementor-official/items-elementor-pro.php:386
-#: includes/elementor-official/items-elementor-pro.php:390
-msgctxt "Elementor Template type"
-msgid "Global Widget"
-msgstr "Globales Widget"
-
-#: includes/elementor-official/items-elementor-pro.php:200
+#: includes/elementor-official/items-elementor-pro.php:187
 msgid "Pro: Integrations"
 msgstr "Pro: Integrationen"
 
-#: includes/elementor-official/items-elementor-pro.php:204
+#: includes/elementor-official/items-elementor-pro.php:191
 msgid "Pro: Integrations &amp; APIs"
 msgstr "Pro: Integrationen &amp; APIs"
 
-#: includes/elementor-official/items-elementor-pro.php:214
-#: includes/elementor-official/items-elementor-pro.php:218
+#: includes/elementor-official/items-elementor-pro.php:201
+#: includes/elementor-official/items-elementor-pro.php:205
 msgid "Pro: License"
 msgstr "Pro: Lizenz"
 
-#: includes/elementor-official/items-elementor-pro.php:250
-#: includes/elementor-official/items-elementor-pro.php:254
+#: includes/elementor-official/items-elementor-pro.php:237
+#: includes/elementor-official/items-elementor-pro.php:241
 msgid "All Fonts"
 msgstr "Alle Schriften"
 
-#: includes/elementor-official/items-elementor-pro.php:263
+#: includes/elementor-official/items-elementor-pro.php:250
 msgid "New Font"
 msgstr "Neue Schrift"
 
-#: includes/elementor-official/items-elementor-pro.php:267
+#: includes/elementor-official/items-elementor-pro.php:254
 msgid "Upload New Font"
 msgstr "Neue Schrift hochladen"
 
-#: includes/elementor-official/items-elementor-pro.php:298
-#: includes/elementor-official/items-elementor-pro.php:303
+#: includes/elementor-official/items-elementor-pro.php:285
+#: includes/elementor-official/items-elementor-pro.php:290
 msgid "Pro Resources"
 msgstr "Pro-Ressourcen"
 
 #. translators: %s - static string "@ elementor.com" (My Account @ elementor.com)
-#: includes/elementor-official/items-elementor-pro.php:328
+#: includes/elementor-official/items-elementor-pro.php:315
 #, php-format
 msgid "My Account %s"
 msgstr "Mein Benutzerkonto %s"
@@ -2433,13 +2453,13 @@ msgstr "Theme installieren - Favoriten (via WordPress.org)"
 msgid "Install Theme - Upload ZIP file"
 msgstr "Theme installieren - ZIP-Datei hochladen"
 
-#: includes/items-plugins-addons.php:340
+#: includes/items-plugins-addons.php:349
 #: includes/plugins/items-envira-gallery.php:118
 #: includes/plugins/items-soliloquy-sliders.php:86
 msgid "Add-Ons"
 msgstr "Add-Ons"
 
-#: includes/items-plugins-addons.php:344
+#: includes/items-plugins-addons.php:353
 msgid "Elements and Options from Add-On Plugins"
 msgstr "Widget-Elemente und Einstellungen von Add-On-Plugins"
 
@@ -2823,12 +2843,16 @@ msgstr "Eigene Optionen"
 #: includes/plugins/items-cobalt-extender-pro.php:62
 #: includes/plugins/items-cobalt-freelancer-devkit.php:74
 #: includes/plugins/items-cobalt-freelancer-devkit.php:78
+#: includes/plugins/items-cobalt-genesis-extender.php:58
+#: includes/plugins/items-cobalt-genesis-extender.php:62
 #: includes/plugins/items-cobalt-themer-pro.php:82
 msgid "Image Manager"
 msgstr "Bilder verwalten"
 
 #: includes/plugins/items-cobalt-extender-pro.php:71
 #: includes/plugins/items-cobalt-extender-pro.php:75
+#: includes/plugins/items-cobalt-genesis-extender.php:71
+#: includes/plugins/items-cobalt-genesis-extender.php:75
 #: includes/plugins/items-gravity-forms.php:130
 #: includes/plugins/items-gravity-forms.php:134
 #: includes/plugins/items-widget-importer-exporter.php:29
@@ -2866,6 +2890,17 @@ msgstr "Theme-Ersteller"
 #: includes/plugins/items-cobalt-themer-pro.php:101
 msgid "Child Theme Creator"
 msgstr "Child Theme-Ersteller"
+
+#: includes/plugins/items-cobalt-genesis-extender.php:32
+#: includes/plugins/items-cobalt-genesis-extender.php:36
+msgid "Genesis Extender"
+msgstr "Genesis Extender"
+
+#: includes/plugins/items-cobalt-genesis-extender.php:45
+#: includes/plugins/items-cobalt-genesis-extender.php:49
+#: includes/themes/items-dynamik-website-builder.php:89
+msgid "Custom CSS &amp; Code"
+msgstr "Eigenes CSS &amp; Code"
 
 #: includes/plugins/items-cobalt-instant-ide.php:40
 msgid "Instant IDE"
@@ -3761,6 +3796,7 @@ msgstr "Voreingestellt"
 #. translators: Autofocus section in the Customizer
 #: includes/themes/items-beaver-builder-theme.php:105
 #: includes/themes/items-beaver-builder-theme.php:109
+#: includes/themes/items-kava.php:119 includes/themes/items-kava.php:123
 #: includes/themes/items-oceanwp.php:449 includes/themes/items-oceanwp.php:453
 #: includes/themes/items-page-builder-framework.php:120
 #: includes/themes/items-page-builder-framework.php:124
@@ -3790,10 +3826,6 @@ msgstr "Footer"
 msgid "Code"
 msgstr "Code"
 
-#: includes/themes/items-dynamik-website-builder.php:89
-msgid "Custom CSS &amp; Code"
-msgstr "Eigenes CSS &amp; Code"
-
 #: includes/themes/items-dynamik-website-builder.php:93
 msgid "Custom Options: CSS, Code etc."
 msgstr "Eigenes CSS, Code, etc."
@@ -3809,6 +3841,7 @@ msgstr "Allgemeine Optionen"
 #. translators: Autofocus panel in the Customizer
 #: includes/themes/items-generatepress.php:119
 #: includes/themes/items-generatepress.php:123
+#: includes/themes/items-kava.php:105 includes/themes/items-kava.php:109
 #: includes/themes/items-oceanwp.php:435 includes/themes/items-oceanwp.php:439
 #: includes/themes/items-page-builder-framework.php:106
 #: includes/themes/items-page-builder-framework.php:110
@@ -3959,6 +3992,7 @@ msgstr "Sektionen für Startseite"
 
 #. translators: Autofocus section in the Customizer
 #: includes/themes/items-hestia.php:108 includes/themes/items-hestia.php:112
+#: includes/themes/items-kava.php:133 includes/themes/items-kava.php:137
 msgid "Blog Settings"
 msgstr "Blog-Einstellungen"
 
@@ -3966,6 +4000,16 @@ msgstr "Blog-Einstellungen"
 #: includes/themes/items-hestia.php:124 includes/themes/items-hestia.php:128
 msgid "Header Settings"
 msgstr "Header-Einstellungen"
+
+#. translators: Autofocus panel in the Customizer
+#: includes/themes/items-kava.php:77 includes/themes/items-kava.php:81
+msgid "General Site Settings"
+msgstr "Allgemeine Site-Einstellungen"
+
+#. translators: Autofocus section in the Customizer
+#: includes/themes/items-kava.php:91 includes/themes/items-kava.php:95
+msgid "Color Scheme"
+msgstr "Farbschema"
 
 #: includes/themes/items-oceanwp.php:96
 msgid "Template Library"
@@ -4163,6 +4207,10 @@ msgstr ""
 "Werkzeugleiste (Toolbar, Adminbar) hinzu. Das ist besonders hilfreich bei "
 "der Website-Erstellung mit dem Elementor Page Builder und dessen Ökosystem "
 "aus Add-Ons sowie aus dem Bereich der Themes."
+
+#~ msgctxt "Elementor Template type"
+#~ msgid "Global Widget"
+#~ msgstr "Globales Widget"
 
 #~ msgctxt "Elementor template type"
 #~ msgid "Loop"

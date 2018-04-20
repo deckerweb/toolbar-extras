@@ -241,6 +241,15 @@ if ( ( 'freelancer' === basename( get_template_directory() ) )			// check for Fr
 }
 
 
+/**
+ * Plugin: Genesis Extender (Premium, by Cobalt Apps)
+ * @since 1.1.1
+ */
+if ( ddw_tbex_is_genesis_active() && defined( 'GENEXT_VERSION' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-cobalt-genesis-extender.php' );
+}
+
+
 
 /**
  * 2nd GROUP: Miscellaneous stuff

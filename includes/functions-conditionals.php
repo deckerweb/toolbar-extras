@@ -18,7 +18,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since  1.0.0
  *
- * @return bool TRUE if Host is a local host (based on known local hosts listing), otherwise FALSE.
+ * @return bool TRUE if Host is a local host (based on known local hosts
+ *              listing), otherwise FALSE.
  */
 function ddw_tbex_is_localhost() {
 
@@ -77,10 +78,10 @@ function ddw_tbex_is_localhost() {
 function ddw_tbex_show_toolbar_items() {
 
 	/**
-	 * Allows for filtering the general user role/capability to display main & sub-level items
-	 *
-	 * Default capability: 'manage_options' (Default cap for Elementor settings page)
-	 *
+	 * Allows for filtering the general user role/capability to display main
+	 *   & sub-level items
+	 *   Default capability: 'manage_options' (Default cap for Elementor
+	 *   settings page)
 	 * @since 1.0.0
 	 */
 	$tbex_cap_default = sanitize_key(
@@ -92,8 +93,8 @@ function ddw_tbex_show_toolbar_items() {
 
 	/**
 	 * Required WordPress cabability to display new toolbar / admin bar entry
-	 * Only showing items if toolbar / admin bar is activated and user is logged in!
-	 *
+	 *   Only showing items if toolbar / admin bar is activated and user is
+	 *   logged in!
 	 * @since 1.0.0
 	 */
 	if ( ! is_user_logged_in()
@@ -348,8 +349,10 @@ function ddw_tbex_display_items_webgroup() {
  * @uses   ddw_tbex_get_option()
  * @uses   ddw_tbex_is_localhost()
  *
- * @return bool When our constant is defined: TRUE when constant returns TRUE, otherwise FALSE.
- *              When setting is on 'auto' TRUE when ddw_tbex_is_localhost() returns TRUE, otherwise FALSE.
+ * @return bool When our constant is defined: TRUE when constant returns TRUE,
+ *              otherwise FALSE.
+ *              When setting is on 'auto' TRUE when ddw_tbex_is_localhost()
+ *              returns TRUE, otherwise FALSE.
  *              When setting is on 'yes' TRUE, otherwise FALSE.
  */
 function ddw_tbex_in_local_environment() {
@@ -686,7 +689,8 @@ function ddw_tbex_use_tweak_adminpagespider() {
 
 
 /**
- * Tweak: Remove Multisite Toolbar Additions > Site Extend Group items from the Site Group?
+ * Tweak: Remove Multisite Toolbar Additions > Site Extend Group items from the
+ *   Site Group?
  *
  * @since  1.0.0
  *
@@ -753,6 +757,8 @@ function ddw_tbex_is_theme_hestia() {
 
 		/** Supported Hestia child themes */
 		'tiny-hestia',
+		'orfeo',
+		'christmas-hestia',
 	);
 
 	return in_array( get_stylesheet(), $supported_hestia );

@@ -2,6 +2,20 @@
 
 ## Changelog
 
+### 1.1.1 - 2018-04-20
+
+* New: Added theme support for "Kava Theme" (free, by Zemez & CrocoBlock)
+* New: Added plugin support for "WidgetKit for Elementor" (free, by Themesgrove)
+* New: Added plugin support for "Genesis Extender" (Premium, by Cobalt Apps)
+* Tweak: Added new settings to plugin support for "Extra Privacy for Elementor" (free, by Marian Heddesheimer)
+* Tweak: Removed "Widget" Template type from Add New items (Elementor Pro), as Widgets (Global Widgets) cannot be created that way at all (only from the Live Builder itself)
+* Tweak: Updated `.pot` file plus all German translations (formal, informal)
+* Fix: Proper template type for "New Page Template with Builder" (Elementor Core)
+* Fix: Proper array for the 'tbex_filter_elementor_template_types' filter
+* Fix: Changed update settings functionality & checks for the new options added in v1.1.0
+* Fix: Add Thickbox JS & CSS on settings page if needed (for video tour)
+
+
 ### 1.1.0 - 2018-04-18
 
 * New: Successfully tested with Elementor Pro 2.0 final release (and many Beta versions before)
@@ -57,7 +71,6 @@
   * Freelancer DevKit (Add-On) (Premium, by Cobalt Apps)
   * Themer Pro (Premium, by Cobalt Apps)
   * Extender Pro (Premium, by Cobalt Apps)
-  * Genesis Extender (Premium, by Cobalt Apps)
   * Envira Gallery Lite/Pro (free/Premium, by Envira Gallery Team)
   * Soliloquy Sliders Lite/Pro (free/Premium, by Soliloquy Team)
   * Cherry Testimonials (free, by Zemez)

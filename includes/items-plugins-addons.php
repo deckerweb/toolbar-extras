@@ -161,6 +161,15 @@ if ( ddw_tbex_is_elementor_active() && function_exists( 'premium_addons_elemento
 
 
 /**
+ * Add-On: Extra Privacy for Elementor (free, by Marian Heddesheimer)
+ * @since 1.0.0
+ */
+if ( ddw_tbex_is_elementor_active() && function_exists( 'Extra_Privacy_for_Elementor' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-extra-privacy-for-elementor.php' );
+}
+
+
+/**
  * Add-On: Press Elements (free/Premium, by Press Elements & Rami Yushuvaev)
  * @since 1.1.0
  */
@@ -224,20 +233,20 @@ if ( ddw_tbex_is_elementor_active() && class_exists( 'Total_Recipe_Generator_El'
 
 
 /**
- * Add-On: Extra Privacy for Elementor (free, by Marian Heddesheimer)
- * @since 1.0.0
- */
-if ( ddw_tbex_is_elementor_active() && function_exists( 'Extra_Privacy_for_Elementor' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-extra-privacy-for-elementor.php' );
-}
-
-
-/**
  * Add-On: Elements Plus! (free, by The CSSIgniter Team)
  * @since 1.1.0
  */
 if ( ddw_tbex_is_elementor_active() && function_exists( 'elements_plus_dependency' ) ) {
 	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-elements-plus.php' );
+}
+
+
+/**
+ * Add-On: WidgetKit for Elementor (free, by Themesgrove)
+ * @since 1.1.0
+ */
+if ( ddw_tbex_is_elementor_active() && class_exists( 'WidgetKit_For_Elementor' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-widgetkit-for-elementor.php' );
 }
 
 

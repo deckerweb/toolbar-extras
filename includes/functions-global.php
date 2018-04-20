@@ -450,7 +450,7 @@ function ddw_tbex_get_elementor_template_types() {
 
 	$template_types = apply_filters(
 		'tbex_filter_elementor_template_types',
-		array( 'page', 'section', 'widget', 'header', 'footer', 'single', 'archive', )
+		array( 'page', 'section', 'header', 'footer', 'single', 'archive', )
 	);
 
 	return array_map( 'sanitize_key', $template_types );

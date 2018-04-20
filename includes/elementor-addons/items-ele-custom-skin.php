@@ -19,7 +19,7 @@ add_filter( 'tbex_filter_elementor_template_types', 'ddw_tbex_add_elementor_temp
  *
  * @return array Filtered, enhanced array of template types.
  */
-function ddw_tbex_add_elementor_template_type_ecsloop( $template_types ) {
+function ddw_tbex_add_elementor_template_type_ecsloop( array $template_types ) {
 	
 	$template_types[] = 'loop';
 

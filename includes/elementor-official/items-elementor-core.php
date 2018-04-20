@@ -165,7 +165,7 @@ function ddw_tbex_items_elementor_core() {
 						'id'     => 'et-build-template-page',
 						'parent' => 'elementor-library-new-builder',
 						'title'  => ddw_tbex_string_elementor_template_with_builder( _x( 'Page', 'Elementor Template type', 'toolbar-extras' ) ),
-						'href'   => ddw_tbex_get_elementor_template_add_new_url( 'widget' ),
+						'href'   => ddw_tbex_get_elementor_template_add_new_url( 'page' ),
 						'meta'   => array(
 							'target' => '',
 							'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Page', 'Elementor Template type', 'toolbar-extras' ) )

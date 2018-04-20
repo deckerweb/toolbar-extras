@@ -1013,6 +1013,9 @@ function ddw_tbex_enqueue_admin_styles_scripts() {
 
 	wp_enqueue_script( 'tbex-dashicons-picker' );
 
+	/** Optionally add Thickbox JS & CSS (for video tour) */
+	add_thickbox();
+
 }  // end function
 
 

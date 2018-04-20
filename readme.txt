@@ -5,7 +5,7 @@ Tags: toolbar, adminbar, admin bar, elementor, page builder, themes, menu, links
 Requires at least: 4.7
 Tested up to: 4.9.5
 Requires PHP: 5.4
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 License: GPL-2.0+
 License URI: https://opensource.org/licenses/GPL-2.0
 
@@ -53,6 +53,7 @@ Out of the box the plugin includes support for dozens of awesome Plugins and The
 - [**Genesis Framework** (Premium, by StudioPress)](http://deckerweb.de/go/genesis/)
 - [**Page Builder Framework**](https://wordpress.org/themes/page-builder-framework/), including their **Premium Add-On plugin** (both by David Vongries & MapSteps)
 - [**StartWP**](https://wordpress.org/themes/start/), including their **StartWP Extended Add-On plugin** (both free and by Munir Kamal)
+- [**Kava Theme** (free, by Zemez & CrocoBlock)](https://crocoblock.com/kava-theme)
 - **Suite of "Twenty 20.." default themes**, like *[Twenty Seventeen](https://wordpress.org/themes/twentyseventeen/)*
 - [**Elementor Hello Theme**](https://github.com/pojome/elementor-hello-theme)
 - [**Freelancer Framework** (free, by Cobalt Apps)]
@@ -292,6 +293,18 @@ A special Multiste Add-On for Toolbar Extras is planned but no features or date 
 
 == Changelog ==
 
+= 1.1.1 - 2018-04-20 =
+* New: Added theme support for "Kava Theme" (free, by Zemez & CrocoBlock)
+* New: Added plugin support for "WidgetKit for Elementor" (free, by Themesgrove)
+* New: Added plugin support for "Genesis Extender" (Premium, by Cobalt Apps)
+* Tweak: Added new settings to plugin support for "Extra Privacy for Elementor" (free, by Marian Heddesheimer)
+* Tweak: Removed "Widget" Template type from Add New items (Elementor Pro), as Widgets (Global Widgets) cannot be created that way at all (only from the Live Builder itself)
+* Tweak: Updated `.pot` file plus all German translations (formal, informal)
+* Fix: Proper template type for "New Page Template with Builder" (Elementor Core)
+* Fix: Proper array for the 'tbex_filter_elementor_template_types' filter
+* Fix: Changed update settings functionality & checks for the new options added in v1.1.0
+* Fix: Add Thickbox JS & CSS on settings page if needed (for video tour)
+
 = 1.1.0 - 2018-04-18 =
 * New: Successfully tested with Elementor Pro 2.0 final release (and many Beta versions before)
 * New: Successfully tested with "Laragon" app on Windows 10 - automatic detection of local sites with `.test` domain worked great
@@ -322,7 +335,7 @@ A special Multiste Add-On for Toolbar Extras is planned but no features or date 
  * Beaver Builder Theme (Premium, by FastLine Media LLC)
  * Hestia (free, by Themeisle)
  * Tiny Hestia (Child Theme for Hestia) (free, by Themeisle)
- * Ofeo (Child Theme for Hestia) (free, by Themeisle)
+ * Orfeo (Child Theme for Hestia) (free, by Themeisle)
  * Christmas Hestia (Child Theme for Hestia) (free, by Themeisle)
 * **New:** *Extended the Plugin support for Elementor Add-Ons:*
  * Premium Addons for Elementor (free, by Leap13)
@@ -346,8 +359,7 @@ A special Multiste Add-On for Toolbar Extras is planned but no features or date 
  * Freelancer DevKit (Add-On) (Premium, by Cobalt Apps)
  * Themer Pro (Premium, by Cobalt Apps)
  * Extender Pro (Premium, by Cobalt Apps)
- * Genesis Extender (Premium, by Cobalt Apps)
- * Envira Gallery Lite/Pro (free/Premium, by Envira Gallery Team)
+ * Envira Gallery Lite/Pro (free/Premium, by Envira Gallery Team) (including support for the Albums and NextGen Importer Add-Ons)
  * Soliloquy Sliders Lite/Pro (free/Premium, by Soliloquy Team)
  * Cherry Testimonials (free, by Zemez)
  * Cherry Team Members (free, by Zemez)
@@ -375,6 +387,9 @@ A special Multiste Add-On for Toolbar Extras is planned but no features or date 
 * New: Including support for 10 Genesis specific plugins
 
 == Upgrade Notice =
+
+= 1.1.1 =
+Maintenance release. Small fixes and tweaks.
 
 = 1.1.0 =
 Feature release: Greatly extended third-party Theme & Plugin/Add-On support; plus more improvements & tweaks, including for Elementor 2.0 / Elementor 2.0 Pro.

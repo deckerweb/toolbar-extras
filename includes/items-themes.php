@@ -50,7 +50,8 @@ if ( ( 'OceanWP' == wp_get_theme() && function_exists( 'Ocean_Extra' ) )	// Ocea
 
 /**
  * Theme: Genesis Framework (Premium, by StudioPress/ Rainmaker Digital, LLC)
- *   NOTE: usage without Child Theme is absolutely NOT recommended, therefore not supported!
+ *   NOTE: usage without Child Theme is absolutely NOT recommended, therefore
+ *         not supported!
  * @since 1.0.0
  * @uses  ddw_tbex_is_genesis_active()
  */
@@ -115,6 +116,17 @@ if ( ( 'Page Builder Framework' == wp_get_theme() && function_exists( 'wpbf_them
 
 
 /**
+ * Theme: Kava (free, by Zemez & CrocoBlock)
+ * @since 1.1.1
+ */
+if ( ( 'Kava' == wp_get_theme() && class_exists( 'Kava_Theme_Setup' ) )		// Kava w/o child theme
+	|| ( ( 'kava' === basename( get_template_directory() ) || 'kavatheme' === basename( get_template_directory() ) ) && class_exists( 'Kava_Theme_Setup' ) )		// Kava w/ child theme
+) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/themes/items-kava.php' );
+}
+
+
+/**
  * Theme: Beaver Builder Theme (Premium, by FastLine Media LLC)
  * @since 1.1.0
  */
@@ -157,7 +169,7 @@ if ( ddw_tbex_is_default_twenty() ) {
 
 
 /**
- * Themes: Elementor Hello Theme (by Elementor/ Pojo Me Digital)
+ * Themes: Elementor Hello Theme (free, by Elementor/ Pojo Me Digital)
  * @since 1.0.0
  */
 if ( 'elementor-hello-theme' == get_stylesheet() ) {

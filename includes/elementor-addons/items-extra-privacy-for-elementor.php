@@ -1,6 +1,6 @@
 <?php
 
-//items-extra-privacy-for-elementor
+// includes/elementor-addons/items-extra-privacy-for-elementor
 
 /**
  * Prevent direct access to this file.
@@ -25,6 +25,10 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_epfe', 100 );
  */
 function ddw_tbex_aoitems_epfe() {
 
+	/** Use Add-On hook place */
+	add_filter( 'tbex_filter_is_addon', '__return_empty_string' );
+	
+	/** Plugin's Settings */
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(
 		array(
 			'id'     => 'ao-epfe',
@@ -42,16 +46,42 @@ function ddw_tbex_aoitems_epfe() {
 			array(
 				'id'     => 'epfe-settings',
 				'parent' => 'ao-epfe',
-				'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
-				'href'   => esc_url( admin_url( 'options-general.php?page=extra_privacy_for_elementor_settings' ) ),
+				'title'  => esc_attr__( 'Default Settings', 'toolbar-extras' ),
+				'href'   => esc_url( admin_url( 'options-general.php?page=extra_privacy_for_elementor_settings&tab=standard' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Default Settings', 'toolbar-extras' )
 				)
 			)
 		);
 
-		/** Group: Resources for Templementor */
+		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			array(
+				'id'     => 'epfe-settings-video',
+				'parent' => 'ao-epfe',
+				'title'  => esc_attr__( 'Video Settings', 'toolbar-extras' ),
+				'href'   => esc_url( admin_url( 'options-general.php?page=extra_privacy_for_elementor_settings&tab=video' ) ),
+				'meta'   => array(
+					'target' => '',
+					'title'  => esc_attr__( 'Video Settings', 'toolbar-extras' )
+				)
+			)
+		);
+
+		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			array(
+				'id'     => 'epfe-settings-maps',
+				'parent' => 'ao-epfe',
+				'title'  => esc_attr__( 'Google Maps Settings', 'toolbar-extras' ),
+				'href'   => esc_url( admin_url( 'options-general.php?page=extra_privacy_for_elementor_settings&tab=maps' ) ),
+				'meta'   => array(
+					'target' => '',
+					'title'  => esc_attr__( 'Google Maps Settings', 'toolbar-extras' )
+				)
+			)
+		);
+
+		/** Group: Plugin's Resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
 			$GLOBALS[ 'wp_admin_bar' ]->add_group(
