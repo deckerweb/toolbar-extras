@@ -2,6 +2,13 @@
 
 ## Changelog
 
+### 1.1.2 - 2018-04-23
+
+* Tweak: Made support for "Genesis Extender" plugin compatible with their newest version 1.9.0 or higher (versions below v1.9.0 are still supported, though)
+* Fix: Proper dismissal parameter for admin notices
+* Fix: Re-added /assets/ folder within plugin - really sorry for that mistake in v1.1.1!
+
+
 ### 1.1.1 - 2018-04-20
 
 * New: Added theme support for "Kava Theme" (free, by Zemez & CrocoBlock)

@@ -410,6 +410,20 @@ function ddw_tbex_string_elementor_template_create_with_builder( $template_type 
 
 
 /**
+ * Build "Info shown once..." notice string.
+ *
+ * @since  1.1.2
+ *
+ * @return string String for Notice that is only shown once in case of being dismissed.
+ */
+function ddw_tbex_string_notice_shown_once() {
+
+	return __( 'This info is only shown once. When dismissed it will never appear again.', 'toolbar-extras' );
+
+}  // end function
+
+
+/**
  * Build string "Super Admin" or "Admin" depending on Multisite context.
  *
  * @since  1.0.0

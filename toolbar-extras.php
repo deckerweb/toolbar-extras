@@ -11,7 +11,7 @@
  * Plugin Name:       Toolbar Extras
  * Plugin URI:        https://toolbarextras.com/
  * Description:       This plugins adds a lot of quick jump links to the WordPress Toolbar helpful for Site Builders who use Elementor and its ecosystem of add-ons and from the theme space.
- * Version:           1.1.1
+ * Version:           1.1.2
  * Author:            David Decker - DECKERWEB
  * Author URI:        https://deckerweb.de/
  * License:           GPL-2.0+
@@ -40,7 +40,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 1.0.0
  */
 /** Plugin version */
-define( 'TBEX_PLUGIN_VERSION', '1.1.1' );
+define( 'TBEX_PLUGIN_VERSION', '1.1.2' );
 
 /** Plugin directory */
 define( 'TBEX_PLUGIN_DIR', trailingslashit( dirname( __FILE__ ) ) );
@@ -52,7 +52,7 @@ define( 'TBEX_PLUGIN_BASEDIR', trailingslashit( dirname( plugin_basename( __FILE
 add_action( 'plugins_loaded', 'ddw_tbex_helper_constants', 50 );
 /**
  * Helper function for making our helper constants available early but also
- *    unhookable if desired...
+ *   unhookable if desired...
  *
  * @since 1.0.0
  */

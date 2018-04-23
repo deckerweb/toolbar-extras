@@ -5,7 +5,7 @@ Tags: toolbar, adminbar, admin bar, elementor, page builder, themes, menu, links
 Requires at least: 4.7
 Tested up to: 4.9.5
 Requires PHP: 5.4
-Stable tag: 1.1.1
+Stable tag: 1.1.2
 License: GPL-2.0+
 License URI: https://opensource.org/licenses/GPL-2.0
 
@@ -293,6 +293,11 @@ A special Multiste Add-On for Toolbar Extras is planned but no features or date 
 
 == Changelog ==
 
+= 1.1.2 - 2018-04-23 =
+* Tweak: Made support for "Genesis Extender" plugin compatible with their newest version 1.9.0 or higher (versions below v1.9.0 are still supported, though)
+* Fix: Proper dismissal parameter for admin notices
+* Fix: Re-added /assets/ folder within plugin - really sorry for that mistake in v1.1.1!
+
 = 1.1.1 - 2018-04-20 =
 * New: Added theme support for "Kava Theme" (free, by Zemez & CrocoBlock)
 * New: Added plugin support for "WidgetKit for Elementor" (free, by Themesgrove)
@@ -387,6 +392,9 @@ A special Multiste Add-On for Toolbar Extras is planned but no features or date 
 * New: Including support for 10 Genesis specific plugins
 
 == Upgrade Notice =
+
+= 1.1.2 =
+Update highly recommended. - Maintenance release. Small but important fixes and tweaks.
 
 = 1.1.1 =
 Maintenance release. Small fixes and tweaks.

@@ -24,7 +24,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 function ddw_tbex_notice_plugins_welcome() {
 
 	/** Check if message should be displayed */
-	if ( ! PAnD::is_admin_notice_active( 'tbex-notice-plugins-welcome-1' )
+	if ( ! PAnD::is_admin_notice_active( 'tbex-notice-plugins-welcome-forever' )
 		|| ! is_plugin_active( 'toolbar-extras/toolbar-extras.php' )
 		|| 'plugins.php' !== $GLOBALS[ 'pagenow' ]
 	) {
@@ -51,12 +51,11 @@ function ddw_tbex_notice_plugins_welcome() {
 
 	/** Display the message (once dismissed, forever hidden!) */
 	?>
-		<div data-dismissible="tbex-notice-plugins-welcome-forever" class="notice notice-success is-dismissible">
-			
+		<div data-dismissible="tbex-notice-plugins-welcome-forever" class="notice notice-success is-dismissible">	
 			<h3><?php _e( 'Thank You for Installing and Activating the Toolbar Extras Plugin!', 'toolbar-extras' ); ?></h3>
 			<p><span class="dashicons-before dashicons-admin-generic"></span> <?php echo __( 'You\'ll find the plugin\'s settings under:', 'toolbar-extras' ) . $settings_link; ?></p>
 			<p><span class="dashicons-before dashicons-menu"></span> <?php echo __( 'To create an (optinal) Admin Toolbar Menu just build a new menu here:', 'toolbar-extras' ) . $menu_link; ?></p>
-			<p><small>(<?php _e( 'This info is only shown once. When dismissed it will never appear again.', 'toolbar-extras' ); ?>)</small></p>
+			<p><small>(<?php echo ddw_tbex_string_notice_shown_once(); ?>)</small></p>
 		</div>
 	<?php
 

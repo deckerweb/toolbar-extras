@@ -19,11 +19,12 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @uses  PAnD::is_admin_notice_active()
  * @uses  ddw_tbex_get_info_url()
+ * @uses  ddw_tbex_string_notice_shown_once()
  */
 function ddw_tbex_notice_settings_welcome() {
 
 	/** Check if message should be displayed */
-	if ( ! PAnD::is_admin_notice_active( 'tbex-notice-welcome-1' ) ) {
+	if ( ! PAnD::is_admin_notice_active( 'tbex-notice-welcome-forever' ) ) {
 		return;
 	}
 
@@ -40,7 +41,7 @@ function ddw_tbex_notice_settings_welcome() {
 			); ?></p>
 			<p><?php _e( 'Below you\'ll find all options for this plugin as well as all resources for support.', 'toolbar-extras' ); ?></p>
 			<p class="description"><strong><?php _e( 'Have a great day and enjoy building your site.', 'toolbar-extras' ); ?></strong></p>
-			<p><small>(<?php _e( 'This info is only shown once. When dismissed it will never appear again.', 'toolbar-extras' ); ?>)</small></p>
+			<p><small>(<?php echo ddw_tbex_string_notice_shown_once(); ?>)</small></p>
 		</div>
 	<?php
 
