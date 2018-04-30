@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Toolbar Extras\n"
-"POT-Creation-Date: 2018-04-23 08:55+0200\n"
-"PO-Revision-Date: 2018-04-23 08:55+0200\n"
+"POT-Creation-Date: 2018-04-30 14:57+0200\n"
+"PO-Revision-Date: 2018-04-30 14:58+0200\n"
 "Last-Translator: David Decker DECKERWEB.de -- https://deckerweb.de/\n"
 "Language-Team: David Decker DECKERWEB.de -- https://deckerweb.de/\n"
 "Language: de_DE\n"
@@ -76,7 +76,7 @@ msgstr "Spenden"
 #: includes/admin/views/help-content-menus.php:35
 #: includes/admin/views/notice-plugins-welcome.php:40
 #: includes/admin/views/settings-tab-about-support.php:43
-#: includes/functions-global.php:922 includes/string-switcher.php:466
+#: includes/functions-global.php:924 includes/string-switcher.php:466
 #: uninstall.php:42 uninstall.php:52
 msgid "Toolbar Extras"
 msgstr "Toolbar Extras"
@@ -367,7 +367,7 @@ msgid "About &amp; Support"
 msgstr "Über &amp; Support"
 
 #: includes/admin/views/help-content-menus.php:35
-#: includes/functions-global.php:922
+#: includes/functions-global.php:924
 msgid "Plugin"
 msgstr "Plugin"
 
@@ -529,8 +529,10 @@ msgstr ""
 #: includes/plugins/items-cherry-team-members.php:54
 #: includes/plugins/items-cherry-testimonials.php:50
 #: includes/plugins/items-cherry-testimonials.php:54
-#: includes/plugins/items-cobalt-freelancer-devkit.php:102
-#: includes/plugins/items-cobalt-freelancer-devkit.php:106
+#: includes/plugins/items-cobalt-freelancer-devkit.php:128
+#: includes/plugins/items-cobalt-freelancer-devkit.php:132
+#: includes/plugins/items-cobalt-genesis-devkit.php:128
+#: includes/plugins/items-cobalt-genesis-devkit.php:132
 #: includes/plugins/items-code-snippets.php:85
 #: includes/plugins/items-code-snippets.php:89
 #: includes/plugins/items-duplicator.php:83
@@ -539,6 +541,8 @@ msgstr ""
 #: includes/plugins/items-envira-gallery.php:109
 #: includes/plugins/items-foogallery.php:71
 #: includes/plugins/items-foogallery.php:75
+#: includes/plugins/items-genesis-testimonial-slider.php:94
+#: includes/plugins/items-genesis-testimonial-slider.php:98
 #: includes/plugins/items-gravity-forms.php:117
 #: includes/plugins/items-maxgalleria.php:71
 #: includes/plugins/items-maxgalleria.php:75
@@ -750,7 +754,7 @@ msgid "Free product support @ WordPress.org plugin forum"
 msgstr "Kostenloser Produkt-Support @ WordPress.org Plugin-Forum"
 
 #: includes/admin/views/settings-tab-about-support.php:114
-#: includes/functions-global.php:729
+#: includes/functions-global.php:731
 msgid "Support Forum"
 msgstr "Support-Forum"
 
@@ -759,7 +763,7 @@ msgid "Plugin documentation &amp; Knowledge Base articles"
 msgstr "Plugin-Dokumentation &amp; Knowledge Base-Artikel"
 
 #: includes/admin/views/settings-tab-about-support.php:118
-#: includes/functions-global.php:735
+#: includes/functions-global.php:737
 msgid "Documentation"
 msgstr "Dokumentation"
 
@@ -768,7 +772,7 @@ msgid "Facebook Community Group for Toolbar Extras plugin"
 msgstr "Facebook Community-Gruppe für das Toolbar Extras Plugin"
 
 #: includes/admin/views/settings-tab-about-support.php:122
-#: includes/functions-global.php:738
+#: includes/functions-global.php:740
 msgid "Facebook Group"
 msgstr "Facebook-Gruppe"
 
@@ -1478,12 +1482,12 @@ msgstr "Granular Controls für Elementor (Add-On)"
 #: includes/elementor-addons/items-powerpack-elements.php:86
 #: includes/elementor-addons/items-powerpack-elements.php:90
 #: includes/plugins/items-blox.php:96
-#: includes/plugins/items-cobalt-extender-pro.php:84
-#: includes/plugins/items-cobalt-extender-pro.php:88
+#: includes/plugins/items-cobalt-extender-pro.php:97
+#: includes/plugins/items-cobalt-extender-pro.php:101
 #: includes/plugins/items-cobalt-genesis-extender.php:86
 #: includes/plugins/items-cobalt-genesis-extender.php:90
-#: includes/plugins/items-cobalt-themer-pro.php:110
-#: includes/plugins/items-cobalt-themer-pro.php:114
+#: includes/plugins/items-cobalt-themer-pro.php:123
+#: includes/plugins/items-cobalt-themer-pro.php:127
 #: includes/plugins/items-gravity-forms.php:121
 #: includes/plugins/items-smart-slider.php:66
 #: includes/plugins/items-smart-slider.php:70
@@ -2110,26 +2114,25 @@ msgstr "Mein Benutzerkonto %s"
 msgid "David Decker - DECKERWEB"
 msgstr "David Decker - DECKERWEB.de"
 
-#. Author URI of the plugin/theme
 #: includes/functions-global.php:55
 msgid "https://deckerweb.de/"
 msgstr "https://deckerweb.de/"
 
-#: includes/functions-global.php:173
+#: includes/functions-global.php:175
 msgid "No Page Builder registered"
 msgstr "Kein Page Builder registriert"
 
-#: includes/functions-global.php:578
+#: includes/functions-global.php:580
 #, php-format
 msgid "Customize %s"
 msgstr "Anpassen: %s"
 
-#: includes/functions-global.php:618
+#: includes/functions-global.php:620
 #, php-format
 msgid "All %s"
 msgstr "Alles %s"
 
-#: includes/functions-global.php:625
+#: includes/functions-global.php:627
 #, php-format
 msgid "New %s"
 msgstr "Neues %s"
@@ -2137,7 +2140,7 @@ msgstr "Neues %s"
 #. translators: %s - Name of current active Theme or Parent Theme (static!)
 #. translators: (Static) Theme name Astra - optionally white labeled string
 #. translators: %s - (Static) Theme name OceanWP - optionally white labeled string
-#: includes/functions-global.php:656 includes/themes/items-astra.php:59
+#: includes/functions-global.php:658 includes/themes/items-astra.php:59
 #: includes/themes/items-oceanwp.php:61
 #, php-format
 msgid "Theme: %s"
@@ -2146,133 +2149,133 @@ msgstr "Theme: %s"
 #. translators: %s - Name of current active Theme or Parent Theme (static!)
 #. translators: (Static) Theme name OceanWP - optionally white labeled string
 #. translators: %s - (Static) Theme name OceanWP - optionally white labeled string
-#: includes/functions-global.php:665 includes/themes/items-astra.php:64
+#: includes/functions-global.php:667 includes/themes/items-astra.php:64
 #: includes/themes/items-oceanwp.php:66
 #, php-format
 msgid "Active Theme: %s"
 msgstr "Aktives Theme: %s"
 
-#: includes/functions-global.php:732
+#: includes/functions-global.php:734
 msgid "Support Contact"
 msgstr "Support-Kontakt"
 
-#: includes/functions-global.php:741
+#: includes/functions-global.php:743
 msgid "Official Support"
 msgstr "Offizieller Support"
 
-#: includes/functions-global.php:744
+#: includes/functions-global.php:746
 msgid "Official Site"
 msgstr "Offizielle Website"
 
-#: includes/functions-global.php:747
+#: includes/functions-global.php:749
 msgid "Official Blog"
 msgstr "Offizieller Blog"
 
-#: includes/functions-global.php:750
+#: includes/functions-global.php:752
 msgid "Development @ GitHub"
 msgstr "Entwicklung @ GitHub"
 
-#: includes/functions-global.php:753
+#: includes/functions-global.php:755
 msgid "GitHub Issues"
 msgstr "GitHub Issues"
 
 #. translators: Title attribute for linked text
-#: includes/functions-global.php:755
+#: includes/functions-global.php:757
 msgid "GitHub Issues (Bug Tracker)"
 msgstr "GitHub Issues (Bugtracker)"
 
-#: includes/functions-global.php:758
+#: includes/functions-global.php:760
 msgid "Community Translations"
 msgstr "Community-Übersetzungen"
 
 #. translators: Title attribute for linked text
-#: includes/functions-global.php:760
+#: includes/functions-global.php:762
 msgid "Community Translations (at WordPress.org)"
 msgstr "Community-Übersetzungen (bei WordPress.org)"
 
-#: includes/functions-global.php:763
+#: includes/functions-global.php:765
 msgid "Translate Pro Plugin"
 msgstr "Pro-Plugin übersetzen"
 
-#: includes/functions-global.php:766
+#: includes/functions-global.php:768
 msgid "YouTube Channel"
 msgstr "YouTube-Kanal"
 
-#: includes/functions-global.php:769
+#: includes/functions-global.php:771
 msgid "YouTube Tutorials"
 msgstr "YouTube-Anleitungen"
 
-#: includes/functions-global.php:772
+#: includes/functions-global.php:774
 msgid "Knowledge Base"
 msgstr "Wissensbasis"
 
 #. translators: Title attribute for linked text
-#: includes/functions-global.php:774
+#: includes/functions-global.php:776
 msgid "Knowledge Base Articles"
 msgstr "Wissensbasis-Artikel (KB)"
 
-#: includes/functions-global.php:777
+#: includes/functions-global.php:779
 msgid "Tutorials"
 msgstr "Anleitungen"
 
 #. translators: Title attribute for linked text
-#: includes/functions-global.php:779
+#: includes/functions-global.php:781
 msgid "Tutorial Articles"
 msgstr "Anleitungen"
 
-#: includes/functions-global.php:782
+#: includes/functions-global.php:784
 msgid "User Forum"
 msgstr "Anwenderforum"
 
-#: includes/functions-global.php:785
+#: includes/functions-global.php:787
 msgid "Community Forum"
 msgstr "Community-Forum"
 
-#: includes/functions-global.php:788
+#: includes/functions-global.php:790
 msgid "My Account"
 msgstr "Mein Benutzerkonto"
 
-#: includes/functions-global.php:791
+#: includes/functions-global.php:793
 msgid "Code Reference"
 msgstr "Code-Referenz"
 
-#: includes/functions-global.php:794
+#: includes/functions-global.php:796
 msgid "Pro Docs"
 msgstr "Pro-Dokumentation"
 
-#: includes/functions-global.php:797
+#: includes/functions-global.php:799
 msgid "Pro: Documentation"
 msgstr "Pro: Dokumentation"
 
-#: includes/functions-global.php:800
+#: includes/functions-global.php:802
 msgid "Pro: Modules Documentation"
 msgstr "Pro: Modul-Dokumentation"
 
-#: includes/functions-global.php:803
+#: includes/functions-global.php:805
 msgid "Pro: Facebook Group"
 msgstr "Pro: Facebook-Gruppe"
 
-#: includes/functions-global.php:806
+#: includes/functions-global.php:808
 msgid "Pro: Support"
 msgstr "Pro: Support"
 
-#: includes/functions-global.php:809
+#: includes/functions-global.php:811
 msgid "Pro: Official Site"
 msgstr "Pro: Offizielle Website"
 
-#: includes/functions-global.php:812
+#: includes/functions-global.php:814
 msgid "Pro: APIs"
 msgstr "Pro: APIs"
 
-#: includes/functions-global.php:815
+#: includes/functions-global.php:817
 msgid "Slack Channel"
 msgstr "Slack-Kanal"
 
-#: includes/functions-global.php:818
+#: includes/functions-global.php:820
 msgid "External Resource"
 msgstr "Externe Ressource"
 
-#: includes/functions-global.php:918
+#: includes/functions-global.php:920
 msgid "You have no sufficient permission to edit this special menu."
 msgstr ""
 "Sie haben keine ausreichende Berechtigung, um dieses besondere Menü "
@@ -2826,23 +2829,36 @@ msgstr "Extender Pro"
 
 #: includes/plugins/items-cobalt-extender-pro.php:45
 #: includes/plugins/items-cobalt-extender-pro.php:49
-#: includes/plugins/items-cobalt-freelancer-devkit.php:61
-#: includes/plugins/items-cobalt-freelancer-devkit.php:65
+#: includes/plugins/items-cobalt-freelancer-devkit.php:74
+#: includes/plugins/items-cobalt-freelancer-devkit.php:78
+#: includes/plugins/items-cobalt-genesis-devkit.php:74
+#: includes/plugins/items-cobalt-genesis-devkit.php:78
 msgid "Custom Options"
 msgstr "Eigene Optionen"
 
 #: includes/plugins/items-cobalt-extender-pro.php:58
 #: includes/plugins/items-cobalt-extender-pro.php:62
-#: includes/plugins/items-cobalt-freelancer-devkit.php:74
-#: includes/plugins/items-cobalt-freelancer-devkit.php:78
-#: includes/plugins/items-cobalt-genesis-extender.php:60
-#: includes/plugins/items-cobalt-genesis-extender.php:64
-#: includes/plugins/items-cobalt-themer-pro.php:82
-msgid "Image Manager"
-msgstr "Bilder verwalten"
+#: includes/plugins/items-cobalt-freelancer-devkit.php:87
+#: includes/plugins/items-cobalt-freelancer-devkit.php:91
+#: includes/plugins/items-cobalt-genesis-devkit.php:87
+#: includes/plugins/items-cobalt-genesis-devkit.php:91
+msgid "Custom Preview"
+msgstr "Eigene Optionen Vorschau"
 
 #: includes/plugins/items-cobalt-extender-pro.php:71
 #: includes/plugins/items-cobalt-extender-pro.php:75
+#: includes/plugins/items-cobalt-freelancer-devkit.php:100
+#: includes/plugins/items-cobalt-freelancer-devkit.php:104
+#: includes/plugins/items-cobalt-genesis-devkit.php:100
+#: includes/plugins/items-cobalt-genesis-devkit.php:104
+#: includes/plugins/items-cobalt-genesis-extender.php:60
+#: includes/plugins/items-cobalt-genesis-extender.php:64
+#: includes/plugins/items-cobalt-themer-pro.php:95
+msgid "Image Manager"
+msgstr "Bilder verwalten"
+
+#: includes/plugins/items-cobalt-extender-pro.php:84
+#: includes/plugins/items-cobalt-extender-pro.php:88
 #: includes/plugins/items-cobalt-genesis-extender.php:73
 #: includes/plugins/items-cobalt-genesis-extender.php:77
 #: includes/plugins/items-gravity-forms.php:130
@@ -2868,20 +2884,47 @@ msgstr "Freelancer DevKit (Premium-Add-On)"
 
 #: includes/plugins/items-cobalt-freelancer-devkit.php:48
 #: includes/plugins/items-cobalt-freelancer-devkit.php:52
+#: includes/plugins/items-cobalt-genesis-devkit.php:48
+#: includes/plugins/items-cobalt-genesis-devkit.php:52
 #: includes/themes/items-dynamik-website-builder.php:72
 #: includes/themes/items-dynamik-website-builder.php:76
 msgid "Design Options"
 msgstr "Design-Optionen"
 
-#: includes/plugins/items-cobalt-freelancer-devkit.php:89
-#: includes/plugins/items-cobalt-themer-pro.php:97
+#: includes/plugins/items-cobalt-freelancer-devkit.php:61
+#: includes/plugins/items-cobalt-freelancer-devkit.php:65
+#: includes/plugins/items-cobalt-genesis-devkit.php:61
+#: includes/plugins/items-cobalt-genesis-devkit.php:65
+msgid "Design Preview"
+msgstr "Design-Vorschau"
+
+#: includes/plugins/items-cobalt-freelancer-devkit.php:115
+#: includes/plugins/items-cobalt-genesis-devkit.php:115
+#: includes/plugins/items-cobalt-themer-pro.php:110
 msgid "Theme Creator"
 msgstr "Theme-Ersteller"
 
-#: includes/plugins/items-cobalt-freelancer-devkit.php:93
-#: includes/plugins/items-cobalt-themer-pro.php:101
+#: includes/plugins/items-cobalt-freelancer-devkit.php:119
+#: includes/plugins/items-cobalt-genesis-devkit.php:119
+#: includes/plugins/items-cobalt-themer-pro.php:114
 msgid "Child Theme Creator"
 msgstr "Child Theme-Ersteller"
+
+#: includes/plugins/items-cobalt-genesis-devkit.php:32
+msgid "Genesis DevKit"
+msgstr "Genesis DevKit"
+
+#: includes/plugins/items-cobalt-genesis-devkit.php:36
+msgid "Genesis DevKit (Premium Add-On)"
+msgstr "Genesis DevKit (Premium-Add-On)"
+
+#: includes/plugins/items-cobalt-genesis-devkit.php:141
+msgid "Help Videos"
+msgstr "Hilfe-Videos"
+
+#: includes/plugins/items-cobalt-genesis-devkit.php:145
+msgid "Help Videos (Inline)"
+msgstr "Hilfe-Videos (Inline)"
 
 #: includes/plugins/items-cobalt-genesis-extender.php:34
 #: includes/plugins/items-cobalt-genesis-extender.php:38
@@ -2917,19 +2960,24 @@ msgstr "Themer Pro"
 
 #: includes/plugins/items-cobalt-themer-pro.php:48
 #: includes/plugins/items-cobalt-themer-pro.php:52
-#: includes/plugins/items-cobalt-themer-pro.php:190
-#: includes/plugins/items-cobalt-themer-pro.php:194
+#: includes/plugins/items-cobalt-themer-pro.php:203
+#: includes/plugins/items-cobalt-themer-pro.php:207
 msgid "Child Theme Editor"
 msgstr "Child Theme-Editor"
 
+#: includes/plugins/items-cobalt-themer-pro.php:61
 #: includes/plugins/items-cobalt-themer-pro.php:65
-#: includes/plugins/items-cobalt-themer-pro.php:69
-#: includes/plugins/items-cobalt-themer-pro.php:207
-#: includes/plugins/items-cobalt-themer-pro.php:211
+msgid "Child Theme Editor Full View"
+msgstr "Child Theme-Editor Vollansicht"
+
+#: includes/plugins/items-cobalt-themer-pro.php:78
+#: includes/plugins/items-cobalt-themer-pro.php:82
+#: includes/plugins/items-cobalt-themer-pro.php:220
+#: includes/plugins/items-cobalt-themer-pro.php:224
 msgid "Parent Theme Editor"
 msgstr "Parent Theme-Editor"
 
-#: includes/plugins/items-cobalt-themer-pro.php:86
+#: includes/plugins/items-cobalt-themer-pro.php:99
 msgid "Child Theme Image Manager"
 msgstr "Child Theme Bilder verwalten"
 
@@ -4184,6 +4232,16 @@ msgstr "Woo: Produktarchive"
 msgid "Woo Single"
 msgstr "Woo: Einzel-Produkt"
 
+#. translators: Autofocus section in the Customizer
+#: includes/themes/items-startwp.php:384 includes/themes/items-startwp.php:388
+msgid "EDD Archive"
+msgstr "EDD: Produktarchive"
+
+#. translators: Autofocus section in the Customizer
+#: includes/themes/items-startwp.php:398 includes/themes/items-startwp.php:402
+msgid "EDD Single"
+msgstr "EDD: Einzelinhalte"
+
 #: uninstall.php:41
 msgid "You must be logged in to run this script."
 msgstr "Sie müssen angemeldet sein, um dieses Skript ausführen zu können."
@@ -4193,6 +4251,7 @@ msgid "You do not have permission to run this script."
 msgstr "Sie haben keine Berechtigung, um dieses Skript ausführen zu können."
 
 #. Plugin URI of the plugin/theme
+#. Author URI of the plugin/theme
 msgid "https://toolbarextras.com/"
 msgstr "https://toolbarextras.com/"
 

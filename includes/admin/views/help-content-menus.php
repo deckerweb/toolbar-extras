@@ -42,9 +42,9 @@ function ddw_tbex_help_tab_content_menus() {
 	/** Further help content */
 	echo $tbex_space_helper . '<p><h4 style="font-size: 1.1em;">' . __( 'Important plugin links:', 'toolbar-extras' ) . '</h4>' .
 
-		ddw_tbex_get_info_link( 'url_wporg_faq', esc_html__( 'Plugin website', 'toolbar-extras' ), 'button' ) .
+		ddw_tbex_get_info_link( 'url_plugin', esc_html__( 'Plugin website', 'toolbar-extras' ), 'button' ) .
 
-		'&nbsp;&nbsp;' . ddw_tbex_get_info_link( 'url_wporg_faq', esc_html_x( 'FAQ', 'Help tab info', 'toolbar-extras' ), 'button' ) .
+		'&nbsp;&nbsp;' . ddw_tbex_get_info_link( 'url_plugin_faq', esc_html_x( 'FAQ', 'Help tab info', 'toolbar-extras' ), 'button' ) .
 
 		'&nbsp;&nbsp;' . ddw_tbex_get_info_link( 'url_wporg_forum', esc_html_x( 'Support', 'Help tab info', 'toolbar-extras' ), 'button' ) .
 

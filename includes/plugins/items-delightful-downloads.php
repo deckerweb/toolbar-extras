@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_delightful_downloads', 20 );
 /**
- * Items for Add-On: Delightful Downloads
+ * Items for Add-On: Delightful Downloads (free, by Ashley Rich)
  *
  * @since  1.0.0
  *

@@ -42,7 +42,7 @@ function ddw_tbex_notice_plugins_welcome() {
 
 	$menu_link = sprintf(
 		' <a href="%1$s">%2$s &rarr; %3$s</a>',
-		esc_url( admin_url( 'nav-menus.php?action=edit&menu=0' ) ),		// add new menu!
+		esc_url( admin_url( 'nav-menus.php?action=edit&menu=0&use-location=tbex_menu' ) ),		// add new menu & set our location!
 		/* translators: Label for "Appearance" in left-hand admin menu */
 		esc_attr__( 'Appearance', 'toolbar-extras' ),
 		/* translators: Label for "Menus" sub-menu item in left-hand admin menu */

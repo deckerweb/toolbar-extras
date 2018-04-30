@@ -5,7 +5,7 @@ Tags: toolbar, adminbar, admin bar, elementor, page builder, themes, menu, links
 Requires at least: 4.7
 Tested up to: 4.9.5
 Requires PHP: 5.4
-Stable tag: 1.1.2
+Stable tag: 1.1.3
 License: GPL-2.0+
 License URI: https://opensource.org/licenses/GPL-2.0
 
@@ -45,6 +45,7 @@ Out of the box the plugin includes support for dozens of awesome Plugins and The
 - Perfect for **all Elementor users**!
 - **Elementor** (free) version 2.x (and also former 1.x)
 - **Elementor Pro** (Premium) version 2.x (and also former 1.x)
+- **1-Click Template Creation**: Start the Live Editor and create a new template (or page, post, custom post type) at the same time, with only click - so easy!
 
 = Supported Themes/ Frameworks =
 - [**Astra**](https://wordpress.org/themes/astra/), including **Astra Pro** (Add-On) (both by Brainstorm Force)
@@ -61,6 +62,8 @@ Out of the box the plugin includes support for dozens of awesome Plugins and The
 - [**Beaver Builder Theme** (Premium, by FastLine Media LLC)]
 - [**Hestia**](https://wordpress.org/themes/hestia/), including its Child Themes "Orfeo", "Tiny Hestia", "Christmas Hestia" (all by Themeisle)
 - *(Support for a few more great Themes is coming very soon...!)*
+
+[See full Theme support listing on plugin's website](https://toolbarextras.com/theme-support/)
 
 = Support for Elementor specific Add-On Plugins =
 - [**Granular Controls for Elementor** (free, by Zulfikar Nore)](https://wordpress.org/plugins/granular-controls-for-elementor/)
@@ -91,6 +94,8 @@ Out of the box the plugin includes support for dozens of awesome Plugins and The
 - [**Elementor Addons & Templates – Sizzify Lite** (free, by Themeisle)](https://wordpress.org/plugins/elementor-addon-widgets/)
 - *(Support for even more Elementor Add-Ons is coming very soon...)*
 
+[See full Elementor Add-On support listing on plugin's website](https://toolbarextras.com/elementor-addons-support/)
+
 = Support for more useful Plugins for Site-Builders =
 - [**Central Color Palette** (free, by Gáravo)](https://wordpress.org/plugins/kt-tinymce-color-grid/)
 - [**Simple CSS** (free, by Tom Usborne)](https://wordpress.org/plugins/simple-css/)
@@ -114,10 +119,12 @@ Out of the box the plugin includes support for dozens of awesome Plugins and The
 - Suite of "Cherry Plugins" by Zemez (all free), that work well with Elementor (Projects, Service Lists, Team Members, Testimonials)
 - *(Support for some more general Plugins is coming soon...)*
 
+[See full Plugins support listing on plugin's website](https://toolbarextras.com/plugin-support/)
+
 = Support & Compatibility for more plugins =
 Toolbar Extras supports even more plugins as listed here. Also, the plugin was tested with a lot of other plugins adding stuff to the Toolbar - and all works very well. We try to be not in the way of other plugins but rather work well together. This being said, Toolbar Extras even allows you to tweak the (Toolbar) behavior of a few selected plugins. This is really cool to save space in this bar and make the appearance overall a lot cleaner.
 
-For full list of supported plugins and compatibility **[visit our website at https://toolbarextras.com/features/](https://toolbarextras.com/features/)**
+For full list of [supported plugins](https://toolbarextras.com/plugin-support/) and [third-party plugin compatibility](https://toolbarextras.com/docs/plugin-compatibility/) just **[visit our website at https://toolbarextras.com/features/](https://toolbarextras.com/features/)**
 
 = Important: Required/ Recommended for plugin usage =
 - Required: User has role `Administrator` (needed capabilities `manage_options` and `edit_theme_options`)
@@ -173,7 +180,7 @@ You can also contribute code-wise via our [Toolbar Extras GitHub Repository](htt
 4. Go to **Appearance > Menus** to add & edit an optional Toolbar Menu (for Admins only).
 5. Now enjoy building your site - and let the Toolbar work for you ;-)
 
-For documentation and tutorials visit our [Knowledge Base](https://toolbarextras.com/).
+For documentation and tutorials visit our [Knowledge Base](https://toolbarextras.com/docs/).
 
 == Frequently Asked Questions ==
 
@@ -203,6 +210,13 @@ However, I strongly recommend Elementor Pro as it is so useful for Non-Coder Des
 
 **Will other page builders be supported, beyond Elementor?**
 This is planned middle to long-term. Nothing is set in stone yet.
+
+**Where can I find which exact Themes and Plugins are supported?**
+You can find full listings on the plugin's website:
+
+* [All supported Themes, Child Themes and Frameworks](https://toolbarextras.com/theme-support/)
+* [All supported Elementor Add-On Plugins](https://toolbarextras.com/elementor-addons-support/)
+* [All supported general Plugins](https://toolbarextras.com/plugin-support/)
 
 **Will other Themes be supported?**
 Yes, absolutely. - In general the Theme support here is considered as "a nice bonus". And, I will only ever add Themes that work well with Page Builders (mostly Elementor) and are well established. If you have recommendations you can contact me.
@@ -292,6 +306,21 @@ A special Multiste Add-On for Toolbar Extras is planned but no features or date 
 27. Toolbar Extras - help tab for Admin Toolbar Menu
 
 == Changelog ==
+
+([For the full changelog of this plugin visit its website at ToolbarExtras.com](https://toolbarextras.com/changelog/))
+
+= 1.1.3 - 2018-04-30 =
+* New: [Launched plugin's own website at toolbarextras.com](https://toolbarextras.com/) with full listing of theme and plugin support, features, blog as well as documentation, knowledge base and changelogs
+* New: Added plugin support for "Genesis DevKit" (Premium, by Cobalt Apps)
+* Tweak: Added appropriate EDD Customizer deep links for the "StartWP Extended" plugin support 
+* Tweak: Added settings page link for "Genesis Testimonial Slider" plugin support
+* Tweak: Added preview links for "Freelancer DevKit" plugin support
+* Tweak: Added preview links for "Themer Pro" plugin support
+* Tweak: Added preview links for "Extender Pro" plugin support
+* Tweak: Add "&use-location" query_arg to create new menu for Toolbar (link in plugins page notice)
+* Tweak: Updated `.pot` file plus all German translations (formal, informal)
+* Tweak: Added or updated URLs throughout the plugin and Readme file to use links to the plugin's own website where appropriate
+* Fix: Proper filter name for 'tbex_filter_meta_target'
 
 = 1.1.2 - 2018-04-23 =
 * Tweak: Made support for "Genesis Extender" plugin compatible with their newest version 1.9.0 or higher (versions below v1.9.0 are still supported, though)
@@ -392,6 +421,9 @@ A special Multiste Add-On for Toolbar Extras is planned but no features or date 
 * New: Including support for 10 Genesis specific plugins
 
 == Upgrade Notice =
+
+= 1.1.3 =
+Maintenance release. Smaller fixes and tweaks.
 
 = 1.1.2 =
 Update highly recommended. - Maintenance release. Small but important fixes and tweaks.

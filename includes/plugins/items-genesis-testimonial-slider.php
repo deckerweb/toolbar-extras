@@ -87,4 +87,17 @@ function ddw_tbex_aoitems_genesis_testimonial_slider() {
 
 	}  // end if
 
+	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		array(
+			'id'     => 'gts-settings',
+			'parent' => 'genesis-testimonialslider',
+			'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
+			'href'   => esc_url( admin_url( 'admin.php?page=genesis-testimonials' ) ),
+			'meta'   => array(
+				'target' => '',
+				'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
+			)
+		)
+	);
+
 }  // end function

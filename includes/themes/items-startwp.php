@@ -369,6 +369,41 @@ function ddw_tbex_themeitems_startwp_extended() {
 			)
 		);
 
-	}  // end if
+	}  // end if Woo support
+
+	/** Optional EDD sections in the Customizer */
+	$startwp_extended_edd = get_option( 'swp_edd' );
+
+	if ( 'Enable' === $startwp_extended_edd[0] ) {
+
+		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			array(
+				'id'     => 'startwpcmz-edd-archive',
+				'parent' => 'theme-creative-customize',
+				/* translators: Autofocus section in the Customizer */
+				'title'  => esc_attr__( 'EDD Archive', 'toolbar-extras' ),
+				'href'   => ddw_tbex_customizer_focus( 'section', 'swp_edd_archive' ),
+				'meta'   => array(
+					'target' => ddw_tbex_meta_target(),
+					'title'  => ddw_tbex_string_customize_attr( __( 'EDD Archive', 'toolbar-extras' ) )
+				)
+			)
+		);
+
+		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			array(
+				'id'     => 'startwpcmz-edd-single',
+				'parent' => 'theme-creative-customize',
+				/* translators: Autofocus section in the Customizer */
+				'title'  => esc_attr__( 'EDD Single', 'toolbar-extras' ),
+				'href'   => ddw_tbex_customizer_focus( 'section', 'swp_edd_single' ),
+				'meta'   => array(
+					'target' => ddw_tbex_meta_target(),
+					'title'  => ddw_tbex_string_customize_attr( __( 'EDD Single', 'toolbar-extras' ) )
+				)
+			)
+		);
+
+	}  // end if EDD support
 
 }  // end function

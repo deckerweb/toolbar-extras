@@ -242,6 +242,17 @@ if ( ( 'freelancer' === basename( get_template_directory() ) )			// check for Fr
 
 
 /**
+ * Plugin: Genesis DevKit (Premium, by Cobalt Apps)
+ * @since 1.1.3
+ */
+if ( ddw_tbex_is_genesis_active()			// check for Genesis Parent Theme
+	&& function_exists( 'genesis_devkit_compatible_theme_check' )	// check for Genesis DevKit Plugin
+) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-cobalt-genesis-devkit.php' );
+}
+
+
+/**
  * Plugin: Genesis Extender (Premium, by Cobalt Apps)
  * @since 1.1.1
  */
@@ -306,7 +317,7 @@ if ( class_exists( 'Popup_Maker' ) ) {
 
 
 /**
- * Plugin: Delightful Downloads
+ * Plugin: Delightful Downloads (free, by Ashley Rich)
  * @since 1.0.0
  */
 if ( class_exists( 'Delightful_Downloads' ) ) {
@@ -324,7 +335,7 @@ if ( defined( 'DLM_VERSION' ) ) {
 
 
 /**
- * Plugin: Thirsty Affiliates
+ * Plugin: Thirsty Affiliates (free, by Rymera Web Co.)
  * @since 1.0.0
  */
 if ( class_exists( 'ThirstyAffiliates' ) ) {

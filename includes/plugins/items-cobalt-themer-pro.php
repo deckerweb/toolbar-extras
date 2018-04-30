@@ -54,6 +54,19 @@ function ddw_tbex_aoitems_themer_pro() {
 				)
 			);
 
+			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				array(
+					'id'     => 'ca-themerpro-editor-child-full',
+					'parent' => 'ca-themerpro',
+					'title'  => esc_attr__( 'Child Theme Editor Full View', 'toolbar-extras' ),
+					'href'   => esc_url( admin_url( 'admin.php?page=themer-pro-child-editor&activefile=functions-php&subdir&fullscreen=1' ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => esc_attr__( 'Child Theme Editor Full View', 'toolbar-extras' )
+					)
+				)
+			);
+
 		}  // end if
 
 		if ( themer_pro_get_settings( 'enable_parent_theme_editor' ) ) {

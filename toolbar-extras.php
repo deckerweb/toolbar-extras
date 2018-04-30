@@ -6,20 +6,19 @@
  * @copyright         Copyright (c) 2012-2018, David Decker - DECKERWEB
  * @license           GPL-2.0+
  * @link              https://deckerweb.de/twitter
+ * @link              https://www.facebook.com/groups/ToolbarExtras/
  *
  * @wordpress-plugin
  * Plugin Name:       Toolbar Extras
  * Plugin URI:        https://toolbarextras.com/
  * Description:       This plugins adds a lot of quick jump links to the WordPress Toolbar helpful for Site Builders who use Elementor and its ecosystem of add-ons and from the theme space.
- * Version:           1.1.2
+ * Version:           1.1.3
  * Author:            David Decker - DECKERWEB
- * Author URI:        https://deckerweb.de/
+ * Author URI:        https://toolbarextras.com/
  * License:           GPL-2.0+
  * License URI:       https://opensource.org/licenses/GPL-2.0
  * Text Domain:       toolbar-extras
  * Domain Path:       /languages/
- * GitHub Plugin URI: https://github.com/deckerweb/toolbar-extras
- * GitHub Branch:     master
  * Requires WP:       4.7
  * Requires PHP:      5.4
  *
@@ -40,7 +39,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 1.0.0
  */
 /** Plugin version */
-define( 'TBEX_PLUGIN_VERSION', '1.1.2' );
+define( 'TBEX_PLUGIN_VERSION', '1.1.3' );
 
 /** Plugin directory */
 define( 'TBEX_PLUGIN_DIR', trailingslashit( dirname( __FILE__ ) ) );

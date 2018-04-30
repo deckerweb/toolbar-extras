@@ -140,6 +140,13 @@ function ddw_tbex_items_plugin_settings_resources() {
 		);
 
 		ddw_tbex_resource_item(
+			'documentation',
+			'tbex-docs',
+			'tbex-resources',
+			'https://toolbarextras.com/docs/'
+		);
+
+		ddw_tbex_resource_item(
 			'translations-community',
 			'tbex-translate',
 			'tbex-resources',

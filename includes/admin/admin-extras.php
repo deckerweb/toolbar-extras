@@ -227,7 +227,7 @@ add_filter( 'plugins_api_result', 'ddw_tbex_add_plugins_api_results', 11, 3 );
  */
 function ddw_tbex_add_plugins_api_results( $result, $action, $args ) {
 
-	if ( empty( $args->browse ) ) {
+	if ( empty( $args->browse ) || defined( 'CLPINST_PLUGIN_VERSION' ) ) {
 		return $result;
 	}
 

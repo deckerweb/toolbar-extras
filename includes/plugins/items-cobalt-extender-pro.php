@@ -53,6 +53,19 @@ function ddw_tbex_aoitems_extender_pro() {
 
 		$GLOBALS[ 'wp_admin_bar' ]->add_node(
 			array(
+				'id'     => 'ca-extenderpro-custompreview',
+				'parent' => 'ca-extenderpro',
+				'title'  => esc_attr__( 'Custom Preview', 'toolbar-extras' ),
+				'href'   => esc_url( admin_url( 'admin.php?page=extender-pro-custom&iframe=active' ) ),
+				'meta'   => array(
+					'target' => '',
+					'title'  => esc_attr__( 'Custom Preview', 'toolbar-extras' )
+				)
+			)
+		);
+
+		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			array(
 				'id'     => 'ca-extenderpro-image-manager',
 				'parent' => 'ca-extenderpro',
 				'title'  => esc_attr__( 'Image Manager', 'toolbar-extras' ),

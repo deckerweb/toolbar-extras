@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 add_action( 'admin_bar_menu', 'ddw_tbex_site_items_edd', 15 );
 /**
- * Items for Plugin: Easy Digital Downloads (EDD)
+ * Items for Plugin: Easy Digital Downloads (EDD) (free, by Easy Digital Downloads)
  *
  * @since  1.0.0
  *

@@ -59,6 +59,8 @@ function ddw_tbex_info_values() {
 		'first_code'        => '2012',
 		'url_donate'        => 'https://www.paypal.me/deckerweb',
 		'url_plugin'        => 'https://toolbarextras.com/',
+		'url_plugin_docs'   => 'https://toolbarextras.com/docs/',
+		'url_plugin_faq'    => 'https://toolbarextras.com/docs-category/faqs/',
 		'url_github'        => 'https://github.com/deckerweb/toolbar-extras',
 		'url_github_issues' => 'https://github.com/deckerweb/toolbar-extras/issues',
 		'url_roadmap'       => 'https://trello.com/b/JrpjwlX4/toolbar-extras-public-roadmap',
@@ -377,7 +379,7 @@ function ddw_tbex_meta_target() {
 	return strtolower(
 		esc_attr(
 			apply_filters(
-				'tbex_filter_meta_rel',
+				'tbex_filter_meta_target',
 				$target
 			)
 		)

@@ -115,7 +115,7 @@ $tbex_info = (array) ddw_tbex_info_values();
 			</p>
 			<p>
 				<strong><span class="dashicons-before dashicons-admin-page"></span> <?php _e( 'Plugin documentation &amp; Knowledge Base articles', 'toolbar-extras' ); ?></strong>
-				<br /><?php echo ddw_tbex_get_info_link( 'url_plugin', __( 'Documentation', 'toolbar-extras' ), 'button tbex-button' ); ?>
+				<br /><?php echo ddw_tbex_get_info_link( 'url_plugin_docs', __( 'Documentation', 'toolbar-extras' ), 'button tbex-button' ); ?>
 			</p>
 			<p>
 				<strong><span class="dashicons-before dashicons-groups"></span> <?php _e( 'Facebook Community Group for Toolbar Extras plugin', 'toolbar-extras' ); ?></strong>
