@@ -2,6 +2,21 @@
 
 ## Changelog
 
+### 1.1.3 - 2018-04-30
+
+* New: [Launched plugin's own website at toolbarextras.com](https://toolbarextras.com/) with full listing of theme and plugin support, features, blog as well as documentation, knowledge base and changelogs
+* New: Added plugin support for "Genesis DevKit" (Premium, by Cobalt Apps)
+* Tweak: Added appropriate EDD Customizer deep links for the "StartWP Extended" plugin support
+* Tweak: Added settings page link for "Genesis Testimonial Slider" plugin support
+* Tweak: Added preview links for "Freelancer DevKit" plugin support
+* Tweak: Added preview links for "Themer Pro" plugin support
+* Tweak: Added preview links for "Extender Pro" plugin support
+* Tweak: Add "&use-location" query_arg to create new menu for Toolbar (link in plugins page notice)
+* Tweak: Updated `.pot` file plus all German translations (formal, informal)
+* Tweak: Added or updated URLs throughout the plugin and Readme file to use links to the plugin's own website where appropriate
+* Fix: Proper filter name for 'tbex_filter_meta_target'
+
+
 ### 1.1.2 - 2018-04-23
 
 * Tweak: Made support for "Genesis Extender" plugin compatible with their newest version 1.9.0 or higher (versions below v1.9.0 are still supported, though)
