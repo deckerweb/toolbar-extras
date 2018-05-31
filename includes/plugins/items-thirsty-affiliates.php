@@ -1,6 +1,6 @@
 <?php
 
-//items-thirsty-affiliates
+// includes/plugins/items-thirsty-affiliates
 
 /**
  * Prevent direct access to this file.

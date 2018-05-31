@@ -1,6 +1,6 @@
 <?php
 
-//items-genesis-testimonial-slider
+// includes/plugins/items-genesis-testimonial-slider
 
 /**
  * Prevent direct access to this file.
@@ -25,7 +25,7 @@ function ddw_tbex_aoitems_genesis_testimonial_slider() {
 	/** For: Genesis Creative items */
 	$GLOBALS[ 'wp_admin_bar' ]->add_group(
 		array(
-			'id'     => 'genesis-testimonialslider',
+			'id'     => 'group-genesis-testimonialslider',
 			'parent' => 'theme-creative'
 		)
 	);
@@ -33,7 +33,7 @@ function ddw_tbex_aoitems_genesis_testimonial_slider() {
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(
 		array(
 			'id'     => 'gts-all',
-			'parent' => 'genesis-testimonialslider',
+			'parent' => 'group-genesis-testimonialslider',
 			'title'  => esc_attr__( 'All Testimonials', 'toolbar-extras' ),
 			'href'   => esc_url( admin_url( 'edit.php?post_type=testimonial' ) ),
 			'meta'   => array(
@@ -46,7 +46,7 @@ function ddw_tbex_aoitems_genesis_testimonial_slider() {
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(
 		array(
 			'id'     => 'gts-new',
-			'parent' => 'genesis-testimonialslider',
+			'parent' => 'group-genesis-testimonialslider',
 			'title'  => esc_attr__( 'New Testimonial', 'toolbar-extras' ),
 			'href'   => esc_url( admin_url( 'post-new.php?post_type=testimonial' ) ),
 			'meta'   => array(
@@ -61,7 +61,7 @@ function ddw_tbex_aoitems_genesis_testimonial_slider() {
 		$GLOBALS[ 'wp_admin_bar' ]->add_node(
 			array(
 				'id'     => 'gts-builder',
-				'parent' => 'genesis-testimonialslider',
+				'parent' => 'group-genesis-testimonialslider',
 				'title'  => esc_attr__( 'New Testimonial Builder', 'toolbar-extras' ),
 				'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'testimonial' ) ),
 				'meta'   => array(
@@ -90,12 +90,26 @@ function ddw_tbex_aoitems_genesis_testimonial_slider() {
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(
 		array(
 			'id'     => 'gts-settings',
-			'parent' => 'genesis-testimonialslider',
+			'parent' => 'group-genesis-testimonialslider',
 			'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
 			'href'   => esc_url( admin_url( 'admin.php?page=genesis-testimonials' ) ),
 			'meta'   => array(
 				'target' => '',
 				'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
+			)
+		)
+	);
+
+	/** For: Manage Content in Site Group */
+	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		array(
+			'id'     => 'manage-content-genesis-testimonial-slider',
+			'parent' => 'manage-content',
+			'title'  => esc_attr__( 'Edit Testimonials', 'toolbar-extras' ),
+			'href'   => esc_url( admin_url( 'edit.php?post_type=testimonial' ) ),
+			'meta'   => array(
+				'target' => '',
+				'title'  => esc_attr__( 'Edit Testimonials', 'toolbar-extras' )
 			)
 		)
 	);

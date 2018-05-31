@@ -276,6 +276,23 @@ function ddw_tbex_display_items_plugin_settings() {
 
 
 /**
+ * Display link title attributes (Tooltips) in the Toolbar at all or not?
+ *   Note: 'yes' is the default setting!
+ *
+ * @since  1.2.0
+ *
+ * @uses   ddw_tbex_get_option()
+ *
+ * @return bool TRUE if setting is on 'yes', otherwise FALSE.
+ */
+function ddw_tbex_display_link_title_attributes() {
+
+	return ( 'yes' === ddw_tbex_get_option( 'general', 'display_title_attributes' ) ) ? TRUE : FALSE;
+
+}  // end function
+
+
+/**
  * Display optional Dev Mode items at all or not?
  *
  * @since  1.0.0
@@ -529,6 +546,22 @@ function ddw_tbex_use_tweak_customizer() {
 
 
 /**
+ * Tweak: Remove Customize item(s) from the top?
+ *
+ * @since  1.2.0
+ *
+ * @uses   ddw_tbex_get_option()
+ *
+ * @return bool TRUE if tweak should be used (setting 'yes'), otherwise FALSE.
+ */
+function ddw_tbex_use_tweak_user_newcontent() {
+
+	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'remove_user_newcontent' ) ) ? TRUE : FALSE;;
+
+}  // end function
+
+
+/**
  * Tweak: Re-hook Gravity Forms items from the top to our Site Group or not?
  *
  * @since  1.0.0
@@ -588,6 +621,71 @@ function ddw_tbex_use_tweak_nextgen() {
 function ddw_tbex_use_tweak_ithemes_security() {
 
 	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'rehook_ithsec' ) ) ? TRUE : FALSE;;
+
+}  // end function
+
+
+/**
+ * Tweak: Re-hook WP Rocket items from the top to our Site Group or not?
+ *
+ * @since  1.2.0
+ *
+ * @uses   ddw_tbex_get_option()
+ *
+ * @return bool TRUE if tweak should be used (setting 'yes'), otherwise FALSE.
+ */
+function ddw_tbex_use_tweak_wprocket() {
+
+	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'rehook_wprocket' ) ) ? TRUE : FALSE;;
+
+}  // end function
+
+
+/**
+ * Tweak: Re-hook Autoptimize items from the top to our Site Group or not?
+ *
+ * @since  1.2.0
+ *
+ * @uses   ddw_tbex_get_option()
+ *
+ * @return bool TRUE if tweak should be used (setting 'yes'), otherwise FALSE.
+ */
+function ddw_tbex_use_tweak_autoptimize() {
+
+	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'rehook_autoptimize' ) ) ? TRUE : FALSE;;
+
+}  // end function
+
+
+/**
+ * Tweak: Re-hook Swift Performance Lite items from the top to our Site Group or
+ *   not?
+ *
+ * @since  1.2.0
+ *
+ * @uses   ddw_tbex_get_option()
+ *
+ * @return bool TRUE if tweak should be used (setting 'yes'), otherwise FALSE.
+ */
+function ddw_tbex_use_tweak_swift_performance() {
+
+	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'rehook_swiftperformance' ) ) ? TRUE : FALSE;;
+
+}  // end function
+
+
+/**
+ * Tweak: Remove some WooCommerce post type entries from New Content?
+ *
+ * @since  1.2.0
+ *
+ * @uses   ddw_tbex_get_option()
+ *
+ * @return bool TRUE if tweak should be used (setting 'yes'), otherwise FALSE.
+ */
+function ddw_tbex_use_tweak_woocommerce_newcontent() {
+
+	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'remove_woo_posttypes' ) ) ? TRUE : FALSE;
 
 }  // end function
 
@@ -701,6 +799,55 @@ function ddw_tbex_use_tweak_adminpagespider() {
 function ddw_tbex_use_tweak_mstba_siteextgroup() {
 
 	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'remove_mstba_siteextgroup' ) ) ? TRUE : FALSE;
+
+}  // end function
+
+
+
+/**
+ * Tweak: Unload Elementor translations?
+ *
+ * @since  1.2.0
+ *
+ * @uses   ddw_tbex_get_option()
+ *
+ * @return bool TRUE if tweak should be used (setting 'yes'), otherwise FALSE.
+ */
+function ddw_tbex_use_tweak_unload_translations_elementor() {
+
+	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'unload_td_elementor' ) ) ? TRUE : FALSE;
+
+}  // end function
+
+
+/**
+ * Tweak: Unload Toolbar Extras translations?
+ *
+ * @since  1.2.0
+ *
+ * @uses   ddw_tbex_get_option()
+ *
+ * @return bool TRUE if tweak should be used (setting 'yes'), otherwise FALSE.
+ */
+function ddw_tbex_use_tweak_unload_translations_toolbar_extras() {
+
+	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'unload_td_toolbar_extras' ) ) ? TRUE : FALSE;
+
+}  // end function
+
+
+/**
+ * Tweak: Remove the WordPress Widgets from the Elementor Live Editor?
+ *
+ * @since  1.2.0
+ *
+ * @uses   ddw_tbex_get_option()
+ *
+ * @return bool TRUE if tweak should be used (setting 'yes'), otherwise FALSE.
+ */
+function ddw_tbex_use_tweak_elementor_remove_wpwidgets() {
+
+	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'remove_elementor_wpwidgets' ) ) ? TRUE : FALSE;
 
 }  // end function
 

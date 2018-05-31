@@ -41,6 +41,7 @@ function ddw_tbex_aoitems_freelancer_devkit() {
 		/** For DevKit specific child themes include the design settings etc. */
 		if ( file_exists( get_stylesheet_directory() . '/devkit-init.php' ) ) {
 			
+			/** Custom Design */
 			$GLOBALS[ 'wp_admin_bar' ]->add_node(
 				array(
 					'id'     => 'freelancer-devkit-design',
@@ -54,19 +55,33 @@ function ddw_tbex_aoitems_freelancer_devkit() {
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
-				array(
-					'id'     => 'freelancer-devkit-designpreview',
-					'parent' => 'freelancer-devkit',
-					'title'  => esc_attr__( 'Design Preview', 'toolbar-extras' ),
-					'href'   => esc_url( admin_url( 'admin.php?page=freelancer-devkit-design-options&iframe=expanded' ) ),
-					'meta'   => array(
-						'target' => '',
-						'title'  => esc_attr__( 'Design Preview', 'toolbar-extras' )
+				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					array(
+						'id'     => 'freelancer-devkit-design-customize',
+						'parent' => 'freelancer-devkit-design',
+						'title'  => esc_attr__( 'Customize Design', 'toolbar-extras' ),
+						'href'   => esc_url( admin_url( 'admin.php?page=freelancer-devkit-design-options' ) ),
+						'meta'   => array(
+							'target' => '',
+							'title'  => esc_attr__( 'Customize Design', 'toolbar-extras' )
+						)
 					)
-				)
-			);
+				);
 
+				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					array(
+						'id'     => 'freelancer-devkit-design-fullview',
+						'parent' => 'freelancer-devkit-design',
+						'title'  => esc_attr__( 'Full View', 'toolbar-extras' ),
+						'href'   => esc_url( admin_url( 'admin.php?page=freelancer-devkit-design-options&iframe=expanded' ) ),
+						'meta'   => array(
+							'target' => ddw_tbex_meta_target(),
+							'title'  => esc_attr__( 'Full View', 'toolbar-extras' )
+						)
+					)
+				);
+
+			/** Custom Options */
 			$GLOBALS[ 'wp_admin_bar' ]->add_node(
 				array(
 					'id'     => 'freelancer-devkit-custom',
@@ -80,19 +95,33 @@ function ddw_tbex_aoitems_freelancer_devkit() {
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
-				array(
-					'id'     => 'freelancer-devkit-custompreview',
-					'parent' => 'freelancer-devkit',
-					'title'  => esc_attr__( 'Custom Preview', 'toolbar-extras' ),
-					'href'   => esc_url( admin_url( 'admin.php?page=freelancer-devkit-custom-options&iframe=expanded' ) ),
-					'meta'   => array(
-						'target' => '',
-						'title'  => esc_attr__( 'Custom Preview', 'toolbar-extras' )
+				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					array(
+						'id'     => 'freelancer-devkit-custom-code',
+						'parent' => 'freelancer-devkit-custom',
+						'title'  => esc_attr__( 'Custom CSS, JS, Code', 'toolbar-extras' ),
+						'href'   => esc_url( admin_url( 'admin.php?page=freelancer-devkit-custom-options' ) ),
+						'meta'   => array(
+							'target' => '',
+							'title'  => esc_attr__( 'Custom CSS, JS, Code', 'toolbar-extras' )
+						)
 					)
-				)
-			);
-			
+				);
+
+				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					array(
+						'id'     => 'freelancer-devkit-custom-fullview',
+						'parent' => 'freelancer-devkit-custom',
+						'title'  => esc_attr__( 'Full View', 'toolbar-extras' ),
+						'href'   => esc_url( admin_url( 'admin.php?page=freelancer-devkit-custom-options&iframe=expanded' ) ),
+						'meta'   => array(
+							'target' => ddw_tbex_meta_target(),
+							'title'  => esc_attr__( 'Full View', 'toolbar-extras' )
+						)
+					)
+				);
+
+			/** Image Manager */
 			$GLOBALS[ 'wp_admin_bar' ]->add_node(
 				array(
 					'id'     => 'freelancer-devkit-images',
@@ -108,6 +137,7 @@ function ddw_tbex_aoitems_freelancer_devkit() {
 
 		}  // end if
 
+		/** Theme Creator */
 		$GLOBALS[ 'wp_admin_bar' ]->add_node(
 			array(
 				'id'     => 'freelancer-devkit-creator',
@@ -121,6 +151,7 @@ function ddw_tbex_aoitems_freelancer_devkit() {
 			)
 		);
 
+		/** General settings */
 		$GLOBALS[ 'wp_admin_bar' ]->add_node(
 			array(
 				'id'     => 'freelancer-devkit-settings',
@@ -130,6 +161,20 @@ function ddw_tbex_aoitems_freelancer_devkit() {
 				'meta'   => array(
 					'target' => '',
 					'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
+				)
+			)
+		);
+
+		/** Help videos */
+		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			array(
+				'id'     => 'freelancer-devkit-helpvideos',
+				'parent' => 'freelancer-devkit',
+				'title'  => esc_attr__( 'Help Videos', 'toolbar-extras' ),
+				'href'   => esc_url( admin_url( 'admin.php?page=freelancer-devkit-docs' ) ),
+				'meta'   => array(
+					'target' => '',
+					'title'  => esc_attr__( 'Help Videos (Inline)', 'toolbar-extras' )
 				)
 			)
 		);
@@ -156,7 +201,7 @@ function ddw_tbex_aoitems_freelancer_devkit() {
 				'documentation',
 				'fldevkit-docs',
 				'group-fldevkit-resources',
-				'https://docs.cobaltapps.com/collection/398-freelancer-framework'
+				esc_url( admin_url( 'admin.php?page=freelancer-devkit-docs' ) )
 			);
 
 			ddw_tbex_resource_item(

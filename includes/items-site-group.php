@@ -54,6 +54,7 @@ function ddw_tbex_site_items_base_groups() {
 
 	do_action( 'tbex_before_site_group_content' );
 
+
 	/** Group: Manage Content (Posts, Pages, Products) */
 	$GLOBALS[ 'wp_admin_bar' ]->add_group(
 		array(
@@ -63,6 +64,7 @@ function ddw_tbex_site_items_base_groups() {
 	);
 
 	do_action( 'tbex_after_site_group_content' );
+
 
 	/** Group: Forms */
 	$GLOBALS[ 'wp_admin_bar' ]->add_group(
@@ -74,6 +76,7 @@ function ddw_tbex_site_items_base_groups() {
 
 	do_action( 'tbex_after_site_group_forms' );
 
+
 	/** Group: Elements - Widgets, Menus, etc. */
 	$GLOBALS[ 'wp_admin_bar' ]->add_group(
 		array(
@@ -84,6 +87,18 @@ function ddw_tbex_site_items_base_groups() {
 
 	do_action( 'tbex_after_site_group_elements' );
 
+
+	/** Group: Tools (Cache, Backups, etc.) ... */
+	$GLOBALS[ 'wp_admin_bar' ]->add_group(
+		array(
+			'id'     => 'tbex-sitegroup-tools',
+			'parent' => ddw_tbex_parent_id_site_group()
+		)
+	);
+
+	do_action( 'tbex_after_site_group_tools' );
+
+
 	/** Group: More stuff... */
 	$GLOBALS[ 'wp_admin_bar' ]->add_group(
 		array(
@@ -93,6 +108,7 @@ function ddw_tbex_site_items_base_groups() {
 	);
 
 	do_action( 'tbex_after_site_group_stuff' );
+
 
 	/** Group: Toolbar Extras Plugin Settings */
 	$GLOBALS[ 'wp_admin_bar' ]->add_group(

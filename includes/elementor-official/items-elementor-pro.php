@@ -360,7 +360,9 @@ add_action( 'admin_bar_menu', 'ddw_tbex_items_elementor_pro_new_content', 130 );
 function ddw_tbex_items_elementor_pro_new_content() {
 
 	/** Bail early if items display is not wanted */
-	if ( ! ddw_tbex_display_items_new_content() ) {
+	if ( ! ddw_tbex_display_items_new_content()
+		|| ! class_exists( '\Elementor\User' )
+	) {
 		return;
 	}
 

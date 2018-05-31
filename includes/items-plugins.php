@@ -186,6 +186,15 @@ if ( ddw_tbex_is_genesis_active() && function_exists( 'wpstudio_gts_init' ) ) {
 
 
 /**
+ * Plugin: Testimonial Rotator (free, by Hal Gatewood)
+ * @since 1.2.0
+ */
+if ( function_exists( 'testimonial_rotator_setup' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-testimonial-rotator.php' );
+}
+
+
+/**
  * Plugin: Genesis Coming Soon Page (free, by Jose Manuel Sanchez)
  * @since 1.0.0
  */
@@ -460,6 +469,15 @@ if ( class_exists( 'Cherry_Projects' ) ) {
 }
 
 
+/**
+ * Plugin: TM Timline (free, by Jetimpex/ Zemez)
+ * @since 1.2.0
+ */
+if ( defined( 'TM_TIMELINE_VERSION' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-tm-timeline.php' );
+}
+
+
 
 /**
  * Plugin: Regenerate Thumbnails (free, by Alex Mills)
@@ -467,6 +485,24 @@ if ( class_exists( 'Cherry_Projects' ) ) {
  */
 if ( class_exists( 'RegenerateThumbnails' ) ) {
 	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-regenerate-thumbnails.php' );
+}
+
+
+/**
+ * Plugin: Lightweight Sidebar Manager (free, by Brainstorm Force)
+ * @since 1.2.0
+ */
+if ( defined( 'BSF_SB_POST_TYPE' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-bsf-sidebar-manager.php' );
+}
+
+
+/**
+ * Plugin: Widget Options (free/Premium, by Phpbits Creative Studio)
+ * @since 1.2.0
+ */
+if ( class_exists( 'WP_Widget_Options' ) ) {		// same class for free + Pro!
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-widget-options.php' );
 }
 
 
@@ -521,4 +557,31 @@ if ( defined( 'WPSTG_PLUGIN_DIR' ) ) {
  */
 if ( class_exists( 'Members_Plugin' ) ) {
 	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-members.php' );
+}
+
+
+/**
+ * Plugin: OptinMonster API (free/Premium, by OptinMonster Team/ Retyp, LLC)
+ * @since 1.2.0
+ */
+if ( class_exists( 'OMAPI' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-optinmonster.php' );
+}
+
+
+/**
+ * Plugin: Convert Pro (Premium, by Brainstorm Force)
+ * @since 1.2.0
+ */
+if ( function_exists( 'cp_load_convertpro' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-convertpro.php' );
+}
+
+
+/**
+ * Plugin: Convert Plus (Premium, by Brainstorm Force)
+ * @since 1.2.0
+ */
+if ( class_exists( 'Convert_Plug' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-convertplus.php' );
 }

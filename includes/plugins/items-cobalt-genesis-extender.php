@@ -25,7 +25,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_genesis_extender', 102 );
  */
 function ddw_tbex_aoitems_genesis_extender() {
 
-	$is_new = version_compare( GENEXT_VERSION, '1.9.0', '>=' ) ? TRUE : FALSE;
+	$is_new = ( defined( 'GENEXT_VERSION' ) && version_compare( GENEXT_VERSION, '1.9.0', '>=' ) ) ? TRUE : FALSE;
 
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(
 		array(

@@ -55,11 +55,11 @@ function ddw_tbex_aoitems_extender_pro() {
 			array(
 				'id'     => 'ca-extenderpro-custompreview',
 				'parent' => 'ca-extenderpro',
-				'title'  => esc_attr__( 'Custom Preview', 'toolbar-extras' ),
+				'title'  => esc_attr__( 'Custom: Full View', 'toolbar-extras' ),
 				'href'   => esc_url( admin_url( 'admin.php?page=extender-pro-custom&iframe=active' ) ),
 				'meta'   => array(
-					'target' => '',
-					'title'  => esc_attr__( 'Custom Preview', 'toolbar-extras' )
+					'target' => ddw_tbex_meta_target(),
+					'title'  => esc_attr__( 'Custom: Full View', 'toolbar-extras' )
 				)
 			)
 		);

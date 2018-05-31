@@ -46,6 +46,7 @@ function ddw_tbex_default_options_general() {
 		'display_items_demo_import'   => 'yes',
 		'demo_import_icon'            => 'dashicons-visibility',	// Dashicon \f177
 
+		'display_title_attributes'    => 'yes',						// shown by default
 		'external_links_blank'        => 'yes',						// always open in new tab/ window
 
 		'tbex_tbmenu_priority'        => 9999,						// last thing of the left part, hopefully
@@ -80,24 +81,35 @@ function ddw_tbex_default_options_smart_tweaks() {
 	$tbex_default_options = array(
 
 		/** Tab: Smart Tweaks */
-		'toolbar_front_color'       => 'yes',		// should be default in Core anyways, so let's do it!
+		'toolbar_front_color'        => 'no',		// do not touch by default
 
-		'use_web_group'             => 'no',		// let user decide
+		'use_web_group'              => 'no',		// let user decide
 
-		'remove_wp_logo'            => 'no',		// do not touch by default
-		'remove_front_customizer'   => 'no',		// do not touch by default
-		'remove_updraftplus'        => 'yes',		// remove by default, as their default makes no sense
-		'remove_members'            => 'no',		// do not touch by default
-		'remove_cobaltapps'         => 'no',		// do not touch by default
-		'remove_customcsspro'       => 'no',		// do not touch by default
-		'remove_apspider'           => 'no',		// do not touch by default
-		'remove_aioseo'             => 'yes',		// remove by default
-		'remove_mstba_siteextgroup' => 'yes',		// remove by default
+		'remove_wp_logo'             => 'no',		// do not touch by default
+		'remove_front_customizer'    => 'no',		// do not touch by default
+		'remove_user_newcontent'     => 'no',		// do not touch by default
 
-		'rehook_gravityforms'       => 'no',		// do not touch GF by default
-		'rehook_smartslider'        => 'no',		// do not touch SS3 by default
-		'rehook_nextgen'            => 'no',		// do not touch SS3 by default
-		'rehook_ithsec'             => 'no',		// do not touch SS3 by default
+		'remove_updraftplus'         => 'yes',		// remove by default, as their default makes no sense
+		'remove_members'             => 'no',		// do not touch by default
+		'remove_cobaltapps'          => 'no',		// do not touch by default
+		'remove_customcsspro'        => 'no',		// do not touch by default
+		'remove_apspider'            => 'no',		// do not touch by default
+		'remove_aioseo'              => 'yes',		// remove by default
+		'remove_mstba_siteextgroup'  => 'yes',		// remove by default
+		'remove_woo_posttypes'       => 'no',		// do not touch by default
+
+		'rehook_gravityforms'        => 'no',		// do not touch GF by default
+		'rehook_smartslider'         => 'no',		// do not touch SS3 by default
+		'rehook_nextgen'             => 'no',		// do not touch NextGen by default
+		'rehook_ithsec'              => 'no',		// do not touch iThemes Security by default
+		'rehook_wprocket'            => 'no',		// do not touch WP Rocket by default
+		'rehook_autoptimize'         => 'no',		// do not touch Autoptimize by default
+		'rehook_swiftperformance'    => 'no',		// do not touch Swift by default
+
+		'unload_td_elementor'        => 'no',		// translations loaded by default
+		'unload_td_toolbar_extras'   => 'no',		// translations loaded by default
+
+		'remove_elementor_wpwidgets' => 'no'		// do not touch by default
 
 	);  // end of array
 
@@ -350,6 +362,14 @@ function ddw_tbex_register_settings_general() {
 		);
 
 			add_settings_field(
+				'display_link_attributes',
+				__( 'Show Link Title Attributes (Tooltips) In the Toolbar', 'toolbar-extras' ),
+				'ddw_tbex_settings_cb_display_title_attributes',
+				'tbex_group_general',
+				'tbex-section-links'
+			);
+
+			add_settings_field(
 				'external_links_blank',
 				__( 'Open External Links in New Tab/ Window?', 'toolbar-extras' ),
 				'ddw_tbex_settings_cb_external_links_blank',
@@ -450,13 +470,21 @@ function ddw_tbex_register_settings_smart_tweaks() {
 				'tbex-section-wordpress'
 			);
 
+			add_settings_field(
+				'remove_user_newcontent',
+				__( 'Remove User Item in New Content Group', 'toolbar-extras' ),
+				'ddw_tbex_settings_cb_remove_user_newcontent',
+				'tbex_group_smart_tweaks',
+				'tbex-section-wordpress'
+			);
+
 		/** Smart Tweaks: 2nd section */
 		add_settings_section( 
 			'tbex-section-plugins',
 			'<h3 class="tbex-settings-section">' . __( 'Change Plugin Behavior', 'toolbar-extras' ) . '</h3>',
 			'ddw_tbex_settings_section_info_plugins',
 			'tbex_group_smart_tweaks'
-		);									
+		);
 
 			if ( defined( 'RG_CURRENT_VIEW' ) ) {		// Gravity Forms
 
@@ -506,7 +534,55 @@ function ddw_tbex_register_settings_smart_tweaks() {
 
 			}  // end if
 
-			if ( defined( 'AIOSEOP_VERSION' ) ) {		// All In One SEO Pack
+			if ( defined( 'WP_ROCKET_VERSION' ) ) {		// WP Rocket
+
+				add_settings_field(
+					'rehook_wprocket',
+					__( 'Re-hook WP Rocket Items', 'toolbar-extras' ),
+					'ddw_tbex_settings_cb_rehook_wprocket',
+					'tbex_group_smart_tweaks',
+					'tbex-section-plugins'
+				);
+
+			}  // end if
+
+			if ( defined( 'AUTOPTIMIZE_PLUGIN_DIR' ) ) {		// Autoptimuze
+
+				add_settings_field(
+					'rehook_autoptimize',
+					__( 'Re-hook Autoptimize Items', 'toolbar-extras' ),
+					'ddw_tbex_settings_cb_rehook_autoptimize',
+					'tbex_group_smart_tweaks',
+					'tbex-section-plugins'
+				);
+
+			}  // end if
+
+			if ( class_exists( 'Swift_Performance_Lite' ) || class_exists( 'Swift_Performance' ) ) {		// Swift Performance Lite
+
+				add_settings_field(
+					'rehook_swiftperformance',
+					__( 'Re-hook Swift Performance Items', 'toolbar-extras' ),
+					'ddw_tbex_settings_cb_rehook_swiftperformance',
+					'tbex_group_smart_tweaks',
+					'tbex-section-plugins'
+				);
+
+			}  // end if
+
+			if ( class_exists( 'WooCommerce' ) ) {		// WooCommerce
+
+				add_settings_field(
+					'remove_woo_posttypes',
+					__( 'Remove some WooCommerce post types from New Content Group', 'toolbar-extras' ),
+					'ddw_tbex_settings_cb_remove_woo_posttypes',
+					'tbex_group_smart_tweaks',
+					'tbex-section-plugins'
+				);
+
+			}  // end if
+
+			if ( defined( 'AIOSEOP_VERSION' ) || defined( 'AIOSEOPPRO' ) ) {		// All In One SEO Pack (Pro)
 
 				add_settings_field(
 					'remove_aioseo',
@@ -586,6 +662,54 @@ function ddw_tbex_register_settings_smart_tweaks() {
 					'ddw_tbex_settings_cb_remove_mstba_siteextgroup',
 					'tbex_group_smart_tweaks',
 					'tbex-section-plugins'
+				);
+
+			}  // end if
+
+		/** Smart Tweaks: 3rd section */
+		add_settings_section( 
+			'tbex-section-translations',
+			'<h3 class="tbex-settings-section">' . __( 'Change Translations Behavior', 'toolbar-extras' ) . '</h3>',
+			'ddw_tbex_settings_section_info_translations',
+			'tbex_group_smart_tweaks'
+		);
+
+			if ( ddw_tbex_is_elementor_active() ) {
+
+				add_settings_field(
+					'unload_td_elementor',
+					__( 'Unload Elementor Translations', 'toolbar-extras' ),
+					'ddw_tbex_settings_cb_unload_td_elementor',
+					'tbex_group_smart_tweaks',
+					'tbex-section-translations'
+				);
+
+			}  // end if
+
+			add_settings_field(
+				'unload_td_toolbar_extras',
+				__( 'Unload Toolbar Extras Translations', 'toolbar-extras' ),
+				'ddw_tbex_settings_cb_unload_td_toolbar_extras',
+				'tbex_group_smart_tweaks',
+				'tbex-section-translations'
+			);
+
+		/** Smart Tweaks: 4th section */
+		add_settings_section( 
+			'tbex-section-pagebuilder',
+			'<h3 class="tbex-settings-section">' . __( 'Change Page Builder Behavior', 'toolbar-extras' ) . '</h3>',
+			'ddw_tbex_settings_section_info_pagebuilder',
+			'tbex_group_smart_tweaks'
+		);
+
+			if ( ddw_tbex_is_elementor_active() ) {
+
+				add_settings_field(
+					'remove_elementor_wpwidgets',
+					__( 'Remove WordPress Widgets from Elementor Live Editor', 'toolbar-extras' ),
+					'ddw_tbex_settings_cb_remove_elementor_wpwidgets',
+					'tbex_group_smart_tweaks',
+					'tbex-section-pagebuilder'
 				);
 
 			}  // end if
@@ -768,6 +892,7 @@ function ddw_tbex_validate_settings_general( $input ) {
 		'display_items_user_group',
 		'display_items_demo_import',
 		'display_items_tbex_settings',
+		'display_link_attributes',
 		'external_links_blank'
 	);
 
@@ -803,6 +928,7 @@ function ddw_tbex_validate_settings_smart_tweaks( $input ) {
 		'use_web_group',
 		'remove_wp_logo',
 		'remove_front_customizer',
+		'remove_user_newcontent',
 		'remove_updraftplus',
 		'remove_members',
 		'remove_cobaltapps',
@@ -810,10 +936,17 @@ function ddw_tbex_validate_settings_smart_tweaks( $input ) {
 		'remove_apspider',
 		'remove_aioseo',
 		'remove_mstba_siteextgroup',
+		'remove_woo_posttypes',
 		'rehook_gravityforms',
 		'rehook_smartslider',
 		'rehook_nextgen',
-		'rehook_ithsec'
+		'rehook_ithsec',
+		'rehook_wprocket',
+		'rehook_autoptimize',
+		'rehook_swiftperformance',
+		'unload_td_elementor',
+		'unload_td_toolbar_extras',
+		'remove_elementor_wpwidgets'
 	);
 
 	foreach( $select_fields as $select ) {

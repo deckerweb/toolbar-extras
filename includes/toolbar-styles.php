@@ -217,6 +217,35 @@ function ddw_tbex_toolbar_styles() {
 				padding-right: 15px !important;
 			}
 			<?php echo $fix_logindesigner; ?>
+
+			/* Media Queries */
+			@media only screen and (max-width: 782px) {
+
+				#wpadminbar #wp-admin-bar-rapid-dev .ab-icon,
+				#wpadminbar #wp-admin-bar-rapid-dev .ab-icon:before {
+					display: none;
+				}
+
+				#wpadminbar #wp-admin-bar-rapid-dev .ab-item,
+				#wpadminbar #wp-admin-bar-rapid-dev .ab-label,
+				#wpadminbar #wp-admin-bar-tbex-sitegroup-manage-content .ab-item,
+				#wpadminbar #wp-admin-bar-group-tbex-users .ab-label,
+				#wpadminbar #wp-admin-bar-group-user-roles .ab-label {
+					display: inline-block;
+				}
+
+				#wpadminbar #wp-admin-bar-rapid-dev .ab-label {
+					font-size: 16px !important;
+				}
+
+				#wpadminbar #wp-admin-bar-group-tbex-users .tbex-users .ab-icon:before,
+				#wpadminbar #wp-admin-bar-group-user-roles .tbex-users .ab-icon:before {
+					font-size: 16px;
+					/* display: inline-block; */
+					top: -16px;
+				}
+
+			}
 		</style>
 	<?php
 

@@ -1,6 +1,6 @@
 <?php
 
-//items-genesis-author-pro
+// includes/plugins/items-genesis-author-pro
 
 /**
  * Prevent direct access to this file.
@@ -87,17 +87,21 @@ function ddw_tbex_aoitems_genesis_author_pro() {
 
 	}  // end if
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
-		array(
-			'id'     => 'gapro-archive',
-			'parent' => 'genesis-authorpro',
-			'title'  => esc_attr__( 'Archive Settings', 'toolbar-extras' ),
-			'href'   => esc_url( admin_url( 'edit.php?post_type=books&page=genesis-cpt-archive-books' ) ),
-			'meta'   => array(
-				'target' => '',
-				'title'  => esc_attr__( 'Archive Settings', 'toolbar-extras' )
+	if ( post_type_supports( 'books', 'genesis-cpt-archives-settings' ) ) {
+
+		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			array(
+				'id'     => 'gapro-archive',
+				'parent' => 'genesis-authorpro',
+				'title'  => esc_attr__( 'Archive Settings', 'toolbar-extras' ),
+				'href'   => esc_url( admin_url( 'edit.php?post_type=books&page=genesis-cpt-archive-books' ) ),
+				'meta'   => array(
+					'target' => '',
+					'title'  => esc_attr__( 'Archive Settings', 'toolbar-extras' )
+				)
 			)
-		)
-	);
+		);
+
+	}  // end if
 
 }  // end function

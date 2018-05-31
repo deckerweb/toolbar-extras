@@ -24,11 +24,11 @@ add_action( 'tbex_after_site_group_update_check', 'ddw_tbex_site_items_health_ch
  */
 function ddw_tbex_site_items_health_check() {
 
-	/** For: "More Stuff" */
+	/** For: "Tools" */
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(
 		array(
 			'id'     => 'health-check',
-			'parent' => 'tbex-sitegroup-stuff',
+			'parent' => 'tbex-sitegroup-tools',
 			'title'  => esc_attr__( 'Health Check', 'toolbar-extras' ),
 			'href'   => esc_url( admin_url( 'index.php?page=health-check' ) ),
 			'meta'   => array(

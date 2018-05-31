@@ -178,6 +178,13 @@ function ddw_tbex_themeitems_pbf_resources() {
 	);
 
 	ddw_tbex_resource_item(
+		'facebook-group',
+		'theme-facebook',
+		'group-theme-resources',
+		'https://www.facebook.com/groups/wpagebuilderframework/'
+	);
+
+	ddw_tbex_resource_item(
 		'documentation',
 		'theme-docs',
 		'group-theme-resources',
@@ -187,13 +194,6 @@ function ddw_tbex_themeitems_pbf_resources() {
 
 	/** Required hook for WPBF Premium resources */
 	do_action( 'tbex_after_theme_free_docs' );
-
-	ddw_tbex_resource_item(
-		'facebook-group',
-		'theme-facebook',
-		'group-theme-resources',
-		'https://www.facebook.com/groups/wpagebuilderframework/'
-	);
 
 	ddw_tbex_resource_item(
 		'translations-community',
@@ -282,6 +282,39 @@ function ddw_tbex_themeitems_wpbf_premium() {
 				'title'  => ddw_tbex_string_customize_attr( __( 'Scripts &amp; Styles', 'toolbar-extras' ) )
 			)
 		)
+	);
+
+}  // end function
+
+
+add_action( 'tbex_after_theme_free_docs', 'ddw_tbex_themeitems_wpbf_premium_resources' );
+/**
+ * Additional Resource Items for Page Builder Framework Premium
+ *
+ * @since 1.2.0
+ *
+ * @uses  ddw_tbex_is_wpbf_premium_active()
+ * @uses  ddw_tbex_resource_item()
+ */
+function ddw_tbex_themeitems_wpbf_premium_resources() {
+
+	/** Bail early if Premium version is not active */
+	if ( ! ddw_tbex_is_wpbf_premium_active() ) {
+		return;
+	}
+
+	ddw_tbex_resource_item(
+		'pro-documentation',
+		'theme-docs-pro',
+		'group-theme-resources',
+		'https://wp-pagebuilderframework.com/docs_cats/premium/'
+	);
+
+	ddw_tbex_resource_item(
+		'translations-pro',
+		'theme-translations-pro',
+		'group-theme-resources',
+		'http://translate.wp-pagebuilderframework.com/sign-up/'
 	);
 
 }  // end function

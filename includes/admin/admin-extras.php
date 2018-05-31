@@ -242,8 +242,6 @@ function ddw_tbex_add_plugins_api_results( $result, $action, $args ) {
 		return $result;
 	}
 
-//
-
 	$query_fields = array(
 		'icons'             => TRUE,
 		'active_installs'   => TRUE,
@@ -260,6 +258,7 @@ function ddw_tbex_add_plugins_api_results( $result, $action, $args ) {
 	$czei_query_args      = array( 'slug' => 'customizer-export-import', 'fields' => $query_fields, );
 	$cpi_query_args       = array( 'slug' => 'cleaner-plugin-installer', 'fields' => $query_fields, );
 	$llar_query_args      = array( 'slug' => 'limit-login-attempts-reloaded', 'fields' => $query_fields, );
+	$aopz_query_args      = array( 'slug' => 'autoptimize', 'fields' => $query_fields, );
 	$spl_query_args       = array( 'slug' => 'swift-performance-lite', 'fields' => $query_fields, );
 	$de_query_args        = array( 'slug' => 'debug-elementor', 'fields' => $query_fields, );
 
@@ -272,6 +271,7 @@ function ddw_tbex_add_plugins_api_results( $result, $action, $args ) {
 	$czei_data      = plugins_api( 'plugin_information', $czei_query_args );
 	$cpi_data       = plugins_api( 'plugin_information', $cpi_query_args );
 	$llar_data      = plugins_api( 'plugin_information', $llar_query_args );
+	$aopz_data      = plugins_api( 'plugin_information', $aopz_query_args );
 	$spl_data       = plugins_api( 'plugin_information', $spl_query_args );
 	$de_data        = plugins_api( 'plugin_information', $de_query_args );
 
@@ -282,11 +282,11 @@ function ddw_tbex_add_plugins_api_results( $result, $action, $args ) {
 		$result->plugins = array();
 
 		/** Hook in our results */
-		array_push( $result->plugins, $elementor_data, $ccp_data, $simplecss_data, $gcfe_data, $cs_data, $czs_data, $czei_data, $cpi_data, $llar_data, $spl_data, $de_data );
+		array_push( $result->plugins, $elementor_data, $ccp_data, $simplecss_data, $gcfe_data, $cs_data, $czs_data, $czei_data, $cpi_data, $llar_data, $aopz_data, $spl_data, $de_data );
 
 	} elseif ( 'recommended' === $args->browse ) {
 
-		array_unshift( $result->plugins, $cpi_data, $spl_data, $elementor_data );
+		array_unshift( $result->plugins, $cpi_data, $aopz_data, $spl_data, $elementor_data );
 
 	} elseif ( 'popular' === $args->browse ) {
 

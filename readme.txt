@@ -3,9 +3,9 @@ Contributors: daveshine, deckerweb, wpautobahn
 Donate link: https://www.paypal.me/deckerweb
 Tags: toolbar, adminbar, admin bar, elementor, page builder, themes, menu, links, settings, usability, deckerweb, ddwtoolbar
 Requires at least: 4.7
-Tested up to: 4.9.5
-Requires PHP: 5.4
-Stable tag: 1.1.3
+Tested up to: 4.9.6
+Requires PHP: 5.6
+Stable tag: 1.2.0
 License: GPL-2.0+
 License URI: https://opensource.org/licenses/GPL-2.0
 
@@ -61,6 +61,8 @@ Out of the box the plugin includes support for dozens of awesome Plugins and The
 - [**Dynamik Website Builder (Child Theme for Genesis)** (Premium, by Cobalt Apps)]
 - [**Beaver Builder Theme** (Premium, by FastLine Media LLC)]
 - [**Hestia**](https://wordpress.org/themes/hestia/), including its Child Themes "Orfeo", "Tiny Hestia", "Christmas Hestia" (all by Themeisle)
+- [**Customify** (free, by WPCustomify/ PressMaximum)](https://wordpress.org/themes/customify/)
+- [**Flexia** (free)](https://wordpress.org/themes/flexia/) - including Flexia Core (free) and Flexia Pro (Premium) plugins (all three by Codetic)
 - *(Support for a few more great Themes is coming very soon...!)*
 
 [See full Theme support listing on plugin's website](https://toolbarextras.com/theme-support/)
@@ -85,9 +87,13 @@ Out of the box the plugin includes support for dozens of awesome Plugins and The
 - [**Debug Elementor** (free, by Rami Yushuvaev)](https://wordpress.org/plugins/debug-elementor/)
 - [**Elementor Contact Form DB** (free, by Sean Barton)](https://www.sean-barton.co.uk/2017/04/elementor-contact-form-db-free-plugin/)
 - [**Lenix Elementor Leads addon** (free, by Lenix)](https://wordpress.org/plugins/lenix-elementor-leads-addon/)
-- [**Suite of "Jet Plugins"** by Zemez (all Premium)]
+- [**Suite of "Jet Plugins"** by Zemez/ CrocoBlock (all Premium)], including *JetElements* and *JetWooBuilder*
 - [**Elementor Custom Skin** (free, by Liviu Duda)](https://wordpress.org/plugins/ele-custom-skin/)
 - [**Extra Privacy for Elementor** (free, by Marian Heddesheimer)](https://wordpress.org/plugins/extra-privacy-for-elementor/)
+- [**White Label Branding for Elementor** (Premium, by IdeaBox Creations)] - including Toolbar Extras support for some of the white label features (where applicable)
+- [**DHWC Elementor** (Product Templates for WooCommerce) (Premium, by Sitesao Team)]
+- [**Revolution for Elementor** (free, by Jan Thielemann)](https://wordpress.org/plugins/revolution-for-elementor/)
+- [**Revolution for Elementor Premium** (Premium, by Jan Thielemann)]
 - [**Portfolio for Elementor** (free, by WpPug)](https://wordpress.org/plugins/portfolio-elementor/)
 - [**PT Elementor Addons Lite** (free, by ParamThemes)](https://wordpress.org/plugins/pt-elementor-addons-lite/)
 - [**Elementor Addon Elements** (free, by WebTechStreet)](https://wordpress.org/plugins/addon-elements-for-elementor-page-builder/)
@@ -134,10 +140,14 @@ For full list of [supported plugins](https://toolbarextras.com/plugin-support/) 
 - Recommended: Elementor Page Builder is installed & activated - Toolbar Extras plugin integrates fully with Elementor (Pro included) and is optimized for it
 
 = Translations =
-- English (United States) - (en_US) = default, always included
-- [German (informal, default)](https://translate.wordpress.org/locale/de/default/wp-plugins/toolbar-extras) - (de_DE)
-- [German (formal)](https://translate.wordpress.org/locale/de/formal/wp-plugins/toolbar-extras) - (de_DE_formal)
-- .pot file (`toolbar-extras.pot`) for translators is always included :)
+- English (United States) - `en_US` = default, always included
+- [German (informal, default)](https://translate.wordpress.org/locale/de/default/wp-plugins/toolbar-extras) - `de_DE`
+- [German (formal)](https://translate.wordpress.org/locale/de/formal/wp-plugins/toolbar-extras) - `de_DE_formal`
+- [English (Canada)](https://translate.wordpress.org/locale/en-ca/default/wp-plugins/toolbar-extras) - `en_CA`
+- [English (UK - United Kingdom)](https://translate.wordpress.org/locale/en-gb/default/wp-plugins/toolbar-extras) - `en_GB`
+- [English (New Zealand)](https://translate.wordpress.org/locale/en-nz/default/wp-plugins/toolbar-extras) - `en_NZ`
+- [English (Australia)](https://translate.wordpress.org/locale/en-au/default/wp-plugins/toolbar-extras) - `en_AU`
+- `.pot` file (`toolbar-extras.pot`) for translators is always included in the plugin's 'languages' folder :)
 
 = Be a Contributor =
 If you want to translate, [go to the Translation Portal at translate.wordpress.org](https://translate.wordpress.org/projects/wp-plugins/toolbar-extras).
@@ -219,7 +229,9 @@ You can find full listings on the plugin's website:
 * [All supported general Plugins](https://toolbarextras.com/plugin-support/)
 
 **Will other Themes be supported?**
-Yes, absolutely. - In general the Theme support here is considered as "a nice bonus". And, I will only ever add Themes that work well with Page Builders (mostly Elementor) and are well established. If you have recommendations you can contact me.
+Yes, absolutely. – In general the Theme support in Toolbar Extras is considered as essential. And, I will only ever add Themes that work well with Page Builders (mostly Elementor) and are well established. If you have recommendations you can contact me.
+
+For reference, you can find the complete list of supported themes here: [Currently supported Themes/ Child Themes and Theme Frameworks](https://toolbarextras.com/theme-support/)
 
 **Will other third-party Plugins be supported?**
 Yes, absolutely. - Though, we won't support every plugin under the sun, of course. For support to be included, the plugin has to meet at least one - better all - of the following conditions:
@@ -308,6 +320,69 @@ A special Multiste Add-On for Toolbar Extras is planned but no features or date 
 == Changelog ==
 
 ([For the full changelog of this plugin visit its website at ToolbarExtras.com](https://toolbarextras.com/changelog/))
+
+= 1.2.0 - 2018-05-31 =
+* New: General setting to remove all title attributes (Tooltips) from links in the Toolbar, including from all items added by Toolbar Extras (Toolbar Extras Settings > General)
+* New: Smart Tweak setting to re-hook "WP Rocket" items from the top-level to the Site Group > More Stuff (off by default) (Plugin: WP Rocket - Premium, by WP Rocket)
+* New: Smart Tweak setting to re-hook "Autoptimize" items from the top-level to the Site Group > More Stuff (off by default) (Plugin: Autoptimize - free, by ?)
+* New: Smart Tweak setting to re-hook "Swift Performance" (Premium) or "Swift Performance Lite" (free) items from the top-level to the Site Group > More Stuff (off by default) (Plugin: Swift Performance - free/Premium, by ?)
+* New: Smart Tweak setting to remove new "User" from New Content group (to gain more space there) (off by default)
+* New: Smart Tweak setting specifically for WooCommerce plugin to remove new "Order" and new "Coupon" from New Content Group (to gain more space there) (off by default)
+* New: Smart Tweak setting to optionally unload translations for Elementor and Elementor Pro (so it falls back to English default strings) (off by default)
+* New: Smart Tweak setting to optionally unload translations for this plugin, Toolbar Extras (so it falls back to English default strings) (off by default)
+* New: Smart Tweak setting to optionally remove all WordPress Widgets from the Elementor Live Editor (left-hand Elementor Panel) (off by default)
+* New: Thanks to the amazing user community, this plugin is now available in 3 different English language variants: `en_GB` (for the UK), `en_CA` (for Canada) and `en_AU` (for Australia)
+* Tweak: Made support for "Dynamik Website Builder" Child Theme compatible with their newest version 2.4.0/2.4.1 or higher (versions 2.3.4 or lower are still supported, though)
+* Tweak: Added preview links for "Dynamik Website Builder" theme support
+* Tweak: Improved full view (preview) links for "Genesis DevKit" plugin support, and same for "Freelancer DevKit" plugin support
+* Tweak: Updated Smart Tweak for "All In One SEO Pack" plugin to also support their Pro version
+* Tweak: Updated the plugin's few CSS styles for the Toolbar so that they work better on tablets and smartphones
+* Tweak: Improved the Customizer support for "OceanWP" Theme, including full support activating/ deactivating Customizer panels via "Ocean Extra" plugin
+* Tweak: Added more Pro resources for "Page Builder Framework" Premium Add-On
+* Tweak: Added Developer resources for the "Astra" Theme
+* Tweak: Added more resources for "PowerPack Elements" plugin support
+* Tweak: Made the "Use Admin Color Scheme also for Frontend" Smart Tweak turned off by default. Makes more sense. (*Note:* [Also be aware of this Knowledge Base article on the topic](https://toolbarextras.com/docs/conflicts-with-body-background-color/))
+* Tweak: Updated `.pot` file plus all German translations (formal, informal)
+* Tweak: Changed plugin author avatar image to local file instead of external hashed Gravatar image
+* Tweak: Enhanced, improved and corrected Readme.txt file here :)
+* **New:** *Extended the Theme support for:*
+ * Customify (free, by WPCustomify/ PressMaximum)
+ * Flexia (free) - including Flexia Core (free) and Flexia Pro (Premium) plugins (all three by Codedic)
+ * Eletheme (free, by Liviu Duda)
+ * Essence Pro (Child Theme for Genesis) (Premium, by StudioPress)
+ * Corporate Pro (Child Theme for Genesis) (Premium, by SEO Themes)
+ * Business Pro (Child Theme for Genesis) (Premium, by SEO Themes)
+ * Studio Pro (Child Theme for Genesis) (Premium, by SEO Themes)
+ * Academy Pro (Child Theme for Genesis) (Premium, by StudioPress)
+ * Authority Pro (Child Theme for Genesis) (Premium, by StudioPress)
+ * Outfitter Pro (Child Theme for Genesis) (Premium, by StudioPress)
+ * Boss Pro (Child Theme for Genesis) (Premium, by Design by Bloom)
+ * Refined Pro (Child Theme for Genesis) (Premium, by Restored 316 Designs // Lauren Gaige)
+ * Monochrome Pro (Child Theme for Genesis) (Premium, by StudioPress)
+ * Slush Pro (Child Theme for Genesis) (Premium, by zigzagpress)
+ * Foodie Pro (Child Theme for Genesis) (Premium, by Feast Design Co.)
+ * Cook'd Pro (Child Theme for Genesis) (Premium, by Feast Design Co.)
+ * Brunch Pro (Child Theme for Genesis) (Premium, by Feast Design Co.)
+ * Genesis Sample (the default Child Theme for Genesis) (Premium, by StudioPress) - only for version 2.6.0 or higher
+* **New:** *Extended the Plugin support for Elementor Add-Ons:*
+ * White Label Branding for Elementor (Premium, by IdeaBox Creations) - including Toolbar Extras support for some of the white label features (where applicable)
+ * JetWooBuilder (Product Templates for WooCommerce) (Premium, by Zemez/ CrocoBlock)
+ * JetBlocks (Premium, by Zemez/ CrocoBlock)
+ * DHWC Elementor (Product Templates for WooCommerce) (Premium, by Sitesao Team)
+ * Revolution for Elementor (free/Premium, by Jan Thielemann)
+ * Archivescode Addons for Elementor (free, by Archivescode)
+ * Contact Form DB (free, by Michael Simpson)
+ * Eleslider (free, by wpmasters)
+ * SJ Elementor Addon (free, by sandesh055)
+* **New:** *Extended the general Plugin support for:*
+ * Lightweight Sidebar Manager (free, by Brainstorm Force)
+ * TM Timeline (free, by Jetimpex/ Zemez)
+ * Convert Pro (Premium, by Brainstorm Force)
+ * Convert Pro Addon (Premium, by Brainstorm Force)
+ * Convert Plus (Premium, by Brainstorm Force)
+ * OptinMonster API (free/Premium, by OptinMonster Team/ Retyp, LLC)
+ * Testimonial Rotator (free, by Hal Gatewood)
+ * Widget Options (free/Premium, by Phpbits Creative Studio)
 
 = 1.1.3 - 2018-04-30 =
 * New: [Launched plugin's own website at toolbarextras.com](https://toolbarextras.com/) with full listing of theme and plugin support, features, blog as well as documentation, knowledge base and changelogs
@@ -422,8 +497,11 @@ A special Multiste Add-On for Toolbar Extras is planned but no features or date 
 
 == Upgrade Notice =
 
+= 1.2.0 =
+Feature release: New General settings & Smart Tweaks; greatly extended third-party Theme & Plugin/Add-On support; plus more improvements & tweaks
+
 = 1.1.3 =
-Maintenance release. Smaller fixes and tweaks.
+Maintenance release. Few additions, plus smaller tweaks and fixes.
 
 = 1.1.2 =
 Update highly recommended. - Maintenance release. Small but important fixes and tweaks.

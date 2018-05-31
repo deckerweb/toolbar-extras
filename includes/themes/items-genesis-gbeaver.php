@@ -70,7 +70,7 @@ function ddw_tbex_themeitems_gbeaver_resources() {
 		return;
 	}
 
-	/** Group: Resources for Freelancer Theme */
+	/** Group: Resources for GBeaver Child Theme */
 	$GLOBALS[ 'wp_admin_bar' ]->add_group(
 		array(
 			'id'     => 'group-gbeaver-resources',

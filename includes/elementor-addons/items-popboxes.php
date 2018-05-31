@@ -1,6 +1,6 @@
 <?php
 
-//items-popboxes
+// includes/elementor-addons/items-popboxes
 
 /**
  * Prevent direct access to this file.
@@ -136,7 +136,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_new_content_popbox' );
 function ddw_tbex_new_content_popbox() {
 
 	/** Bail early if items display is not wanted */
-	if ( ! ddw_tbex_display_items_new_content() && ! \Elementor\User::is_current_user_can_edit_post_type( 'elementor-popup' ) ) {
+	if ( ! ddw_tbex_display_items_new_content() || ! \Elementor\User::is_current_user_can_edit_post_type( 'elementor-popup' ) ) {
 		return;
 	}
 

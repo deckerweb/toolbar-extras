@@ -81,6 +81,40 @@ if ( ddw_tbex_is_elementor_active()
 
 
 /**
+ * Add-On: Eleslider (free, by wpmasters)
+ * @since 1.2.0
+ */
+if ( ddw_tbex_is_elementor_active() && class_exists( 'Eleslider' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-eleslider.php' );
+}
+
+
+/**
+ * Add-On: JetWooBuilder (Premium, by Zemez/ CrocoBlock)
+ * @since 1.2.0
+ */
+if ( ddw_tbex_is_elementor_active()
+	&& class_exists( 'WooCommerce' )	// as it extends WooCommerce!
+	&& class_exists( 'Jet_Woo_Builder' )
+) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-jetwoobuilder.php' );
+}
+
+
+/**
+ * Add-On: DHWC Elementor (Premium, by Sitesao Team)
+ * @since 1.2.0
+ */
+if ( ddw_tbex_is_elementor_active()
+	&& class_exists( 'WooCommerce' )	// as it extends WooCommerce!
+	&& defined( 'DHWC_ELEMENTOR_VERSION' )
+) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-dhwc-elementor.php' );
+}
+
+
+
+/**
  * 2nd GROUP: Settings, Extras, Elements etc.
  * @since 1.0.0
  * -----------------------------------------------------------------------------
@@ -161,6 +195,15 @@ if ( ddw_tbex_is_elementor_active() && function_exists( 'premium_addons_elemento
 
 
 /**
+ * Add-On: Revolution for Elementor (free/Premium, by Jan Thielemann)
+ * @since 1.2.0
+ */
+if ( ddw_tbex_is_elementor_active() && defined( 'REVOLUTION_FOR_ELEMENTOR_VERSION' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-revolution-for-elementor.php' );
+}
+
+
+/**
  * Add-On: Extra Privacy for Elementor (free, by Marian Heddesheimer)
  * @since 1.0.0
  */
@@ -211,6 +254,15 @@ if ( ddw_tbex_is_elementor_active() && class_exists( 'Jet_Menu' ) ) {
  */
 if ( ddw_tbex_is_elementor_active() && class_exists( 'Jet_Blog' ) ) {
 	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-jetblog.php' );
+}
+
+
+/**
+ * Add-On: JetBlocks (Premium, by Zemez/ CrocoBlock)
+ * @since 1.2.0
+ */
+if ( ddw_tbex_is_elementor_active() && class_exists( 'Jet_Blocks' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-jetblocks.php' );
 }
 
 
@@ -287,6 +339,24 @@ if ( ddw_tbex_is_elementor_active() && function_exists( 'run_orbit_fox' ) ) {
 
 
 /**
+ * Add-On: Archivescode Addons for Elementor (free, by Archivescode)
+ * @since 1.2.0
+ */
+if ( ddw_tbex_is_elementor_active() && class_exists( 'Archivescode_for_Elementor' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-archivescode-addons.php' );
+}
+
+
+/**
+ * Add-On: SJ Elementor Addon (free, by sandesh055)
+ * @since 1.2.0
+ */
+if ( ddw_tbex_is_elementor_active() && class_exists( 'SJEaLoader' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-sj-elementor-addon.php' );
+}
+
+
+/**
  * Add-On: Elementor Google Map Extended (free, by InternetCSS)
  * @since 1.1.0
  */
@@ -318,6 +388,28 @@ if ( ddw_tbex_is_elementor_active()
 	&& defined( 'ELEMENTOR_LEADS_VERSION' )
 ) {
 	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-lenix-elementor-leads-addon.php' );
+}
+
+
+/**
+ * Add-On: Contact Form DB (free, by Michael Simpson)
+ *   Note: Needs Elementor Pro to be active!
+ * @since 1.2.0
+ */
+if ( ddw_tbex_is_elementor_active()
+	&& ddw_tbex_is_elementor_pro_active()
+	&& function_exists( 'CF7DBPlugin_i18n_init' )
+) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-cfdb.php' );
+}
+
+
+/**
+ * Add-On: White Label Branding for Elementor (Premium, by IdeaBox Creations)
+ * @since 1.2.0
+ */
+if ( ddw_tbex_is_elementor_active() && class_exists( 'Elementor_Whitelabel_Plugin' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-powerpack-wlbfe.php' );
 }
 
 

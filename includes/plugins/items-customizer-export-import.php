@@ -1,6 +1,6 @@
 <?php
 
-//items-customizer-export-import
+// includes/plugins/items-customizer-export-import
 
 /**
  * Prevent direct access to this file.
@@ -32,7 +32,7 @@ function ddw_tbex_aoitems_customizer_export_import() {
 			'title'  => esc_attr__( 'Export &amp; Import', 'toolbar-extras' ),
 			'href'   => ddw_tbex_customizer_focus( 'section', 'cei-section' ),
 			'meta'   => array(
-				'target' => '',
+				'target' => ddw_tbex_meta_target(),
 				'title'  => esc_attr__( 'Export &amp; Import Customizer Options', 'toolbar-extras' )
 			)
 		)

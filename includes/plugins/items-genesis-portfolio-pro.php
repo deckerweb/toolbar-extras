@@ -1,6 +1,6 @@
 <?php
 
-//items-genesis-portfolio-pro
+// includes/plugins/items-genesis-portfolio-pro
 
 /**
  * Prevent direct access to this file.
@@ -87,17 +87,21 @@ function ddw_tbex_aoitems_genesis_portfolio_pro() {
 
 	}  // end if
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
-		array(
-			'id'     => 'gpfpro-archive',
-			'parent' => 'genesis-portfoliopro',
-			'title'  => esc_attr__( 'Archive Settings', 'toolbar-extras' ),
-			'href'   => esc_url( admin_url( 'edit.php?post_type=portfolio&page=genesis-cpt-archive-portfolio' ) ),
-			'meta'   => array(
-				'target' => '',
-				'title'  => esc_attr__( 'Archive Settings', 'toolbar-extras' )
+	if ( post_type_supports( 'portfolio', 'genesis-cpt-archives-settings' ) ) {
+
+		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			array(
+				'id'     => 'gpfpro-archive',
+				'parent' => 'genesis-portfoliopro',
+				'title'  => esc_attr__( 'Archive Settings', 'toolbar-extras' ),
+				'href'   => esc_url( admin_url( 'edit.php?post_type=portfolio&page=genesis-cpt-archive-portfolio' ) ),
+				'meta'   => array(
+					'target' => '',
+					'title'  => esc_attr__( 'Archive Settings', 'toolbar-extras' )
+				)
 			)
-		)
-	);
+		);
+
+	}  // end if
 
 }  // end function

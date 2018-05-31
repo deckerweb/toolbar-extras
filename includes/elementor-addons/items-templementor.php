@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_templementor', 100 );
 /**
- * Items for Add-On: Templementor – Persistent Elementor Templates
+ * Items for Add-On: Templementor – Persistent Elementor Templates (free, by Lcweb)
  *
  * @since  1.0.0
  *

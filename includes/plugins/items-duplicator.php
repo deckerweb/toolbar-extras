@@ -27,7 +27,7 @@ function ddw_tbex_site_items_duplicator() {
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(
 		array(
 			'id'     => 'duplicator',
-			'parent' => 'tbex-sitegroup-stuff',
+			'parent' => 'tbex-sitegroup-tools',
 			'title'  => esc_attr__( 'Duplicator', 'toolbar-extras' ),
 			'href'   => esc_url( admin_url( 'admin.php?page=duplicator' ) ),
 			'meta'   => array(

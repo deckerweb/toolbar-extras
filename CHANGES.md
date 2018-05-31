@@ -2,6 +2,71 @@
 
 ## Changelog
 
+### 1.2.0 - 2018-05-31
+
+* New: General setting to remove all title attributes (Tooltips) from links in the Toolbar, including from all items added by Toolbar Extras (Toolbar Extras Settings > General)
+* New: Smart Tweak setting to re-hook "WP Rocket" items from the top-level to the Site Group > More Stuff (off by default) (Plugin: WP Rocket - Premium, by WP Rocket)
+* New: Smart Tweak setting to re-hook "Autoptimize" items from the top-level to the Site Group > More Stuff (off by default) (Plugin: Autoptimize - free, by ?)
+* New: Smart Tweak setting to re-hook "Swift Performance" (Premium) or "Swift Performance Lite" (free) items from the top-level to the Site Group > More Stuff (off by default) (Plugin: Swift Performance - free/Premium, by ?)
+* New: Smart Tweak setting to remove new "User" from New Content group (to gain more space there) (off by default)
+* New: Smart Tweak setting specifically for WooCommerce plugin to remove new "Order" and new "Coupon" from New Content Group (to gain more space there) (off by default)
+* New: Smart Tweak setting to optionally unload translations for Elementor and Elementor Pro (so it falls back to English default strings) (off by default)
+* New: Smart Tweak setting to optionally unload translations for this plugin, Toolbar Extras (so it falls back to English default strings) (off by default)
+* New: Smart Tweak setting to optionally remove all WordPress Widgets from the Elementor Live Editor (left-hand Elementor Panel) (off by default)
+* New: Thanks to the amazing user community, this plugin is now available in 3 different English language variants: `en_GB` (for the UK), `en_CA` (for Canada) and `en_AU` (for Australia)
+* Tweak: Made support for "Dynamik Website Builder" Child Theme compatible with their newest version 2.4.0/2.4.1 or higher (versions 2.3.4 or lower are still supported, though)
+* Tweak: Added preview links for "Dynamik Website Builder" theme support
+* Tweak: Improved full view (preview) links for "Genesis DevKit" plugin support, and same for "Freelancer DevKit" plugin support
+* Tweak: Updated Smart Tweak for "All In One SEO Pack" plugin to also support their Pro version
+* Tweak: Updated the plugin's few CSS styles for the Toolbar so that they work better on tablets and smartphones
+* Tweak: Improved the Customizer support for "OceanWP" Theme, including full support activating/ deactivating Customizer panels via "Ocean Extra" plugin
+* Tweak: Added more Pro resources for "Page Builder Framework" Premium Add-On
+* Tweak: Added Developer resources for the "Astra" Theme
+* Tweak: Added more resources for "PowerPack Elements" plugin support
+* Tweak: Made the "Use Admin Color Scheme also for Frontend" Smart Tweak turned off by default. Makes more sense. (*Note:* [Also be aware of this Knowledge Base article on the topic](https://toolbarextras.com/docs/conflicts-with-body-background-color/))
+* Tweak: Updated `.pot` file plus all German translations (formal, informal)
+* Tweak: Changed plugin author avatar image to local file instead of external hashed Gravatar image
+* Tweak: Enhanced, improved and corrected Readme.txt file here :)
+* **New:** *Extended the Theme support for:*
+  * Customify (free, by WPCustomify/ PressMaximum)
+  * Flexia (free) - including Flexia Core (free) and Flexia Pro (Premium) plugins (all three by Codedic)
+  * Eletheme (free, by Liviu Duda)
+  * Essence Pro (Child Theme for Genesis) (Premium, by StudioPress)
+  * Corporate Pro (Child Theme for Genesis) (Premium, by SEO Themes)
+  * Business Pro (Child Theme for Genesis) (Premium, by SEO Themes)
+  * Studio Pro (Child Theme for Genesis) (Premium, by SEO Themes)
+  * Academy Pro (Child Theme for Genesis) (Premium, by StudioPress)
+  * Authority Pro (Child Theme for Genesis) (Premium, by StudioPress)
+  * Outfitter Pro (Child Theme for Genesis) (Premium, by StudioPress)
+  * Boss Pro (Child Theme for Genesis) (Premium, by Design by Bloom)
+  * Refined Pro (Child Theme for Genesis) (Premium, by Restored 316 Designs // Lauren Gaige)
+  * Monochrome Pro (Child Theme for Genesis) (Premium, by StudioPress)
+  * Slush Pro (Child Theme for Genesis) (Premium, by zigzagpress)
+  * Foodie Pro (Child Theme for Genesis) (Premium, by Feast Design Co.)
+  * Cook'd Pro (Child Theme for Genesis) (Premium, by Feast Design Co.)
+  * Brunch Pro (Child Theme for Genesis) (Premium, by Feast Design Co.)
+  * Genesis Sample (the default Child Theme for Genesis) (Premium, by StudioPress) - only for version 2.6.0 or higher
+* **New:** *Extended the Plugin support for Elementor Add-Ons:*
+  * White Label Branding for Elementor (Premium, by IdeaBox Creations) - including Toolbar Extras support for some of the white label features (where applicable)
+  * JetWooBuilder (Product Templates for WooCommerce) (Premium, by Zemez/ CrocoBlock)
+  * JetBlocks (Premium, by Zemez/ CrocoBlock)
+  * DHWC Elementor (Product Templates for WooCommerce) (Premium, by Sitesao Team)
+  * Revolution for Elementor (free/Premium, by Jan Thielemann)
+  * Archivescode Addons for Elementor (free, by Archivescode)
+  * Contact Form DB (free, by Michael Simpson)
+  * Eleslider (free, by wpmasters)
+  * SJ Elementor Addon (free, by sandesh055)
+* **New:** *Extended the general Plugin support for:*
+  * Lightweight Sidebar Manager (free, by Brainstorm Force)
+  * TM Timeline (free, by Jetimpex/ Zemez)
+  * Convert Pro (Premium, by Brainstorm Force)
+  * Convert Pro Addon (Premium, by Brainstorm Force)
+  * Convert Plus (Premium, by Brainstorm Force)
+  * OptinMonster API (free/Premium, by OptinMonster Team/ Retyp, LLC)
+  * Testimonial Rotator (free, by Hal Gatewood)
+  * Widget Options (free/Premium, by Phpbits Creative Studio)
+
+
 ### 1.1.3 - 2018-04-30
 
 * New: [Launched plugin's own website at toolbarextras.com](https://toolbarextras.com/) with full listing of theme and plugin support, features, blog as well as documentation, knowledge base and changelogs

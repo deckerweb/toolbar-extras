@@ -15,7 +15,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 add_filter( 'admin_bar_menu', 'ddw_tbex_site_items_smartslider' );
 /**
  * Items for Plugin: Smart Slider 3 (free/Premium, by Nextend)
- *   If tweak setting is active then re-hook from the top to the conditional hook place for galleries & sliders
+ *   If tweak setting is active then re-hook from the top to the conditional
+ *   hook place for galleries & sliders.
  *
  * @since  1.0.0
  *

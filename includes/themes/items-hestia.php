@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_hestia', 100 );
 /**
- * Items for Theme: Hestia & Tiny Hestia (Child Theme) (both free, by Themeisle)
+ * Items for Theme: Hestia & Hestia Child Themes (all free, by Themeisle)
  *
  * @since  1.1.0
  *

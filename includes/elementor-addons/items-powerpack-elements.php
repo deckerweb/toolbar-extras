@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_powerpack_elements', 100 );
 /**
- * Items for Add-On: PowerPack Elements
+ * Items for Add-On: PowerPack Elements (Premium, by IdeaBox Creations)
  *
  * @since  1.0.0
  *
@@ -108,6 +108,20 @@ function ddw_tbex_aoitems_powerpack_elements() {
 				'powerpack-support',
 				'group-powerpack-resources',
 				'https://powerpackelements.com/contact/'
+			);
+
+			ddw_tbex_resource_item(
+				'documentation',
+				'powerpack-docs',
+				'group-powerpack-resources',
+				'https://powerpackelements.com/docs/'
+			);
+
+			ddw_tbex_resource_item(
+				'translations-pro',
+				'powerpack-translations',
+				'group-powerpack-resources',
+				'https://powerpackelements.com/translate/projects/powerpack/'
 			);
 
 			ddw_tbex_resource_item(

@@ -27,7 +27,7 @@ function ddw_tbex_site_items_aiowpm() {
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(
 		array(
 			'id'     => 'aiowpm',
-			'parent' => 'tbex-sitegroup-stuff',
+			'parent' => 'tbex-sitegroup-tools',
 			'title'  => esc_attr__( 'AIO WP Migration', 'toolbar-extras' ),
 			'href'   => esc_url( admin_url( 'admin.php?page=site-migration-export' ) ),
 			'meta'   => array(

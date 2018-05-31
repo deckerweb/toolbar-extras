@@ -44,8 +44,8 @@ $tbex_info = (array) ddw_tbex_info_values();
 				); ?>
 				<div class="tbex-author">
 					<div class="tbex-author-image"><a href="<?php echo ddw_tbex_get_info_url( 'url_donate' ); ?>" target="_blank" rel="nofollow noopener noreferrer"><?php echo sprintf(
-						'<img src="%1$s%2$s" width="%2$s" height="%2$s" alt="Profile picture" title="%3$s" />',
-						ddw_tbex_get_info_url( 'author_gravatar' ),
+						'<img src="%1$s" width="%2$s" height="%2$s" alt="Profile picture" title="%3$s" />',
+						ddw_tbex_get_info_url( 'author_avatar' ),
 						80,
 						esc_attr__( 'David Decker, Plugin author', 'toolbar-extras' )
 					); ?></a></div>

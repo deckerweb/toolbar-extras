@@ -189,7 +189,7 @@ function ddw_tbex_themeitems_genesis_customize() {
 
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(
 		array(
-			'id'     => 'gcmz-theme',
+			'id'     => 'gencmz-theme',
 			'parent' => 'theme-creative-customize',
 			/* translators: Autofocus panel in the Customizer */
 			'title'  => esc_attr__( 'Theme Settings', 'toolbar-extras' ),
@@ -203,7 +203,7 @@ function ddw_tbex_themeitems_genesis_customize() {
 
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(
 		array(
-			'id'     => 'gcmz-seo',
+			'id'     => 'gencmz-seo',
 			'parent' => 'theme-creative-customize',
 			/* translators: Autofocus panel in the Customizer */
 			'title'  => esc_attr__( 'SEO Settings', 'toolbar-extras' ),

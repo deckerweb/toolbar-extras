@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: Toolbar Extras\n"
-"POT-Creation-Date: 2018-04-30 14:55+0200\n"
+"POT-Creation-Date: 2018-06-01 00:03+0200\n"
 "PO-Revision-Date: 2018-04-04 01:47+0200\n"
 "Last-Translator: David Decker DECKERWEB.de -- https://deckerweb.de/\n"
 "Language-Team: David Decker DECKERWEB.de -- https://deckerweb.de/\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.6\n"
+"X-Generator: Poedit 2.0.7\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
 "X-Poedit-WPHeader: toolbar-extras.php\n"
@@ -24,7 +24,7 @@ msgstr ""
 #. translators: Title attribute for Toolbar Extras "Plugin settings" link
 #. translators: Settings page title in browser
 #. translators: Title attribute for Toolbar Extras "Plugin settings" link
-#: includes/admin/admin-extras.php:47 includes/admin/tbex-settings.php:913
+#: includes/admin/admin-extras.php:47 includes/admin/tbex-settings.php:1046
 #: includes/items-tbex-plugin.php:42
 msgid "Toolbar Extras Settings"
 msgstr ""
@@ -71,11 +71,12 @@ msgstr ""
 #. translators: Plugin title
 #. Plugin Name of the plugin/theme
 #: includes/admin/admin-extras.php:152 includes/admin/admin-extras.php:192
-#: includes/admin/tbex-settings.php:915
+#: includes/admin/tbex-settings.php:1048
 #: includes/admin/views/help-content-menus.php:35
 #: includes/admin/views/notice-plugins-welcome.php:40
 #: includes/admin/views/settings-tab-about-support.php:43
-#: includes/functions-global.php:924 includes/string-switcher.php:466
+#: includes/admin/views/settings-tab-general.php:538
+#: includes/functions-global.php:926 includes/string-switcher.php:484
 #: uninstall.php:42 uninstall.php:52
 msgid "Toolbar Extras"
 msgstr ""
@@ -112,255 +113,299 @@ msgid "Elementor"
 msgstr ""
 
 #. translators: Toolbar notice text for local dev environmet
-#: includes/admin/tbex-settings.php:136
+#: includes/admin/tbex-settings.php:148
 #: includes/admin/views/settings-tab-development.php:154
 msgid "Local Development Website"
 msgstr ""
 
 #. translators: Toolbar item label
-#: includes/admin/tbex-settings.php:140
+#: includes/admin/tbex-settings.php:152
 #: includes/admin/views/settings-tab-development.php:255
 msgid "Rapid Dev"
 msgstr ""
 
-#: includes/admin/tbex-settings.php:187
+#: includes/admin/tbex-settings.php:199
 msgid "The Main Item"
 msgstr ""
 
-#: includes/admin/tbex-settings.php:200
+#: includes/admin/tbex-settings.php:212
 msgid "Icon of Main Item"
 msgstr ""
 
-#: includes/admin/tbex-settings.php:208
+#: includes/admin/tbex-settings.php:220
 msgid "Name of Main Item"
 msgstr ""
 
-#: includes/admin/tbex-settings.php:216
+#: includes/admin/tbex-settings.php:228
 msgid "Priority of Main Item"
 msgstr ""
 
-#: includes/admin/tbex-settings.php:225
+#: includes/admin/tbex-settings.php:237
 msgid "Page Builder Name"
 msgstr ""
 
-#: includes/admin/tbex-settings.php:232
+#: includes/admin/tbex-settings.php:244
 msgid "Name of Elementor"
 msgstr ""
 
-#: includes/admin/tbex-settings.php:241
+#: includes/admin/tbex-settings.php:253
 msgid "Which Items to Display?"
 msgstr ""
 
-#: includes/admin/tbex-settings.php:248
+#: includes/admin/tbex-settings.php:260
 msgid "Resource Items"
 msgstr ""
 
-#: includes/admin/tbex-settings.php:256
+#: includes/admin/tbex-settings.php:268
 msgid "Theme Items"
 msgstr ""
 
-#: includes/admin/tbex-settings.php:264
+#: includes/admin/tbex-settings.php:276
 msgid "Plugins Items"
 msgstr ""
 
-#: includes/admin/tbex-settings.php:272
+#: includes/admin/tbex-settings.php:284
 msgid "Add-Ons Items"
 msgstr ""
 
-#: includes/admin/tbex-settings.php:280
+#: includes/admin/tbex-settings.php:292
 msgid "New Content Items"
 msgstr ""
 
-#: includes/admin/tbex-settings.php:288
+#: includes/admin/tbex-settings.php:300
 msgid "Site Group Items"
 msgstr ""
 
-#: includes/admin/tbex-settings.php:296
+#: includes/admin/tbex-settings.php:308
 msgid "List Edit Menu Items"
 msgstr ""
 
-#: includes/admin/tbex-settings.php:304
+#: includes/admin/tbex-settings.php:316
 msgid "User Group Items"
 msgstr ""
 
-#: includes/admin/tbex-settings.php:312
+#: includes/admin/tbex-settings.php:324
 msgid "Toolbar Extras Settings Items"
 msgstr ""
 
-#: includes/admin/tbex-settings.php:321
+#: includes/admin/tbex-settings.php:333
 msgid "Demo Import/ Sites Browser"
 msgstr ""
 
-#: includes/admin/tbex-settings.php:328
+#: includes/admin/tbex-settings.php:340
 msgid "Display Demo Import Items"
 msgstr ""
 
-#: includes/admin/tbex-settings.php:337 includes/admin/tbex-settings.php:649
-#: includes/admin/tbex-settings.php:693
+#: includes/admin/tbex-settings.php:349 includes/admin/tbex-settings.php:773
+#: includes/admin/tbex-settings.php:817
 msgid "Icon Before the Text"
 msgstr ""
 
-#: includes/admin/tbex-settings.php:347
+#: includes/admin/tbex-settings.php:359
 msgid "Links Behavior"
 msgstr ""
 
-#: includes/admin/tbex-settings.php:354
+#: includes/admin/tbex-settings.php:366
+msgid "Show Link Title Attributes (Tooltips) In the Toolbar"
+msgstr ""
+
+#: includes/admin/tbex-settings.php:374
 msgid "Open External Links in New Tab/ Window?"
 msgstr ""
 
-#: includes/admin/tbex-settings.php:363
+#: includes/admin/tbex-settings.php:383
 msgid "Admin Toolbar Menu"
 msgstr ""
 
-#: includes/admin/tbex-settings.php:370
+#: includes/admin/tbex-settings.php:390
 msgid "Priority of this Toolbar Menu"
 msgstr ""
 
-#: includes/admin/tbex-settings.php:378
+#: includes/admin/tbex-settings.php:398
 msgid "Icon Before the Menu"
 msgstr ""
 
-#: includes/admin/tbex-settings.php:416
+#: includes/admin/tbex-settings.php:436
 msgid "Change Default Toolbar Behavior"
 msgstr ""
 
-#: includes/admin/tbex-settings.php:423
+#: includes/admin/tbex-settings.php:443
 msgid "Use Admin Color Scheme also for Frontend"
 msgstr ""
 
-#: includes/admin/tbex-settings.php:431
+#: includes/admin/tbex-settings.php:451
 msgid "Use Web Group instead of WP Logo Group"
 msgstr ""
 
-#: includes/admin/tbex-settings.php:439
+#: includes/admin/tbex-settings.php:459
 msgid "Remove WP Logo and All Sub-Items"
 msgstr ""
 
-#: includes/admin/tbex-settings.php:447
+#: includes/admin/tbex-settings.php:467
 msgid "Remove Customizer Item on Frontend"
 msgstr ""
 
-#: includes/admin/tbex-settings.php:456
+#: includes/admin/tbex-settings.php:475
+msgid "Remove User Item in New Content Group"
+msgstr ""
+
+#: includes/admin/tbex-settings.php:484
 msgid "Change Plugin Behavior"
 msgstr ""
 
-#: includes/admin/tbex-settings.php:465
+#: includes/admin/tbex-settings.php:493
 msgid "Re-hook Gravity Forms from Top Level to Site Group"
 msgstr ""
 
-#: includes/admin/tbex-settings.php:477
+#: includes/admin/tbex-settings.php:505
 msgid "Re-hook Smart Slider 3 from Top Level to Site Group"
 msgstr ""
 
-#: includes/admin/tbex-settings.php:489
+#: includes/admin/tbex-settings.php:517
 msgid "Re-hook NextGen Gallery from Top Level to Site Group"
 msgstr ""
 
-#: includes/admin/tbex-settings.php:501
+#: includes/admin/tbex-settings.php:529
 msgid "Re-hook iThemes Security from Top Level to Site Group"
 msgstr ""
 
-#: includes/admin/tbex-settings.php:513
+#: includes/admin/tbex-settings.php:541
+msgid "Re-hook WP Rocket Items"
+msgstr ""
+
+#: includes/admin/tbex-settings.php:553
+msgid "Re-hook Autoptimize Items"
+msgstr ""
+
+#: includes/admin/tbex-settings.php:565
+msgid "Re-hook Swift Performance Items"
+msgstr ""
+
+#: includes/admin/tbex-settings.php:577
+msgid "Remove some WooCommerce post types from New Content Group"
+msgstr ""
+
+#: includes/admin/tbex-settings.php:589
 msgid "Remove All In One SEO Pack Items"
 msgstr ""
 
-#: includes/admin/tbex-settings.php:525
+#: includes/admin/tbex-settings.php:601
 msgid "Remove UpdraftPlus Items"
 msgstr ""
 
-#: includes/admin/tbex-settings.php:537
+#: includes/admin/tbex-settings.php:613
 msgid "Remove Members Items"
 msgstr ""
 
-#: includes/admin/tbex-settings.php:549
+#: includes/admin/tbex-settings.php:625
 msgid "Remove Cobalt Apps Items"
 msgstr ""
 
-#: includes/admin/tbex-settings.php:561
+#: includes/admin/tbex-settings.php:637
 msgid "Remove Custom CSS Pro Items"
 msgstr ""
 
-#: includes/admin/tbex-settings.php:573
+#: includes/admin/tbex-settings.php:649
 msgid "Remove Admin Page Spider Items"
 msgstr ""
 
-#: includes/admin/tbex-settings.php:585
+#: includes/admin/tbex-settings.php:661
 msgid "Remove Site Extend Group of Multisite Toolbar Additions Plugin"
 msgstr ""
 
-#: includes/admin/tbex-settings.php:624
+#: includes/admin/tbex-settings.php:672
+msgid "Change Translations Behavior"
+msgstr ""
+
+#: includes/admin/tbex-settings.php:681
+msgid "Unload Elementor Translations"
+msgstr ""
+
+#: includes/admin/tbex-settings.php:691
+msgid "Unload Toolbar Extras Translations"
+msgstr ""
+
+#: includes/admin/tbex-settings.php:700
+msgid "Change Page Builder Behavior"
+msgstr ""
+
+#: includes/admin/tbex-settings.php:709
+msgid "Remove WordPress Widgets from Elementor Live Editor"
+msgstr ""
+
+#: includes/admin/tbex-settings.php:748
 msgid "Local Development Environment"
 msgstr ""
 
-#: includes/admin/tbex-settings.php:631
+#: includes/admin/tbex-settings.php:755
 msgid "Set as Local Development Environment"
 msgstr ""
 
-#: includes/admin/tbex-settings.php:640
+#: includes/admin/tbex-settings.php:764
 msgid "Background Color of Toolbar"
 msgstr ""
 
-#: includes/admin/tbex-settings.php:658
+#: includes/admin/tbex-settings.php:782
 msgid "Display Text in Toolbar"
 msgstr ""
 
-#: includes/admin/tbex-settings.php:667
+#: includes/admin/tbex-settings.php:791
 msgid "Minimum Viewport Size to Display the Text"
 msgstr ""
 
-#: includes/admin/tbex-settings.php:677
+#: includes/admin/tbex-settings.php:801
 msgid "Development Mode"
 msgstr ""
 
-#: includes/admin/tbex-settings.php:684
+#: includes/admin/tbex-settings.php:808
 msgid "Use Dev Mode?"
 msgstr ""
 
-#: includes/admin/tbex-settings.php:702
+#: includes/admin/tbex-settings.php:826
 msgid "Text of Toolbar Item"
 msgstr ""
 
 #. translators: Settings page title in WP-Admin
-#: includes/admin/tbex-settings.php:1044
+#: includes/admin/tbex-settings.php:1177
 msgid "Toolbar Extras - Settings"
 msgstr ""
 
-#: includes/admin/tbex-settings.php:1051
+#: includes/admin/tbex-settings.php:1184
 msgid "Let the Toolbar Work for You!"
 msgstr ""
 
-#: includes/admin/tbex-settings.php:1053
+#: includes/admin/tbex-settings.php:1186
 msgid ""
 "Decide which additional items should be displayed or not. Also use some "
 "smart tweaks or enable development modes."
 msgstr ""
 
 #. translators: Settings tab title in WP-Admin
-#: includes/admin/tbex-settings.php:1063
+#: includes/admin/tbex-settings.php:1196
 msgctxt "Plugin settings tab title"
 msgid "General Settings"
 msgstr ""
 
 #. translators: Settings tab title in WP-Admin
-#: includes/admin/tbex-settings.php:1069
+#: includes/admin/tbex-settings.php:1202
 msgctxt "Plugin settings tab title"
 msgid "Smart Tweaks"
 msgstr ""
 
 #. translators: Settings tab title in WP-Admin
-#: includes/admin/tbex-settings.php:1075
+#: includes/admin/tbex-settings.php:1208
 msgctxt "Plugin settings tab title"
 msgid "For Development"
 msgstr ""
 
 #. translators: Settings tab title in WP-Admin
-#: includes/admin/tbex-settings.php:1081
+#: includes/admin/tbex-settings.php:1214
 msgctxt "Plugin settings tab title"
 msgid "About &amp; Support"
 msgstr ""
 
 #: includes/admin/views/help-content-menus.php:35
-#: includes/functions-global.php:924
+#: includes/functions-global.php:926
 msgid "Plugin"
 msgstr ""
 
@@ -426,7 +471,7 @@ msgstr ""
 #. translators: %s - String "Multisite" (for Multisite) or "Site"
 #. translators: %s - Label for type of installation ("Multisite" or "Site")
 #: includes/admin/views/help-content-menus.php:97
-#: includes/string-switcher.php:474
+#: includes/string-switcher.php:492
 #, php-format
 msgid "%s Toolbar Menu"
 msgstr ""
@@ -483,6 +528,8 @@ msgstr ""
 #: includes/elementor-addons/items-elements-plus.php:52
 #: includes/elementor-addons/items-internetcss-google-map-extended.php:48
 #: includes/elementor-addons/items-internetcss-google-map-extended.php:52
+#: includes/elementor-addons/items-jetblocks.php:48
+#: includes/elementor-addons/items-jetblocks.php:52
 #: includes/elementor-addons/items-jetblog.php:48
 #: includes/elementor-addons/items-jetblog.php:52
 #: includes/elementor-addons/items-jetelements.php:48
@@ -491,6 +538,8 @@ msgstr ""
 #: includes/elementor-addons/items-jetmenu.php:52
 #: includes/elementor-addons/items-jetreviews.php:48
 #: includes/elementor-addons/items-jetreviews.php:52
+#: includes/elementor-addons/items-jetwoobuilder.php:88
+#: includes/elementor-addons/items-jetwoobuilder.php:92
 #: includes/elementor-addons/items-portfolio-for-elementor.php:89
 #: includes/elementor-addons/items-portfolio-for-elementor.php:93
 #: includes/elementor-addons/items-power-ups-for-elementor.php:48
@@ -499,6 +548,7 @@ msgstr ""
 #: includes/elementor-addons/items-webtechstreet-addons.php:52
 #: includes/plugins/items-add-from-server.php:52
 #: includes/plugins/items-add-from-server.php:56
+#: includes/plugins/items-cfdb.php:72 includes/plugins/items-cfdb.php:76
 #: includes/plugins/items-cherry-projects.php:50
 #: includes/plugins/items-cherry-projects.php:54
 #: includes/plugins/items-cherry-services-list.php:50
@@ -507,12 +557,16 @@ msgstr ""
 #: includes/plugins/items-cherry-team-members.php:54
 #: includes/plugins/items-cherry-testimonials.php:50
 #: includes/plugins/items-cherry-testimonials.php:54
-#: includes/plugins/items-cobalt-freelancer-devkit.php:128
-#: includes/plugins/items-cobalt-freelancer-devkit.php:132
-#: includes/plugins/items-cobalt-genesis-devkit.php:128
-#: includes/plugins/items-cobalt-genesis-devkit.php:132
+#: includes/plugins/items-cobalt-freelancer-devkit.php:159
+#: includes/plugins/items-cobalt-freelancer-devkit.php:163
+#: includes/plugins/items-cobalt-genesis-devkit.php:159
+#: includes/plugins/items-cobalt-genesis-devkit.php:163
 #: includes/plugins/items-code-snippets.php:85
 #: includes/plugins/items-code-snippets.php:89
+#: includes/plugins/items-convertplus.php:168
+#: includes/plugins/items-convertplus.php:172
+#: includes/plugins/items-convertpro.php:201
+#: includes/plugins/items-convertpro.php:205
 #: includes/plugins/items-duplicator.php:83
 #: includes/plugins/items-duplicator.php:87
 #: includes/plugins/items-envira-gallery.php:105
@@ -521,13 +575,17 @@ msgstr ""
 #: includes/plugins/items-foogallery.php:75
 #: includes/plugins/items-genesis-testimonial-slider.php:94
 #: includes/plugins/items-genesis-testimonial-slider.php:98
-#: includes/plugins/items-gravity-forms.php:117
+#: includes/plugins/items-gravity-forms.php:139
 #: includes/plugins/items-maxgalleria.php:71
 #: includes/plugins/items-maxgalleria.php:75
 #: includes/plugins/items-simple-custom-css-js.php:180
 #: includes/plugins/items-simple-custom-css-js.php:184
 #: includes/plugins/items-soliloquy-sliders.php:73
 #: includes/plugins/items-soliloquy-sliders.php:77
+#: includes/plugins/items-testimonial-rotator.php:94
+#: includes/plugins/items-testimonial-rotator.php:98
+#: includes/plugins/items-tm-timeline.php:50
+#: includes/plugins/items-tm-timeline.php:54
 #: includes/plugins/items-updraftplus.php:70
 #: includes/plugins/items-updraftplus.php:74
 #: includes/plugins/items-wp-db-migrate.php:61
@@ -699,7 +757,7 @@ msgid "Free product support @ WordPress.org plugin forum"
 msgstr ""
 
 #: includes/admin/views/settings-tab-about-support.php:114
-#: includes/functions-global.php:731
+#: includes/functions-global.php:733
 msgid "Support Forum"
 msgstr ""
 
@@ -708,7 +766,7 @@ msgid "Plugin documentation &amp; Knowledge Base articles"
 msgstr ""
 
 #: includes/admin/views/settings-tab-about-support.php:118
-#: includes/functions-global.php:737
+#: includes/functions-global.php:739
 msgid "Documentation"
 msgstr ""
 
@@ -717,7 +775,7 @@ msgid "Facebook Community Group for Toolbar Extras plugin"
 msgstr ""
 
 #: includes/admin/views/settings-tab-about-support.php:122
-#: includes/functions-global.php:740
+#: includes/functions-global.php:742
 msgid "Facebook Group"
 msgstr ""
 
@@ -775,26 +833,36 @@ msgstr ""
 #: includes/admin/views/settings-tab-general.php:473
 #: includes/admin/views/settings-tab-general.php:529
 #: includes/admin/views/settings-tab-general.php:533
-#: includes/admin/views/settings-tab-general.php:537
-#: includes/admin/views/settings-tab-smart-tweaks.php:69
-#: includes/admin/views/settings-tab-smart-tweaks.php:73
-#: includes/admin/views/settings-tab-smart-tweaks.php:97
-#: includes/admin/views/settings-tab-smart-tweaks.php:122
-#: includes/admin/views/settings-tab-smart-tweaks.php:144
-#: includes/admin/views/settings-tab-smart-tweaks.php:166
-#: includes/admin/views/settings-tab-smart-tweaks.php:191
-#: includes/admin/views/settings-tab-smart-tweaks.php:216
-#: includes/admin/views/settings-tab-smart-tweaks.php:241
-#: includes/admin/views/settings-tab-smart-tweaks.php:266
-#: includes/admin/views/settings-tab-smart-tweaks.php:270
-#: includes/admin/views/settings-tab-smart-tweaks.php:291
-#: includes/admin/views/settings-tab-smart-tweaks.php:295
-#: includes/admin/views/settings-tab-smart-tweaks.php:316
-#: includes/admin/views/settings-tab-smart-tweaks.php:343
-#: includes/admin/views/settings-tab-smart-tweaks.php:370
-#: includes/admin/views/settings-tab-smart-tweaks.php:397
-#: includes/admin/views/settings-tab-smart-tweaks.php:422
-#: includes/admin/views/settings-tab-smart-tweaks.php:426
+#: includes/admin/views/settings-tab-general.php:557
+#: includes/admin/views/settings-tab-general.php:561
+#: includes/admin/views/settings-tab-general.php:565
+#: includes/admin/views/settings-tab-smart-tweaks.php:104
+#: includes/admin/views/settings-tab-smart-tweaks.php:108
+#: includes/admin/views/settings-tab-smart-tweaks.php:132
+#: includes/admin/views/settings-tab-smart-tweaks.php:157
+#: includes/admin/views/settings-tab-smart-tweaks.php:179
+#: includes/admin/views/settings-tab-smart-tweaks.php:201
+#: includes/admin/views/settings-tab-smart-tweaks.php:223
+#: includes/admin/views/settings-tab-smart-tweaks.php:248
+#: includes/admin/views/settings-tab-smart-tweaks.php:273
+#: includes/admin/views/settings-tab-smart-tweaks.php:298
+#: includes/admin/views/settings-tab-smart-tweaks.php:323
+#: includes/admin/views/settings-tab-smart-tweaks.php:348
+#: includes/admin/views/settings-tab-smart-tweaks.php:373
+#: includes/admin/views/settings-tab-smart-tweaks.php:398
+#: includes/admin/views/settings-tab-smart-tweaks.php:423
+#: includes/admin/views/settings-tab-smart-tweaks.php:427
+#: includes/admin/views/settings-tab-smart-tweaks.php:448
+#: includes/admin/views/settings-tab-smart-tweaks.php:452
+#: includes/admin/views/settings-tab-smart-tweaks.php:473
+#: includes/admin/views/settings-tab-smart-tweaks.php:500
+#: includes/admin/views/settings-tab-smart-tweaks.php:527
+#: includes/admin/views/settings-tab-smart-tweaks.php:554
+#: includes/admin/views/settings-tab-smart-tweaks.php:579
+#: includes/admin/views/settings-tab-smart-tweaks.php:583
+#: includes/admin/views/settings-tab-smart-tweaks.php:604
+#: includes/admin/views/settings-tab-smart-tweaks.php:629
+#: includes/admin/views/settings-tab-smart-tweaks.php:654
 msgid "Yes"
 msgstr ""
 
@@ -812,33 +880,51 @@ msgstr ""
 #: includes/admin/views/settings-tab-general.php:448
 #: includes/admin/views/settings-tab-general.php:470
 #: includes/admin/views/settings-tab-general.php:530
-#: includes/admin/views/settings-tab-general.php:539
-#: includes/admin/views/settings-tab-smart-tweaks.php:70
-#: includes/admin/views/settings-tab-smart-tweaks.php:98
-#: includes/admin/views/settings-tab-smart-tweaks.php:101
-#: includes/admin/views/settings-tab-smart-tweaks.php:123
-#: includes/admin/views/settings-tab-smart-tweaks.php:126
-#: includes/admin/views/settings-tab-smart-tweaks.php:145
-#: includes/admin/views/settings-tab-smart-tweaks.php:148
-#: includes/admin/views/settings-tab-smart-tweaks.php:167
-#: includes/admin/views/settings-tab-smart-tweaks.php:170
-#: includes/admin/views/settings-tab-smart-tweaks.php:192
-#: includes/admin/views/settings-tab-smart-tweaks.php:195
-#: includes/admin/views/settings-tab-smart-tweaks.php:217
-#: includes/admin/views/settings-tab-smart-tweaks.php:220
-#: includes/admin/views/settings-tab-smart-tweaks.php:242
-#: includes/admin/views/settings-tab-smart-tweaks.php:245
-#: includes/admin/views/settings-tab-smart-tweaks.php:267
-#: includes/admin/views/settings-tab-smart-tweaks.php:292
-#: includes/admin/views/settings-tab-smart-tweaks.php:317
-#: includes/admin/views/settings-tab-smart-tweaks.php:320
-#: includes/admin/views/settings-tab-smart-tweaks.php:344
-#: includes/admin/views/settings-tab-smart-tweaks.php:347
-#: includes/admin/views/settings-tab-smart-tweaks.php:371
+#: includes/admin/views/settings-tab-general.php:538
+#: includes/admin/views/settings-tab-general.php:558
+#: includes/admin/views/settings-tab-general.php:567
+#: includes/admin/views/settings-tab-smart-tweaks.php:105
+#: includes/admin/views/settings-tab-smart-tweaks.php:133
+#: includes/admin/views/settings-tab-smart-tweaks.php:136
+#: includes/admin/views/settings-tab-smart-tweaks.php:158
+#: includes/admin/views/settings-tab-smart-tweaks.php:161
+#: includes/admin/views/settings-tab-smart-tweaks.php:180
+#: includes/admin/views/settings-tab-smart-tweaks.php:183
+#: includes/admin/views/settings-tab-smart-tweaks.php:202
+#: includes/admin/views/settings-tab-smart-tweaks.php:205
+#: includes/admin/views/settings-tab-smart-tweaks.php:224
+#: includes/admin/views/settings-tab-smart-tweaks.php:227
+#: includes/admin/views/settings-tab-smart-tweaks.php:249
+#: includes/admin/views/settings-tab-smart-tweaks.php:252
+#: includes/admin/views/settings-tab-smart-tweaks.php:274
+#: includes/admin/views/settings-tab-smart-tweaks.php:277
+#: includes/admin/views/settings-tab-smart-tweaks.php:299
+#: includes/admin/views/settings-tab-smart-tweaks.php:302
+#: includes/admin/views/settings-tab-smart-tweaks.php:324
+#: includes/admin/views/settings-tab-smart-tweaks.php:327
+#: includes/admin/views/settings-tab-smart-tweaks.php:349
+#: includes/admin/views/settings-tab-smart-tweaks.php:352
 #: includes/admin/views/settings-tab-smart-tweaks.php:374
-#: includes/admin/views/settings-tab-smart-tweaks.php:398
-#: includes/admin/views/settings-tab-smart-tweaks.php:401
-#: includes/admin/views/settings-tab-smart-tweaks.php:423
+#: includes/admin/views/settings-tab-smart-tweaks.php:377
+#: includes/admin/views/settings-tab-smart-tweaks.php:399
+#: includes/admin/views/settings-tab-smart-tweaks.php:402
+#: includes/admin/views/settings-tab-smart-tweaks.php:424
+#: includes/admin/views/settings-tab-smart-tweaks.php:449
+#: includes/admin/views/settings-tab-smart-tweaks.php:474
+#: includes/admin/views/settings-tab-smart-tweaks.php:477
+#: includes/admin/views/settings-tab-smart-tweaks.php:501
+#: includes/admin/views/settings-tab-smart-tweaks.php:504
+#: includes/admin/views/settings-tab-smart-tweaks.php:528
+#: includes/admin/views/settings-tab-smart-tweaks.php:531
+#: includes/admin/views/settings-tab-smart-tweaks.php:555
+#: includes/admin/views/settings-tab-smart-tweaks.php:558
+#: includes/admin/views/settings-tab-smart-tweaks.php:580
+#: includes/admin/views/settings-tab-smart-tweaks.php:605
+#: includes/admin/views/settings-tab-smart-tweaks.php:608
+#: includes/admin/views/settings-tab-smart-tweaks.php:630
+#: includes/admin/views/settings-tab-smart-tweaks.php:633
+#: includes/admin/views/settings-tab-smart-tweaks.php:655
+#: includes/admin/views/settings-tab-smart-tweaks.php:658
 msgid "No"
 msgstr ""
 
@@ -865,23 +951,32 @@ msgstr ""
 #: includes/admin/views/settings-tab-general.php:473
 #: includes/admin/views/settings-tab-general.php:507
 #: includes/admin/views/settings-tab-general.php:533
-#: includes/admin/views/settings-tab-general.php:559
-#: includes/admin/views/settings-tab-general.php:600
-#: includes/admin/views/settings-tab-smart-tweaks.php:73
-#: includes/admin/views/settings-tab-smart-tweaks.php:101
-#: includes/admin/views/settings-tab-smart-tweaks.php:126
-#: includes/admin/views/settings-tab-smart-tweaks.php:148
-#: includes/admin/views/settings-tab-smart-tweaks.php:170
-#: includes/admin/views/settings-tab-smart-tweaks.php:195
-#: includes/admin/views/settings-tab-smart-tweaks.php:220
-#: includes/admin/views/settings-tab-smart-tweaks.php:245
-#: includes/admin/views/settings-tab-smart-tweaks.php:270
-#: includes/admin/views/settings-tab-smart-tweaks.php:295
-#: includes/admin/views/settings-tab-smart-tweaks.php:320
-#: includes/admin/views/settings-tab-smart-tweaks.php:347
-#: includes/admin/views/settings-tab-smart-tweaks.php:374
-#: includes/admin/views/settings-tab-smart-tweaks.php:401
-#: includes/admin/views/settings-tab-smart-tweaks.php:426
+#: includes/admin/views/settings-tab-general.php:561
+#: includes/admin/views/settings-tab-general.php:587
+#: includes/admin/views/settings-tab-general.php:628
+#: includes/admin/views/settings-tab-smart-tweaks.php:108
+#: includes/admin/views/settings-tab-smart-tweaks.php:136
+#: includes/admin/views/settings-tab-smart-tweaks.php:161
+#: includes/admin/views/settings-tab-smart-tweaks.php:183
+#: includes/admin/views/settings-tab-smart-tweaks.php:205
+#: includes/admin/views/settings-tab-smart-tweaks.php:227
+#: includes/admin/views/settings-tab-smart-tweaks.php:252
+#: includes/admin/views/settings-tab-smart-tweaks.php:277
+#: includes/admin/views/settings-tab-smart-tweaks.php:302
+#: includes/admin/views/settings-tab-smart-tweaks.php:327
+#: includes/admin/views/settings-tab-smart-tweaks.php:352
+#: includes/admin/views/settings-tab-smart-tweaks.php:377
+#: includes/admin/views/settings-tab-smart-tweaks.php:402
+#: includes/admin/views/settings-tab-smart-tweaks.php:427
+#: includes/admin/views/settings-tab-smart-tweaks.php:452
+#: includes/admin/views/settings-tab-smart-tweaks.php:477
+#: includes/admin/views/settings-tab-smart-tweaks.php:504
+#: includes/admin/views/settings-tab-smart-tweaks.php:531
+#: includes/admin/views/settings-tab-smart-tweaks.php:558
+#: includes/admin/views/settings-tab-smart-tweaks.php:583
+#: includes/admin/views/settings-tab-smart-tweaks.php:608
+#: includes/admin/views/settings-tab-smart-tweaks.php:633
+#: includes/admin/views/settings-tab-smart-tweaks.php:658
 #, php-format
 msgid "Default: %s"
 msgstr ""
@@ -898,7 +993,7 @@ msgstr ""
 #: includes/admin/views/settings-tab-development.php:216
 #: includes/admin/views/settings-tab-general.php:151
 #: includes/admin/views/settings-tab-general.php:491
-#: includes/admin/views/settings-tab-general.php:589
+#: includes/admin/views/settings-tab-general.php:617
 msgid "Choose Icon"
 msgstr ""
 
@@ -906,7 +1001,7 @@ msgstr ""
 #: includes/admin/views/settings-tab-development.php:227
 #: includes/admin/views/settings-tab-general.php:162
 #: includes/admin/views/settings-tab-general.php:502
-#: includes/admin/views/settings-tab-general.php:595
+#: includes/admin/views/settings-tab-general.php:623
 #, php-format
 msgid "Current: %s"
 msgstr ""
@@ -988,7 +1083,7 @@ msgid "New"
 msgstr ""
 
 #: includes/admin/views/settings-tab-general.php:217
-#: includes/admin/views/settings-tab-general.php:562
+#: includes/admin/views/settings-tab-general.php:590
 msgid ""
 "The smaller the value gets the more on the left the item will be displayed."
 msgstr ""
@@ -1015,24 +1110,33 @@ msgstr ""
 msgid "All items of the supported Add-On Plugins for the Page Builder"
 msgstr ""
 
-#: includes/admin/views/settings-tab-general.php:537
+#. translators: %1$s - Word "No", %2$s - Plugin name "Toolbar Extras
+#: includes/admin/views/settings-tab-general.php:538
+#, php-format
+msgid ""
+"Determine if the link title attributes (Tooltips) should be used within the "
+"Toolbar or not. When set to %1$s then no title attribute will be used in the "
+"source code for all links in the Toolbar, including from this plugin, %2$s"
+msgstr ""
+
+#: includes/admin/views/settings-tab-general.php:565
 #, php-format
 msgid "%s Links open in a new browser tab/ window"
 msgstr ""
 
-#: includes/admin/views/settings-tab-general.php:539
+#: includes/admin/views/settings-tab-general.php:567
 #, php-format
 msgid "%s Links open in same browser tab/ window"
 msgstr ""
 
-#: includes/admin/views/settings-tab-general.php:562
+#: includes/admin/views/settings-tab-general.php:590
 msgid ""
 "The default value sets this additional Toolbar menu at the last item of the "
 "left part of the Toolbar."
 msgstr ""
 
-#: includes/admin/views/settings-tab-general.php:578
-#: includes/admin/views/settings-tab-general.php:601
+#: includes/admin/views/settings-tab-general.php:606
+#: includes/admin/views/settings-tab-general.php:629
 msgid "None (empty)"
 msgstr ""
 
@@ -1047,18 +1151,42 @@ msgid ""
 "will only appear below if the supported plugins are installed and activated."
 msgstr ""
 
-#: includes/admin/views/settings-tab-smart-tweaks.php:77
+#: includes/admin/views/settings-tab-smart-tweaks.php:61
+msgid ""
+"Unload translations for specific plugins so that you can work in an English-"
+"language environment. This could be very useful for multilingual installs."
+msgstr ""
+
+#: includes/admin/views/settings-tab-smart-tweaks.php:64
+msgid "Usage example"
+msgstr ""
+
+#: includes/admin/views/settings-tab-smart-tweaks.php:64
+msgid ""
+"The site of your client is completely in French. You as the Administrator "
+"and site builder speak no French, only English, and the site cannot be "
+"switched to English. The user profile language setting doesn’t help as it is "
+"only for the WP-Admin. So, in this case when you need to edit stuff in "
+"Elementor and want to use Toolbar Extras as well: Then the tweaks below help "
+"you to get a English-language environment for Elementor."
+msgstr ""
+
+#: includes/admin/views/settings-tab-smart-tweaks.php:80
+msgid "Tweak a few things regarding the active Page Builder."
+msgstr ""
+
+#: includes/admin/views/settings-tab-smart-tweaks.php:112
 msgid "Profile Settings"
 msgstr ""
 
-#: includes/admin/views/settings-tab-smart-tweaks.php:78
+#: includes/admin/views/settings-tab-smart-tweaks.php:113
 #, php-format
 msgid ""
 "Note: This tweak currently works only with the 8 built-in color schemes in "
 "WordPress core which are set in your %s."
 msgstr ""
 
-#: includes/admin/views/settings-tab-smart-tweaks.php:104
+#: includes/admin/views/settings-tab-smart-tweaks.php:139
 msgid ""
 "This tweak replaces The WordPress Logo icon (top-left corner in Toolbar) "
 "with your Site Icon (Favicon) if set. If no Site Icon is set, the Globe icon "
@@ -1068,55 +1196,79 @@ msgid ""
 "quickly."
 msgstr ""
 
-#: includes/admin/views/settings-tab-smart-tweaks.php:173
+#: includes/admin/views/settings-tab-smart-tweaks.php:230
 msgid ""
 "This tweak re-hooks the complete Gravity Forms Toolbar group as a sub-item "
 "of the Site Group."
 msgstr ""
 
-#: includes/admin/views/settings-tab-smart-tweaks.php:198
+#: includes/admin/views/settings-tab-smart-tweaks.php:255
 msgid ""
 "This tweak re-hooks the complete Smart Slider 3 Toolbar group as a sub-item "
 "of the Site Group (Manage Content)."
 msgstr ""
 
-#: includes/admin/views/settings-tab-smart-tweaks.php:223
+#: includes/admin/views/settings-tab-smart-tweaks.php:280
 msgid ""
 "This tweak re-hooks the complete NextGen Gallery Toolbar group as a sub-item "
 "of the Site Group (Manage Content Media)."
 msgstr ""
 
-#: includes/admin/views/settings-tab-smart-tweaks.php:248
+#: includes/admin/views/settings-tab-smart-tweaks.php:305
 msgid ""
 "This tweak re-hooks the complete iThemes Security Toolbar group as a sub-"
 "item of the Site Group."
 msgstr ""
 
-#: includes/admin/views/settings-tab-smart-tweaks.php:273
+#: includes/admin/views/settings-tab-smart-tweaks.php:330
+msgid ""
+"This tweak re-hooks the complete WP Rocket Toolbar group as a sub-item of "
+"the Site Group."
+msgstr ""
+
+#: includes/admin/views/settings-tab-smart-tweaks.php:355
+msgid ""
+"This tweak re-hooks the complete Autoptimize Toolbar group as a sub-item of "
+"the Site Group."
+msgstr ""
+
+#: includes/admin/views/settings-tab-smart-tweaks.php:380
+msgid ""
+"This tweak re-hooks the complete Swift Performance (Lite) Toolbar group as a "
+"sub-item of the Site Group."
+msgstr ""
+
+#: includes/admin/views/settings-tab-smart-tweaks.php:405
+msgid ""
+"This tweak removes the items New Order and New Coupon from the New Content "
+"Group as these two are rarely used."
+msgstr ""
+
+#: includes/admin/views/settings-tab-smart-tweaks.php:430
 msgid ""
 "This tweak removes the top-level Toolbar link including sub-items as these "
 "items are not useful at all."
 msgstr ""
 
-#: includes/admin/views/settings-tab-smart-tweaks.php:298
+#: includes/admin/views/settings-tab-smart-tweaks.php:455
 msgid ""
 "This tweak removes the top-level Toolbar link including sub-items on the "
 "frontend as Toolbar Extras already places those links as a sub-item under "
 "the Site Group anyways."
 msgstr ""
 
-#: includes/admin/views/settings-tab-smart-tweaks.php:323
+#: includes/admin/views/settings-tab-smart-tweaks.php:480
 #, php-format
 msgid ""
 "This tweak removes the %s sub-item from the New Content Group of the "
 "Toolbar. This saves a bit more space for other items in this group."
 msgstr ""
 
-#: includes/admin/views/settings-tab-smart-tweaks.php:323
+#: includes/admin/views/settings-tab-smart-tweaks.php:480
 msgid "Role"
 msgstr ""
 
-#: includes/admin/views/settings-tab-smart-tweaks.php:350
+#: includes/admin/views/settings-tab-smart-tweaks.php:507
 #, php-format
 msgid ""
 "This tweak removes the top-level Toolbar link including sub-items on the "
@@ -1124,14 +1276,14 @@ msgid ""
 "the Site Group and %s Group anyways."
 msgstr ""
 
-#: includes/admin/views/settings-tab-smart-tweaks.php:377
+#: includes/admin/views/settings-tab-smart-tweaks.php:534
 #, php-format
 msgid ""
 "This tweak removes the top-level Toolbar link on the frontend as Toolbar "
 "Extras already places this link as a sub-item under the %s Group anyways."
 msgstr ""
 
-#: includes/admin/views/settings-tab-smart-tweaks.php:404
+#: includes/admin/views/settings-tab-smart-tweaks.php:561
 #, php-format
 msgid ""
 "This tweak removes the Toolbar sub-item from the Site Group as Toolbar "
@@ -1139,10 +1291,28 @@ msgid ""
 "well as the %s Group anyways."
 msgstr ""
 
-#: includes/admin/views/settings-tab-smart-tweaks.php:429
+#: includes/admin/views/settings-tab-smart-tweaks.php:586
 msgid ""
 "This tweak removes the items of the \"Site Extend Group\" as Toolbar Extras "
 "already places a lot of these or similar links as sub-items under Site Group."
+msgstr ""
+
+#: includes/admin/views/settings-tab-smart-tweaks.php:611
+msgid ""
+"This tweak unloads the translations for Elementor, and if active also for "
+"Elementor Pro, so it falls back to the English default strings."
+msgstr ""
+
+#: includes/admin/views/settings-tab-smart-tweaks.php:636
+msgid ""
+"This tweak unloads the translations for Toolbar Extras, so it falls back to "
+"the English default strings."
+msgstr ""
+
+#: includes/admin/views/settings-tab-smart-tweaks.php:661
+msgid ""
+"This tweak removes the WordPress Widgets from the Elementor Live Editor "
+"(within the left-hand Elementor Panel)."
 msgstr ""
 
 #: includes/elementor-addons/items-anywhere-elementor.php:33
@@ -1155,8 +1325,12 @@ msgstr ""
 
 #: includes/elementor-addons/items-anywhere-elementor.php:46
 #: includes/elementor-addons/items-anywhere-elementor.php:50
+#: includes/elementor-addons/items-dhwc-elementor.php:46
+#: includes/elementor-addons/items-dhwc-elementor.php:50
 #: includes/elementor-addons/items-header-footer-builder.php:45
 #: includes/elementor-addons/items-header-footer-builder.php:49
+#: includes/elementor-addons/items-jetwoobuilder.php:45
+#: includes/elementor-addons/items-jetwoobuilder.php:49
 #: includes/elementor-addons/items-templementor.php:46
 #: includes/elementor-addons/items-templementor.php:50
 #: includes/elementor-official/items-elementor-core.php:76
@@ -1166,8 +1340,12 @@ msgstr ""
 
 #: includes/elementor-addons/items-anywhere-elementor.php:59
 #: includes/elementor-addons/items-anywhere-elementor.php:63
+#: includes/elementor-addons/items-dhwc-elementor.php:59
+#: includes/elementor-addons/items-dhwc-elementor.php:63
 #: includes/elementor-addons/items-header-footer-builder.php:58
 #: includes/elementor-addons/items-header-footer-builder.php:62
+#: includes/elementor-addons/items-jetwoobuilder.php:58
+#: includes/elementor-addons/items-jetwoobuilder.php:62
 #: includes/elementor-addons/items-templementor.php:59
 #: includes/elementor-addons/items-templementor.php:63
 #: includes/elementor-official/items-elementor-core.php:139
@@ -1178,8 +1356,12 @@ msgstr ""
 
 #: includes/elementor-addons/items-anywhere-elementor.php:74
 #: includes/elementor-addons/items-anywhere-elementor.php:78
+#: includes/elementor-addons/items-dhwc-elementor.php:74
+#: includes/elementor-addons/items-dhwc-elementor.php:78
 #: includes/elementor-addons/items-header-footer-builder.php:73
 #: includes/elementor-addons/items-header-footer-builder.php:77
+#: includes/elementor-addons/items-jetwoobuilder.php:73
+#: includes/elementor-addons/items-jetwoobuilder.php:77
 #: includes/elementor-addons/items-templementor.php:74
 #: includes/elementor-addons/items-templementor.php:78
 #: includes/elementor-official/items-elementor-core.php:154
@@ -1193,6 +1375,27 @@ msgstr ""
 msgid "Pro: Settings"
 msgstr ""
 
+#: includes/elementor-addons/items-archivescode-addons.php:35
+msgid "Archivescode Addons"
+msgstr ""
+
+#: includes/elementor-addons/items-archivescode-addons.php:39
+msgid "Archivescode Addons for Elementor (Add-On)"
+msgstr ""
+
+#: includes/elementor-addons/items-archivescode-addons.php:48
+#: includes/elementor-addons/items-archivescode-addons.php:52
+#: includes/elementor-addons/items-bdthemes-element-pack.php:48
+#: includes/elementor-addons/items-bdthemes-element-pack.php:52
+#: includes/elementor-addons/items-namogo-extras.php:48
+#: includes/elementor-addons/items-namogo-extras.php:52
+#: includes/elementor-addons/items-revolution-for-elementor.php:110
+#: includes/elementor-addons/items-revolution-for-elementor.php:114
+#: includes/elementor-addons/items-ultimate-addons-for-elementor.php:56
+#: includes/elementor-addons/items-ultimate-addons-for-elementor.php:60
+msgid "Activate Widgets"
+msgstr ""
+
 #: includes/elementor-addons/items-bdthemes-element-pack.php:35
 msgid "Element Pack"
 msgstr ""
@@ -1201,20 +1404,13 @@ msgstr ""
 msgid "Element Pack (Premium Add-On)"
 msgstr ""
 
-#: includes/elementor-addons/items-bdthemes-element-pack.php:48
-#: includes/elementor-addons/items-bdthemes-element-pack.php:52
-#: includes/elementor-addons/items-namogo-extras.php:48
-#: includes/elementor-addons/items-namogo-extras.php:52
-#: includes/elementor-addons/items-ultimate-addons-for-elementor.php:56
-#: includes/elementor-addons/items-ultimate-addons-for-elementor.php:60
-msgid "Activate Widgets"
-msgstr ""
-
 #: includes/elementor-addons/items-bdthemes-element-pack.php:61
 #: includes/elementor-addons/items-bdthemes-element-pack.php:65
 #: includes/elementor-addons/items-namogo-extras.php:61
 #: includes/elementor-addons/items-namogo-extras.php:65
-#: includes/themes/items-astra.php:443 includes/themes/items-astra.php:447
+#: includes/elementor-addons/items-revolution-for-elementor.php:123
+#: includes/elementor-addons/items-revolution-for-elementor.php:127
+#: includes/themes/items-astra.php:446 includes/themes/items-astra.php:450
 #: includes/themes/items-startwp.php:316 includes/themes/items-startwp.php:320
 msgid "Activate Extensions"
 msgstr ""
@@ -1243,7 +1439,7 @@ msgstr ""
 #. translators: Type of site to be imported
 #: includes/elementor-addons/items-codetic-addons.php:37
 #: includes/elementor-addons/items-livemesh-addons.php:37
-#: includes/themes/items-astra.php:533
+#: includes/themes/items-astra.php:561
 msgid "Premium"
 msgstr ""
 
@@ -1286,20 +1482,29 @@ msgstr ""
 msgid "View Elementor Debug Info for this %s - in JSON format"
 msgstr ""
 
+#: includes/elementor-addons/items-dhwc-elementor.php:33
+msgid "Product Templates"
+msgstr ""
+
+#: includes/elementor-addons/items-dhwc-elementor.php:37
+#: includes/elementor-addons/items-jetwoobuilder.php:36
+msgid "WooCommerce Product Templates (Premium Add-On)"
+msgstr ""
+
 #. translators: Elementor Template type
-#: includes/elementor-addons/items-ele-custom-skin.php:56
+#: includes/elementor-addons/items-ele-custom-skin.php:55
 msgctxt "Elementor Template type"
 msgid "Loops"
 msgstr ""
 
-#: includes/elementor-addons/items-ele-custom-skin.php:60
+#: includes/elementor-addons/items-ele-custom-skin.php:59
 msgid "Template Type: Loop Sections"
 msgstr ""
 
-#: includes/elementor-addons/items-ele-custom-skin.php:69
-#: includes/elementor-addons/items-ele-custom-skin.php:73
-#: includes/elementor-addons/items-ele-custom-skin.php:106
-#: includes/elementor-addons/items-ele-custom-skin.php:110
+#: includes/elementor-addons/items-ele-custom-skin.php:68
+#: includes/elementor-addons/items-ele-custom-skin.php:72
+#: includes/elementor-addons/items-ele-custom-skin.php:105
+#: includes/elementor-addons/items-ele-custom-skin.php:109
 msgctxt "Elementor Template type"
 msgid "Loop"
 msgstr ""
@@ -1313,6 +1518,7 @@ msgstr ""
 
 #: includes/elementor-addons/items-elementor-contact-form-db.php:48
 #: includes/elementor-addons/items-elementor-contact-form-db.php:52
+#: includes/plugins/items-cfdb.php:46 includes/plugins/items-cfdb.php:50
 msgid "All Submissions"
 msgstr ""
 
@@ -1322,6 +1528,26 @@ msgstr ""
 
 #: includes/elementor-addons/items-elements-plus.php:39
 msgid "Elements Plus! (Add-On)"
+msgstr ""
+
+#: includes/elementor-addons/items-eleslider.php:33
+#: includes/elementor-addons/items-eleslider.php:37
+msgid "Eleslider"
+msgstr ""
+
+#: includes/elementor-addons/items-eleslider.php:46
+#: includes/elementor-addons/items-eleslider.php:50
+msgid "All Slide Posts"
+msgstr ""
+
+#: includes/elementor-addons/items-eleslider.php:59
+#: includes/elementor-addons/items-eleslider.php:63
+msgid "New Slide Post"
+msgstr ""
+
+#: includes/elementor-addons/items-eleslider.php:74
+#: includes/elementor-addons/items-eleslider.php:78
+msgid "New Slide Builder"
 msgstr ""
 
 #: includes/elementor-addons/items-extra-privacy-for-elementor.php:36
@@ -1365,9 +1591,9 @@ msgstr ""
 #: includes/plugins/items-cobalt-genesis-extender.php:90
 #: includes/plugins/items-cobalt-themer-pro.php:123
 #: includes/plugins/items-cobalt-themer-pro.php:127
-#: includes/plugins/items-gravity-forms.php:121
-#: includes/plugins/items-smart-slider.php:66
-#: includes/plugins/items-smart-slider.php:70
+#: includes/plugins/items-gravity-forms.php:143
+#: includes/plugins/items-smart-slider.php:67
+#: includes/plugins/items-smart-slider.php:71
 msgid "General Settings"
 msgstr ""
 
@@ -1395,6 +1621,14 @@ msgstr ""
 
 #: includes/elementor-addons/items-internetcss-google-map-extended.php:39
 msgid "Google Map Extended (Add-On)"
+msgstr ""
+
+#: includes/elementor-addons/items-jetblocks.php:35
+msgid "JetBlocks"
+msgstr ""
+
+#: includes/elementor-addons/items-jetblocks.php:39
+msgid "JetBlocks (Premium Add-On)"
 msgstr ""
 
 #: includes/elementor-addons/items-jetblog.php:35
@@ -1437,6 +1671,10 @@ msgstr ""
 
 #: includes/elementor-addons/items-jetreviews.php:39
 msgid "JetReviews (Premium Add-On)"
+msgstr ""
+
+#: includes/elementor-addons/items-jetwoobuilder.php:32
+msgid "Jet Woo Templates"
 msgstr ""
 
 #: includes/elementor-addons/items-leap13-premium-addons.php:35
@@ -1508,11 +1746,13 @@ msgstr ""
 #: includes/elementor-addons/items-livemesh-addons.php:90
 #: includes/elementor-addons/items-namogo-extras.php:87
 #: includes/elementor-addons/items-namogo-extras.php:91
+#: includes/elementor-addons/items-powerpack-wlbfe.php:95
+#: includes/elementor-addons/items-powerpack-wlbfe.php:99
 #: includes/plugins/items-blox.php:207 includes/plugins/items-blox.php:211
 #: includes/plugins/items-wp-show-posts.php:73
 #: includes/plugins/items-wp-show-posts.php:77
-#: includes/themes/items-dynamik-website-builder.php:136
-#: includes/themes/items-dynamik-website-builder.php:140
+#: includes/themes/items-dynamik-website-builder.php:187
+#: includes/themes/items-dynamik-website-builder.php:191
 #: includes/themes/items-freelancer.php:73
 #: includes/themes/items-freelancer.php:77
 #: includes/themes/items-page-builder-framework.php:264
@@ -1601,6 +1841,7 @@ msgstr ""
 #: includes/elementor-addons/items-power-ups-for-elementor.php:161
 #: includes/plugins/items-genesis-portfolio-pro.php:65
 #: includes/plugins/items-genesis-portfolio-pro.php:69
+#: includes/themes/items-flexia.php:335 includes/themes/items-flexia.php:339
 #: includes/themes/items-oceanwp.php:177 includes/themes/items-oceanwp.php:181
 msgid "New Portfolio Builder"
 msgstr ""
@@ -1626,13 +1867,33 @@ msgid "%s Elements (Premium Add-On)"
 msgstr ""
 
 #: includes/elementor-addons/items-powerpack-elements.php:71
-#: includes/themes/items-astra.php:459
+#: includes/elementor-addons/items-powerpack-wlbfe.php:43
+#: includes/themes/items-astra.php:462
 msgid "White Label"
 msgstr ""
 
 #: includes/elementor-addons/items-powerpack-elements.php:75
-#: includes/themes/items-astra.php:463
+#: includes/themes/items-astra.php:466
 msgid "White Label Branding"
+msgstr ""
+
+#: includes/elementor-addons/items-powerpack-wlbfe.php:47
+msgid "White Label (Premium Add-On)"
+msgstr ""
+
+#: includes/elementor-addons/items-powerpack-wlbfe.php:56
+#: includes/elementor-addons/items-powerpack-wlbfe.php:60
+msgid "Branding"
+msgstr ""
+
+#: includes/elementor-addons/items-powerpack-wlbfe.php:69
+#: includes/elementor-addons/items-powerpack-wlbfe.php:73
+msgid "Admin Links"
+msgstr ""
+
+#: includes/elementor-addons/items-powerpack-wlbfe.php:82
+#: includes/elementor-addons/items-powerpack-wlbfe.php:86
+msgid "Ghost Mode"
 msgstr ""
 
 #: includes/elementor-addons/items-press-elements.php:35
@@ -1661,12 +1922,66 @@ msgstr ""
 msgid "PT Elementor Lite (Add-On)"
 msgstr ""
 
+#: includes/elementor-addons/items-revolution-for-elementor.php:40
+msgid "Revolution for Elementor"
+msgstr ""
+
+#: includes/elementor-addons/items-revolution-for-elementor.php:44
+msgid "Revolution for Elementor (Add-On)"
+msgstr ""
+
+#: includes/elementor-addons/items-revolution-for-elementor.php:64
+msgid "All Tax Related Content"
+msgstr ""
+
+#: includes/elementor-addons/items-revolution-for-elementor.php:68
+msgid "All Taxonomy Related Content"
+msgstr ""
+
+#: includes/elementor-addons/items-revolution-for-elementor.php:77
+#: includes/elementor-addons/items-revolution-for-elementor.php:81
+msgid "New Tax Related Content"
+msgstr ""
+
+#: includes/elementor-addons/items-revolution-for-elementor.php:92
+#: includes/elementor-addons/items-revolution-for-elementor.php:96
+msgid "New Tax Related Builder"
+msgstr ""
+
+#: includes/elementor-addons/items-revolution-for-elementor.php:139
+#: includes/elementor-addons/items-revolution-for-elementor.php:143
+#: includes/elementor-official/items-elementor-core.php:241
+#: includes/elementor-official/items-elementor-core.php:245
+msgid "Advanced"
+msgstr ""
+
+#: includes/elementor-addons/items-revolution-for-elementor.php:152
+#: includes/elementor-addons/items-revolution-for-elementor.php:156
+#: includes/functions-global.php:792
+msgid "My Account"
+msgstr ""
+
 #: includes/elementor-addons/items-sizzify-lite.php:35
 msgid "Sizzify Lite"
 msgstr ""
 
 #: includes/elementor-addons/items-sizzify-lite.php:39
 msgid "Sizzify Lite (Add-On)"
+msgstr ""
+
+#: includes/elementor-addons/items-sj-elementor-addon.php:35
+#: includes/elementor-addons/items-sj-elementor-addon.php:39
+msgid "SJ Elementor Addon"
+msgstr ""
+
+#: includes/elementor-addons/items-sj-elementor-addon.php:48
+#: includes/elementor-addons/items-sj-elementor-addon.php:52
+msgid "Form Connections"
+msgstr ""
+
+#: includes/elementor-addons/items-sj-elementor-addon.php:61
+#: includes/elementor-addons/items-sj-elementor-addon.php:65
+msgid "Plugin Info"
 msgstr ""
 
 #: includes/elementor-addons/items-templementor.php:33
@@ -1805,6 +2120,7 @@ msgstr ""
 #: includes/plugins/items-blox.php:92
 #: includes/themes/items-beaver-builder-theme.php:91
 #: includes/themes/items-beaver-builder-theme.php:95
+#: includes/themes/items-customify.php:76 includes/themes/items-flexia.php:90
 #: includes/themes/items-page-builder-framework.php:92
 #: includes/themes/items-page-builder-framework.php:96
 #: includes/themes/items-startwp.php:91 includes/themes/items-startwp.php:95
@@ -1814,11 +2130,6 @@ msgstr ""
 #: includes/elementor-official/items-elementor-core.php:228
 #: includes/elementor-official/items-elementor-core.php:232
 msgid "Style"
-msgstr ""
-
-#: includes/elementor-official/items-elementor-core.php:241
-#: includes/elementor-official/items-elementor-core.php:245
-msgid "Advanced"
 msgstr ""
 
 #: includes/elementor-official/items-elementor-core.php:257
@@ -1868,10 +2179,15 @@ msgstr ""
 #. translators: Theme creative group - links to Customizer, default "Customize Design"
 #: includes/elementor-official/items-elementor-hello-theme.php:45
 #: includes/elementor-official/items-elementor-hello-theme.php:49
+#: includes/plugins/items-cobalt-freelancer-devkit.php:62
+#: includes/plugins/items-cobalt-freelancer-devkit.php:66
+#: includes/plugins/items-cobalt-genesis-devkit.php:62
+#: includes/plugins/items-cobalt-genesis-devkit.php:66
 #: includes/string-switcher.php:100
 #: includes/themes/items-beaver-builder-theme.php:47
 #: includes/themes/items-beaver-builder-theme.php:51
-#: includes/themes/items-freelancer.php:47
+#: includes/themes/items-eletheme.php:46 includes/themes/items-eletheme.php:50
+#: includes/themes/items-flexia.php:178 includes/themes/items-freelancer.php:47
 #: includes/themes/items-freelancer.php:51
 #: includes/themes/items-generatepress.php:61
 #: includes/themes/items-generatepress.php:65
@@ -1897,8 +2213,8 @@ msgstr ""
 #: includes/elementor-official/items-elementor-pro.php:52
 #: includes/elementor-official/items-elementor-pro.php:121
 #: includes/elementor-official/items-elementor-pro.php:125
-#: includes/elementor-official/items-elementor-pro.php:373
-#: includes/elementor-official/items-elementor-pro.php:377
+#: includes/elementor-official/items-elementor-pro.php:375
+#: includes/elementor-official/items-elementor-pro.php:379
 msgctxt "Elementor Template type"
 msgid "Header"
 msgstr ""
@@ -1911,8 +2227,8 @@ msgstr ""
 #: includes/elementor-official/items-elementor-pro.php:66
 #: includes/elementor-official/items-elementor-pro.php:134
 #: includes/elementor-official/items-elementor-pro.php:138
-#: includes/elementor-official/items-elementor-pro.php:386
-#: includes/elementor-official/items-elementor-pro.php:390
+#: includes/elementor-official/items-elementor-pro.php:388
+#: includes/elementor-official/items-elementor-pro.php:392
 msgctxt "Elementor Template type"
 msgid "Footer"
 msgstr ""
@@ -1925,8 +2241,8 @@ msgstr ""
 #: includes/elementor-official/items-elementor-pro.php:80
 #: includes/elementor-official/items-elementor-pro.php:147
 #: includes/elementor-official/items-elementor-pro.php:151
-#: includes/elementor-official/items-elementor-pro.php:399
-#: includes/elementor-official/items-elementor-pro.php:403
+#: includes/elementor-official/items-elementor-pro.php:401
+#: includes/elementor-official/items-elementor-pro.php:405
 msgctxt "Elementor Template type"
 msgid "Single"
 msgstr ""
@@ -1939,8 +2255,8 @@ msgstr ""
 #: includes/elementor-official/items-elementor-pro.php:94
 #: includes/elementor-official/items-elementor-pro.php:160
 #: includes/elementor-official/items-elementor-pro.php:164
-#: includes/elementor-official/items-elementor-pro.php:412
-#: includes/elementor-official/items-elementor-pro.php:416
+#: includes/elementor-official/items-elementor-pro.php:414
+#: includes/elementor-official/items-elementor-pro.php:418
 msgctxt "Elementor Template type"
 msgid "Archive"
 msgstr ""
@@ -1995,21 +2311,21 @@ msgstr ""
 msgid "https://deckerweb.de/"
 msgstr ""
 
-#: includes/functions-global.php:175
+#: includes/functions-global.php:177
 msgid "No Page Builder registered"
 msgstr ""
 
-#: includes/functions-global.php:580
+#: includes/functions-global.php:582
 #, php-format
 msgid "Customize %s"
 msgstr ""
 
-#: includes/functions-global.php:620
+#: includes/functions-global.php:622
 #, php-format
 msgid "All %s"
 msgstr ""
 
-#: includes/functions-global.php:627
+#: includes/functions-global.php:629
 #, php-format
 msgid "New %s"
 msgstr ""
@@ -2017,7 +2333,7 @@ msgstr ""
 #. translators: %s - Name of current active Theme or Parent Theme (static!)
 #. translators: (Static) Theme name Astra - optionally white labeled string
 #. translators: %s - (Static) Theme name OceanWP - optionally white labeled string
-#: includes/functions-global.php:658 includes/themes/items-astra.php:59
+#: includes/functions-global.php:660 includes/themes/items-astra.php:62
 #: includes/themes/items-oceanwp.php:61
 #, php-format
 msgid "Theme: %s"
@@ -2026,133 +2342,129 @@ msgstr ""
 #. translators: %s - Name of current active Theme or Parent Theme (static!)
 #. translators: (Static) Theme name OceanWP - optionally white labeled string
 #. translators: %s - (Static) Theme name OceanWP - optionally white labeled string
-#: includes/functions-global.php:667 includes/themes/items-astra.php:64
+#: includes/functions-global.php:669 includes/themes/items-astra.php:67
 #: includes/themes/items-oceanwp.php:66
 #, php-format
 msgid "Active Theme: %s"
 msgstr ""
 
-#: includes/functions-global.php:734
+#: includes/functions-global.php:736
 msgid "Support Contact"
 msgstr ""
 
-#: includes/functions-global.php:743
+#: includes/functions-global.php:745
 msgid "Official Support"
 msgstr ""
 
-#: includes/functions-global.php:746
+#: includes/functions-global.php:748
 msgid "Official Site"
 msgstr ""
 
-#: includes/functions-global.php:749
+#: includes/functions-global.php:751
 msgid "Official Blog"
 msgstr ""
 
-#: includes/functions-global.php:752
+#: includes/functions-global.php:754
 msgid "Development @ GitHub"
 msgstr ""
 
-#: includes/functions-global.php:755
+#: includes/functions-global.php:757
 msgid "GitHub Issues"
 msgstr ""
 
 #. translators: Title attribute for linked text
-#: includes/functions-global.php:757
+#: includes/functions-global.php:759
 msgid "GitHub Issues (Bug Tracker)"
 msgstr ""
 
-#: includes/functions-global.php:760
+#: includes/functions-global.php:762
 msgid "Community Translations"
 msgstr ""
 
 #. translators: Title attribute for linked text
-#: includes/functions-global.php:762
+#: includes/functions-global.php:764
 msgid "Community Translations (at WordPress.org)"
 msgstr ""
 
-#: includes/functions-global.php:765
+#: includes/functions-global.php:767
 msgid "Translate Pro Plugin"
 msgstr ""
 
-#: includes/functions-global.php:768
+#: includes/functions-global.php:770
 msgid "YouTube Channel"
 msgstr ""
 
-#: includes/functions-global.php:771
+#: includes/functions-global.php:773
 msgid "YouTube Tutorials"
 msgstr ""
 
-#: includes/functions-global.php:774
+#: includes/functions-global.php:776
 msgid "Knowledge Base"
 msgstr ""
 
 #. translators: Title attribute for linked text
-#: includes/functions-global.php:776
+#: includes/functions-global.php:778
 msgid "Knowledge Base Articles"
 msgstr ""
 
-#: includes/functions-global.php:779
+#: includes/functions-global.php:781
 msgid "Tutorials"
 msgstr ""
 
 #. translators: Title attribute for linked text
-#: includes/functions-global.php:781
+#: includes/functions-global.php:783
 msgid "Tutorial Articles"
 msgstr ""
 
-#: includes/functions-global.php:784
+#: includes/functions-global.php:786
 msgid "User Forum"
 msgstr ""
 
-#: includes/functions-global.php:787
+#: includes/functions-global.php:789
 msgid "Community Forum"
 msgstr ""
 
-#: includes/functions-global.php:790
-msgid "My Account"
-msgstr ""
-
-#: includes/functions-global.php:793
+#: includes/functions-global.php:795
 msgid "Code Reference"
 msgstr ""
 
-#: includes/functions-global.php:796
+#: includes/functions-global.php:798
 msgid "Pro Docs"
 msgstr ""
 
-#: includes/functions-global.php:799
+#: includes/functions-global.php:801
 msgid "Pro: Documentation"
 msgstr ""
 
-#: includes/functions-global.php:802
+#: includes/functions-global.php:804
 msgid "Pro: Modules Documentation"
 msgstr ""
 
-#: includes/functions-global.php:805
+#: includes/functions-global.php:807
 msgid "Pro: Facebook Group"
 msgstr ""
 
-#: includes/functions-global.php:808
+#: includes/functions-global.php:810
 msgid "Pro: Support"
 msgstr ""
 
-#: includes/functions-global.php:811
+#: includes/functions-global.php:813
 msgid "Pro: Official Site"
 msgstr ""
 
-#: includes/functions-global.php:814
+#: includes/functions-global.php:816
 msgid "Pro: APIs"
 msgstr ""
 
-#: includes/functions-global.php:817
+#: includes/functions-global.php:819
 msgid "Slack Channel"
 msgstr ""
 
-#: includes/functions-global.php:820
+#: includes/functions-global.php:822
 msgid "External Resource"
 msgstr ""
 
-#: includes/functions-global.php:920
+#: includes/functions-global.php:922
 msgid "You have no sufficient permission to edit this special menu."
 msgstr ""
 
@@ -2321,145 +2633,145 @@ msgstr ""
 msgid "Install Theme - Upload ZIP file"
 msgstr ""
 
-#: includes/items-plugins-addons.php:349
+#: includes/items-plugins-addons.php:441
 #: includes/plugins/items-envira-gallery.php:118
 #: includes/plugins/items-soliloquy-sliders.php:86
 msgid "Add-Ons"
 msgstr ""
 
-#: includes/items-plugins-addons.php:353
+#: includes/items-plugins-addons.php:445
 msgid "Elements and Options from Add-On Plugins"
 msgstr ""
 
-#: includes/items-site-group.php:123 includes/items-site-group.php:127
+#: includes/items-site-group.php:139 includes/items-site-group.php:143
 msgid "Manage Content"
 msgstr ""
 
-#: includes/items-site-group.php:136 includes/items-site-group.php:140
+#: includes/items-site-group.php:152 includes/items-site-group.php:156
 msgid "Edit Pages"
 msgstr ""
 
-#: includes/items-site-group.php:149 includes/items-site-group.php:153
+#: includes/items-site-group.php:165 includes/items-site-group.php:169
 msgid "Edit Posts"
 msgstr ""
 
-#: includes/items-site-group.php:165
+#: includes/items-site-group.php:181
 msgid "Gallery &amp; Slider"
 msgstr ""
 
-#: includes/items-site-group.php:169
+#: includes/items-site-group.php:185
 msgid "Galleries &amp; Sliders from Add-On Plugins"
 msgstr ""
 
-#: includes/items-site-group.php:180 includes/items-site-group.php:184
+#: includes/items-site-group.php:196 includes/items-site-group.php:200
 msgid "Media Library"
 msgstr ""
 
-#: includes/items-site-group.php:193
+#: includes/items-site-group.php:209
 msgid "Grid View"
 msgstr ""
 
-#: includes/items-site-group.php:197
+#: includes/items-site-group.php:213
 msgid "Media Files as Grid View"
 msgstr ""
 
-#: includes/items-site-group.php:206
+#: includes/items-site-group.php:222
 msgid "List View"
 msgstr ""
 
-#: includes/items-site-group.php:210
+#: includes/items-site-group.php:226
 msgid "Media Files as List View"
 msgstr ""
 
-#: includes/items-site-group.php:234 includes/items-site-group.php:466
+#: includes/items-site-group.php:250 includes/items-site-group.php:482
 msgid "Nav Menus"
 msgstr ""
 
-#: includes/items-site-group.php:238
+#: includes/items-site-group.php:254
 msgid "Manage Nav Menus"
 msgstr ""
 
-#: includes/items-site-group.php:247 includes/items-site-group.php:314
+#: includes/items-site-group.php:263 includes/items-site-group.php:330
 msgid "Customize Live"
 msgstr ""
 
-#: includes/items-site-group.php:251 includes/items-site-group.php:470
+#: includes/items-site-group.php:267 includes/items-site-group.php:486
 msgid "Customize Nav Menus with Live Preview"
 msgstr ""
 
-#: includes/items-site-group.php:260 includes/items-site-group.php:327
+#: includes/items-site-group.php:276 includes/items-site-group.php:343
 msgid "Manage in WP-Admin"
 msgstr ""
 
-#: includes/items-site-group.php:264
+#: includes/items-site-group.php:280
 msgid "Manage Nav Menus in WP-Admin Dashboard (Classic)"
 msgstr ""
 
-#: includes/items-site-group.php:273
+#: includes/items-site-group.php:289
 msgid "Menu Locations"
 msgstr ""
 
-#: includes/items-site-group.php:277
+#: includes/items-site-group.php:293
 msgid "Manage Nav Menus Locations"
 msgstr ""
 
-#: includes/items-site-group.php:301 includes/items-site-group.php:453
+#: includes/items-site-group.php:317 includes/items-site-group.php:469
 msgid "Widgets"
 msgstr ""
 
-#: includes/items-site-group.php:305
+#: includes/items-site-group.php:321
 msgid "Manage Widget Blocks"
 msgstr ""
 
-#: includes/items-site-group.php:318 includes/items-site-group.php:457
+#: includes/items-site-group.php:334 includes/items-site-group.php:473
 msgid "Customize Widgets with Live Preview"
 msgstr ""
 
-#: includes/items-site-group.php:331
+#: includes/items-site-group.php:347
 msgid "Manage Widgets in WP-Admin Dashboard (Classic)"
 msgstr ""
 
-#: includes/items-site-group.php:358
+#: includes/items-site-group.php:374
 msgid "Force Check Updates"
 msgstr ""
 
-#: includes/items-site-group.php:362
+#: includes/items-site-group.php:378
 msgid "Check for Updates - Core, Plugins, Themes, Translations"
 msgstr ""
 
-#: includes/items-site-group.php:377
+#: includes/items-site-group.php:393
 msgid "Plugins"
 msgstr ""
 
-#: includes/items-site-group.php:381
+#: includes/items-site-group.php:397
 msgid "Plugins Page"
 msgstr ""
 
-#: includes/items-site-group.php:392 includes/items-site-group.php:396
+#: includes/items-site-group.php:408 includes/items-site-group.php:412
 msgid "All Plugins"
 msgstr ""
 
-#: includes/items-site-group.php:405
+#: includes/items-site-group.php:421
 msgid "Active Plugins"
 msgstr ""
 
-#: includes/items-site-group.php:409
+#: includes/items-site-group.php:425
 msgid "Currently active Plugins"
 msgstr ""
 
-#: includes/items-site-group.php:418
+#: includes/items-site-group.php:434
 msgid "Inactive Plugins"
 msgstr ""
 
-#: includes/items-site-group.php:422
+#: includes/items-site-group.php:438
 msgid "Currently inactive Plugins"
 msgstr ""
 
-#: includes/items-site-group.php:479
+#: includes/items-site-group.php:495
 msgid "Custom CSS"
 msgstr ""
 
-#: includes/items-site-group.php:483
+#: includes/items-site-group.php:499
 msgid "Customize CSS with Live Preview"
 msgstr ""
 
@@ -2663,6 +2975,16 @@ msgstr ""
 msgid "Tools"
 msgstr ""
 
+#: includes/plugins/items-bsf-sidebar-manager.php:36
+#: includes/plugins/items-bsf-sidebar-manager.php:40
+msgid "Sidebar Manager"
+msgstr ""
+
+#: includes/plugins/items-bsf-sidebar-manager.php:49
+#: includes/plugins/items-bsf-sidebar-manager.php:53
+msgid "New Sidebar"
+msgstr ""
+
 #: includes/plugins/items-central-color-palette.php:32
 msgid "Central Color Palette"
 msgstr ""
@@ -2676,10 +2998,16 @@ msgstr ""
 msgid "Define Colors"
 msgstr ""
 
+#: includes/plugins/items-cfdb.php:33 includes/plugins/items-cfdb.php:37
+msgid "Contact Form DB"
+msgstr ""
+
+#: includes/plugins/items-cfdb.php:59 includes/plugins/items-cfdb.php:63
+msgid "Shortcode, Export"
+msgstr ""
+
 #: includes/plugins/items-cherry-projects.php:37
 #: includes/plugins/items-cherry-projects.php:41
-#: includes/plugins/items-cherry-testimonials.php:37
-#: includes/plugins/items-cherry-testimonials.php:41
 msgid "Edit Projects"
 msgstr ""
 
@@ -2693,6 +3021,15 @@ msgstr ""
 msgid "Edit Team Members"
 msgstr ""
 
+#: includes/plugins/items-cherry-testimonials.php:37
+#: includes/plugins/items-cherry-testimonials.php:41
+#: includes/plugins/items-genesis-testimonial-slider.php:108
+#: includes/plugins/items-genesis-testimonial-slider.php:112
+#: includes/plugins/items-testimonial-rotator.php:108
+#: includes/plugins/items-testimonial-rotator.php:112
+msgid "Edit Testimonials"
+msgstr ""
+
 #: includes/plugins/items-cobalt-extender-pro.php:32
 #: includes/plugins/items-cobalt-extender-pro.php:36
 msgid "Extender Pro"
@@ -2700,31 +3037,29 @@ msgstr ""
 
 #: includes/plugins/items-cobalt-extender-pro.php:45
 #: includes/plugins/items-cobalt-extender-pro.php:49
-#: includes/plugins/items-cobalt-freelancer-devkit.php:74
-#: includes/plugins/items-cobalt-freelancer-devkit.php:78
-#: includes/plugins/items-cobalt-genesis-devkit.php:74
-#: includes/plugins/items-cobalt-genesis-devkit.php:78
+#: includes/plugins/items-cobalt-freelancer-devkit.php:89
+#: includes/plugins/items-cobalt-freelancer-devkit.php:93
+#: includes/plugins/items-cobalt-genesis-devkit.php:89
+#: includes/plugins/items-cobalt-genesis-devkit.php:93
 msgid "Custom Options"
 msgstr ""
 
 #: includes/plugins/items-cobalt-extender-pro.php:58
 #: includes/plugins/items-cobalt-extender-pro.php:62
-#: includes/plugins/items-cobalt-freelancer-devkit.php:87
-#: includes/plugins/items-cobalt-freelancer-devkit.php:91
-#: includes/plugins/items-cobalt-genesis-devkit.php:87
-#: includes/plugins/items-cobalt-genesis-devkit.php:91
-msgid "Custom Preview"
+msgid "Custom: Full View"
 msgstr ""
 
 #: includes/plugins/items-cobalt-extender-pro.php:71
 #: includes/plugins/items-cobalt-extender-pro.php:75
-#: includes/plugins/items-cobalt-freelancer-devkit.php:100
-#: includes/plugins/items-cobalt-freelancer-devkit.php:104
-#: includes/plugins/items-cobalt-genesis-devkit.php:100
-#: includes/plugins/items-cobalt-genesis-devkit.php:104
+#: includes/plugins/items-cobalt-freelancer-devkit.php:129
+#: includes/plugins/items-cobalt-freelancer-devkit.php:133
+#: includes/plugins/items-cobalt-genesis-devkit.php:129
+#: includes/plugins/items-cobalt-genesis-devkit.php:133
 #: includes/plugins/items-cobalt-genesis-extender.php:60
 #: includes/plugins/items-cobalt-genesis-extender.php:64
 #: includes/plugins/items-cobalt-themer-pro.php:95
+#: includes/themes/items-dynamik-website-builder.php:140
+#: includes/themes/items-dynamik-website-builder.php:144
 msgid "Image Manager"
 msgstr ""
 
@@ -2732,12 +3067,12 @@ msgstr ""
 #: includes/plugins/items-cobalt-extender-pro.php:88
 #: includes/plugins/items-cobalt-genesis-extender.php:73
 #: includes/plugins/items-cobalt-genesis-extender.php:77
-#: includes/plugins/items-gravity-forms.php:130
-#: includes/plugins/items-gravity-forms.php:134
-#: includes/plugins/items-widget-importer-exporter.php:29
-#: includes/plugins/items-widget-importer-exporter.php:33
-#: includes/themes/items-dynamik-website-builder.php:119
-#: includes/themes/items-dynamik-website-builder.php:123
+#: includes/plugins/items-gravity-forms.php:152
+#: includes/plugins/items-gravity-forms.php:156
+#: includes/plugins/items-widget-importer-exporter.php:30
+#: includes/plugins/items-widget-importer-exporter.php:34
+#: includes/themes/items-dynamik-website-builder.php:170
+#: includes/themes/items-dynamik-website-builder.php:174
 #: includes/themes/items-genesis-gbeaver.php:44
 #: includes/themes/items-genesis-gbeaver.php:48
 #: includes/themes/items-genesis.php:150 includes/themes/items-genesis.php:154
@@ -2753,32 +3088,53 @@ msgstr ""
 msgid "Freelancer DevKit (Premium Add-On)"
 msgstr ""
 
-#: includes/plugins/items-cobalt-freelancer-devkit.php:48
-#: includes/plugins/items-cobalt-freelancer-devkit.php:52
-#: includes/plugins/items-cobalt-genesis-devkit.php:48
-#: includes/plugins/items-cobalt-genesis-devkit.php:52
-#: includes/themes/items-dynamik-website-builder.php:72
-#: includes/themes/items-dynamik-website-builder.php:76
+#: includes/plugins/items-cobalt-freelancer-devkit.php:49
+#: includes/plugins/items-cobalt-freelancer-devkit.php:53
+#: includes/plugins/items-cobalt-genesis-devkit.php:49
+#: includes/plugins/items-cobalt-genesis-devkit.php:53
+#: includes/themes/items-dynamik-website-builder.php:80
+#: includes/themes/items-dynamik-website-builder.php:84
 msgid "Design Options"
 msgstr ""
 
-#: includes/plugins/items-cobalt-freelancer-devkit.php:61
-#: includes/plugins/items-cobalt-freelancer-devkit.php:65
-#: includes/plugins/items-cobalt-genesis-devkit.php:61
-#: includes/plugins/items-cobalt-genesis-devkit.php:65
-msgid "Design Preview"
+#: includes/plugins/items-cobalt-freelancer-devkit.php:75
+#: includes/plugins/items-cobalt-freelancer-devkit.php:79
+#: includes/plugins/items-cobalt-freelancer-devkit.php:115
+#: includes/plugins/items-cobalt-freelancer-devkit.php:119
+#: includes/plugins/items-cobalt-genesis-devkit.php:75
+#: includes/plugins/items-cobalt-genesis-devkit.php:79
+#: includes/plugins/items-cobalt-genesis-devkit.php:115
+#: includes/plugins/items-cobalt-genesis-devkit.php:119
+msgid "Full View"
 msgstr ""
 
-#: includes/plugins/items-cobalt-freelancer-devkit.php:115
-#: includes/plugins/items-cobalt-genesis-devkit.php:115
+#: includes/plugins/items-cobalt-freelancer-devkit.php:102
+#: includes/plugins/items-cobalt-freelancer-devkit.php:106
+#: includes/plugins/items-cobalt-genesis-devkit.php:102
+#: includes/plugins/items-cobalt-genesis-devkit.php:106
+msgid "Custom CSS, JS, Code"
+msgstr ""
+
+#: includes/plugins/items-cobalt-freelancer-devkit.php:145
+#: includes/plugins/items-cobalt-genesis-devkit.php:145
 #: includes/plugins/items-cobalt-themer-pro.php:110
 msgid "Theme Creator"
 msgstr ""
 
-#: includes/plugins/items-cobalt-freelancer-devkit.php:119
-#: includes/plugins/items-cobalt-genesis-devkit.php:119
+#: includes/plugins/items-cobalt-freelancer-devkit.php:149
+#: includes/plugins/items-cobalt-genesis-devkit.php:149
 #: includes/plugins/items-cobalt-themer-pro.php:114
 msgid "Child Theme Creator"
+msgstr ""
+
+#: includes/plugins/items-cobalt-freelancer-devkit.php:173
+#: includes/plugins/items-cobalt-genesis-devkit.php:173
+msgid "Help Videos"
+msgstr ""
+
+#: includes/plugins/items-cobalt-freelancer-devkit.php:177
+#: includes/plugins/items-cobalt-genesis-devkit.php:177
+msgid "Help Videos (Inline)"
 msgstr ""
 
 #: includes/plugins/items-cobalt-genesis-devkit.php:32
@@ -2789,14 +3145,6 @@ msgstr ""
 msgid "Genesis DevKit (Premium Add-On)"
 msgstr ""
 
-#: includes/plugins/items-cobalt-genesis-devkit.php:141
-msgid "Help Videos"
-msgstr ""
-
-#: includes/plugins/items-cobalt-genesis-devkit.php:145
-msgid "Help Videos (Inline)"
-msgstr ""
-
 #: includes/plugins/items-cobalt-genesis-extender.php:34
 #: includes/plugins/items-cobalt-genesis-extender.php:38
 msgid "Genesis Extender"
@@ -2804,7 +3152,7 @@ msgstr ""
 
 #: includes/plugins/items-cobalt-genesis-extender.php:47
 #: includes/plugins/items-cobalt-genesis-extender.php:51
-#: includes/themes/items-dynamik-website-builder.php:89
+#: includes/themes/items-dynamik-website-builder.php:110
 msgid "Custom CSS &amp; Code"
 msgstr ""
 
@@ -2880,6 +3228,109 @@ msgstr ""
 #: includes/plugins/items-code-snippets.php:161
 msgctxt "Toolbar New Content section"
 msgid "Add new Code Snippet"
+msgstr ""
+
+#: includes/plugins/items-convertplus.php:33
+#: includes/plugins/items-convertplus.php:37
+msgid "Convert Plus"
+msgstr ""
+
+#: includes/plugins/items-convertplus.php:47
+#: includes/plugins/items-convertplus.php:51
+#: includes/plugins/items-convertpro.php:51
+#: includes/plugins/items-convertpro.php:55
+msgid "Dashboard"
+msgstr ""
+
+#: includes/plugins/items-convertplus.php:61
+#: includes/plugins/items-convertplus.php:65
+msgid "Optin Types"
+msgstr ""
+
+#: includes/plugins/items-convertplus.php:76
+#: includes/plugins/items-convertplus.php:80
+msgid "Modal Popups"
+msgstr ""
+
+#: includes/plugins/items-convertplus.php:93
+#: includes/plugins/items-convertplus.php:97
+msgid "Info Bars"
+msgstr ""
+
+#: includes/plugins/items-convertplus.php:110
+#: includes/plugins/items-convertplus.php:114
+msgid "Slide Ins"
+msgstr ""
+
+#: includes/plugins/items-convertplus.php:126
+#: includes/plugins/items-convertplus.php:130
+msgid "Connects Contact Manager"
+msgstr ""
+
+#: includes/plugins/items-convertplus.php:140
+#: includes/plugins/items-convertplus.php:144
+msgid "Google Fonts"
+msgstr ""
+
+#: includes/plugins/items-convertplus.php:154
+#: includes/plugins/items-convertplus.php:158
+#: includes/themes/items-generatepress.php:354
+#: includes/themes/items-generatepress.php:358
+msgid "Activate Modules"
+msgstr ""
+
+#: includes/plugins/items-convertpro.php:30
+msgid "Convert Pro"
+msgstr ""
+
+#: includes/plugins/items-convertpro.php:65
+#: includes/plugins/items-convertpro.php:69
+msgid "Create New"
+msgstr ""
+
+#: includes/plugins/items-convertpro.php:78
+#: includes/plugins/items-convertpro.php:82
+msgid "New Modal Popup"
+msgstr ""
+
+#: includes/plugins/items-convertpro.php:91
+#: includes/plugins/items-convertpro.php:95
+msgid "New Info Bar"
+msgstr ""
+
+#: includes/plugins/items-convertpro.php:104
+#: includes/plugins/items-convertpro.php:108
+msgid "New Slide In"
+msgstr ""
+
+#: includes/plugins/items-convertpro.php:117
+#: includes/plugins/items-convertpro.php:121
+msgid "New Before/After"
+msgstr ""
+
+#: includes/plugins/items-convertpro.php:130
+#: includes/plugins/items-convertpro.php:134
+msgid "New In Content Form"
+msgstr ""
+
+#: includes/plugins/items-convertpro.php:143
+#: includes/plugins/items-convertpro.php:147
+msgid "New Widget Box"
+msgstr ""
+
+#: includes/plugins/items-convertpro.php:156
+#: includes/plugins/items-convertpro.php:160
+msgid "New Convert Mat"
+msgstr ""
+
+#: includes/plugins/items-convertpro.php:169
+#: includes/plugins/items-convertpro.php:173
+msgid "New Full Screen Popup"
+msgstr ""
+
+#: includes/plugins/items-convertpro.php:185
+#: includes/plugins/items-convertpro.php:189
+msgid "A/B Tests"
 msgstr ""
 
 #: includes/plugins/items-custom-css-pro.php:31
@@ -3024,10 +3475,10 @@ msgstr ""
 msgid "New Book Builder"
 msgstr ""
 
-#: includes/plugins/items-genesis-author-pro.php:94
-#: includes/plugins/items-genesis-author-pro.php:98
-#: includes/plugins/items-genesis-portfolio-pro.php:94
-#: includes/plugins/items-genesis-portfolio-pro.php:98
+#: includes/plugins/items-genesis-author-pro.php:96
+#: includes/plugins/items-genesis-author-pro.php:100
+#: includes/plugins/items-genesis-portfolio-pro.php:96
+#: includes/plugins/items-genesis-portfolio-pro.php:100
 msgid "Archive Settings"
 msgstr ""
 
@@ -3056,12 +3507,14 @@ msgstr ""
 
 #: includes/plugins/items-genesis-portfolio-pro.php:37
 #: includes/plugins/items-genesis-portfolio-pro.php:41
+#: includes/themes/items-flexia.php:307 includes/themes/items-flexia.php:311
 #: includes/themes/items-oceanwp.php:149 includes/themes/items-oceanwp.php:153
 msgid "All Portfolio Items"
 msgstr ""
 
 #: includes/plugins/items-genesis-portfolio-pro.php:50
 #: includes/plugins/items-genesis-portfolio-pro.php:54
+#: includes/themes/items-flexia.php:320 includes/themes/items-flexia.php:324
 #: includes/themes/items-oceanwp.php:162 includes/themes/items-oceanwp.php:166
 msgid "New Portfolio Item"
 msgstr ""
@@ -3086,16 +3539,22 @@ msgstr ""
 
 #: includes/plugins/items-genesis-testimonial-slider.php:37
 #: includes/plugins/items-genesis-testimonial-slider.php:41
+#: includes/plugins/items-testimonial-rotator.php:37
+#: includes/plugins/items-testimonial-rotator.php:41
 msgid "All Testimonials"
 msgstr ""
 
 #: includes/plugins/items-genesis-testimonial-slider.php:50
 #: includes/plugins/items-genesis-testimonial-slider.php:54
+#: includes/plugins/items-testimonial-rotator.php:50
+#: includes/plugins/items-testimonial-rotator.php:54
 msgid "New Testimonial"
 msgstr ""
 
 #: includes/plugins/items-genesis-testimonial-slider.php:65
 #: includes/plugins/items-genesis-testimonial-slider.php:69
+#: includes/plugins/items-testimonial-rotator.php:65
+#: includes/plugins/items-testimonial-rotator.php:69
 msgid "New Testimonial Builder"
 msgstr ""
 
@@ -3120,18 +3579,18 @@ msgstr ""
 msgid "Forms (via Gravity Forms)"
 msgstr ""
 
-#: includes/plugins/items-gravity-forms.php:143
-#: includes/plugins/items-gravity-forms.php:147
+#: includes/plugins/items-gravity-forms.php:165
+#: includes/plugins/items-gravity-forms.php:169
 msgid "Export Entries"
 msgstr ""
 
-#: includes/plugins/items-gravity-forms.php:156
-#: includes/plugins/items-gravity-forms.php:160
+#: includes/plugins/items-gravity-forms.php:178
+#: includes/plugins/items-gravity-forms.php:182
 msgid "Export Forms"
 msgstr ""
 
-#: includes/plugins/items-gravity-forms.php:169
-#: includes/plugins/items-gravity-forms.php:173
+#: includes/plugins/items-gravity-forms.php:191
+#: includes/plugins/items-gravity-forms.php:195
 msgid "Import Forms"
 msgstr ""
 
@@ -3185,6 +3644,46 @@ msgstr ""
 #: includes/plugins/items-oneclick-demo-import.php:40
 #: includes/plugins/items-oneclick-demo-import.php:44
 msgid "Install Demo Data"
+msgstr ""
+
+#: includes/plugins/items-optinmonster.php:30
+#: includes/plugins/items-optinmonster.php:34
+msgid "OptinMonster"
+msgstr ""
+
+#: includes/plugins/items-optinmonster.php:44
+#: includes/plugins/items-optinmonster.php:48
+msgid "Campaigns &amp; Optins"
+msgstr ""
+
+#: includes/plugins/items-optinmonster.php:58
+#: includes/plugins/items-optinmonster.php:62
+msgid "Create New Campaign"
+msgstr ""
+
+#: includes/plugins/items-optinmonster.php:72
+#: includes/plugins/items-optinmonster.php:76
+msgid "API Credentials"
+msgstr ""
+
+#: includes/plugins/items-optinmonster.php:86
+#: includes/plugins/items-optinmonster.php:90
+msgid "Account"
+msgstr ""
+
+#: includes/plugins/items-optinmonster.php:99
+#: includes/plugins/items-optinmonster.php:103
+msgid "Overview"
+msgstr ""
+
+#: includes/plugins/items-optinmonster.php:112
+#: includes/plugins/items-optinmonster.php:116
+msgid "Integrations"
+msgstr ""
+
+#: includes/plugins/items-optinmonster.php:125
+#: includes/plugins/items-optinmonster.php:129
+msgid "Manage Sites"
 msgstr ""
 
 #: includes/plugins/items-popup-maker.php:30
@@ -3313,16 +3812,16 @@ msgstr ""
 msgid "SiteOrigin CSS (Add-On)"
 msgstr ""
 
-#: includes/plugins/items-smart-slider.php:39
+#: includes/plugins/items-smart-slider.php:40
 msgid "Smart Sliders"
 msgstr ""
 
-#: includes/plugins/items-smart-slider.php:44
+#: includes/plugins/items-smart-slider.php:45
 msgid "Smart Sliders (via Smart Slider 3)"
 msgstr ""
 
-#: includes/plugins/items-smart-slider.php:79
-#: includes/plugins/items-smart-slider.php:83
+#: includes/plugins/items-smart-slider.php:80
+#: includes/plugins/items-smart-slider.php:84
 msgid "Fonts Settings"
 msgstr ""
 
@@ -3366,6 +3865,11 @@ msgstr ""
 msgid "Edit Affiliate Links"
 msgstr ""
 
+#: includes/plugins/items-tm-timeline.php:37
+#: includes/plugins/items-tm-timeline.php:41
+msgid "Edit Timeline Posts"
+msgstr ""
+
 #: includes/plugins/items-updraftplus.php:31
 #: includes/plugins/items-updraftplus.php:35
 msgid "UpdraftPlus"
@@ -3384,6 +3888,11 @@ msgstr ""
 #: includes/plugins/items-updraftplus.php:83
 #: includes/plugins/items-updraftplus.php:87
 msgid "Advanced Tools"
+msgstr ""
+
+#: includes/plugins/items-widget-options.php:30
+#: includes/plugins/items-widget-options.php:34
+msgid "Widget Options"
 msgstr ""
 
 #: includes/plugins/items-woocommerce.php:32
@@ -3445,21 +3954,45 @@ msgstr ""
 msgid "Create Staging Clone"
 msgstr ""
 
-#: includes/smart-tweaks.php:99
+#: includes/smart-tweaks.php:205
 msgid "Galleries"
 msgstr ""
 
-#: includes/smart-tweaks.php:104
+#: includes/smart-tweaks.php:210
 msgid "Galleries (via NextGen Gallery)"
 msgstr ""
 
-#: includes/smart-tweaks.php:136
+#: includes/smart-tweaks.php:242
 msgctxt "Label for iThemes Security plugin"
 msgid "Security"
 msgstr ""
 
-#: includes/smart-tweaks.php:141
+#: includes/smart-tweaks.php:247
 msgid "Security (via iThemes Security)"
+msgstr ""
+
+#: includes/smart-tweaks.php:370 includes/smart-tweaks.php:375
+msgid "WP Rocket"
+msgstr ""
+
+#: includes/smart-tweaks.php:408 includes/smart-tweaks.php:413
+msgid "Autoptimize"
+msgstr ""
+
+#: includes/smart-tweaks.php:442
+msgctxt "Plugin type"
+msgid "Pro"
+msgstr ""
+
+#: includes/smart-tweaks.php:442
+msgctxt "Plugin type"
+msgid "Lite"
+msgstr ""
+
+#. translators: %s - Type of plugin (Pro or Lite)
+#: includes/smart-tweaks.php:446
+#, php-format
+msgid "Swift Performance %s"
 msgstr ""
 
 #: includes/string-switcher.php:75
@@ -3475,7 +4008,7 @@ msgstr ""
 
 #. translators: %1$s - Word Elementor
 #. translators: %1$s - Astra Pro name
-#: includes/string-switcher.php:175 includes/themes/items-astra.php:421
+#: includes/string-switcher.php:175 includes/themes/items-astra.php:424
 #, php-format
 msgid "%1$s Settings"
 msgstr ""
@@ -3531,174 +4064,213 @@ msgctxt "Toolbar New Content section"
 msgid "Create New %s Template with Builder"
 msgstr ""
 
-#: includes/string-switcher.php:421
+#: includes/string-switcher.php:423
+#, php-format
+msgid "%s Settings"
+msgstr ""
+
+#: includes/string-switcher.php:439
 msgid ""
 "This info is only shown once. When dismissed it will never appear again."
 msgstr ""
 
 #. translators: Super Admin user role - plural & singular variant
-#: includes/string-switcher.php:437
+#: includes/string-switcher.php:455
 msgid "Super Admins"
 msgstr ""
 
-#: includes/string-switcher.php:437
+#: includes/string-switcher.php:455
 msgid "Super Admin"
 msgstr ""
 
 #. translators: Super Admin user role - plural & singular variant
-#: includes/string-switcher.php:440
+#: includes/string-switcher.php:458
 msgid "Admins"
 msgstr ""
 
-#: includes/string-switcher.php:440
+#: includes/string-switcher.php:458
 msgid "Admin"
 msgstr ""
 
-#: includes/string-switcher.php:465
+#: includes/string-switcher.php:483
 msgid "via Plugin"
 msgstr ""
 
-#: includes/string-switcher.php:467
+#: includes/string-switcher.php:485
 msgid "Multisite"
 msgstr ""
 
-#: includes/string-switcher.php:467
+#: includes/string-switcher.php:485
 msgid "Site"
 msgstr ""
 
 #. translators: %3$s - Label for type of installation ("Multisite" or "Site")
-#: includes/string-switcher.php:482
+#: includes/string-switcher.php:500
 #, php-format
 msgid "%3$s Toolbar Menu"
 msgstr ""
 
 #. translators: Autofocus control in the Customizer
-#: includes/themes/items-astra.php:104
+#: includes/themes/items-astra.php:107
 msgid "Logo"
 msgstr ""
 
-#: includes/themes/items-astra.php:108
+#: includes/themes/items-astra.php:111
 msgid "Customize Logo"
 msgstr ""
 
 #. translators: Autofocus panel in the Customizer
 #. translators: Autofocus section/ panel in the Customizer
-#: includes/themes/items-astra.php:118
+#. translators: Autofocus section in the Customizer
+#. translators: Autofocus panel in the Customizer
+#. translators: Autofocus section in the Customizer
+#. translators: Autofocus panel in the Customizer
+#. translators: Autofocus section in the Customizer
+#: includes/themes/items-astra.php:121
 #: includes/themes/items-generatepress.php:105
 #: includes/themes/items-generatepress.php:109
+#: includes/themes/items-genesis-academy-pro.php:48
+#: includes/themes/items-genesis-academy-pro.php:52
+#: includes/themes/items-genesis-authority-pro.php:48
+#: includes/themes/items-genesis-authority-pro.php:52
+#: includes/themes/items-genesis-boss-pro.php:48
+#: includes/themes/items-genesis-boss-pro.php:52
+#: includes/themes/items-genesis-brunch-pro.php:48
+#: includes/themes/items-genesis-brunch-pro.php:52
+#: includes/themes/items-genesis-business-pro.php:34
+#: includes/themes/items-genesis-business-pro.php:38
+#: includes/themes/items-genesis-corporate-pro.php:34
+#: includes/themes/items-genesis-corporate-pro.php:38
+#: includes/themes/items-genesis-essence-pro.php:48
+#: includes/themes/items-genesis-essence-pro.php:52
+#: includes/themes/items-genesis-foodie-pro.php:48
+#: includes/themes/items-genesis-foodie-pro.php:52
+#: includes/themes/items-genesis-monochrome-pro.php:62
+#: includes/themes/items-genesis-monochrome-pro.php:66
+#: includes/themes/items-genesis-outfitter-pro.php:48
+#: includes/themes/items-genesis-outfitter-pro.php:52
+#: includes/themes/items-genesis-refined-pro.php:48
+#: includes/themes/items-genesis-refined-pro.php:52
+#: includes/themes/items-genesis-sample.php:34
+#: includes/themes/items-genesis-sample.php:38
+#: includes/themes/items-genesis-studio-pro.php:34
+#: includes/themes/items-genesis-studio-pro.php:38
 msgid "Colors"
 msgstr ""
 
-#: includes/themes/items-astra.php:122
+#: includes/themes/items-astra.php:125
 msgid "Customize Colors"
 msgstr ""
 
 #. translators: Autofocus panel in the Customizer
-#: includes/themes/items-astra.php:132
+#: includes/themes/items-astra.php:135
 msgid "Fonts"
 msgstr ""
 
-#: includes/themes/items-astra.php:136
+#: includes/themes/items-astra.php:139
 msgid "Customize Fonts"
 msgstr ""
 
 #. translators: Autofocus section in the Customizer
-#: includes/themes/items-astra.php:146
+#: includes/themes/items-astra.php:149
 msgid "Header Options"
 msgstr ""
 
-#: includes/themes/items-astra.php:150
+#: includes/themes/items-astra.php:153
 msgid "Customize Header Options"
 msgstr ""
 
 #. translators: Autofocus section in the Customizer
-#: includes/themes/items-astra.php:160
+#: includes/themes/items-astra.php:163
+#: includes/themes/items-genesis-slush-pro.php:76
+#: includes/themes/items-genesis-slush-pro.php:80
 msgid "Footer Settings"
 msgstr ""
 
-#: includes/themes/items-astra.php:164
+#: includes/themes/items-astra.php:167
 msgid "Customize Footer Settings"
 msgstr ""
 
 #. translators: Autofocus panel in the Customizer
-#: includes/themes/items-astra.php:174
+#: includes/themes/items-astra.php:177 includes/themes/items-flexia.php:132
 #: includes/themes/items-generatepress.php:91
 #: includes/themes/items-generatepress.php:95
 msgid "Layout"
 msgstr ""
 
-#: includes/themes/items-astra.php:178
+#: includes/themes/items-astra.php:181 includes/themes/items-flexia.php:136
 msgid "Customize Layout"
 msgstr ""
 
 #. translators: Autofocus section in the Customizer
-#: includes/themes/items-astra.php:188
+#: includes/themes/items-astra.php:191
 msgid "Blog Layouts"
 msgstr ""
 
-#: includes/themes/items-astra.php:192
+#: includes/themes/items-astra.php:195
 msgid "Customize Blog Layouts"
 msgstr ""
 
 #. translators: Autofocus section in the Customizer
-#: includes/themes/items-astra.php:202
+#: includes/themes/items-astra.php:205
 msgid "Sidebars"
 msgstr ""
 
-#: includes/themes/items-astra.php:206
+#: includes/themes/items-astra.php:209
 msgid "Customize Sidebars"
 msgstr ""
 
-#: includes/themes/items-astra.php:254
-#: includes/themes/items-dynamik-website-builder.php:188
+#: includes/themes/items-astra.php:257 includes/themes/items-customify.php:219
+#: includes/themes/items-dynamik-website-builder.php:239
+#: includes/themes/items-flexia.php:247
 #: includes/themes/items-freelancer.php:123
 #: includes/themes/items-generatepress.php:206
-#: includes/themes/items-oceanwp.php:612
-#: includes/themes/items-page-builder-framework.php:185
+#: includes/themes/items-oceanwp.php:661
+#: includes/themes/items-page-builder-framework.php:192
 msgid "Official Theme Documentation"
 msgstr ""
 
-#: includes/themes/items-astra.php:324 includes/themes/items-astra.php:328
+#: includes/themes/items-astra.php:327 includes/themes/items-astra.php:331
 msgid "Custom Layouts"
 msgstr ""
 
-#: includes/themes/items-astra.php:337 includes/themes/items-astra.php:341
+#: includes/themes/items-astra.php:340 includes/themes/items-astra.php:344
 msgid "New Layout"
 msgstr ""
 
-#: includes/themes/items-astra.php:352 includes/themes/items-astra.php:356
+#: includes/themes/items-astra.php:355 includes/themes/items-astra.php:359
 msgid "New Layout Builder"
 msgstr ""
 
-#: includes/themes/items-astra.php:393 includes/themes/items-astra.php:397
+#: includes/themes/items-astra.php:396 includes/themes/items-astra.php:400
 msgid "Advanced Header"
 msgstr ""
 
-#: includes/themes/items-astra.php:406 includes/themes/items-astra.php:410
+#: includes/themes/items-astra.php:409 includes/themes/items-astra.php:413
 #: includes/themes/items-generatepress.php:287
 #: includes/themes/items-generatepress.php:291
 msgid "New Header"
 msgstr ""
 
-#: includes/themes/items-astra.php:422
+#: includes/themes/items-astra.php:425
 msgid "Astra Pro"
 msgstr ""
 
 #. translators: %s - Type of site to be imported ("Premium" or "Starter")
-#: includes/themes/items-astra.php:531
+#: includes/themes/items-astra.php:559
 #, php-format
 msgid "Import %s Sites"
 msgstr ""
 
-#: includes/themes/items-astra.php:533
+#: includes/themes/items-astra.php:561
 msgid "Starter"
 msgstr ""
 
-#: includes/themes/items-astra.php:583
+#: includes/themes/items-astra.php:611
 msgid "Custom Fonts"
 msgstr ""
 
-#: includes/themes/items-astra.php:611
+#: includes/themes/items-astra.php:639
 msgid "Custom Typekit Fonts"
 msgstr ""
 
@@ -3712,8 +4284,9 @@ msgstr ""
 #. translators: Autofocus section in the Customizer
 #: includes/themes/items-beaver-builder-theme.php:105
 #: includes/themes/items-beaver-builder-theme.php:109
+#: includes/themes/items-customify.php:90 includes/themes/items-flexia.php:104
 #: includes/themes/items-kava.php:119 includes/themes/items-kava.php:123
-#: includes/themes/items-oceanwp.php:449 includes/themes/items-oceanwp.php:453
+#: includes/themes/items-oceanwp.php:480 includes/themes/items-oceanwp.php:484
 #: includes/themes/items-page-builder-framework.php:120
 #: includes/themes/items-page-builder-framework.php:124
 #: includes/themes/items-startwp.php:105 includes/themes/items-startwp.php:109
@@ -3730,6 +4303,7 @@ msgstr ""
 #. translators: Autofocus section in the Customizer
 #: includes/themes/items-beaver-builder-theme.php:133
 #: includes/themes/items-beaver-builder-theme.php:137
+#: includes/themes/items-customify.php:104 includes/themes/items-flexia.php:118
 #: includes/themes/items-page-builder-framework.php:134
 #: includes/themes/items-page-builder-framework.php:138
 #: includes/themes/items-startwp.php:189 includes/themes/items-startwp.php:193
@@ -3742,40 +4316,198 @@ msgstr ""
 msgid "Code"
 msgstr ""
 
-#: includes/themes/items-dynamik-website-builder.php:93
-msgid "Custom Options: CSS, Code etc."
+#: includes/themes/items-customify.php:80 includes/themes/items-flexia.php:94
+msgid "Customize General Settings"
+msgstr ""
+
+#: includes/themes/items-customify.php:94 includes/themes/items-flexia.php:108
+msgid "Customize Header"
+msgstr ""
+
+#: includes/themes/items-customify.php:108 includes/themes/items-flexia.php:122
+msgid "Customize Footer"
 msgstr ""
 
 #. translators: Autofocus panel in the Customizer
-#: includes/themes/items-dynamik-website-builder.php:106
-#: includes/themes/items-dynamik-website-builder.php:110
-#: includes/themes/items-oceanwp.php:421 includes/themes/items-oceanwp.php:425
-msgid "General Options"
+#: includes/themes/items-customify.php:118
+msgid "Layouts"
 msgstr ""
 
+#: includes/themes/items-customify.php:122
+msgid "Customize Layouts"
+msgstr ""
+
+#. translators: Autofocus panel in the Customizer
+#. translators: Autofocus section in the Customizer
+#. translators: Autofocus panel in the Customizer
+#: includes/themes/items-customify.php:132
+#: includes/themes/items-generatepress.php:153
+#: includes/themes/items-generatepress.php:157
+#: includes/themes/items-oceanwp.php:498 includes/themes/items-oceanwp.php:502
+msgid "Blog"
+msgstr ""
+
+#: includes/themes/items-customify.php:136
+msgid "Customize Blog"
+msgstr ""
+
+#. translators: Autofocus panel in the Customizer
+#: includes/themes/items-customify.php:146
+msgid "Styling &amp; Colors"
+msgstr ""
+
+#: includes/themes/items-customify.php:150
+msgid "Customize Styling &amp; Colors"
+msgstr ""
+
+#. translators: Autofocus panel in the Customizer
 #. translators: Autofocus section/ panel in the Customizer
 #. translators: Autofocus panel in the Customizer
+#: includes/themes/items-customify.php:160
 #: includes/themes/items-generatepress.php:119
 #: includes/themes/items-generatepress.php:123
+#: includes/themes/items-genesis-brunch-pro.php:34
+#: includes/themes/items-genesis-brunch-pro.php:38
+#: includes/themes/items-genesis-foodie-pro.php:34
+#: includes/themes/items-genesis-foodie-pro.php:38
 #: includes/themes/items-kava.php:105 includes/themes/items-kava.php:109
-#: includes/themes/items-oceanwp.php:435 includes/themes/items-oceanwp.php:439
+#: includes/themes/items-oceanwp.php:444 includes/themes/items-oceanwp.php:448
 #: includes/themes/items-page-builder-framework.php:106
 #: includes/themes/items-page-builder-framework.php:110
 msgid "Typography"
+msgstr ""
+
+#: includes/themes/items-customify.php:164
+msgid "Customize Typography"
+msgstr ""
+
+#: includes/themes/items-customify.php:284
+#: includes/themes/items-customify.php:291
+msgid "Import Customify Sites"
+msgstr ""
+
+#: includes/themes/items-dynamik-website-builder.php:93
+#: includes/themes/items-dynamik-website-builder.php:97
+msgid "Design: Full View"
+msgstr ""
+
+#: includes/themes/items-dynamik-website-builder.php:114
+msgid "Custom Options: CSS, Code etc."
+msgstr ""
+
+#: includes/themes/items-dynamik-website-builder.php:123
+#: includes/themes/items-dynamik-website-builder.php:127
+msgid "Custom CSS &amp; Code: Full View"
+msgstr ""
+
+#. translators: Autofocus panel in the Customizer
+#: includes/themes/items-dynamik-website-builder.php:157
+#: includes/themes/items-dynamik-website-builder.php:161
+#: includes/themes/items-oceanwp.php:426 includes/themes/items-oceanwp.php:430
+msgid "General Options"
+msgstr ""
+
+#. translators: Autofocus section in the Customizer
+#: includes/themes/items-eletheme.php:60
+#: includes/themes/items-genesis-academy-pro.php:76
+#: includes/themes/items-genesis-academy-pro.php:80
+#: includes/themes/items-genesis-authority-pro.php:76
+#: includes/themes/items-genesis-authority-pro.php:80
+#: includes/themes/items-genesis-boss-pro.php:76
+#: includes/themes/items-genesis-boss-pro.php:80
+#: includes/themes/items-genesis-brunch-pro.php:90
+#: includes/themes/items-genesis-brunch-pro.php:94
+#: includes/themes/items-genesis-cookd-pro.php:90
+#: includes/themes/items-genesis-cookd-pro.php:94
+#: includes/themes/items-genesis-essence-pro.php:62
+#: includes/themes/items-genesis-essence-pro.php:66
+#: includes/themes/items-genesis-foodie-pro.php:90
+#: includes/themes/items-genesis-foodie-pro.php:94
+#: includes/themes/items-genesis-monochrome-pro.php:90
+#: includes/themes/items-genesis-monochrome-pro.php:94
+#: includes/themes/items-genesis-outfitter-pro.php:90
+#: includes/themes/items-genesis-outfitter-pro.php:94
+#: includes/themes/items-genesis-refined-pro.php:90
+#: includes/themes/items-genesis-refined-pro.php:94
+#: includes/themes/items-genesis-sample.php:48
+#: includes/themes/items-genesis-sample.php:52
+#: includes/themes/items-genesis-slush-pro.php:104
+#: includes/themes/items-genesis-slush-pro.php:108
+msgid "Site Identity"
+msgstr ""
+
+#: includes/themes/items-eletheme.php:64
+msgid "Customize Site Identity"
+msgstr ""
+
+#. translators: Autofocus panel in the Customizer
+#: includes/themes/items-flexia.php:146
+msgid "Blog Styles"
+msgstr ""
+
+#: includes/themes/items-flexia.php:150
+msgid "Customize Blog Styles"
+msgstr ""
+
+#. translators: Autofocus panel in the Customizer
+#: includes/themes/items-flexia.php:160
+msgid "Color &amp; Typography"
+msgstr ""
+
+#: includes/themes/items-flexia.php:164
+msgid "Customize Color &amp; Typography"
+msgstr ""
+
+#. translators: Autofocus panel in the Customizer
+#: includes/themes/items-flexia.php:174
+msgid "Design"
+msgstr ""
+
+#. translators: Autofocus panel in the Customizer
+#: includes/themes/items-flexia.php:188
+msgid "Custom JavaScripts"
+msgstr ""
+
+#: includes/themes/items-flexia.php:192
+msgid "Customize Custom JavaScripts"
+msgstr ""
+
+#. translators: Autofocus section in the Customizer
+#: includes/themes/items-flexia.php:358
+msgid "Preloader"
+msgstr ""
+
+#: includes/themes/items-flexia.php:362
+msgid "Customize Preloader"
+msgstr ""
+
+#. translators: Autofocus section in the Customizer
+#. translators: Autofocus panel in the Customizer
+#: includes/themes/items-flexia.php:374 includes/themes/items-oceanwp.php:571
+#: includes/themes/items-oceanwp.php:575
+msgid "Portfolio"
+msgstr ""
+
+#: includes/themes/items-flexia.php:378
+msgid "Customize Portfolio"
+msgstr ""
+
+#: includes/themes/items-flexia.php:388 includes/themes/items-flexia.php:392
+msgid "Flexia Pro Settings"
+msgstr ""
+
+#: includes/themes/items-flexia.php:401 includes/themes/items-flexia.php:405
+msgid "Modules"
+msgstr ""
+
+#: includes/themes/items-flexia.php:416 includes/themes/items-flexia.php:420
+msgid "Under Construction"
 msgstr ""
 
 #. translators: Autofocus panel in the Customizer
 #: includes/themes/items-generatepress.php:135
 #: includes/themes/items-generatepress.php:139
 msgid "Backgrounds"
-msgstr ""
-
-#. translators: Autofocus section in the Customizer
-#. translators: Autofocus panel in the Customizer
-#: includes/themes/items-generatepress.php:153
-#: includes/themes/items-generatepress.php:157
-#: includes/themes/items-oceanwp.php:463 includes/themes/items-oceanwp.php:467
-msgid "Blog"
 msgstr ""
 
 #: includes/themes/items-generatepress.php:274
@@ -3807,14 +4539,88 @@ msgstr ""
 msgid "GeneratePress Premium Settings"
 msgstr ""
 
-#: includes/themes/items-generatepress.php:354
-#: includes/themes/items-generatepress.php:358
-msgid "Activate Modules"
-msgstr ""
-
 #: includes/themes/items-generatepress.php:418
 #: includes/themes/items-generatepress.php:422
 msgid "Import Sites"
+msgstr ""
+
+#. translators: Autofocus section in the Customizer
+#: includes/themes/items-genesis-academy-pro.php:62
+#: includes/themes/items-genesis-academy-pro.php:66
+#: includes/themes/items-genesis-authority-pro.php:62
+#: includes/themes/items-genesis-authority-pro.php:66
+#: includes/themes/items-genesis-boss-pro.php:62
+#: includes/themes/items-genesis-boss-pro.php:66
+#: includes/themes/items-genesis-brunch-pro.php:62
+#: includes/themes/items-genesis-brunch-pro.php:66
+#: includes/themes/items-genesis-cookd-pro.php:62
+#: includes/themes/items-genesis-cookd-pro.php:66
+#: includes/themes/items-genesis-foodie-pro.php:62
+#: includes/themes/items-genesis-foodie-pro.php:66
+#: includes/themes/items-genesis-monochrome-pro.php:76
+#: includes/themes/items-genesis-monochrome-pro.php:80
+#: includes/themes/items-genesis-outfitter-pro.php:62
+#: includes/themes/items-genesis-outfitter-pro.php:66
+#: includes/themes/items-genesis-refined-pro.php:62
+#: includes/themes/items-genesis-refined-pro.php:66
+msgid "Header Image"
+msgstr ""
+
+#. translators: Autofocus section in the Customizer
+#: includes/themes/items-genesis-boss-pro.php:34
+#: includes/themes/items-genesis-boss-pro.php:38
+msgid "Front Page Images"
+msgstr ""
+
+#. translators: Autofocus section in the Customizer
+#: includes/themes/items-genesis-brunch-pro.php:76
+#: includes/themes/items-genesis-brunch-pro.php:80
+#: includes/themes/items-genesis-business-pro.php:62
+#: includes/themes/items-genesis-business-pro.php:66
+#: includes/themes/items-genesis-cookd-pro.php:76
+#: includes/themes/items-genesis-cookd-pro.php:80
+#: includes/themes/items-genesis-corporate-pro.php:62
+#: includes/themes/items-genesis-corporate-pro.php:66
+#: includes/themes/items-genesis-foodie-pro.php:76
+#: includes/themes/items-genesis-foodie-pro.php:80
+#: includes/themes/items-genesis-outfitter-pro.php:76
+#: includes/themes/items-genesis-outfitter-pro.php:80
+#: includes/themes/items-genesis-refined-pro.php:76
+#: includes/themes/items-genesis-refined-pro.php:80
+#: includes/themes/items-genesis-studio-pro.php:62
+#: includes/themes/items-genesis-studio-pro.php:66
+msgid "Background Image"
+msgstr ""
+
+#: includes/themes/items-genesis-brunch-pro.php:117
+#: includes/themes/items-genesis-brunch-pro.php:121
+#: includes/themes/items-genesis-cookd-pro.php:117
+#: includes/themes/items-genesis-cookd-pro.php:121
+#: includes/themes/items-genesis-foodie-pro.php:117
+#: includes/themes/items-genesis-foodie-pro.php:121
+msgid "Theme Info"
+msgstr ""
+
+#. translators: Autofocus section in the Customizer
+#: includes/themes/items-genesis-business-pro.php:48
+#: includes/themes/items-genesis-business-pro.php:52
+#: includes/themes/items-genesis-corporate-pro.php:48
+#: includes/themes/items-genesis-corporate-pro.php:52
+#: includes/themes/items-genesis-studio-pro.php:48
+#: includes/themes/items-genesis-studio-pro.php:52
+msgid "Header Media"
+msgstr ""
+
+#. translators: Autofocus section in the Customizer
+#: includes/themes/items-genesis-cookd-pro.php:34
+#: includes/themes/items-genesis-cookd-pro.php:38
+msgid "Archive Grid"
+msgstr ""
+
+#. translators: Autofocus section in the Customizer
+#: includes/themes/items-genesis-cookd-pro.php:48
+#: includes/themes/items-genesis-cookd-pro.php:52
+msgid "Single Posts"
 msgstr ""
 
 #. translators: Autofocus section in the Customizer
@@ -3851,6 +4657,44 @@ msgstr ""
 #: includes/themes/items-genesis-mai-lifestyle.php:106
 #: includes/themes/items-genesis-mai-lifestyle.php:110
 msgid "Mai Portfolio Items"
+msgstr ""
+
+#. translators: Autofocus section in the Customizer
+#: includes/themes/items-genesis-monochrome-pro.php:48
+#: includes/themes/items-genesis-monochrome-pro.php:52
+msgid "Front Page Background Images"
+msgstr ""
+
+#. translators: Autofocus section in the Customizer
+#: includes/themes/items-genesis-refined-pro.php:34
+#: includes/themes/items-genesis-refined-pro.php:38
+msgid "Front Page Content Settings"
+msgstr ""
+
+#. translators: Autofocus section in the Customizer
+#: includes/themes/items-genesis-slush-pro.php:34
+#: includes/themes/items-genesis-slush-pro.php:38
+msgid "Body Style"
+msgstr ""
+
+#. translators: Autofocus section in the Customizer
+#: includes/themes/items-genesis-slush-pro.php:48
+#: includes/themes/items-genesis-slush-pro.php:52
+msgid "Heading Style"
+msgstr ""
+
+#. translators: Autofocus section in the Customizer
+#: includes/themes/items-genesis-slush-pro.php:62
+#: includes/themes/items-genesis-slush-pro.php:66
+msgid "Accent Colors"
+msgstr ""
+
+#. translators: Autofocus section in the Customizer
+#: includes/themes/items-genesis-slush-pro.php:90
+#: includes/themes/items-genesis-slush-pro.php:94
+#: includes/themes/items-hestia.php:108 includes/themes/items-hestia.php:112
+#: includes/themes/items-kava.php:133 includes/themes/items-kava.php:137
+msgid "Blog Settings"
 msgstr ""
 
 #: includes/themes/items-genesis.php:100 includes/themes/items-genesis.php:104
@@ -3904,12 +4748,6 @@ msgstr ""
 #. translators: Autofocus panel in the Customizer
 #: includes/themes/items-hestia.php:94 includes/themes/items-hestia.php:98
 msgid "Frontpage Sections"
-msgstr ""
-
-#. translators: Autofocus section in the Customizer
-#: includes/themes/items-hestia.php:108 includes/themes/items-hestia.php:112
-#: includes/themes/items-kava.php:133 includes/themes/items-kava.php:137
-msgid "Blog Settings"
 msgstr ""
 
 #. translators: Autofocus section in the Customizer
@@ -3995,50 +4833,50 @@ msgstr ""
 msgid "Push Notifications"
 msgstr ""
 
+#. translators: Autofocus panel in the Customizer
+#: includes/themes/items-oceanwp.php:462 includes/themes/items-oceanwp.php:466
+msgid "Top Bar"
+msgstr ""
+
 #. translators: Autofocus section in the Customizer
-#: includes/themes/items-oceanwp.php:477 includes/themes/items-oceanwp.php:481
+#: includes/themes/items-oceanwp.php:516 includes/themes/items-oceanwp.php:520
 #: includes/themes/items-startwp.php:147 includes/themes/items-startwp.php:151
 msgid "Sidebar"
 msgstr ""
 
 #. translators: Autofocus section in the Customizer
-#: includes/themes/items-oceanwp.php:491 includes/themes/items-oceanwp.php:495
+#: includes/themes/items-oceanwp.php:534 includes/themes/items-oceanwp.php:538
 msgid "Footer Widgets"
 msgstr ""
 
 #. translators: Autofocus section in the Customizer
-#: includes/themes/items-oceanwp.php:505 includes/themes/items-oceanwp.php:509
+#: includes/themes/items-oceanwp.php:552 includes/themes/items-oceanwp.php:556
 msgid "Footer Bottom"
 msgstr ""
 
-#. translators: Autofocus panel in the Customizer
-#: includes/themes/items-oceanwp.php:522 includes/themes/items-oceanwp.php:526
-msgid "Portfolio"
-msgstr ""
-
 #. translators: Autofocus section in the Customizer
-#: includes/themes/items-oceanwp.php:541 includes/themes/items-oceanwp.php:545
+#: includes/themes/items-oceanwp.php:590 includes/themes/items-oceanwp.php:594
 msgid "Side Panel"
 msgstr ""
 
 #. translators: Autofocus panel in the Customizer
-#: includes/themes/items-oceanwp.php:560 includes/themes/items-oceanwp.php:564
+#: includes/themes/items-oceanwp.php:609 includes/themes/items-oceanwp.php:613
 msgid "Modal Window"
 msgstr ""
 
 #. translators: %s - (Static) Theme name OceanWP - optionally white labeled string
-#: includes/themes/items-oceanwp.php:668
+#: includes/themes/items-oceanwp.php:717
 #, php-format
 msgid "%s Library"
 msgstr ""
 
 #. translators: %s - (Static) Theme name OceanWP - optionally white labeled string
-#: includes/themes/items-oceanwp.php:673
+#: includes/themes/items-oceanwp.php:722
 #, php-format
 msgid "New %s Library Template"
 msgstr ""
 
-#: includes/themes/items-oceanwp.php:745 includes/themes/items-oceanwp.php:749
+#: includes/themes/items-oceanwp.php:794 includes/themes/items-oceanwp.php:798
 msgid "Install Demos"
 msgstr ""
 

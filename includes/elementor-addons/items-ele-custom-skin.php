@@ -28,7 +28,6 @@ function ddw_tbex_add_elementor_template_type_ecsloop( array $template_types ) {
 }  // end function
 
 
-//tbex_before_elementor_library_new
 add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_ele_custom_skin', 200 );
 /**
  * Items for Add-On: Elementor Custom Skin (free, by Liviu Duda)

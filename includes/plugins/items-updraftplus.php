@@ -1,6 +1,6 @@
 <?php
 
-//items-updraftplus
+// includes/plugins/items-updraftplus
 
 /**
  * Prevent direct access to this file.
@@ -27,7 +27,7 @@ function ddw_tbex_site_items_updraftplus() {
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(
 		array(
 			'id'     => 'updraftplus',
-			'parent' => 'tbex-sitegroup-stuff',
+			'parent' => 'tbex-sitegroup-tools',
 			'title'  => esc_attr__( 'UpdraftPlus', 'toolbar-extras' ),
 			'href'   => esc_url( admin_url( 'options-general.php?page=updraftplus' ) ),
 			'meta'   => array(

@@ -410,6 +410,24 @@ function ddw_tbex_string_elementor_template_create_with_builder( $template_type 
 
 
 /**
+ * Get the Genesis Child Theme settings name.
+ *
+ * @since  1.2.0
+ *
+ * @return string Name of Child Theme settings.
+ */
+function ddw_tbex_string_genesis_child_theme_settings() {
+
+	/* translators: %s - Name of the Genesis Child Theme (from the Stylesheet) */
+	return sprintf(
+		esc_attr__( '%s Settings', 'toolbar-extras' ),
+		wp_get_theme()->get( 'Name' )
+	);
+
+}  // end function
+
+
+/**
  * Build "Info shown once..." notice string.
  *
  * @since  1.1.2

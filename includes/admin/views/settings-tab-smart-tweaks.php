@@ -49,6 +49,41 @@ function ddw_tbex_settings_section_info_plugins() {
 }  // end function
 
 
+/**
+ * Tab Smart Tweaks - 3rd settings section: Description.
+ *
+ * @since 1.2.0
+ */
+function ddw_tbex_settings_section_info_translations() {
+
+	?>
+		<p>
+			<?php _e( 'Unload translations for specific plugins so that you can work in an English-language environment. This could be very useful for multilingual installs.', 'toolbar-extras' ); ?>
+		</p>
+		<p class="description">
+			<?php echo '<strong>' . __( 'Usage example', 'toolbar-extras' ) . ':</strong>' . __( 'The site of your client is completely in French. You as the Administrator and site builder speak no French, only English, and the site cannot be switched to English. The user profile language setting doesn’t help as it is only for the WP-Admin. So, in this case when you need to edit stuff in Elementor and want to use Toolbar Extras as well: Then the tweaks below help you to get a English-language environment for Elementor.', 'toolbar-extras' ); ?>
+		</p>
+	<?php
+
+}  // end function
+
+
+/**
+ * Tab Smart Tweaks - 4th settings section: Description.
+ *
+ * @since 1.2.0
+ */
+function ddw_tbex_settings_section_info_pagebuilder() {
+
+	?>
+		<p>
+			<?php _e( 'Tweak a few things regarding the active Page Builder.', 'toolbar-extras' ); ?>
+		</p>
+	<?php
+
+}  // end function
+
+
 
 /**
  * 2) All SETTING FIELDS callbacks (rendering)
@@ -153,6 +188,28 @@ function ddw_tbex_settings_cb_remove_front_customizer() {
 
 
 /**
+ * Setting (Select): Remove User in New Content Group?
+ *
+ * @since 1.2.0
+ */
+function ddw_tbex_settings_cb_remove_user_newcontent() {
+
+	$tbex_options = get_option( 'tbex-options-tweaks' );
+
+	?>
+		<select name="tbex-options-tweaks[remove_user_newcontent]" id="tbex-options-tweaks-remove_user_newcontent">
+			<option value="yes" <?php selected( sanitize_key( $tbex_options[ 'remove_user_newcontent' ] ), 'yes' ); ?>><?php _e( 'Yes', 'toolbar-extras' ); ?></option>
+			<option value="no" <?php selected( sanitize_key( $tbex_options[ 'remove_user_newcontent' ] ), 'no' ); ?>><?php _e( 'No', 'toolbar-extras' ); ?></option>
+		</select>
+		<label for="tbex-options-tweaks[remove_user_newcontent]">
+			<span class="description"><?php echo sprintf( __( 'Default: %s', 'toolbar-extras' ), '<code>' . __( 'No', 'toolbar-extras' ) . '</code>' ); ?></span>
+		</label>
+	<?php
+
+}  // end function
+
+
+/**
  * Setting (Select): Re-hook Gravity Forms?
  *
  * @since 1.0.0
@@ -246,6 +303,106 @@ function ddw_tbex_settings_cb_rehook_ithsec() {
 		</label>
 		<p class="description">
 			<?php _e( 'This tweak re-hooks the complete iThemes Security Toolbar group as a sub-item of the Site Group.', 'toolbar-extras' ); ?>
+		</p>
+	<?php
+
+}  // end function
+
+
+/**
+ * Setting (Select): Re-hook WP Rocket?
+ *
+ * @since 1.1.0
+ */
+function ddw_tbex_settings_cb_rehook_wprocket() {
+
+	$tbex_options = get_option( 'tbex-options-tweaks' );
+
+	?>
+		<select name="tbex-options-tweaks[rehook_wprocket]" id="tbex-options-tweaks-rehook_wprocket">
+			<option value="yes" <?php selected( sanitize_key( $tbex_options[ 'rehook_wprocket' ] ), 'yes' ); ?>><?php _e( 'Yes', 'toolbar-extras' ); ?></option>
+			<option value="no" <?php selected( sanitize_key( $tbex_options[ 'rehook_wprocket' ] ), 'no' ); ?>><?php _e( 'No', 'toolbar-extras' ); ?></option>
+		</select>
+		<label for="tbex-options-tweaks[rehook_wprocket]">
+			<span class="description"><?php echo sprintf( __( 'Default: %s', 'toolbar-extras' ), '<code>' . __( 'No', 'toolbar-extras' ) . '</code>' ); ?></span>
+		</label>
+		<p class="description">
+			<?php _e( 'This tweak re-hooks the complete WP Rocket Toolbar group as a sub-item of the Site Group.', 'toolbar-extras' ); ?>
+		</p>
+	<?php
+
+}  // end function
+
+
+/**
+ * Setting (Select): Re-hook Autoptimize?
+ *
+ * @since 1.1.0
+ */
+function ddw_tbex_settings_cb_rehook_autoptimize() {
+
+	$tbex_options = get_option( 'tbex-options-tweaks' );
+
+	?>
+		<select name="tbex-options-tweaks[rehook_autoptimize]" id="tbex-options-tweaks-rehook_autoptimize">
+			<option value="yes" <?php selected( sanitize_key( $tbex_options[ 'rehook_autoptimize' ] ), 'yes' ); ?>><?php _e( 'Yes', 'toolbar-extras' ); ?></option>
+			<option value="no" <?php selected( sanitize_key( $tbex_options[ 'rehook_autoptimize' ] ), 'no' ); ?>><?php _e( 'No', 'toolbar-extras' ); ?></option>
+		</select>
+		<label for="tbex-options-tweaks[rehook_autoptimize]">
+			<span class="description"><?php echo sprintf( __( 'Default: %s', 'toolbar-extras' ), '<code>' . __( 'No', 'toolbar-extras' ) . '</code>' ); ?></span>
+		</label>
+		<p class="description">
+			<?php _e( 'This tweak re-hooks the complete Autoptimize Toolbar group as a sub-item of the Site Group.', 'toolbar-extras' ); ?>
+		</p>
+	<?php
+
+}  // end function
+
+
+/**
+ * Setting (Select): Re-hook Swift Performance (Lite)?
+ *
+ * @since 1.1.0
+ */
+function ddw_tbex_settings_cb_rehook_swiftperformance() {
+
+	$tbex_options = get_option( 'tbex-options-tweaks' );
+
+	?>
+		<select name="tbex-options-tweaks[rehook_swiftperformance]" id="tbex-options-tweaks-rehook_swiftperformance">
+			<option value="yes" <?php selected( sanitize_key( $tbex_options[ 'rehook_swiftperformance' ] ), 'yes' ); ?>><?php _e( 'Yes', 'toolbar-extras' ); ?></option>
+			<option value="no" <?php selected( sanitize_key( $tbex_options[ 'rehook_swiftperformance' ] ), 'no' ); ?>><?php _e( 'No', 'toolbar-extras' ); ?></option>
+		</select>
+		<label for="tbex-options-tweaks[rehook_swiftperformance]">
+			<span class="description"><?php echo sprintf( __( 'Default: %s', 'toolbar-extras' ), '<code>' . __( 'No', 'toolbar-extras' ) . '</code>' ); ?></span>
+		</label>
+		<p class="description">
+			<?php _e( 'This tweak re-hooks the complete Swift Performance (Lite) Toolbar group as a sub-item of the Site Group.', 'toolbar-extras' ); ?>
+		</p>
+	<?php
+
+}  // end function
+
+
+/**
+ * Setting (Select): Remove WooCommerce post type entries?
+ *
+ * @since 1.2.0
+ */
+function ddw_tbex_settings_cb_remove_woo_posttypes() {
+
+	$tbex_options = get_option( 'tbex-options-tweaks' );
+
+	?>
+		<select name="tbex-options-tweaks[remove_woo_posttypes]" id="tbex-options-tweaks-remove_woo_posttypes">
+			<option value="yes" <?php selected( sanitize_key( $tbex_options[ 'remove_woo_posttypes' ] ), 'yes' ); ?>><?php _e( 'Yes', 'toolbar-extras' ); ?></option>
+			<option value="no" <?php selected( sanitize_key( $tbex_options[ 'remove_woo_posttypes' ] ), 'no' ); ?>><?php _e( 'No', 'toolbar-extras' ); ?></option>
+		</select>
+		<label for="tbex-options-tweaks[remove_woo_posttypes]">
+			<span class="description"><?php echo sprintf( __( 'Default: %s', 'toolbar-extras' ), '<code>' . __( 'No', 'toolbar-extras' ) . '</code>' ); ?></span>
+		</label>
+		<p class="description">
+			<?php _e( 'This tweak removes the items New Order and New Coupon from the New Content Group as these two are rarely used.', 'toolbar-extras' ); ?>
 		</p>
 	<?php
 
@@ -427,6 +584,81 @@ function ddw_tbex_settings_cb_remove_mstba_siteextgroup() {
 		</label>
 		<p class="description">
 			<?php _e( 'This tweak removes the items of the "Site Extend Group" as Toolbar Extras already places a lot of these or similar links as sub-items under Site Group.', 'toolbar-extras' ); ?>
+		</p>
+	<?php
+
+}  // end function
+
+
+/**
+ * Setting (Select): Unload the Elementor (Pro) translations?
+ *
+ * @since 1.2.0
+ */
+function ddw_tbex_settings_cb_unload_td_elementor() {
+
+	$tbex_options = get_option( 'tbex-options-tweaks' );
+
+	?>
+		<select name="tbex-options-tweaks[unload_td_elementor]" id="tbex-options-tweaks-unload_td_elementor">
+			<option value="yes" <?php selected( sanitize_key( $tbex_options[ 'unload_td_elementor' ] ), 'yes' ); ?>><?php _e( 'Yes', 'toolbar-extras' ); ?></option>
+			<option value="no" <?php selected( sanitize_key( $tbex_options[ 'unload_td_elementor' ] ), 'no' ); ?>><?php _e( 'No', 'toolbar-extras' ); ?></option>
+		</select>
+		<label for="tbex-options-tweaks[unload_td_elementor]">
+			<span class="description"><?php echo sprintf( __( 'Default: %s', 'toolbar-extras' ), '<code>' . __( 'No', 'toolbar-extras' ) . '</code>' ); ?></span>
+		</label>
+		<p class="description">
+			<?php _e( 'This tweak unloads the translations for Elementor, and if active also for Elementor Pro, so it falls back to the English default strings.', 'toolbar-extras' ); ?>
+		</p>
+	<?php
+
+}  // end function
+
+
+/**
+ * Setting (Select): Unload the Toolbar Extras translations?
+ *
+ * @since 1.2.0
+ */
+function ddw_tbex_settings_cb_unload_td_toolbar_extras() {
+
+	$tbex_options = get_option( 'tbex-options-tweaks' );
+
+	?>
+		<select name="tbex-options-tweaks[unload_td_toolbar_extras]" id="tbex-options-tweaks-unload_td_toolbar_extras">
+			<option value="yes" <?php selected( sanitize_key( $tbex_options[ 'unload_td_toolbar_extras' ] ), 'yes' ); ?>><?php _e( 'Yes', 'toolbar-extras' ); ?></option>
+			<option value="no" <?php selected( sanitize_key( $tbex_options[ 'unload_td_toolbar_extras' ] ), 'no' ); ?>><?php _e( 'No', 'toolbar-extras' ); ?></option>
+		</select>
+		<label for="tbex-options-tweaks[unload_td_toolbar_extras]">
+			<span class="description"><?php echo sprintf( __( 'Default: %s', 'toolbar-extras' ), '<code>' . __( 'No', 'toolbar-extras' ) . '</code>' ); ?></span>
+		</label>
+		<p class="description">
+			<?php _e( 'This tweak unloads the translations for Toolbar Extras, so it falls back to the English default strings.', 'toolbar-extras' ); ?>
+		</p>
+	<?php
+
+}  // end function
+
+
+/**
+ * Setting (Select): Remove WordPress Widgets from Elementor Live Editor?
+ *
+ * @since 1.2.0
+ */
+function ddw_tbex_settings_cb_remove_elementor_wpwidgets() {
+
+	$tbex_options = get_option( 'tbex-options-tweaks' );
+
+	?>
+		<select name="tbex-options-tweaks[remove_elementor_wpwidgets]" id="tbex-options-tweaks-remove_elementor_wpwidgets">
+			<option value="yes" <?php selected( sanitize_key( $tbex_options[ 'remove_elementor_wpwidgets' ] ), 'yes' ); ?>><?php _e( 'Yes', 'toolbar-extras' ); ?></option>
+			<option value="no" <?php selected( sanitize_key( $tbex_options[ 'remove_elementor_wpwidgets' ] ), 'no' ); ?>><?php _e( 'No', 'toolbar-extras' ); ?></option>
+		</select>
+		<label for="tbex-options-tweaks[remove_elementor_wpwidgets]">
+			<span class="description"><?php echo sprintf( __( 'Default: %s', 'toolbar-extras' ), '<code>' . __( 'No', 'toolbar-extras' ) . '</code>' ); ?></span>
+		</label>
+		<p class="description">
+			<?php _e( 'This tweak removes the WordPress Widgets from the Elementor Live Editor (within the left-hand Elementor Panel).', 'toolbar-extras' ); ?>
 		</p>
 	<?php
 

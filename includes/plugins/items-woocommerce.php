@@ -61,9 +61,9 @@ function ddw_tbex_site_items_woocommerce() {
 
 add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_wc_plugin', 500 );
 /**
- * User items for Plugin: WooCommerce
+ * Customizer items for Plugin: WooCommerce
  *
- * @since  1.0.0
+ * @since  1.1.0
  *
  * @uses   ddw_tbex_customizer_focus()
  *

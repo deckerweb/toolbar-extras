@@ -34,11 +34,11 @@ function ddw_tbex_site_items_cherry_testimonials() {
 		array(
 			'id'     => 'cherry-testimonials-edit',
 			'parent' => 'group-cherry-testimonials',
-			'title'  => esc_attr__( 'Edit Projects', 'toolbar-extras' ),
+			'title'  => esc_attr__( 'Edit Testimonials', 'toolbar-extras' ),
 			'href'   => esc_url( admin_url( 'edit.php?post_type=tm-testimonials' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Edit Projects', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Edit Testimonials', 'toolbar-extras' )
 			)
 		)
 	);

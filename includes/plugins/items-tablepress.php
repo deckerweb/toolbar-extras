@@ -1,6 +1,6 @@
 <?php
 
-//items-tablepress
+// includes/plugins/items-tablepress
 
 /**
  * Prevent direct access to this file.

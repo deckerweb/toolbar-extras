@@ -1,7 +1,7 @@
 <?php
 
-//dev-mode
-//items-theme-switcha
+// dev-mode
+// includes/plugins/items-theme-switcha
 
 /**
  * Prevent direct access to this file.

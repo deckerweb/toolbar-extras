@@ -516,6 +516,34 @@ function ddw_tbex_settings_cb_demo_import_icon() {
 
 
 /**
+ * Setting (Select): Remove link title attributes?
+ *
+ * @since 1.2.0
+ */
+function ddw_tbex_settings_cb_display_title_attributes() {
+
+	$tbex_options = get_option( 'tbex-options-general' );
+
+	?>
+		<select name="tbex-options-general[display_title_attributes]" id="tbex-options-general-display_title_attributes">
+			<option value="yes" <?php selected( sanitize_key( $tbex_options[ 'display_title_attributes' ] ), 'yes' ); ?>><?php _e( 'Yes', 'toolbar-extras' ); ?></option>
+			<option value="no" <?php selected( sanitize_key( $tbex_options[ 'display_title_attributes' ] ), 'no' ); ?>><?php _e( 'No', 'toolbar-extras' ); ?></option>
+		</select>
+		<label for="tbex-options-general[display_title_attributes]">
+			<span class="description"><?php echo sprintf( __( 'Default: %s', 'toolbar-extras' ), '<code>' . __( 'Yes', 'toolbar-extras' ) . '</code>' ); ?></span>
+		</label>
+		<p class="description">
+			<?php
+				/* translators: %1$s - Word "No", %2$s - Plugin name "Toolbar Extras */
+				echo sprintf( __( 'Determine if the link title attributes (Tooltips) should be used within the Toolbar or not. When set to %1$s then no title attribute will be used in the source code for all links in the Toolbar, including from this plugin, %2$s.', 'toolbar-extras' ), '<code>' . __( 'No', 'toolbar-extras' ) . '</code>', __( 'Toolbar Extras', 'toolbar-extras' ) );
+			?>
+		</p>
+	<?php
+
+}  // end function
+
+
+/**
  * Setting (Select): External links _blank target?
  *
  * @since 1.0.0

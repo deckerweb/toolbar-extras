@@ -1,6 +1,7 @@
 <?php
 
-//items-widget-importer-exporter
+// includes/plugins/items-widget-importer-exporter
+
 /**
  * Prevent direct access to this file.
  *

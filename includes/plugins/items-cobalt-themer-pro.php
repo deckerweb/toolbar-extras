@@ -61,7 +61,7 @@ function ddw_tbex_aoitems_themer_pro() {
 					'title'  => esc_attr__( 'Child Theme Editor Full View', 'toolbar-extras' ),
 					'href'   => esc_url( admin_url( 'admin.php?page=themer-pro-child-editor&activefile=functions-php&subdir&fullscreen=1' ) ),
 					'meta'   => array(
-						'target' => '',
+						'target' => ddw_tbex_meta_target(),
 						'title'  => esc_attr__( 'Child Theme Editor Full View', 'toolbar-extras' )
 					)
 				)

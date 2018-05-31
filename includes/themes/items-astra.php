@@ -2,6 +2,9 @@
 
 //items-astra
 //items-astra-pro
+//items-astra-addons
+
+// includes/themes/items-astra
 
 /**
  * Prevent direct access to this file.
@@ -498,6 +501,31 @@ function ddw_tbex_themeitems_astra_pro_resources() {
 		'theme-translations-pro',
 		'group-theme-resources',
 		'https://translate.brainstormforce.com/'
+	);
+
+}  // end function
+
+
+add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_astra_developer_resources', 200 );
+/**
+ * Additional Developer Resource Items for Astra/ Astra Pro
+ *
+ * @since 1.2.0
+ *
+ * @uses  ddw_tbex_resource_item()
+ */
+function ddw_tbex_themeitems_astra_developer_resources() {
+
+	/** Bail early if Dev Mode & Resources display are disabled */
+	if ( ! ddw_tbex_display_items_dev_mode() && ! ddw_tbex_display_items_resources() ) {
+		return;
+	}
+
+	ddw_tbex_resource_item(
+		'code-reference',
+		'theme-developers-code-reference',
+		'group-theme-resources',
+		'https://developers.wpastra.com/'
 	);
 
 }  // end function

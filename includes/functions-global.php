@@ -53,6 +53,7 @@ function ddw_tbex_info_values() {
 		'url_snippets'      => 'https://gist.github.com/deckerweb',
 		'author'            => __( 'David Decker - DECKERWEB', 'toolbar-extras' ),
 		'author_uri'        => __( 'https://deckerweb.de/', 'toolbar-extras' ),
+		'author_avatar'     => plugins_url( '/assets/images/plugin-author.jpg', dirname( __FILE__ ) ),
 		'author_gravatar'   => 'https://s.gravatar.com/avatar/37f92a97dd59cb35be4f86f3e6b56309?s=',		// size defined at usage!
 		'license'           => 'GPL-2.0+',
 		'url_license'       => 'https://opensource.org/licenses/GPL-2.0',
@@ -141,6 +142,7 @@ function ddw_tbex_get_info_link( $url_key = '', $text = '', $class = '' ) {
  *
  * @uses   ddw_tbex_info_values()
  *
+ * @param  int $first_year Integer number of first year
  * @return string Timespan of years.
  */
 function ddw_tbex_coding_years( $first_year = '' ) {
@@ -491,7 +493,7 @@ function ddw_tbex_get_elementor_template_add_new_url( $type = '' ) {
 
 
 /**
- * Build custom autofocus link to the Customizer.
+ * Build custom autofocus link for the Customizer.
  *
  * @since  1.0.0
  *
@@ -520,15 +522,15 @@ function ddw_tbex_customizer_focus( $type = '', $focus = '', $preview_url = '', 
 
 	}  // end switch
 
-	/** Get the autofocus type */
+	/** Get the autofocus element for the set type */
 	$query[ $type ] = sanitize_key( $focus );
 
-	/** Determine preview URL */
+	/** Determine an optional preview URL */
 	$url = ( empty( $preview_url ) ) ? '' : 'url';
 
 	$query[ $url ] = ( empty( $preview_url ) ) ? NULL : esc_url( $preview_url );
 
-	/** Determine return URL */
+	/** Determine an optional return URL */
 	$return = ( empty( $return_url ) ) ? '' : 'return';
 
 	$query[ $return ] = ( empty( $return_url ) ) ? NULL : esc_url( $return_url );
@@ -1034,5 +1036,49 @@ function ddw_tbex_is_german() {
 		return FALSE;
 
 	}  // end if
+
+}  // end function
+
+
+add_filter( 'admin_bar_menu', 'ddw_tbex_remove_tooltips_title_attr', 99999 );
+/**
+ * Optionally remove all link title attributes (Tooltips) from the Toolbar - for
+ *   all items, including those from Toolbar Extras plugin.
+ *   Note: The filter function is iterating through all Toolbar nodes and sets
+ *         the title attribute to empty (which is the WP default also)
+ *
+ * @since  1.2.0
+ *
+ * @uses   ddw_tbex_display_link_title_attributes()
+ *
+ * @param  obj $wp_admin_bar Object of Toolbar holding all nodes.
+ *
+ * @return void
+ */
+function ddw_tbex_remove_tooltips_title_attr( $wp_admin_bar ) {
+
+	/** Bail early if Tooltip display is wanted */
+	if ( ddw_tbex_display_link_title_attributes() ) {
+		return;
+	}
+
+	/** Get all nodes */
+	$all_toolbar_nodes = $wp_admin_bar->get_nodes();
+
+	/** Go through all nodes */
+	foreach ( $all_toolbar_nodes as $node ) {
+
+		$node = array(
+			'id'     => $node->id,
+			'parent' => $node->parent,
+			'meta'   => array(
+				'title' => '',
+			)
+		);
+	  
+		/** Update all Toolbar nodes */
+		$wp_admin_bar->add_node( $node );
+
+	}  // end foreach
 
 }  // end function

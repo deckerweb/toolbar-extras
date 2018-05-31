@@ -27,7 +27,10 @@ function ddw_tbex_is_dynamik_settings_hidden( $dynamik_handle = '' ) {
 
 	switch ( sanitize_key( $dynamik_handle ) ) {
 
-		case 'settings':
+		case 'admin':	// Dynamik 2.4.0+
+			$user_meta = 'disable_dynamik_gen_admin_menu';
+			break;
+		case 'settings':	// Dynamik 2.3.4 or lower
 			$user_meta = 'disable_dynamik_gen_settings_menu';
 			break;
 		case 'design':
@@ -35,6 +38,9 @@ function ddw_tbex_is_dynamik_settings_hidden( $dynamik_handle = '' ) {
 			break;
 		case 'custom':
 			$user_meta = 'disable_dynamik_gen_custom_menu';
+			break;
+		case 'images':
+			$user_meta = 'disable_dynamik_gen_images_menu';
 			break;
 		case 'license':
 			$user_meta = 'hide_dynamik_gen_license_key';
@@ -62,6 +68,8 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_dynamik_website_builder', 100
  */
 function ddw_tbex_themeitems_dynamik_website_builder() {
 
+	$is_new = ( defined( 'CHILD_THEME_VERSION' ) && version_compare( CHILD_THEME_VERSION, '2.4.0', '>=' ) ) ? TRUE : FALSE;
+
 	/** For: Dynamik creative (sub items!) */
 	if ( ! ddw_tbex_is_dynamik_settings_hidden( 'design' ) ) {
 
@@ -74,6 +82,19 @@ function ddw_tbex_themeitems_dynamik_website_builder() {
 				'meta'   => array(
 					'target' => '',
 					'title'  => esc_attr__( 'Design Options', 'toolbar-extras' )
+				)
+			)
+		);
+
+		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			array(
+				'id'     => 'theme-creative-dynamik-design-preview',
+				'parent' => 'theme-creative',
+				'title'  => esc_attr__( 'Design: Full View', 'toolbar-extras' ),
+				'href'   => esc_url( admin_url( 'admin.php?page=dynamik-design&iframe=active' ) ),
+				'meta'   => array(
+					'target' => ddw_tbex_meta_target(),
+					'title'  => esc_attr__( 'Design: Full View', 'toolbar-extras' )
 				)
 			)
 		);
@@ -95,16 +116,46 @@ function ddw_tbex_themeitems_dynamik_website_builder() {
 			)
 		);
 
+		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			array(
+				'id'     => 'theme-creative-dynamik-custom-preview',
+				'parent' => 'theme-creative',
+				'title'  => esc_attr__( 'Custom CSS &amp; Code: Full View', 'toolbar-extras' ),
+				'href'   => esc_url( admin_url( 'admin.php?page=dynamik-custom&iframe=active' ) ),
+				'meta'   => array(
+					'target' => ddw_tbex_meta_target(),
+					'title'  => esc_attr__( 'Custom CSS &amp; Code: Full View', 'toolbar-extras' )
+				)
+			)
+		);
+
 	}  // end if
 
-	if ( ! ddw_tbex_is_dynamik_settings_hidden( 'settings' ) ) {
+	if ( ! ddw_tbex_is_dynamik_settings_hidden( 'images' ) ) {
+
+		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			array(
+				'id'     => 'theme-creative-dynamik-images',
+				'parent' => 'theme-creative',
+				'title'  => esc_attr__( 'Image Manager', 'toolbar-extras' ),
+				'href'   => esc_url( admin_url( 'admin.php?page=dynamik-image-manager' ) ),
+				'meta'   => array(
+					'target' => '',
+					'title'  => esc_attr__( 'Image Manager', 'toolbar-extras' )
+				)
+			)
+		);
+
+	}  // end if
+
+	if ( ! ddw_tbex_is_dynamik_settings_hidden( 'admin' ) || ! ddw_tbex_is_dynamik_settings_hidden( 'settings' ) ) {
 
 		$GLOBALS[ 'wp_admin_bar' ]->add_node(
 			array(
 				'id'     => 'theme-creative-dynamik-general',
 				'parent' => 'theme-creative',
 				'title'  => esc_attr__( 'General Options', 'toolbar-extras' ),
-				'href'   => esc_url( admin_url( 'admin.php?page=dynamik-settings&activetab=dynamik-theme-settings-nav-general' ) ),
+				'href'   => $is_new ? esc_url( admin_url( 'admin.php?page=dynamik-dashboard&activetab=dynamik-theme-settings-nav-general' ) ) : esc_url( admin_url( 'admin.php?page=dynamik-settings&activetab=dynamik-theme-settings-nav-general' ) ),
 				'meta'   => array(
 					'target' => '',
 					'title'  => esc_attr__( 'General Options', 'toolbar-extras' )
@@ -117,7 +168,7 @@ function ddw_tbex_themeitems_dynamik_website_builder() {
 				'id'     => 'theme-creative-dynamik-importexport',
 				'parent' => 'theme-creative',
 				'title'  => esc_attr__( 'Import &amp; Export', 'toolbar-extras' ),
-				'href'   => esc_url( admin_url( 'admin.php?page=dynamik-settings&activetab=dynamik-theme-settings-nav-import-export' ) ),
+				'href'   => $is_new ? esc_url( admin_url( 'admin.php?page=dynamik-dashboard&activetab=dynamik-theme-settings-nav-import-export' ) ) : esc_url( admin_url( 'admin.php?page=dynamik-settings&activetab=dynamik-theme-settings-nav-import-export' ) ),
 				'meta'   => array(
 					'target' => '',
 					'title'  => esc_attr__( 'Import &amp; Export', 'toolbar-extras' )

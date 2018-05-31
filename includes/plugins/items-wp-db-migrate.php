@@ -1,7 +1,7 @@
 <?php
 
-//dev-mode
-//items-wp-db-migrate
+// dev-mode
+// includes/plugins/items-wp-db-migrate
 
 /**
  * Prevent direct access to this file.
@@ -30,7 +30,7 @@ function ddw_tbex_site_items_wpdbmigrate() {
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(
 		array(
 			'id'     => 'wpdbmigrate',
-			'parent' => 'tbex-sitegroup-stuff',
+			'parent' => 'tbex-sitegroup-tools',
 			'title'  => esc_attr__( 'DB Migrate', 'toolbar-extras' ),
 			'href'   => esc_url( admin_url( 'tools.php?page=wp-migrate-db' ) ),
 			'meta'   => array(

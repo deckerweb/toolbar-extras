@@ -35,9 +35,9 @@ if ( ( 'GeneratePress' == wp_get_theme() && function_exists( 'generate_setup' ) 
 
 
 /**
- * Theme: OceanWP (free & Premium, by ?)
+ * Theme: OceanWP (free & Premium, by Nicolas Lecocq)
  *   NOTE: We check here against the "OceanWP Extra" (free) Add-On Plugin, as
- *         the use of OceanWP without "Extra" is complete senseless. It's a
+ *         the use of OceanWP without "Extra" is completely senseless. It's a
  *         plugin dependency.
  * @since 1.0.0
  */
@@ -50,7 +50,7 @@ if ( ( 'OceanWP' == wp_get_theme() && function_exists( 'Ocean_Extra' ) )	// Ocea
 
 /**
  * Theme: Genesis Framework (Premium, by StudioPress/ Rainmaker Digital, LLC)
- *   NOTE: usage without Child Theme is absolutely NOT recommended, therefore
+ *   NOTE: Usage without Child Theme is absolutely NOT recommended, therefore
  *         not supported!
  * @since 1.0.0
  * @uses  ddw_tbex_is_genesis_active()
@@ -60,35 +60,8 @@ if ( ddw_tbex_is_genesis_active() ) {
 	/** Genesis Framework items: */
 	require_once( TBEX_PLUGIN_DIR . 'includes/themes/items-genesis.php' );
 
-
-	/**
-	 * Genesis Child Themes's Items:
-	 * ------------------------------
-	 */
-
-	/**
-	 * Dynamik Website Builder (Premium, by Cobalt Apps)
-	 * @since 1.1.0
-	 */
-	if ( 'dynamik-gen' === get_stylesheet() ) {
-		require_once( TBEX_PLUGIN_DIR . 'includes/themes/items-dynamik-website-builder.php' );
-	}
-
-	/**
-	 * Mai Lifestyle (Premium, by Mike Hemberger, BizBudding Inc.)
-	 * @since 1.0.0
-	 */
-	if ( class_exists( 'Mai_Theme_Engine' ) ) {
-		require_once( TBEX_PLUGIN_DIR . 'includes/themes/items-genesis-mai-lifestyle.php' );
-	}
-
-	/**
-	 * GBeaver (Premium, by WP Beaver World)
-	 * @since 1.1.0
-	 */
-	if ( function_exists( 'gbeaver_initial_layouts' ) ) {
-		require_once( TBEX_PLUGIN_DIR . 'includes/themes/items-genesis-gbeaver.php' );
-	}
+	/** Load supported Genesis Child Themes */
+	require_once( TBEX_PLUGIN_DIR . 'includes/items-themes-genesis.php' );
 
 }  // end if Genesis Framework
 
@@ -138,6 +111,31 @@ if ( ( 'Beaver Builder Theme' == wp_get_theme() && defined( 'FL_THEME_VERSION' )
 
 
 /**
+ * Theme: Customify (free, by WPCustomify/ PressMaximum)
+ * @since 1.2.0
+ */
+if ( ( 'Customify' == wp_get_theme() && class_exists( 'Customify' ) )	// Customify w/o child theme
+	|| ( 'customify' === basename( get_template_directory() ) && class_exists( 'Customify' ) )		// Customify w/ child theme
+) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/themes/items-customify.php' );
+}
+
+
+/**
+ * Theme: Flexia (free & Premium, by Codetic)
+ *   NOTE: We check here against the "Flexia Core" (free) Add-On Plugin, as
+ *         the use of Flexia without "Core" is completely senseless. It's a
+ *         plugin dependency.
+ * @since 1.2.0
+ */
+if ( ( 'Flexia' == wp_get_theme() && defined( 'FLEXIA_CORE_VERSION' ) )	// Flexia w/o child theme
+	|| ( 'flexia' === basename( get_template_directory() ) && defined( 'FLEXIA_CORE_VERSION' ) )		// Flexia w/ child theme
+) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/themes/items-flexia.php' );
+}
+
+
+/**
  * Theme: StartWP (free, by Munir Kamal)
  * @since 1.1.0
  */
@@ -172,6 +170,15 @@ if ( ddw_tbex_is_default_twenty() ) {
  * Themes: Elementor Hello Theme (free, by Elementor/ Pojo Me Digital)
  * @since 1.0.0
  */
-if ( 'elementor-hello-theme' == get_stylesheet() ) {
+if ( 'elementor-hello-theme' == get_stylesheet() || 'elementor-hello-theme-master' == get_stylesheet() ) {
 	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-official/items-elementor-hello-theme.php' );
+}
+
+
+/**
+ * Themes: Eletheme (free, by Liviu Duda)
+ * @since 1.2.0
+ */
+if ( function_exists( 'eletheme_setup' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/themes/items-eletheme.php' );
 }

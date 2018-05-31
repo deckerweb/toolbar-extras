@@ -94,6 +94,28 @@ function ddw_tbex_styles_gravityforms() {
 			#wp-admin-bar-tbex-sitegroup-forms #wp-admin-bar-gform-forms .ab-label {
 				color: inherit !important;
 			}
+
+			/* Media Queries */
+			@media only screen and (max-width: 782px) {
+
+				#wpadminbar #wp-admin-bar-gform-forms .ab-item {
+					line-height: inherit !important;
+				}
+
+				#wpadminbar #wp-admin-bar-gform-forms,
+				#wpadminbar #wp-admin-bar-gform-forms .ab-label {
+					font-size: 16px !important;
+				}
+
+				#wpadminbar #wp-admin-bar-gform-forms .gforms-menu-icon {
+					display: none;
+				}
+
+				#wpadminbar #wp-admin-bar-gform-forms .ab-label {
+					display: inline-block;
+				}
+
+			}
 		</style>
 	<?php
 

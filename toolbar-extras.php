@@ -12,7 +12,7 @@
  * Plugin Name:       Toolbar Extras
  * Plugin URI:        https://toolbarextras.com/
  * Description:       This plugins adds a lot of quick jump links to the WordPress Toolbar helpful for Site Builders who use Elementor and its ecosystem of add-ons and from the theme space.
- * Version:           1.1.3
+ * Version:           1.2.0
  * Author:            David Decker - DECKERWEB
  * Author URI:        https://toolbarextras.com/
  * License:           GPL-2.0+
@@ -20,7 +20,7 @@
  * Text Domain:       toolbar-extras
  * Domain Path:       /languages/
  * Requires WP:       4.7
- * Requires PHP:      5.4
+ * Requires PHP:      5.6
  *
  * Copyright (c) 2012-2018 David Decker - DECKERWEB
  */
@@ -39,7 +39,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 1.0.0
  */
 /** Plugin version */
-define( 'TBEX_PLUGIN_VERSION', '1.1.3' );
+define( 'TBEX_PLUGIN_VERSION', '1.2.0' );
 
 /** Plugin directory */
 define( 'TBEX_PLUGIN_DIR', trailingslashit( dirname( __FILE__ ) ) );
@@ -347,38 +347,8 @@ function ddw_tbex_creative_items_base_groups() {
 }  // end function
 
 
-add_action( 'plugins_loaded', 'ddw_tbex_plugin_check_version' );
-/**
- * Update plugin's options to newest version.
- *
- * @since 1.1.0
- *
- * @uses  ddw_tbex_run_plugin_activation()
- */
-function ddw_tbex_plugin_check_version() {
-
-	if ( TBEX_PLUGIN_VERSION !== get_option( 'tbex-plugin-version' ) ) {
-		update_option( 'tbex-plugin-version', TBEX_PLUGIN_VERSION );
-	}
-
-	/** Plugin version v1.1.0 - new options - update */
-	$smart_tweaks_v110 = array(
-		'remove_aioseo'  => 'yes',
-		'rehook_nextgen' => 'no',
-		'rehook_ithsec'  => 'no',
-	);
-
-	$existing_tweaks  = (array) get_option( 'tbex-options-tweaks' );
-
-	/** Only update option array if the new options are missing still */
-	if ( ! array_key_exists( 'remove_aioseo', $existing_tweaks )
-		|| ! array_key_exists( 'rehook_nextgen', $existing_tweaks )
-		|| ! array_key_exists( 'rehook_ithsec', $existing_tweaks )
-	) {
-		$smart_tweaks_new = update_option( 'tbex-options-tweaks', array_merge( $existing_tweaks, $smart_tweaks_v110 ) );
-	}
-
-}  // end function
+/** Include function for settings updates on version changes functions */
+require_once( TBEX_PLUGIN_DIR . 'includes/tbex-update-settings.php' );
 
 
 register_activation_hook( __FILE__, 'ddw_tbex_run_plugin_activation' );

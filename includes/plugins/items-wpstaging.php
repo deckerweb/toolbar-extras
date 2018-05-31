@@ -1,6 +1,6 @@
 <?php
 
-//items-wpstaging
+// includes/plugins/items-wpstaging
 
 /**
  * Prevent direct access to this file.
@@ -27,7 +27,7 @@ function ddw_tbex_site_items_wpstaging() {
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(
 		array(
 			'id'     => 'wpstaging',
-			'parent' => 'tbex-sitegroup-stuff',
+			'parent' => 'tbex-sitegroup-tools',
 			'title'  => esc_attr__( 'WP-Staging', 'toolbar-extras' ),
 			'href'   => esc_url( admin_url( 'admin.php?page=wpstg_clone' ) ),
 			'meta'   => array(
