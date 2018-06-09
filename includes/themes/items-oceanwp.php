@@ -384,19 +384,6 @@ function ddw_tbex_themeitems_oceanwp() {
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
-			array(
-				'id'     => 'theme-settings-push',
-				'parent' => 'theme-settings',
-				'title'  => esc_attr__( 'Push Notifications', 'toolbar-extras' ),
-				'href'   => esc_url( admin_url( 'admin.php?page=oceanwp-panel&tab=push-notifications' ) ),
-				'meta'   => array(
-					'target' => '',
-					'title'  => esc_attr__( 'Push Notifications', 'toolbar-extras' )
-				)
-			)
-		);
-
 }  // end function
 
 

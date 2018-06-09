@@ -283,19 +283,6 @@ function ddw_tbex_items_elementor_core() {
 			array(
 				'id'     => 'elementor-tools-general',
 				'parent' => 'elementor-tools',
-				'title'  => esc_attr__( 'General', 'toolbar-extras' ),
-				'href'   => esc_url( admin_url( 'admin.php?page=elementor-tools#tab-general' ) ),
-				'meta'   => array(
-					'target' => '',
-					'title'  => esc_attr__( 'General', 'toolbar-extras' )
-				)
-			)
-		);
-
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
-			array(
-				'id'     => 'elementor-tools-general',
-				'parent' => 'elementor-tools',
 				'title'  => esc_attr__( 'General Tools', 'toolbar-extras' ),
 				'href'   => esc_url( admin_url( 'admin.php?page=elementor-tools#tab-general' ) ),
 				'meta'   => array(

@@ -82,6 +82,19 @@ function ddw_tbex_aoitems_dhwc_elementor() {
 
 		}  // end if
 
+		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			array(
+				'id'     => 'ao-dhwce-settings',
+				'parent' => 'ao-dhwce',
+				'title'  => esc_attr__( 'Template Settings', 'toolbar-extras' ),
+				'href'   => esc_url( admin_url( 'admin.php?page=wc-settings&tab=products' ) ),
+				'meta'   => array(
+					'target' => '',
+					'title'  => esc_attr__( 'Template Settings', 'toolbar-extras' )
+				)
+			)
+		);
+
 		/** Group: Plugin's Resources */
 		if ( ddw_tbex_display_items_resources() ) {
 

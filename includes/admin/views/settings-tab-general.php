@@ -98,7 +98,7 @@ function ddw_tbex_settings_section_info_links() {
 
 	?>
 		<p>
-			<?php _e( 'Decide which target is used for external links.', 'toolbar-extras' ); ?>
+			<?php _e( 'Decide if link title attributes (Tooltips) should be displayed and which target should be used for external links.', 'toolbar-extras' ); ?>
 		</p>
 	<?php
 

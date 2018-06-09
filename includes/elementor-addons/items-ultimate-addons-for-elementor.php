@@ -83,22 +83,24 @@ function ddw_tbex_aoitems_uael() {
 		}  // end if
 
 		/** Only show white label settings if they are not hidden */
-		if ( ( ! $uael_whitelabel[ 'agency' ][ 'hide_branding' ] && ddw_tbex_display_uael_witelabel() )
-			|| ddw_tbex_display_uael_witelabel()
-		) {
+		if ( ! ddw_tbex_hide_uael_witelabel() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
-				array(
-					'id'     => 'ao-uael-whitelabel',
-					'parent' => 'ao-uael',
-					'title'  => esc_attr__( 'Whitelabel Settings', 'toolbar-extras' ),
-					'href'   => esc_url( admin_url( 'options-general.php?page=uael&action=branding' ) ),
-					'meta'   => array(
-						'target' => '',
-						'title'  => esc_attr__( 'Whitelabel Settings', 'toolbar-extras' )
+			if ( '1' !== $uael_whitelabel[ 'agency' ][ 'hide_branding' ] ) {
+
+				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					array(
+						'id'     => 'ao-uael-whitelabel',
+						'parent' => 'ao-uael',
+						'title'  => esc_attr__( 'Whitelabel Settings', 'toolbar-extras' ),
+						'href'   => esc_url( admin_url( 'options-general.php?page=uael&action=branding' ) ),
+						'meta'   => array(
+							'target' => '',
+							'title'  => esc_attr__( 'Whitelabel Settings', 'toolbar-extras' )
+						)
 					)
-				)
-			);
+				);
+
+			}  // end if
 
 		}  // end if
 

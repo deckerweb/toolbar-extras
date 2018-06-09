@@ -2,6 +2,20 @@
 
 ## Changelog
 
+### 1.2.1 - 2018-06-09
+
+* Tweak: Improved logic for some Smart Tweaks so any items are always hidden when the supported plugin is not active (important for the re-hook tweaks)
+* Tweak: Improved plugin support for "JetWooBuilder" with the adding of its WooCommerce settings page
+* Tweak: Improved plugin support for "DHWC Elementor" with the adding of its Template settings
+* Tweak: Removed "Push Notifications" from OceanWP theme support as this feature is now only available in a third-party stand-alone plugin
+* Tweak: Improved "Gravity Forms" plugin support and the re-hooking Smart Tweak/ integration
+* Tweak: Some string & formatting optimizations
+* Tweak: Updated `.pot` file plus all German translations (formal, informal)
+* Fix: Removed duplicate item for Elementor Core support in code
+* Fix: Proper default status "no" in setting description for Frontend Toolbar color Smart Tweak
+* Fix: Proper check for white label settings in "Ultimate Addons for Elementor" plugin support
+
+
 ### 1.2.0 - 2018-05-31
 
 * New: General setting to remove all title attributes (Tooltips) from links in the Toolbar, including from all items added by Toolbar Extras (Toolbar Extras Settings > General)

@@ -83,13 +83,30 @@ function ddw_tbex_aoitems_jetwoobuilder() {
 
 		$GLOBALS[ 'wp_admin_bar' ]->add_node(
 			array(
-				'id'     => 'ao-jetwoobuilder-settings',
+				'id'     => 'ao-jetwoobuilder-settings-elementor',
 				'parent' => 'ao-jetwoobuilder',
-				'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
+				/* translators: %s - Name of Elementor or white labeled name */
+				'title'  => sprintf( esc_attr__( '%s Settings', 'toolbar-extras' ), ddw_tbex_string_elementor() ),
 				'href'   => esc_url( admin_url( 'admin.php?page=jet-woo-builder-settings' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
+					/* translators: %s - Name of Elementor or white labeled name */
+					'title'  => sprintf( esc_attr__( '%s Settings', 'toolbar-extras' ), ddw_tbex_string_elementor() )
+				)
+			)
+		);
+
+		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			array(
+				'id'     => 'ao-jetwoobuilder-settings-woocommerce',
+				'parent' => 'ao-jetwoobuilder',
+				/* translators: %s - Name of WooCommerce */
+				'title'  => sprintf( esc_attr__( '%s Settings', 'toolbar-extras' ), __( 'WooCommerce', 'toolbar-extras' ) ),
+				'href'   => esc_url( admin_url( 'admin.php?page=wc-settings&tab=jet-woo-builder-settings' ) ),
+				'meta'   => array(
+					'target' => '',
+					/* translators: %s - Name of WooCommerce */
+					'title'  => sprintf( esc_attr__( '%s Settings', 'toolbar-extras' ), __( 'WooCommerce', 'toolbar-extras' ) )
 				)
 			)
 		);

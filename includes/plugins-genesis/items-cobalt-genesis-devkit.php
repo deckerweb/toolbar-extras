@@ -1,6 +1,6 @@
 <?php
 
-// includes/plugins/items-cobalt-genesis-devkit
+// includes/plugins-genesis/items-cobalt-genesis-devkit
 
 /**
  * Prevent direct access to this file.

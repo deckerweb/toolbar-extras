@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: Toolbar Extras\n"
-"POT-Creation-Date: 2018-06-01 00:03+0200\n"
+"POT-Creation-Date: 2018-06-09 23:12+0200\n"
 "PO-Revision-Date: 2018-04-04 01:47+0200\n"
 "Last-Translator: David Decker DECKERWEB.de -- https://deckerweb.de/\n"
 "Language-Team: David Decker DECKERWEB.de -- https://deckerweb.de/\n"
@@ -538,14 +538,16 @@ msgstr ""
 #: includes/elementor-addons/items-jetmenu.php:52
 #: includes/elementor-addons/items-jetreviews.php:48
 #: includes/elementor-addons/items-jetreviews.php:52
-#: includes/elementor-addons/items-jetwoobuilder.php:88
-#: includes/elementor-addons/items-jetwoobuilder.php:92
 #: includes/elementor-addons/items-portfolio-for-elementor.php:89
 #: includes/elementor-addons/items-portfolio-for-elementor.php:93
 #: includes/elementor-addons/items-power-ups-for-elementor.php:48
 #: includes/elementor-addons/items-power-ups-for-elementor.php:52
 #: includes/elementor-addons/items-webtechstreet-addons.php:48
 #: includes/elementor-addons/items-webtechstreet-addons.php:52
+#: includes/plugins-genesis/items-cobalt-genesis-devkit.php:159
+#: includes/plugins-genesis/items-cobalt-genesis-devkit.php:163
+#: includes/plugins-genesis/items-genesis-testimonial-slider.php:94
+#: includes/plugins-genesis/items-genesis-testimonial-slider.php:98
 #: includes/plugins/items-add-from-server.php:52
 #: includes/plugins/items-add-from-server.php:56
 #: includes/plugins/items-cfdb.php:72 includes/plugins/items-cfdb.php:76
@@ -559,8 +561,6 @@ msgstr ""
 #: includes/plugins/items-cherry-testimonials.php:54
 #: includes/plugins/items-cobalt-freelancer-devkit.php:159
 #: includes/plugins/items-cobalt-freelancer-devkit.php:163
-#: includes/plugins/items-cobalt-genesis-devkit.php:159
-#: includes/plugins/items-cobalt-genesis-devkit.php:163
 #: includes/plugins/items-code-snippets.php:85
 #: includes/plugins/items-code-snippets.php:89
 #: includes/plugins/items-convertplus.php:168
@@ -573,9 +573,7 @@ msgstr ""
 #: includes/plugins/items-envira-gallery.php:109
 #: includes/plugins/items-foogallery.php:71
 #: includes/plugins/items-foogallery.php:75
-#: includes/plugins/items-genesis-testimonial-slider.php:94
-#: includes/plugins/items-genesis-testimonial-slider.php:98
-#: includes/plugins/items-gravity-forms.php:139
+#: includes/plugins/items-gravity-forms.php:158
 #: includes/plugins/items-maxgalleria.php:71
 #: includes/plugins/items-maxgalleria.php:75
 #: includes/plugins/items-simple-custom-css-js.php:180
@@ -837,7 +835,6 @@ msgstr ""
 #: includes/admin/views/settings-tab-general.php:561
 #: includes/admin/views/settings-tab-general.php:565
 #: includes/admin/views/settings-tab-smart-tweaks.php:104
-#: includes/admin/views/settings-tab-smart-tweaks.php:108
 #: includes/admin/views/settings-tab-smart-tweaks.php:132
 #: includes/admin/views/settings-tab-smart-tweaks.php:157
 #: includes/admin/views/settings-tab-smart-tweaks.php:179
@@ -884,6 +881,7 @@ msgstr ""
 #: includes/admin/views/settings-tab-general.php:558
 #: includes/admin/views/settings-tab-general.php:567
 #: includes/admin/views/settings-tab-smart-tweaks.php:105
+#: includes/admin/views/settings-tab-smart-tweaks.php:108
 #: includes/admin/views/settings-tab-smart-tweaks.php:133
 #: includes/admin/views/settings-tab-smart-tweaks.php:136
 #: includes/admin/views/settings-tab-smart-tweaks.php:158
@@ -1051,7 +1049,9 @@ msgid ""
 msgstr ""
 
 #: includes/admin/views/settings-tab-general.php:101
-msgid "Decide which target is used for external links."
+msgid ""
+"Decide if link title attributes (Tooltips) should be displayed and which "
+"target should be used for external links."
 msgstr ""
 
 #: includes/admin/views/settings-tab-general.php:119
@@ -1116,7 +1116,7 @@ msgstr ""
 msgid ""
 "Determine if the link title attributes (Tooltips) should be used within the "
 "Toolbar or not. When set to %1$s then no title attribute will be used in the "
-"source code for all links in the Toolbar, including from this plugin, %2$s"
+"source code for all links in the Toolbar, including from this plugin, %2$s."
 msgstr ""
 
 #: includes/admin/views/settings-tab-general.php:565
@@ -1491,6 +1491,11 @@ msgstr ""
 msgid "WooCommerce Product Templates (Premium Add-On)"
 msgstr ""
 
+#: includes/elementor-addons/items-dhwc-elementor.php:89
+#: includes/elementor-addons/items-dhwc-elementor.php:93
+msgid "Template Settings"
+msgstr ""
+
 #. translators: Elementor Template type
 #: includes/elementor-addons/items-ele-custom-skin.php:55
 msgctxt "Elementor Template type"
@@ -1584,14 +1589,14 @@ msgstr ""
 #: includes/elementor-addons/items-orbit-fox.php:52
 #: includes/elementor-addons/items-powerpack-elements.php:86
 #: includes/elementor-addons/items-powerpack-elements.php:90
-#: includes/plugins/items-blox.php:96
+#: includes/plugins-genesis/items-blox.php:96
+#: includes/plugins-genesis/items-cobalt-genesis-extender.php:86
+#: includes/plugins-genesis/items-cobalt-genesis-extender.php:90
 #: includes/plugins/items-cobalt-extender-pro.php:97
 #: includes/plugins/items-cobalt-extender-pro.php:101
-#: includes/plugins/items-cobalt-genesis-extender.php:86
-#: includes/plugins/items-cobalt-genesis-extender.php:90
 #: includes/plugins/items-cobalt-themer-pro.php:123
 #: includes/plugins/items-cobalt-themer-pro.php:127
-#: includes/plugins/items-gravity-forms.php:143
+#: includes/plugins/items-gravity-forms.php:162
 #: includes/plugins/items-smart-slider.php:67
 #: includes/plugins/items-smart-slider.php:71
 msgid "General Settings"
@@ -1677,6 +1682,22 @@ msgstr ""
 msgid "Jet Woo Templates"
 msgstr ""
 
+#. translators: %s - Name of Elementor or white labeled name
+#. translators: %s - Name of WooCommerce
+#: includes/elementor-addons/items-jetwoobuilder.php:89
+#: includes/elementor-addons/items-jetwoobuilder.php:94
+#: includes/elementor-addons/items-jetwoobuilder.php:104
+#: includes/elementor-addons/items-jetwoobuilder.php:109
+#: includes/string-switcher.php:423
+#, php-format
+msgid "%s Settings"
+msgstr ""
+
+#: includes/elementor-addons/items-jetwoobuilder.php:104
+#: includes/elementor-addons/items-jetwoobuilder.php:109
+msgid "WooCommerce"
+msgstr ""
+
 #: includes/elementor-addons/items-leap13-premium-addons.php:35
 msgid "Premium Addons"
 msgstr ""
@@ -1692,8 +1713,8 @@ msgstr ""
 
 #: includes/elementor-addons/items-leap13-premium-addons.php:74
 #: includes/elementor-addons/items-leap13-premium-addons.php:78
-#: includes/elementor-official/items-elementor-core.php:325
-#: includes/elementor-official/items-elementor-core.php:329
+#: includes/elementor-official/items-elementor-core.php:312
+#: includes/elementor-official/items-elementor-core.php:316
 msgid "Version Control"
 msgstr ""
 
@@ -1701,8 +1722,8 @@ msgstr ""
 #: includes/elementor-addons/items-leap13-premium-addons.php:91
 #: includes/elementor-addons/items-widgetkit-for-elementor.php:61
 #: includes/elementor-addons/items-widgetkit-for-elementor.php:65
-#: includes/elementor-official/items-elementor-core.php:351
-#: includes/elementor-official/items-elementor-core.php:355
+#: includes/elementor-official/items-elementor-core.php:338
+#: includes/elementor-official/items-elementor-core.php:342
 #: includes/plugins/items-foogallery.php:101
 #: includes/plugins/items-health-check.php:45
 #: includes/plugins/items-health-check.php:49
@@ -1748,7 +1769,8 @@ msgstr ""
 #: includes/elementor-addons/items-namogo-extras.php:91
 #: includes/elementor-addons/items-powerpack-wlbfe.php:95
 #: includes/elementor-addons/items-powerpack-wlbfe.php:99
-#: includes/plugins/items-blox.php:207 includes/plugins/items-blox.php:211
+#: includes/plugins-genesis/items-blox.php:207
+#: includes/plugins-genesis/items-blox.php:211
 #: includes/plugins/items-wp-show-posts.php:73
 #: includes/plugins/items-wp-show-posts.php:77
 #: includes/themes/items-dynamik-website-builder.php:187
@@ -1839,8 +1861,8 @@ msgstr ""
 #: includes/elementor-addons/items-portfolio-for-elementor.php:78
 #: includes/elementor-addons/items-power-ups-for-elementor.php:157
 #: includes/elementor-addons/items-power-ups-for-elementor.php:161
-#: includes/plugins/items-genesis-portfolio-pro.php:65
-#: includes/plugins/items-genesis-portfolio-pro.php:69
+#: includes/plugins-genesis/items-genesis-portfolio-pro.php:65
+#: includes/plugins-genesis/items-genesis-portfolio-pro.php:69
 #: includes/themes/items-flexia.php:335 includes/themes/items-flexia.php:339
 #: includes/themes/items-oceanwp.php:177 includes/themes/items-oceanwp.php:181
 msgid "New Portfolio Builder"
@@ -2115,9 +2137,7 @@ msgstr ""
 #. translators: Autofocus section in the Customizer
 #: includes/elementor-official/items-elementor-core.php:215
 #: includes/elementor-official/items-elementor-core.php:219
-#: includes/elementor-official/items-elementor-core.php:286
-#: includes/elementor-official/items-elementor-core.php:290
-#: includes/plugins/items-blox.php:92
+#: includes/plugins-genesis/items-blox.php:92
 #: includes/themes/items-beaver-builder-theme.php:91
 #: includes/themes/items-beaver-builder-theme.php:95
 #: includes/themes/items-customify.php:76 includes/themes/items-flexia.php:90
@@ -2134,37 +2154,37 @@ msgstr ""
 
 #: includes/elementor-official/items-elementor-core.php:257
 #: includes/elementor-official/items-elementor-core.php:261
-#: includes/elementor-official/items-elementor-core.php:395
+#: includes/elementor-official/items-elementor-core.php:382
 msgid "Role Manager"
+msgstr ""
+
+#: includes/elementor-official/items-elementor-core.php:286
+#: includes/elementor-official/items-elementor-core.php:290
+msgid "General Tools"
 msgstr ""
 
 #: includes/elementor-official/items-elementor-core.php:299
 #: includes/elementor-official/items-elementor-core.php:303
-msgid "General Tools"
-msgstr ""
-
-#: includes/elementor-official/items-elementor-core.php:312
-#: includes/elementor-official/items-elementor-core.php:316
 msgid "Replace URL"
 msgstr ""
 
-#: includes/elementor-official/items-elementor-core.php:338
-#: includes/elementor-official/items-elementor-core.php:342
-#: includes/plugins/items-genesis-coming-soon-page.php:40
+#: includes/elementor-official/items-elementor-core.php:325
+#: includes/elementor-official/items-elementor-core.php:329
+#: includes/plugins-genesis/items-genesis-coming-soon-page.php:40
 msgid "Maintenance Mode"
 msgstr ""
 
 #. translators: Elementor "Role Manager" displayed in "my-account" Toolbar submenu - it's only a small area please use a short translation term!
-#: includes/elementor-official/items-elementor-core.php:390
+#: includes/elementor-official/items-elementor-core.php:377
 msgctxt "Elementor Role Manager"
 msgid "Role Manager"
 msgstr ""
 
-#: includes/elementor-official/items-elementor-core.php:454
+#: includes/elementor-official/items-elementor-core.php:441
 msgid "Official Elementor Blog"
 msgstr ""
 
-#: includes/elementor-official/items-elementor-core.php:462
+#: includes/elementor-official/items-elementor-core.php:449
 msgid "Official Elementor YouTube Channel"
 msgstr ""
 
@@ -2179,10 +2199,10 @@ msgstr ""
 #. translators: Theme creative group - links to Customizer, default "Customize Design"
 #: includes/elementor-official/items-elementor-hello-theme.php:45
 #: includes/elementor-official/items-elementor-hello-theme.php:49
+#: includes/plugins-genesis/items-cobalt-genesis-devkit.php:62
+#: includes/plugins-genesis/items-cobalt-genesis-devkit.php:66
 #: includes/plugins/items-cobalt-freelancer-devkit.php:62
 #: includes/plugins/items-cobalt-freelancer-devkit.php:66
-#: includes/plugins/items-cobalt-genesis-devkit.php:62
-#: includes/plugins/items-cobalt-genesis-devkit.php:66
 #: includes/string-switcher.php:100
 #: includes/themes/items-beaver-builder-theme.php:47
 #: includes/themes/items-beaver-builder-theme.php:51
@@ -2868,16 +2888,291 @@ msgstr ""
 msgid "Note: You Are Currently In a Local Development Environment"
 msgstr ""
 
+#: includes/plugins-genesis/items-blox.php:38
+msgid "All Global Blocks"
+msgstr ""
+
+#: includes/plugins-genesis/items-blox.php:42
+msgid "All Global Content Blocks"
+msgstr ""
+
+#: includes/plugins-genesis/items-blox.php:51
+msgid "New Global Block"
+msgstr ""
+
+#: includes/plugins-genesis/items-blox.php:55
+msgid "New Global Content Block"
+msgstr ""
+
+#: includes/plugins-genesis/items-blox.php:65
+#: includes/plugins-genesis/items-blox.php:69
+msgid "Global Content Block"
+msgstr ""
+
+#: includes/plugins-genesis/items-blox.php:79
+#: includes/plugins-genesis/items-blox.php:83
+msgid "Block Settings"
+msgstr ""
+
+#: includes/plugins-genesis/items-blox.php:105
+#: includes/plugins-genesis/items-blox.php:109
+msgid "Defaults"
+msgstr ""
+
+#: includes/plugins-genesis/items-blox.php:118
+#: includes/plugins-genesis/items-blox.php:122
+msgid "Styles"
+msgstr ""
+
+#: includes/plugins-genesis/items-blox.php:131
+#: includes/plugins-genesis/items-blox.php:135
+msgid "Misc"
+msgstr ""
+
+#: includes/plugins-genesis/items-blox.php:165
+#: includes/plugins-genesis/items-blox.php:169
+msgid "Sandboxed Functions"
+msgstr ""
+
+#: includes/plugins-genesis/items-blox.php:181
+#: includes/plugins-genesis/items-blox.php:185
+msgid "Hook Config"
+msgstr ""
+
+#: includes/plugins-genesis/items-blox.php:194
+#: includes/plugins-genesis/items-blox.php:198
+#: includes/plugins/items-health-check.php:97
+#: includes/plugins/items-health-check.php:101
+#: includes/plugins/items-wpstaging.php:70
+#: includes/plugins/items-wpstaging.php:74
+msgid "Tools"
+msgstr ""
+
+#: includes/plugins-genesis/items-cobalt-genesis-devkit.php:32
+msgid "Genesis DevKit"
+msgstr ""
+
+#: includes/plugins-genesis/items-cobalt-genesis-devkit.php:36
+msgid "Genesis DevKit (Premium Add-On)"
+msgstr ""
+
+#: includes/plugins-genesis/items-cobalt-genesis-devkit.php:49
+#: includes/plugins-genesis/items-cobalt-genesis-devkit.php:53
+#: includes/plugins/items-cobalt-freelancer-devkit.php:49
+#: includes/plugins/items-cobalt-freelancer-devkit.php:53
+#: includes/themes/items-dynamik-website-builder.php:80
+#: includes/themes/items-dynamik-website-builder.php:84
+msgid "Design Options"
+msgstr ""
+
+#: includes/plugins-genesis/items-cobalt-genesis-devkit.php:75
+#: includes/plugins-genesis/items-cobalt-genesis-devkit.php:79
+#: includes/plugins-genesis/items-cobalt-genesis-devkit.php:115
+#: includes/plugins-genesis/items-cobalt-genesis-devkit.php:119
+#: includes/plugins/items-cobalt-freelancer-devkit.php:75
+#: includes/plugins/items-cobalt-freelancer-devkit.php:79
+#: includes/plugins/items-cobalt-freelancer-devkit.php:115
+#: includes/plugins/items-cobalt-freelancer-devkit.php:119
+msgid "Full View"
+msgstr ""
+
+#: includes/plugins-genesis/items-cobalt-genesis-devkit.php:89
+#: includes/plugins-genesis/items-cobalt-genesis-devkit.php:93
+#: includes/plugins/items-cobalt-extender-pro.php:45
+#: includes/plugins/items-cobalt-extender-pro.php:49
+#: includes/plugins/items-cobalt-freelancer-devkit.php:89
+#: includes/plugins/items-cobalt-freelancer-devkit.php:93
+msgid "Custom Options"
+msgstr ""
+
+#: includes/plugins-genesis/items-cobalt-genesis-devkit.php:102
+#: includes/plugins-genesis/items-cobalt-genesis-devkit.php:106
+#: includes/plugins/items-cobalt-freelancer-devkit.php:102
+#: includes/plugins/items-cobalt-freelancer-devkit.php:106
+msgid "Custom CSS, JS, Code"
+msgstr ""
+
+#: includes/plugins-genesis/items-cobalt-genesis-devkit.php:129
+#: includes/plugins-genesis/items-cobalt-genesis-devkit.php:133
+#: includes/plugins-genesis/items-cobalt-genesis-extender.php:60
+#: includes/plugins-genesis/items-cobalt-genesis-extender.php:64
+#: includes/plugins/items-cobalt-extender-pro.php:71
+#: includes/plugins/items-cobalt-extender-pro.php:75
+#: includes/plugins/items-cobalt-freelancer-devkit.php:129
+#: includes/plugins/items-cobalt-freelancer-devkit.php:133
+#: includes/plugins/items-cobalt-themer-pro.php:95
+#: includes/themes/items-dynamik-website-builder.php:140
+#: includes/themes/items-dynamik-website-builder.php:144
+msgid "Image Manager"
+msgstr ""
+
+#: includes/plugins-genesis/items-cobalt-genesis-devkit.php:145
+#: includes/plugins/items-cobalt-freelancer-devkit.php:145
+#: includes/plugins/items-cobalt-themer-pro.php:110
+msgid "Theme Creator"
+msgstr ""
+
+#: includes/plugins-genesis/items-cobalt-genesis-devkit.php:149
+#: includes/plugins/items-cobalt-freelancer-devkit.php:149
+#: includes/plugins/items-cobalt-themer-pro.php:114
+msgid "Child Theme Creator"
+msgstr ""
+
+#: includes/plugins-genesis/items-cobalt-genesis-devkit.php:173
+#: includes/plugins/items-cobalt-freelancer-devkit.php:173
+msgid "Help Videos"
+msgstr ""
+
+#: includes/plugins-genesis/items-cobalt-genesis-devkit.php:177
+#: includes/plugins/items-cobalt-freelancer-devkit.php:177
+msgid "Help Videos (Inline)"
+msgstr ""
+
+#: includes/plugins-genesis/items-cobalt-genesis-extender.php:34
+#: includes/plugins-genesis/items-cobalt-genesis-extender.php:38
+msgid "Genesis Extender"
+msgstr ""
+
+#: includes/plugins-genesis/items-cobalt-genesis-extender.php:47
+#: includes/plugins-genesis/items-cobalt-genesis-extender.php:51
+#: includes/themes/items-dynamik-website-builder.php:110
+msgid "Custom CSS &amp; Code"
+msgstr ""
+
+#: includes/plugins-genesis/items-cobalt-genesis-extender.php:73
+#: includes/plugins-genesis/items-cobalt-genesis-extender.php:77
+#: includes/plugins/items-cobalt-extender-pro.php:84
+#: includes/plugins/items-cobalt-extender-pro.php:88
+#: includes/plugins/items-gravity-forms.php:171
+#: includes/plugins/items-gravity-forms.php:175
+#: includes/plugins/items-widget-importer-exporter.php:30
+#: includes/plugins/items-widget-importer-exporter.php:34
+#: includes/themes/items-dynamik-website-builder.php:170
+#: includes/themes/items-dynamik-website-builder.php:174
+#: includes/themes/items-genesis-gbeaver.php:44
+#: includes/themes/items-genesis-gbeaver.php:48
+#: includes/themes/items-genesis.php:150 includes/themes/items-genesis.php:154
+#: includes/themes/items-oceanwp.php:378 includes/themes/items-oceanwp.php:382
+msgid "Import &amp; Export"
+msgstr ""
+
+#: includes/plugins-genesis/items-genesis-404-page.php:38
+#: includes/plugins-genesis/items-genesis-404-page.php:42
 #: includes/plugins/items-404page.php:41 includes/plugins/items-404page.php:45
-#: includes/plugins/items-genesis-404-page.php:37
-#: includes/plugins/items-genesis-404-page.php:41
 msgid "Edit 404 Page"
 msgstr ""
 
+#: includes/plugins-genesis/items-genesis-404-page.php:52
+#: includes/plugins-genesis/items-genesis-404-page.php:56
 #: includes/plugins/items-404page.php:54 includes/plugins/items-404page.php:58
-#: includes/plugins/items-genesis-404-page.php:50
-#: includes/plugins/items-genesis-404-page.php:54
 msgid "404 Live Test"
+msgstr ""
+
+#: includes/plugins-genesis/items-genesis-author-pro.php:37
+#: includes/plugins-genesis/items-genesis-author-pro.php:41
+msgid "All Books"
+msgstr ""
+
+#: includes/plugins-genesis/items-genesis-author-pro.php:50
+#: includes/plugins-genesis/items-genesis-author-pro.php:54
+msgid "New Book"
+msgstr ""
+
+#: includes/plugins-genesis/items-genesis-author-pro.php:65
+#: includes/plugins-genesis/items-genesis-author-pro.php:69
+msgid "New Book Builder"
+msgstr ""
+
+#: includes/plugins-genesis/items-genesis-author-pro.php:96
+#: includes/plugins-genesis/items-genesis-author-pro.php:100
+#: includes/plugins-genesis/items-genesis-portfolio-pro.php:96
+#: includes/plugins-genesis/items-genesis-portfolio-pro.php:100
+msgid "Archive Settings"
+msgstr ""
+
+#. translators: %s - Status of page, "Coming Soon" or "Maintenance"
+#: includes/plugins-genesis/items-genesis-coming-soon-page.php:39
+#, php-format
+msgid "%s Page"
+msgstr ""
+
+#: includes/plugins-genesis/items-genesis-coming-soon-page.php:40
+msgid "Coming Soon"
+msgstr ""
+
+#: includes/plugins-genesis/items-genesis-coming-soon-page.php:62
+#: includes/plugins-genesis/items-genesis-coming-soon-page.php:66
+msgid "Live Test"
+msgstr ""
+
+#: includes/plugins-genesis/items-genesis-design-palette-pro.php:30
+msgid "Design Palette Pro"
+msgstr ""
+
+#: includes/plugins-genesis/items-genesis-design-palette-pro.php:34
+msgid "Style with Genesis Design Palette Pro"
+msgstr ""
+
+#: includes/plugins-genesis/items-genesis-portfolio-pro.php:37
+#: includes/plugins-genesis/items-genesis-portfolio-pro.php:41
+#: includes/themes/items-flexia.php:307 includes/themes/items-flexia.php:311
+#: includes/themes/items-oceanwp.php:149 includes/themes/items-oceanwp.php:153
+msgid "All Portfolio Items"
+msgstr ""
+
+#: includes/plugins-genesis/items-genesis-portfolio-pro.php:50
+#: includes/plugins-genesis/items-genesis-portfolio-pro.php:54
+#: includes/themes/items-flexia.php:320 includes/themes/items-flexia.php:324
+#: includes/themes/items-oceanwp.php:162 includes/themes/items-oceanwp.php:166
+msgid "New Portfolio Item"
+msgstr ""
+
+#: includes/plugins-genesis/items-genesis-simple-hooks.php:30
+msgid "Simple Hooks"
+msgstr ""
+
+#: includes/plugins-genesis/items-genesis-simple-hooks.php:34
+msgid "Genesis Hook Locations"
+msgstr ""
+
+#: includes/plugins-genesis/items-genesis-simple-sidebars.php:30
+#: includes/plugins-genesis/items-genesis-simple-sidebars.php:44
+msgid "Simple Sidebars"
+msgstr ""
+
+#: includes/plugins-genesis/items-genesis-simple-sidebars.php:34
+#: includes/plugins-genesis/items-genesis-simple-sidebars.php:48
+msgid "Manage Genesis Sidebars"
+msgstr ""
+
+#: includes/plugins-genesis/items-genesis-testimonial-slider.php:37
+#: includes/plugins-genesis/items-genesis-testimonial-slider.php:41
+#: includes/plugins/items-testimonial-rotator.php:37
+#: includes/plugins/items-testimonial-rotator.php:41
+msgid "All Testimonials"
+msgstr ""
+
+#: includes/plugins-genesis/items-genesis-testimonial-slider.php:50
+#: includes/plugins-genesis/items-genesis-testimonial-slider.php:54
+#: includes/plugins/items-testimonial-rotator.php:50
+#: includes/plugins/items-testimonial-rotator.php:54
+msgid "New Testimonial"
+msgstr ""
+
+#: includes/plugins-genesis/items-genesis-testimonial-slider.php:65
+#: includes/plugins-genesis/items-genesis-testimonial-slider.php:69
+#: includes/plugins/items-testimonial-rotator.php:65
+#: includes/plugins/items-testimonial-rotator.php:69
+msgid "New Testimonial Builder"
+msgstr ""
+
+#: includes/plugins-genesis/items-genesis-testimonial-slider.php:108
+#: includes/plugins-genesis/items-genesis-testimonial-slider.php:112
+#: includes/plugins/items-cherry-testimonials.php:37
+#: includes/plugins/items-cherry-testimonials.php:41
+#: includes/plugins/items-testimonial-rotator.php:108
+#: includes/plugins/items-testimonial-rotator.php:112
+msgid "Edit Testimonials"
 msgstr ""
 
 #: includes/plugins/items-404page.php:67 includes/plugins/items-404page.php:71
@@ -2921,58 +3216,6 @@ msgstr ""
 
 #: includes/plugins/items-aiowpm.php:70 includes/plugins/items-aiowpm.php:74
 msgid "Browse Backups"
-msgstr ""
-
-#: includes/plugins/items-blox.php:38
-msgid "All Global Blocks"
-msgstr ""
-
-#: includes/plugins/items-blox.php:42
-msgid "All Global Content Blocks"
-msgstr ""
-
-#: includes/plugins/items-blox.php:51
-msgid "New Global Block"
-msgstr ""
-
-#: includes/plugins/items-blox.php:55
-msgid "New Global Content Block"
-msgstr ""
-
-#: includes/plugins/items-blox.php:65 includes/plugins/items-blox.php:69
-msgid "Global Content Block"
-msgstr ""
-
-#: includes/plugins/items-blox.php:79 includes/plugins/items-blox.php:83
-msgid "Block Settings"
-msgstr ""
-
-#: includes/plugins/items-blox.php:105 includes/plugins/items-blox.php:109
-msgid "Defaults"
-msgstr ""
-
-#: includes/plugins/items-blox.php:118 includes/plugins/items-blox.php:122
-msgid "Styles"
-msgstr ""
-
-#: includes/plugins/items-blox.php:131 includes/plugins/items-blox.php:135
-msgid "Misc"
-msgstr ""
-
-#: includes/plugins/items-blox.php:165 includes/plugins/items-blox.php:169
-msgid "Sandboxed Functions"
-msgstr ""
-
-#: includes/plugins/items-blox.php:181 includes/plugins/items-blox.php:185
-msgid "Hook Config"
-msgstr ""
-
-#: includes/plugins/items-blox.php:194 includes/plugins/items-blox.php:198
-#: includes/plugins/items-health-check.php:97
-#: includes/plugins/items-health-check.php:101
-#: includes/plugins/items-wpstaging.php:70
-#: includes/plugins/items-wpstaging.php:74
-msgid "Tools"
 msgstr ""
 
 #: includes/plugins/items-bsf-sidebar-manager.php:36
@@ -3021,63 +3264,14 @@ msgstr ""
 msgid "Edit Team Members"
 msgstr ""
 
-#: includes/plugins/items-cherry-testimonials.php:37
-#: includes/plugins/items-cherry-testimonials.php:41
-#: includes/plugins/items-genesis-testimonial-slider.php:108
-#: includes/plugins/items-genesis-testimonial-slider.php:112
-#: includes/plugins/items-testimonial-rotator.php:108
-#: includes/plugins/items-testimonial-rotator.php:112
-msgid "Edit Testimonials"
-msgstr ""
-
 #: includes/plugins/items-cobalt-extender-pro.php:32
 #: includes/plugins/items-cobalt-extender-pro.php:36
 msgid "Extender Pro"
 msgstr ""
 
-#: includes/plugins/items-cobalt-extender-pro.php:45
-#: includes/plugins/items-cobalt-extender-pro.php:49
-#: includes/plugins/items-cobalt-freelancer-devkit.php:89
-#: includes/plugins/items-cobalt-freelancer-devkit.php:93
-#: includes/plugins/items-cobalt-genesis-devkit.php:89
-#: includes/plugins/items-cobalt-genesis-devkit.php:93
-msgid "Custom Options"
-msgstr ""
-
 #: includes/plugins/items-cobalt-extender-pro.php:58
 #: includes/plugins/items-cobalt-extender-pro.php:62
 msgid "Custom: Full View"
-msgstr ""
-
-#: includes/plugins/items-cobalt-extender-pro.php:71
-#: includes/plugins/items-cobalt-extender-pro.php:75
-#: includes/plugins/items-cobalt-freelancer-devkit.php:129
-#: includes/plugins/items-cobalt-freelancer-devkit.php:133
-#: includes/plugins/items-cobalt-genesis-devkit.php:129
-#: includes/plugins/items-cobalt-genesis-devkit.php:133
-#: includes/plugins/items-cobalt-genesis-extender.php:60
-#: includes/plugins/items-cobalt-genesis-extender.php:64
-#: includes/plugins/items-cobalt-themer-pro.php:95
-#: includes/themes/items-dynamik-website-builder.php:140
-#: includes/themes/items-dynamik-website-builder.php:144
-msgid "Image Manager"
-msgstr ""
-
-#: includes/plugins/items-cobalt-extender-pro.php:84
-#: includes/plugins/items-cobalt-extender-pro.php:88
-#: includes/plugins/items-cobalt-genesis-extender.php:73
-#: includes/plugins/items-cobalt-genesis-extender.php:77
-#: includes/plugins/items-gravity-forms.php:152
-#: includes/plugins/items-gravity-forms.php:156
-#: includes/plugins/items-widget-importer-exporter.php:30
-#: includes/plugins/items-widget-importer-exporter.php:34
-#: includes/themes/items-dynamik-website-builder.php:170
-#: includes/themes/items-dynamik-website-builder.php:174
-#: includes/themes/items-genesis-gbeaver.php:44
-#: includes/themes/items-genesis-gbeaver.php:48
-#: includes/themes/items-genesis.php:150 includes/themes/items-genesis.php:154
-#: includes/themes/items-oceanwp.php:378 includes/themes/items-oceanwp.php:382
-msgid "Import &amp; Export"
 msgstr ""
 
 #: includes/plugins/items-cobalt-freelancer-devkit.php:32
@@ -3086,74 +3280,6 @@ msgstr ""
 
 #: includes/plugins/items-cobalt-freelancer-devkit.php:36
 msgid "Freelancer DevKit (Premium Add-On)"
-msgstr ""
-
-#: includes/plugins/items-cobalt-freelancer-devkit.php:49
-#: includes/plugins/items-cobalt-freelancer-devkit.php:53
-#: includes/plugins/items-cobalt-genesis-devkit.php:49
-#: includes/plugins/items-cobalt-genesis-devkit.php:53
-#: includes/themes/items-dynamik-website-builder.php:80
-#: includes/themes/items-dynamik-website-builder.php:84
-msgid "Design Options"
-msgstr ""
-
-#: includes/plugins/items-cobalt-freelancer-devkit.php:75
-#: includes/plugins/items-cobalt-freelancer-devkit.php:79
-#: includes/plugins/items-cobalt-freelancer-devkit.php:115
-#: includes/plugins/items-cobalt-freelancer-devkit.php:119
-#: includes/plugins/items-cobalt-genesis-devkit.php:75
-#: includes/plugins/items-cobalt-genesis-devkit.php:79
-#: includes/plugins/items-cobalt-genesis-devkit.php:115
-#: includes/plugins/items-cobalt-genesis-devkit.php:119
-msgid "Full View"
-msgstr ""
-
-#: includes/plugins/items-cobalt-freelancer-devkit.php:102
-#: includes/plugins/items-cobalt-freelancer-devkit.php:106
-#: includes/plugins/items-cobalt-genesis-devkit.php:102
-#: includes/plugins/items-cobalt-genesis-devkit.php:106
-msgid "Custom CSS, JS, Code"
-msgstr ""
-
-#: includes/plugins/items-cobalt-freelancer-devkit.php:145
-#: includes/plugins/items-cobalt-genesis-devkit.php:145
-#: includes/plugins/items-cobalt-themer-pro.php:110
-msgid "Theme Creator"
-msgstr ""
-
-#: includes/plugins/items-cobalt-freelancer-devkit.php:149
-#: includes/plugins/items-cobalt-genesis-devkit.php:149
-#: includes/plugins/items-cobalt-themer-pro.php:114
-msgid "Child Theme Creator"
-msgstr ""
-
-#: includes/plugins/items-cobalt-freelancer-devkit.php:173
-#: includes/plugins/items-cobalt-genesis-devkit.php:173
-msgid "Help Videos"
-msgstr ""
-
-#: includes/plugins/items-cobalt-freelancer-devkit.php:177
-#: includes/plugins/items-cobalt-genesis-devkit.php:177
-msgid "Help Videos (Inline)"
-msgstr ""
-
-#: includes/plugins/items-cobalt-genesis-devkit.php:32
-msgid "Genesis DevKit"
-msgstr ""
-
-#: includes/plugins/items-cobalt-genesis-devkit.php:36
-msgid "Genesis DevKit (Premium Add-On)"
-msgstr ""
-
-#: includes/plugins/items-cobalt-genesis-extender.php:34
-#: includes/plugins/items-cobalt-genesis-extender.php:38
-msgid "Genesis Extender"
-msgstr ""
-
-#: includes/plugins/items-cobalt-genesis-extender.php:47
-#: includes/plugins/items-cobalt-genesis-extender.php:51
-#: includes/themes/items-dynamik-website-builder.php:110
-msgid "Custom CSS &amp; Code"
 msgstr ""
 
 #: includes/plugins/items-cobalt-instant-ide.php:40
@@ -3460,104 +3586,6 @@ msgstr ""
 msgid "Sytem Info"
 msgstr ""
 
-#: includes/plugins/items-genesis-author-pro.php:37
-#: includes/plugins/items-genesis-author-pro.php:41
-msgid "All Books"
-msgstr ""
-
-#: includes/plugins/items-genesis-author-pro.php:50
-#: includes/plugins/items-genesis-author-pro.php:54
-msgid "New Book"
-msgstr ""
-
-#: includes/plugins/items-genesis-author-pro.php:65
-#: includes/plugins/items-genesis-author-pro.php:69
-msgid "New Book Builder"
-msgstr ""
-
-#: includes/plugins/items-genesis-author-pro.php:96
-#: includes/plugins/items-genesis-author-pro.php:100
-#: includes/plugins/items-genesis-portfolio-pro.php:96
-#: includes/plugins/items-genesis-portfolio-pro.php:100
-msgid "Archive Settings"
-msgstr ""
-
-#. translators: %s - Status of page, "Coming Soon" or "Maintenance"
-#: includes/plugins/items-genesis-coming-soon-page.php:39
-#, php-format
-msgid "%s Page"
-msgstr ""
-
-#: includes/plugins/items-genesis-coming-soon-page.php:40
-msgid "Coming Soon"
-msgstr ""
-
-#: includes/plugins/items-genesis-coming-soon-page.php:60
-#: includes/plugins/items-genesis-coming-soon-page.php:64
-msgid "Live Test"
-msgstr ""
-
-#: includes/plugins/items-genesis-design-palette-pro.php:30
-msgid "Design Palette Pro"
-msgstr ""
-
-#: includes/plugins/items-genesis-design-palette-pro.php:34
-msgid "Style with Genesis Design Palette Pro"
-msgstr ""
-
-#: includes/plugins/items-genesis-portfolio-pro.php:37
-#: includes/plugins/items-genesis-portfolio-pro.php:41
-#: includes/themes/items-flexia.php:307 includes/themes/items-flexia.php:311
-#: includes/themes/items-oceanwp.php:149 includes/themes/items-oceanwp.php:153
-msgid "All Portfolio Items"
-msgstr ""
-
-#: includes/plugins/items-genesis-portfolio-pro.php:50
-#: includes/plugins/items-genesis-portfolio-pro.php:54
-#: includes/themes/items-flexia.php:320 includes/themes/items-flexia.php:324
-#: includes/themes/items-oceanwp.php:162 includes/themes/items-oceanwp.php:166
-msgid "New Portfolio Item"
-msgstr ""
-
-#: includes/plugins/items-genesis-simple-hooks.php:30
-msgid "Simple Hooks"
-msgstr ""
-
-#: includes/plugins/items-genesis-simple-hooks.php:34
-msgid "Genesis Hook Locations"
-msgstr ""
-
-#: includes/plugins/items-genesis-simple-sidebars.php:30
-#: includes/plugins/items-genesis-simple-sidebars.php:44
-msgid "Simple Sidebars"
-msgstr ""
-
-#: includes/plugins/items-genesis-simple-sidebars.php:34
-#: includes/plugins/items-genesis-simple-sidebars.php:48
-msgid "Manage Genesis Sidebars"
-msgstr ""
-
-#: includes/plugins/items-genesis-testimonial-slider.php:37
-#: includes/plugins/items-genesis-testimonial-slider.php:41
-#: includes/plugins/items-testimonial-rotator.php:37
-#: includes/plugins/items-testimonial-rotator.php:41
-msgid "All Testimonials"
-msgstr ""
-
-#: includes/plugins/items-genesis-testimonial-slider.php:50
-#: includes/plugins/items-genesis-testimonial-slider.php:54
-#: includes/plugins/items-testimonial-rotator.php:50
-#: includes/plugins/items-testimonial-rotator.php:54
-msgid "New Testimonial"
-msgstr ""
-
-#: includes/plugins/items-genesis-testimonial-slider.php:65
-#: includes/plugins/items-genesis-testimonial-slider.php:69
-#: includes/plugins/items-testimonial-rotator.php:65
-#: includes/plugins/items-testimonial-rotator.php:69
-msgid "New Testimonial Builder"
-msgstr ""
-
 #: includes/plugins/items-github-updater.php:29
 #: includes/plugins/items-github-updater.php:42
 msgid "via GitHub Updater"
@@ -3571,26 +3599,26 @@ msgstr ""
 msgid "Install Theme via GitHub Updater"
 msgstr ""
 
-#: includes/plugins/items-gravity-forms.php:59
+#: includes/plugins/items-gravity-forms.php:78
 msgid "Forms"
 msgstr ""
 
-#: includes/plugins/items-gravity-forms.php:64
+#: includes/plugins/items-gravity-forms.php:83
 msgid "Forms (via Gravity Forms)"
 msgstr ""
 
-#: includes/plugins/items-gravity-forms.php:165
-#: includes/plugins/items-gravity-forms.php:169
+#: includes/plugins/items-gravity-forms.php:184
+#: includes/plugins/items-gravity-forms.php:188
 msgid "Export Entries"
 msgstr ""
 
-#: includes/plugins/items-gravity-forms.php:178
-#: includes/plugins/items-gravity-forms.php:182
+#: includes/plugins/items-gravity-forms.php:197
+#: includes/plugins/items-gravity-forms.php:201
 msgid "Export Forms"
 msgstr ""
 
-#: includes/plugins/items-gravity-forms.php:191
-#: includes/plugins/items-gravity-forms.php:195
+#: includes/plugins/items-gravity-forms.php:210
+#: includes/plugins/items-gravity-forms.php:214
 msgid "Import Forms"
 msgstr ""
 
@@ -3954,43 +3982,43 @@ msgstr ""
 msgid "Create Staging Clone"
 msgstr ""
 
-#: includes/smart-tweaks.php:205
+#: includes/smart-tweaks.php:207
 msgid "Galleries"
 msgstr ""
 
-#: includes/smart-tweaks.php:210
+#: includes/smart-tweaks.php:212
 msgid "Galleries (via NextGen Gallery)"
 msgstr ""
 
-#: includes/smart-tweaks.php:242
+#: includes/smart-tweaks.php:246
 msgctxt "Label for iThemes Security plugin"
 msgid "Security"
 msgstr ""
 
-#: includes/smart-tweaks.php:247
+#: includes/smart-tweaks.php:251
 msgid "Security (via iThemes Security)"
 msgstr ""
 
-#: includes/smart-tweaks.php:370 includes/smart-tweaks.php:375
+#: includes/smart-tweaks.php:378 includes/smart-tweaks.php:383
 msgid "WP Rocket"
 msgstr ""
 
-#: includes/smart-tweaks.php:408 includes/smart-tweaks.php:413
+#: includes/smart-tweaks.php:418 includes/smart-tweaks.php:423
 msgid "Autoptimize"
 msgstr ""
 
-#: includes/smart-tweaks.php:442
+#: includes/smart-tweaks.php:454
 msgctxt "Plugin type"
 msgid "Pro"
 msgstr ""
 
-#: includes/smart-tweaks.php:442
+#: includes/smart-tweaks.php:454
 msgctxt "Plugin type"
 msgid "Lite"
 msgstr ""
 
 #. translators: %s - Type of plugin (Pro or Lite)
-#: includes/smart-tweaks.php:446
+#: includes/smart-tweaks.php:458
 #, php-format
 msgid "Swift Performance %s"
 msgstr ""
@@ -4062,11 +4090,6 @@ msgstr ""
 #, php-format
 msgctxt "Toolbar New Content section"
 msgid "Create New %s Template with Builder"
-msgstr ""
-
-#: includes/string-switcher.php:423
-#, php-format
-msgid "%s Settings"
 msgstr ""
 
 #: includes/string-switcher.php:439
@@ -4225,7 +4248,7 @@ msgstr ""
 #: includes/themes/items-flexia.php:247
 #: includes/themes/items-freelancer.php:123
 #: includes/themes/items-generatepress.php:206
-#: includes/themes/items-oceanwp.php:661
+#: includes/themes/items-oceanwp.php:648
 #: includes/themes/items-page-builder-framework.php:192
 msgid "Official Theme Documentation"
 msgstr ""
@@ -4286,7 +4309,7 @@ msgstr ""
 #: includes/themes/items-beaver-builder-theme.php:109
 #: includes/themes/items-customify.php:90 includes/themes/items-flexia.php:104
 #: includes/themes/items-kava.php:119 includes/themes/items-kava.php:123
-#: includes/themes/items-oceanwp.php:480 includes/themes/items-oceanwp.php:484
+#: includes/themes/items-oceanwp.php:467 includes/themes/items-oceanwp.php:471
 #: includes/themes/items-page-builder-framework.php:120
 #: includes/themes/items-page-builder-framework.php:124
 #: includes/themes/items-startwp.php:105 includes/themes/items-startwp.php:109
@@ -4343,7 +4366,7 @@ msgstr ""
 #: includes/themes/items-customify.php:132
 #: includes/themes/items-generatepress.php:153
 #: includes/themes/items-generatepress.php:157
-#: includes/themes/items-oceanwp.php:498 includes/themes/items-oceanwp.php:502
+#: includes/themes/items-oceanwp.php:485 includes/themes/items-oceanwp.php:489
 msgid "Blog"
 msgstr ""
 
@@ -4371,7 +4394,7 @@ msgstr ""
 #: includes/themes/items-genesis-foodie-pro.php:34
 #: includes/themes/items-genesis-foodie-pro.php:38
 #: includes/themes/items-kava.php:105 includes/themes/items-kava.php:109
-#: includes/themes/items-oceanwp.php:444 includes/themes/items-oceanwp.php:448
+#: includes/themes/items-oceanwp.php:431 includes/themes/items-oceanwp.php:435
 #: includes/themes/items-page-builder-framework.php:106
 #: includes/themes/items-page-builder-framework.php:110
 msgid "Typography"
@@ -4403,7 +4426,7 @@ msgstr ""
 #. translators: Autofocus panel in the Customizer
 #: includes/themes/items-dynamik-website-builder.php:157
 #: includes/themes/items-dynamik-website-builder.php:161
-#: includes/themes/items-oceanwp.php:426 includes/themes/items-oceanwp.php:430
+#: includes/themes/items-oceanwp.php:413 includes/themes/items-oceanwp.php:417
 msgid "General Options"
 msgstr ""
 
@@ -4483,8 +4506,8 @@ msgstr ""
 
 #. translators: Autofocus section in the Customizer
 #. translators: Autofocus panel in the Customizer
-#: includes/themes/items-flexia.php:374 includes/themes/items-oceanwp.php:571
-#: includes/themes/items-oceanwp.php:575
+#: includes/themes/items-flexia.php:374 includes/themes/items-oceanwp.php:558
+#: includes/themes/items-oceanwp.php:562
 msgid "Portfolio"
 msgstr ""
 
@@ -4829,54 +4852,50 @@ msgstr ""
 msgid "Scripts &amp; Styles"
 msgstr ""
 
-#: includes/themes/items-oceanwp.php:391 includes/themes/items-oceanwp.php:395
-msgid "Push Notifications"
-msgstr ""
-
 #. translators: Autofocus panel in the Customizer
-#: includes/themes/items-oceanwp.php:462 includes/themes/items-oceanwp.php:466
+#: includes/themes/items-oceanwp.php:449 includes/themes/items-oceanwp.php:453
 msgid "Top Bar"
 msgstr ""
 
 #. translators: Autofocus section in the Customizer
-#: includes/themes/items-oceanwp.php:516 includes/themes/items-oceanwp.php:520
+#: includes/themes/items-oceanwp.php:503 includes/themes/items-oceanwp.php:507
 #: includes/themes/items-startwp.php:147 includes/themes/items-startwp.php:151
 msgid "Sidebar"
 msgstr ""
 
 #. translators: Autofocus section in the Customizer
-#: includes/themes/items-oceanwp.php:534 includes/themes/items-oceanwp.php:538
+#: includes/themes/items-oceanwp.php:521 includes/themes/items-oceanwp.php:525
 msgid "Footer Widgets"
 msgstr ""
 
 #. translators: Autofocus section in the Customizer
-#: includes/themes/items-oceanwp.php:552 includes/themes/items-oceanwp.php:556
+#: includes/themes/items-oceanwp.php:539 includes/themes/items-oceanwp.php:543
 msgid "Footer Bottom"
 msgstr ""
 
 #. translators: Autofocus section in the Customizer
-#: includes/themes/items-oceanwp.php:590 includes/themes/items-oceanwp.php:594
+#: includes/themes/items-oceanwp.php:577 includes/themes/items-oceanwp.php:581
 msgid "Side Panel"
 msgstr ""
 
 #. translators: Autofocus panel in the Customizer
-#: includes/themes/items-oceanwp.php:609 includes/themes/items-oceanwp.php:613
+#: includes/themes/items-oceanwp.php:596 includes/themes/items-oceanwp.php:600
 msgid "Modal Window"
 msgstr ""
 
 #. translators: %s - (Static) Theme name OceanWP - optionally white labeled string
-#: includes/themes/items-oceanwp.php:717
+#: includes/themes/items-oceanwp.php:704
 #, php-format
 msgid "%s Library"
 msgstr ""
 
 #. translators: %s - (Static) Theme name OceanWP - optionally white labeled string
-#: includes/themes/items-oceanwp.php:722
+#: includes/themes/items-oceanwp.php:709
 #, php-format
 msgid "New %s Library Template"
 msgstr ""
 
-#: includes/themes/items-oceanwp.php:794 includes/themes/items-oceanwp.php:798
+#: includes/themes/items-oceanwp.php:781 includes/themes/items-oceanwp.php:785
 msgid "Install Demos"
 msgstr ""
 

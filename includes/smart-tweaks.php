@@ -193,7 +193,9 @@ add_filter( 'admin_bar_menu', 'ddw_tbex_rehook_items_nextgen_gallery' );
 function ddw_tbex_rehook_items_nextgen_gallery( $wp_admin_bar ) {
 
 	/** Bail early if NextGen Gallery tweak should NOT be used */
-	if ( ! ddw_tbex_use_tweak_nextgen() ) {
+	if ( ! ddw_tbex_use_tweak_nextgen()
+		|| ! class_exists( 'C_NextGEN_Bootstrap' )
+	) {
 		return;
 	}
 
@@ -228,7 +230,9 @@ add_action( 'wp_before_admin_bar_render', 'ddw_tbex_rehook_items_ithemes_securit
 function ddw_tbex_rehook_items_ithemes_security() {
 
 	/** Bail early if iThemes Security tweak should NOT be used */
-	if ( ! ddw_tbex_use_tweak_ithemes_security() ) {
+	if ( ! ddw_tbex_use_tweak_ithemes_security()
+		|| ! function_exists( 'itsec_load_textdomain' )
+	) {
 		return;
 	}
 
@@ -288,7 +292,9 @@ add_action( 'wp_before_admin_bar_render', 'ddw_tbex_tweak_remove_items_aioseo', 
 function ddw_tbex_tweak_remove_items_aioseo() {
 
 	/** Bail early if tweak shouldn't be used */
-	if ( ! ddw_tbex_use_tweak_aioseo() ) {
+	if ( ! ddw_tbex_use_tweak_aioseo()
+		|| ! ( defined( 'AIOSEOP_VERSION' ) || defined( 'AIOSEOPPRO' ) )
+	) {
 		return;
 	}
 
@@ -333,7 +339,7 @@ add_action( 'wp_before_admin_bar_render', 'ddw_tbex_tweak_remove_items_members' 
 function ddw_tbex_tweak_remove_items_members() {
 
 	/** Bail early if tweak shouldn't be used */
-	if ( ! ddw_tbex_use_tweak_members() ) {
+	if ( ! ddw_tbex_use_tweak_members()	) {
 		return;
 	}
 
@@ -358,7 +364,9 @@ add_filter( 'admin_bar_menu', 'ddw_tbex_site_items_wprocket' );
 function ddw_tbex_site_items_wprocket( $wp_admin_bar ) {
 
 	/** Bail early if tweak shouldn't be used */
-	if ( ! ddw_tbex_use_tweak_wprocket() ) {
+	if ( ! ddw_tbex_use_tweak_wprocket()
+		|| ! defined( 'WP_ROCKET_VERSION' )
+	) {
 		return;
 	}
 
@@ -396,7 +404,9 @@ add_filter( 'admin_bar_menu', 'ddw_tbex_site_items_autoptimize' );
 function ddw_tbex_site_items_autoptimize( $wp_admin_bar ) {
 
 	/** Bail early if tweak shouldn't be used */
-	if ( ! ddw_tbex_use_tweak_autoptimize() ) {
+	if ( ! ddw_tbex_use_tweak_autoptimize()
+		|| ! defined( 'AUTOPTIMIZE_PLUGIN_DIR' )
+	) {
 		return;
 	}
 
@@ -420,8 +430,8 @@ function ddw_tbex_site_items_autoptimize( $wp_admin_bar ) {
 
 add_filter( 'admin_bar_menu', 'ddw_tbex_site_items_swift_performance' );
 /**
- * Items for Plugin: Swift Performance Lite (free, by ???) and
- *   Swift Performace (Premium, by ?).
+ * Items for Plugin: Swift Performance Lite (free, by SWTE) and
+ *   Swift Performace (Premium, by SWTE).
  *   If tweak setting is active then re-hook from the top to the conditional
  *   hook place for galleries & sliders
  *
@@ -435,7 +445,9 @@ add_filter( 'admin_bar_menu', 'ddw_tbex_site_items_swift_performance' );
 function ddw_tbex_site_items_swift_performance( $wp_admin_bar ) {
 
 	/** Bail early if tweak shouldn't be used */
-	if ( ! ddw_tbex_use_tweak_swift_performance() ) {
+	if ( ! ddw_tbex_use_tweak_swift_performance()
+		|| ! ( class_exists( 'Swift_Performance' ) || class_exists( 'Swift_Performance_Lite' ) )
+	) {
 		return;
 	}
 

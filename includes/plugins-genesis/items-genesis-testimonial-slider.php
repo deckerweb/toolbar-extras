@@ -1,6 +1,6 @@
 <?php
 
-// includes/plugins/items-genesis-testimonial-slider
+// includes/plugins-genesis/items-genesis-testimonial-slider
 
 /**
  * Prevent direct access to this file.

@@ -1,6 +1,6 @@
 <?php
 
-//items-genesis-simple-hooks
+// includes/plugins-genesis/items-genesis-simple-hooks
 
 /**
  * Prevent direct access to this file.

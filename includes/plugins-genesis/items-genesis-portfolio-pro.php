@@ -1,6 +1,6 @@
 <?php
 
-// includes/plugins/items-genesis-portfolio-pro
+// includes/plugins-genesis/items-genesis-portfolio-pro
 
 /**
  * Prevent direct access to this file.

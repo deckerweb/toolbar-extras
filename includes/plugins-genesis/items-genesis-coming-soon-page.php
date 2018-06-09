@@ -1,6 +1,6 @@
 <?php
 
-//items-genesis-coming-soon-page
+// includes/plugins-genesis/items-genesis-coming-soon-page
 
 /**
  * Prevent direct access to this file.
@@ -40,6 +40,7 @@ function ddw_tbex_aoitems_genesis_coming_soon_page() {
 		( 'maintenance' === $gcsp_status ) ? __( 'Maintenance Mode', 'toolbar-extras' ) : __( 'Coming Soon', 'toolbar-extras' )
 	);
 
+	/** Settings page */
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(
 		array(
 			'id'     => 'gcs-page-edit',
@@ -53,6 +54,7 @@ function ddw_tbex_aoitems_genesis_coming_soon_page() {
 		)
 	);
 
+	/** Live testing */
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(
 		array(
 			'id'     => 'gcs-page-live',

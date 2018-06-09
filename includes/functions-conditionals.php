@@ -989,8 +989,9 @@ function ddw_tbex_use_hook_place_gallery_slider() {
  *
  * @return bool TRUE if constant defined & false, otherwise FALSE.
  */
-function ddw_tbex_display_uael_witelabel() {
+function ddw_tbex_hide_uael_witelabel() {
 
-	return ( defined( 'WP_UAEL_WL' ) && ! WP_UAEL_WL ) ? TRUE : FALSE;
+	//return ( defined( 'WP_UAEL_WL' ) && TRUE === WP_UAEL_WL ) ? TRUE : FALSE;
+	return ( defined( 'WP_UAEL_WL' ) ) ? WP_UAEL_WL : FALSE;
 
 }  // end function

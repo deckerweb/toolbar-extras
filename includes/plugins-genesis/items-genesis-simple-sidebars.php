@@ -1,6 +1,6 @@
 <?php
 
-//items-genesis-simple-sidebars
+// includes/plugins-genesis/items-genesis-simple-sidebars
 
 /**
  * Prevent direct access to this file.

@@ -1,6 +1,6 @@
 <?php
 
-//items-blox
+// includes/plugins-genesis/items-blox
 
 /**
  * Prevent direct access to this file.

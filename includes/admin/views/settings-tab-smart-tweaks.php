@@ -61,7 +61,7 @@ function ddw_tbex_settings_section_info_translations() {
 			<?php _e( 'Unload translations for specific plugins so that you can work in an English-language environment. This could be very useful for multilingual installs.', 'toolbar-extras' ); ?>
 		</p>
 		<p class="description">
-			<?php echo '<strong>' . __( 'Usage example', 'toolbar-extras' ) . ':</strong>' . __( 'The site of your client is completely in French. You as the Administrator and site builder speak no French, only English, and the site cannot be switched to English. The user profile language setting doesn’t help as it is only for the WP-Admin. So, in this case when you need to edit stuff in Elementor and want to use Toolbar Extras as well: Then the tweaks below help you to get a English-language environment for Elementor.', 'toolbar-extras' ); ?>
+			<?php echo '<strong>' . __( 'Usage example', 'toolbar-extras' ) . ':</strong> ' . __( 'The site of your client is completely in French. You as the Administrator and site builder speak no French, only English, and the site cannot be switched to English. The user profile language setting doesn’t help as it is only for the WP-Admin. So, in this case when you need to edit stuff in Elementor and want to use Toolbar Extras as well: Then the tweaks below help you to get a English-language environment for Elementor.', 'toolbar-extras' ); ?>
 		</p>
 	<?php
 
@@ -105,7 +105,7 @@ function ddw_tbex_settings_cb_toolbar_front_color() {
 			<option value="no" <?php selected( sanitize_key( $tbex_options[ 'toolbar_front_color' ] ), 'no' ); ?>><?php _e( 'No', 'toolbar-extras' ); ?></option>
 		</select>
 		<label for="tbex-options-tweaks[toolbar_front_color]">
-			<span class="description"><?php echo sprintf( __( 'Default: %s', 'toolbar-extras' ), '<code>' . __( 'Yes', 'toolbar-extras' ) . '</code>' ); ?></span>
+			<span class="description"><?php echo sprintf( __( 'Default: %s', 'toolbar-extras' ), '<code>' . __( 'No', 'toolbar-extras' ) . '</code>' ); ?></span>
 		</label>
 		<p class="description">
 			<?php

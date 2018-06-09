@@ -1,6 +1,6 @@
 <?php
 
-// includes/plugins/items-genesis-author-pro
+// includes/plugins-genesis/items-genesis-author-pro
 
 /**
  * Prevent direct access to this file.

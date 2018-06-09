@@ -12,6 +12,25 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 
+add_action( 'init', 'ddw_tbex_maybe_turnon_gravityforms_toolbar', 20 );
+/**
+ * Enable Toolbar display in Gravity Forms settings if Gravity Forms is active
+ *   (of course) AND the re-hooking Smart Tweak in Toolbar Extras is enabled.
+ *
+ * @since 1.2.1
+ *
+ * @uses  ddw_tbex_use_tweak_gravityforms()
+ */
+function ddw_tbex_maybe_turnon_gravityforms_toolbar() {
+
+	/** Only update option if tweak should be used */
+	if ( ddw_tbex_use_tweak_gravityforms() ) {
+		update_option( 'gform_enable_toolbar_menu', 1 );
+	}
+
+}  // end function
+
+
 add_action( 'wp_before_admin_bar_render', 'ddw_tbex_remove_items_gravityforms', 1 );
 /**
  * Remove items from Gravity Forms plugin.

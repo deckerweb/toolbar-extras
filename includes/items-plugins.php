@@ -136,7 +136,7 @@ if ( function_exists( 'pp_404_is_active' ) ) {
  * @since 1.0.0
  */
 if ( ddw_tbex_is_genesis_active() && defined( 'GPP_VER' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-genesis-design-palette-pro.php' );
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-genesis-design-palette-pro.php' );
 }
 
 
@@ -145,7 +145,7 @@ if ( ddw_tbex_is_genesis_active() && defined( 'GPP_VER' ) ) {
  * @since 1.0.0
  */
 if ( ddw_tbex_is_genesis_active() && class_exists( 'Genesis_Simple_Hooks' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-genesis-simple-hooks.php' );
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-genesis-simple-hooks.php' );
 }
 
 
@@ -154,7 +154,7 @@ if ( ddw_tbex_is_genesis_active() && class_exists( 'Genesis_Simple_Hooks' ) ) {
  * @since 1.0.0
  */
 if ( ddw_tbex_is_genesis_active() && class_exists( 'Genesis_Simple_Sidebars' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-genesis-simple-sidebars.php' );
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-genesis-simple-sidebars.php' );
 }
 
 
@@ -163,7 +163,7 @@ if ( ddw_tbex_is_genesis_active() && class_exists( 'Genesis_Simple_Sidebars' ) )
  * @since 1.0.0
  */
 if ( ddw_tbex_is_genesis_active() && function_exists( 'genesis_portfolio_init' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-genesis-portfolio-pro.php' );
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-genesis-portfolio-pro.php' );
 }
 
 
@@ -172,7 +172,7 @@ if ( ddw_tbex_is_genesis_active() && function_exists( 'genesis_portfolio_init' )
  * @since 1.0.0
  */
 if ( ddw_tbex_is_genesis_active() && function_exists( 'genesis_author_pro_init' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-genesis-author-pro.php' );
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-genesis-author-pro.php' );
 }
 
 
@@ -181,7 +181,7 @@ if ( ddw_tbex_is_genesis_active() && function_exists( 'genesis_author_pro_init' 
  * @since 1.0.0
  */
 if ( ddw_tbex_is_genesis_active() && function_exists( 'wpstudio_gts_init' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-genesis-testimonial-slider.php' );
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-genesis-testimonial-slider.php' );
 }
 
 
@@ -199,7 +199,7 @@ if ( function_exists( 'testimonial_rotator_setup' ) ) {
  * @since 1.0.0
  */
 if ( ddw_tbex_is_genesis_active() && function_exists( 'gcs_genesis_init' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-genesis-coming-soon-page.php' );
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-genesis-coming-soon-page.php' );
 }
 
 
@@ -208,7 +208,7 @@ if ( ddw_tbex_is_genesis_active() && function_exists( 'gcs_genesis_init' ) ) {
  * @since 1.0.0
  */
 if ( ddw_tbex_is_genesis_active() && function_exists( 'be_register_genesis_404_settings' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-genesis-404-page.php' );
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-genesis-404-page.php' );
 }
 
 
@@ -217,7 +217,7 @@ if ( ddw_tbex_is_genesis_active() && function_exists( 'be_register_genesis_404_s
  * @since 1.0.0
  */
 if ( ddw_tbex_is_genesis_active() && class_exists( 'Blox_Lite_Main' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-blox.php' );
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-blox.php' );
 }
 
 
@@ -257,7 +257,7 @@ if ( ( 'freelancer' === basename( get_template_directory() ) )			// check for Fr
 if ( ddw_tbex_is_genesis_active()			// check for Genesis Parent Theme
 	&& function_exists( 'genesis_devkit_compatible_theme_check' )	// check for Genesis DevKit Plugin
 ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-cobalt-genesis-devkit.php' );
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-cobalt-genesis-devkit.php' );
 }
 
 
@@ -266,7 +266,7 @@ if ( ddw_tbex_is_genesis_active()			// check for Genesis Parent Theme
  * @since 1.1.1
  */
 if ( ddw_tbex_is_genesis_active() && defined( 'GENEXT_VERSION' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-cobalt-genesis-extender.php' );
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-cobalt-genesis-extender.php' );
 }
 
 

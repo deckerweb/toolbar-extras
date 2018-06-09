@@ -5,7 +5,7 @@ Tags: toolbar, adminbar, admin bar, elementor, page builder, themes, menu, links
 Requires at least: 4.7
 Tested up to: 4.9.6
 Requires PHP: 5.6
-Stable tag: 1.2.0
+Stable tag: 1.2.1
 License: GPL-2.0+
 License URI: https://opensource.org/licenses/GPL-2.0
 
@@ -45,7 +45,7 @@ Out of the box the plugin includes support for dozens of awesome Plugins and The
 - Perfect for **all Elementor users**!
 - **Elementor** (free) version 2.x (and also former 1.x)
 - **Elementor Pro** (Premium) version 2.x (and also former 1.x)
-- **1-Click Template Creation**: Start the Live Editor and create a new template (or page, post, custom post type) at the same time, with only click - so easy!
+- **1-Click Template Creation**: Start the Live Editor and create a new template (or page, post, custom post type) at the same time, with only **one** click - so easy!
 
 = Supported Themes/ Frameworks =
 - [**Astra**](https://wordpress.org/themes/astra/), including **Astra Pro** (Add-On) (both by Brainstorm Force)
@@ -321,17 +321,29 @@ A special Multiste Add-On for Toolbar Extras is planned but no features or date 
 
 ([For the full changelog of this plugin visit its website at ToolbarExtras.com](https://toolbarextras.com/changelog/))
 
+= 1.2.1 - 2018-06-09 =
+* Tweak: Improved logic for some Smart Tweaks so any items are always hidden when the supported plugin is not active (important for the re-hook tweaks)
+* Tweak: Improved plugin support for "JetWooBuilder" with the adding of its WooCommerce settings page
+* Tweak: Improved plugin support for "DHWC Elementor" with the adding of its Template settings
+* Tweak: Removed "Push Notifications" from OceanWP theme support as this feature is now only available in a third-party stand-alone plugin
+* Tweak: Improved "Gravity Forms" plugin support and the re-hooking Smart Tweak/ integration
+* Tweak: Some string & formatting optimizations
+* Tweak: Updated `.pot` file plus all German translations (formal, informal)
+* Fix: Removed duplicate item for Elementor Core support in code
+* Fix: Proper default status "no" in setting description for Frontend Toolbar color Smart Tweak
+* Fix: Proper check for white label settings in "Ultimate Addons for Elementor" plugin support
+
 = 1.2.0 - 2018-05-31 =
 * New: General setting to remove all title attributes (Tooltips) from links in the Toolbar, including from all items added by Toolbar Extras (Toolbar Extras Settings > General)
 * New: Smart Tweak setting to re-hook "WP Rocket" items from the top-level to the Site Group > More Stuff (off by default) (Plugin: WP Rocket - Premium, by WP Rocket)
-* New: Smart Tweak setting to re-hook "Autoptimize" items from the top-level to the Site Group > More Stuff (off by default) (Plugin: Autoptimize - free, by ?)
-* New: Smart Tweak setting to re-hook "Swift Performance" (Premium) or "Swift Performance Lite" (free) items from the top-level to the Site Group > More Stuff (off by default) (Plugin: Swift Performance - free/Premium, by ?)
+* New: Smart Tweak setting to re-hook "Autoptimize" items from the top-level to the Site Group > More Stuff (off by default) (Plugin: Autoptimize - free, by Frank Goossens & Optimizing Matters)
+* New: Smart Tweak setting to re-hook "Swift Performance" (Premium) or "Swift Performance Lite" (free) items from the top-level to the Site Group > More Stuff (off by default) (Plugin: Swift Performance - free/Premium, by SWTE)
 * New: Smart Tweak setting to remove new "User" from New Content group (to gain more space there) (off by default)
 * New: Smart Tweak setting specifically for WooCommerce plugin to remove new "Order" and new "Coupon" from New Content Group (to gain more space there) (off by default)
 * New: Smart Tweak setting to optionally unload translations for Elementor and Elementor Pro (so it falls back to English default strings) (off by default)
 * New: Smart Tweak setting to optionally unload translations for this plugin, Toolbar Extras (so it falls back to English default strings) (off by default)
 * New: Smart Tweak setting to optionally remove all WordPress Widgets from the Elementor Live Editor (left-hand Elementor Panel) (off by default)
-* New: Thanks to the amazing user community, this plugin is now available in 3 different English language variants: `en_GB` (for the UK), `en_CA` (for Canada) and `en_AU` (for Australia)
+* New: Thanks to the amazing user community, this plugin is now available in 3 different English language variants: `en_GB` (for the UK), `en_CA` (for Canada), `en_AU` (for Australia) and `en_NZ` (for New Zealand)
 * Tweak: Made support for "Dynamik Website Builder" Child Theme compatible with their newest version 2.4.0/2.4.1 or higher (versions 2.3.4 or lower are still supported, though)
 * Tweak: Added preview links for "Dynamik Website Builder" theme support
 * Tweak: Improved full view (preview) links for "Genesis DevKit" plugin support, and same for "Freelancer DevKit" plugin support
@@ -379,7 +391,7 @@ A special Multiste Add-On for Toolbar Extras is planned but no features or date 
  * TM Timeline (free, by Jetimpex/ Zemez)
  * Convert Pro (Premium, by Brainstorm Force)
  * Convert Pro Addon (Premium, by Brainstorm Force)
- * Convert Plus (Premium, by Brainstorm Force)
+ * Convert Plus (Premium, by Brainstorm Force) (Plugin formerly known as "ConvertPlug")
  * OptinMonster API (free/Premium, by OptinMonster Team/ Retyp, LLC)
  * Testimonial Rotator (free, by Hal Gatewood)
  * Widget Options (free/Premium, by Phpbits Creative Studio)
@@ -496,6 +508,9 @@ A special Multiste Add-On for Toolbar Extras is planned but no features or date 
 * New: Including support for 10 Genesis specific plugins
 
 == Upgrade Notice =
+
+= 1.2.1 =
+Maintenance release. Few improvements, tweaks and fixes.
 
 = 1.2.0 =
 Feature release: New General settings & Smart Tweaks; greatly extended third-party Theme & Plugin/Add-On support; plus more improvements & tweaks

@@ -1,6 +1,6 @@
 <?php
 
-//items-genesis-404-page
+// includes/plugins-genesis/items-genesis-404-page
 
 /**
  * Prevent direct access to this file.
@@ -30,6 +30,7 @@ function ddw_tbex_aoitems_genesis_404_page() {
 		)
 	);
 
+	/** Settings page */
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(
 		array(
 			'id'     => 'be-404page-edit',
@@ -42,7 +43,8 @@ function ddw_tbex_aoitems_genesis_404_page() {
 			)
 		)
 	);
-
+	
+	/** Live testing */
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(
 		array(
 			'id'     => 'be-404page-live',

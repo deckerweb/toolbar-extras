@@ -1,6 +1,6 @@
 <?php
 
-//items-genesis-design-palette-pro
+// includes/plugins-genesis/items-genesis-design-palette-pro
 
 /**
  * Prevent direct access to this file.

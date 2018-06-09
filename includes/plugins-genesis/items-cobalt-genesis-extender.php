@@ -1,6 +1,6 @@
 <?php
 
-// includes/plugins/items-cobalt-genesis-extender
+// includes/plugins-genesis/items-cobalt-genesis-extender
 
 /**
  * Prevent direct access to this file.
