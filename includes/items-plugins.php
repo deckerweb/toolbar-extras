@@ -78,6 +78,15 @@ if ( defined( 'WPSP_VERSION' ) ) {
 
 
 /**
+ * Plugin: Front Page Builder (free, by Themes4WP)
+ * @since 1.3.0
+ */
+if ( defined( 'FPB_SAMPLE_PLUGIN_URL' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-front-page-builder.php' );
+}
+
+
+/**
  * Plugin: Customizer Export Import (free, by The Beaver Builder Team)
  * @since 1.0.0
  */
@@ -132,92 +141,11 @@ if ( function_exists( 'pp_404_is_active' ) ) {
 
 
 /**
- * Plugin: Genesis Design Palette Pro (Premium, by Reaktiv Studios)
- * @since 1.0.0
- */
-if ( ddw_tbex_is_genesis_active() && defined( 'GPP_VER' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-genesis-design-palette-pro.php' );
-}
-
-
-/**
- * Plugin: Genesis Simple Hooks (free, by StudioPress)
- * @since 1.0.0
- */
-if ( ddw_tbex_is_genesis_active() && class_exists( 'Genesis_Simple_Hooks' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-genesis-simple-hooks.php' );
-}
-
-
-/**
- * Plugin: Genesis Simple Sidebars (free, by StudioPress)
- * @since 1.0.0
- */
-if ( ddw_tbex_is_genesis_active() && class_exists( 'Genesis_Simple_Sidebars' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-genesis-simple-sidebars.php' );
-}
-
-
-/**
- * Plugin: Genesis Portfolio Pro (free, by StudioPress)
- * @since 1.0.0
- */
-if ( ddw_tbex_is_genesis_active() && function_exists( 'genesis_portfolio_init' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-genesis-portfolio-pro.php' );
-}
-
-
-/**
- * Plugin: Genesis Author Pro (free, by StudioPress/ copyblogger)
- * @since 1.0.0
- */
-if ( ddw_tbex_is_genesis_active() && function_exists( 'genesis_author_pro_init' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-genesis-author-pro.php' );
-}
-
-
-/**
- * Plugin: Genesis Testimonial Slider (free, by Frank Schrijvers, WPStudio)
- * @since 1.0.0
- */
-if ( ddw_tbex_is_genesis_active() && function_exists( 'wpstudio_gts_init' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-genesis-testimonial-slider.php' );
-}
-
-
-/**
  * Plugin: Testimonial Rotator (free, by Hal Gatewood)
  * @since 1.2.0
  */
 if ( function_exists( 'testimonial_rotator_setup' ) ) {
 	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-testimonial-rotator.php' );
-}
-
-
-/**
- * Plugin: Genesis Coming Soon Page (free, by Jose Manuel Sanchez)
- * @since 1.0.0
- */
-if ( ddw_tbex_is_genesis_active() && function_exists( 'gcs_genesis_init' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-genesis-coming-soon-page.php' );
-}
-
-
-/**
- * Plugin: Genesis 404 Page (free, by Bill Erickson)
- * @since 1.0.0
- */
-if ( ddw_tbex_is_genesis_active() && function_exists( 'be_register_genesis_404_settings' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-genesis-404-page.php' );
-}
-
-
-/**
- * Plugin: Blox Lite / Blox (free/Pro, by Nick Diego)
- * @since 1.0.0
- */
-if ( ddw_tbex_is_genesis_active() && class_exists( 'Blox_Lite_Main' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-blox.php' );
 }
 
 
@@ -251,22 +179,38 @@ if ( ( 'freelancer' === basename( get_template_directory() ) )			// check for Fr
 
 
 /**
- * Plugin: Genesis DevKit (Premium, by Cobalt Apps)
- * @since 1.1.3
+ * Plugin: OceanWP Sticky Header (free, by Oren Hahiashvili)
+ * @since 1.3.0
  */
-if ( ddw_tbex_is_genesis_active()			// check for Genesis Parent Theme
-	&& function_exists( 'genesis_devkit_compatible_theme_check' )	// check for Genesis DevKit Plugin
-) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-cobalt-genesis-devkit.php' );
+if ( class_exists( 'sticky_header_oceanwp' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-oceanwp-sticky-header.php' );
 }
 
 
 /**
- * Plugin: Genesis Extender (Premium, by Cobalt Apps)
- * @since 1.1.1
+ * Plugin: GP Social Share (free, by Jon Mather)
+ * @since 1.3.0
  */
-if ( ddw_tbex_is_genesis_active() && defined( 'GENEXT_VERSION' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-cobalt-genesis-extender.php' );
+if ( function_exists( 'gp_social_options_page' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-gp-social-share.php' );
+}
+
+
+/**
+ * Plugin: GP Back To Top (free, by Mai Dong Giang (Peter Mai))
+ * @since 1.3.0
+ */
+if ( class_exists( 'GP_Back_To_Top' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-gp-back-to-top.php' );
+}
+
+
+/**
+ * Plugin: Church Content (free, by churchthemes.com)
+ * @since 1.3.0
+ */
+if ( class_exists( 'Church_Theme_Content' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-ct-church-content.php' );
 }
 
 
@@ -300,7 +244,7 @@ if ( in_array( 'github-updater/github-updater.php', apply_filters( 'active_plugi
  * @since 1.0.0
  */
 if ( ddw_tbex_display_items_dev_mode()
-	&& ddw_tbex_in_local_environment()
+	/* && ddw_tbex_in_local_environment() */
 	&& in_array( 'local-development/local-development.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) )
 ) {
 	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-local-development.php' );

@@ -1,6 +1,6 @@
 <?php
 
-//items-simple-custom-css
+// includes/plugins/items-simple-custom-css
 
 /**
  * Prevent direct access to this file.
@@ -34,7 +34,7 @@ function ddw_tbex_aoitems_simple_custom_css() {
 			'href'   => esc_url( admin_url( 'themes.php?page=simple-custom-css.php' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Simple Custom CSS (Add-On)', 'toolbar-extras' )
+				'title'  => ddw_tbex_string_addon_title_attr( __( 'Simple Custom CSS', 'toolbar-extras' ) )
 			)
 		)
 	);

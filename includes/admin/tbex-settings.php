@@ -39,6 +39,7 @@ function ddw_tbex_default_options_general() {
 		'display_items_addons'        => 'yes',
 		'display_items_new_content'   => 'yes',
 		'display_items_site_group'    => 'yes',
+		'display_items_edit_content'  => 'yes',
 		'display_items_edit_menus'    => 'yes',
 		'display_items_user_group'    => 'yes',
 		'display_items_tbex_settings' => 'yes',
@@ -48,6 +49,7 @@ function ddw_tbex_default_options_general() {
 
 		'display_title_attributes'    => 'yes',						// shown by default
 		'external_links_blank'        => 'yes',						// always open in new tab/ window
+		'builder_links_blank'         => 'yes',						// always open in new tab/ window
 
 		'tbex_tbmenu_priority'        => 9999,						// last thing of the left part, hopefully
 		'tbex_tbmenu_icon'            => '',						// none, of course!
@@ -87,6 +89,7 @@ function ddw_tbex_default_options_smart_tweaks() {
 
 		'remove_wp_logo'             => 'no',		// do not touch by default
 		'remove_front_customizer'    => 'no',		// do not touch by default
+		'remove_media_newcontent'    => 'no',		// do not touch by default
 		'remove_user_newcontent'     => 'no',		// do not touch by default
 
 		'remove_updraftplus'         => 'yes',		// remove by default, as their default makes no sense
@@ -304,6 +307,14 @@ function ddw_tbex_register_settings_general() {
 			);
 
 			add_settings_field(
+				'display_items_edit_content',
+				__( 'View/ Edit Content Items', 'toolbar-extras' ),
+				'ddw_tbex_settings_cb_display_items_edit_content',
+				'tbex_group_general',
+				'tbex-section-display'
+			);
+
+			add_settings_field(
 				'display_items_edit_menus',
 				__( 'List Edit Menu Items', 'toolbar-extras' ),
 				'ddw_tbex_settings_cb_display_items_edit_menus',
@@ -377,6 +388,14 @@ function ddw_tbex_register_settings_general() {
 				'tbex-section-links'
 			);
 
+			add_settings_field(
+				'builder_links_blank',
+				__( 'Open Create With Builder Links in New Tab/ Window?', 'toolbar-extras' ),
+				'ddw_tbex_settings_cb_builder_links_blank',
+				'tbex_group_general',
+				'tbex-section-links'
+			);
+
 		/** General: 6th section */
 		add_settings_section( 
 			'tbex-section-tbexmenu',
@@ -433,7 +452,7 @@ function ddw_tbex_register_settings_smart_tweaks() {
 		/** Smart Tweaks: 1st section */
 		add_settings_section( 
 			'tbex-section-wordpress',
-			'<h3 class="tbex-settings-section">' . __( 'Change Default Toolbar Behavior', 'toolbar-extras' ) . '</h3>',
+			'<h3 class="tbex-settings-section first">' . __( 'Change Default Toolbar Behavior', 'toolbar-extras' ) . '</h3>',
 			'ddw_tbex_settings_section_info_wordpress',
 			'tbex_group_smart_tweaks'
 		);
@@ -466,6 +485,14 @@ function ddw_tbex_register_settings_smart_tweaks() {
 				'remove_front_customizer',
 				__( 'Remove Customizer Item on Frontend', 'toolbar-extras' ),
 				'ddw_tbex_settings_cb_remove_front_customizer',
+				'tbex_group_smart_tweaks',
+				'tbex-section-wordpress'
+			);
+
+			add_settings_field(
+				'remove_media_newcontent',
+				__( 'Remove Media Item in New Content Group', 'toolbar-extras' ),
+				'ddw_tbex_settings_cb_remove_media_newcontent',
 				'tbex_group_smart_tweaks',
 				'tbex-section-wordpress'
 			);
@@ -745,7 +772,7 @@ function ddw_tbex_register_settings_development() {
 		/** Development: 1st section */
 		add_settings_section( 
 			'tbex-section-local-dev',
-			'<h3 class="tbex-settings-section">' . __( 'Local Development Environment', 'toolbar-extras' ) . '</h3>',
+			'<h3 class="tbex-settings-section first">' . __( 'Local Development Environment', 'toolbar-extras' ) . '</h3>',
 			'ddw_tbex_settings_section_info_local_dev',
 			'tbex_group_development'
 		);
@@ -888,12 +915,14 @@ function ddw_tbex_validate_settings_general( $input ) {
 		'display_items_addons',
 		'display_items_new_content',
 		'display_items_site_group',
+		'display_items_edit_content',
 		'display_items_edit_menus',
 		'display_items_user_group',
 		'display_items_demo_import',
 		'display_items_tbex_settings',
 		'display_link_attributes',
-		'external_links_blank'
+		'external_links_blank',
+		'builder_links_blank'
 	);
 
 	foreach( $select_fields as $select ) {
@@ -928,6 +957,7 @@ function ddw_tbex_validate_settings_smart_tweaks( $input ) {
 		'use_web_group',
 		'remove_wp_logo',
 		'remove_front_customizer',
+		'remove_media_newcontent',
 		'remove_user_newcontent',
 		'remove_updraftplus',
 		'remove_members',

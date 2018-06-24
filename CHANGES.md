@@ -2,6 +2,72 @@
 
 ## Changelog
 
+### 1.3.0 - 2018-06-25
+
+* New: General setting to set link target for "Create with Builder" links (add new templates...) - by default this is now set to "_blank" (means new browser tab/ window)
+* New: Added Customizer link for "Edit" and "View" singular posts for any public post - also a new General setting included to display those links or not (on by default)
+* New: Build own Theme upload "tab" that can be linked to on its own (uses WordPress Core render function for the upload feature itself!) - see Toolbar under: + New > Install Theme > Upload ZIP file
+* New: Smart Tweak setting to remove "Media" from New Content group (to gain more space there) (off by default)
+* New: Added full support for CrocoBlock Subscription Service (Premium, by Zemez) - including Kava Pro, Kava free, plus all Jet Plugins with settings pages - this also includes 1-Click template creation for Jet Theme Parts (via JetThemeCore)
+* New: Successfully tested with "Dark Mode" (free, by Daniel T. James) plugin - which may land in WordPress Core soon... :) - all CSS styles that Toolbar Extras adds are fully compatible
+* Tweak: On plugin's settings page/ tabs added visual separation of settings sections (horizontal lines)
+* Tweak: All Customizer deep links that customize the Blog archive/page of a site now use the set Blog URL as the preview URL/page within the Customizer - this applies to all supported themes that have such Customizer panel, section or control
+* Tweak: Added new plugin "Home Page Banner for Astra Theme" (free, by Brainstorm Force) to Astra Theme support (Customizer deep link)
+* Tweak: Added new plugin "Ocean Stick Anything" (free, by OceanWP) to OceanWP Theme support (settings link)
+* Tweak: Added "Integrations" settings to OceanWP theme support
+* Tweak: Added new official OceanWP Premium Add-On "Cookie Notice" to OceanWP theme support (Customizer deep link)
+* Tweak: Added new "WooCommerce" integration to "Page Builder Framework" Theme support
+* Tweak: Added new Elementor developer resource
+* Tweak: Added new resource for supported Theme "Page Builder Framework"
+* Tweak: Improved plugin support for "Local Development" plugin (free, by Andy Fragen)
+* Tweak: Improved plugin support for "Revolution for Elementor Premium" plugin (Premium, by Jan Thielemann)
+* Tweak: Styling improvement for resources in Dev Mode
+* Tweak: Started a process to reduce the amount of strings: further re-use of strings where possible; reducing the amount of unique strings from supported plugins and themes
+* Tweak: Updated `.pot` file plus all German translations (formal, informal)
+* Fix: Proper template type for "Create with Builder" URL for adding new "Single" template (Elementor Pro)
+* Fix: Proper Link title labels for "White Label Branding for Elementor" plugin support
+* **New:** *Extended the Theme support for:*
+  * Kava Pro (Premium, by Zemez/ CrocoBlock) - including the "Kava Extra" plugin
+  * Phlox (free, by averta) - including the free Add-Ons "Phlox Core Elements" and "Phlox Portfolio"
+  * Buildwall (Premium, by Zemez)
+  * Resurrect (Premium, by churchthemes.com)
+  * Exodus (Premium, by churchthemes.com)
+  * Saved (Premium, by churchthemes.com)
+  * Maranatha (Premium, by churchthemes.com)
+  * Risen (Premium, by Steven Gliebe/ churchthemes.com) - note: legacy theme!
+  * AgentPress Pro (Child Theme for Genesis) (Premium, by StudioPress)
+  * Altitude Pro (Child Theme for Genesis) (Premium, by StudioPress)
+  * Author Pro (Child Theme for Genesis) (Premium, by StudioPress)
+  * Daily Dish Pro (Child Theme for Genesis) (Premium, by StudioPress)
+  * Infinity Pro (Child Theme for Genesis) (Premium, by StudioPress)
+  * Magazine Pro (Child Theme for Genesis) (Premium, by StudioPress)
+  * Parallax Pro (Child Theme for Genesis) (Premium, by StudioPress)
+  * Wellness Pro (Child Theme for Genesis) (Premium, by StudioPress)
+* **New:** *Extended the Plugin support for Elementor Add-Ons:*
+  * JetThemeCore (Premium, by Zemez/ CrocoBlock)
+  * Briefcase Elementor Widgets (Premium, by BriefcaseWP)
+  * Kadence WooCommerce Elementor (free, by Kadence Themes)
+  * Kadence WooCommerce Elementor Pro (Premium, by Kadence Themes)
+  * Elementor Google Map Extended Pro (Premium, by InternetCSS)
+* **New:** *Extended the general Plugin support for:*
+  * Kava Extra (Premium, by Zemez/ CrocoBlock)
+  * Jet Data Importer (Premium, by Zemez/ CrocoBlock)
+  * Jet Plugins Wizard (Premium, by Zemez/ CrocoBlock)
+  * Home Page Banner for Astra Theme (free, by Brainstorm Force)
+  * OceanWP Sticky Header (free, by Oren Hahiashvili)
+  * Front Page Builder (free, by Themes4WP)
+  * Customify Pro Add-On (Premium, by PressMaximum)
+  * Phlox Core Elements Add-On (free, by averta)
+  * Phlox Portfolio Add-On (free, by averta)
+  * Church Content (free, by churchthemes.com)
+  * GP Social Share (free, by Jon Mather)
+  * GP Back To Top (free, by Mai Dong Giang (Peter Mai))
+  * Ocean Stick Anything (free, by OceanWP)
+  * Cherry Data Importer (Premium, by Zemez)
+  * Cherry Plugins Wizard (Premium, by Zemez)
+  * Display Featured Image for Genesis (free, by Robin Cornett)
+
+
 ### 1.2.1 - 2018-06-09
 
 * Tweak: Improved logic for some Smart Tweaks so any items are always hidden when the supported plugin is not active (important for the re-hook tweaks)

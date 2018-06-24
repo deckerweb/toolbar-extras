@@ -33,7 +33,7 @@ function ddw_tbex_aoitems_freelancer_devkit() {
 			'href'   => esc_url( admin_url( 'admin.php?page=freelancer-devkit-dashboard' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Freelancer DevKit (Premium Add-On)', 'toolbar-extras' )
+				'title'  => ddw_tbex_string_premium_addon_title_attr( __( 'Freelancer DevKit', 'toolbar-extras' ) )
 			)
 		)
 	);

@@ -37,12 +37,18 @@ function ddw_tbex_settings_section_info_wordpress() {
  * Tab Smart Tweaks - 2nd settings section: Description.
  *
  * @since 1.0.0
+ *
+ * @uses  ddw_tbex_string_settings_show_only_for_active_plugins()
  */
 function ddw_tbex_settings_section_info_plugins() {
 
 	?>
 		<p>
-			<?php _e( 'Re-hook or remove Toolbar items from certain plugins. These settings below will only appear below if the supported plugins are installed and activated.', 'toolbar-extras' ); ?>
+			<?php
+				_e( 'Re-hook or remove Toolbar items from certain plugins.', 'toolbar-extras' );
+				echo ' ';
+				ddw_tbex_string_settings_show_only_for_active_plugins();
+			?>
 		</p>
 	<?php
 
@@ -72,12 +78,18 @@ function ddw_tbex_settings_section_info_translations() {
  * Tab Smart Tweaks - 4th settings section: Description.
  *
  * @since 1.2.0
+ *
+ * @uses  ddw_tbex_string_settings_show_only_for_active_plugins()
  */
 function ddw_tbex_settings_section_info_pagebuilder() {
 
 	?>
 		<p>
-			<?php _e( 'Tweak a few things regarding the active Page Builder.', 'toolbar-extras' ); ?>
+			<?php
+				_e( 'Tweak a few things regarding the active Page Builder.', 'toolbar-extras' );
+				echo ' ';
+				ddw_tbex_string_settings_show_only_for_active_plugins();
+			?>
 		</p>
 	<?php
 
@@ -180,6 +192,28 @@ function ddw_tbex_settings_cb_remove_front_customizer() {
 			<option value="no" <?php selected( sanitize_key( $tbex_options[ 'remove_front_customizer' ] ), 'no' ); ?>><?php _e( 'No', 'toolbar-extras' ); ?></option>
 		</select>
 		<label for="tbex-options-tweaks[remove_front_customizer]">
+			<span class="description"><?php echo sprintf( __( 'Default: %s', 'toolbar-extras' ), '<code>' . __( 'No', 'toolbar-extras' ) . '</code>' ); ?></span>
+		</label>
+	<?php
+
+}  // end function
+
+
+/**
+ * Setting (Select): Remove Media in New Content Group?
+ *
+ * @since 1.3.0
+ */
+function ddw_tbex_settings_cb_remove_media_newcontent() {
+
+	$tbex_options = get_option( 'tbex-options-tweaks' );
+
+	?>
+		<select name="tbex-options-tweaks[remove_media_newcontent]" id="tbex-options-tweaks-remove_media_newcontent">
+			<option value="yes" <?php selected( sanitize_key( $tbex_options[ 'remove_media_newcontent' ] ), 'yes' ); ?>><?php _e( 'Yes', 'toolbar-extras' ); ?></option>
+			<option value="no" <?php selected( sanitize_key( $tbex_options[ 'remove_media_newcontent' ] ), 'no' ); ?>><?php _e( 'No', 'toolbar-extras' ); ?></option>
+		</select>
+		<label for="tbex-options-tweaks[remove_media_newcontent]">
 			<span class="description"><?php echo sprintf( __( 'Default: %s', 'toolbar-extras' ), '<code>' . __( 'No', 'toolbar-extras' ) . '</code>' ); ?></span>
 		</label>
 	<?php

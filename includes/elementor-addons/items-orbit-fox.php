@@ -36,7 +36,7 @@ function ddw_tbex_aoitems_orbit_fox() {
 			'href'   => esc_url( admin_url( 'admin.php?page=obfx_template_dir' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Orbit Fox (Add-On)', 'toolbar-extras' )
+				'title'  => ddw_tbex_string_addon_title_attr( esc_attr__( 'Orbit Fox', 'toolbar-extras' ) )
 			)
 		)
 	);

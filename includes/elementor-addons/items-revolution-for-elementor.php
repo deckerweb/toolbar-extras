@@ -24,13 +24,82 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_revolution_for_elementor', 100 )
  */
 function ddw_tbex_aoitems_revolution_for_elementor() {
 
-	/** Use Add-On hook place */
-	add_filter( 'tbex_filter_is_addon', '__return_empty_string' );
-
 	/** Check for premium version */
 	$is_premium = is_plugin_active( 'revolution-for-elementor-premium/revolution-for-elementor.php' ) ? TRUE : FALSE;
 
 	$rfe_adv_options = get_option( 'jt_revolution_for_elementor_advanced' );
+
+
+	/**
+	 * 1) Creative items:
+	 */
+	if ( 'yes' === $rfe_adv_options[ 'enable_taxonomy_related' ] ) {
+
+		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			array(
+				'id'     => 'ao-rfe-taxrelated',
+				'parent' => 'group-creative-content',
+				'title'  => esc_attr__( 'Tax Related Content', 'toolbar-extras' ),
+				'href'   => esc_url( admin_url( 'edit.php?post_type=rfe_taxonomy_related' ) ),
+				'meta'   => array(
+					'target' => '',
+					'title'  => esc_attr__( 'Revolution for Elementor: Taxonomy Related Content', 'toolbar-extras' )
+				)
+			)
+		);
+
+			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				array(
+					'id'     => 'ao-rfe-taxrelated-all',
+					'parent' => 'ao-rfe-taxrelated',
+					'title'  => esc_attr__( 'All Tax Related Content', 'toolbar-extras' ),
+					'href'   => esc_url( admin_url( 'edit.php?post_type=rfe_taxonomy_related' ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => esc_attr__( 'All Taxonomy Related Content', 'toolbar-extras' )
+					)
+				)
+			);
+
+			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				array(
+					'id'     => 'ao-rfe-taxrelated-new',
+					'parent' => 'ao-rfe-taxrelated',
+					'title'  => esc_attr__( 'New Tax Related Content', 'toolbar-extras' ),
+					'href'   => esc_url( admin_url( 'post-new.php?post_type=rfe_taxonomy_related' ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => esc_attr__( 'New Tax Related Content', 'toolbar-extras' )
+					)
+				)
+			);
+
+			if ( ddw_tbex_is_elementor_active() && \Elementor\User::is_current_user_can_edit_post_type( 'rfe_taxonomy_related' ) ) {
+
+				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					array(
+						'id'     => 'ao-rfe-taxrelated-builder',
+						'parent' => 'ao-rfe-taxrelated',
+						'title'  => esc_attr__( 'New Tax Related Builder', 'toolbar-extras' ),
+						'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'rfe_taxonomy_related' ) ),
+						'meta'   => array(
+							'target' => ddw_tbex_meta_target( 'builder' ),
+							'title'  => esc_attr__( 'New Tax Related Builder', 'toolbar-extras' )
+						)
+					)
+				);
+
+			}  // end if
+				
+	}  // end if
+
+
+	/**
+	 * 2) Add-On items:
+	 */
+
+	/** Use Add-On hook place */
+	add_filter( 'tbex_filter_is_addon', '__return_empty_string' );
 
 	/** Plugin's Settings */
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(
@@ -41,7 +110,7 @@ function ddw_tbex_aoitems_revolution_for_elementor() {
 			'href'   => esc_url( admin_url( 'admin.php?page=revolution-for-elementor' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Revolution for Elementor (Add-On)', 'toolbar-extras' )
+				'title'  => ddw_tbex_string_addon_title_attr( __( 'Revolution for Elementor', 'toolbar-extras' ) )
 			)
 		)
 	);
@@ -92,7 +161,7 @@ function ddw_tbex_aoitems_revolution_for_elementor() {
 							'title'  => esc_attr__( 'New Tax Related Builder', 'toolbar-extras' ),
 							'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'rfe_taxonomy_related' ) ),
 							'meta'   => array(
-								'target' => '',
+								'target' => ddw_tbex_meta_target( 'builder' ),
 								'title'  => esc_attr__( 'New Tax Related Builder', 'toolbar-extras' )
 							)
 						)
@@ -236,7 +305,7 @@ function ddw_tbex_items_rfe_premium_new_content() {
 				'title'  => ddw_tbex_string_newcontent_with_builder(),
 				'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'rfe_taxonomy_related' ) ),
 				'meta'   => array(
-					'target' => '',
+					'target' => ddw_tbex_meta_target( 'builder' ),
 					'title'  => ddw_tbex_string_newcontent_create_with_builder()
 				)
 			)

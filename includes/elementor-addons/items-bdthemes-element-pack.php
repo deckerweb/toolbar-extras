@@ -36,7 +36,7 @@ function ddw_tbex_aoitems_bdthemes_element_pack() {
 			'href'   => esc_url( admin_url( 'admin.php?page=element_pack_options' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Element Pack (Premium Add-On)', 'toolbar-extras' )
+				'title'  => ddw_tbex_string_premium_addon_title_attr( __( 'Element Pack', 'toolbar-extras' ) )
 			)
 		)
 	);

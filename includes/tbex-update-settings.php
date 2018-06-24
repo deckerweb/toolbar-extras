@@ -66,7 +66,7 @@ function ddw_tbex_plugin_check_version() {
 		update_option( 'tbex-options-general', array_merge( $existing_general, $general_options_v120 ) );
 	}
 
-	/** New smart tweaks options */
+	/** New Smart Tweaks options */
 	$smart_tweaks_v120 = array(
 		'remove_user_newcontent'     => 'no',
 		'remove_woo_posttypes'       => 'no',
@@ -90,6 +90,38 @@ function ddw_tbex_plugin_check_version() {
 		|| ! array_key_exists( 'remove_elementor_wpwidgets', $existing_tweaks )
 	) {
 		update_option( 'tbex-options-tweaks', array_merge( $existing_tweaks, $smart_tweaks_v120 ) );
+	}
+
+
+	/**
+	 * Update new options for plugin version 1.3.0 or higher
+	 *
+	 * @since 1.3.0
+	 */
+	/** New general options */
+	$general_options_v130 = array(
+		'display_items_new_content' => 'yes',	// on by default!
+		'builder_links_blank'       => 'yes',	// on by default!
+	);
+
+	$existing_general = (array) get_option( 'tbex-options-general' );
+
+	if ( ! array_key_exists( 'display_items_new_content', $existing_general )
+		|| ! array_key_exists( 'builder_links_blank', $existing_general )
+	) {
+		update_option( 'tbex-options-general', array_merge( $existing_general, $general_options_v130 ) );
+	}
+
+	/** New Smart Tweaks options */
+	$smart_tweaks_v130 = array(
+		'remove_media_newcontent' => 'no',
+	);
+
+	$existing_tweaks = (array) get_option( 'tbex-options-tweaks' );
+
+	if ( ! array_key_exists( 'remove_media_newcontent', $existing_tweaks )
+	) {
+		update_option( 'tbex-options-tweaks', array_merge( $existing_tweaks, $smart_tweaks_v130 ) );
 	}
 
 

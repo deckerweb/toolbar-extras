@@ -3,6 +3,9 @@
 // items-anywhere-elementor
 // items-anywhere-elementor-pro
 
+// includes/elementor-addons/items-anywhere-elementor
+
+
 /**
  * Prevent direct access to this file.
  *
@@ -34,7 +37,7 @@ function ddw_tbex_aoitems_anywhere_elementor() {
 			'href'   => esc_url( admin_url( 'edit.php?post_type=ae_global_templates' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'AnyWhere Elementor Global Templates (Add-On)', 'toolbar-extras' )
+				'title'  => ddw_tbex_string_addon_title_attr( __( 'AnyWhere Elementor Global Templates', 'toolbar-extras' ) )
 			)
 		)
 	);
@@ -74,7 +77,7 @@ function ddw_tbex_aoitems_anywhere_elementor() {
 					'title'  => esc_attr__( 'New Template Builder', 'toolbar-extras' ),
 					'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'ae_global_templates' ) ),
 					'meta'   => array(
-						'target' => '',
+						'target' => ddw_tbex_meta_target( 'builder' ),
 						'title'  => esc_attr__( 'New Template Builder', 'toolbar-extras' )
 					)
 				)
@@ -126,10 +129,8 @@ function ddw_tbex_aoitems_anywhere_elementor_pro() {
 
 	/** Bail early if Pro version is not active */
 	if ( ! function_exists( 'ae_pro_load_plugin_textdomain' ) ) {
-		
 		return;
-
-	}  // end if
+	}
 
 	/** Pro Settings */
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(
@@ -192,7 +193,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_new_content_aetemplate' );
 function ddw_tbex_new_content_aetemplate() {
 
 	/** Bail early if items display is not wanted */
-	if ( ! ddw_tbex_display_items_new_content() && ! \Elementor\User::is_current_user_can_edit_post_type( 'ae_global_templates' ) ) {
+	if ( ! ddw_tbex_display_items_new_content() || ! \Elementor\User::is_current_user_can_edit_post_type( 'ae_global_templates' ) ) {
 		return;
 	}
 
@@ -203,7 +204,7 @@ function ddw_tbex_new_content_aetemplate() {
 			'title'  => ddw_tbex_string_newcontent_with_builder(),
 			'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'ae_global_templates' ) ),
 			'meta'   => array(
-				'target' => '',
+				'target' => ddw_tbex_meta_target( 'builder' ),
 				'title'  => ddw_tbex_string_newcontent_create_with_builder()
 			)
 		)

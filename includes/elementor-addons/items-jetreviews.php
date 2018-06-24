@@ -36,7 +36,7 @@ function ddw_tbex_aoitems_jetreviews() {
 			'href'   => esc_url( admin_url( 'admin.php?page=jet-reviews-settings' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'JetReviews (Premium Add-On)', 'toolbar-extras' )
+				'title'  => ddw_tbex_string_premium_addon_title_attr( __( 'JetReviews', 'toolbar-extras' ) )
 			)
 		)
 	);
@@ -83,7 +83,7 @@ function ddw_tbex_aoitems_jetreviews() {
 				'official-site',
 				'jetreviews-site',
 				'group-jetreviews-resources',
-				'http://jetreviews.zemez.io/'
+				'https://jetreviews.zemez.io/'
 			);
 
 		}  // end if

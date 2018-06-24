@@ -1,6 +1,6 @@
 <?php
 
-//items-popup-maker
+// includes/plugins/items-popup-maker
 
 /**
  * Prevent direct access to this file.
@@ -46,7 +46,7 @@ function ddw_tbex_site_items_popup_maker() {
 				'title'  => ddw_tbex_string_newcontent_with_builder(),
 				'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'popup' ) ),
 				'meta'   => array(
-					'target' => '',
+					'target' => ddw_tbex_meta_target( 'builder' ),
 					'title'  => ddw_tbex_string_newcontent_create_with_builder()
 				)
 			)

@@ -36,7 +36,7 @@ function ddw_tbex_aoitems_press_elements() {
 			'href'   => esc_url( admin_url( 'options-general.php?page=press-elements' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Press Elements – Widgets for Elementor (Add-On)', 'toolbar-extras' )
+				'title'  => ddw_tbex_string_addon_title_attr( __( 'Press Elements – Widgets for Elementor', 'toolbar-extras' ) )
 			)
 		)
 	);

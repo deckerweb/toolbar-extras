@@ -36,7 +36,7 @@ function ddw_tbex_aoitems_acafe() {
 			'href'   => esc_url( admin_url( 'admin.php?page=archivescode' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Archivescode Addons for Elementor (Add-On)', 'toolbar-extras' )
+				'title'  => ddw_tbex_string_addon_title_attr( __( 'Archivescode Addons for Elementor', 'toolbar-extras' ) )
 			)
 		)
 	);

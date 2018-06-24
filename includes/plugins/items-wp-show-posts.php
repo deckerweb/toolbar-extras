@@ -33,7 +33,7 @@ function ddw_tbex_aoitems_wpshowposts() {
 			'href'   => esc_url( admin_url( 'edit.php?post_type=wp_show_posts' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'WP Show Posts (Add-On)', 'toolbar-extras' )
+				'title'  => ddw_tbex_string_addon_title_attr( __( 'WP Show Posts', 'toolbar-extras' ) )
 			)
 		)
 	);

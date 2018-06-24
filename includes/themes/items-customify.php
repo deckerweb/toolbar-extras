@@ -12,6 +12,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 
+/**
+ * Check if Customify Pro Add-On plugin is active or not.
+ *
+ * @since  1.3.0
+ *
+ * @return bool TRUE if class exists, otherwise FALSE.
+ */
+function ddw_tbex_is_customify_pro_active() {
+
+	return ( class_exists( 'Customify_Pro' ) ) ? TRUE : FALSE;
+
+}  // end function
+
+
 add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_customify', 100 );
 /**
  * Items for Theme: Customify (free, by WPCustomify/ PressMaximum)
@@ -70,28 +84,14 @@ function ddw_tbex_themeitems_customify_customize() {
 
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(
 		array(
-			'id'     => 'customifycmz-general',
-			'parent' => 'theme-creative-customize',
-			/* translators: Autofocus panel in the Customizer */
-			'title'  => esc_attr__( 'General', 'toolbar-extras' ),
-			'href'   => ddw_tbex_customizer_focus( 'panel', 'general-tab' ),
-			'meta'   => array(
-				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Customize General Settings', 'toolbar-extras' ) )
-			)
-		)
-	);
-
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
-		array(
 			'id'     => 'customifycmz-header',
 			'parent' => 'theme-creative-customize',
 			/* translators: Autofocus panel in the Customizer */
-			'title'  => esc_attr__( 'Header', 'toolbar-extras' ),
+			'title'  => esc_attr__( 'Header Builder', 'toolbar-extras' ),
 			'href'   => ddw_tbex_customizer_focus( 'panel', 'header_settings' ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Customize Header', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_customize_attr( __( 'Header Builder', 'toolbar-extras' ) )
 			)
 		)
 	);
@@ -101,11 +101,11 @@ function ddw_tbex_themeitems_customify_customize() {
 			'id'     => 'customifycmz-footer',
 			'parent' => 'theme-creative-customize',
 			/* translators: Autofocus panel in the Customizer */
-			'title'  => esc_attr__( 'Footer', 'toolbar-extras' ),
+			'title'  => esc_attr__( 'Footer Builder', 'toolbar-extras' ),
 			'href'   => ddw_tbex_customizer_focus( 'panel', 'footer_settings' ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Customize Footer', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_customize_attr( __( 'Footer Builder', 'toolbar-extras' ) )
 			)
 		)
 	);
@@ -119,7 +119,7 @@ function ddw_tbex_themeitems_customify_customize() {
 			'href'   => ddw_tbex_customizer_focus( 'panel', 'layout_panel' ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Customize Layouts', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_customize_attr( __( 'Layouts', 'toolbar-extras' ) )
 			)
 		)
 	);
@@ -130,10 +130,10 @@ function ddw_tbex_themeitems_customify_customize() {
 			'parent' => 'theme-creative-customize',
 			/* translators: Autofocus panel in the Customizer */
 			'title'  => esc_attr__( 'Blog', 'toolbar-extras' ),
-			'href'   => ddw_tbex_customizer_focus( 'panel', 'blog_panel' ),
+			'href'   => ddw_tbex_customizer_focus( 'panel', 'blog_panel', get_post_type_archive_link( 'post' ) ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Customize Blog', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_customize_attr( __( 'Blog', 'toolbar-extras' ) )
 			)
 		)
 	);
@@ -147,7 +147,7 @@ function ddw_tbex_themeitems_customify_customize() {
 			'href'   => ddw_tbex_customizer_focus( 'panel', 'styling_panel' ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Customize Styling &amp; Colors', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_customize_attr( __( 'Styling &amp; Colors', 'toolbar-extras' ) )
 			)
 		)
 	);
@@ -161,7 +161,44 @@ function ddw_tbex_themeitems_customify_customize() {
 			'href'   => ddw_tbex_customizer_focus( 'panel', 'typography_panel' ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Customize Typography', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_customize_attr( __( 'Typography', 'toolbar-extras' ) )
+			)
+		)
+	);
+
+	/** Customify Pro module: Portfolios */
+	if ( ddw_tbex_is_customify_pro_active() ) {
+
+		if ( Customify_Pro()->is_enabled_module( 'Customify_Pro_Module_Portfolio' ) ) {
+
+			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				array(
+					'id'     => 'customifycmz-portfolios',
+					'parent' => 'theme-creative-customize',
+					/* translators: Autofocus panel in the Customizer */
+					'title'  => esc_attr__( 'Portfolio', 'toolbar-extras' ),
+					'href'   => ddw_tbex_customizer_focus( 'panel', 'portfolio_panel' ),
+					'meta'   => array(
+						'target' => ddw_tbex_meta_target(),
+						'title'  => ddw_tbex_string_customize_attr( __( 'Portfolio', 'toolbar-extras' ) )
+					)
+				)
+			);
+
+		}  // end if
+
+	}  // end if
+
+	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		array(
+			'id'     => 'customifycmz-compatibility',
+			'parent' => 'theme-creative-customize',
+			/* translators: Autofocus panel in the Customizer */
+			'title'  => esc_attr__( 'Compatibility', 'toolbar-extras' ),
+			'href'   => ddw_tbex_customizer_focus( 'panel', 'compatibility_panel' ),
+			'meta'   => array(
+				'target' => ddw_tbex_meta_target(),
+				'title'  => ddw_tbex_string_customize_attr( __( 'Plugin Compatibility', 'toolbar-extras' ) )
 			)
 		)
 	);
@@ -192,7 +229,7 @@ function ddw_tbex_themeitems_customify_resources() {
 	$GLOBALS[ 'wp_admin_bar' ]->add_group(
 		array(
 			'id'     => 'group-theme-resources',
-			'parent' => 'theme-creative',
+			'parent' => ddw_tbex_is_customify_pro_active() ? 'theme-settings' : 'theme-creative',
 			'meta'   => array( 'class' => 'ab-sub-secondary' )
 		)
 	);
@@ -226,7 +263,7 @@ function ddw_tbex_themeitems_customify_resources() {
 		'facebook-group',
 		'theme-facebook',
 		'group-theme-resources',
-		'https://www.facebook.com/groups/133106770857743'
+		'https://www.facebook.com/groups/customify/'
 	);
 
 	ddw_tbex_resource_item(
@@ -253,9 +290,83 @@ function ddw_tbex_themeitems_customify_resources() {
 }  // end function
 
 
+add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_customify_pro', 100 );
+/**
+ * Items for Theme: Customify Pro - Add-On Plugin (Premium, by PressMaximum)
+ *
+ * @since  1.3.0
+ *
+ * @uses   ddw_tbex_is_customify_pro_active()
+ * @uses   ddw_tbex_is_elementor_active()
+ *
+ * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ */
+function ddw_tbex_themeitems_customify_pro() {
+
+	/** Bail early if Pro version is not active */
+	if ( ! ddw_tbex_is_customify_pro_active() ) {
+		return;
+	}
+
+	/** Customify settings */
+	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		array(
+			'id'     => 'theme-settings',
+			'parent' => 'group-active-theme',
+			'title'  => esc_attr__( 'Customify Pro Settings', 'toolbar-extras' ),
+			'href'   => esc_url( admin_url( 'themes.php?page=customify' ) ),
+			'meta'   => array(
+				'target' => '',
+				'title'  => esc_attr__( 'Customify Pro Settings', 'toolbar-extras' )
+			)
+		)
+	);
+
+		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			array(
+				'id'     => 'theme-settings-modules',
+				'parent' => 'theme-settings',
+				'title'  => esc_attr__( 'Activate Modules', 'toolbar-extras' ),
+				'href'   => esc_url( admin_url( 'themes.php?page=customify' ) ),
+				'meta'   => array(
+					'target' => '',
+					'title'  => esc_attr__( 'Activate Modules', 'toolbar-extras' )
+				)
+			)
+		);
+
+}  // end function
+
+
+add_action( 'tbex_after_theme_free_docs', 'ddw_tbex_themeitems_customify_pro_resources' );
+/**
+ * Additional Resource Items for Customify Pro
+ *
+ * @since 1.3.0
+ *
+ * @uses  ddw_tbex_is_customify_pro_active()
+ * @uses  ddw_tbex_resource_item()
+ */
+function ddw_tbex_themeitems_customify_pro_resources() {
+
+	/** Bail early if Pro version is not active */
+	if ( ! ddw_tbex_is_customify_pro_active() ) {
+		return;
+	}
+
+	ddw_tbex_resource_item(
+		'pro-modules-documentation',
+		'theme-docs-pro',
+		'group-theme-resources',
+		'https://wpcustomify.com/help/documentation/customify-pro-modules/'
+	);
+
+}  // end function
+
+
 add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_customify_sites_import', 100 );
 /**
- * Items for Demos Import:
+ * Items for Demos Import (Plugin):
  *   Customify Site Library (free, by WPCustomify/ PressMaximum)
  *
  * @since  1.2.0
@@ -292,6 +403,24 @@ function ddw_tbex_themeitems_customify_sites_import() {
 				)
 			)
 		);
+
+	}  // end if
+
+}  // end if
+
+
+/**
+ * Customify Pro module: Portfolios
+ *
+ * @since 1.3.0
+ *
+ * @uses  General portfolio post type support (CPT: 'portfolio')
+ */
+if ( ddw_tbex_is_customify_pro_active() ) {
+
+	if ( Customify_Pro()->is_enabled_module( 'Customify_Pro_Module_Portfolio' ) ) {
+
+		require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-cpt-portfolio.php' );
 
 	}  // end if
 

@@ -167,7 +167,7 @@ function ddw_tbex_items_elementor_core() {
 						'title'  => ddw_tbex_string_elementor_template_with_builder( _x( 'Page', 'Elementor Template type', 'toolbar-extras' ) ),
 						'href'   => ddw_tbex_get_elementor_template_add_new_url( 'page' ),
 						'meta'   => array(
-							'target' => '',
+							'target' => ddw_tbex_meta_target( 'builder' ),
 							'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Page', 'Elementor Template type', 'toolbar-extras' ) )
 						)
 					)
@@ -180,7 +180,7 @@ function ddw_tbex_items_elementor_core() {
 						'title'  => ddw_tbex_string_elementor_template_with_builder( _x( 'Section', 'Elementor Template type', 'toolbar-extras' ) ),
 						'href'   => ddw_tbex_get_elementor_template_add_new_url( 'section' ),
 						'meta'   => array(
-							'target' => '',
+							'target' => ddw_tbex_meta_target( 'builder' ),
 							'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Section', 'Elementor Template type', 'toolbar-extras' ) )
 						)
 					)
@@ -558,6 +558,14 @@ function ddw_tbex_items_elementor_core_developers() {
 			'elementor-developers-code',
 			'elementor-developers',
 			'https://code.elementor.com/'
+		);
+
+		ddw_tbex_resource_item(
+			'facebook-group',
+			'elementor-developers-fbdev-group',
+			'elementor-developers',
+			'https://www.facebook.com/groups/1388158027894331/',
+			esc_attr__( 'Advanced User &amp; Developer Community Group', 'toolbar-extras' )
 		);
 
 }  // end function

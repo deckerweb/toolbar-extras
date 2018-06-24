@@ -362,9 +362,11 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_more_stuff', 20 );
  */
 function ddw_tbex_site_items_more_stuff() {
 
+	/** Force Check Updates */
 	if ( current_user_can( 'update_core' )
 		|| current_user_can( 'update_plugins' )
 		|| current_user_can( 'update_themes' )
+		|| current_user_can( 'update_languages' )
 	) {
 
 		$GLOBALS[ 'wp_admin_bar' ]->add_node(
@@ -379,6 +381,27 @@ function ddw_tbex_site_items_more_stuff() {
 				)
 			)
 		);
+
+			if ( has_filter( 'tbex_filter_is_update_addon' ) ) {
+
+				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					array(
+						'id'     => 'update-check-core-all',
+						'parent' => 'update-check',
+						'title'  => esc_attr__( 'All Updates', 'toolbar-extras' ),
+						'href'   => is_multisite() ? esc_url( network_admin_url( 'update-core.php?force-check=1' ) ) : esc_url( admin_url( 'update-core.php?force-check=1' ) ),
+						'meta'   => array(
+							'target' => '',
+							'title'  => esc_attr__( 'All Updates: Core, Plugins, Themes, Translations', 'toolbar-extras' )
+						)
+					)
+				);
+
+
+
+			}  // end if
+
+			//do_action( 'tbex_update_check' );
 
 	}  // end if
 

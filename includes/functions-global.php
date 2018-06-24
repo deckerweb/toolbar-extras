@@ -368,15 +368,21 @@ function ddw_tbex_meta_rel() {
 /**
  * Helper: URL Meta - Target Tag
  *
- * @since  1.0.0
+ * @since   1.0.0
+ * @version 1.3.0
  *
- * @uses   ddw_tbex_get_option()
+ * @uses    ddw_tbex_get_option()
  *
- * @return string URL target tag.
+ * @param   string $tool The tool the meta target should be used for.
+ * @return  string URL link target tag.
  */
-function ddw_tbex_meta_target() {
+function ddw_tbex_meta_target( $tool = '' ) {
 
 	$target = ( 'yes' === ddw_tbex_get_option( 'general', 'external_links_blank' ) ) ? '_blank' : '_self';
+
+	if ( 'builder' === sanitize_key( $tool ) ) {
+		$target = ( 'yes' === ddw_tbex_get_option( 'general', 'builder_links_blank' ) ) ? '_blank' : '_self';
+	}
 
 	return strtolower(
 		esc_attr(
@@ -490,6 +496,9 @@ function ddw_tbex_get_elementor_template_add_new_url( $type = '' ) {
 	return esc_attr( $create_new_post_url );
 
 }  // end function
+
+
+//
 
 
 /**

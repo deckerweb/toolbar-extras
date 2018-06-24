@@ -167,6 +167,25 @@ function ddw_tbex_themeitems_bbtheme_customize() {
 		)
 	);
 
+	/** Only show as long as "Customizer Export Import" Plugin is not active */
+	if ( ! class_exists( 'CEI_Core' ) ) {
+
+		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			array(
+				'id'     => 'bbtcmz-export-import',
+				'parent' => 'theme-creative-customize',
+				/* translators: Autofocus section in the Customizer */
+				'title'  => esc_attr__( 'Export &amp; Import', 'toolbar-extras' ),
+				'href'   => ddw_tbex_customizer_focus( 'section', 'fl-export-import' ),
+				'meta'   => array(
+					'target' => ddw_tbex_meta_target(),
+					'title'  => esc_attr__( 'Export &amp; Import Customizer Options', 'toolbar-extras' )
+				)
+			)
+		);
+
+	}  // end if
+
 }  // end function
 
 

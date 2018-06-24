@@ -108,7 +108,7 @@ function ddw_tbex_themeitems_astra_customize() {
 			'href'   => ddw_tbex_customizer_focus( 'control', 'custom_logo' ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Customize Logo', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_customize_attr( __( 'Logo', 'toolbar-extras' ) )
 			)
 		)
 	);
@@ -122,7 +122,7 @@ function ddw_tbex_themeitems_astra_customize() {
 			'href'   => ddw_tbex_customizer_focus( 'panel', 'panel-colors-background' ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Customize Colors', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_customize_attr( __( 'Colors', 'toolbar-extras' ) )
 			)
 		)
 	);
@@ -136,7 +136,7 @@ function ddw_tbex_themeitems_astra_customize() {
 			'href'   => ddw_tbex_customizer_focus( 'panel', 'panel-typography' ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Customize Fonts', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_customize_attr( __( 'Fonts', 'toolbar-extras' ) )
 			)
 		)
 	);
@@ -150,7 +150,7 @@ function ddw_tbex_themeitems_astra_customize() {
 			'href'   => ddw_tbex_is_astra_pro_active() ? ddw_tbex_customizer_focus( 'section', 'section-header-group' ) : ddw_tbex_customizer_focus( 'section', 'section-header' ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Customize Header Options', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_customize_attr( __( 'Header Options', 'toolbar-extras' ) )
 			)
 		)
 	);
@@ -164,7 +164,7 @@ function ddw_tbex_themeitems_astra_customize() {
 			'href'   => ddw_tbex_customizer_focus( 'section', 'section-footer-group' ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Customize Footer Settings', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_customize_attr( __( 'Footer Settings', 'toolbar-extras' ) )
 			)
 		)
 	);
@@ -178,7 +178,7 @@ function ddw_tbex_themeitems_astra_customize() {
 			'href'   => ddw_tbex_customizer_focus( 'panel', 'panel-layout' ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Customize Layout', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_customize_attr( __( 'Layout', 'toolbar-extras' ) )
 			)
 		)
 	);
@@ -189,10 +189,10 @@ function ddw_tbex_themeitems_astra_customize() {
 			'parent' => 'theme-creative-customize',
 			/* translators: Autofocus section in the Customizer */
 			'title'  => esc_attr__( 'Blog Layouts', 'toolbar-extras' ),
-			'href'   => ddw_tbex_customizer_focus( 'section', 'section-blog-group' ),
+			'href'   => ddw_tbex_customizer_focus( 'section', 'section-blog-group', get_post_type_archive_link( 'post' ) ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Customize Blog Layouts', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_customize_attr( __( 'Blog Layouts', 'toolbar-extras' ) )
 			)
 		)
 	);
@@ -206,7 +206,7 @@ function ddw_tbex_themeitems_astra_customize() {
 			'href'   => ddw_tbex_customizer_focus( 'section', 'section-sidebars' ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Customize Sidebars', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_customize_attr( __( 'Sidebars', 'toolbar-extras' ) )
 			)
 		)
 	);
@@ -355,7 +355,7 @@ function ddw_tbex_themeitems_astra_pro() {
 						'title'  => esc_attr__( 'New Layout Builder', 'toolbar-extras' ),
 						'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'astra-advanced-hook' ) ),
 						'meta'   => array(
-							'target' => '',
+							'target' => ddw_tbex_meta_target( 'builder' ),
 							'title'  => esc_attr__( 'New Layout Builder', 'toolbar-extras' )
 						)
 					)
@@ -369,7 +369,7 @@ function ddw_tbex_themeitems_astra_pro() {
 						'title'  => ddw_tbex_string_newcontent_with_builder(),
 						'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'astra-advanced-hook' ) ),
 						'meta'   => array(
-							'target' => '',
+							'target' => ddw_tbex_meta_target( 'builder' ),
 							'title'  => ddw_tbex_string_newcontent_create_with_builder()
 						)
 					)
@@ -661,3 +661,34 @@ function ddw_tbex_themeitems_astra_custom_fonts() {
 	}  // end if
 
 }  // end function
+
+
+add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_astra_home_page_banner', 100 );
+/**
+ * Customize items for Astra-specific plugin:
+ *   Home Page Banner for Astra Theme (free, by Brainstorm Force)
+ *
+ * @since  1.3.0
+ *
+ * @uses   ddw_tbex_customizer_focus()
+ * @uses   ddw_tbex_string_customize_attr()
+ *
+ * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ */
+function ddw_tbex_themeitems_astra_home_page_banner() {
+
+	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		array(
+			'id'     => 'astracmz-home-page-banner',
+			'parent' => 'theme-creative-customize',
+			/* translators: Autofocus panel in the Customizer */
+			'title'  => esc_attr__( 'Home Page Banner', 'toolbar-extras' ),
+			'href'   => ddw_tbex_customizer_focus( 'panel', 'panel-home-page-banner', site_url( '/' ) ),
+			'meta'   => array(
+				'target' => ddw_tbex_meta_target(),
+				'title'  => ddw_tbex_string_customize_attr( __( 'Home Page Banner', 'toolbar-extras' ) )
+			)
+		)
+	);
+
+}  // end if

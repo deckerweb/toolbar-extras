@@ -12,7 +12,7 @@
  * Plugin Name:       Toolbar Extras
  * Plugin URI:        https://toolbarextras.com/
  * Description:       This plugins adds a lot of quick jump links to the WordPress Toolbar helpful for Site Builders who use Elementor and its ecosystem of add-ons and from the theme space.
- * Version:           1.2.1
+ * Version:           1.3.0
  * Author:            David Decker - DECKERWEB
  * Author URI:        https://toolbarextras.com/
  * License:           GPL-2.0+
@@ -39,7 +39,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 1.0.0
  */
 /** Plugin version */
-define( 'TBEX_PLUGIN_VERSION', '1.2.1' );
+define( 'TBEX_PLUGIN_VERSION', '1.3.0' );
 
 /** Plugin directory */
 define( 'TBEX_PLUGIN_DIR', trailingslashit( dirname( __FILE__ ) ) );
@@ -185,6 +185,11 @@ function ddw_tbex_setup_plugin() {
 			require_once( TBEX_PLUGIN_DIR . 'includes/items-new-content.php' );
 		}
 		
+		/** Include items for WP Edit/View Content section */
+		if ( ddw_tbex_display_items_edit_content() ) {
+			require_once( TBEX_PLUGIN_DIR . 'includes/items-edit-content.php' );
+		}
+
 		/** Include basic/core stuff for free Elementor plugin */
 		if ( ddw_tbex_is_elementor_active() ) {
 			require_once( TBEX_PLUGIN_DIR . 'includes/elementor-official/items-elementor-core.php' );
@@ -197,12 +202,20 @@ function ddw_tbex_setup_plugin() {
 
 		/** Conditionally load items for (general) Plugins */
 		if ( ddw_tbex_display_items_plugins() ) {
-			require_once( TBEX_PLUGIN_DIR . 'includes/items-plugins.php' );
-		}
 
-		/** Conditionally load items for Add-On plugins */
+			/** All general Plugins */
+			require_once( TBEX_PLUGIN_DIR . 'includes/items-plugins.php' );
+
+			/** All Genesis-specific Plugins */
+			if ( ddw_tbex_is_genesis_active() ) {
+				require_once( TBEX_PLUGIN_DIR . 'includes/items-plugins-genesis.php' );
+			}
+
+		}  // end if
+
+		/** Conditionally load items for Elementor-specific Add-On plugins */
 		if ( ddw_tbex_display_items_addons() ) {
-			require_once( TBEX_PLUGIN_DIR . 'includes/items-plugins-addons.php' );
+			require_once( TBEX_PLUGIN_DIR . 'includes/items-plugins-elementor-addons.php' );
 		}
 
 		/** Conditionally load items for Elementor-savvy themes */

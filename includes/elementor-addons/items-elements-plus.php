@@ -36,7 +36,7 @@ function ddw_tbex_aoitems_elements_plus() {
 			'href'   => esc_url( admin_url( 'admin.php?page=elements_plus' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Elements Plus! (Add-On)', 'toolbar-extras' )
+				'title'  => ddw_tbex_string_addon_title_attr( __( 'Elements Plus!', 'toolbar-extras' ) )
 			)
 		)
 	);

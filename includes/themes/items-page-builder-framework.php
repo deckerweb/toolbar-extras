@@ -140,6 +140,25 @@ function ddw_tbex_themeitems_pbf_customize() {
 		)
 	);
 
+	/** Optional WooCommerce customization - since PBF 1.8 Beta 1 or higher */
+	if ( function_exists( 'wpbf_woo_deregister_defaults' ) ) {
+		
+		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			array(
+				'id'     => 'pbfcmz-woocommerce',
+				'parent' => 'theme-creative-customize',
+				/* translators: Autofocus panel in the Customizer */
+				'title'  => esc_attr__( 'WooCommerce Integration', 'toolbar-extras' ),
+				'href'   => ddw_tbex_customizer_focus( 'panel', 'woocommerce' ),
+				'meta'   => array(
+					'target' => ddw_tbex_meta_target(),
+					'title'  => ddw_tbex_string_customize_attr( __( 'WooCommerce Integration', 'toolbar-extras' ) )
+				)
+			)
+		);
+
+	}  // end if
+
 }  // end function
 
 
@@ -200,6 +219,13 @@ function ddw_tbex_themeitems_pbf_resources() {
 		'theme-translate',
 		'group-theme-resources',
 		'https://translate.wordpress.org/projects/wp-themes/page-builder-framework'
+	);
+
+	ddw_tbex_resource_item(
+		'github',
+		'theme-github',
+		'group-theme-resources',
+		'https://github.com/MapSteps/Page-Builder-Framework'
 	);
 
 	ddw_tbex_resource_item(
@@ -270,6 +296,7 @@ function ddw_tbex_themeitems_wpbf_premium() {
 			)
 		);
 
+	/** Premium Add-On: Customizer additions */
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(
 		array(
 			'id'     => 'pbfcmz-scripts-styles',

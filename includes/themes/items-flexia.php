@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since  1.2.0
  *
- * @return bool TRUE if class exists, otherwise FALSE.
+ * @return bool TRUE if constant defined, otherwise FALSE.
  */
 function ddw_tbex_is_flexia_pro_active() {
 
@@ -91,7 +91,7 @@ function ddw_tbex_themeitems_flexia_customize() {
 			'href'   => ddw_tbex_customizer_focus( 'panel', 'flexia_general_settings' ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Customize General Settings', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_customize_attr( __( 'General Settings', 'toolbar-extras' ) )
 			)
 		)
 	);
@@ -105,7 +105,7 @@ function ddw_tbex_themeitems_flexia_customize() {
 			'href'   => ddw_tbex_customizer_focus( 'panel', 'flexia_header_settings' ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Customize Header', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_customize_attr( __( 'Header', 'toolbar-extras' ) )
 			)
 		)
 	);
@@ -119,7 +119,7 @@ function ddw_tbex_themeitems_flexia_customize() {
 			'href'   => ddw_tbex_customizer_focus( 'panel', 'flexia_footer_settings' ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Customize Footer', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_customize_attr( __( 'Footer', 'toolbar-extras' ) )
 			)
 		)
 	);
@@ -133,7 +133,7 @@ function ddw_tbex_themeitems_flexia_customize() {
 			'href'   => ddw_tbex_customizer_focus( 'panel', 'flexia_layout_settings' ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Customize Layout', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_customize_attr( __( 'Layout', 'toolbar-extras' ) )
 			)
 		)
 	);
@@ -144,10 +144,10 @@ function ddw_tbex_themeitems_flexia_customize() {
 			'parent' => 'theme-creative-customize',
 			/* translators: Autofocus panel in the Customizer */
 			'title'  => esc_attr__( 'Blog Styles', 'toolbar-extras' ),
-			'href'   => ddw_tbex_customizer_focus( 'panel', 'flexia_blog_settings' ),
+			'href'   => ddw_tbex_customizer_focus( 'panel', 'flexia_blog_settings', get_post_type_archive_link( 'post' ) ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Customize Blog Styles', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_customize_attr( __( 'Blog Styles', 'toolbar-extras' ) )
 			)
 		)
 	);
@@ -161,7 +161,7 @@ function ddw_tbex_themeitems_flexia_customize() {
 			'href'   => ddw_tbex_customizer_focus( 'panel', 'flexia_typography_settings' ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Customize Color &amp; Typography', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_customize_attr( __( 'Color &amp; Typography', 'toolbar-extras' ) )
 			)
 		)
 	);
@@ -175,7 +175,7 @@ function ddw_tbex_themeitems_flexia_customize() {
 			'href'   => ddw_tbex_customizer_focus( 'panel', 'flexia_design_settings' ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Customize Design', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_customize_attr( __( 'Design', 'toolbar-extras' ) )
 			)
 		)
 	);
@@ -189,7 +189,7 @@ function ddw_tbex_themeitems_flexia_customize() {
 			'href'   => ddw_tbex_customizer_focus( 'panel', 'flexia_core_custom_scripts' ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Customize Custom JavaScripts', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_customize_attr( __( 'Custom JavaScripts', 'toolbar-extras' ) )
 			)
 		)
 	);
@@ -335,7 +335,7 @@ function ddw_tbex_themeitems_flexia_pro() {
 					'title'  => esc_attr__( 'New Portfolio Builder', 'toolbar-extras' ),
 					'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'flexia-portfolio' ) ),
 					'meta'   => array(
-						'target' => '',
+						'target' => ddw_tbex_meta_target( 'builder' ),
 						'title'  => esc_attr__( 'New Portfolio Builder', 'toolbar-extras' )
 					)
 				)
@@ -456,7 +456,7 @@ function ddw_tbex_new_content_flexia_pro() {
 				'title'  => ddw_tbex_string_newcontent_with_builder(),
 				'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'flexia-portfolio' ) ),
 				'meta'   => array(
-					'target' => '',
+					'target' => ddw_tbex_meta_target( 'builder' ),
 					'title'  => ddw_tbex_string_newcontent_create_with_builder()
 				)
 			)

@@ -1,6 +1,6 @@
 <?php
 
-// includes/items-wp-new-content
+// includes/items-new-content
 
 /**
  * Prevent direct access to this file.
@@ -62,7 +62,7 @@ function ddw_tbex_items_new_content_types() {
 					'title'  => ddw_tbex_string_elementor_template_with_builder( _x( 'Page', 'Elementor Template type', 'toolbar-extras' ) ),
 					'href'   => ddw_tbex_get_elementor_template_add_new_url( 'page' ),
 					'meta'   => array(
-						'target' => '',
+						'target' => ddw_tbex_meta_target( 'builder' ),
 						'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Page', 'Elementor Template type', 'toolbar-extras' ) )
 					)
 				)
@@ -75,7 +75,7 @@ function ddw_tbex_items_new_content_types() {
 					'title'  => ddw_tbex_string_elementor_template_with_builder( _x( 'Section', 'Elementor Template type', 'toolbar-extras' ) ),	//ddw_tbex_string_newcontent_with_builder(),
 					'href'   => ddw_tbex_get_elementor_template_add_new_url( 'section' ),
 					'meta'   => array(
-						'target' => '',
+						'target' => ddw_tbex_meta_target( 'builder' ),
 						'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Section', 'Elementor Template type', 'toolbar-extras' ) )		//ddw_tbex_string_newcontent_create_with_builder()
 					)
 				)
@@ -92,7 +92,7 @@ function ddw_tbex_items_new_content_types() {
 					'title'  => ddw_tbex_string_newcontent_with_builder(),
 					'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'post' ) ),
 					'meta'   => array(
-						'target' => '',
+						'target' => ddw_tbex_meta_target( 'builder' ),
 						'title'  => ddw_tbex_string_newcontent_create_with_builder()
 					)
 				)
@@ -109,7 +109,7 @@ function ddw_tbex_items_new_content_types() {
 					'title'  => ddw_tbex_string_newcontent_with_builder(),
 					'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'page' ) ),
 					'meta'   => array(
-						'target' => '',
+						'target' => ddw_tbex_meta_target( 'builder' ),
 						'title'  => ddw_tbex_string_newcontent_create_with_builder()
 					)
 				)
@@ -142,6 +142,59 @@ function ddw_tbex_items_new_content_types() {
 
 	}  // end if
 
+}  // end function
+
+
+add_filter( 'install_themes_tabs', 'ddw_tbex_theme_installer_upload_tab', 10, 1 );
+/**
+ * Add new "virtual" Tab on the Theme Installer page - using that for ZIP uploads.
+ *
+ * @since  1.3.0
+ *
+ * @param  array $tabs Array of the Tabs on the Theme Installer admin page.
+ * @return array Array of the filtered/ extended Tabs on the Theme Installer
+ *               admin page.
+ */
+function ddw_tbex_theme_installer_upload_tab( array $tabs ) {
+
+	/** Add our own new Tab */
+	$tabs[ 'tbex-upload' ] = __( 'Upload Theme', 'toolbar-extras' );
+
+	/** Return the array of all Tabs */
+	return $tabs;
+
+}  // end function
+
+
+add_action( 'install_themes_tbex-upload', 'ddw_tbex_theme_installer_upload_tab_content' );
+/**
+ * Render the content of our newly added Theme Installer Tab - using WordPress
+ *   Core render function for the Theme ZIP file upload form.
+ *   Note: The admin URL is then: 'theme-install.php?tab=tbex-upload'
+ *
+ * @since 1.3.0
+ *
+ * @uses  install_themes_upload()
+ */
+function ddw_tbex_theme_installer_upload_tab_content() {
+	
+	/** Add our few CSS styles inline to remove unwanted elements: */
+	?>
+		<style type="text/css">
+	  		div.theme-browser.content-filterable,
+			.wp-filter.hide-if-no-js,
+  			button.upload-view-toggle,
+  			span.spinner {
+	  			display: none !important;
+			}
+		</style>
+	<?php
+  
+  	/** Render the WordPress Core Themes uploader input form */
+  	echo '<div class="show-upload-view"><div class="upload-theme">';
+		install_themes_upload();
+  	echo '</div></div>';
+	
 }  // end function
 
 
@@ -265,6 +318,19 @@ function ddw_tbex_items_new_content_installer() {
 
 		$GLOBALS[ 'wp_admin_bar' ]->add_node(
 			array(
+				'id'     => 'upload-theme-zip',
+				'parent' => 'install-theme',
+				'title'  => esc_attr__( 'Upload ZIP file', 'toolbar-extras' ),
+				'href'   => ( function_exists( 'ddw_tbex_theme_installer_upload_tab_content' ) ) ? esc_url( network_admin_url( 'theme-install.php?tab=tbex-upload' ) ) : esc_url( network_admin_url( 'theme-install.php?upload' ) ),
+				'meta'   => array(
+					'target' => '',
+					'title'  => esc_attr__( 'Install Theme - Upload ZIP file', 'toolbar-extras' )
+				)
+			)
+		);
+
+		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			array(
 				'id'     => 'install-theme-favorites',
 				'parent' => 'install-theme',
 				'title'  => esc_attr__( 'Install Favorites', 'toolbar-extras' ),
@@ -272,20 +338,6 @@ function ddw_tbex_items_new_content_installer() {
 				'meta'   => array(
 					'target' => '',
 					'title'  => esc_attr__( 'Install Theme - Favorites (via WordPress.org)', 'toolbar-extras' )
-				)
-			)
-		);
-
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
-			array(
-				'id'     => 'upload-theme-zip',
-				'parent' => 'install-theme',
-				'title'  => esc_attr__( 'Upload ZIP file', 'toolbar-extras' ),
-				'href'   => esc_url( network_admin_url( 'theme-install.php?upload' ) ),
-				'meta'   => array(
-					'class'  => 'upload-view-toggle page-title-action',
-					'target' => '',
-					'title'  => esc_attr__( 'Install Theme - Upload ZIP file', 'toolbar-extras' )
 				)
 			)
 		);

@@ -418,11 +418,119 @@ function ddw_tbex_string_elementor_template_create_with_builder( $template_type 
  */
 function ddw_tbex_string_genesis_child_theme_settings() {
 
-	/* translators: %s - Name of the Genesis Child Theme (from the Stylesheet) */
 	return sprintf(
+		/* translators: %s - Name of the Genesis Child Theme (from the Stylesheet) */
 		esc_attr__( '%s Settings', 'toolbar-extras' ),
 		wp_get_theme()->get( 'Name' )
 	);
+
+}  // end function
+
+
+/**
+ * Build link title attribute string for general/free Add-On Plugin.
+ *
+ * @since  1.3.0
+ *
+ * @param  string $title Title of Add-On Plugin.
+ * @return string Link attribute title.
+ */
+function ddw_tbex_string_addon_title_attr( $title = '' ) {
+
+	return sprintf(
+		/* translators: %s - Title of Add-On Plugin */
+		esc_attr__( '%s (Add-On)', 'toolbar-extras' ),
+		$title
+	);
+
+}  // end function
+
+
+/**
+ * Build link title attribute string for free Add-On Plugin.
+ *
+ * @since  1.3.0
+ *
+ * @param  string $title Title of free Add-On Plugin.
+ * @return string Link attribute title.
+ */
+function ddw_tbex_string_free_addon_title_attr( $title = '' ) {
+
+	return sprintf(
+		/* translators: %s - Title of free Add-On Plugin */
+		esc_attr__( '%s (free Add-On)', 'toolbar-extras' ),
+		$title
+	);
+
+}  // end function
+
+
+/**
+ * Build link title attribute string for Premium Add-On Plugin.
+ *
+ * @since  1.3.0
+ *
+ * @param  string $title Title of Premium Add-On Plugin.
+ * @return string Link attribute title.
+ */
+function ddw_tbex_string_premium_addon_title_attr( $title = '' ) {
+
+	return sprintf(
+		/* translators: %s - Title of Premium Add-On Plugin */
+		esc_attr__( '%s (Premium Add-On)', 'toolbar-extras' ),
+		$title
+	);
+
+}  // end function
+
+
+/**
+ * Build string for Local Dev settings.
+ *
+ * @since  1.3.0
+ *
+ * @param  string $type Type of local development setting.
+ * @return string Complete string for Local Dev setting.
+ */
+function ddw_tbex_string_plugin_local_dev( $type = '' ) {
+
+	return sprintf(
+		/* translators: %s - Type of local development setting (Plugins, Themes, Extras) */
+		esc_attr__( 'Local Dev: %s', 'toolbar-extras' ),
+		$type
+	);
+
+}  // end function
+
+
+/**
+ * Output string for settings that appear only for active plugins.
+ *
+ * @since 1.3.0
+ *
+ * @return string Echo string for settings sections descriptions. 
+ */
+function ddw_tbex_string_settings_show_only_for_active_plugins() {
+
+	_e( 'These settings below will only appear below if the supported plugins are installed and activated.', 'toolbar-extras' );
+
+}  // end function
+
+
+/**
+ * Output the link target description on the plugin's settings page.
+ *
+ * @since  1.3.0
+ *
+ * @return string Display description texts.
+ */
+function ddw_tbex_string_link_target_description() {
+
+	$output = sprintf( __( '%s Links open in a new browser tab/ window', 'toolbar-extras' ), __( 'Yes', 'toolbar-extras' ) . ' = <code>_blank</code> ' );
+	$output .= '<br />';
+	$output .= sprintf( __( '%s Links open in same browser tab/ window', 'toolbar-extras' ), __( 'No', 'toolbar-extras' ) . ' = <code>_self</code> ' );
+
+	echo $output;
 
 }  // end function
 

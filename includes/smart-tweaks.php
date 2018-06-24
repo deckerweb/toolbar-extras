@@ -150,6 +150,29 @@ function ddw_tbex_tweak_remove_items_customize() {
 }  // end function
 
 
+add_action( 'wp_before_admin_bar_render', 'ddw_tbex_tweak_remove_items_media_newcontent' );
+/**
+ * Remove Media item from New Content group of the Toolbar.
+ *
+ * @since  1.3.0
+ *
+ * @uses   ddw_tbex_use_tweak_media_newcontent()
+ *
+ * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ */
+function ddw_tbex_tweak_remove_items_media_newcontent() {
+
+	/** Bail early if tweak shouldn't be used */
+	if ( ! ddw_tbex_use_tweak_media_newcontent() ) {
+		return;
+	}
+
+	/** Remove Media item */
+	$GLOBALS[ 'wp_admin_bar' ]->remove_node( 'new-media' );
+
+}  // end function
+
+
 add_action( 'wp_before_admin_bar_render', 'ddw_tbex_tweak_remove_items_user_newcontent' );
 /**
  * Remove User item from New Content group of the Toolbar.
@@ -167,7 +190,7 @@ function ddw_tbex_tweak_remove_items_user_newcontent() {
 		return;
 	}
 
-	/** Remove WP logo on the top left corner */
+	/** Remove User item */
 	$GLOBALS[ 'wp_admin_bar' ]->remove_node( 'new-user' );
 
 }  // end function

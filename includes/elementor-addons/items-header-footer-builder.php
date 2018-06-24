@@ -1,6 +1,6 @@
 <?php
 
-//items-header-footer-builder
+// includes/elementor-addons/items-header-footer-builder
 
 /**
  * Prevent direct access to this file.
@@ -33,7 +33,7 @@ function ddw_tbex_aoitems_header_footer_builder() {
 			'href'   => esc_url( admin_url( 'edit.php?post_type=elementor-hf' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Header Footer Builder for Elementor (Add-On)', 'toolbar-extras' )
+				'title'  => ddw_tbex_string_addon_title_attr( __( 'Header Footer Builder for Elementor', 'toolbar-extras' ) )
 			)
 		)
 	);
@@ -73,7 +73,7 @@ function ddw_tbex_aoitems_header_footer_builder() {
 					'title'  => esc_attr__( 'New Template Builder', 'toolbar-extras' ),
 					'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'elementor-hf' ) ),
 					'meta'   => array(
-						'target' => '',
+						'target' => ddw_tbex_meta_target( 'builder' ),
 						'title'  => esc_attr__( 'New Template Builder', 'toolbar-extras' )
 					)
 				)

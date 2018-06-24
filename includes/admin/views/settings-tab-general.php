@@ -390,6 +390,28 @@ function ddw_tbex_settings_cb_display_items_site_group() {
 
 
 /**
+ * Setting (Select): Display Edit/ View Content Items
+ *
+ * @since 1.3.0
+ */
+function ddw_tbex_settings_cb_display_items_edit_content() {
+
+	$tbex_options = get_option( 'tbex-options-general' );
+
+	?>
+		<select name="tbex-options-general[display_items_edit_content]" id="tbex-options-general-display_items_edit_content">
+			<option value="yes" <?php selected( sanitize_key( $tbex_options[ 'display_items_edit_content' ] ), 'yes' ); ?>><?php _e( 'Yes', 'toolbar-extras' ); ?></option>
+			<option value="no" <?php selected( sanitize_key( $tbex_options[ 'display_items_edit_content' ] ), 'no' ); ?>><?php _e( 'No', 'toolbar-extras' ); ?></option>
+		</select>
+		<label for="tbex-options-general[display_items_edit_content]">
+			<span class="description"><?php echo sprintf( __( 'Default: %s', 'toolbar-extras' ), '<code>' . __( 'Yes', 'toolbar-extras' ) . '</code>' ); ?></span>
+		</label>
+	<?php
+
+}  // end function
+
+
+/**
  * Setting (Select): Display Edit Menus Items
  *
  * @since 1.0.0
@@ -547,6 +569,8 @@ function ddw_tbex_settings_cb_display_title_attributes() {
  * Setting (Select): External links _blank target?
  *
  * @since 1.0.0
+ *
+ * @uses  ddw_tbex_string_link_target_description()
  */
 function ddw_tbex_settings_cb_external_links_blank() {
 
@@ -561,11 +585,34 @@ function ddw_tbex_settings_cb_external_links_blank() {
 			<span class="description"><?php echo sprintf( __( 'Default: %s', 'toolbar-extras' ), '<code>' . __( 'Yes', 'toolbar-extras' ) . '</code>' ); ?></span>
 		</label>
 		<p class="description">
-			<?php
-				echo sprintf( __( '%s Links open in a new browser tab/ window', 'toolbar-extras' ), __( 'Yes', 'toolbar-extras' ) . ' = <code>_blank</code> ' );
-				echo '<br />';
-				echo sprintf( __( '%s Links open in same browser tab/ window', 'toolbar-extras' ), __( 'No', 'toolbar-extras' ) . ' = <code>_self</code> ' );
-			?>
+			<?php ddw_tbex_string_link_target_description(); ?>
+		</p>
+	<?php
+
+}  // end function
+
+
+/**
+ * Setting (Select): "Create with Builder" links _blank target?
+ *
+ * @since 1.3.0
+ *
+ * @uses  ddw_tbex_string_link_target_description()
+ */
+function ddw_tbex_settings_cb_builder_links_blank() {
+
+	$tbex_options = get_option( 'tbex-options-general' );
+
+	?>
+		<select name="tbex-options-general[builder_links_blank]" id="tbex-options-general-builder_links_blank">
+			<option value="yes" <?php selected( sanitize_key( $tbex_options[ 'builder_links_blank' ] ), 'yes' ); ?>><?php _e( 'Yes', 'toolbar-extras' ); ?></option>
+			<option value="no" <?php selected( sanitize_key( $tbex_options[ 'builder_links_blank' ] ), 'no' ); ?>><?php _e( 'No', 'toolbar-extras' ); ?></option>
+		</select>
+		<label for="tbex-options-general[builder_links_blank]">
+			<span class="description"><?php echo sprintf( __( 'Default: %s', 'toolbar-extras' ), '<code>' . __( 'Yes', 'toolbar-extras' ) . '</code>' ); ?></span>
+		</label>
+		<p class="description">
+			<?php ddw_tbex_string_link_target_description(); ?>
 		</p>
 	<?php
 

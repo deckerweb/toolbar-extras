@@ -40,11 +40,11 @@ function ddw_tbex_aoitems_powerpack_wlbfe() {
 		array(
 			'id'     => 'ao-wlbfe',
 			'parent' => 'tbex-addons',
-			'title'  => sprintf( esc_attr__( 'White Label', 'toolbar-extras' ), $pp_name ),
+			'title'  => esc_attr__( 'White Label', 'toolbar-extras' ),
 			'href'   => esc_url( admin_url( 'admin.php?page=el-wl-settings' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => sprintf( esc_attr__( 'White Label (Premium Add-On)', 'toolbar-extras' ), $pp_name )
+				'title'  => ddw_tbex_string_premium_addon_title_attr( __( 'White Label', 'toolbar-extras' ) )
 			)
 		)
 	);

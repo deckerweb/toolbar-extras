@@ -135,7 +135,7 @@ function ddw_tbex_site_items_codesnippets() {
 }  // end function
 
 
-add_action( 'tbex_new_content_before_nav_menu', 'ddw_tbex_new_content_code_snippet' );
+add_action( 'tbex_new_content_before_nav_menu', 'ddw_tbex_aoitems_new_content_code_snippet', 15 );
 /**
  * Items for "New Content" section: New Code Snippet
  *
@@ -143,7 +143,7 @@ add_action( 'tbex_new_content_before_nav_menu', 'ddw_tbex_new_content_code_snipp
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
-function ddw_tbex_new_content_code_snippet() {
+function ddw_tbex_aoitems_new_content_code_snippet() {
 
 	/** Bail early if items display is not wanted */
 	if ( ! ddw_tbex_display_items_new_content() ) {

@@ -232,7 +232,7 @@ function ddw_tbex_new_content_envira_gallery() {
 				'title'  => ddw_tbex_string_newcontent_with_builder(),
 				'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'envira' ) ),
 				'meta'   => array(
-					'target' => '',
+					'target' => ddw_tbex_meta_target( 'builder' ),
 					'title'  => ddw_tbex_string_newcontent_create_with_builder()
 				)
 			)
@@ -249,7 +249,7 @@ function ddw_tbex_new_content_envira_gallery() {
 				'title'  => ddw_tbex_string_newcontent_with_builder(),
 				'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'envira_album' ) ),
 				'meta'   => array(
-					'target' => '',
+					'target' => ddw_tbex_meta_target( 'builder' ),
 					'title'  => ddw_tbex_string_newcontent_create_with_builder()
 				)
 			)

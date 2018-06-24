@@ -1,6 +1,6 @@
 <?php
 
-//items-granular-controls
+// includes/elementor-addons/items-granular-controls
 
 /**
  * Prevent direct access to this file.
@@ -36,7 +36,7 @@ function ddw_tbex_aoitems_granularcontrols() {
 			'href'   => esc_url( admin_url( 'admin.php?page=granular_controls' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Granular Controls for Elementor (Add-On)', 'toolbar-extras' )
+				'title'  => ddw_tbex_string_addon_title_attr( __( 'Granular Controls for Elementor', 'toolbar-extras' ) )
 			)
 		)
 	);

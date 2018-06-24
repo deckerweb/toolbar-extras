@@ -36,7 +36,7 @@ function ddw_tbex_aoitems_widgetkit_for_elementor() {
 			'href'   => esc_url( admin_url( 'admin.php?page=widgetkit-settings' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'WidgetKit for Elementor (Add-On)', 'toolbar-extras' )
+				'title'  => ddw_tbex_string_addon_title_attr( __( 'WidgetKit for Elementor', 'toolbar-extras' ) )
 			)
 		)
 	);

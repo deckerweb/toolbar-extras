@@ -34,7 +34,7 @@ function ddw_tbex_aoitems_templementor() {
 			'href'   => esc_url( admin_url( 'edit.php?post_type=tpm_templates' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Templementor - Persistant Elementor Templates (Add-On)', 'toolbar-extras' )
+				'title'  => ddw_tbex_string_addon_title_attr( __( 'Templementor - Persistant Elementor Templates', 'toolbar-extras' ) )
 			)
 		)
 	);
@@ -74,7 +74,7 @@ function ddw_tbex_aoitems_templementor() {
 					'title'  => esc_attr__( 'New Template Builder', 'toolbar-extras' ),
 					'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'tpm_templates' ) ),
 					'meta'   => array(
-						'target' => '',
+						'target' => ddw_tbex_meta_target( 'builder' ),
 						'title'  => esc_attr__( 'New Template Builder', 'toolbar-extras' )
 					)
 				)

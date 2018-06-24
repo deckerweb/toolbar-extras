@@ -36,7 +36,7 @@ function ddw_tbex_aoitems_sizzify_lite() {
 			'href'   => esc_url( admin_url( 'admin.php?page=sizzify_template_dir' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Sizzify Lite (Add-On)', 'toolbar-extras' )
+				'title'  => ddw_tbex_string_addon_title_attr( __( 'Sizzify Lite', 'toolbar-extras' ) )
 			)
 		)
 	);

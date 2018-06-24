@@ -42,6 +42,20 @@
 	padding-top: 10px;
 }
 
+
+/** Anfang: v1.3.0 Testing */
+.tbex-settings-section {
+	border-top: 1px solid #c7c7c7 !important;
+	padding-top: 25px;
+}
+
+.tbex-settings-section.first {
+	border-top: none !important;
+	padding-top: 10px;
+}
+/** Ende: v1.3.0 Testing */
+
+
 .bg-local-default {
 	background-color: #0073aa;
 	display: inline-block;

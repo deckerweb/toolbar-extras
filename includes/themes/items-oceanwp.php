@@ -124,7 +124,7 @@ function ddw_tbex_themeitems_oceanwp() {
 					'title'  => esc_attr__( 'New Template Builder', 'toolbar-extras' ),
 					'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'oceanwp_library' ) ),
 					'meta'   => array(
-						'target' => '',
+						'target' => ddw_tbex_meta_target( 'builder' ),
 						'title'  => esc_attr__( 'New Template Builder', 'toolbar-extras' )
 					)
 				)
@@ -177,7 +177,7 @@ function ddw_tbex_themeitems_oceanwp() {
 						'title'  => esc_attr__( 'New Portfolio Builder', 'toolbar-extras' ),
 						'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'ocean_portfolio' ) ),
 						'meta'   => array(
-							'target' => '',
+							'target' => ddw_tbex_meta_target( 'builder' ),
 							'title'  => esc_attr__( 'New Portfolio Builder', 'toolbar-extras' )
 						)
 					)
@@ -329,6 +329,31 @@ function ddw_tbex_themeitems_oceanwp() {
 
 		}  // end if
 
+		/** OceanWP's own Stick Anything (via free Add-On plugin) */
+		if ( function_exists( 'Ocean_Stick_Anything' ) ) {
+
+			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+				array(
+					'id'     => 'oceanwp-stick-anything',
+					'parent' => 'theme-creative'
+				)
+			);
+
+			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				array(
+					'id'     => 'owp-stick-anything',
+					'parent' => 'oceanwp-stick-anything',
+					'title'  => esc_attr__( 'Stick Anything', 'toolbar-extras' ),
+					'href'   => esc_url( admin_url( 'admin.php?page=oceanwp-panel-stick' ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => esc_attr__( 'Stick Anything', 'toolbar-extras' )
+					)
+				)
+			);
+
+		}  // end if
+
 	/** OceanWP settings */
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(
 		array(
@@ -354,6 +379,19 @@ function ddw_tbex_themeitems_oceanwp() {
 				'meta'   => array(
 					'target' => '',
 					'title'  => esc_attr__( 'Activate Features', 'toolbar-extras' )
+				)
+			)
+		);
+
+		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			array(
+				'id'     => 'theme-settings-integrations',
+				'parent' => 'theme-settings',
+				'title'  => esc_attr__( 'Integrations', 'toolbar-extras' ),
+				'href'   => esc_url( admin_url( 'admin.php?page=oceanwp-panel&tab=integrations' ) ),
+				'meta'   => array(
+					'target' => '',
+					'title'  => esc_attr__( 'Integrations', 'toolbar-extras' )
 				)
 			)
 		);
@@ -483,7 +521,7 @@ function ddw_tbex_themeitems_oceanwp_customize() {
 				'parent' => 'theme-creative-customize',
 				/* translators: Autofocus panel in the Customizer */
 				'title'  => esc_attr__( 'Blog', 'toolbar-extras' ),
-				'href'   => ddw_tbex_customizer_focus( 'panel', 'ocean_blog' ),
+				'href'   => ddw_tbex_customizer_focus( 'panel', 'ocean_blog', get_post_type_archive_link( 'post' ) ),
 				'meta'   => array(
 					'target' => ddw_tbex_meta_target(),
 					'title'  => ddw_tbex_string_customize_attr( __( 'Blog', 'toolbar-extras' ) )
@@ -604,6 +642,25 @@ function ddw_tbex_themeitems_oceanwp_customize() {
 
 	}  // end if
 
+	/** Add-On: Customize Cookie Notice */
+	if ( function_exists( 'Ocean_Cookie_Notice' ) ) {
+
+		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			array(
+				'id'     => 'owpcmz-cookie-notice',
+				'parent' => 'theme-creative-customize',
+				/* translators: Autofocus section in the Customizer */
+				'title'  => esc_attr__( 'Cookie Notice', 'toolbar-extras' ),
+				'href'   => ddw_tbex_customizer_focus( 'section', 'ocn_section' ),
+				'meta'   => array(
+					'target' => ddw_tbex_meta_target(),
+					'title'  => ddw_tbex_string_customize_attr( __( 'Cookie Notice', 'toolbar-extras' ) )
+				)
+			)
+		);
+
+	}  // end if
+
 }  // end function
 
 
@@ -682,7 +739,7 @@ function ddw_tbex_themeitems_oceanwp_resources() {
 }  // end function
 
 
-add_action( 'tbex_new_content_before_nav_menu', 'ddw_tbex_new_content_oceanwp' );
+add_action( 'tbex_new_content_before_nav_menu', 'ddw_tbex_themeitems_new_content_oceanwp' );
 /**
  * Items for "New Content" section: New OceanWP Content
  *
@@ -693,7 +750,7 @@ add_action( 'tbex_new_content_before_nav_menu', 'ddw_tbex_new_content_oceanwp' )
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
-function ddw_tbex_new_content_oceanwp() {
+function ddw_tbex_themeitems_new_content_oceanwp() {
 
 	/** OceanWP Library (Core) */
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(
@@ -720,7 +777,7 @@ function ddw_tbex_new_content_oceanwp() {
 				'title'  => ddw_tbex_string_newcontent_with_builder(),
 				'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'oceanwp_library' ) ),
 				'meta'   => array(
-					'target' => '',
+					'target' => ddw_tbex_meta_target( 'builder' ),
 					'title'  => ddw_tbex_string_newcontent_create_with_builder()
 				)
 			)
@@ -741,7 +798,7 @@ function ddw_tbex_new_content_oceanwp() {
 				'title'  => ddw_tbex_string_newcontent_with_builder(),
 				'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'ocean_portfolio' ) ),
 				'meta'   => array(
-					'target' => '',
+					'target' => ddw_tbex_meta_target( 'builder' ),
 					'title'  => ddw_tbex_string_newcontent_create_with_builder()
 				)
 			)

@@ -36,7 +36,7 @@ function ddw_tbex_aoitems_jetmenu() {
 			'href'   => esc_url( admin_url( 'admin.php?page=jet-menu' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'JetMenu (Premium Add-On)', 'toolbar-extras' )
+				'title'  => ddw_tbex_string_premium_addon_title_attr( __( 'JetMenu', 'toolbar-extras' ) )
 			)
 		)
 	);
@@ -96,7 +96,7 @@ function ddw_tbex_aoitems_jetmenu() {
 				'official-site',
 				'jetmenu-site',
 				'group-jetmenu-resources',
-				'http://jetmenu.zemez.io/'
+				'https://jetmenu.zemez.io/'
 			);
 
 		}  // end if
@@ -106,7 +106,7 @@ function ddw_tbex_aoitems_jetmenu() {
 
 add_action( 'wp_before_admin_bar_render', 'ddw_tbex_tweak_remove_items_jetmenu' );
 /**
- * Remove items from JetMenu plugin.
+ * Remove New Content Group items from JetMenu plugin.
  *
  * @since  1.1.0
  *

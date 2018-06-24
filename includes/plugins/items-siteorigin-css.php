@@ -1,6 +1,6 @@
 <?php
 
-//items-siteorigin-css
+// includes/plugins/items-siteorigin-css
 
 /**
  * Prevent direct access to this file.
@@ -31,7 +31,7 @@ function ddw_tbex_aoitems_custom_css() {
 			'href'   => esc_url( admin_url( 'themes.php?page=so_custom_css' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'SiteOrigin CSS (Add-On)', 'toolbar-extras' )
+				'title'  => ddw_tbex_string_addon_title_attr( __( 'SiteOrigin CSS', 'toolbar-extras' ) )
 			)
 		)
 	);

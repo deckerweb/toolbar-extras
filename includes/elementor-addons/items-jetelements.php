@@ -36,7 +36,7 @@ function ddw_tbex_aoitems_jetelements() {
 			'href'   => esc_url( admin_url( 'admin.php?page=jet-elements-settings' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'JetElements (Premium Add-On)', 'toolbar-extras' )
+				'title'  => ddw_tbex_string_premium_addon_title_attr( __( 'JetElements', 'toolbar-extras' ) )
 			)
 		)
 	);
@@ -83,7 +83,7 @@ function ddw_tbex_aoitems_jetelements() {
 				'official-site',
 				'jetelements-site',
 				'group-jetelements-resources',
-				'http://jetelements.zemez.io/'
+				'https://jetelements.zemez.io/'
 			);
 
 		}  // end if

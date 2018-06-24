@@ -34,7 +34,7 @@ function ddw_tbex_aoitems_simplecss() {
 			'href'   => esc_url( admin_url( 'themes.php?page=simple-css' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Simple CSS (Add-On)', 'toolbar-extras' )
+				'title'  => ddw_tbex_string_addon_title_attr( __( 'Simple CSS', 'toolbar-extras' ) )
 			)
 		)
 	);

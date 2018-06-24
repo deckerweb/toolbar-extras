@@ -36,7 +36,7 @@ function ddw_tbex_aoitems_jetblocks() {
 			'href'   => esc_url( admin_url( 'admin.php?page=jet-blocks-settings' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'JetBlocks (Premium Add-On)', 'toolbar-extras' )
+				'title'  => ddw_tbex_string_premium_addon_title_attr( __( 'JetBlocks', 'toolbar-extras' ) )
 			)
 		)
 	);
@@ -83,7 +83,7 @@ function ddw_tbex_aoitems_jetblocks() {
 				'official-site',
 				'jetblocks-site',
 				'group-jetblocks-resources',
-				'http://jetblocks.zemez.io/'
+				'https://jetblocks.zemez.io/'
 			);
 
 		}  // end if

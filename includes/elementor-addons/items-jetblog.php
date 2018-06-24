@@ -36,7 +36,7 @@ function ddw_tbex_aoitems_jetblog() {
 			'href'   => esc_url( admin_url( 'admin.php?page=jet-blog-settings' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'JetBlog (Premium Add-On)', 'toolbar-extras' )
+				'title'  => ddw_tbex_string_premium_addon_title_attr( __( 'JetBlog', 'toolbar-extras' ) )
 			)
 		)
 	);
@@ -96,7 +96,7 @@ function ddw_tbex_aoitems_jetblog() {
 				'official-site',
 				'jetblog-site',
 				'group-jetblog-resources',
-				'http://jetblog.zemez.io/'
+				'https://jetblog.zemez.io/'
 			);
 
 		}  // end if

@@ -33,7 +33,7 @@ function ddw_tbex_aoitems_central_color_palette() {
 			'href'   => esc_url( admin_url( 'options-general.php?page=kt_tinymce_color_grid' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Central Color Palette (Add-On)', 'toolbar-extras' )
+				'title'  => ddw_tbex_string_addon_title_attr( __( 'Central Color Palette', 'toolbar-extras' ) )
 			)
 		)
 	);

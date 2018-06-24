@@ -229,6 +229,24 @@ function ddw_tbex_display_items_site() {
 
 
 /**
+ * Display items for edit/ view Post Type singular at all or not?
+ *
+ * @since  1.3.0
+ *
+ * @uses   ddw_tbex_get_option()
+ *
+ * @return bool TRUE if setting is on 'yes', otherwise FALSE.
+ */
+function ddw_tbex_display_items_edit_content() {
+
+	return ( 'yes' === ddw_tbex_get_option( 'general', 'display_items_edit_content' ) ) ? TRUE : FALSE;
+
+	//return TRUE;
+
+}  // end function
+
+
+/**
  * Display edit Nav Menus items at all or not?
  *
  * @since  1.0.0
@@ -483,10 +501,38 @@ function ddw_tbex_is_genesis_active() {
 
 
 /**
+ * Check if Add-On "JetThemeCore" is active or not.
+ *
+ * @since  1.3.0
+ *
+ * @return bool TRUE if class 'Jet_Theme_Core' exists, otherwise FALSE.
+ */
+function ddw_tbex_is_addon_jetthemecore() {
+
+	return ( class_exists( 'Jet_Theme_Core' ) ) ? TRUE : FALSE;
+
+}  // end function
+
+
+/**
+ * Check if Add-On "Kava Extra" is active or not.
+ *
+ * @since  1.3.0
+ *
+ * @return bool TRUE if class 'Kava_Extra' exists, otherwise FALSE.
+ */
+function ddw_tbex_is_addon_kava_extra() {
+
+	return ( class_exists( 'Kava_Extra' ) ) ? TRUE : FALSE;
+
+}  // end function
+
+
+/**
  * Use smart tweaks at all or not?
  *
  * @since  1.0.0
- * @todo   TBEX Settings integration!
+ * @todo   (Maybe enhanced TBEX Settings integration?)
  *
  * @return bool TRUE if constant defined & true, otherwise FALSE.
  */
@@ -546,7 +592,23 @@ function ddw_tbex_use_tweak_customizer() {
 
 
 /**
- * Tweak: Remove Customize item(s) from the top?
+ * Tweak: Remove Media item from New Content group?
+ *
+ * @since  1.3.0
+ *
+ * @uses   ddw_tbex_get_option()
+ *
+ * @return bool TRUE if tweak should be used (setting 'yes'), otherwise FALSE.
+ */
+function ddw_tbex_use_tweak_media_newcontent() {
+
+	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'remove_media_newcontent' ) ) ? TRUE : FALSE;;
+
+}  // end function
+
+
+/**
+ * Tweak: Remove User item from New Content group?
  *
  * @since  1.2.0
  *
@@ -942,14 +1004,17 @@ function ddw_tbex_is_cobalt_supported_theme( $plugin = '' ) {
 		'twentysixteen',
 	);
 
+	/** For: Extender Pro Plugin */
 	if ( 'extender-pro' === sanitize_key( $plugin ) ) {
 		return in_array( basename( get_template_directory() ), $supported_frameworks );
 	}
 
+	/** For: Themer Pro Plugin */
 	if ( 'themer-pro' === sanitize_key( $plugin ) ) {
 		return in_array( basename( get_template_directory() ), array_merge( $supported_frameworks, $supported_twenty ) );
 	}
 
+	/** Fallback "FALSE" if no supported theme active */
 	return FALSE;
 
 }  // end function

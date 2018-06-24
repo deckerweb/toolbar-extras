@@ -36,7 +36,7 @@ function ddw_tbex_aoitems_icss_egmext() {
 			'href'   => esc_url( admin_url( 'admin.php?page=eb_google_map_setting' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Google Map Extended (Add-On)', 'toolbar-extras' )
+				'title'  => ddw_tbex_string_addon_title_attr( __( 'Google Map Extended', 'toolbar-extras' ) )
 			)
 		)
 	);

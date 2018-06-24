@@ -121,7 +121,7 @@ function ddw_tbex_items_elementor_pro_add_library_types_with_builder() {
 			'title'  => ddw_tbex_string_elementor_template_with_builder( _x( 'Header', 'Elementor Template type', 'toolbar-extras' ) ),
 			'href'   => ddw_tbex_get_elementor_template_add_new_url( 'header' ),
 			'meta'   => array(
-				'target' => '',
+				'target' => ddw_tbex_meta_target( 'builder' ),
 				'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Header', 'Elementor Template type', 'toolbar-extras' ) )
 			)
 		)
@@ -134,7 +134,7 @@ function ddw_tbex_items_elementor_pro_add_library_types_with_builder() {
 			'title'  => ddw_tbex_string_elementor_template_with_builder( _x( 'Footer', 'Elementor Template type', 'toolbar-extras' ) ),
 			'href'   => ddw_tbex_get_elementor_template_add_new_url( 'footer' ),
 			'meta'   => array(
-				'target' => '',
+				'target' => ddw_tbex_meta_target( 'builder' ),
 				'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Footer', 'Elementor Template type', 'toolbar-extras' ) )
 			)
 		)
@@ -147,7 +147,7 @@ function ddw_tbex_items_elementor_pro_add_library_types_with_builder() {
 			'title'  => ddw_tbex_string_elementor_template_with_builder( _x( 'Single', 'Elementor Template type', 'toolbar-extras' ) ),
 			'href'   => ddw_tbex_get_elementor_template_add_new_url( 'header' ),
 			'meta'   => array(
-				'target' => '',
+				'target' => ddw_tbex_meta_target( 'builder' ),
 				'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Single', 'Elementor Template type', 'toolbar-extras' ) )
 			)
 		)
@@ -160,7 +160,7 @@ function ddw_tbex_items_elementor_pro_add_library_types_with_builder() {
 			'title'  => ddw_tbex_string_elementor_template_with_builder( _x( 'Archive', 'Elementor Template type', 'toolbar-extras' ) ),
 			'href'   => ddw_tbex_get_elementor_template_add_new_url( 'archive' ),
 			'meta'   => array(
-				'target' => '',
+				'target' => ddw_tbex_meta_target( 'builder' ),
 				'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Archive', 'Elementor Template type', 'toolbar-extras' ) )
 			)
 		)
@@ -348,7 +348,6 @@ function ddw_tbex_items_elementor_pro_developers() {
 }  // end function
 
 
-
 add_action( 'admin_bar_menu', 'ddw_tbex_items_elementor_pro_new_content', 130 );
 /**
  * Add Elementor Pro template types with Page Builder to the "New Content" group.
@@ -375,7 +374,7 @@ function ddw_tbex_items_elementor_pro_new_content() {
 				'title'  => ddw_tbex_string_elementor_template_with_builder( _x( 'Header', 'Elementor Template type', 'toolbar-extras' ) ),
 				'href'   => ddw_tbex_get_elementor_template_add_new_url( 'header' ),
 				'meta'   => array(
-					'target' => '',
+					'target' => ddw_tbex_meta_target( 'builder' ),
 					'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Header', 'Elementor Template type', 'toolbar-extras' ) )
 				)
 			)
@@ -388,7 +387,7 @@ function ddw_tbex_items_elementor_pro_new_content() {
 				'title'  => ddw_tbex_string_elementor_template_with_builder( _x( 'Footer', 'Elementor Template type', 'toolbar-extras' ) ),
 				'href'   => ddw_tbex_get_elementor_template_add_new_url( 'footer' ),
 				'meta'   => array(
-					'target' => '',
+					'target' => ddw_tbex_meta_target( 'builder' ),
 					'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Footer', 'Elementor Template type', 'toolbar-extras' ) )
 				)
 			)
@@ -399,9 +398,9 @@ function ddw_tbex_items_elementor_pro_new_content() {
 				'id'     => 'et-single-with-builder',
 				'parent' => 'tbex-elementor-template',
 				'title'  => ddw_tbex_string_elementor_template_with_builder( _x( 'Single', 'Elementor Template type', 'toolbar-extras' ) ),
-				'href'   => ddw_tbex_get_elementor_template_add_new_url( 'header' ),
+				'href'   => ddw_tbex_get_elementor_template_add_new_url( 'single' ),
 				'meta'   => array(
-					'target' => '',
+					'target' => ddw_tbex_meta_target( 'builder' ),
 					'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Single', 'Elementor Template type', 'toolbar-extras' ) )
 				)
 			)
@@ -414,7 +413,7 @@ function ddw_tbex_items_elementor_pro_new_content() {
 				'title'  => ddw_tbex_string_elementor_template_with_builder( _x( 'Archive', 'Elementor Template type', 'toolbar-extras' ) ),
 				'href'   => ddw_tbex_get_elementor_template_add_new_url( 'archive' ),
 				'meta'   => array(
-					'target' => '',
+					'target' => ddw_tbex_meta_target( 'builder' ),
 					'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Archive', 'Elementor Template type', 'toolbar-extras' ) )
 				)
 			)

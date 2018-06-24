@@ -1,6 +1,6 @@
 <?php
 
-//items-simple-custom-css-js
+// includes/plugins/items-simple-custom-css-js
 
 /**
  * Prevent direct access to this file.

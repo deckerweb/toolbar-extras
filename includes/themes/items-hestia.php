@@ -106,7 +106,7 @@ function ddw_tbex_themeitems_hestia_customize() {
 				'parent' => 'theme-creative-customize',
 				/* translators: Autofocus section in the Customizer */
 				'title'  => esc_attr__( 'Blog Settings', 'toolbar-extras' ),
-				'href'   => ddw_tbex_customizer_focus( 'section', 'hestia_blog_layout' ),
+				'href'   => ddw_tbex_customizer_focus( 'section', 'hestia_blog_layout', get_post_type_archive_link( 'post' ) ),
 				'meta'   => array(
 					'target' => ddw_tbex_meta_target(),
 					'title'  => ddw_tbex_string_customize_attr( __( 'Blog Settings', 'toolbar-extras' ) )
@@ -140,7 +140,6 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_hestia_resources', 120 );
  *
  * @since 1.1.0
  *
- * @uses  ddw_tbex_is_startwp_extended_active()
  * @uses  ddw_tbex_display_items_resources()
  * @uses  ddw_tbex_resource_item()
  */

@@ -34,7 +34,7 @@ function ddw_tbex_aoitems_dhwc_elementor() {
 			'href'   => esc_url( admin_url( 'edit.php?post_type=dhwc_template' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'WooCommerce Product Templates (Premium Add-On)', 'toolbar-extras' )
+				'title'  => ddw_tbex_string_premium_addon_title_attr( __( 'WooCommerce Product Templates', 'toolbar-extras' ) )
 			)
 		)
 	);
@@ -74,7 +74,7 @@ function ddw_tbex_aoitems_dhwc_elementor() {
 					'title'  => esc_attr__( 'New Template Builder', 'toolbar-extras' ),
 					'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'dhwc_template' ) ),
 					'meta'   => array(
-						'target' => '',
+						'target' => ddw_tbex_meta_target( 'builder' ),
 						'title'  => esc_attr__( 'New Template Builder', 'toolbar-extras' )
 					)
 				)
@@ -147,7 +147,7 @@ function ddw_tbex_new_content_dhwc_elementor() {
 			'title'  => ddw_tbex_string_newcontent_with_builder(),
 			'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'dhwc_template' ) ),
 			'meta'   => array(
-				'target' => '',
+				'target' => ddw_tbex_meta_target( 'builder' ),
 				'title'  => ddw_tbex_string_newcontent_create_with_builder()
 			)
 		)

@@ -1,8 +1,8 @@
 <?php
 
-//dev-mode
-//local-dev
-//items-local-development
+// dev-mode
+// local-dev
+// includes/plugins/items-local-development
 
 /**
  * Prevent direct access to this file.
@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 add_action( 'admin_bar_menu', 'ddw_tbex_site_items_local_development', 20 );
 /**
- * Items for Plugin: Local Development (by Andy Fragen)
+ * Items for Plugin: Local Development (free, by Andy Fragen)
  *
  * @since  1.0.0
  *
@@ -38,11 +38,11 @@ function ddw_tbex_site_items_local_development() {
 		array(
 			'id'     => 'ldv-plugins',
 			'parent' => 'group-local-development',
-			'title'  => esc_attr__( 'Local Dev: Plugins', 'toolbar-extras' ),
+			'title'  => ddw_tbex_string_plugin_local_dev( __( 'Plugins', 'toolbar-extras' ) ),
 			'href'   => esc_url( admin_url( 'options-general.php?page=local-development&tab=local_dev_settings_plugins' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Local Dev: Plugins', 'toolbar-extras' )
+				'title'  => ddw_tbex_string_plugin_local_dev( __( 'Plugins', 'toolbar-extras' ) )
 			)
 		)
 	);
@@ -51,11 +51,24 @@ function ddw_tbex_site_items_local_development() {
 		array(
 			'id'     => 'ldv-themes',
 			'parent' => 'group-local-development',
-			'title'  => esc_attr__( 'Local Dev: Themes', 'toolbar-extras' ),
+			'title'  => ddw_tbex_string_plugin_local_dev( __( 'Themes', 'toolbar-extras' ) ),
 			'href'   => esc_url( admin_url( 'options-general.php?page=local-development&tab=local_dev_settings_themes' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Local Dev: Themes', 'toolbar-extras' )
+				'title'  => ddw_tbex_string_plugin_local_dev( __( 'Themes', 'toolbar-extras' ) )
+			)
+		)
+	);
+
+	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		array(
+			'id'     => 'ldv-extras',
+			'parent' => 'group-local-development',
+			'title'  => ddw_tbex_string_plugin_local_dev( __( 'Extras', 'toolbar-extras' ) ),
+			'href'   => esc_url( admin_url( 'options-general.php?page=local-development&tab=local_dev_settings_extras' ) ),
+			'meta'   => array(
+				'target' => '',
+				'title'  => ddw_tbex_string_plugin_local_dev( __( 'Extras', 'toolbar-extras' ) )
 			)
 		)
 	);

@@ -36,7 +36,7 @@ function ddw_tbex_aoitems_pt_elementor_lite() {
 			'href'   => esc_url( admin_url( 'admin.php?page=pt-plugin-base' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'PT Elementor Lite (Add-On)', 'toolbar-extras' )
+				'title'  => ddw_tbex_string_addon_title_attr( __( 'PT Elementor Lite', 'toolbar-extras' ) )
 			)
 		)
 	);

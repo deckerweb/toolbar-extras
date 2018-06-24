@@ -32,7 +32,7 @@ function ddw_tbex_aoitems_uael() {
 	/** Respect Ultimate Addons White Labeling */
 	$uael_whitelabel  = \UltimateElementor\Classes\UAEL_Helper::get_white_labels();
 	$uael_plugin_name = ( ! empty( $uael_whitelabel[ 'plugin' ][ 'name' ] ) ) ? $uael_whitelabel[ 'plugin' ][ 'name' ] : esc_attr__( 'Ultimate Addons', 'toolbar-extras' );
-	$uael_title_attr  = ( ! empty( $uael_whitelabel[ 'plugin' ][ 'name' ] ) ) ? $uael_whitelabel[ 'plugin' ][ 'name' ] : esc_attr__( 'Ultimate Addons for Elementor (Premium Add-On)', 'toolbar-extras' );
+	$uael_title_attr  = ( ! empty( $uael_whitelabel[ 'plugin' ][ 'name' ] ) ) ? $uael_whitelabel[ 'plugin' ][ 'name' ] : ddw_tbex_string_premium_addon_title_attr( __( 'Ultimate Addons for Elementor', 'toolbar-extras' ) );
 
 
 	/** Extras Settings */

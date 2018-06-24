@@ -36,7 +36,7 @@ function ddw_tbex_aoitems_trg_elementor() {
 			'href'   => esc_url( admin_url( 'options-general.php?page=trg_settings' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Total Recipe Generator (Premium Add-On)', 'toolbar-extras' )
+				'title'  => ddw_tbex_string_premium_addon_title_attr( __( 'Total Recipe Generator', 'toolbar-extras' ) )
 			)
 		)
 	);

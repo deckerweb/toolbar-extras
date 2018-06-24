@@ -33,7 +33,7 @@ function ddw_tbex_aoitems_popboxes() {
 			'href'   => esc_url( admin_url( 'edit.php?post_type=elementor-popup' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'PopBoxes for Elementor (Add-On)', 'toolbar-extras' )
+				'title'  => ddw_tbex_string_addon_title_attr( __( 'PopBoxes for Elementor', 'toolbar-extras' ) )
 			)
 		)
 	);
@@ -73,7 +73,7 @@ function ddw_tbex_aoitems_popboxes() {
 					'title'  => esc_attr__( 'New Popup Builder', 'toolbar-extras' ),
 					'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'elementor-popup' ) ),
 					'meta'   => array(
-						'target' => '',
+						'target' => ddw_tbex_meta_target( 'builder' ),
 						'title'  => esc_attr__( 'New Popup Builder', 'toolbar-extras' )
 					)
 				)
@@ -147,7 +147,7 @@ function ddw_tbex_new_content_popbox() {
 			'title'  => ddw_tbex_string_newcontent_with_builder(),
 			'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'elementor-popup' ) ),
 			'meta'   => array(
-				'target' => '',
+				'target' => ddw_tbex_meta_target( 'builder' ),
 				'title'  => ddw_tbex_string_newcontent_create_with_builder()
 			)
 		)

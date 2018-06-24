@@ -65,7 +65,7 @@ function ddw_tbex_aoitems_genesis_testimonial_slider() {
 				'title'  => esc_attr__( 'New Testimonial Builder', 'toolbar-extras' ),
 				'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'testimonial' ) ),
 				'meta'   => array(
-					'target' => '',
+					'target' => ddw_tbex_meta_target( 'builder' ),
 					'title'  => esc_attr__( 'New Testimonial Builder', 'toolbar-extras' )
 				)
 			)
@@ -79,7 +79,7 @@ function ddw_tbex_aoitems_genesis_testimonial_slider() {
 				'title'  => ddw_tbex_string_newcontent_with_builder(),
 				'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'testimonial' ) ),
 				'meta'   => array(
-					'target' => '',
+					'target' => ddw_tbex_meta_target( 'builder' ),
 					'title'  => ddw_tbex_string_newcontent_create_with_builder()
 				)
 			)

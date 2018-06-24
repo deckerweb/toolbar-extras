@@ -42,8 +42,8 @@ function ddw_tbex_aoitems_powerpack_elements() {
 			'href'   => esc_url( admin_url( 'admin.php?page=powerpack-settings' ) ),
 			'meta'   => array(
 				'target' => '',
-				/* translators: %s - Name of the Add-On plugin ("PowerPack) */
-				'title'  => sprintf( esc_attr__( '%s Elements (Premium Add-On)', 'toolbar-extras' ), $pp_name )
+				/* translators: %s - Name of the Add-On plugin ("PowerPack") */
+				'title'  => ddw_tbex_string_premium_addon_title_attr( sprintf( __( '%s Elements', 'toolbar-extras' ), $pp_name ) )
 			)
 		)
 	);

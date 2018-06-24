@@ -131,7 +131,7 @@ function ddw_tbex_themeitems_startwp_customize() {
 			'parent' => 'theme-creative-customize',
 			/* translators: Autofocus section in the Customizer */
 			'title'  => esc_attr__( 'Blog / Archive / Single', 'toolbar-extras' ),
-			'href'   => ddw_tbex_customizer_focus( 'section', 'blog_archive' ),
+			'href'   => ddw_tbex_customizer_focus( 'section', 'blog_archive', get_post_type_archive_link( 'post' ) ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
 				'title'  => ddw_tbex_string_customize_attr( __( 'Blog / Archive / Single', 'toolbar-extras' ) )

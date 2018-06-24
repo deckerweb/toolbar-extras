@@ -36,7 +36,7 @@ function ddw_tbex_aoitems_leap13_premium_addons() {
 			'href'   => esc_url( admin_url( 'admin.php?page=pa-settings-page' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Premium Addons for Elementor (Add-On)', 'toolbar-extras' )
+				'title'  => ddw_tbex_string_addon_title_attr( __( 'Premium Addons for Elementor', 'toolbar-extras' ) )
 			)
 		)
 	);

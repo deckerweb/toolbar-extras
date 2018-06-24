@@ -33,7 +33,7 @@ function ddw_tbex_aoitems_jetwoobuilder() {
 			'href'   => esc_url( admin_url( 'edit.php?post_type=jet-woo-builder' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'WooCommerce Product Templates (Premium Add-On)', 'toolbar-extras' )
+				'title'  => ddw_tbex_string_premium_addon_title_attr( __( 'WooCommerce Product Templates', 'toolbar-extras' ) )
 			)
 		)
 	);
@@ -73,7 +73,7 @@ function ddw_tbex_aoitems_jetwoobuilder() {
 					'title'  => esc_attr__( 'New Template Builder', 'toolbar-extras' ),
 					'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'jet-woo-builder' ) ),
 					'meta'   => array(
-						'target' => '',
+						'target' => ddw_tbex_meta_target( 'builder' ),
 						'title'  => esc_attr__( 'New Template Builder', 'toolbar-extras' )
 					)
 				)
@@ -140,7 +140,7 @@ function ddw_tbex_aoitems_jetwoobuilder() {
 				'official-site',
 				'jetwoobuilder-site',
 				'group-jetwoobuilder-resources',
-				'http://jetwoobuilder.zemez.io/'
+				'https://jetwoobuilder.zemez.io/'
 			);
 
 		}  // end if
@@ -170,7 +170,7 @@ function ddw_tbex_new_content_jetwoobuilder() {
 			'title'  => ddw_tbex_string_newcontent_with_builder(),
 			'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'jet-woo-builder' ) ),
 			'meta'   => array(
-				'target' => '',
+				'target' => ddw_tbex_meta_target( 'builder' ),
 				'title'  => ddw_tbex_string_newcontent_create_with_builder()
 			)
 		)

@@ -181,6 +181,17 @@ function ddw_tbex_toolbar_styles() {
 				display: none !important;
 			}
 
+			/* Tweaks for groups */
+			#wp-admin-bar-group-devmode-resources,
+			#wp-admin-bar-group-churchcontent-resources {
+				border-top: 1px solid rgba(235, 235, 235, 0.35);
+			}
+
+			.admin-color-light #wp-admin-bar-group-devmode-resources,
+			.admin-color-light #wp-admin-bar-group-churchcontent-resources {
+				border-top: 1px solid rgba(7, 7, 7, 0.2);
+			}
+
 			/* Color fixes */
 			#wpadminbar #wp-admin-bar-group-tbex-users .tbex-users .ab-icon:before,
 			#wpadminbar #wp-admin-bar-group-tbex-users .tbex-users .ab-label,

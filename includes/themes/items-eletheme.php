@@ -61,7 +61,7 @@ function ddw_tbex_themeitems_eletheme() {
 					'href'   => ddw_tbex_customizer_focus( 'section', 'title_tagline' ),
 					'meta'   => array(
 						'target' => ddw_tbex_meta_target(),
-						'title'  => ddw_tbex_string_customize_attr( __( 'Customize Site Identity', 'toolbar-extras' ) )
+						'title'  => ddw_tbex_string_customize_attr( __( 'Site Identity', 'toolbar-extras' ) )
 					)
 				)
 			);
