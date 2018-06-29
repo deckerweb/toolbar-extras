@@ -61,7 +61,7 @@ function ddw_tbex_site_items_woocommerce() {
 
 add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_wc_plugin', 500 );
 /**
- * Customizer items for Plugin: WooCommerce
+ * Customizer items for Plugin: WooCommerce - plus optional Add-Ons
  *
  * @since  1.1.0
  *
@@ -84,6 +84,27 @@ function ddw_tbex_themeitems_wc_plugin() {
 			)
 		)
 	);
+
+	/**
+	 * Additional Plugin item from: Decorator – WooCommerce Email Customizer (free, by RightPress)
+	 * @since 1.3.1
+	 * @uses  RP_Decorator_Customizer::get_customizer_url()
+	 */
+	if ( defined( 'RP_DECORATOR_VERSION' ) ) {
+
+		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			array(
+				'id'     => 'ao-decorator-woocommerce-emails',
+				'parent' => 'theme-creative-customize',
+				'title'  => esc_attr__( 'WooCommerce Emails', 'toolbar-extras' ),
+				'href'   => RP_Decorator_Customizer::get_customizer_url(),
+				'meta'   => array(
+					'target' => ddw_tbex_meta_target(),
+					'title'  => ddw_tbex_string_customize_attr( __( 'WooCommerce Emails', 'toolbar-extras' ) )
+				)
+			)
+		);
+	}  // end if
 
 }  // end function
 

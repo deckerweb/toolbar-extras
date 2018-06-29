@@ -1,7 +1,7 @@
 <?php
 
-//dev-mode
-//items-aceide
+// dev-mode
+// includes/plugins/items-aceide
 
 /**
  * Prevent direct access to this file.

@@ -324,6 +324,60 @@ if ( defined( 'RG_CURRENT_VIEW' ) ) {
 
 
 /**
+ * Plugin: WPForms Lite (free, by WPForms)
+ * @since 1.3.1
+ */
+if ( class_exists( 'WPForms' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-wpforms.php' );
+}
+
+
+/**
+ * Plugin: Formidable Forms (Premium, by Strategy11)
+ * @since 1.3.1
+ */
+if ( function_exists( 'load_formidable_forms' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-formidable-forms.php' );
+}
+
+
+/**
+ * Plugin: Ninja Forms (free, by The WP Ninjas)
+ * @since 1.3.1
+ */
+if ( class_exists( 'Ninja_Forms' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-ninja-forms.php' );
+}
+
+
+/**
+ * Plugin: Caldera Forms (Premium, by Caldera Labs)
+ * @since 1.3.1
+ */
+if ( defined( 'CFCORE_PATH' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-caldera-forms.php' );
+}
+
+
+/**
+ * Plugin: Contact Form 7 (free, by Takayuki Miyoshi)
+ * @since 1.3.1
+ */
+if ( defined( 'WPCF7_VERSION' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-contact-form-7.php' );
+}
+
+
+/**
+ * Plugin: Quform (Premium, by ThemeCatcher)
+ * @since 1.3.1
+ */
+if ( defined( 'QUFORM_VERSION' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-quform.php' );
+}
+
+
+/**
  * Plugin: Smart Slider 3 (free/Premium, by Nextend)
  * @since 1.0.0
  */
@@ -433,6 +487,15 @@ if ( class_exists( 'RegenerateThumbnails' ) ) {
 
 
 /**
+ * Plugin: Content Aware Sidebars (free, by Joachim Jensen - DEV Institute)
+ * @since 1.3.1
+ */
+if ( class_exists( 'CAS_App' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-content-aware-sidebars.php' );
+}
+
+
+/**
  * Plugin: Lightweight Sidebar Manager (free, by Brainstorm Force)
  * @since 1.2.0
  */
@@ -528,4 +591,22 @@ if ( function_exists( 'cp_load_convertpro' ) ) {
  */
 if ( class_exists( 'Convert_Plug' ) ) {
 	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-convertplus.php' );
+}
+
+
+/**
+ * Plugin: Hustle (free, by WPMU DEV)
+ * @since 1.3.1
+ */
+if ( class_exists( 'Hustle_Init' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-hustle.php' );
+}
+
+
+/**
+ * Plugin: Bloom (Premium, by Elegant Themes)
+ * @since 1.3.1
+ */
+if ( class_exists( 'ET_Bloom' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-bloom.php' );
 }

@@ -1,6 +1,6 @@
 <?php
 
-//items-custom-css-pro
+// includes/plugins/items-custom-css-pro
 
 /**
  * Prevent direct access to this file.

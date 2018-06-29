@@ -617,3 +617,42 @@ function ddw_tbex_string_super_admin_menu_location() {
 	return $tbex_menu_string;
 
 }  // end function
+
+
+/**
+ * Build string for New Form in New Content Group.
+ *
+ * @since  1.3.1
+ *
+ * @param  string $form_system Name of used form plugin (unique name).
+ * @param  string $type        Type of string - "Form" (default) or "View".
+ * @return string Complete string for creating a New Form.
+ */
+
+function ddw_tbex_string_new_form( $form_system = '', $type = '' ) {
+
+	if ( 'view' === sanitize_key( $type ) ) {
+
+		return sprintf(
+			/* translators: %s - Name of Form System (for example: Formidable, Ninja, Caldera etc.) */
+			esc_attr_x(
+				'%s View',
+				'Toolbar New Content section',
+				'toolbar-extras'
+			),
+			esc_html( $form_system )
+		);
+
+	}  // end if
+
+	return sprintf(
+		/* translators: %s - Name of Form System (for example: Formidable, Ninja, Caldera etc.) */
+		esc_attr_x(
+			'%s Form',
+			'Toolbar New Content section',
+			'toolbar-extras'
+		),
+		esc_html( $form_system )
+	);
+
+}  // end function

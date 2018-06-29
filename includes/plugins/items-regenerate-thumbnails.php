@@ -1,6 +1,6 @@
 <?php
 
-//items-regenerate-thumbnails
+// includes/plugins/items-regenerate-thumbnails
 
 /**
  * Prevent direct access to this file.

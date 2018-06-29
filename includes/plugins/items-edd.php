@@ -1,6 +1,6 @@
 <?php
 
-//items-edd
+// includes/plugins/items-edd
 
 /**
  * Prevent direct access to this file.

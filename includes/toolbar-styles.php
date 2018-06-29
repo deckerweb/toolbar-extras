@@ -139,6 +139,15 @@ function ddw_tbex_toolbar_styles() {
 				top: 2px;
 			}
 
+			#wpadminbar .tbex-customize-content .ab-icon:before {
+				content: '\f540';
+				top: 2px;
+			}
+
+			#wpadminbar .tbex-customize-content {
+				bottom: 2px;
+			}
+
 			/* Dev Mode */
 			#wpadminbar #wp-admin-bar-rapid-dev .ab-label {
 				margin-top: -3px;
@@ -211,6 +220,8 @@ function ddw_tbex_toolbar_styles() {
 			#wpadminbar #wp-admin-bar-customize-sccss .ab-label,
 			#wpadminbar #wp-admin-bar-customize-cei .ab-icon:before,
 			#wpadminbar #wp-admin-bar-customize-cei .ab-label,
+			#wpadminbar .tbex-customize-content .ab-icon:before,
+			#wpadminbar .tbex-customize-content .ab-label,
 			#wpadminbar #wp-admin-bar-rapid-dev .ab-icon:before,
 			#wpadminbar #wp-admin-bar-rapid-dev .ab-label,
 			#wpadminbar #wp-admin-bar-<?php echo ddw_tbex_id_sites_browser(); ?> .ab-icon:before,

@@ -100,6 +100,40 @@ function ddw_tbex_items_elementor_pro_library_types() {
 		)
 	);
 
+	if ( ddw_tbex_is_elementor_version( 'pro', '2.1.0-alpha2', '>=' )
+		&& class_exists( 'WooCommerce' )
+	) {
+
+		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			array(
+				'id'     => 'elementor-library-product-single',
+				'parent' => 'elibrary-types',
+				/* translators: Elementor Template type */
+				'title'  => esc_attr_x( 'Product', 'Elementor Template type', 'toolbar-extras' ),
+				'href'   => esc_url( admin_url( 'edit.php?post_type=elementor_library&elementor_library_type=prodcut' ) ),
+				'meta'   => array(
+					'target' => '',
+					'title'  => esc_attr__( 'Template Type: Product Content Blocks', 'toolbar-extras' )
+				)
+			)
+		);
+
+		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			array(
+				'id'     => 'elementor-library-product-archives',
+				'parent' => 'elibrary-types',
+				/* translators: Elementor Template type */
+				'title'  => esc_attr_x( 'Product Archive', 'Elementor Template type', 'toolbar-extras' ),
+				'href'   => esc_url( admin_url( 'edit.php?post_type=elementor_library&elementor_library_type=product-archive' ) ),
+				'meta'   => array(
+					'target' => '',
+					'title'  => esc_attr__( 'Template Type: Product Archive Content Blocks', 'toolbar-extras' )
+				)
+			)
+		);
+
+	}  // end if
+
 }  // end function
 
 
@@ -145,7 +179,7 @@ function ddw_tbex_items_elementor_pro_add_library_types_with_builder() {
 			'id'     => 'et-build-template-single',
 			'parent' => 'elementor-library-new-builder',
 			'title'  => ddw_tbex_string_elementor_template_with_builder( _x( 'Single', 'Elementor Template type', 'toolbar-extras' ) ),
-			'href'   => ddw_tbex_get_elementor_template_add_new_url( 'header' ),
+			'href'   => ddw_tbex_get_elementor_template_add_new_url( 'single' ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target( 'builder' ),
 				'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Single', 'Elementor Template type', 'toolbar-extras' ) )
@@ -165,6 +199,38 @@ function ddw_tbex_items_elementor_pro_add_library_types_with_builder() {
 			)
 		)
 	);
+
+	if ( ddw_tbex_is_elementor_version( 'pro', '2.1.0-alpha2', '>=' )
+		&& class_exists( 'WooCommerce' )
+	) {
+
+		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			array(
+				'id'     => 'et-build-template-product',
+				'parent' => 'elementor-library-new-builder',
+				'title'  => ddw_tbex_string_elementor_template_with_builder( _x( 'Product', 'Elementor Template type', 'toolbar-extras' ) ),
+				'href'   => ddw_tbex_get_elementor_template_add_new_url( 'product' ),
+				'meta'   => array(
+					'target' => ddw_tbex_meta_target( 'builder' ),
+					'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Product', 'Elementor Template type', 'toolbar-extras' ) )
+				)
+			)
+		);
+
+		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			array(
+				'id'     => 'et-build-template-product-archive',
+				'parent' => 'elementor-library-new-builder',
+				'title'  => ddw_tbex_string_elementor_template_with_builder( _x( 'Product Archive', 'Elementor Template type', 'toolbar-extras' ) ),
+				'href'   => ddw_tbex_get_elementor_template_add_new_url( 'product-archive' ),
+				'meta'   => array(
+					'target' => ddw_tbex_meta_target( 'builder' ),
+					'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Product Archive', 'Elementor Template type', 'toolbar-extras' ) )
+				)
+			)
+		);
+
+	}  // end if
 
 }  // end function
 
@@ -418,6 +484,38 @@ function ddw_tbex_items_elementor_pro_new_content() {
 				)
 			)
 		);
+
+		if ( ddw_tbex_is_elementor_version( 'pro', '2.1.0-alpha2', '>=' )
+			&& class_exists( 'WooCommerce' )
+		) {
+
+			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				array(
+					'id'     => 'et-product-with-builder',
+					'parent' => 'tbex-elementor-template',
+					'title'  => ddw_tbex_string_elementor_template_with_builder( _x( 'Product', 'Elementor Template type', 'toolbar-extras' ) ),
+					'href'   => ddw_tbex_get_elementor_template_add_new_url( 'product' ),
+					'meta'   => array(
+						'target' => ddw_tbex_meta_target( 'builder' ),
+						'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Product', 'Elementor Template type', 'toolbar-extras' ) )
+					)
+				)
+			);
+
+			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				array(
+					'id'     => 'et-product-archive-with-builder',
+					'parent' => 'tbex-elementor-template',
+					'title'  => ddw_tbex_string_elementor_template_with_builder( _x( 'Product Archive', 'Elementor Template type', 'toolbar-extras' ) ),
+					'href'   => ddw_tbex_get_elementor_template_add_new_url( 'product-archive' ),
+					'meta'   => array(
+						'target' => ddw_tbex_meta_target( 'builder' ),
+						'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Product Archive', 'Elementor Template type', 'toolbar-extras' ) )
+					)
+				)
+			);
+
+		}  // end if
 
 	}  // end if
 

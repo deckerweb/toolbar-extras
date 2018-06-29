@@ -23,7 +23,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_convertpro', 20 );
 function ddw_tbex_site_items_convertpro() {
 
 	/** Get enabled Convert Pro Add-On Modules */
-	$cp_addons = CP_Addon_Extension::get_enabled_extension();
+	$cp_addons = class_exists( 'CP_Addon_Extension' ) ? CP_Addon_Extension::get_enabled_extension() : array();
 
 	/** Get Convert Pro white label settings */
 	$cp_branding = Cp_V2_Loader::get_branding();

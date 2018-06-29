@@ -1,6 +1,6 @@
 <?php
 
-//items-delightful-downloads
+// includes/plugins/items-delightful-downloads
 
 /**
  * Prevent direct access to this file.

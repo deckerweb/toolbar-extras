@@ -318,7 +318,7 @@ function ddw_tbex_themeitems_phlox_core_elements() {
 				'id'     => 'theme-settings-plugins-wizard',
 				'parent' => 'theme-settings',
 				'title'  => esc_attr__( 'Plugin Installer', 'toolbar-extras' ),
-				'href'   => esc_url( admin_url( 'admin.php?page=auxin-wizard&step=default_plugins' ) ),
+				'href'   => esc_url( admin_url( 'admin.php?page=auxin-welcome&tab=plugins' ) ),
 				'meta'   => array(
 					'target' => '',
 					'title'  => esc_attr__( 'Plugin Installer', 'toolbar-extras' )
@@ -370,7 +370,7 @@ function ddw_tbex_themeitems_phlox_demos_import() {
 				'general',
 				'demo_import_icon'
 			),
-			'href'   => esc_url( admin_url( 'admin.php?page=auxin-wizard&step=default_content' ) ),
+			'href'   => esc_url( admin_url( 'admin.php?page=auxin-welcome&tab=importer' ) ),
 			'meta'   => array(
 				'target' => '',
 				'title'  => esc_attr__( 'Import Phlox Demos', 'toolbar-extras' )

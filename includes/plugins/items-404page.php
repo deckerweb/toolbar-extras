@@ -1,6 +1,6 @@
 <?php
 
-//items-404-page
+// includes/plugins/items-404-page
 
 /**
  * Prevent direct access to this file.

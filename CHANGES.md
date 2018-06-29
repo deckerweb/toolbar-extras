@@ -2,6 +2,36 @@
 
 ## Changelog
 
+### 1.3.1 - 2018-06-30
+
+* New: Added two upcoming WooCommerce Template types for a future Elementor Pro version
+* Tweak: Added icons to the new Customizer link for "Edit" and "View" singular posts for any public post (feature from v1.3.0)
+* Tweak: Changed various admin links for "Phlox" Theme support - Note: [Toolbar Extras always only supports the latest versions of supported Themes & Plugins](https://toolbarextras.com/docs/update-policy-for-supported-themes-and-plugins/)
+* Tweak: Enhanced "Gravity Forms" plugin support; also further improved filtering and re-hooking
+* Tweak: Added a new resource for "Gravity Forms" plugin support
+* Tweak: Updated `.pot` file plus all German translations (formal, informal)
+* Tweak: Enhanced, improved and corrected Readme.txt file here :)
+* Fix: Proper version check in settings updater for 1.3.x branch
+* Fix: Fixing one more instance - proper template type for "Create with Builder" URL for adding new "Single" template (Elementor Pro)
+* Fix: "Convert Pro" plugin support - proper check if "Pro Add-On" is active to avoid fatal error
+* **New:** *Extended the general Plugin support for:*
+  * WP Migrate DB Pro (Premium, by Delicious Brains) - for Dev Mode
+  * Contact Form 7 (free, by Takayuki Miyoshi)
+  * Caldera Forms (free, by Caldera Labs)
+  * Ninja Forms (free, by The WP Ninjas) (only v3.0 or higher supported!)
+  * Formidable Forms (Lite) (free, by Strategy11)
+  * Formidable Pro (Premium, by Strategy11)
+  * WPForms Lite (free, by WPForms)
+  * Quform 2 (Premium, by ThemeCatcher) (only v2.0 or higher supported!)
+  * Flamingo (free, by Takayuki Miyoshi) - a Contact Form 7 Add-On
+  * Ninja Forms - Layout & Styles (Add-On) (Premium, The WP Ninjas)
+  * Ninja Forms - File Uploads (Add-On) (Premium, The WP Ninjas)
+  * Hustle (free, by WPMU DEV)
+  * Bloom (Premium, by Elegant Themes)
+  * Decorator – WooCommerce Email Customizer (free, by RightPress)
+  * Content Aware Sidebars (free, by Joachim Jensen - DEV Institute)
+
+
 ### 1.3.0 - 2018-06-25
 
 * New: General setting to set link target for "Create with Builder" links (add new templates...) - by default this is now set to "_blank" (means new browser tab/ window)

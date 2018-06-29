@@ -1,7 +1,7 @@
 <?php
 
-//dev-mode
-//items-cobalt-instant-ide
+// dev-mode
+// includes/plugins/items-cobalt-instant-ide
 
 /**
  * Prevent direct access to this file.

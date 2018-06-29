@@ -31,29 +31,7 @@ function ddw_tbex_maybe_turnon_gravityforms_toolbar() {
 }  // end function
 
 
-add_action( 'wp_before_admin_bar_render', 'ddw_tbex_remove_items_gravityforms', 1 );
-/**
- * Remove items from Gravity Forms plugin.
- *
- * @since  1.0.0
- *
- * @uses   ddw_tbex_use_tweak_gravityforms()
- *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
- */
-function ddw_tbex_remove_items_gravityforms() {
-
-	/** Bail early if Gravity Forms tweak should NOT be used */
-	if ( ! ddw_tbex_use_tweak_gravityforms() ) {
-		return;
-	}
-
-	$GLOBALS[ 'wp_admin_bar' ]->remove_node( 'gform-forms' );
-
-}  // end function
-
-
-add_action( 'wp_before_admin_bar_render', 'ddw_tbex_site_items_gravityforms', 1 );
+add_filter( 'admin_bar_menu', 'ddw_tbex_site_items_gravityforms' );
 /**
  * Items for Plugin: Gravity Forms (Premium, by Rocketgenius, Inc.)
  *
@@ -62,8 +40,9 @@ add_action( 'wp_before_admin_bar_render', 'ddw_tbex_site_items_gravityforms', 1 
  * @uses   ddw_tbex_use_tweak_gravityforms()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param  obj   $wp_admin_bar Holds all nodes of the Toolbar.
  */
-function ddw_tbex_site_items_gravityforms() {
+function ddw_tbex_site_items_gravityforms( $wp_admin_bar ) {
 
 	/** Bail early if Gravity Forms tweak should NOT be used */
 	if ( ! ddw_tbex_use_tweak_gravityforms() ) {
@@ -75,7 +54,7 @@ function ddw_tbex_site_items_gravityforms() {
 		array(
 			'id'     => 'gform-forms',	// same as original!
 			'parent' => 'tbex-sitegroup-forms',
-			'title'  => esc_attr__( 'Forms', 'toolbar-extras' ),
+			'title'  => esc_attr__( 'Gravity Forms', 'toolbar-extras' ),
 			'href'   => esc_url( admin_url( 'admin.php?page=gf_edit_forms' ) ),
 			'meta'   => array(
 				'class'  => 'tbex-gforms',
@@ -92,6 +71,8 @@ add_action( 'wp_head', 'ddw_tbex_styles_gravityforms' );
 add_action( 'admin_head', 'ddw_tbex_styles_gravityforms' );
 /**
  * Special styles for re-hooked Gravity Forms item only.
+ *
+ * @since  1.0.0
  *
  * @uses   ddw_tbex_use_tweak_gravityforms()
  *
@@ -151,6 +132,7 @@ add_action( 'wp_before_admin_bar_render', 'ddw_tbex_site_items_gravityforms_exte
  */
 function ddw_tbex_site_items_gravityforms_extend() {
 
+	/** General settings */
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(
 		array(
 			'id'     => 'gform-forms-settings',
@@ -164,6 +146,7 @@ function ddw_tbex_site_items_gravityforms_extend() {
 		)
 	);
 
+	/** Export & Import */
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(
 		array(
 			'id'     => 'gf-impexp',
@@ -216,6 +199,46 @@ function ddw_tbex_site_items_gravityforms_extend() {
 			)
 		);
 
+	/** System Status */
+	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		array(
+			'id'     => 'gf-system-status',
+			'parent' => 'gform-forms',
+			'title'  => esc_attr__( 'System Status', 'toolbar-extras' ),
+			'href'   => esc_url( admin_url( 'admin.php?page=gf_system_status' ) ),
+			'meta'   => array(
+				'target' => '',
+				'title'  => esc_attr__( 'System Status', 'toolbar-extras' )
+			)
+		)
+	);
+
+		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			array(
+				'id'     => 'gf-system-status-report',
+				'parent' => 'gf-system-status',
+				'title'  => esc_attr__( 'System Info', 'toolbar-extras' ),
+				'href'   => esc_url( admin_url( 'admin.php?page=gf_system_status&subview=report' ) ),
+				'meta'   => array(
+					'target' => '',
+					'title'  => esc_attr__( 'System Info', 'toolbar-extras' )
+				)
+			)
+		);
+
+		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			array(
+				'id'     => 'gf-system-status-updates',
+				'parent' => 'gf-system-status',
+				'title'  => esc_attr__( 'Updates', 'toolbar-extras' ),
+				'href'   => esc_url( admin_url( 'admin.php?page=gf_system_status&subview=updates' ) ),
+				'meta'   => array(
+					'target' => '',
+					'title'  => esc_attr__( 'Updates', 'toolbar-extras' )
+				)
+			)
+		);
+
 }  // end function
 
 
@@ -258,6 +281,13 @@ function ddw_tbex_site_items_gravityforms_resources() {
 		);
 
 		ddw_tbex_resource_item(
+			'facebook-group',
+			'gforms-facebook-users',
+			'group-gforms-resources',
+			'https://www.facebook.com/groups/gravityusers/'
+		);
+
+		ddw_tbex_resource_item(
 			'official-blog',
 			'gforms-blog',
 			'group-gforms-resources',
@@ -265,5 +295,41 @@ function ddw_tbex_site_items_gravityforms_resources() {
 		);
 
 	}  // end if
+
+}  // end function
+
+
+/**
+ * Items for Site Group: Gravity Forms Updates
+ *
+ * @since  1.3.1
+ *
+ * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ */
+add_filter( 'tbex_filter_is_update_addon', '__return_empty_string' );
+
+add_action( 'admin_bar_menu', 'ddw_tbex_site_items_gravityforms_updates', 30 );
+function ddw_tbex_site_items_gravityforms_updates() {
+
+	/** Group: Gravity Forms Update Checks */
+	$GLOBALS[ 'wp_admin_bar' ]->add_group(
+		array(
+			'id'     => 'group-gravityforms-updates',
+			'parent' => 'update-check'
+		)
+	);
+
+		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			array(
+				'id'     => 'gravityforms-updates-check',
+				'parent' => 'group-gravityforms-updates',
+				'title'  => esc_attr__( 'Check Gravity Forms', 'toolbar-extras' ),
+				'href'   => esc_url( admin_url( 'admin.php?page=gf_system_status&subview=updates' ) ),
+				'meta'   => array(
+					'target' => '',
+					'title'  => esc_attr__( 'Check Gravity Forms', 'toolbar-extras' )
+				)
+			)
+		);
 
 }  // end function

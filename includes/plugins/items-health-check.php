@@ -1,6 +1,6 @@
 <?php
 
-//items-health-check
+// includes/plugins/items-health-check
 
 /**
  * Prevent direct access to this file.

@@ -1,6 +1,6 @@
 <?php
 
-//items-central-color-palette
+// includes/plugins/items-central-color-palette
 
 /**
  * Prevent direct access to this file.

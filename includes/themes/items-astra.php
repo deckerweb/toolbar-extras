@@ -1,8 +1,8 @@
 <?php
 
-//items-astra
-//items-astra-pro
-//items-astra-addons
+// items-astra
+// items-astra-pro
+// items-astra-addons
 
 // includes/themes/items-astra
 

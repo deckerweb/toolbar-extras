@@ -22,8 +22,8 @@ add_action( 'plugins_loaded', 'ddw_tbex_plugin_check_version' );
  */
 function ddw_tbex_plugin_check_version() {
 
-	/** Bail early if we already on plugin version 1.2.0 or higher */
-	if ( version_compare( get_option( 'tbex-plugin-version' ), '1.2.0', '>=' ) ) {
+	/** Bail early if we already on plugin version 1.3.1 or higher */
+	if ( version_compare( get_option( 'tbex-plugin-version' ), '1.3.1', '>=' ) ) {
 		return;
 	}
 

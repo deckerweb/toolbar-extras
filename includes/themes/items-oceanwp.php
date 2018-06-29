@@ -3,6 +3,8 @@
 // items-oceanwp
 // items-oceanwp-premium
 
+// includes/themes/items-oceanwp
+
 /**
  * Prevent direct access to this file.
  *

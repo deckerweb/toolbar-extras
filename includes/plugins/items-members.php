@@ -1,6 +1,6 @@
 <?php
 
-//items-members
+// includes/plugins/items-members
 
 /**
  * Prevent direct access to this file.

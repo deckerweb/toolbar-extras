@@ -1,6 +1,6 @@
 <?php
 
-//items-duplicator
+// includes/plugins/items-duplicator
 
 /**
  * Prevent direct access to this file.

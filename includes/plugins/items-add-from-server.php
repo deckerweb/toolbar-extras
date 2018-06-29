@@ -1,6 +1,6 @@
 <?php
 
-//items-code-snippets
+// includes/plugins/items-add-from-server
 
 /**
  * Prevent direct access to this file.

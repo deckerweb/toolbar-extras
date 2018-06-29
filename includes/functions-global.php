@@ -460,7 +460,7 @@ function ddw_tbex_get_elementor_template_types() {
 
 	$template_types = apply_filters(
 		'tbex_filter_elementor_template_types',
-		array( 'page', 'section', 'header', 'footer', 'single', 'archive', )
+		array( 'page', 'section', 'header', 'footer', 'single', 'archive', 'product', 'product-archive', )
 	);
 
 	return array_map( 'sanitize_key', $template_types );
@@ -704,6 +704,7 @@ function ddw_tbex_string_theme_title( $title_attr = '', $child = '' ) {
  *   'translations-pro'       - Pro Translations (Translate Pro Plugin)
  *   'youtube-channel'        - YouTube Channel
  *   'youtube-tutorials'      - YouTube Tutorials
+ *   'videos'                 - Videos
  *   'knowledge-base'         - Knowledge
  *   'tutorials'              - Tutorials
  *   'user-forum'             - User Forum
@@ -780,6 +781,9 @@ function ddw_tbex_resource_item( $type = '', $id = '', $parent = '', $url = '', 
 			break;
 		case 'youtube-tutorials':
 			$title = esc_attr__( 'YouTube Tutorials', 'toolbar-extras' );
+			break;
+		case 'videos':
+			$title = esc_attr__( 'Videos', 'toolbar-extras' );
 			break;
 		case 'knowledge-base':
 			$title      = esc_attr__( 'Knowledge Base', 'toolbar-extras' );

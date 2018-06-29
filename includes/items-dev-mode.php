@@ -332,9 +332,9 @@ if ( class_exists( 'Theme_Switcha' ) ) {
 
 
 /**
- * Dev Add-On: WP DB Migrate (free, by Delicious Brains)
+ * Dev Add-On: WP Migrate DB (Pro) (free/Premium, by Delicious Brains)
  * @since 1.0.0
  */
-if ( function_exists( 'wp_migrate_db' ) ) {
+if ( function_exists( 'wp_migrate_db' ) || function_exists( 'wp_migrate_db_pro_loaded' ) ) {
 	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-wp-db-migrate.php' );
 }

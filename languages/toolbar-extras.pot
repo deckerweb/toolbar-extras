@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: Toolbar Extras\n"
-"POT-Creation-Date: 2018-06-25 00:11+0200\n"
+"POT-Creation-Date: 2018-06-30 00:29+0200\n"
 "PO-Revision-Date: 2018-04-04 01:47+0200\n"
 "Last-Translator: David Decker DECKERWEB.de -- https://deckerweb.de/\n"
 "Language-Team: David Decker DECKERWEB.de -- https://deckerweb.de/\n"
@@ -76,7 +76,7 @@ msgstr ""
 #: includes/admin/views/notice-plugins-welcome.php:40
 #: includes/admin/views/settings-tab-about-support.php:43
 #: includes/admin/views/settings-tab-general.php:560
-#: includes/functions-global.php:935 includes/string-switcher.php:592
+#: includes/functions-global.php:939 includes/string-switcher.php:592
 #: uninstall.php:42 uninstall.php:52
 msgid "Toolbar Extras"
 msgstr ""
@@ -417,7 +417,7 @@ msgid "About &amp; Support"
 msgstr ""
 
 #: includes/admin/views/help-content-menus.php:35
-#: includes/functions-global.php:935
+#: includes/functions-global.php:939
 msgid "Plugin"
 msgstr ""
 
@@ -591,9 +591,17 @@ msgstr ""
 #: includes/plugins/items-envira-gallery.php:109
 #: includes/plugins/items-foogallery.php:71
 #: includes/plugins/items-foogallery.php:75
-#: includes/plugins/items-gravity-forms.php:158
+#: includes/plugins/items-formidable-forms.php:136
+#: includes/plugins/items-formidable-forms.php:140
+#: includes/plugins/items-formidable-forms.php:362
+#: includes/plugins/items-formidable-forms.php:366
+#: includes/plugins/items-gravity-forms.php:140
+#: includes/plugins/items-hustle.php:218 includes/plugins/items-hustle.php:222
 #: includes/plugins/items-maxgalleria.php:71
 #: includes/plugins/items-maxgalleria.php:75
+#: includes/plugins/items-ninja-forms.php:376
+#: includes/plugins/items-ninja-forms.php:380
+#: includes/plugins/items-quform.php:241 includes/plugins/items-quform.php:245
 #: includes/plugins/items-simple-custom-css-js.php:180
 #: includes/plugins/items-simple-custom-css-js.php:184
 #: includes/plugins/items-soliloquy-sliders.php:73
@@ -604,8 +612,10 @@ msgstr ""
 #: includes/plugins/items-tm-timeline.php:54
 #: includes/plugins/items-updraftplus.php:70
 #: includes/plugins/items-updraftplus.php:74
-#: includes/plugins/items-wp-db-migrate.php:61
-#: includes/plugins/items-wp-db-migrate.php:66
+#: includes/plugins/items-wp-db-migrate.php:63
+#: includes/plugins/items-wp-db-migrate.php:68
+#: includes/plugins/items-wpforms.php:168
+#: includes/plugins/items-wpforms.php:172
 #: includes/plugins/items-wpstaging.php:57
 #: includes/plugins/items-wpstaging.php:61
 #: includes/themes-genesis/items-genesis-gbeaver.php:31
@@ -628,7 +638,7 @@ msgstr ""
 #. translators: Label for "Appearance" in left-hand admin menu
 #. translators: Autofocus panel in the Customizer
 #: includes/admin/views/notice-plugins-welcome.php:47
-#: includes/items-edit-content.php:33 includes/items-edit-content.php:37
+#: includes/items-edit-content.php:36 includes/items-edit-content.php:41
 #: includes/themes/items-phlox.php:104 includes/themes/items-phlox.php:108
 msgid "Appearance"
 msgstr ""
@@ -784,7 +794,7 @@ msgid "Free product support @ WordPress.org plugin forum"
 msgstr ""
 
 #: includes/admin/views/settings-tab-about-support.php:114
-#: includes/functions-global.php:742
+#: includes/functions-global.php:743
 msgid "Support Forum"
 msgstr ""
 
@@ -793,7 +803,7 @@ msgid "Plugin documentation &amp; Knowledge Base articles"
 msgstr ""
 
 #: includes/admin/views/settings-tab-about-support.php:118
-#: includes/functions-global.php:748
+#: includes/functions-global.php:749
 msgid "Documentation"
 msgstr ""
 
@@ -802,7 +812,7 @@ msgid "Facebook Community Group for Toolbar Extras plugin"
 msgstr ""
 
 #: includes/admin/views/settings-tab-about-support.php:122
-#: includes/functions-global.php:751
+#: includes/functions-global.php:752
 msgid "Facebook Group"
 msgstr ""
 
@@ -1120,6 +1130,10 @@ msgid ""
 msgstr ""
 
 #: includes/admin/views/settings-tab-general.php:217
+#: includes/plugins/items-hustle.php:84 includes/plugins/items-hustle.php:88
+#: includes/plugins/items-hustle.php:124 includes/plugins/items-hustle.php:128
+#: includes/plugins/items-hustle.php:164 includes/plugins/items-hustle.php:168
+#: includes/plugins/items-hustle.php:204 includes/plugins/items-hustle.php:208
 msgid "New"
 msgstr ""
 
@@ -1383,7 +1397,7 @@ msgstr ""
 #: includes/elementor-addons/items-templementor.php:63
 #: includes/elementor-official/items-elementor-core.php:139
 #: includes/elementor-official/items-elementor-core.php:143
-#: includes/themes/items-oceanwp.php:109 includes/themes/items-oceanwp.php:113
+#: includes/themes/items-oceanwp.php:111 includes/themes/items-oceanwp.php:115
 msgid "New Template"
 msgstr ""
 
@@ -1401,7 +1415,7 @@ msgstr ""
 #: includes/elementor-addons/items-templementor.php:78
 #: includes/elementor-official/items-elementor-core.php:154
 #: includes/elementor-official/items-elementor-core.php:158
-#: includes/themes/items-oceanwp.php:124 includes/themes/items-oceanwp.php:128
+#: includes/themes/items-oceanwp.php:126 includes/themes/items-oceanwp.php:130
 msgid "New Template Builder"
 msgstr ""
 
@@ -1588,6 +1602,8 @@ msgstr ""
 #: includes/elementor-addons/items-elementor-contact-form-db.php:48
 #: includes/elementor-addons/items-elementor-contact-form-db.php:52
 #: includes/plugins/items-cfdb.php:46 includes/plugins/items-cfdb.php:50
+#: includes/plugins/items-ninja-forms.php:182
+#: includes/plugins/items-ninja-forms.php:186
 msgid "All Submissions"
 msgstr ""
 
@@ -1657,7 +1673,9 @@ msgstr ""
 #: includes/plugins/items-cobalt-extender-pro.php:101
 #: includes/plugins/items-cobalt-themer-pro.php:123
 #: includes/plugins/items-cobalt-themer-pro.php:127
-#: includes/plugins/items-gravity-forms.php:162
+#: includes/plugins/items-gravity-forms.php:144
+#: includes/plugins/items-ninja-forms.php:389
+#: includes/plugins/items-ninja-forms.php:393
 #: includes/plugins/items-smart-slider.php:67
 #: includes/plugins/items-smart-slider.php:71
 #: includes/themes/items-flexia.php:94
@@ -1966,10 +1984,16 @@ msgstr ""
 #: includes/elementor-official/items-elementor-core.php:338
 #: includes/elementor-official/items-elementor-core.php:342
 #: includes/plugins/items-foogallery.php:101
+#: includes/plugins/items-gravity-forms.php:220
+#: includes/plugins/items-gravity-forms.php:224
 #: includes/plugins/items-health-check.php:45
 #: includes/plugins/items-health-check.php:49
 #: includes/plugins/items-maxgalleria.php:88
-#: includes/themes/items-phlox.php:333 includes/themes/items-phlox.php:337
+#: includes/plugins/items-ninja-forms.php:416
+#: includes/plugins/items-ninja-forms.php:420
+#: includes/plugins/items-wpforms.php:299
+#: includes/plugins/items-wpforms.php:303 includes/themes/items-phlox.php:333
+#: includes/themes/items-phlox.php:337
 msgid "System Info"
 msgstr ""
 
@@ -2013,6 +2037,8 @@ msgstr ""
 #: includes/elementor-addons/items-powerpack-wlbfe.php:99
 #: includes/plugins-genesis/items-blox.php:207
 #: includes/plugins-genesis/items-blox.php:211
+#: includes/plugins/items-ninja-forms.php:402
+#: includes/plugins/items-ninja-forms.php:406
 #: includes/plugins/items-wp-show-posts.php:73
 #: includes/plugins/items-wp-show-posts.php:77
 #: includes/themes-genesis/items-dynamik-website-builder.php:187
@@ -2102,7 +2128,7 @@ msgstr ""
 #: includes/plugins/items-cpt-portfolio.php:65
 #: includes/plugins/items-cpt-portfolio.php:69
 #: includes/themes/items-flexia.php:335 includes/themes/items-flexia.php:339
-#: includes/themes/items-oceanwp.php:177 includes/themes/items-oceanwp.php:181
+#: includes/themes/items-oceanwp.php:179 includes/themes/items-oceanwp.php:183
 msgid "New Portfolio Builder"
 msgstr ""
 
@@ -2217,7 +2243,7 @@ msgstr ""
 
 #: includes/elementor-addons/items-revolution-for-elementor.php:221
 #: includes/elementor-addons/items-revolution-for-elementor.php:225
-#: includes/functions-global.php:801
+#: includes/functions-global.php:805
 msgid "My Account"
 msgstr ""
 
@@ -2266,6 +2292,7 @@ msgstr ""
 
 #: includes/elementor-addons/items-total-recipe-generator.php:74
 #: includes/elementor-addons/items-total-recipe-generator.php:78
+#: includes/plugins/items-hustle.php:178 includes/plugins/items-hustle.php:182
 msgid "Social Sharing"
 msgstr ""
 
@@ -2359,6 +2386,8 @@ msgstr ""
 #: includes/elementor-official/items-elementor-core.php:215
 #: includes/elementor-official/items-elementor-core.php:219
 #: includes/plugins-genesis/items-blox.php:92
+#: includes/plugins/items-wpforms.php:181
+#: includes/plugins/items-wpforms.php:185
 #: includes/themes/items-beaver-builder-theme.php:91
 #: includes/themes/items-beaver-builder-theme.php:95
 #: includes/themes/items-flexia.php:90
@@ -2467,10 +2496,10 @@ msgstr ""
 
 #. translators: Elementor Template type
 #: includes/elementor-official/items-elementor-pro.php:52
-#: includes/elementor-official/items-elementor-pro.php:121
-#: includes/elementor-official/items-elementor-pro.php:125
-#: includes/elementor-official/items-elementor-pro.php:375
-#: includes/elementor-official/items-elementor-pro.php:379
+#: includes/elementor-official/items-elementor-pro.php:155
+#: includes/elementor-official/items-elementor-pro.php:159
+#: includes/elementor-official/items-elementor-pro.php:440
+#: includes/elementor-official/items-elementor-pro.php:444
 msgctxt "Elementor Template type"
 msgid "Header"
 msgstr ""
@@ -2481,10 +2510,10 @@ msgstr ""
 
 #. translators: Elementor Template type
 #: includes/elementor-official/items-elementor-pro.php:66
-#: includes/elementor-official/items-elementor-pro.php:134
-#: includes/elementor-official/items-elementor-pro.php:138
-#: includes/elementor-official/items-elementor-pro.php:388
-#: includes/elementor-official/items-elementor-pro.php:392
+#: includes/elementor-official/items-elementor-pro.php:168
+#: includes/elementor-official/items-elementor-pro.php:172
+#: includes/elementor-official/items-elementor-pro.php:453
+#: includes/elementor-official/items-elementor-pro.php:457
 msgctxt "Elementor Template type"
 msgid "Footer"
 msgstr ""
@@ -2495,10 +2524,10 @@ msgstr ""
 
 #. translators: Elementor Template type
 #: includes/elementor-official/items-elementor-pro.php:80
-#: includes/elementor-official/items-elementor-pro.php:147
-#: includes/elementor-official/items-elementor-pro.php:151
-#: includes/elementor-official/items-elementor-pro.php:401
-#: includes/elementor-official/items-elementor-pro.php:405
+#: includes/elementor-official/items-elementor-pro.php:181
+#: includes/elementor-official/items-elementor-pro.php:185
+#: includes/elementor-official/items-elementor-pro.php:466
+#: includes/elementor-official/items-elementor-pro.php:470
 msgctxt "Elementor Template type"
 msgid "Single"
 msgstr ""
@@ -2509,10 +2538,10 @@ msgstr ""
 
 #. translators: Elementor Template type
 #: includes/elementor-official/items-elementor-pro.php:94
-#: includes/elementor-official/items-elementor-pro.php:160
-#: includes/elementor-official/items-elementor-pro.php:164
-#: includes/elementor-official/items-elementor-pro.php:414
-#: includes/elementor-official/items-elementor-pro.php:418
+#: includes/elementor-official/items-elementor-pro.php:194
+#: includes/elementor-official/items-elementor-pro.php:198
+#: includes/elementor-official/items-elementor-pro.php:479
+#: includes/elementor-official/items-elementor-pro.php:483
 msgctxt "Elementor Template type"
 msgid "Archive"
 msgstr ""
@@ -2521,40 +2550,68 @@ msgstr ""
 msgid "Template Type: Archive Content Blocks"
 msgstr ""
 
-#: includes/elementor-official/items-elementor-pro.php:187
+#. translators: Elementor Template type
+#: includes/elementor-official/items-elementor-pro.php:112
+#: includes/elementor-official/items-elementor-pro.php:211
+#: includes/elementor-official/items-elementor-pro.php:215
+#: includes/elementor-official/items-elementor-pro.php:496
+#: includes/elementor-official/items-elementor-pro.php:500
+msgctxt "Elementor Template type"
+msgid "Product"
+msgstr ""
+
+#: includes/elementor-official/items-elementor-pro.php:116
+msgid "Template Type: Product Content Blocks"
+msgstr ""
+
+#. translators: Elementor Template type
+#: includes/elementor-official/items-elementor-pro.php:126
+#: includes/elementor-official/items-elementor-pro.php:224
+#: includes/elementor-official/items-elementor-pro.php:228
+#: includes/elementor-official/items-elementor-pro.php:509
+#: includes/elementor-official/items-elementor-pro.php:513
+msgctxt "Elementor Template type"
+msgid "Product Archive"
+msgstr ""
+
+#: includes/elementor-official/items-elementor-pro.php:130
+msgid "Template Type: Product Archive Content Blocks"
+msgstr ""
+
+#: includes/elementor-official/items-elementor-pro.php:253
 msgid "Pro: Integrations"
 msgstr ""
 
-#: includes/elementor-official/items-elementor-pro.php:191
+#: includes/elementor-official/items-elementor-pro.php:257
 msgid "Pro: Integrations &amp; APIs"
 msgstr ""
 
-#: includes/elementor-official/items-elementor-pro.php:201
-#: includes/elementor-official/items-elementor-pro.php:205
+#: includes/elementor-official/items-elementor-pro.php:267
+#: includes/elementor-official/items-elementor-pro.php:271
 msgid "Pro: License"
 msgstr ""
 
-#: includes/elementor-official/items-elementor-pro.php:237
-#: includes/elementor-official/items-elementor-pro.php:241
+#: includes/elementor-official/items-elementor-pro.php:303
+#: includes/elementor-official/items-elementor-pro.php:307
 msgid "All Fonts"
 msgstr ""
 
-#: includes/elementor-official/items-elementor-pro.php:250
+#: includes/elementor-official/items-elementor-pro.php:316
 msgid "New Font"
 msgstr ""
 
-#: includes/elementor-official/items-elementor-pro.php:254
+#: includes/elementor-official/items-elementor-pro.php:320
 msgid "Upload New Font"
 msgstr ""
 
-#: includes/elementor-official/items-elementor-pro.php:285
-#: includes/elementor-official/items-elementor-pro.php:290
+#: includes/elementor-official/items-elementor-pro.php:351
+#: includes/elementor-official/items-elementor-pro.php:356
 msgid "Pro Resources"
 msgstr ""
 
 #. translators: %s - static string "@ elementor.com" (My Account @ elementor.com)
 #. translators: %s - static string "@ churchthemes.com" (My Account @ churchthemes.com)
-#: includes/elementor-official/items-elementor-pro.php:315
+#: includes/elementor-official/items-elementor-pro.php:381
 #: includes/themes/items-ct-exodus.php:265
 #: includes/themes/items-ct-maranatha.php:251
 #: includes/themes/items-ct-resurrect.php:265
@@ -2595,7 +2652,7 @@ msgstr ""
 #. translators: (Static) Theme name Astra - optionally white labeled string
 #. translators: %s - (Static) Theme name OceanWP - optionally white labeled string
 #: includes/functions-global.php:669 includes/themes/items-astra.php:62
-#: includes/themes/items-oceanwp.php:61
+#: includes/themes/items-oceanwp.php:63
 #, php-format
 msgid "Theme: %s"
 msgstr ""
@@ -2604,128 +2661,132 @@ msgstr ""
 #. translators: (Static) Theme name OceanWP - optionally white labeled string
 #. translators: %s - (Static) Theme name OceanWP - optionally white labeled string
 #: includes/functions-global.php:678 includes/themes/items-astra.php:67
-#: includes/themes/items-oceanwp.php:66
+#: includes/themes/items-oceanwp.php:68
 #, php-format
 msgid "Active Theme: %s"
 msgstr ""
 
-#: includes/functions-global.php:745
+#: includes/functions-global.php:746
 msgid "Support Contact"
 msgstr ""
 
-#: includes/functions-global.php:754
+#: includes/functions-global.php:755
 msgid "Official Support"
 msgstr ""
 
-#: includes/functions-global.php:757
+#: includes/functions-global.php:758
 msgid "Official Site"
 msgstr ""
 
-#: includes/functions-global.php:760
+#: includes/functions-global.php:761
 msgid "Official Blog"
 msgstr ""
 
-#: includes/functions-global.php:763
+#: includes/functions-global.php:764
 msgid "Development @ GitHub"
 msgstr ""
 
-#: includes/functions-global.php:766
+#: includes/functions-global.php:767
 msgid "GitHub Issues"
 msgstr ""
 
 #. translators: Title attribute for linked text
-#: includes/functions-global.php:768
+#: includes/functions-global.php:769
 msgid "GitHub Issues (Bug Tracker)"
 msgstr ""
 
-#: includes/functions-global.php:771
+#: includes/functions-global.php:772
 msgid "Community Translations"
 msgstr ""
 
 #. translators: Title attribute for linked text
-#: includes/functions-global.php:773
+#: includes/functions-global.php:774
 msgid "Community Translations (at WordPress.org)"
 msgstr ""
 
-#: includes/functions-global.php:776
+#: includes/functions-global.php:777
 msgid "Translate Pro Plugin"
 msgstr ""
 
-#: includes/functions-global.php:779
+#: includes/functions-global.php:780
 msgid "YouTube Channel"
 msgstr ""
 
-#: includes/functions-global.php:782
+#: includes/functions-global.php:783
 msgid "YouTube Tutorials"
 msgstr ""
 
-#: includes/functions-global.php:785
+#: includes/functions-global.php:786
+msgid "Videos"
+msgstr ""
+
+#: includes/functions-global.php:789
 msgid "Knowledge Base"
 msgstr ""
 
 #. translators: Title attribute for linked text
-#: includes/functions-global.php:787
+#: includes/functions-global.php:791
 msgid "Knowledge Base Articles"
 msgstr ""
 
-#: includes/functions-global.php:790
+#: includes/functions-global.php:794
 msgid "Tutorials"
 msgstr ""
 
 #. translators: Title attribute for linked text
-#: includes/functions-global.php:792
+#: includes/functions-global.php:796
 msgid "Tutorial Articles"
 msgstr ""
 
-#: includes/functions-global.php:795
+#: includes/functions-global.php:799
 msgid "User Forum"
 msgstr ""
 
-#: includes/functions-global.php:798
+#: includes/functions-global.php:802
 msgid "Community Forum"
 msgstr ""
 
-#: includes/functions-global.php:804
+#: includes/functions-global.php:808
 msgid "Code Reference"
 msgstr ""
 
-#: includes/functions-global.php:807
+#: includes/functions-global.php:811
 msgid "Pro Docs"
 msgstr ""
 
-#: includes/functions-global.php:810
+#: includes/functions-global.php:814
 msgid "Pro: Documentation"
 msgstr ""
 
-#: includes/functions-global.php:813
+#: includes/functions-global.php:817
 msgid "Pro: Modules Documentation"
 msgstr ""
 
-#: includes/functions-global.php:816
+#: includes/functions-global.php:820
 msgid "Pro: Facebook Group"
 msgstr ""
 
-#: includes/functions-global.php:819
+#: includes/functions-global.php:823
 msgid "Pro: Support"
 msgstr ""
 
-#: includes/functions-global.php:822
+#: includes/functions-global.php:826
 msgid "Pro: Official Site"
 msgstr ""
 
-#: includes/functions-global.php:825
+#: includes/functions-global.php:829
 msgid "Pro: APIs"
 msgstr ""
 
-#: includes/functions-global.php:828
+#: includes/functions-global.php:832
 msgid "Slack Channel"
 msgstr ""
 
-#: includes/functions-global.php:831
+#: includes/functions-global.php:835
 msgid "External Resource"
 msgstr ""
 
-#: includes/functions-global.php:931
+#: includes/functions-global.php:935
 msgid "You have no sufficient permission to edit this special menu."
 msgstr ""
 
@@ -2948,7 +3009,7 @@ msgstr ""
 msgid "Media Files as List View"
 msgstr ""
 
-#: includes/items-site-group.php:250 includes/items-site-group.php:505
+#: includes/items-site-group.php:250 includes/items-site-group.php:501
 msgid "Nav Menus"
 msgstr ""
 
@@ -2960,7 +3021,7 @@ msgstr ""
 msgid "Customize Live"
 msgstr ""
 
-#: includes/items-site-group.php:267 includes/items-site-group.php:509
+#: includes/items-site-group.php:267 includes/items-site-group.php:505
 msgid "Customize Nav Menus with Live Preview"
 msgstr ""
 
@@ -2980,7 +3041,7 @@ msgstr ""
 msgid "Manage Nav Menus Locations"
 msgstr ""
 
-#: includes/items-site-group.php:317 includes/items-site-group.php:492
+#: includes/items-site-group.php:317 includes/items-site-group.php:488
 msgid "Widgets"
 msgstr ""
 
@@ -2988,7 +3049,7 @@ msgstr ""
 msgid "Manage Widget Blocks"
 msgstr ""
 
-#: includes/items-site-group.php:334 includes/items-site-group.php:496
+#: includes/items-site-group.php:334 includes/items-site-group.php:492
 msgid "Customize Widgets with Live Preview"
 msgstr ""
 
@@ -3012,41 +3073,43 @@ msgstr ""
 msgid "All Updates: Core, Plugins, Themes, Translations"
 msgstr ""
 
-#: includes/items-site-group.php:416
+#: includes/items-site-group.php:412
 #: includes/plugins/items-local-development.php:41
 #: includes/plugins/items-local-development.php:45
 msgid "Plugins"
 msgstr ""
 
-#: includes/items-site-group.php:420
+#: includes/items-site-group.php:416
 msgid "Plugins Page"
 msgstr ""
 
-#: includes/items-site-group.php:431 includes/items-site-group.php:435
+#: includes/items-site-group.php:427 includes/items-site-group.php:431
 msgid "All Plugins"
 msgstr ""
 
-#: includes/items-site-group.php:444
+#: includes/items-site-group.php:440
 msgid "Active Plugins"
 msgstr ""
 
-#: includes/items-site-group.php:448
+#: includes/items-site-group.php:444
 msgid "Currently active Plugins"
 msgstr ""
 
-#: includes/items-site-group.php:457
+#: includes/items-site-group.php:453
 msgid "Inactive Plugins"
 msgstr ""
 
-#: includes/items-site-group.php:461
+#: includes/items-site-group.php:457
 msgid "Currently inactive Plugins"
 msgstr ""
 
-#: includes/items-site-group.php:518
+#: includes/items-site-group.php:514
+#: includes/plugins/items-formidable-forms.php:334
+#: includes/plugins/items-formidable-forms.php:338
 msgid "Custom CSS"
 msgstr ""
 
-#: includes/items-site-group.php:522
+#: includes/items-site-group.php:518
 msgid "Customize CSS with Live Preview"
 msgstr ""
 
@@ -3176,6 +3239,8 @@ msgstr ""
 
 #: includes/plugins-genesis/items-blox.php:118
 #: includes/plugins-genesis/items-blox.php:122
+#: includes/plugins/items-formidable-forms.php:295
+#: includes/plugins/items-formidable-forms.php:299
 #: includes/themes/items-ct-risen.php:107
 #: includes/themes/items-ct-risen.php:111
 msgid "Styles"
@@ -3183,6 +3248,8 @@ msgstr ""
 
 #: includes/plugins-genesis/items-blox.php:131
 #: includes/plugins-genesis/items-blox.php:135
+#: includes/plugins/items-wpforms.php:246
+#: includes/plugins/items-wpforms.php:250
 msgid "Misc"
 msgstr ""
 
@@ -3200,6 +3267,9 @@ msgstr ""
 #: includes/plugins-genesis/items-blox.php:198
 #: includes/plugins/items-health-check.php:97
 #: includes/plugins/items-health-check.php:101
+#: includes/plugins/items-quform.php:175 includes/plugins/items-quform.php:179
+#: includes/plugins/items-wpforms.php:260
+#: includes/plugins/items-wpforms.php:264
 #: includes/plugins/items-wpstaging.php:70
 #: includes/plugins/items-wpstaging.php:74
 msgid "Tools"
@@ -3295,10 +3365,15 @@ msgstr ""
 
 #: includes/plugins-genesis/items-cobalt-genesis-extender.php:73
 #: includes/plugins-genesis/items-cobalt-genesis-extender.php:77
+#: includes/plugins/items-bloom.php:82 includes/plugins/items-bloom.php:86
 #: includes/plugins/items-cobalt-extender-pro.php:84
 #: includes/plugins/items-cobalt-extender-pro.php:88
-#: includes/plugins/items-gravity-forms.php:171
-#: includes/plugins/items-gravity-forms.php:175
+#: includes/plugins/items-formidable-forms.php:348
+#: includes/plugins/items-formidable-forms.php:352
+#: includes/plugins/items-gravity-forms.php:154
+#: includes/plugins/items-gravity-forms.php:158
+#: includes/plugins/items-ninja-forms.php:336
+#: includes/plugins/items-ninja-forms.php:340
 #: includes/plugins/items-widget-importer-exporter.php:30
 #: includes/plugins/items-widget-importer-exporter.php:34
 #: includes/themes-genesis/items-dynamik-website-builder.php:170
@@ -3307,7 +3382,7 @@ msgstr ""
 #: includes/themes-genesis/items-genesis-gbeaver.php:48
 #: includes/themes-genesis/items-genesis.php:150
 #: includes/themes-genesis/items-genesis.php:154
-#: includes/themes/items-oceanwp.php:416 includes/themes/items-oceanwp.php:420
+#: includes/themes/items-oceanwp.php:418 includes/themes/items-oceanwp.php:422
 msgid "Import &amp; Export"
 msgstr ""
 
@@ -3398,7 +3473,7 @@ msgstr ""
 #: includes/plugins/items-cpt-portfolio.php:37
 #: includes/plugins/items-cpt-portfolio.php:41
 #: includes/themes/items-flexia.php:307 includes/themes/items-flexia.php:311
-#: includes/themes/items-oceanwp.php:149 includes/themes/items-oceanwp.php:153
+#: includes/themes/items-oceanwp.php:151 includes/themes/items-oceanwp.php:155
 msgid "All Portfolio Items"
 msgstr ""
 
@@ -3407,7 +3482,7 @@ msgstr ""
 #: includes/plugins/items-cpt-portfolio.php:50
 #: includes/plugins/items-cpt-portfolio.php:54
 #: includes/themes/items-flexia.php:320 includes/themes/items-flexia.php:324
-#: includes/themes/items-oceanwp.php:162 includes/themes/items-oceanwp.php:166
+#: includes/themes/items-oceanwp.php:164 includes/themes/items-oceanwp.php:168
 msgid "New Portfolio Item"
 msgstr ""
 
@@ -3491,15 +3566,35 @@ msgid "All-in-One WP Migration"
 msgstr ""
 
 #: includes/plugins/items-aiowpm.php:44 includes/plugins/items-aiowpm.php:48
+#: includes/plugins/items-wpforms.php:286
+#: includes/plugins/items-wpforms.php:290
 msgid "Export"
 msgstr ""
 
 #: includes/plugins/items-aiowpm.php:57 includes/plugins/items-aiowpm.php:61
+#: includes/plugins/items-wpforms.php:273
+#: includes/plugins/items-wpforms.php:277
 msgid "Import"
 msgstr ""
 
 #: includes/plugins/items-aiowpm.php:70 includes/plugins/items-aiowpm.php:74
 msgid "Browse Backups"
+msgstr ""
+
+#: includes/plugins/items-bloom.php:30 includes/plugins/items-bloom.php:34
+msgid "Bloom"
+msgstr ""
+
+#: includes/plugins/items-bloom.php:43 includes/plugins/items-bloom.php:47
+msgid "Optins"
+msgstr ""
+
+#: includes/plugins/items-bloom.php:56 includes/plugins/items-bloom.php:60
+msgid "Email Accounts"
+msgstr ""
+
+#: includes/plugins/items-bloom.php:69 includes/plugins/items-bloom.php:73
+msgid "Statistics"
 msgstr ""
 
 #: includes/plugins/items-bsf-sidebar-manager.php:36
@@ -3509,7 +3604,66 @@ msgstr ""
 
 #: includes/plugins/items-bsf-sidebar-manager.php:49
 #: includes/plugins/items-bsf-sidebar-manager.php:53
+#: includes/plugins/items-content-aware-sidebars.php:49
+#: includes/plugins/items-content-aware-sidebars.php:53
 msgid "New Sidebar"
+msgstr ""
+
+#: includes/plugins/items-caldera-forms.php:30
+#: includes/plugins/items-caldera-forms.php:34
+msgid "Caldera Forms"
+msgstr ""
+
+#: includes/plugins/items-caldera-forms.php:72
+#: includes/plugins/items-contact-form-7.php:87
+#: includes/plugins/items-formidable-forms.php:88
+#: includes/plugins/items-ninja-forms.php:103
+#: includes/plugins/items-quform.php:95 includes/plugins/items-wpforms.php:75
+msgid "Edit Form"
+msgstr ""
+
+#: includes/plugins/items-caldera-forms.php:81
+#: includes/plugins/items-caldera-forms.php:85
+#: includes/plugins/items-contact-form-7.php:99
+#: includes/plugins/items-contact-form-7.php:103
+#: includes/plugins/items-formidable-forms.php:97
+#: includes/plugins/items-formidable-forms.php:101
+#: includes/plugins/items-ninja-forms.php:112
+#: includes/plugins/items-ninja-forms.php:116
+#: includes/plugins/items-quform.php:104 includes/plugins/items-quform.php:108
+#: includes/plugins/items-wpforms.php:84 includes/plugins/items-wpforms.php:88
+msgid "Form Builder"
+msgstr ""
+
+#: includes/plugins/items-caldera-forms.php:94
+#: includes/plugins/items-caldera-forms.php:98
+#: includes/plugins/items-formidable-forms.php:110
+#: includes/plugins/items-formidable-forms.php:114
+#: includes/plugins/items-formidable-forms.php:123
+#: includes/plugins/items-formidable-forms.php:127
+#: includes/plugins/items-ninja-forms.php:125
+#: includes/plugins/items-ninja-forms.php:129
+#: includes/plugins/items-wpforms.php:97 includes/plugins/items-wpforms.php:101
+msgid "Preview"
+msgstr ""
+
+#: includes/plugins/items-caldera-forms.php:112
+#: includes/plugins/items-caldera-forms.php:116
+#: includes/plugins/items-contact-form-7.php:132
+#: includes/plugins/items-contact-form-7.php:136
+#: includes/plugins/items-formidable-forms.php:211
+#: includes/plugins/items-formidable-forms.php:215
+#: includes/plugins/items-ninja-forms.php:156
+#: includes/plugins/items-ninja-forms.php:160
+#: includes/plugins/items-quform.php:135 includes/plugins/items-quform.php:139
+#: includes/plugins/items-wpforms.php:128
+#: includes/plugins/items-wpforms.php:132
+msgid "All Forms"
+msgstr ""
+
+#: includes/plugins/items-caldera-forms.php:125
+#: includes/plugins/items-caldera-forms.php:129
+msgid "Privacy Settings"
 msgstr ""
 
 #: includes/plugins/items-central-color-palette.php:32
@@ -3632,6 +3786,65 @@ msgstr ""
 #: includes/plugins/items-code-snippets.php:161
 msgctxt "Toolbar New Content section"
 msgid "Add new Code Snippet"
+msgstr ""
+
+#: includes/plugins/items-contact-form-7.php:44
+#: includes/plugins/items-contact-form-7.php:48
+msgid "Contact Form 7"
+msgstr ""
+
+#: includes/plugins/items-contact-form-7.php:112
+#: includes/plugins/items-contact-form-7.php:116
+#: includes/plugins/items-contact-form-7.php:161
+#: includes/plugins/items-contact-form-7.php:165
+#: includes/plugins/items-formidable-forms.php:149
+#: includes/plugins/items-formidable-forms.php:153
+#: includes/plugins/items-quform.php:117 includes/plugins/items-quform.php:121
+#: includes/plugins/items-wpforms.php:110
+#: includes/plugins/items-wpforms.php:114
+msgid "Entries"
+msgstr ""
+
+#: includes/plugins/items-contact-form-7.php:145
+#: includes/plugins/items-contact-form-7.php:149
+#: includes/plugins/items-formidable-forms.php:224
+#: includes/plugins/items-formidable-forms.php:228
+#: includes/plugins/items-ninja-forms.php:169
+#: includes/plugins/items-ninja-forms.php:173
+#: includes/plugins/items-quform.php:148 includes/plugins/items-quform.php:152
+#: includes/plugins/items-wpforms.php:141
+#: includes/plugins/items-wpforms.php:145
+msgid "New Form"
+msgstr ""
+
+#: includes/plugins/items-contact-form-7.php:174
+#: includes/plugins/items-contact-form-7.php:178
+#: includes/plugins/items-formidable-forms.php:237
+#: includes/plugins/items-formidable-forms.php:241
+#: includes/plugins/items-quform.php:161 includes/plugins/items-quform.php:165
+#: includes/plugins/items-wpforms.php:154
+#: includes/plugins/items-wpforms.php:158
+msgid "All Entries"
+msgstr ""
+
+#: includes/plugins/items-contact-form-7.php:187
+#: includes/plugins/items-contact-form-7.php:191
+msgid "Address Book"
+msgstr ""
+
+#: includes/plugins/items-contact-form-7.php:202
+#: includes/plugins/items-contact-form-7.php:206
+#: includes/plugins/items-optinmonster.php:112
+#: includes/plugins/items-optinmonster.php:116
+#: includes/plugins/items-wpforms.php:233
+#: includes/plugins/items-wpforms.php:237 includes/themes/items-oceanwp.php:392
+#: includes/themes/items-oceanwp.php:396
+msgid "Integrations"
+msgstr ""
+
+#: includes/plugins/items-content-aware-sidebars.php:36
+#: includes/plugins/items-content-aware-sidebars.php:40
+msgid "Content Aware Sidebars"
 msgstr ""
 
 #: includes/plugins/items-convertplus.php:33
@@ -4031,6 +4244,64 @@ msgstr ""
 msgid "Sytem Info"
 msgstr ""
 
+#: includes/plugins/items-formidable-forms.php:48
+#: includes/plugins/items-formidable-forms.php:52
+msgid "Formidable Forms"
+msgstr ""
+
+#: includes/plugins/items-formidable-forms.php:77
+msgid "(no title)"
+msgstr ""
+
+#: includes/plugins/items-formidable-forms.php:110
+#: includes/plugins/items-formidable-forms.php:114
+msgid "On Empty Page"
+msgstr ""
+
+#: includes/plugins/items-formidable-forms.php:123
+#: includes/plugins/items-formidable-forms.php:127
+msgid "Within Theme"
+msgstr ""
+
+#: includes/plugins/items-formidable-forms.php:165
+#: includes/plugins/items-formidable-forms.php:169
+#: includes/plugins/items-formidable-forms.php:253
+#: includes/plugins/items-formidable-forms.php:257
+msgid "Views"
+msgstr ""
+
+#: includes/plugins/items-formidable-forms.php:178
+#: includes/plugins/items-formidable-forms.php:182
+msgid "Reports"
+msgstr ""
+
+#: includes/plugins/items-formidable-forms.php:198
+#: includes/plugins/items-formidable-forms.php:202
+#: includes/plugins/items-ninja-forms.php:349
+#: includes/plugins/items-ninja-forms.php:353
+msgid "Forms"
+msgstr ""
+
+#: includes/plugins/items-formidable-forms.php:266
+#: includes/plugins/items-formidable-forms.php:270
+msgid "All Views"
+msgstr ""
+
+#: includes/plugins/items-formidable-forms.php:279
+#: includes/plugins/items-formidable-forms.php:283
+msgid "New View"
+msgstr ""
+
+#: includes/plugins/items-formidable-forms.php:308
+#: includes/plugins/items-formidable-forms.php:312
+msgid "Edit Styles"
+msgstr ""
+
+#: includes/plugins/items-formidable-forms.php:321
+#: includes/plugins/items-formidable-forms.php:325
+msgid "Manage Form Styles"
+msgstr ""
+
 #. translators: Autofocus panel in the Customizer
 #: includes/plugins/items-front-page-builder.php:32
 #: includes/plugins/items-front-page-builder.php:36
@@ -4060,27 +4331,45 @@ msgstr ""
 msgid "GP Social Share"
 msgstr ""
 
-#: includes/plugins/items-gravity-forms.php:78
-msgid "Forms"
+#: includes/plugins/items-gravity-forms.php:57
+msgid "Gravity Forms"
 msgstr ""
 
-#: includes/plugins/items-gravity-forms.php:83
+#: includes/plugins/items-gravity-forms.php:62
 msgid "Forms (via Gravity Forms)"
 msgstr ""
 
-#: includes/plugins/items-gravity-forms.php:184
-#: includes/plugins/items-gravity-forms.php:188
+#: includes/plugins/items-gravity-forms.php:167
+#: includes/plugins/items-gravity-forms.php:171
+#: includes/plugins/items-quform.php:188 includes/plugins/items-quform.php:192
 msgid "Export Entries"
 msgstr ""
 
-#: includes/plugins/items-gravity-forms.php:197
-#: includes/plugins/items-gravity-forms.php:201
+#: includes/plugins/items-gravity-forms.php:180
+#: includes/plugins/items-gravity-forms.php:184
 msgid "Export Forms"
 msgstr ""
 
-#: includes/plugins/items-gravity-forms.php:210
-#: includes/plugins/items-gravity-forms.php:214
+#: includes/plugins/items-gravity-forms.php:193
+#: includes/plugins/items-gravity-forms.php:197
 msgid "Import Forms"
+msgstr ""
+
+#: includes/plugins/items-gravity-forms.php:207
+#: includes/plugins/items-gravity-forms.php:211
+msgid "System Status"
+msgstr ""
+
+#: includes/plugins/items-gravity-forms.php:233
+#: includes/plugins/items-gravity-forms.php:237
+#: includes/themes/items-buildwall.php:337
+#: includes/themes/items-buildwall.php:341
+msgid "Updates"
+msgstr ""
+
+#: includes/plugins/items-gravity-forms.php:326
+#: includes/plugins/items-gravity-forms.php:330
+msgid "Check Gravity Forms"
 msgstr ""
 
 #: includes/plugins/items-health-check.php:32
@@ -4101,6 +4390,35 @@ msgstr ""
 #: includes/plugins/items-health-check.php:84
 #: includes/plugins/items-health-check.php:88
 msgid "Troubleshooting"
+msgstr ""
+
+#: includes/plugins/items-hustle.php:30 includes/plugins/items-hustle.php:34
+msgid "Hustle"
+msgstr ""
+
+#: includes/plugins/items-hustle.php:44 includes/plugins/items-hustle.php:48
+#: includes/plugins/items-optinmonster.php:99
+#: includes/plugins/items-optinmonster.php:103
+msgid "Overview"
+msgstr ""
+
+#: includes/plugins/items-hustle.php:58 includes/plugins/items-hustle.php:62
+msgid "Popups"
+msgstr ""
+
+#: includes/plugins/items-hustle.php:71 includes/plugins/items-hustle.php:75
+#: includes/plugins/items-hustle.php:111 includes/plugins/items-hustle.php:115
+#: includes/plugins/items-hustle.php:151 includes/plugins/items-hustle.php:155
+#: includes/plugins/items-hustle.php:191 includes/plugins/items-hustle.php:195
+msgid "All"
+msgstr ""
+
+#: includes/plugins/items-hustle.php:98 includes/plugins/items-hustle.php:102
+msgid "Slide-ins"
+msgstr ""
+
+#: includes/plugins/items-hustle.php:138 includes/plugins/items-hustle.php:142
+msgid "Embeds"
 msgstr ""
 
 #: includes/plugins/items-local-development.php:54
@@ -4130,6 +4448,71 @@ msgstr ""
 
 #: includes/plugins/items-members.php:43 includes/plugins/items-members.php:48
 msgid "New Role"
+msgstr ""
+
+#: includes/plugins/items-ninja-forms.php:62
+#: includes/plugins/items-ninja-forms.php:66
+msgid "Ninja Forms"
+msgstr ""
+
+#: includes/plugins/items-ninja-forms.php:138
+#: includes/plugins/items-ninja-forms.php:142
+msgid "Submissions"
+msgstr ""
+
+#: includes/plugins/items-ninja-forms.php:198
+#: includes/plugins/items-ninja-forms.php:202
+msgid "Styling"
+msgstr ""
+
+#: includes/plugins/items-ninja-forms.php:211
+#: includes/plugins/items-ninja-forms.php:215
+msgid "Form Styles"
+msgstr ""
+
+#: includes/plugins/items-ninja-forms.php:224
+#: includes/plugins/items-ninja-forms.php:228
+msgid "Default Field Styles"
+msgstr ""
+
+#: includes/plugins/items-ninja-forms.php:237
+#: includes/plugins/items-ninja-forms.php:241
+msgid "Field Type Styles"
+msgstr ""
+
+#: includes/plugins/items-ninja-forms.php:250
+#: includes/plugins/items-ninja-forms.php:254
+msgid "Error Styles"
+msgstr ""
+
+#: includes/plugins/items-ninja-forms.php:263
+#: includes/plugins/items-ninja-forms.php:267
+msgid "DatePicker Styles"
+msgstr ""
+
+#: includes/plugins/items-ninja-forms.php:281
+#: includes/plugins/items-ninja-forms.php:285
+msgid "File Uploads"
+msgstr ""
+
+#: includes/plugins/items-ninja-forms.php:294
+#: includes/plugins/items-ninja-forms.php:298
+msgid "View Uploads"
+msgstr ""
+
+#: includes/plugins/items-ninja-forms.php:307
+#: includes/plugins/items-ninja-forms.php:311
+msgid "Upload Settings"
+msgstr ""
+
+#: includes/plugins/items-ninja-forms.php:320
+#: includes/plugins/items-ninja-forms.php:324
+msgid "External Services"
+msgstr ""
+
+#: includes/plugins/items-ninja-forms.php:362
+#: includes/plugins/items-ninja-forms.php:366
+msgid "Favorite Fields"
 msgstr ""
 
 #: includes/plugins/items-oceanwp-sticky-header.php:36
@@ -4167,17 +4550,6 @@ msgstr ""
 msgid "Account"
 msgstr ""
 
-#: includes/plugins/items-optinmonster.php:99
-#: includes/plugins/items-optinmonster.php:103
-msgid "Overview"
-msgstr ""
-
-#: includes/plugins/items-optinmonster.php:112
-#: includes/plugins/items-optinmonster.php:116
-#: includes/themes/items-oceanwp.php:390 includes/themes/items-oceanwp.php:394
-msgid "Integrations"
-msgstr ""
-
 #: includes/plugins/items-optinmonster.php:125
 #: includes/plugins/items-optinmonster.php:129
 msgid "Manage Sites"
@@ -4186,6 +4558,24 @@ msgstr ""
 #: includes/plugins/items-popup-maker.php:30
 #: includes/plugins/items-popup-maker.php:34
 msgid "Edit Popups"
+msgstr ""
+
+#: includes/plugins/items-quform.php:53 includes/plugins/items-quform.php:57
+msgid "Quform"
+msgstr ""
+
+#: includes/plugins/items-quform.php:201 includes/plugins/items-quform.php:205
+msgid "Export Form"
+msgstr ""
+
+#: includes/plugins/items-quform.php:214 includes/plugins/items-quform.php:218
+msgid "Import Form"
+msgstr ""
+
+#: includes/plugins/items-quform.php:227 includes/plugins/items-quform.php:231
+#: includes/plugins/items-wp-db-migrate.php:49
+#: includes/plugins/items-wp-db-migrate.php:54
+msgid "Migrate"
 msgstr ""
 
 #: includes/plugins/items-regenerate-thumbnails.php:30
@@ -4394,23 +4784,23 @@ msgstr ""
 msgid "WooCommerce (Plugin)"
 msgstr ""
 
-#: includes/plugins/items-woocommerce.php:110
-#: includes/plugins/items-woocommerce.php:115
+#: includes/plugins/items-woocommerce.php:99
+#: includes/plugins/items-woocommerce.php:103
+msgid "WooCommerce Emails"
+msgstr ""
+
+#: includes/plugins/items-woocommerce.php:131
+#: includes/plugins/items-woocommerce.php:136
 msgid "Shop Managers"
 msgstr ""
 
-#: includes/plugins/items-wp-db-migrate.php:34
-#: includes/plugins/items-wp-db-migrate.php:38
+#: includes/plugins/items-wp-db-migrate.php:36
+#: includes/plugins/items-wp-db-migrate.php:40
 msgid "DB Migrate"
 msgstr ""
 
-#: includes/plugins/items-wp-db-migrate.php:47
-#: includes/plugins/items-wp-db-migrate.php:52
-msgid "Migrate"
-msgstr ""
-
-#: includes/plugins/items-wp-db-migrate.php:75
-#: includes/plugins/items-wp-db-migrate.php:80
+#: includes/plugins/items-wp-db-migrate.php:77
+#: includes/plugins/items-wp-db-migrate.php:82
 msgid "Help"
 msgstr ""
 
@@ -4427,6 +4817,25 @@ msgstr ""
 #: includes/plugins/items-wp-show-posts.php:58
 #: includes/plugins/items-wp-show-posts.php:62
 msgid "New List"
+msgstr ""
+
+#: includes/plugins/items-wpforms.php:30 includes/plugins/items-wpforms.php:34
+msgid "WPForms"
+msgstr ""
+
+#: includes/plugins/items-wpforms.php:194
+#: includes/plugins/items-wpforms.php:198
+msgid "Email"
+msgstr ""
+
+#: includes/plugins/items-wpforms.php:207
+#: includes/plugins/items-wpforms.php:211
+msgid "reCAPTCHA"
+msgstr ""
+
+#: includes/plugins/items-wpforms.php:220
+#: includes/plugins/items-wpforms.php:224
+msgid "Validation"
 msgstr ""
 
 #: includes/plugins/items-wpstaging.php:31
@@ -4630,6 +5039,18 @@ msgstr ""
 msgid "%3$s Toolbar Menu"
 msgstr ""
 
+#: includes/string-switcher.php:639
+#, php-format
+msgctxt "Toolbar New Content section"
+msgid "%s View"
+msgstr ""
+
+#: includes/string-switcher.php:651
+#, php-format
+msgctxt "Toolbar New Content section"
+msgid "%s Form"
+msgstr ""
+
 #: includes/themes-genesis/items-dynamik-website-builder.php:93
 #: includes/themes-genesis/items-dynamik-website-builder.php:97
 msgid "Design: Full View"
@@ -4647,7 +5068,7 @@ msgstr ""
 #. translators: Autofocus panel in the Customizer
 #: includes/themes-genesis/items-dynamik-website-builder.php:157
 #: includes/themes-genesis/items-dynamik-website-builder.php:161
-#: includes/themes/items-oceanwp.php:451 includes/themes/items-oceanwp.php:455
+#: includes/themes/items-oceanwp.php:453 includes/themes/items-oceanwp.php:457
 msgid "General Options"
 msgstr ""
 
@@ -4656,7 +5077,7 @@ msgstr ""
 #: includes/themes/items-flexia.php:247
 #: includes/themes/items-freelancer.php:123
 #: includes/themes/items-generatepress.php:206
-#: includes/themes/items-oceanwp.php:705
+#: includes/themes/items-oceanwp.php:707
 #: includes/themes/items-page-builder-framework.php:211
 #: includes/themes/items-phlox.php:245
 msgid "Official Theme Documentation"
@@ -4885,7 +5306,7 @@ msgstr ""
 #: includes/themes/items-generatepress.php:119
 #: includes/themes/items-generatepress.php:123
 #: includes/themes/items-kava.php:120 includes/themes/items-kava.php:124
-#: includes/themes/items-oceanwp.php:469 includes/themes/items-oceanwp.php:473
+#: includes/themes/items-oceanwp.php:471 includes/themes/items-oceanwp.php:475
 #: includes/themes/items-page-builder-framework.php:106
 #: includes/themes/items-page-builder-framework.php:110
 msgid "Typography"
@@ -5158,8 +5579,8 @@ msgstr ""
 #: includes/themes/items-ct-risen.php:120
 #: includes/themes/items-ct-risen.php:124 includes/themes/items-flexia.php:104
 #: includes/themes/items-flexia.php:108 includes/themes/items-kava.php:134
-#: includes/themes/items-kava.php:138 includes/themes/items-oceanwp.php:505
-#: includes/themes/items-oceanwp.php:509
+#: includes/themes/items-kava.php:138 includes/themes/items-oceanwp.php:507
+#: includes/themes/items-oceanwp.php:511
 #: includes/themes/items-page-builder-framework.php:120
 #: includes/themes/items-page-builder-framework.php:124
 #: includes/themes/items-phlox.php:118 includes/themes/items-phlox.php:122
@@ -5225,7 +5646,7 @@ msgstr ""
 #. translators: Autofocus section in the Customizer
 #: includes/themes/items-buildwall.php:186
 #: includes/themes/items-buildwall.php:190
-#: includes/themes/items-oceanwp.php:541 includes/themes/items-oceanwp.php:545
+#: includes/themes/items-oceanwp.php:543 includes/themes/items-oceanwp.php:547
 #: includes/themes/items-startwp.php:147 includes/themes/items-startwp.php:151
 msgid "Sidebar"
 msgstr ""
@@ -5245,11 +5666,6 @@ msgstr ""
 #: includes/themes/items-buildwall.php:311
 #: includes/themes/items-buildwall.php:315
 msgid "Buildwall Options"
-msgstr ""
-
-#: includes/themes/items-buildwall.php:337
-#: includes/themes/items-buildwall.php:341
-msgid "Updates"
 msgstr ""
 
 #: includes/themes/items-buildwall.php:373 includes/themes/items-kava.php:476
@@ -5294,7 +5710,7 @@ msgstr ""
 #. translators: Autofocus panel in the Customizer
 #: includes/themes/items-ct-exodus.php:130
 #: includes/themes/items-ct-exodus.php:134
-#: includes/themes/items-oceanwp.php:487 includes/themes/items-oceanwp.php:491
+#: includes/themes/items-oceanwp.php:489 includes/themes/items-oceanwp.php:493
 msgid "Top Bar"
 msgstr ""
 
@@ -5343,7 +5759,7 @@ msgstr ""
 #: includes/themes/items-customify.php:136
 #: includes/themes/items-generatepress.php:153
 #: includes/themes/items-generatepress.php:157
-#: includes/themes/items-oceanwp.php:523 includes/themes/items-oceanwp.php:527
+#: includes/themes/items-oceanwp.php:525 includes/themes/items-oceanwp.php:529
 #: includes/themes/items-phlox.php:146 includes/themes/items-phlox.php:150
 msgid "Blog"
 msgstr ""
@@ -5421,7 +5837,7 @@ msgstr ""
 #. translators: Autofocus panel in the Customizer
 #: includes/themes/items-customify.php:179
 #: includes/themes/items-customify.php:183 includes/themes/items-flexia.php:374
-#: includes/themes/items-oceanwp.php:596 includes/themes/items-oceanwp.php:600
+#: includes/themes/items-oceanwp.php:598 includes/themes/items-oceanwp.php:602
 #: includes/themes/items-phlox.php:191 includes/themes/items-phlox.php:195
 msgid "Portfolio"
 msgstr ""
@@ -5589,112 +6005,112 @@ msgstr ""
 msgid "New Jet Plugins"
 msgstr ""
 
-#: includes/themes/items-oceanwp.php:96
+#: includes/themes/items-oceanwp.php:98
 msgid "Template Library"
 msgstr ""
 
-#: includes/themes/items-oceanwp.php:100
+#: includes/themes/items-oceanwp.php:102
 msgid "Template Library - All Templates"
 msgstr ""
 
-#: includes/themes/items-oceanwp.php:204 includes/themes/items-oceanwp.php:208
+#: includes/themes/items-oceanwp.php:206 includes/themes/items-oceanwp.php:210
 msgid "All Modal Windows"
 msgstr ""
 
-#: includes/themes/items-oceanwp.php:217 includes/themes/items-oceanwp.php:221
+#: includes/themes/items-oceanwp.php:219 includes/themes/items-oceanwp.php:223
 msgid "New Modal"
 msgstr ""
 
-#: includes/themes/items-oceanwp.php:242 includes/themes/items-oceanwp.php:246
+#: includes/themes/items-oceanwp.php:244 includes/themes/items-oceanwp.php:248
 msgid "All Post Sliders"
 msgstr ""
 
-#: includes/themes/items-oceanwp.php:255 includes/themes/items-oceanwp.php:259
+#: includes/themes/items-oceanwp.php:257 includes/themes/items-oceanwp.php:261
 msgid "New Post Slider"
 msgstr ""
 
-#: includes/themes/items-oceanwp.php:280 includes/themes/items-oceanwp.php:284
-#: includes/themes/items-oceanwp.php:294 includes/themes/items-oceanwp.php:298
+#: includes/themes/items-oceanwp.php:282 includes/themes/items-oceanwp.php:286
+#: includes/themes/items-oceanwp.php:296 includes/themes/items-oceanwp.php:300
 msgid "Custom Sidebars"
 msgstr ""
 
 #. translators: Theme name OceanWP - optionally white labeled string
-#: includes/themes/items-oceanwp.php:320
+#: includes/themes/items-oceanwp.php:322
 #, php-format
 msgid "%s Hooks"
 msgstr ""
 
 #. translators: Theme name OceanWP - optionally white labeled string
-#: includes/themes/items-oceanwp.php:325
+#: includes/themes/items-oceanwp.php:327
 #, php-format
 msgid "%s Hook Locations"
 msgstr ""
 
-#: includes/themes/items-oceanwp.php:346 includes/themes/items-oceanwp.php:350
+#: includes/themes/items-oceanwp.php:348 includes/themes/items-oceanwp.php:352
 msgid "Stick Anything"
 msgstr ""
 
 #. translators: Theme name OceanWP - optionally white labeled string
-#: includes/themes/items-oceanwp.php:363
+#: includes/themes/items-oceanwp.php:365
 #, php-format
 msgid "%s Panel"
 msgstr ""
 
 #. translators: Theme name OceanWP - optionally white labeled string
-#: includes/themes/items-oceanwp.php:368
+#: includes/themes/items-oceanwp.php:370
 #, php-format
 msgid "%s Theme Panel"
 msgstr ""
 
-#: includes/themes/items-oceanwp.php:377 includes/themes/items-oceanwp.php:381
+#: includes/themes/items-oceanwp.php:379 includes/themes/items-oceanwp.php:383
 msgid "Activate Features"
 msgstr ""
 
 #. translators: Autofocus panel in the Customizer
-#: includes/themes/items-oceanwp.php:403 includes/themes/items-oceanwp.php:407
+#: includes/themes/items-oceanwp.php:405 includes/themes/items-oceanwp.php:409
 #: includes/themes/items-page-builder-framework.php:305
 #: includes/themes/items-page-builder-framework.php:309
 msgid "Scripts &amp; Styles"
 msgstr ""
 
 #. translators: Autofocus section in the Customizer
-#: includes/themes/items-oceanwp.php:559 includes/themes/items-oceanwp.php:563
+#: includes/themes/items-oceanwp.php:561 includes/themes/items-oceanwp.php:565
 msgid "Footer Widgets"
 msgstr ""
 
 #. translators: Autofocus section in the Customizer
-#: includes/themes/items-oceanwp.php:577 includes/themes/items-oceanwp.php:581
+#: includes/themes/items-oceanwp.php:579 includes/themes/items-oceanwp.php:583
 msgid "Footer Bottom"
 msgstr ""
 
 #. translators: Autofocus section in the Customizer
-#: includes/themes/items-oceanwp.php:615 includes/themes/items-oceanwp.php:619
+#: includes/themes/items-oceanwp.php:617 includes/themes/items-oceanwp.php:621
 msgid "Side Panel"
 msgstr ""
 
 #. translators: Autofocus panel in the Customizer
-#: includes/themes/items-oceanwp.php:634 includes/themes/items-oceanwp.php:638
+#: includes/themes/items-oceanwp.php:636 includes/themes/items-oceanwp.php:640
 msgid "Modal Window"
 msgstr ""
 
 #. translators: Autofocus section in the Customizer
-#: includes/themes/items-oceanwp.php:653 includes/themes/items-oceanwp.php:657
+#: includes/themes/items-oceanwp.php:655 includes/themes/items-oceanwp.php:659
 msgid "Cookie Notice"
 msgstr ""
 
 #. translators: %s - (Static) Theme name OceanWP - optionally white labeled string
-#: includes/themes/items-oceanwp.php:761
+#: includes/themes/items-oceanwp.php:763
 #, php-format
 msgid "%s Library"
 msgstr ""
 
 #. translators: %s - (Static) Theme name OceanWP - optionally white labeled string
-#: includes/themes/items-oceanwp.php:766
+#: includes/themes/items-oceanwp.php:768
 #, php-format
 msgid "New %s Library Template"
 msgstr ""
 
-#: includes/themes/items-oceanwp.php:838 includes/themes/items-oceanwp.php:842
+#: includes/themes/items-oceanwp.php:840 includes/themes/items-oceanwp.php:844
 msgid "Install Demos"
 msgstr ""
 

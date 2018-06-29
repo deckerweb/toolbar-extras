@@ -1,6 +1,6 @@
 <?php
 
-//items-aiowpm
+// includes/plugins/items-aiowpm
 
 /**
  * Prevent direct access to this file.

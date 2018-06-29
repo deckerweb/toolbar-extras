@@ -5,7 +5,7 @@ Tags: toolbar, adminbar, admin bar, elementor, page builder, themes, menu, links
 Requires at least: 4.7
 Tested up to: 4.9.6
 Requires PHP: 5.6
-Stable tag: 1.3.0
+Stable tag: 1.3.1
 License: GPL-2.0+
 License URI: https://opensource.org/licenses/GPL-2.0
 
@@ -115,6 +115,7 @@ Out of the box the plugin includes support for dozens of awesome Plugins and The
 - [**404page** (free, by Peter Raschendorfer)](https://wordpress.org/plugins/404page/)
 - [**Add From Server** (free, by Dion Hulse)](https://wordpress.org/plugins/add-from-server/)
 - [**Gravity Forms** (Premium, by Rocketgenius, Inc.)] (Smart Integration & Smart Tweaks)
+- All major visal form builders beyond Gravity: WPForms, Formidable Forms (Lite/Pro), Ninja Forms, Caldera Forms, Contact Forms (CF7) :)
 - [**Popup Maker** (free, by Daniel Iser)](https://wordpress.org/plugins/popup-maker/) (requires v1.7+)
 - [**Smart Slider 3** (free/Premium, by Nextend)](https://wordpress.org/plugins/smart-slider-3/)
 - [**Themer Pro** (Premium, by CobaltApps)]
@@ -125,6 +126,7 @@ Out of the box the plugin includes support for dozens of awesome Plugins and The
 - [**UpdraftPlus** (free, by UpdraftPlus.Com, DavidAnderson)](https://wordpress.org/plugins/updraftplus/)
 - [**Duplicator** (free, by Snap Creek)](https://wordpress.org/plugins/duplicator/)
 - Lots of Genesis-specific plugins as well :-)
+- Lots of Email Marketing plugins like OptinMonster, Convert Plus, Convert Pro, Hustle, Bloom
 - Suite of "Cherry Plugins" by Zemez (all free), that work well with Elementor (Projects, Service Lists, Team Members, Testimonials)
 - *(Support for some more general Plugins is coming soon...)*
 
@@ -221,8 +223,15 @@ Absolutely not. The supported links in Toolbar Extras will only be displayed onc
 
 However, I strongly recommend Elementor Pro as it is so useful for Non-Coder Designers site builders.
 
-**Will other page builders be supported, beyond Elementor?**
-This is planned middle to long-term. Nothing is set in stone yet.
+**Is a Page Builder required at all for this Plugin to work?**
+Absolutely not. The Toolbar Extras plugin has a lot of features for the Admin Bar that are fully independent from any Page Builder at all. So, of course, you can use it even if you have no Page Builder in use, or even none of the other supported plugins or themes activated. Toolbar Extras only loads features for third-party products if those are installed and activated and otherwise goes gracefully out of the way.
+
+**Will other Page Builders be supported, beyond Elementor?**
+In general: This is planned middle to long-term. Nothing is set in stone yet.
+
+For "Beaver Builder" and "Thrive Architect" there are plans to release an Add-On for each one but no features or date is being set yet.
+
+(Note: For a Page Builder to be considered for adding support it must be working without Shortcodes, as those Shortcode-based Builders will obviously have no bright future...!)
 
 **Where can I find which exact Themes and Plugins are supported?**
 You can find full listings on the plugin's website:
@@ -323,6 +332,34 @@ A special Multiste Add-On for Toolbar Extras is planned but no features or date 
 == Changelog ==
 
 ([For the full changelog of this plugin visit its website at ToolbarExtras.com](https://toolbarextras.com/changelog/))
+
+= 1.3.1 - 2018-06-30 =
+* New: Added two upcoming WooCommerce Template types for a future Elementor Pro version
+* Tweak: Added icons to the new Customizer link for "Edit" and "View" singular posts for any public post (feature from v1.3.0)
+* Tweak: Changed various admin links for "Phlox" Theme support - Note: [Toolbar Extras always only supports the latest versions of supported Themes & Plugins](https://toolbarextras.com/docs/update-policy-for-supported-themes-and-plugins/)
+* Tweak: Enhanced "Gravity Forms" plugin support; also further improved filtering and re-hooking
+* Tweak: Added a new resource for "Gravity Forms" plugin support
+* Tweak: Updated `.pot` file plus all German translations (formal, informal)
+* Tweak: Enhanced, improved and corrected Readme.txt file here :)
+* Fix: Proper version check in settings updater for 1.3.x branch
+* Fix: Fixing one more instance - proper template type for "Create with Builder" URL for adding new "Single" template (Elementor Pro)
+* Fix: "Convert Pro" plugin support - proper check if "Pro Add-On" is active to avoid fatal error
+* **New:** *Extended the general Plugin support for:*
+ * WP Migrate DB Pro (Premium, by Delicious Brains) - for Dev Mode
+ * Contact Form 7 (free, by Takayuki Miyoshi)
+ * Caldera Forms (free, by Caldera Labs)
+ * Ninja Forms (free, by The WP Ninjas) (only v3.0 or higher supported!)
+ * Formidable Forms (Lite) (free, by Strategy11)
+ * Formidable Pro (Premium, by Strategy11)
+ * WPForms Lite (free, by WPForms)
+ * Quform 2 (Premium, by ThemeCatcher) (only v2.0 or higher supported!)
+ * Flamingo (free, by Takayuki Miyoshi) - a Contact Form 7 Add-On
+ * Ninja Forms - Layout & Styles (Add-On) (Premium, The WP Ninjas)
+ * Ninja Forms - File Uploads (Add-On) (Premium, The WP Ninjas)
+ * Hustle (free, by WPMU DEV)
+ * Bloom (Premium, by Elegant Themes)
+ * Decorator – WooCommerce Email Customizer (free, by RightPress)
+ * Content Aware Sidebars (free, by Joachim Jensen - DEV Institute)
 
 = 1.3.0 - 2018-06-25 =
 * New: General setting to set link target for "Create with Builder" links (add new templates...) - by default this is now set to "_blank" (means new browser tab/ window)
@@ -577,6 +614,9 @@ A special Multiste Add-On for Toolbar Extras is planned but no features or date 
 ([For the full changelog of this plugin visit its website at ToolbarExtras.com](https://toolbarextras.com/changelog/))
 
 == Upgrade Notice =
+
+= 1.3.1 =
+Maintenance release. Few improvements, tweaks and important fixes plus further extended (dev) plugin support.
 
 = 1.3.0 =
 Feature release: New General settings & Smart Tweaks; further extended third-party Theme & Plugin/Add-On support; plus more improvements & tweaks

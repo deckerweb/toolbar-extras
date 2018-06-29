@@ -397,11 +397,7 @@ function ddw_tbex_site_items_more_stuff() {
 					)
 				);
 
-
-
 			}  // end if
-
-			//do_action( 'tbex_update_check' );
 
 	}  // end if
 
