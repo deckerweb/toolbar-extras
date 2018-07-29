@@ -139,7 +139,7 @@ function ddw_tbex_site_items_devmode_plugin_status() {
 				'id'     => 'wpplugins-recently',
 				'parent' => 'wpplugins',
 				'title'  => esc_attr__( 'Recently Activated', 'toolbar-extras' ),
-				'href'   => esc_url( admin_url( 'plugins.php?plugin_status=recently_activated' ) ),
+				'href'   => is_network_admin() ? esc_url( network_admin_url( 'plugins.php?plugin_status=recently_activated' ) ) : esc_url( admin_url( 'plugins.php?plugin_status=recently_activated' ) ),
 				'meta'   => array(
 					'target' => '',
 					'title'  => esc_attr__( 'Recently Activated Only', 'toolbar-extras' )
@@ -156,7 +156,7 @@ function ddw_tbex_site_items_devmode_plugin_status() {
 				'id'     => 'wpplugins-updateable',
 				'parent' => 'wpplugins',
 				'title'  => esc_attr__( 'Updateable', 'toolbar-extras' ),
-				'href'   => esc_url( admin_url( 'plugins.php?plugin_status=upgrade' ) ),
+				'href'   => is_network_admin() ? esc_url( network_admin_url( 'plugins.php?plugin_status=upgrade' ) ) : esc_url( admin_url( 'plugins.php?plugin_status=upgrade' ) ),
 				'meta'   => array(
 					'target' => '',
 					'title'  => esc_attr__( 'Updateable Only', 'toolbar-extras' )
@@ -328,6 +328,33 @@ if ( defined( 'IIDE_CURRENT_VERSION' ) ) {
  */
 if ( class_exists( 'Theme_Switcha' ) ) {
 	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-theme-switcha.php' );
+}
+
+
+/**
+ * Dev Add-On: Log Viewer (free, by Markus Fischbacher)
+ * @since 1.3.2
+ */
+if ( in_array( 'log-viewer/log-viewer.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-log-viewer.php' );
+}
+
+
+/**
+ * Dev Add-On: Log Deprecated Notices (free, by Andrew Nacin)
+ * @since 1.3.2
+ */
+if ( class_exists( 'Deprecated_Log' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-log-deprecated-notices.php' );
+}
+
+
+/**
+ * Dev Add-On: WP Synchro (free, by WPSynchro)
+ * @since 1.3.2
+ */
+if ( defined( 'WPSYNCHRO_VERSION' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-wpsynchro.php' );
 }
 
 

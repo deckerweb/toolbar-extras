@@ -22,6 +22,21 @@ add_action( 'admin_bar_menu', 'ddw_tbex_cpt_items_portfolio', 115 );
  */
 function ddw_tbex_cpt_items_portfolio() {
 
+	/** For: Manage Content */
+	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		array(
+			'id'     => 'manage-content-cpt-portfolio',
+			'parent' => 'manage-content',
+			'title'  => esc_attr__( 'Edit Portfolio Items', 'toolbar-extras' ),
+			'href'   => esc_url( admin_url( 'edit.php?post_type=portfolio' ) ),
+			'meta'   => array(
+				'class'  => 'tbex-mc-cpt-portfolio',
+				'target' => '',
+				'title'  => esc_attr__( 'Edit Portfolio Items', 'toolbar-extras' )
+			)
+		)
+	);
+
 	/** For: Theme Creative items */
 	$GLOBALS[ 'wp_admin_bar' ]->add_group(
 		array(
@@ -72,21 +87,26 @@ function ddw_tbex_cpt_items_portfolio() {
 		);
 
 		/** For: WordPress "New Content" section within the Toolbar */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
-			array(
-				'id'     => 'cptportfolio-with-builder',
-				'parent' => 'new-portfolio',
-				'title'  => ddw_tbex_string_newcontent_with_builder(),
-				'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'portfolio' ) ),
-				'meta'   => array(
-					'target' => ddw_tbex_meta_target( 'builder' ),
-					'title'  => ddw_tbex_string_newcontent_create_with_builder()
+		if ( ddw_tbex_display_items_new_content() ) {
+
+			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				array(
+					'id'     => 'new-cptportfolio-with-builder',
+					'parent' => 'new-portfolio',
+					'title'  => ddw_tbex_string_newcontent_with_builder(),
+					'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'portfolio' ) ),
+					'meta'   => array(
+						'target' => ddw_tbex_meta_target( 'builder' ),
+						'title'  => ddw_tbex_string_newcontent_create_with_builder()
+					)
 				)
-			)
-		);
+			);
+
+		}  // end if
 
 	}  // end if
 
+	/** Genesis specific */
 	if ( post_type_supports( 'portfolio', 'genesis-cpt-archives-settings' ) ) {
 
 		$GLOBALS[ 'wp_admin_bar' ]->add_node(

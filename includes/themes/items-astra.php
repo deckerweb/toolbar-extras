@@ -211,6 +211,63 @@ function ddw_tbex_themeitems_astra_customize() {
 		)
 	);
 
+	/** Optional: WooCommerce Support */
+	if ( class_exists( 'WooCommerce' ) ) {
+
+		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			array(
+				'id'     => 'astracmz-layout-woocommerce',
+				'parent' => 'theme-creative-customize',
+				/* translators: Autofocus section in the Customizer */
+				'title'  => esc_attr__( 'WooCommerce Layout', 'toolbar-extras' ),
+				'href'   => ddw_tbex_customizer_focus( 'section', 'section-woo-group', get_post_type_archive_link( 'product' ) ),
+				'meta'   => array(
+					'target' => ddw_tbex_meta_target(),
+					'title'  => ddw_tbex_string_customize_attr( __( 'WooCommerce Layout', 'toolbar-extras' ) )
+				)
+			)
+		);
+
+	}  // end if
+
+	/** Optional: LifterLMS Support */
+	if ( class_exists( 'LifterLMS' ) ) {
+
+		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			array(
+				'id'     => 'astracmz-layout-lifterlms',
+				'parent' => 'theme-creative-customize',
+				/* translators: Autofocus section in the Customizer */
+				'title'  => esc_attr__( 'LifterLMS Layout', 'toolbar-extras' ),
+				'href'   => ddw_tbex_customizer_focus( 'section', 'section-lifterlms', get_post_type_archive_link( 'course' ) ),
+				'meta'   => array(
+					'target' => ddw_tbex_meta_target(),
+					'title'  => ddw_tbex_string_customize_attr( __( 'LifterLMS Layout', 'toolbar-extras' ) )
+				)
+			)
+		);
+
+	}  // end if
+
+	/** Optional: LearnDash Support */
+	if ( defined( 'LEARNDASH_VERSION' ) ) {
+
+		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			array(
+				'id'     => 'astracmz-layout-learndash',
+				'parent' => 'theme-creative-customize',
+				/* translators: Autofocus section in the Customizer */
+				'title'  => esc_attr__( 'LearnDash Layout', 'toolbar-extras' ),
+				'href'   => ddw_tbex_customizer_focus( 'section', 'section-learndash', get_post_type_archive_link( 'sfwd-courses' ) ),
+				'meta'   => array(
+					'target' => ddw_tbex_meta_target(),
+					'title'  => ddw_tbex_string_customize_attr( __( 'LearnDash Layout', 'toolbar-extras' ) )
+				)
+			)
+		);
+
+	}  // end if
+
 }  // end function
 
 
@@ -676,6 +733,11 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_astra_home_page_banner', 100 
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
 function ddw_tbex_themeitems_astra_home_page_banner() {
+
+	/** Bail early if plugin is not active */
+	if ( ! defined( 'HOME_PAGE_BANNER_VER' ) ) {
+		return;
+	}
 
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(
 		array(

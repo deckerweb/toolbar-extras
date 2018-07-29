@@ -132,11 +132,11 @@ function ddw_tbex_themeitems_generatepress_customize() {
 				'id'     => 'gpcmz-backgrounds',
 				'parent' => 'theme-creative-customize',
 				/* translators: Autofocus panel in the Customizer */
-				'title'  => esc_attr__( 'Backgrounds', 'toolbar-extras' ),
+				'title'  => esc_attr__( 'Background Images', 'toolbar-extras' ),
 				'href'   => ddw_tbex_customizer_focus( 'panel', 'generate_backgrounds_panel' ),
 				'meta'   => array(
 					'target' => ddw_tbex_meta_target(),
-					'title'  => ddw_tbex_string_customize_attr( __( 'Backgrounds', 'toolbar-extras' ) )
+					'title'  => ddw_tbex_string_customize_attr( __( 'Background Images', 'toolbar-extras' ) )
 				)
 			)
 		);
@@ -256,6 +256,44 @@ function ddw_tbex_themeitems_generatepress_premium() {
 	if ( ! ddw_tbex_is_generatepress_premium_active() ) {
 		return;
 	}
+
+	/** Premium: Elements */
+	if ( function_exists( 'generate_premium_do_elements' ) ) {
+
+		$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			array(
+				'id'     => 'generatepress-elements',
+				'parent' => 'theme-creative'
+			)
+		);
+
+			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				array(
+					'id'     => 'gp-elements-all',
+					'parent' => 'generatepress-elements',
+					'title'  => esc_attr__( 'Elements', 'toolbar-extras' ),
+					'href'   => esc_url( admin_url( 'edit.php?post_type=gp_elements' ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => esc_attr__( 'Elements', 'toolbar-extras' )
+					)
+				)
+			);
+
+			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				array(
+					'id'     => 'gp-elements-new',
+					'parent' => 'generatepress-elements',
+					'title'  => esc_attr__( 'New Element', 'toolbar-extras' ),
+					'href'   => esc_url( admin_url( 'post-new.php?post_type=gp_elements' ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => esc_attr__( 'New Element', 'toolbar-extras' )
+					)
+				)
+			);
+
+	}  // end if
 
 	/** Premium: Page Headers */
 	if ( defined( 'GENERATE_PAGE_HEADER_VERSION' ) ) {
@@ -389,6 +427,37 @@ function ddw_tbex_themeitems_generatepress_premium_resources() {
 }  // end function
 
 
+add_action( 'tbex_new_content_before_nav_menu', 'ddw_tbex_themeitems_new_content_generatepress_premium' );
+/**
+ * Items for "New Content" section: New GP Premium "Element" Content
+ *
+ * @since  1.3.2
+ *
+ * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ */
+function ddw_tbex_themeitems_new_content_generatepress_premium() {
+
+	/** Bail early if Elements Module is not active */
+	if ( ! function_exists( 'generate_premium_do_elements' ) ) {
+		return;
+	}
+
+	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		array(
+			'id'     => 'new-gp_elements',
+			'parent' => 'new-content',
+			'title'  => esc_attr__( 'GP Element', 'toolbar-extras' ),
+			'href'   => esc_url( admin_url( 'post-new.php?post_type=gp_elements' ) ),
+			'meta'   => array(
+				'target' => '',
+				'title'  => ddw_tbex_string_add_new_item( esc_attr__( 'GeneratePress Element', 'toolbar-extras' ) )
+			)
+		)
+	);
+
+}  // end function
+
+
 add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_generatepress_sites_import', 100 );
 /**
  * Items for Demos Import: GeneratePress Sites
@@ -411,12 +480,18 @@ function ddw_tbex_themeitems_generatepress_sites_import() {
 	/** Premium: GeneratePress Sites */
 	if ( defined( 'GENERATE_SITES_PATH' ) ) {
 
+		$gp_sites_url = version_compare( GP_PREMIUM_VERSION, '1.7-rc.1', '>=' ) ? admin_url( 'themes.php?page=generatepress-site-library' ) : admin_url( 'themes.php?page=generate-options&area=generate-sites' );
+
 		$GLOBALS[ 'wp_admin_bar' ]->add_node(
 			array(
 				'id'     => ddw_tbex_id_sites_browser(),
 				'parent' => 'group-demo-import',
-				'title'  => ddw_tbex_item_title_with_settings_icon( esc_attr__( 'Import Sites', 'toolbar-extras' ), 'general', 'demo_import_icon' ),
-				'href'   => esc_url( admin_url( 'themes.php?page=generate-options&area=generate-sites' ) ),
+				'title'  => ddw_tbex_item_title_with_settings_icon(
+					esc_attr__( 'Import Sites', 'toolbar-extras' ),
+					'general',
+					'demo_import_icon'
+				),
+				'href'   => esc_url( $gp_sites_url ),
 				'meta'   => array(
 					'target' => '',
 					'title'  => esc_attr__( 'Import Sites', 'toolbar-extras' )
@@ -426,4 +501,4 @@ function ddw_tbex_themeitems_generatepress_sites_import() {
 
 	}  // end if
 
-}  // end if
+}  // end function

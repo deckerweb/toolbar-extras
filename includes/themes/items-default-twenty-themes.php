@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 
-add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_defaulft_twenty', 100 );
+add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_default_twenty', 100 );
 /**
  * Items for Themes: "Twenty ..." Default Themes (by WordPress.org)
  *
@@ -24,7 +24,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_defaulft_twenty', 100 );
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
-function ddw_tbex_themeitems_defaulft_twenty() {
+function ddw_tbex_themeitems_default_twenty() {
 
 	/** Theme creative */
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(

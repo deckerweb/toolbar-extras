@@ -14,9 +14,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 add_action( 'tbex_after_site_group_update_check', 'ddw_tbex_site_items_health_check' );
 /**
- * Items for Plugin: Health Check (free, by The WordPress.org community)
+ * Items for Plugin: Health Check & Troubleshooting (free, by The WordPress.org community)
  *
  * @since  1.0.0
+ * @since  1.3.2 Changed Site Status tab URL; added new resources.
  *
  * @uses   ddw_tbex_resource_item()
  *
@@ -43,7 +44,7 @@ function ddw_tbex_site_items_health_check() {
 				'id'     => 'health-check-system',
 				'parent' => 'health-check',
 				'title'  => esc_attr__( 'System Info', 'toolbar-extras' ),
-				'href'   => esc_url( admin_url( 'index.php?page=health-check&tab=health-check' ) ),
+				'href'   => esc_url( admin_url( 'index.php?page=health-check&tab=site-status' ) ),
 				'meta'   => array(
 					'target' => '',
 					'title'  => esc_attr__( 'System Info', 'toolbar-extras' )
@@ -106,7 +107,7 @@ function ddw_tbex_site_items_health_check() {
 		/** Group: Resources for Health Check */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar']->add_group(
+			$GLOBALS[ 'wp_admin_bar' ]->add_group(
 				array(
 					'id'     => 'group-healthcheck-resources',
 					'parent' => 'health-check',
@@ -127,6 +128,20 @@ function ddw_tbex_site_items_health_check() {
 				'group-healthcheck-resources',
 				'https://wordpress.org/support/plugin/health-check'
 			);
+
+			ddw_tbex_resource_item(
+				'translations-community',
+				'healthcheck-translate',
+				'group-healthcheck-resources',
+				'https://translate.wordpress.org/projects/wp-plugins/health-check'
+			);
+
+			ddw_tbex_resource_item(
+				'github',
+				'healthcheck-github',
+				'group-healthcheck-resources',
+				'https://github.com/WordPress/health-check'
+			);			
 
 		}  // end if
 

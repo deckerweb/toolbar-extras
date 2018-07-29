@@ -1,7 +1,7 @@
 <?php
 
-//dev-mode
-//items-debug-elementor
+// dev-mode
+// includes/elementor-addons/items-debug-elementor
 
 /**
  * Prevent direct access to this file.

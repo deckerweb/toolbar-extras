@@ -192,13 +192,16 @@ function ddw_tbex_themeitems_buildwall_customize() {
 		)
 	);
 
+	/** 404 Error Page */
+	$url_404_live = get_site_url() . '/404-live-test-' . md5( rand() );
+
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(
 		array(
 			'id'     => 'buildwallcmz-404-page',
 			'parent' => 'theme-creative-customize',
 			/* translators: Autofocus section in the Customizer */
 			'title'  => esc_attr__( '404 Page Style', 'toolbar-extras' ),
-			'href'   => ddw_tbex_customizer_focus( 'section', 'buildwall_page_404_options' ),
+			'href'   => ddw_tbex_customizer_focus( 'section', 'buildwall_page_404_options', $url_404_live ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
 				'title'  => ddw_tbex_string_customize_attr( __( '404 Page Style', 'toolbar-extras' ) )

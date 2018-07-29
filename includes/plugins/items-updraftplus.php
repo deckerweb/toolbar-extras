@@ -12,9 +12,24 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 
+/**
+ * Check if UpdraftPlus Premium version with Multisite/Network Add-On is active
+ *   or not.
+ *
+ * @since  1.3.2
+ *
+ * @return bool TRUE if in Multisite and class exists, otherwise FALSE.
+ */
+function ddw_tbex_is_updraftplus_multisite() {
+
+	return ( is_multisite() && class_exists( 'UpdraftPlusAddOn_MultiSite' ) ) ? TRUE : FALSE;
+
+}  // end function
+
+
 add_action( 'admin_bar_menu', 'ddw_tbex_site_items_updraftplus', 10 );
 /**
- * Items for Plugin: UpdraftPlus (free, by Team Updraft, David Anderson)
+ * Items for Plugin: UpdraftPlus (Premium) (free/ Premium, by Team Updraft, David Anderson)
  *
  * @since  1.0.0
  *
@@ -29,7 +44,7 @@ function ddw_tbex_site_items_updraftplus() {
 			'id'     => 'updraftplus',
 			'parent' => 'tbex-sitegroup-tools',
 			'title'  => esc_attr__( 'UpdraftPlus', 'toolbar-extras' ),
-			'href'   => esc_url( admin_url( 'options-general.php?page=updraftplus' ) ),
+			'href'   => ddw_tbex_is_updraftplus_multisite() ? esc_url( network_admin_url( 'settings.php?page=updraftplus' ) ) : esc_url( admin_url( 'options-general.php?page=updraftplus' ) ),
 			'meta'   => array(
 				'target' => '',
 				'title'  => esc_attr__( 'UpdraftPlus', 'toolbar-extras' )
@@ -42,7 +57,7 @@ function ddw_tbex_site_items_updraftplus() {
 				'id'     => 'updraftplus-status',
 				'parent' => 'updraftplus',
 				'title'  => esc_attr__( 'Backup Now', 'toolbar-extras' ),
-				'href'   => esc_url( admin_url( 'options-general.php?page=updraftplus&tab=status' ) ),
+				'href'   => ddw_tbex_is_updraftplus_multisite() ? esc_url( network_admin_url( 'settings.php?page=updraftplus&tab=status' ) ) : esc_url( admin_url( 'options-general.php?page=updraftplus&tab=status' ) ),
 				'meta'   => array(
 					'target' => '',
 					'title'  => esc_attr__( 'Backup Now', 'toolbar-extras' )
@@ -55,7 +70,7 @@ function ddw_tbex_site_items_updraftplus() {
 				'id'     => 'updraftplus-archive',
 				'parent' => 'updraftplus',
 				'title'  => esc_attr__( 'Backup Archive', 'toolbar-extras' ),
-				'href'   => esc_url( admin_url( 'options-general.php?page=updraftplus&tab=backups' ) ),
+				'href'   => ddw_tbex_is_updraftplus_multisite() ? esc_url( network_admin_url( 'settings.php?page=updraftplus&tab=backups' ) ) : esc_url( admin_url( 'options-general.php?page=updraftplus&tab=backups' ) ),
 				'meta'   => array(
 					'target' => '',
 					'title'  => esc_attr__( 'Backup Archive', 'toolbar-extras' )
@@ -68,7 +83,7 @@ function ddw_tbex_site_items_updraftplus() {
 				'id'     => 'updraftplus-settings',
 				'parent' => 'updraftplus',
 				'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
-				'href'   => esc_url( admin_url( 'options-general.php?page=updraftplus&tab=settings' ) ),
+				'href'   => ddw_tbex_is_updraftplus_multisite() ? esc_url( network_admin_url( 'settings.php?page=updraftplus&tab=settings' ) ) : esc_url( admin_url( 'options-general.php?page=updraftplus&tab=settings' ) ),
 				'meta'   => array(
 					'target' => '',
 					'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
@@ -81,7 +96,7 @@ function ddw_tbex_site_items_updraftplus() {
 				'id'     => 'updraftplus-tools',
 				'parent' => 'updraftplus',
 				'title'  => esc_attr__( 'Advanced Tools', 'toolbar-extras' ),
-				'href'   => esc_url( admin_url( 'options-general.php?page=updraftplus&tab=expert' ) ),
+				'href'   => ddw_tbex_is_updraftplus_multisite() ? esc_url( network_admin_url( 'settings.php?page=updraftplus&tab=expert' ) ) : esc_url( admin_url( 'options-general.php?page=updraftplus&tab=expert' ) ),
 				'meta'   => array(
 					'target' => '',
 					'title'  => esc_attr__( 'Advanced Tools', 'toolbar-extras' )
@@ -92,7 +107,7 @@ function ddw_tbex_site_items_updraftplus() {
 		/** Group: Resources for UpdraftPlus */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar']->add_group(
+			$GLOBALS[ 'wp_admin_bar' ]->add_group(
 				array(
 					'id'     => 'group-updraftplus-resources',
 					'parent' => 'updraftplus',
@@ -111,7 +126,7 @@ function ddw_tbex_site_items_updraftplus() {
 				'documentation',
 				'updraftplus-docs',
 				'group-updraftplus-resources',
-				'https://snapcreek.com/duplicator/docs/'
+				'https://updraftplus.com/frequently-asked-questions/'
 			);
 
 			ddw_tbex_resource_item(

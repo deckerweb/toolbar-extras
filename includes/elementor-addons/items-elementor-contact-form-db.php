@@ -17,7 +17,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_elementor_contact_form_db', 100 
  * Items for Add-On: Elementor Contact Form DB (free, by Sean Barton)
  *
  * @since  1.0.0
- * 
+ *
  * @uses   ddw_tbex_string_elementor()
  * @uses   ddw_tbex_resource_item()
  *
@@ -57,7 +57,7 @@ function ddw_tbex_aoitems_elementor_contact_form_db() {
 		/** Group: Resources for plugin */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar']->add_group(
+			$GLOBALS[ 'wp_admin_bar' ]->add_group(
 				array(
 					'id'     => 'group-ecfdb-resources',
 					'parent' => 'ao-ecfdb',

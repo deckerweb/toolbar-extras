@@ -17,7 +17,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_cfdb', 100 );
  * Items for Add-On: Contact Form DB (free, by Michael Simpson)
  *
  * @since  1.2.0
- * 
+ *
  * @uses   ddw_tbex_string_elementor()
  * @uses   ddw_tbex_resource_item()
  *
@@ -81,7 +81,7 @@ function ddw_tbex_aoitems_cfdb() {
 		/** Group: Resources for plugin */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar']->add_group(
+			$GLOBALS[ 'wp_admin_bar' ]->add_group(
 				array(
 					'id'     => 'group-cfdb-resources',
 					'parent' => 'ao-cfdb',

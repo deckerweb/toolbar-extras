@@ -71,13 +71,15 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_wc_plugin', 500 );
  */
 function ddw_tbex_themeitems_wc_plugin() {
 
+	//$shop_page_id = get_option( 'woocommerce_shop_page_id' );
+
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(
 		array(
 			'id'     => 'ao-woocommerce-plugin',
 			'parent' => 'theme-creative-customize',
 			/* translators: Autofocus panel in the Customizer */
 			'title'  => esc_attr__( 'WooCommerce (Plugin)', 'toolbar-extras' ),
-			'href'   => ddw_tbex_customizer_focus( 'panel', 'woocommerce' ),
+			'href'   => ddw_tbex_customizer_focus( 'panel', 'woocommerce', get_post_type_archive_link( 'product' ) ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
 				'title'  => ddw_tbex_string_customize_attr( __( 'WooCommerce (Plugin)', 'toolbar-extras' ) )

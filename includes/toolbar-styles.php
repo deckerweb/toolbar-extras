@@ -238,6 +238,10 @@ function ddw_tbex_toolbar_styles() {
 				margin-right: 15px !important;
 				padding-right: 15px !important;
 			}
+
+			#wpadminbar .tbex-customize-content .ab-label {
+				padding-right: 25px;
+			}
 			<?php echo $fix_logindesigner; ?>
 
 			/* Media Queries */

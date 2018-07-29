@@ -2,6 +2,90 @@
 
 ## Changelog
 
+### 1.3.2 - 2018-07-29
+
+* New: Added "Elements" to the "GeneratePress" Theme support for the Premium Add-On v1.7 or higher (including backwards compat for Page Headers and Hooks)
+* New: First few features & tweaks to support the Block Editor (known as "Gutenberg") which is planned for upcoming WordPress 5.0: if "Gutenberg" plugin is active offer an "Editor switch" between "Block Editor" (Gutenberg) and "Classic Editor" when editing any post type content (which in general needs to have post type support for the Editor) -- Please Note: these features are currently only available with `define( 'TBEX_USE_BLOGK_EDITOR_SUPPORT', FALSE );` - support in plugin's settings comes with next major version!
+* New: Finally, complete translation of the German plugin page on WordPress.org: [https://de.wordpress.org/plugins/toolbar-extras/](https://de.wordpress.org/plugins/toolbar-extras/) - this translation will also be maintained from now on (note: it can only be in informal German, which is the guideline set by the platform)
+* Tweak: On Plugin's settings page, About & Support, enhanced optional System Info
+* Tweak: Improved Theme support for "GeneratePress" Theme and its Premium Add-On Plugin
+* Tweak: Greatly enhanced plugin support for "Genesis Design Palette Pro"
+* Tweak: Added 2 new template types (Single, Archive) to "Jet Theme Parts" template creation - part of the "JetThemeCore" plugin support
+* Tweak: Enhanced Astra (Pro) Theme support - Customizer deep links for layouts modules of WooCommerce, LifterLMS, LearnDash
+* Tweak: Greatly enhanced plugin support for "Premium Addons for Elementor", plus, added support for their brand new Pro version! -- Note: From now on only the free version 2.5.0 or higher is supported!
+* Tweak: Enhanced "Element Pack" plugin support - new settings and resources link
+* Tweak: Improved "Genesis Testimonial Slider" plugin support
+* Tweak: Once again enhanced "Gravity Forms" plugin support
+* Tweak: Enhanced "Duplicator" plugin support (free version)
+* Tweak: Added new resources for "Health Check & Troubleshooting" plugin support
+* Tweak: Added new resource to "Essential Addons" plugin support
+* Tweak: A lot of smaller code improvements, tweaks and fixes
+* Tweak: Enhanced, improved and corrected Readme.txt file here - also tweaked formatting/ listing of the included changelogs to improve with translated versions of the readme (WordPress.org Rosetta sites)
+* Tweak: Updated `.pot` file plus all German translations (formal, informal) and language packs, including fixes for some translations errors
+* Fix: CSS styling for Edit/View Customizer sub-item for singular posts/ post types
+* Fix: Proper conditional loading for "Home Page Banner for Astra Theme" plugin support
+* Fix: Proper plugin support for "AnyWhere Elementor Pro" Add-On
+* Fix: Correct resource link for "UpdraftPlus" plugin support
+* Fix: Corrected plugin support for "Health Check & Troubleshooting"
+* Fix: Corrected errors in readme.txt here :)
+* **New:** *Extended and Enhanced Multisite Support*
+  * Multisite is now a "first-class citizen" within Toolbar Extras - this is the begin of prerequisites for a future Multisite Add-On!
+  * Added specific support for Network-wide activation on Multisite installs - this then creates the proper plugin defaults on a per site basis
+  * Added routine for Multisite installs which have Toolbar Extras plugin activated Network-wide to create the plugin defaults when creating a new Site in the Network
+  * Build Group: will no longer appear in Network Admin - as it should have never appeared there (wrong behavior finally fixed!)
+  * Site Group: links that don't belong into the Network Admin will no longer appear there
+  * User Group: make the items respect Network Admin context
+  * Tweak: Made "WP Migrate DB (Pro)" plugin support fully compatible with Multisite (plugin activated Network-wide)
+  * Tweak: Made "Local Development" plugin support compatible with Multisite
+  * Tweak: Made "GitHub Updater" plugin support compatible with Multisite
+* **New:** *Extended the Theme support for:*
+  * Niche Pro (Child Theme for Genesis) (Premium, by Design by Bloom)
+  * Lifestyle Pro (Child Theme for Genesis) (Premium, by StudioPress)
+  * Aspire Pro (Child Theme for Genesis) (Premium, by Appfinite)
+  * Atmosphere Pro (Child Theme for Genesis) (Premium, by StudioPress)
+  * Digital Pro (Child Theme for Genesis) (Premium, by StudioPress)
+  * Executive Pro (Child Theme for Genesis) (Premium, by StudioPress)
+  * Gallery Pro (Child Theme for Genesis) (Premium, by Design by Bloom)
+  * Maker Pro (Child Theme for Genesis) (Premium, by JT Grauke/ Design by Bloom)
+  * Market Theme (Child Theme for Genesis) (Premium, by Restored 316 Designs // Lauren Gaige)
+  * Metro Pro (Child Theme for Genesis) (Premium, by StudioPress)
+  * Showcase Pro (Child Theme for Genesis) (Premium, by Design by Bloom)
+  * Smart Passive Income Pro (Child Theme for Genesis) (Premium, by StudioPress)
+* **New:** *Extended the Plugin support for Elementor Add-Ons:*
+  * Split Test For Elementor (free, by Rocket Elements)
+  * JetEngine (Premium, by Zemez/ CrocoBlock) - note: plugin is currently in beta
+  * Natalie - Personal Theme Builder for Elementor (Premium, by XLDevelopment/ Ashraf)
+  * Dashboard Welcome for Elementor (free, by IdeaBox Creations)
+  * Massive Addons for Elementor (free, by Blocksera)
+  * Dynamic Content for Elementor (Premium, by Dynamic.ooo)
+  * Premium Addons PRO (Premium, by Leap13) - the paid Pro Add-On for "Premium Addons for Elementor"
+  * Vakka Addons for Elementor (Premium, by MaxxTheme)
+  * Funnelmentals (free, by Web Disrupt)
+  * Funnelmentals Premium (Premium, by Web Disrupt)
+  * Rife Elementor Extensions & Templates (free, by Apollo13 Themes)
+* **New:** *Extended the general Plugin support for:*
+  * FormCraft 3 (Premium, by nCrafts)
+  * WP Synchro (free, by WPSynchro) - for Dev Mode
+  * Log Deprecated Notices (free, by Andrew Nacin) - for Dev Mode
+  * Log Viewer (free, by Markus Fischbacher) - for Dev Mode
+  * BackWPup (free, by Inpsyde GmbH) - including Multisite support
+  * Duplicator Pro (Premium, by Snap Creek) - including Multisite support
+  * UpdraftPlus Premium (Premium, by Team Updraft, David Anderson) - including Multisite support
+  * WPMU Dev Dashboard (Premium, by WPMU DEV) - including Multisite support
+  * Everest Forms (free, by WPEverest)
+  * MailChimp for WordPress (free, by ibericode)
+  * HappyForms (free, by The Theme Foundry)
+  * ARForms (Premium, by Repute InfoSystems)
+  * SEOPress (free, by Benjamin Denis)
+  * SEOPress Pro (Premium, by Benjamin Denis) - Add-On Plugin
+  * All in One Schema Rich Snippets (free, by Brainstorm Force)
+  * Schema Pro (Premium, by Brainstorm Force)
+  * Schema (free, by Hesham)
+  * WP Portfolio (Premium, by Brainstorm Force)
+  * PHP Code Snippets (Insert PHP) (free, by Webcraftic)
+  * Cool Timeline (free, by Cool Plugins) - as a basis for the by the same author, "Cool Timeline Addon For Elementor" (native Elementor widget)
+
+
 ### 1.3.1 - 2018-06-30
 
 * New: Added two upcoming WooCommerce Template types for a future Elementor Pro version

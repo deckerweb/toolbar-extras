@@ -801,7 +801,7 @@ function ddw_tbex_use_tweak_members() {
 
 
 /**
- * Tweak: Remove CobaltApps items from the top?
+ * Tweak: Remove Cobalt Apps items from the top?
  *
  * @since  1.0.0
  *
@@ -1060,3 +1060,31 @@ function ddw_tbex_hide_uael_witelabel() {
 	return ( defined( 'WP_UAEL_WL' ) ) ? WP_UAEL_WL : FALSE;
 
 }  // end function
+
+
+/**
+ * Use Block Editor support at all or not?
+ *
+ * @since  1.3.2
+ *
+ * @return bool TRUE if constant defined & true, otherwise FALSE.
+ */
+function ddw_tbex_use_block_editor_support() {
+
+	return ( defined( 'TBEX_USE_BLOGK_EDITOR_SUPPORT' ) ) ? TBEX_USE_BLOGK_EDITOR_SUPPORT : FALSE;
+
+}  // end function
+
+
+/**
+ * Check if the "Blocks Editor" (aka "Gutenberg") plugin is active or not.
+ *
+ * @since  1.3.2
+ *
+ * @return bool TRUE if constant defined, otherwise FALSE.
+ */
+function ddw_tbex_is_block_editor_active() {
+
+	return ( defined( 'GUTENBERG_VERSION' ) ) ? TRUE : FALSE;
+
+}  // end if

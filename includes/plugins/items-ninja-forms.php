@@ -59,11 +59,11 @@ function ddw_tbex_site_items_ninja_forms() {
 		array(
 			'id'     => 'forms-ninjaforms',
 			'parent' => 'tbex-sitegroup-forms',
-			'title'  => esc_attr__( 'Ninja Forms', 'toolbar-extras' ),
+			'title'  => ddw_tbex_string_forms_system( 'Ninja' ),
 			'href'   => esc_url( admin_url( 'admin.php?page=ninja-forms' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Ninja Forms', 'toolbar-extras' )
+				'title'  => ddw_tbex_string_forms_system( 'Ninja' )
 			)
 		)
 	);
@@ -89,7 +89,7 @@ function ddw_tbex_site_items_ninja_forms() {
 
 			foreach ( $forms as $form ) {
 
-				$form_title = $form->title;
+				$form_title = esc_attr( $form->title );
 
 				/** Add item per form */
 				$GLOBALS[ 'wp_admin_bar' ]->add_node(
@@ -399,11 +399,11 @@ function ddw_tbex_site_items_ninja_forms() {
 				array(
 					'id'     => 'forms-ninjaforms-settings-licenses',
 					'parent' => 'forms-ninjaforms-settings',
-					'title'  => esc_attr__( 'License', 'toolbar-extras' ),
+					'title'  => esc_attr__( 'Licenses', 'toolbar-extras' ),
 					'href'   => esc_url( admin_url( 'admin.php?page=nf-settings&tab=licenses' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'License', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Licenses', 'toolbar-extras' )
 					)
 				)
 			);
@@ -494,7 +494,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_new_content_ninja_forms', 80 );
 function ddw_tbex_aoitems_new_content_ninja_forms() {
 
 	/** Bail early if items display is not wanted */
-	if ( ! ddw_tbex_display_items_new_content() ) {
+	if ( ! ddw_tbex_display_items_new_content() || is_network_admin() ) {
 		return;
 	}
 

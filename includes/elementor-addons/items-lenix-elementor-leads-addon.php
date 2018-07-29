@@ -1,6 +1,6 @@
 <?php
 
-// items-lenix-elementor-leads-addon
+// includes/elementor-addons/items-lenix-elementor-leads-addon
 
 /**
  * Prevent direct access to this file.
@@ -17,7 +17,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_lenix_leads', 100 );
  * Items for Add-On: Lenix Elementor Leads addon (free, by Lenix)
  *
  * @since  1.0.0
- * 
+ *
  * @uses   ddw_tbex_string_elementor()
  * @uses   ddw_tbex_display_items_resources()
  * @uses   ddw_tbex_resource_item()
@@ -58,7 +58,7 @@ function ddw_tbex_aoitems_lenix_leads() {
 		/** Group: Resources for plugin */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar']->add_group(
+			$GLOBALS[ 'wp_admin_bar' ]->add_group(
 				array(
 					'id'     => 'group-lenixleads-resources',
 					'parent' => 'ao-lenixleads',

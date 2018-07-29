@@ -18,6 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *         to add or remove template types.
  *
  * @since  1.3.0
+ * @since  1.3.2 Added new template types.
  * @see    ddw_tbex_get_elementor_template_types() in includes/functions-global.php
  *
  * @return array Array of JetThemeCore template types.
@@ -26,7 +27,7 @@ function ddw_tbex_get_jetthemecore_template_types() {
 
 	$template_types = apply_filters(
 		'tbex_filter_jetthemecore_template_types',
-		array( 'jet_page', 'jet_section', 'jet_header', 'jet_footer', )
+		array( 'jet_page', 'jet_section', 'jet_header', 'jet_footer', 'jet_single', 'jet_archive' )
 	);
 
 	return array_map( 'sanitize_key', $template_types );
@@ -39,6 +40,7 @@ function ddw_tbex_get_jetthemecore_template_types() {
  *   the setting of a template type.
  *
  * @since  1.3.0
+ * @since  1.3.2 Added new template types.
  *
  * @uses   ddw_tbex_get_jetthemecore_template_types()
  *
@@ -68,6 +70,12 @@ function ddw_tbex_get_jetthemecore_template_add_new_url( $type = '', $name = '' 
 			break;
 		case 'jet_footer':
 			$jet_label = _x( 'Footer', 'JetThemeCore Template type', 'toolbar-extras' );
+			break;
+		case 'jet_single':
+			$jet_label = _x( 'Single', 'JetThemeCore Template type', 'toolbar-extras' );
+			break;
+		case 'jet_archive':
+			$jet_label = _x( 'Archive', 'JetThemeCore Template type', 'toolbar-extras' );
 			break;
 
 	}  // end switch
@@ -107,6 +115,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_jetthemecore', 100 );
  * Items for Add-On: JetThemeCore (Premium, by Zemez/ CrocoBlock)
  *
  * @since  1.3.0
+ * @since  1.3.2 Added new template types.
  *
  * @uses   ddw_tbex_resource_item()
  *
@@ -210,6 +219,34 @@ function ddw_tbex_aoitems_jetthemecore() {
 				)
 			);
 
+			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				array(
+					'id'     => 'jet-library-single',
+					'parent' => 'jet-library-types',
+					/* translators: JetThemeCore Template type */
+					'title'  => esc_attr_x( 'Single', 'JetThemeCore Template type', 'toolbar-extras' ),
+					'href'   => esc_url( admin_url( 'edit.php?post_type=jet-theme-core&jet_library_type=jet_single' ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => esc_attr__( 'Template Type: Single Content Blocks', 'toolbar-extras' )
+					)
+				)
+			);
+
+			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				array(
+					'id'     => 'jet-library-archives',
+					'parent' => 'jet-library-types',
+					/* translators: JetThemeCore Template type */
+					'title'  => esc_attr_x( 'Archives', 'JetThemeCore Template type', 'toolbar-extras' ),
+					'href'   => esc_url( admin_url( 'edit.php?post_type=jet-theme-core&jet_library_type=jet_archive' ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => esc_attr__( 'Template Type: Archive Content Blocks', 'toolbar-extras' )
+					)
+				)
+			);
+
 		$GLOBALS[ 'wp_admin_bar' ]->add_node(
 			array(
 				'id'     => 'jetthemecore-library-new',
@@ -290,6 +327,32 @@ function ddw_tbex_aoitems_jetthemecore() {
 					)
 				);
 
+				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					array(
+						'id'     => 'jet-build-template-single',
+						'parent' => 'jetthemecore-library-new-builder',
+						'title'  => ddw_tbex_string_elementor_template_with_builder( _x( 'Single', 'JetThemeCore Template type', 'toolbar-extras' ) ),
+						'href'   => ddw_tbex_get_jetthemecore_template_add_new_url( 'jet_single' ),
+						'meta'   => array(
+							'target' => ddw_tbex_meta_target( 'builder' ),
+							'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Single', 'JetThemeCore Template type', 'toolbar-extras' ) )
+						)
+					)
+				);
+
+				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					array(
+						'id'     => 'jet-build-template-archive',
+						'parent' => 'jetthemecore-library-new-builder',
+						'title'  => ddw_tbex_string_elementor_template_with_builder( _x( 'Archive', 'JetThemeCore Template type', 'toolbar-extras' ) ),
+						'href'   => ddw_tbex_get_jetthemecore_template_add_new_url( 'jet_archive' ),
+						'meta'   => array(
+							'target' => ddw_tbex_meta_target( 'builder' ),
+							'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Archive', 'JetThemeCore Template type', 'toolbar-extras' ) )
+						)
+					)
+				);
+
 			/** Hook place for plugins etc. */
 			do_action( 'tbex_after_jetthemecore_library_builder' );
 
@@ -338,6 +401,7 @@ add_action( 'tbex_new_content_before_nav_menu', 'ddw_tbex_aoitems_new_content_je
  * Items for "New Content" section: New Jet Templates
  *
  * @since  1.3.0
+ * @since  1.3.2 Added new template types.
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -413,4 +477,30 @@ function ddw_tbex_aoitems_new_content_jetthemecore() {
 			)
 		);
 
-}  // end if
+		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			array(
+				'id'     => 'jet-single-with-builder',
+				'parent' => 'tbex-jetthemecore-template',
+				'title'  => ddw_tbex_string_elementor_template_with_builder( _x( 'Single', 'JetThemeCore Template type', 'toolbar-extras' ) ),
+				'href'   => ddw_tbex_get_jetthemecore_template_add_new_url( 'jet_single' ),
+				'meta'   => array(
+					'target' => ddw_tbex_meta_target( 'builder' ),
+					'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Single', 'JetThemeCore Template type', 'toolbar-extras' ) )
+				)
+			)
+		);
+
+		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			array(
+				'id'     => 'jet-archive-with-builder',
+				'parent' => 'tbex-jetthemecore-template',
+				'title'  => ddw_tbex_string_elementor_template_with_builder( _x( 'Archive', 'JetThemeCore Template type', 'toolbar-extras' ) ),
+				'href'   => ddw_tbex_get_jetthemecore_template_add_new_url( 'jet_archive' ),
+				'meta'   => array(
+					'target' => ddw_tbex_meta_target( 'builder' ),
+					'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Archive', 'JetThemeCore Template type', 'toolbar-extras' ) )
+				)
+			)
+		);
+
+}  // end function

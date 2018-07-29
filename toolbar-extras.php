@@ -12,7 +12,7 @@
  * Plugin Name:       Toolbar Extras
  * Plugin URI:        https://toolbarextras.com/
  * Description:       This plugins adds a lot of quick jump links to the WordPress Toolbar helpful for Site Builders who use Elementor and its ecosystem of add-ons and from the theme space.
- * Version:           1.3.1
+ * Version:           1.3.2
  * Author:            David Decker - DECKERWEB
  * Author URI:        https://toolbarextras.com/
  * License:           GPL-2.0+
@@ -39,7 +39,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 1.0.0
  */
 /** Plugin version */
-define( 'TBEX_PLUGIN_VERSION', '1.3.1' );
+define( 'TBEX_PLUGIN_VERSION', '1.3.2' );
 
 /** Plugin directory */
 define( 'TBEX_PLUGIN_DIR', trailingslashit( dirname( __FILE__ ) ) );
@@ -62,7 +62,6 @@ function ddw_tbex_helper_constants() {
 		define( 'TBEX_DISPLAY', TRUE );
 	}
 
-
 	if ( ! defined( 'TBEX_DISPLAY_SUPER_ADMIN_NAV_MENU' ) ) {
 		define( 'TBEX_DISPLAY_SUPER_ADMIN_NAV_MENU', TRUE );
 	}
@@ -75,6 +74,11 @@ function ddw_tbex_helper_constants() {
 	/** Smart Tweaks */
 	if ( ! defined( 'TBEX_USE_SMART_TWEAKS' ) ) {
 		define( 'TBEX_USE_SMART_TWEAKS', TRUE );
+	}
+
+	/** Smart Tweaks */
+	if ( ! defined( 'TBEX_USE_BLOGK_EDITOR_SUPPORT' ) ) {
+		define( 'TBEX_USE_BLOGK_EDITOR_SUPPORT', FALSE );
 	}
 
 }  // end function
@@ -111,7 +115,7 @@ function ddw_tbex_load_translations() {
 	 */
 	$tbex_wp_lang_dir = trailingslashit( WP_LANG_DIR ) . trailingslashit( $tbex_textdomain ) . $tbex_textdomain . '-' . $locale . '.mo';
 
-	/** Translations: First, look in WordPress' "languages" folder = custom & update-secure! */
+	/** Translations: First, look in WordPress' "languages" folder = custom & update-safe! */
 	load_textdomain(
 		$tbex_textdomain,
 		$tbex_wp_lang_dir
@@ -163,8 +167,10 @@ function ddw_tbex_setup_plugin() {
 		/** Include basic css styles (icon) */
 		require_once( TBEX_PLUGIN_DIR . 'includes/toolbar-styles.php' );
 
-		/** Include main item */
-		require_once( TBEX_PLUGIN_DIR . 'includes/main-item.php' );
+		/** Include main item (but not in Network Admin) */
+		if ( ! is_network_admin() ) {
+			require_once( TBEX_PLUGIN_DIR . 'includes/main-item.php' );
+		}
 
 		/** Set toolbar groups as base hook places */
 		add_action( 'admin_bar_menu', 'ddw_tbex_creative_items_base_groups', 99 );
@@ -256,6 +262,11 @@ function ddw_tbex_setup_plugin() {
 		/** Load Web Group items */
 		if ( ddw_tbex_display_items_webgroup() ) {
 			require_once( TBEX_PLUGIN_DIR . 'includes/items-web-group.php' );
+		}
+
+		/** Load Block Editor (Gutenberg) Items & Support */
+		if ( ddw_tbex_use_block_editor_support() && ddw_tbex_is_block_editor_active() ) {
+			require_once( TBEX_PLUGIN_DIR . 'includes/block-editor/items-block-editor.php' );
 		}
 
 	}  // end if
@@ -364,11 +375,11 @@ function ddw_tbex_creative_items_base_groups() {
 require_once( TBEX_PLUGIN_DIR . 'includes/tbex-update-settings.php' );
 
 
-register_activation_hook( __FILE__, 'ddw_tbex_run_plugin_activation' );
 /**
- * On plugin activation register the plugin's options and save their defaults.
+ * Steps of the plugin activation routine.
  *
  * @since 1.0.0
+ * @since 1.3.2 Moved to own function to improve reuseability.
  *
  * @see   includes/admin/tbex-settings.php
  *
@@ -376,7 +387,7 @@ register_activation_hook( __FILE__, 'ddw_tbex_run_plugin_activation' );
  * @uses  ddw_tbex_register_settings_smart_tweaks()
  * @uses  ddw_tbex_register_settings_development()
  */
-function ddw_tbex_run_plugin_activation() {
+function ddw_tbex_plugin_activation_routine() {
 
 	/** Bail early if permissions are not in place */
 	if ( ! current_user_can( 'activate_plugins' ) ) {
@@ -395,5 +406,71 @@ function ddw_tbex_run_plugin_activation() {
 	ddw_tbex_register_settings_general();
 	ddw_tbex_register_settings_smart_tweaks();
 	ddw_tbex_register_settings_development();
+
+}  // end function
+
+
+register_activation_hook( __FILE__, 'ddw_tbex_run_plugin_activation', 10, 1 );
+/**
+ * On plugin activation register the plugin's options and save their defaults.
+ *
+ * @since 1.0.0
+ * @since 1.3.2 Refactored to cover Multisite Network-wide activation.
+ *
+ * @link  https://leaves-and-love.net/blog/making-plugin-multisite-compatible/
+ *
+ * @uses  ddw_tbex_plugin_activation_routine()
+ */
+function ddw_tbex_run_plugin_activation( $network_wide ) {
+
+	/** 1st case: Network-wide activation in a Multisite Network */
+    if ( is_multisite() && $network_wide ) { 
+
+    	$site_ids = get_sites( array( 'fields' => 'ids', 'network_id' => get_current_network_id() ) );
+
+        foreach ( $site_ids as $site_id ) {
+
+        	/** Run Site after Site */
+            switch_to_blog( $site_id );
+
+            ddw_tbex_plugin_activation_routine();
+
+            restore_current_blog();
+
+        }  // end foreach
+
+    }
+
+    /** 2nd case: Activation on a regular single site install */
+    else {
+
+        ddw_tbex_plugin_activation_routine();
+
+    }  // end if
+
+}  // end function
+
+
+add_action( 'wpmu_new_blog', 'ddw_tbex_network_new_site_run_plugin_activation', 10, 6 );
+/**
+ * When creating a new Site within a Multisite Network run the plugin activation
+ *   routine - if Toolbar Extras is activated Network-wide.
+ *   Note: The 'wpmu_new_blog' hook fires only in Multisite.
+ *
+ * @since 1.3.2
+ *
+ * @uses  ddw_tbex_plugin_activation_routine()
+ */
+function ddw_tbex_network_new_site_run_plugin_activation( $blog_id, $user_id, $domain, $path, $site_id, $meta ) {
+
+    if ( is_plugin_active_for_network( TBEX_PLUGIN_BASEDIR . 'toolbar-extras.php' ) ) {
+
+        switch_to_blog( $blog_id );
+
+        ddw_tbex_plugin_activation_routine();
+
+        restore_current_blog();
+
+    }  // end if
 
 }  // end function

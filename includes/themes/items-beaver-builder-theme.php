@@ -31,11 +31,11 @@ function ddw_tbex_themeitems_bbtheme() {
 		array(
 			'id'     => 'theme-creative',
 			'parent' => 'group-active-theme',
-			'title'  => ddw_tbex_string_theme_title(),
+			'title'  => ddw_tbex_string_theme_title( 'title', 'child' ),
 			'href'   => ddw_tbex_customizer_focus( 'panel', 'theme_styles' ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_theme_title( 'attr' )
+				'title'  => ddw_tbex_string_theme_title( 'attr', 'child' )
 			)
 		)
 	);

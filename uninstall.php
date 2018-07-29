@@ -84,6 +84,9 @@ function ddw_tbex_delete_options_transients() {
  *    Note: Respects Multisite setups and single installs.
  *
  * @since  1.0.0
+ * @since  1.3.2 Updated to newer Multisite approach.
+ *
+ * @link   https://leaves-and-love.net/blog/making-plugin-multisite-compatible/
  *
  * @uses   ddw_tbex_delete_options_transients()
  *
@@ -99,11 +102,11 @@ if ( function_exists( 'is_multisite' ) && is_multisite() ) {
 
 	if ( function_exists( 'get_sites' ) && class_exists( 'WP_Site_Query' ) ) {
 		
-		$sites = get_sites();
-		
-		foreach ( $sites as $site ) {
+		$site_ids = get_sites( array( 'fields' => 'ids', 'network_id' => get_current_network_id() ) );
+
+		foreach ( $site_ids as $site_id ) {
 			
-			switch_to_blog( $site->blog_id );
+			switch_to_blog( $site_id );
 
 			/** Delete our stuff for Multisite sub-sites */
 			ddw_tbex_delete_options_transients();

@@ -45,7 +45,9 @@ if ( ddw_tbex_is_elementor_active() && defined( 'MODAL_ELEMENTOR_VERSION' ) ) {
  * Add-On: AnyWhere Elementor - free & Pro (free/Premium, by WebTechStreet)
  * @since 1.0.0
  */
-if ( ddw_tbex_is_elementor_active() && function_exists( 'WTS_AE_load_plugin_textdomain' ) ) {
+if ( ddw_tbex_is_elementor_active()
+	&& ( function_exists( 'WTS_AE_load_plugin_textdomain' ) || function_exists( 'ae_pro_load_plugin_textdomain' ) )
+) {
 	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-anywhere-elementor.php' );
 }
 
@@ -93,8 +95,7 @@ if ( ddw_tbex_is_elementor_active() && class_exists( 'Eleslider' ) ) {
  * Add-On: JetThemeCore (Premium, by Zemez/ CrocoBlock)
  * @since 1.3.0
  */
-if ( ddw_tbex_is_elementor_active() && ddw_tbex_is_addon_jetthemecore() /* class_exists( 'Jet_Theme_Core' ) */
-) {
+if ( ddw_tbex_is_elementor_active() && ddw_tbex_is_addon_jetthemecore() ) {
 	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-jetthemecore.php' );
 }
 
@@ -132,6 +133,33 @@ if ( ddw_tbex_is_elementor_active()
 	&& class_exists( 'Kadence_Woocommerce_Elementor' )
 ) {
 	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-kadence-woocommerce-elementor.php' );
+}
+
+
+/**
+ * Add-On: Vakka Addons for Elementor (Premium, by MaxxTheme)
+ * @since 1.3.2
+ */
+if ( ddw_tbex_is_elementor_active() && defined( 'VAKKA_PLUGIN_PATH' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-vakka-addons.php' );
+}
+
+
+/**
+ * Add-On: JetEngine (Premium, by Zemez/ CrocoBlock)
+ * @since 1.3.2
+ */
+if ( ddw_tbex_is_elementor_active() && class_exists( 'Jet_Engine' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-jetengine.php' );
+}
+
+
+/**
+ * Add-On: Split Test For Elementor (free, by Rocket Elements)
+ * @since 1.3.2
+ */
+if ( ddw_tbex_is_elementor_active() && defined( 'SPLIT_TEST_FOR_ELEMENTOR_VERSION' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-splittest-for-elementor.php' );
 }
 
 
@@ -188,6 +216,26 @@ if ( ddw_tbex_is_elementor_active() && defined( 'POWERPACK_ELEMENTS_VER' ) ) {
 
 
 /**
+ * Add-On: Dashboard Welcome for Elementor (free, by IdeaBox Creations)
+ * @since 1.3.2
+ */
+if ( ddw_tbex_is_elementor_active() && defined( 'IBX_DWE_VER' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-powerpack-dwe.php' );
+}
+
+
+/**
+ * Add-On: Dynamic Content for Elementor (Premium, by Dynamic.ooo)
+ * @since 1.3.2
+ */
+if ( ddw_tbex_is_elementor_active()
+	&& ( function_exists( 'elements_dce_load' ) )
+) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-dynamic-content-for-elementor.php' );
+}
+
+
+/**
  * Add-On: Elementor Addons (free/Premium, by Livemesh)
  * @since 1.0.0
  */
@@ -231,6 +279,15 @@ if ( ddw_tbex_is_elementor_active() && defined( 'REVOLUTION_FOR_ELEMENTOR_VERSIO
  */
 if ( ddw_tbex_is_elementor_active() && function_exists( 'Extra_Privacy_for_Elementor' ) ) {
 	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-extra-privacy-for-elementor.php' );
+}
+
+
+/**
+ * Add-On: Massive Addons for Elementor (free, by Blocksera)
+ * @since 1.3.2
+ */
+if ( ddw_tbex_is_elementor_active() && class_exists( 'Massive_Elementor' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-massive-addons-for-elementor.php' );
 }
 
 
@@ -334,6 +391,24 @@ if ( ddw_tbex_is_elementor_active() && defined( 'PT_ELEMENTOR_ADDONS_VERSION' ) 
 
 
 /**
+ * Add-On: Natalie - Personal Theme Builder for Elementor (Premium, by XLDevelopment/ Ashraf)
+ * @since 1.3.2
+ */
+if ( ddw_tbex_is_elementor_active() && function_exists( 'xld_bar_plugin_scripts' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-natalie.php' );
+}
+
+
+/**
+ * Add-On: Funnelmentals (Premium) (free/Premium, by Web Disrupt)
+ * @since 1.3.2
+ */
+if ( ddw_tbex_is_elementor_active() && class_exists( '\Web_Disrupt_Funnelmentals\WDF_Core' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-funnelmentals.php' );
+}
+
+
+/**
  * Add-On: Briefcase Elementor Widgets (Premium, by BriefcaseWP)
  * @since 1.3.0
  */
@@ -405,6 +480,15 @@ if ( ddw_tbex_is_elementor_active() && function_exists( 'eb_google_map_extended'
  */
 if ( ddw_tbex_is_elementor_active() && defined( 'eb_google_map_pro_version' ) ) {
 	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-internetcss-google-map-extended-pro.php' );
+}
+
+
+/**
+ * Add-On: Rife Elementor Extensions & Templates (free, by Apollo13 Themes)
+ * @since 1.3.2
+ */
+if ( ddw_tbex_is_elementor_active() && defined( 'A13REE_VERSION' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-rife-elementor-extensions-templates.php' );
 }
 
 

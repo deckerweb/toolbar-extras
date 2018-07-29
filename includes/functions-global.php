@@ -174,10 +174,11 @@ function ddw_tbex_get_pagebuilders() {
 	/** Set builders array */
 	$builders = array(
 		'default-none' => array(
-			'label'      => esc_attr__( 'No Page Builder registered', 'toolbar-extras' ),
-			'title'      => '',
-			'title_attr' => '',
-			'admin_url'  => '',
+			'label'       => esc_attr__( 'No Page Builder registered', 'toolbar-extras' ),
+			'title'       => '',
+			'title_attr'  => '',
+			'admin_url'   => '',
+			'plugins_tab' => FALSE,
 		),
 	);
 
@@ -187,10 +188,11 @@ function ddw_tbex_get_pagebuilders() {
 	/** Escape the values of the array */
 	foreach ( $builders as $pagebuilder ) {
 
-		$pagebuilder[ 'label' ]      = esc_attr( $pagebuilder[ 'label' ] );
-		$pagebuilder[ 'title' ]      = esc_attr( $pagebuilder[ 'title' ] );
-		$pagebuilder[ 'title_attr' ] = esc_html( $pagebuilder[ 'title_attr' ] );
-		$pagebuilder[ 'admin_url' ]  = esc_url( $pagebuilder[ 'admin_url' ] );
+		$pagebuilder[ 'label' ]       = esc_attr( $pagebuilder[ 'label' ] );
+		$pagebuilder[ 'title' ]       = esc_attr( $pagebuilder[ 'title' ] );
+		$pagebuilder[ 'title_attr' ]  = esc_html( $pagebuilder[ 'title_attr' ] );
+		$pagebuilder[ 'admin_url' ]   = esc_url( $pagebuilder[ 'admin_url' ] );
+		$pagebuilder[ 'plugins_tab' ] = (bool) $pagebuilder[ 'plugins_tab' ];
 
 	}  // end foreach
 
@@ -729,7 +731,7 @@ function ddw_tbex_string_theme_title( $title_attr = '', $child = '' ) {
  * @param  string $parent     Parent ID of Toolbar item.
  * @param  string $url        (External) URL of resource item.
  * @param  string $title_attr String for title attribute of resource item.
- * @return obj Object of $GLOBALS[ 'wp_admin_bar' ] to build a new Toolbar node.
+ * @return object Object of $GLOBALS[ 'wp_admin_bar' ] to build a new Toolbar node.
  */
 function ddw_tbex_resource_item( $type = '', $id = '', $parent = '', $url = '', $title_attr = '' ) {
 
@@ -851,7 +853,7 @@ function ddw_tbex_resource_item( $type = '', $id = '', $parent = '', $url = '', 
 		)
 	);
 
-	/** Return array of the Toolbar item arguments */
+	/** Return Toolbar node object with array of the Toolbar item arguments */
 	return $toolbar_item;
 
 }  // end function
@@ -1064,8 +1066,7 @@ add_filter( 'admin_bar_menu', 'ddw_tbex_remove_tooltips_title_attr', 99999 );
  *
  * @uses   ddw_tbex_display_link_title_attributes()
  *
- * @param  obj $wp_admin_bar Object of Toolbar holding all nodes.
- *
+ * @param  object $wp_admin_bar Object of Toolbar holding all nodes.
  * @return void
  */
 function ddw_tbex_remove_tooltips_title_attr( $wp_admin_bar ) {

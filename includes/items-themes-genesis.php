@@ -108,6 +108,15 @@ if ( function_exists( 'outfitter_theme_defaults' ) ) {
 
 
 /**
+ * Niche Pro (Premium, by Design by Bloom)
+ * @since 1.3.2
+ */
+if ( 'niche-pro' === get_stylesheet() ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-niche-pro.php' );
+}
+
+
+/**
  * Boss Pro (Premium, by Design by Bloom)
  * @since 1.2.0
  */
@@ -216,6 +225,15 @@ if ( function_exists( 'infinity_theme_defaults' ) ) {
 
 
 /**
+ * Lifestyle Pro (Premium, by StudioPress)
+ * @since 1.3.2
+ */
+if ( function_exists( 'lifestyle_theme_defaults' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-lifestyle-pro.php' );
+}
+
+
+/**
  * Magazine Pro (Premium, by StudioPress)
  * @since 1.3.0
  */
@@ -239,6 +257,96 @@ if ( function_exists( 'parallax_theme_defaults' ) ) {
  */
 if ( function_exists( 'wellness_theme_defaults' ) ) {
 	require_once( TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-wellness-pro.php' );
+}
+
+
+/**
+ * Aspire Pro (Premium, by Appfinite)
+ * @since 1.3.2
+ */
+if ( function_exists( 'aspire_theme_setting_defaults' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-aspire-pro.php' );
+}
+
+
+/**
+ * Atmosphere Pro (Premium, by StudioPress)
+ * @since 1.3.2
+ */
+if ( function_exists( 'atmosphere_theme_defaults' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-atmosphere-pro.php' );
+}
+
+
+/**
+ * Digital Pro (Premium, by StudioPress)
+ * @since 1.3.2
+ */
+if ( function_exists( 'digital_theme_defaults' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-digital-pro.php' );
+}
+
+
+/**
+ * Executive Pro (Premium, by StudioPress)
+ * @since 1.3.2
+ */
+if ( function_exists( 'executive_theme_defaults' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-executive-pro.php' );
+}
+
+
+/**
+ * Gallery Pro (Premium, by Design by Bloom)
+ * @since 1.3.2
+ */
+if ( 'gallery-pro' === get_stylesheet() ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-gallery-pro.php' );
+}
+
+
+/**
+ * Maker Pro (Premium, by JT Grauke/ Design by Bloom)
+ * @since 1.3.2
+ */
+if ( function_exists( 'maker_theme_setting_defaults' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-maker-pro.php' );
+}
+
+
+/**
+ * Market Theme (Premium, by Restored 316 Designs // Lauren Gaige)
+ * @since 1.3.2
+ */
+if ( function_exists( 'market_theme_defaults' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-market-theme.php' );
+}
+
+
+/**
+ * Metro Pro (Premium, by StudioPress)
+ * @since 1.3.2
+ */
+if ( function_exists( 'metro_theme_defaults' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-metro-pro.php' );
+}
+
+
+/**
+ * Showcase Pro (Premium, by Design by Bloom)
+ * @since 1.3.2
+ */
+if ( 'showcase-pro' === get_stylesheet() ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-metro-pro.php' );
+}
+
+
+/**
+ * Smart Passive Income Pro (Premium, by StudioPress)
+ * @since 1.3.2
+ */
+if ( function_exists( 'spi_theme_defaults' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-metro-pro.php' );
 }
 
 

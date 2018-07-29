@@ -46,7 +46,7 @@ function ddw_tbex_site_items_devmode_theme_switcha() {
 		)
 	);
 
-	/** Group: Resources for Simple Custom CSS */
+	/** Plugin's Resources */
 	if ( ddw_tbex_display_items_resources() ) {
 
 		ddw_tbex_resource_item(

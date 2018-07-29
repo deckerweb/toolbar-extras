@@ -54,7 +54,7 @@ function ddw_tbex_notice_plugins_welcome() {
 		<div data-dismissible="tbex-notice-plugins-welcome-forever" class="notice notice-success is-dismissible">	
 			<h3><?php _e( 'Thank You for Installing and Activating the Toolbar Extras Plugin!', 'toolbar-extras' ); ?></h3>
 			<p><span class="dashicons-before dashicons-admin-generic"></span> <?php echo __( 'You\'ll find the plugin\'s settings under:', 'toolbar-extras' ) . $settings_link; ?></p>
-			<p><span class="dashicons-before dashicons-menu"></span> <?php echo __( 'To create an (optinal) Admin Toolbar Menu just build a new menu here:', 'toolbar-extras' ) . $menu_link; ?></p>
+			<p><span class="dashicons-before dashicons-menu"></span> <?php echo __( 'To create an (optional) Admin Toolbar Menu just build a new menu here:', 'toolbar-extras' ) . $menu_link; ?></p>
 			<p><small>(<?php echo ddw_tbex_string_notice_shown_once(); ?>)</small></p>
 		</div>
 	<?php

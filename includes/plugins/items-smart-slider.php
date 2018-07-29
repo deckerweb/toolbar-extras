@@ -17,13 +17,15 @@ add_filter( 'admin_bar_menu', 'ddw_tbex_site_items_smartslider' );
  * Items for Plugin: Smart Slider 3 (free/Premium, by Nextend)
  *   If tweak setting is active then re-hook from the top to the conditional
  *   hook place for galleries & sliders.
+ *   Note: Existing Toolbar node gets filtered.
  *
  * @since  1.0.0
+ * @since  1.1.0 Filter the existing Toolbar node instead of removing/add new.
  *
  * @uses   ddw_tbex_use_tweak_smartslider()
  *
- * @global mixed $wp_admin_bar
- * @param  obj   $wp_admin_bar Holds all nodes of the Toolbar.
+ * @global mixed  $GLOBALS[ 'wp_admin_bar' ]
+ * @param  object $wp_admin_bar Holds all nodes of the Toolbar.
  */
 function ddw_tbex_site_items_smartslider( $wp_admin_bar ) {
 
@@ -33,7 +35,7 @@ function ddw_tbex_site_items_smartslider( $wp_admin_bar ) {
 	}
 
 	/** Re-hook for: Manage Content */
-	$wp_admin_bar->add_node(
+	$GLOBALS[ 'wp_admin_bar' ]->add_node(
 		array(
 			'id'     => 'smart_slider_3',			// same as original!
 			'parent' => 'gallery-slider-addons',

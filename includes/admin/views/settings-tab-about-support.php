@@ -128,6 +128,10 @@ $tbex_info = (array) ddw_tbex_info_values();
 						'<a class="button tbex-button" href="%1$s" target="_blank" rel="noopener noreferrer" title="%2$s">%2$s</a>',
 						esc_url( admin_url( 'admin.php?page=elementor-system-info' ) ),
 						esc_html__( 'Show System Info', 'toolbar-extras' )
+					); ?> <?php echo sprintf(
+						'<a class="button tbex-button" href="%1$s" title="%2$s" download>%2$s</a>',
+						esc_url( admin_url( 'admin-ajax.php?action=elementor_system_info_download_file' ) ),
+						esc_html__( 'Download', 'toolbar-extras' )
 					); ?>
 				</p>
 			<?php endif; ?>

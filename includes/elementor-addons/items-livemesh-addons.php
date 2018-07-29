@@ -18,7 +18,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_livemesh_addons', 100 );
  *
  * @since  1.0.0
  *
- * @uses  ddw_tbex_resource_item()
+ * @uses   ddw_tbex_resource_item()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -28,8 +28,15 @@ function ddw_tbex_aoitems_livemesh_addons() {
 	add_filter( 'tbex_filter_is_addon', '__return_empty_string' );
 
 	/** Check for active Pro version of the Add-On */
-	$is_livemesh_pro = ( class_exists( '\LivemeshAddons\Livemesh_Elementor_Addons_Pro' ) ) ? TRUE : FALSE;
+	$is_livemesh_pro = FALSE;
 
+	if ( class_exists( '\LivemeshAddons\Livemesh_Elementor_Addons_Pro' )
+		|| ( function_exists( 'lae_fs' ) && lae_fs()->can_use_premium_code__premium_only() )
+	) {
+		$is_livemesh_pro = TRUE;
+	}
+
+	/** Get title/ title attribute */
 	$livemesh_title_attr = sprintf(
 		/* translators: %1$s - Version "Lite" or "Pro" / %2$s - Type "free" or "Premium" */
 		esc_attr__( 'Livemesh Elementor Addons %1$s (%2$s Add-On)', 'toolbar-extras' ),
@@ -77,7 +84,8 @@ function ddw_tbex_aoitems_livemesh_addons() {
 			)
 		);
 
-		if ( $is_livemesh_pro ) {
+		/** For older versions of Pro */
+		if ( class_exists( '\LivemeshAddons\Livemesh_Elementor_Addons_Pro' ) ) {
 
 			$GLOBALS[ 'wp_admin_bar' ]->add_node(
 				array(

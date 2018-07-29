@@ -92,7 +92,7 @@ function ddw_tbex_site_items_duplicator() {
 		/** Group: Resources for Duplicator */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar']->add_group(
+			$GLOBALS[ 'wp_admin_bar' ]->add_group(
 				array(
 					'id'     => 'group-duplicator-resources',
 					'parent' => 'duplicator',
@@ -129,5 +129,40 @@ function ddw_tbex_site_items_duplicator() {
 			);
 
 		}  // end if
+
+}  // end function
+
+
+add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_new_content_duplicator', 100 );
+/**
+ * Items for "New Content" section: New Duplicator Package Archive
+ *
+ * @since  1.3.2
+ *
+ * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ */
+function ddw_tbex_aoitems_new_content_duplicator() {
+
+	/** Bail early if items display is not wanted */
+	if ( ! ddw_tbex_display_items_new_content() || is_network_admin() ) {
+		return;
+	}
+
+	if ( ddw_tbex_display_items_dev_mode() ) {
+
+		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			array(
+				'id'     => 'tbex-duplicator-package',
+				'parent' => 'new-content',
+				'title'  => esc_attr__( 'Duplicator Archive', 'toolbar-extras' ),
+				'href'   => esc_url( admin_url( 'admin.php?page=duplicator&tab=new1' ) ),
+				'meta'   => array(
+					'target' => '',
+					'title'  => ddw_tbex_string_add_new_item( __( 'Duplicator Archive', 'toolbar-extras' ) )
+				)
+			)
+		);
+
+	}  // end if
 
 }  // end function

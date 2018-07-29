@@ -26,12 +26,13 @@ function ddw_tbex_register_pagebuilder_elementor( array $builders ) {
 
 	$builders[ 'elementor' ] = array(
 		/* translators: Label for registered Page Builder, used on plugin's settings page */
-		'label'      => esc_attr_x( 'Elementor', 'Label, used on plugin\'s settings page', 'toolbar-extras' ),
-		/* translators: (Linked) title for registered Page Builder */
-		'title'      => esc_attr_x( 'Elementor', 'Elementor title name', 'toolbar-extras' ),
+		'label'       => esc_attr_x( 'Elementor', 'Label, used on plugin\'s settings page', 'toolbar-extras' ),
+		/* translators: (Linked) Title for registered Page Builder */
+		'title'       => esc_attr_x( 'Elementor', 'Elementor title name', 'toolbar-extras' ),
 		/* translators: Title attribute for registered Page Builder */
-		'title_attr' => esc_attr_x( 'Elementor Page Builder', 'Elementor title attribute name', 'toolbar-extras' ),
-		'admin_url'  => esc_url( apply_filters( 'tbex_filter_elementor_admin_url', admin_url( 'edit.php?post_type=elementor_library' ) ) ),
+		'title_attr'  => esc_attr_x( 'Elementor Page Builder', 'Elementor title attribute name', 'toolbar-extras' ),
+		'admin_url'   => esc_url( apply_filters( 'tbex_filter_elementor_admin_url', admin_url( 'edit.php?post_type=elementor_library' ) ) ),
+		'plugins_tab' => 'yes',
 	);
 
 	return $builders;

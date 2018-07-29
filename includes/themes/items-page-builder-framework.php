@@ -149,7 +149,7 @@ function ddw_tbex_themeitems_pbf_customize() {
 				'parent' => 'theme-creative-customize',
 				/* translators: Autofocus panel in the Customizer */
 				'title'  => esc_attr__( 'WooCommerce Integration', 'toolbar-extras' ),
-				'href'   => ddw_tbex_customizer_focus( 'panel', 'woocommerce' ),
+				'href'   => ddw_tbex_customizer_focus( 'panel', 'woocommerce', get_post_type_archive_link( 'product' ) ),
 				'meta'   => array(
 					'target' => ddw_tbex_meta_target(),
 					'title'  => ddw_tbex_string_customize_attr( __( 'WooCommerce Integration', 'toolbar-extras' ) )

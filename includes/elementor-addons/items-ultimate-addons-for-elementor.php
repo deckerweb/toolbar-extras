@@ -1,6 +1,6 @@
 <?php
 
-//items-ultimate-addons-for-elementor
+// includes/elementor-addons/items-ultimate-addons-for-elementor
 
 /**
  * Prevent direct access to this file.

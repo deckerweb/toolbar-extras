@@ -107,7 +107,7 @@ function ddw_tbex_plugin_links( $tbex_links, $tbex_file ) {
 		$tbex_links[] = ddw_tbex_get_info_link( 'url_translate', esc_html_x( 'Translations', 'Plugins page listing', 'toolbar-extras' ) );
 
 		/* translators: Plugins page listing */
-		$tbex_links[] = ddw_tbex_get_info_link( 'url_donate', esc_html_x( 'Donate', 'Plugins page listing', 'toolbar-extras' ), 'button' );
+		$tbex_links[] = ddw_tbex_get_info_link( 'url_donate', esc_html_x( 'Donate', 'Plugins page listing', 'toolbar-extras' ), 'button-primary' );
 
 	}  // end if plugin links
 
@@ -213,12 +213,15 @@ add_filter( 'plugins_api_result', 'ddw_tbex_add_plugins_api_results', 11, 3 );
  * Filter plugin fetching API results to inject plugin "Multisite Toolbar Additions".
  *
  * @since   1.0.0
+ * @since   1.3.2 Added Block Editor specifications for resutls.
  *
- * Original code by Remy Perona/ WP-Rocket.
+ * Code heavily inspired by original code from Remy Perona/ WP-Rocket.
  * @author  Remy Perona
  * @link    https://wp-rocket.me/
  * @license GPL-2.0+
- * 
+ *
+ * @uses    ddw_tbex_is_block_editor_active()
+ *
  * @param   object|WP_Error $result Response object or WP_Error.
  * @param   string          $action The type of information being requested from the Plugin Install API.
  * @param   object          $args   Plugin API arguments.
@@ -249,31 +252,51 @@ function ddw_tbex_add_plugins_api_results( $result, $action, $args ) {
 		'group'             => TRUE,
 	);
 
+	/** Results for specific plugins (slugs) */
 	$elementor_query_args = array( 'slug' => 'elementor', 'fields' => $query_fields, );
-	$gcfe_query_args      = array( 'slug' => 'granular-controls-for-elementor', 'fields' => $query_fields, );
+	//$gcfe_query_args      = array( 'slug' => 'granular-controls-for-elementor', 'fields' => $query_fields, );
+	$fep_query_args       = array( 'slug' => 'flexible-elementor-panel', 'fields' => $query_fields, );
 	$ccp_query_args       = array( 'slug' => 'kt-tinymce-color-grid', 'fields' => $query_fields, );
+	$dagb_query_args      = array( 'slug' => 'disable-gutenberg', 'fields' => $query_fields, );
 	$simplecss_query_args = array( 'slug' => 'simple-css', 'fields' => $query_fields, );
 	$cs_query_args        = array( 'slug' => 'code-snippets', 'fields' => $query_fields, );
 	$czs_query_args       = array( 'slug' => 'customizer-search', 'fields' => $query_fields, );
 	$czei_query_args      = array( 'slug' => 'customizer-export-import', 'fields' => $query_fields, );
-	$cpi_query_args       = array( 'slug' => 'cleaner-plugin-installer', 'fields' => $query_fields, );
+	$dbwfe_query_args     = array( 'slug' => 'dashboard-welcome-for-elementor', 'fields' => $query_fields, );
+	//$cpi_query_args       = array( 'slug' => 'cleaner-plugin-installer', 'fields' => $query_fields, );
 	$llar_query_args      = array( 'slug' => 'limit-login-attempts-reloaded', 'fields' => $query_fields, );
 	$aopz_query_args      = array( 'slug' => 'autoptimize', 'fields' => $query_fields, );
 	$spl_query_args       = array( 'slug' => 'swift-performance-lite', 'fields' => $query_fields, );
 	$de_query_args        = array( 'slug' => 'debug-elementor', 'fields' => $query_fields, );
 
 	$elementor_data = plugins_api( 'plugin_information', $elementor_query_args );
-	$gcfe_data      = plugins_api( 'plugin_information', $gcfe_query_args );
+	//$gcfe_data      = plugins_api( 'plugin_information', $gcfe_query_args );
+	$fep_data       = plugins_api( 'plugin_information', $fep_query_args );
 	$ccp_data       = plugins_api( 'plugin_information', $ccp_query_args );
+	$dagb_data      = plugins_api( 'plugin_information', $dagb_query_args );
 	$simplecss_data = plugins_api( 'plugin_information', $simplecss_query_args );
 	$cs_data        = plugins_api( 'plugin_information', $cs_query_args );
 	$czs_data       = plugins_api( 'plugin_information', $czs_query_args );
 	$czei_data      = plugins_api( 'plugin_information', $czei_query_args );
-	$cpi_data       = plugins_api( 'plugin_information', $cpi_query_args );
+	$dbwfe_data     = plugins_api( 'plugin_information', $dbwfe_query_args );
+	//$cpi_data       = plugins_api( 'plugin_information', $cpi_query_args );
 	$llar_data      = plugins_api( 'plugin_information', $llar_query_args );
 	$aopz_data      = plugins_api( 'plugin_information', $aopz_query_args );
 	$spl_data       = plugins_api( 'plugin_information', $spl_query_args );
 	$de_data        = plugins_api( 'plugin_information', $de_query_args );
+
+	/** For Block Editor (Gutenberg) */
+	if ( ddw_tbex_is_block_editor_active() ) {
+		
+		$cle_query_args   = array( 'slug' => 'classic-editor', 'fields' => $query_fields, );
+		$clea_query_args  = array( 'slug' => 'classic-editor-addon', 'fields' => $query_fields, );
+		$cfgb_query_args  = array( 'slug' => 'custom-fields-gutenberg', 'fields' => $query_fields, );
+
+		$cle_data   = plugins_api( 'plugin_information', $cle_query_args );
+		$clea_data  = plugins_api( 'plugin_information', $clea_query_args );
+		$cfgb_data  = plugins_api( 'plugin_information', $cfgb_query_args );
+
+	}  // end if
 
 	/** Hook in our results */
 	if ( 'featured' === $args->browse ) {
@@ -282,18 +305,57 @@ function ddw_tbex_add_plugins_api_results( $result, $action, $args ) {
 		$result->plugins = array();
 
 		/** Hook in our results */
-		array_push( $result->plugins, $elementor_data, $ccp_data, $simplecss_data, $gcfe_data, $cs_data, $czs_data, $czei_data, $cpi_data, $llar_data, $aopz_data, $spl_data, $de_data );
+		if ( ddw_tbex_is_block_editor_active() ) {
+
+			array_push( $result->plugins, $dagb_data, $cle_data, $clea_data, $cfgb_data, $elementor_data, $ccp_data, $simplecss_data, $cs_data, $czs_data, $czei_data, $dbwfe_data, $llar_data, $aopz_data, $spl_data, $de_data );
+
+		} else {
+		
+			array_push( $result->plugins, $elementor_data, $ccp_data, $dagb_data, $simplecss_data, $fep_data, $cs_data, $czs_data, $czei_data, $dbwfe_data, $llar_data, $aopz_data, $spl_data, $de_data );
+
+		}  // end if
 
 	} elseif ( 'recommended' === $args->browse ) {
 
-		array_unshift( $result->plugins, $cpi_data, $aopz_data, $spl_data, $elementor_data );
+		array_unshift( $result->plugins, $dagb_data, $aopz_data, $spl_data, $elementor_data );
 
 	} elseif ( 'popular' === $args->browse ) {
 
-		array_unshift( $result->plugins, $elementor_data );
+		array_unshift( $result->plugins, $elementor_data, $dagb_data );
 
 	}  // end if
 
 	return $result;
+
+}  // end function
+
+
+add_filter( 'admin_footer_text', 'ddw_tbex_admin_footer_text' );
+/**
+ * Modifies the "Thank you" text displayed in the WP Admin footer.
+ *   Fired by 'admin_footer_text' filter.
+ *
+ * @since  1.3.2
+ *
+ * @param  string $footer_text The content that will be printed.
+ * @return string The content that will be printed.
+ */
+function ddw_tbex_admin_footer_text( $footer_text ) {
+
+	$current_screen = get_current_screen();
+	$is_tbex_screen = ( $current_screen && FALSE !== strpos( $current_screen->id, 'toolbar-extras' ) );
+
+	if ( $is_tbex_screen ) {
+
+		$footer_text = sprintf(
+			/* translators: 1 - Toolbar Extras / 2 - Link to plugin review */
+			__( 'Enjoyed %1$s? Please leave us a %2$s rating. We really appreciate your support!', 'elementor' ),
+			'<strong>' . __( 'Toolbar Extras', 'toolbar-extras' ) . '</strong>',
+			'<a href="https://wordpress.org/support/plugin/toolbar-extras/reviews/?filter=5#new-post" target="_blank" rel="noopener noreferrer">&#9733;&#9733;&#9733;&#9733;&#9733;</a>'
+		);
+
+	}  // end if
+
+	return $footer_text;
 
 }  // end function

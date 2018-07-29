@@ -31,16 +31,18 @@ function ddw_tbex_maybe_turnon_gravityforms_toolbar() {
 }  // end function
 
 
-add_filter( 'admin_bar_menu', 'ddw_tbex_site_items_gravityforms' );
+//add_filter( 'admin_bar_menu', 'ddw_tbex_site_items_gravityforms' );
+add_filter( 'wp_before_admin_bar_render', 'ddw_tbex_site_items_gravityforms', 100 );
 /**
  * Items for Plugin: Gravity Forms (Premium, by Rocketgenius, Inc.)
+ *   Note: Existing Toolbar node gets filtered.
  *
  * @since  1.0.0
  *
  * @uses   ddw_tbex_use_tweak_gravityforms()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
- * @param  obj   $wp_admin_bar Holds all nodes of the Toolbar.
+ * @global mixed  $GLOBALS[ 'wp_admin_bar' ]
+ * @param  object $wp_admin_bar Holds all nodes of the Toolbar.
  */
 function ddw_tbex_site_items_gravityforms( $wp_admin_bar ) {
 
@@ -54,12 +56,12 @@ function ddw_tbex_site_items_gravityforms( $wp_admin_bar ) {
 		array(
 			'id'     => 'gform-forms',	// same as original!
 			'parent' => 'tbex-sitegroup-forms',
-			'title'  => esc_attr__( 'Gravity Forms', 'toolbar-extras' ),
+			'title'  => ddw_tbex_string_forms_system( 'Gravity' ),	// esc_attr__( 'Gravity Forms', 'toolbar-extras' ),
 			'href'   => esc_url( admin_url( 'admin.php?page=gf_edit_forms' ) ),
 			'meta'   => array(
 				'class'  => 'tbex-gforms',
 				'target' => '',
-				'title'  => esc_attr__( 'Forms (via Gravity Forms)', 'toolbar-extras' )
+				'title'  => ddw_tbex_string_forms_system( 'Gravity' )	//esc_attr__( 'Forms (via Gravity Forms)', 'toolbar-extras' )
 			)
 		)
 	);
@@ -172,6 +174,24 @@ function ddw_tbex_site_items_gravityforms_extend() {
 				)
 			)
 		);
+
+		/** Support for Add-On: Gravity Forms Import Entries (Premium, by GravityView) */
+		if ( class_exists( 'GV_Import_Entries_Addon' ) ) {
+
+			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				array(
+					'id'     => 'gf-import-entries',
+					'parent' => 'gf-impexp',
+					'title'  => esc_attr__( 'Import Entries', 'toolbar-extras' ),
+					'href'   => esc_url( admin_url( 'admin.php?page=gf_export&view=import_entries' ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => esc_attr__( 'Import Entries', 'toolbar-extras' )
+					)
+				)
+			);
+
+		}  // end if
 
 		$GLOBALS[ 'wp_admin_bar' ]->add_node(
 			array(
@@ -295,6 +315,37 @@ function ddw_tbex_site_items_gravityforms_resources() {
 		);
 
 	}  // end if
+
+}  // end function
+
+
+add_filter( 'wp_before_admin_bar_render', 'ddw_tbex_aoitems_new_content_gravityforms', 100 );
+/**
+ * Items for "New Content" section: New Gravity Form
+ *   Note: Existing Toolbar node gets filtered.
+ *
+ * @since  1.3.2
+ *
+ * @global mixed  $GLOBALS[ 'wp_admin_bar' ]
+ * @param  object $wp_admin_bar Holds all nodes of the Toolbar.
+ */
+function ddw_tbex_aoitems_new_content_gravityforms( $wp_admin_bar ) {
+
+	/** Bail early if items display is not wanted */
+	if ( ! ddw_tbex_display_items_new_content() ) {
+		return;
+	}
+
+	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		array(
+			'id'     => 'gravityforms-new-form',	// same as original!
+			'parent' => 'new-content',
+			'title'  => ddw_tbex_string_new_form( 'Gravity' ),
+			'meta'   => array(
+				'title'  => ddw_tbex_string_new_form( 'Gravity' )
+			)
+		)
+	);
 
 }  // end function
 

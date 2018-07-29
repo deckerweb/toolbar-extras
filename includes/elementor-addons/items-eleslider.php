@@ -85,7 +85,7 @@ function ddw_tbex_aoitems_eleslider() {
 		/** Group: Resources for Eleslider */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar']->add_group(
+			$GLOBALS[ 'wp_admin_bar' ]->add_group(
 				array(
 					'id'     => 'group-eleslider-resources',
 					'parent' => 'ao-eleslider',

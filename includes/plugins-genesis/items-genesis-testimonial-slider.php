@@ -115,3 +115,26 @@ function ddw_tbex_aoitems_genesis_testimonial_slider() {
 	);
 
 }  // end function
+
+
+add_filter( 'wp_before_admin_bar_render', 'ddw_tbex_site_items_genesis_testimonial_slider' );
+/**
+ * Tweak original Testimonial post type label in "New Content" group.
+ *   Note: Existing Toolbar node gets filtered.
+ *
+ * @since  1.3.2
+ *
+ * @global mixed  $GLOBALS[ 'wp_admin_bar' ]
+ * @param  object $wp_admin_bar Holds all nodes of the Toolbar.
+ */
+function ddw_tbex_site_items_genesis_testimonial_slider( $wp_admin_bar ) {
+
+	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		array(
+			'id'     => 'new-testimonial',	// same as original!
+			'parent' => 'new-content',
+			'title'  => esc_attr__( 'Testimonial', 'toolbar-extras' ),
+		)
+	);
+
+}  // end function

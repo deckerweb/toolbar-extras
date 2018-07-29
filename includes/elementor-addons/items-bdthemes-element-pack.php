@@ -1,6 +1,6 @@
 <?php
 
-//items-namogo-extras
+// includes/elementor-addons/items-bdthemes-element-pack
 
 /**
  * Prevent direct access to this file.
@@ -50,6 +50,19 @@ function ddw_tbex_aoitems_bdthemes_element_pack() {
 				'meta'   => array(
 					'target' => '',
 					'title'  => esc_attr__( 'Activate Widgets', 'toolbar-extras' )
+				)
+			)
+		);
+
+		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			array(
+				'id'     => 'ao-bdepack-thirdparty-widgets',
+				'parent' => 'ao-bdepack',
+				'title'  => esc_attr__( 'Third-Party Widgets', 'toolbar-extras' ),
+				'href'   => esc_url( admin_url( 'admin.php?page=element_pack_options#element_pack_third_party_widget' ) ),
+				'meta'   => array(
+					'target' => '',
+					'title'  => esc_attr__( 'Activate Third-Party Widgets', 'toolbar-extras' )
 				)
 			)
 		);
@@ -117,6 +130,13 @@ function ddw_tbex_aoitems_bdthemes_element_pack() {
 				'bdepack-support',
 				'group-bdepack-resources',
 				'https://bdthemes.com/contact/'
+			);
+
+			ddw_tbex_resource_item(
+				'translations-pro',
+				'bdepack-translations',
+				'group-bdepack-resources',
+				'https://bdthemes.co/ep-translate/'
 			);
 
 			ddw_tbex_resource_item(

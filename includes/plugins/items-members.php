@@ -22,6 +22,11 @@ add_action( 'admin_bar_menu', 'ddw_tbex_user_items_members', 25 );
  */
 function ddw_tbex_user_items_members() {
 
+	/** Bail early if in Network Admin - "Members" only adds to Sites/ Sub Sites */
+	if ( is_network_admin() ) {
+		return;
+	}
+
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(
 		array(
 			'id'     => 'roles-all',

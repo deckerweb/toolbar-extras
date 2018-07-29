@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 add_action( 'admin_bar_menu', 'ddw_tbex_site_items_devmode_instantide' );
 /**
- * Items for Plugin: Instant IDE (Premium, by CobaltApps)
+ * Items for Plugin: Instant IDE (Premium, by Cobalt Apps)
  *
  * @since  1.0.0
  *

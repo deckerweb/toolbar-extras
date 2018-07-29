@@ -27,11 +27,11 @@ function ddw_tbex_site_items_caldera_forms() {
 		array(
 			'id'     => 'forms-calderaforms',
 			'parent' => 'tbex-sitegroup-forms',
-			'title'  => esc_attr__( 'Caldera Forms', 'toolbar-extras' ),
+			'title'  => ddw_tbex_string_forms_system( 'Caldera' ),
 			'href'   => esc_url( admin_url( 'admin.php?page=caldera-forms' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Caldera Forms', 'toolbar-extras' )
+				'title'  => ddw_tbex_string_forms_system( 'Caldera' )
 			)
 		)
 	);
@@ -42,7 +42,7 @@ function ddw_tbex_site_items_caldera_forms() {
 		 */
 		global $wpdb;
 		$cf_table_name = $wpdb->prefix . 'cf_forms';
-		$forms         = $wpdb->get_results( "SELECT * FROM $cf_table_name" );
+		$forms         = $wpdb->get_results( "SELECT form_id, config FROM $cf_table_name" );
 
 		/** Proceed only if there are any forms */
 		if ( $forms ) {
@@ -58,7 +58,7 @@ function ddw_tbex_site_items_caldera_forms() {
 			foreach ( $forms as $form ) {
 
 				$unserialize = unserialize( $form->config );
-				$form_title  = $unserialize[ 'name' ];
+				$form_title  = esc_attr( $unserialize[ 'name' ] );
 
 				/** Add item per form */
 				$GLOBALS[ 'wp_admin_bar' ]->add_node(

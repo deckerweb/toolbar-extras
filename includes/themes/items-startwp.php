@@ -153,13 +153,16 @@ function ddw_tbex_themeitems_startwp_customize() {
 		)
 	);
 
+	/** 404 Error Page */
+	$url_404_live = get_site_url() . '/404-live-test-' . md5( rand() );
+
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(
 		array(
 			'id'     => 'startwpcmz-404page',
 			'parent' => 'theme-creative-customize',
 			/* translators: Autofocus section in the Customizer */
 			'title'  => esc_attr__( '404 Page', 'toolbar-extras' ),
-			'href'   => ddw_tbex_customizer_focus( 'section', '404' ),
+			'href'   => ddw_tbex_customizer_focus( 'section', '404', $url_404_live ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
 				'title'  => ddw_tbex_string_customize_attr( __( '404 Page', 'toolbar-extras' ) )
@@ -333,7 +336,7 @@ function ddw_tbex_themeitems_startwp_extended() {
 				'parent' => 'theme-creative-customize',
 				/* translators: Autofocus section in the Customizer */
 				'title'  => esc_attr__( 'Woo General', 'toolbar-extras' ),
-				'href'   => ddw_tbex_customizer_focus( 'section', 'swp_woocommerce_general' ),
+				'href'   => ddw_tbex_customizer_focus( 'section', 'swp_woocommerce_general', get_post_type_archive_link( 'product' ) ),
 				'meta'   => array(
 					'target' => ddw_tbex_meta_target(),
 					'title'  => ddw_tbex_string_customize_attr( __( 'Woo General', 'toolbar-extras' ) )
@@ -347,7 +350,7 @@ function ddw_tbex_themeitems_startwp_extended() {
 				'parent' => 'theme-creative-customize',
 				/* translators: Autofocus section in the Customizer */
 				'title'  => esc_attr__( 'Woo Archive', 'toolbar-extras' ),
-				'href'   => ddw_tbex_customizer_focus( 'section', 'swp_woocommerce_archive' ),
+				'href'   => ddw_tbex_customizer_focus( 'section', 'swp_woocommerce_archive', get_post_type_archive_link( 'product' ) ),
 				'meta'   => array(
 					'target' => ddw_tbex_meta_target(),
 					'title'  => ddw_tbex_string_customize_attr( __( 'Woo Archive', 'toolbar-extras' ) )
@@ -361,7 +364,7 @@ function ddw_tbex_themeitems_startwp_extended() {
 				'parent' => 'theme-creative-customize',
 				/* translators: Autofocus section in the Customizer */
 				'title'  => esc_attr__( 'Woo Single', 'toolbar-extras' ),
-				'href'   => ddw_tbex_customizer_focus( 'section', 'swp_woocommerce_single' ),
+				'href'   => ddw_tbex_customizer_focus( 'section', 'swp_woocommerce_single', get_post_type_archive_link( 'product' ) ),
 				'meta'   => array(
 					'target' => ddw_tbex_meta_target(),
 					'title'  => ddw_tbex_string_customize_attr( __( 'Woo Single', 'toolbar-extras' ) )
@@ -382,7 +385,7 @@ function ddw_tbex_themeitems_startwp_extended() {
 				'parent' => 'theme-creative-customize',
 				/* translators: Autofocus section in the Customizer */
 				'title'  => esc_attr__( 'EDD Archive', 'toolbar-extras' ),
-				'href'   => ddw_tbex_customizer_focus( 'section', 'swp_edd_archive' ),
+				'href'   => ddw_tbex_customizer_focus( 'section', 'swp_edd_archive', get_post_type_archive_link( 'download' ) ),
 				'meta'   => array(
 					'target' => ddw_tbex_meta_target(),
 					'title'  => ddw_tbex_string_customize_attr( __( 'EDD Archive', 'toolbar-extras' ) )
@@ -396,7 +399,7 @@ function ddw_tbex_themeitems_startwp_extended() {
 				'parent' => 'theme-creative-customize',
 				/* translators: Autofocus section in the Customizer */
 				'title'  => esc_attr__( 'EDD Single', 'toolbar-extras' ),
-				'href'   => ddw_tbex_customizer_focus( 'section', 'swp_edd_single' ),
+				'href'   => ddw_tbex_customizer_focus( 'section', 'swp_edd_single', get_post_type_archive_link( 'download' ) ),
 				'meta'   => array(
 					'target' => ddw_tbex_meta_target(),
 					'title'  => ddw_tbex_string_customize_attr( __( 'EDD Single', 'toolbar-extras' ) )

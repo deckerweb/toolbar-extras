@@ -91,4 +91,4 @@ function ddw_tbex_new_content_tm_timeline() {
 
 	}  // end if
 
-}  // end if
+}  // end function

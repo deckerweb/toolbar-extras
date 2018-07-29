@@ -79,7 +79,7 @@ function ddw_tbex_site_items_wpstaging() {
 		/** Group: Resources for WP-Staging */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar']->add_group(
+			$GLOBALS[ 'wp_admin_bar' ]->add_group(
 				array(
 					'id'     => 'group-wpstaging-resources',
 					'parent' => 'wpstaging',

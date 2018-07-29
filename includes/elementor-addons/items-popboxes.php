@@ -17,7 +17,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_popboxes', 100 );
  * Items for Add-On: PopBoxes for Elementor (free, by Zulfikar Nore)
  *
  * @since  1.0.0
- * 
+ *
  * @uses   ddw_tbex_resource_item()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
@@ -84,7 +84,7 @@ function ddw_tbex_aoitems_popboxes() {
 		/** Group: Resources for PopBoxes */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar']->add_group(
+			$GLOBALS[ 'wp_admin_bar' ]->add_group(
 				array(
 					'id'     => 'group-popbox-resources',
 					'parent' => 'ao-popboxes',

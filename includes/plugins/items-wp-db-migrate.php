@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 
-add_action( 'admin_bar_menu', 'ddw_tbex_site_items_wpdbmigrate', 19 );
+add_action( 'admin_bar_menu', 'ddw_tbex_site_items_wpmigratedb', 19 );
 /**
  * Items for Plugin: WP Migrate DB (Pro) (free/Premium, by Delicious Brains)
  *
@@ -24,7 +24,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_wpdbmigrate', 19 );
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar']
  */
-function ddw_tbex_site_items_wpdbmigrate() {
+function ddw_tbex_site_items_wpmigratedb() {
 
 	$type = function_exists( 'wp_migrate_db_pro_loaded' ) ? '-pro' : '';
 
@@ -34,7 +34,7 @@ function ddw_tbex_site_items_wpdbmigrate() {
 			'id'     => 'wpdbmigrate',
 			'parent' => 'tbex-sitegroup-tools',
 			'title'  => esc_attr__( 'DB Migrate', 'toolbar-extras' ),
-			'href'   => esc_url( admin_url( 'tools.php?page=wp-migrate-db' . $type ) ),
+			'href'   => is_multisite() ? esc_url( network_admin_url( 'settings.php?page=wp-migrate-db' . $type ) ) : esc_url( admin_url( 'tools.php?page=wp-migrate-db' . $type ) ),
 			'meta'   => array(
 				'target' => '',
 				'title'  => esc_attr__( 'DB Migrate', 'toolbar-extras' )
@@ -47,7 +47,7 @@ function ddw_tbex_site_items_wpdbmigrate() {
 				'id'     => 'wpdbmigrate-migrate',
 				'parent' => 'wpdbmigrate',
 				'title'  => esc_attr__( 'Migrate', 'toolbar-extras' ),
-				'href'   => esc_url( admin_url( 'tools.php?page=wp-migrate-db' . $type . '#migrate' ) ),
+				'href'   => is_multisite() ? esc_url( network_admin_url( 'settings.php?page=wp-migrate-db' . $type . '#migrate' ) ) : esc_url( admin_url( 'tools.php?page=wp-migrate-db' . $type . '#migrate' ) ),
 				'meta'   => array(
 					'class'  => 'js-action-link migrate',
 					'target' => '',
@@ -61,7 +61,7 @@ function ddw_tbex_site_items_wpdbmigrate() {
 				'id'     => 'wpdbmigrate-settings',
 				'parent' => 'wpdbmigrate',
 				'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
-				'href'   => esc_url( admin_url( 'tools.php?page=wp-migrate-db' . $type . '#settings' ) ),
+				'href'   => is_multisite() ? esc_url( network_admin_url( 'settings.php?page=wp-migrate-db' . $type . '#settings' ) ) : esc_url( admin_url( 'tools.php?page=wp-migrate-db' . $type . '#settings' ) ),
 				'meta'   => array(
 					'class'  => 'js-action-link settings',
 					'target' => '',
@@ -75,7 +75,7 @@ function ddw_tbex_site_items_wpdbmigrate() {
 				'id'     => 'wpdbmigrate-help',
 				'parent' => 'wpdbmigrate',
 				'title'  => esc_attr__( 'Help', 'toolbar-extras' ),
-				'href'   => esc_url( admin_url( 'tools.php?page=wp-migrate-db' . $type . '#help' ) ),
+				'href'   => is_multisite() ? esc_url( network_admin_url( 'settings.php?page=wp-migrate-db' . $type . '#help' ) ) : esc_url( admin_url( 'tools.php?page=wp-migrate-db' . $type . '#help' ) ),
 				'meta'   => array(
 					'class'  => 'js-action-link help',
 					'target' => '',
@@ -84,10 +84,10 @@ function ddw_tbex_site_items_wpdbmigrate() {
 			)
 		);
 
-		/** Group: Resources for WP DB Migrate */
+		/** Group: Resources for WP Migrate DB */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar']->add_group(
+			$GLOBALS[ 'wp_admin_bar' ]->add_group(
 				array(
 					'id'     => 'group-wpdbmigrate-resources',
 					'parent' => 'wpdbmigrate',
@@ -96,7 +96,7 @@ function ddw_tbex_site_items_wpdbmigrate() {
 			);
 
 			if ( function_exists( 'wp_migrate_db_pro_loaded' ) ) {
-				
+
 				ddw_tbex_resource_item(
 					'documentation',
 					'wpdbmigrate-docs',

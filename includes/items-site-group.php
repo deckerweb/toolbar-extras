@@ -54,39 +54,42 @@ function ddw_tbex_site_items_base_groups() {
 
 	do_action( 'tbex_before_site_group_content' );
 
+	/** Add these hook places only for Sites - not for Network Admin */
+	if ( ! is_network_admin() ) {
 
-	/** Group: Manage Content (Posts, Pages, Products) */
-	$GLOBALS[ 'wp_admin_bar' ]->add_group(
-		array(
-			'id'     => 'tbex-sitegroup-manage-content',
-			'parent' => ddw_tbex_parent_id_site_group()
-		)
-	);
+		/** Group: Manage Content (Posts, Pages, Products) */
+		$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			array(
+				'id'     => 'tbex-sitegroup-manage-content',
+				'parent' => ddw_tbex_parent_id_site_group()
+			)
+		);
 
-	do_action( 'tbex_after_site_group_content' );
-
-
-	/** Group: Forms */
-	$GLOBALS[ 'wp_admin_bar' ]->add_group(
-		array(
-			'id'     => 'tbex-sitegroup-forms',
-			'parent' => ddw_tbex_parent_id_site_group()
-		)
-	);
-
-	do_action( 'tbex_after_site_group_forms' );
+		do_action( 'tbex_after_site_group_content' );
 
 
-	/** Group: Elements - Widgets, Menus, etc. */
-	$GLOBALS[ 'wp_admin_bar' ]->add_group(
-		array(
-			'id'     => 'tbex-sitegroup-elements',
-			'parent' => ddw_tbex_parent_id_site_group()
-		)
-	);
+		/** Group: Forms */
+		$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			array(
+				'id'     => 'tbex-sitegroup-forms',
+				'parent' => ddw_tbex_parent_id_site_group()
+			)
+		);
 
-	do_action( 'tbex_after_site_group_elements' );
+		do_action( 'tbex_after_site_group_forms' );
 
+
+		/** Group: Elements - Widgets, Menus, etc. */
+		$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			array(
+				'id'     => 'tbex-sitegroup-elements',
+				'parent' => ddw_tbex_parent_id_site_group()
+			)
+		);
+
+		do_action( 'tbex_after_site_group_elements' );
+
+	}  // end if !(Network Admin) check
 
 	/** Group: Tools (Cache, Backups, etc.) ... */
 	$GLOBALS[ 'wp_admin_bar' ]->add_group(
@@ -410,7 +413,7 @@ function ddw_tbex_site_items_more_stuff() {
 			'id'     => 'wpplugins',
 			'parent' => 'tbex-sitegroup-stuff',
 			'title'  => esc_attr__( 'Plugins', 'toolbar-extras' ),
-			'href'   => esc_url( admin_url( 'plugins.php' ) ),
+			'href'   => is_network_admin() ? esc_url( network_admin_url( 'plugins.php' ) ) : esc_url( admin_url( 'plugins.php' ) ),
 			'meta'   => array(
 				'target' => '',
 				'title'  => esc_attr__( 'Plugins Page', 'toolbar-extras' )
@@ -425,7 +428,7 @@ function ddw_tbex_site_items_more_stuff() {
 					'id'     => 'wpplugins-all',
 					'parent' => 'wpplugins',
 					'title'  => esc_attr__( 'All Plugins', 'toolbar-extras' ),
-					'href'   => esc_url( admin_url( 'plugins.php?plugin_status=all' ) ),
+					'href'   => is_network_admin() ? esc_url( network_admin_url( 'plugins.php?plugin_status=all' ) ) : esc_url( admin_url( 'plugins.php?plugin_status=all' ) ),
 					'meta'   => array(
 						'target' => '',
 						'title'  => esc_attr__( 'All Plugins', 'toolbar-extras' )
@@ -438,7 +441,7 @@ function ddw_tbex_site_items_more_stuff() {
 					'id'     => 'wpplugins-active',
 					'parent' => 'wpplugins',
 					'title'  => esc_attr__( 'Active Plugins', 'toolbar-extras' ),
-					'href'   => esc_url( admin_url( 'plugins.php?plugin_status=active' ) ),
+					'href'   => is_network_admin() ? esc_url( network_admin_url( 'plugins.php?plugin_status=active' ) ) : esc_url( admin_url( 'plugins.php?plugin_status=active' ) ),
 					'meta'   => array(
 						'target' => '',
 						'title'  => esc_attr__( 'Currently active Plugins', 'toolbar-extras' )
@@ -451,7 +454,7 @@ function ddw_tbex_site_items_more_stuff() {
 					'id'     => 'wpplugins-inactive',
 					'parent' => 'wpplugins',
 					'title'  => esc_attr__( 'Inactive Plugins', 'toolbar-extras' ),
-					'href'   => esc_url( admin_url( 'plugins.php?plugin_status=inactive' ) ),
+					'href'   => is_network_admin() ? esc_url( network_admin_url( 'plugins.php?plugin_status=inactive' ) ) : esc_url( admin_url( 'plugins.php?plugin_status=inactive' ) ),
 					'meta'   => array(
 						'target' => '',
 						'title'  => esc_attr__( 'Currently inactive Plugins', 'toolbar-extras' )

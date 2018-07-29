@@ -45,11 +45,11 @@ function ddw_tbex_site_items_formidable_forms() {
 		array(
 			'id'     => 'forms-formidableforms',
 			'parent' => 'tbex-sitegroup-forms',
-			'title'  => esc_attr__( 'Formidable Forms', 'toolbar-extras' ),
+			'title'  => ddw_tbex_string_forms_system( 'Formidable' ),
 			'href'   => esc_url( admin_url( 'admin.php?page=formidable' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Formidable Forms', 'toolbar-extras' )
+				'title'  => ddw_tbex_string_forms_system( 'Formidable' )
 			)
 		)
 	);
@@ -433,7 +433,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_new_content_formidable', 80 );
 function ddw_tbex_aoitems_new_content_formidable() {
 
 	/** Bail early if items display is not wanted */
-	if ( ! ddw_tbex_display_items_new_content() ) {
+	if ( ! ddw_tbex_display_items_new_content() || is_network_admin() ) {
 		return;
 	}
 

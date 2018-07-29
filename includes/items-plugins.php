@@ -114,6 +114,42 @@ if ( defined( 'CODE_SNIPPETS_VERSION' ) ) {
 
 
 /**
+ * Plugin: PHP code snippets (Insert PHP) (free, by Webcraftic)
+ * @since 1.0.0
+ */
+if ( defined( 'WINP_SNIPPETS_POST_TYPE' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-php-code-snippets.php' );
+}
+
+
+/**
+ * Plugin: Schema Pro (Premium, by Brainstorm Force)
+ * @since 1.3.2
+ */
+if ( defined( 'BSF_AIOSRS_PRO_VER' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-wp-schema-pro.php' );
+}
+
+
+/**
+ * Plugin: All In One Schema Rich Snippets (free, by Brainstorm Force)
+ * @since 1.3.2
+ */
+if ( class_exists( 'RichSnippets' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-bsf-aiosrs.php' );
+}
+
+
+/**
+ * Plugin: Schema (free, by Hesham)
+ * @since 1.3.2
+ */
+if ( class_exists( 'Schema_WP' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-hesham-schema.php' );
+}
+
+
+/**
  * Plugin: Add From Server (free, by Dion Hulse)
  * @since 1.0.0
  */
@@ -222,16 +258,25 @@ if ( class_exists( 'Church_Theme_Content' ) ) {
  */
 
 /**
- * Plugin: Health Check (free, by The WordPress.org community)
+ * Plugin: Health Check & Troubleshooting (free, by The WordPress.org community)
  * @since 1.0.0
  */
-if ( class_exists( 'HealthCheck' ) ) {
+if ( class_exists( 'Health_Check' ) || defined( 'HEALTH_CHECK_PLUGIN_VERSION' ) ) {
 	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-health-check.php' );
 }
 
 
 /**
- * Dev Add-On: GitHub Updater (free, by Andy Fragen)
+ * Plugin: WPMU Dev Dashboard (Premium, by WPMU DEV)
+ * @since 1.3.2
+ */
+if ( class_exists( 'WPMUDEV_Dashboard' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-wpmudev-dashboard.php' );
+}
+
+
+/**
+ * Plugin: GitHub Updater (free, by Andy Fragen)
  * @since 1.0.0
  */
 if ( in_array( 'github-updater/github-updater.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
@@ -244,7 +289,6 @@ if ( in_array( 'github-updater/github-updater.php', apply_filters( 'active_plugi
  * @since 1.0.0
  */
 if ( ddw_tbex_display_items_dev_mode()
-	/* && ddw_tbex_in_local_environment() */
 	&& in_array( 'local-development/local-development.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) )
 ) {
 	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-local-development.php' );
@@ -315,6 +359,24 @@ if ( class_exists( 'Easy_Digital_Downloads' ) ) {
 
 
 /**
+ * Plugin: WP Portfolio (Premium, by Brainstorm Force)
+ * @since 1.3.2
+ */
+if ( defined( 'ASTRA_PORTFOLIO_VER' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-wp-portfolio.php' );
+}
+
+
+/**
+ * Plugin: Portfolio Post Type (free, by Devin Price)
+ * @since 1.3.2
+ */
+if ( function_exists( 'portfolio_post_type_init' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-cpt-portfolio.php' );
+}
+
+
+/**
  * Plugin: Gravity Forms (Premium, by Rocketgenius, Inc.)
  * @since 1.0.0
  */
@@ -374,6 +436,51 @@ if ( defined( 'WPCF7_VERSION' ) ) {
  */
 if ( defined( 'QUFORM_VERSION' ) ) {
 	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-quform.php' );
+}
+
+
+/**
+ * Plugin: Everest Forms (free, by WPEverest)
+ * @since 1.3.2
+ */
+if ( class_exists( 'EverestForms' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-everest-forms.php' );
+}
+
+
+/**
+ * Plugin: FormCraft 3 (Premium, by nCrafts)
+ * @since 1.3.2
+ */
+if ( function_exists( 'formcraft3_activate' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-formcraft.php' );
+}
+
+
+/**
+ * Plugin: ARForms (Premium, by Repute InfoSystems)
+ * @since 1.3.2
+ */
+if ( defined( 'ARFPLUGINTITLE' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-arforms.php' );
+}
+
+
+/**
+ * Plugin: MailChimp for WordPress (free, by ibericode)
+ * @since 1.3.2
+ */
+if ( class_exists( 'MC4WP_Form_Manager' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-mailchimp-for-wp.php' );
+}
+
+
+/**
+ * Plugin: HappyForms (free, by The Theme Foundry)
+ * @since 1.3.2
+ */
+if ( defined( 'HAPPYFORMS_VERSION' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-happyforms.php' );
 }
 
 
@@ -476,6 +583,15 @@ if ( defined( 'TM_TIMELINE_VERSION' ) ) {
 }
 
 
+/**
+ * Plugin: Cool Timeline (free, by Cool Plugins)
+ * @since 1.3.2
+ */
+if ( defined( 'COOL_TIMELINE_VERSION_CURRENT' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-cool-timeline.php' );
+}
+
+
 
 /**
  * Plugin: Regenerate Thumbnails (free, by Alex Mills)
@@ -523,6 +639,15 @@ if ( class_exists( 'Widget_Importer_Exporter' ) ) {
 
 
 /**
+ * Plugin: SEOPress (Pro) (free/ Premium, by Benjamin Denis)
+ * @since 1.3.2
+ */
+if ( defined( 'SEOPRESS_VERSION' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-seopress.php' );
+}
+
+
+/**
  * Plugin: All-in-One WP Migration (free, by ServMask)
  * @since 1.0.0
  */
@@ -546,6 +671,24 @@ if ( defined( 'UPDRAFTPLUS_DIR' ) ) {
  */
 if ( defined( 'DUPLICATOR_VERSION' ) ) {
 	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-duplicator.php' );
+}
+
+
+/**
+ * Plugin: Duplicator Pro (Premium, by Snap Creek)
+ * @since 1.3.2
+ */
+if ( defined( 'DUPLICATOR_PRO_VERSION' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-duplicator-pro.php' );
+}
+
+
+/**
+ * Plugin: BackWPup (free, by Inpsyde GmbH)
+ * @since 1.3.2
+ */
+if ( class_exists( 'BackWPup' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-backwpup.php' );
 }
 
 

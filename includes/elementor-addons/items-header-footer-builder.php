@@ -84,7 +84,7 @@ function ddw_tbex_aoitems_header_footer_builder() {
 		/** Group: Resources for Header Footer Builder */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar']->add_group(
+			$GLOBALS[ 'wp_admin_bar' ]->add_group(
 				array(
 					'id'     => 'group-hfbuilder-resources',
 					'parent' => 'ao-hfbuilder',

@@ -60,8 +60,7 @@ function ddw_tbex_site_items_quform() {
 	);
 
 		/**
-		 * Add each individual form as an item.
-		 *   Forms are saved as a post type therefore a query necessary.
+		 * Add each individual form as an item. Database query is necessary.
 		 * @since 1.3.1
 		 */
 		$quform_forms = new Quform_Repository;

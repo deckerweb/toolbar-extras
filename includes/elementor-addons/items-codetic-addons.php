@@ -136,6 +136,13 @@ function ddw_tbex_aoitems_codetic_addons() {
 			}  // end if
 
 			ddw_tbex_resource_item(
+				'github',
+				'codeticaddons-github',
+				'group-codeticaddons-resources',
+				'https://github.com/rupok/essential-addons-elementor-lite'
+			);
+
+			ddw_tbex_resource_item(
 				'official-site',
 				'codeticaddons-site',
 				'group-codeticaddons-resources',
