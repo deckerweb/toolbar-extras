@@ -2,6 +2,13 @@
 
 ## Changelog
 
+### 1.3.3 - 2018-08-08
+
+* New: Verified support for Business accounts on WordPress.com platform which support installation of other plugins (like Toolbar Extras) - [check the full tutorial on our plugin website](https://toolbarextras.com/docs/how-to-use-toolbar-extras-plugin-on-wordpress-com/)
+* Tweak: Improved and corrected Readme.txt file here
+* Fix: Respect namespaced classes in "PowerPack Elements" plugin support for their v1.3.4+ release
+
+
 ### 1.3.2 - 2018-07-29
 
 * New: Added "Elements" to the "GeneratePress" Theme support for the Premium Add-On v1.7 or higher (including backwards compat for Page Headers and Hooks)

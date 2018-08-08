@@ -5,7 +5,7 @@ Tags: toolbar, adminbar, admin bar, elementor, page builder, themes, menu, links
 Requires at least: 4.7
 Tested up to: 4.9.8
 Requires PHP: 5.6
-Stable tag: 1.3.2
+Stable tag: 1.3.3
 License: GPL-2.0+
 License URI: https://opensource.org/licenses/GPL-2.0
 
@@ -267,6 +267,11 @@ For Multisite installs I currently recommend my own plugin **["Multisite Toolbar
 
 *Update II:* A special Multisite Add-On for Toolbar Extras is planned but no date is being set yet. This Add-On will bring many improvements to the Network Admin area as well as specific plugin support for Multisite.
 
+**Can the plugin be used on WordPress.com?**
+Normally not. But, when you are on the paid Business plan then installation of plugins is allowed for these account types. However, since WordPress.com replaces the original WordPress Toolbar with their "Masterbar" you first need to remove this via a code snippet. Then you can use plugins like Toolbar Extras.
+
+See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business account](https://toolbarextras.com/docs/how-to-use-toolbar-extras-plugin-on-wordpress-com/).
+
 **More info on Translations?**
 
 * English - default, always included
@@ -336,6 +341,12 @@ For Multisite installs I currently recommend my own plugin **["Multisite Toolbar
 == Changelog ==
 
 ([For the full changelog of this plugin visit its website at ToolbarExtras.com](https://toolbarextras.com/changelog/))
+
+= 1.3.3 - 2018-08-08 =
+* New: Verified support for Business accounts on WordPress.com platform which support installation of other plugins (like Toolbar Extras) - [check the full tutorial on our plugin website](https://toolbarextras.com/docs/how-to-use-toolbar-extras-plugin-on-wordpress-com/)
+* Tweak: Improved and corrected Readme.txt file here
+* Fix: Respect namespaced classes in "PowerPack Elements" plugin support for their v1.3.4+ release
+
 
 = 1.3.2 - 2018-07-29 =
 * New: Added "Elements" to the "GeneratePress" Theme support for the Premium Add-On v1.7 or higher (including backwards compat for Page Headers and Hooks)
@@ -739,6 +750,9 @@ For Multisite installs I currently recommend my own plugin **["Multisite Toolbar
 ([For the full changelog of this plugin visit its website at ToolbarExtras.com](https://toolbarextras.com/changelog/))
 
 == Upgrade Notice =
+
+= 1.3.3 =
+Maintenance release. Important fix to support "PowerPack Elements" Add-On v1.3.4+.
 
 = 1.3.2 =
 Maintenance release. Some additions, improvements, tweaks and important fixes plus further extended plugin support. Also improved Multisite support now.

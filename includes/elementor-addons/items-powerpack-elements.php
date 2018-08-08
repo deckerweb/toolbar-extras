@@ -17,8 +17,9 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_powerpack_elements', 100 );
  * Items for Add-On: PowerPack Elements (Premium, by IdeaBox Creations)
  *
  * @since  1.0.0
+ * @since  1.3.3 Namespaced classes in PowerPack Elements
  *
- * @uses   PP_Admin_Settings::get_settings()
+ * @uses   \PowerpackElements\Classes\PP_Admin_Settings::get_settings()
  * @uses   ddw_tbex_resource_item()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
@@ -29,8 +30,19 @@ function ddw_tbex_aoitems_powerpack_elements() {
 	add_filter( 'tbex_filter_is_addon', '__return_empty_string' );
 
 	/** Get White Label settings from the PowerPack plugin */
-	$pp_settings = PP_Admin_Settings::get_settings();
-	$pp_name     = ( '' == trim( $pp_settings[ 'plugin_name' ] ) ) ? 'PowerPack' : trim( $pp_settings[ 'plugin_name' ] );
+	$pp_settings = array();
+
+	if ( class_exists( '\PowerpackElements\Classes\PP_Admin_Settings' ) ) {
+
+		$pp_settings = \PowerpackElements\Classes\PP_Admin_Settings::get_settings();
+
+	} elseif ( class_exists( '\PP_Admin_Settings' ) ) {
+
+		$pp_settings = \PP_Admin_Settings::get_settings();
+
+	}  // end if
+
+	$pp_name = ( '' == trim( $pp_settings[ 'plugin_name' ] ) ) ? 'PowerPack' : trim( $pp_settings[ 'plugin_name' ] );
 
 	/** PowerPack Settings */
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(
