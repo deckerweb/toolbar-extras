@@ -1,0 +1,22 @@
+{
+  "name": "deckerweb/toolbar-extras",
+  "description": "WordPress plugin - short description: Building sites with Elementor? Your work will get easier & faster with Toolbar Extras. With extended plugin & theme support baked right in.",
+  "keywords": ["toolbar", "adminbar", "admin bar", "elementor", "page builder", "menu", "links", "themes"],
+  "type": "wordpress-plugin",
+  "homepage": "https://github.com/deckerweb/toolbar-extras",
+  "license": "GPL-2.0+",
+  "authors": [
+    {
+      "name": "David Decker",
+      "homepage": "https://toolbarextras.com/",
+      "role": "Developer"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/deckerweb/toolbar-extras/issues",
+    "source": "https://github.com/deckerweb/toolbar-extras"
+  },
+  "require": {
+    "php": ">=5.6"
+  }
+}
