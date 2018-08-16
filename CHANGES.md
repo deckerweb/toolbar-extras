@@ -1,6 +1,15 @@
 # Toolbar Extras for Elementor
 
-## Changelog
+**General Info**
+
+* [Plugin's own website: toolbarextras.com](https://toolbarextras.com/)
+* [Plugin page on WordPress.org: wordpress.org/plugins/toolbar-extras/](https://wordpress.org/plugins/toolbar-extras/)
+* [Translate the plugin](https://translate.wordpress.org/projects/wp-plugins/toolbar-extras)
+* [**Donate** for the further development & support of the plugin](https://www.paypal.me/deckerweb)
+* [Plugin's documentation & knowledge base](https://toolbarextras.com/docs/)
+* [Plugin's public roadmap (Trello Board)](https://toolbarextras.com/go/public-roadmap/)
+
+## Changelog of the Plugin
 
 ### 1.3.3 - 2018-08-08
 
