@@ -42,12 +42,14 @@ function ddw_tbex_plugin_combatibility() {
  * Remove (otherwise) doubled items by Plugin "Multisite Toolbar Additions".
  *
  * @since 1.0.0
+ * @since 1.3.4 Tweak for BackWPup plugin support in MSTBA.
  *
  * @uses  ddw_tbex_use_tweak_mstba_siteextgroup()
  */
 function ddw_tbex_remove_mstba_items() {
 
 	$GLOBALS[ 'wp_admin_bar' ]->remove_node( 'ddw-mstba-new-navmenu' );
+	$GLOBALS[ 'wp_admin_bar' ]->remove_node( 'ddw-mstba-newcontent_backwpup_add' );
 
 	/** Optionally remove MSTBA's Site Extend Group */
 	if ( ddw_tbex_use_tweak_mstba_siteextgroup() ) {

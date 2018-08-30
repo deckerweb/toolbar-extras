@@ -427,6 +427,7 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 * Tweak: Enhanced "WP-Staging" plugin support - added dynamic list of staging clones, plus, added support for "WP-Staging Pro" version
 * Tweak: Enhanced "JetEngine" plugin support - which is out of beta now! (added Meta Boxes)
 * Tweak: For "WP Schema Pro" plugin support - respect the advanced setting of menu position (dynamic)
+* Tweak: Improved plugin compatibility with sister-plugin "Multisite Toolbar Additions"
 * Tweak: Added plugins recommendations library by deckerweb to improve the plugin installer tips (old filter function got removed)
 * Tweak: Enhanced, improved and corrected Readme.txt file here
 * Tweak: Updated `.pot` file plus all German translations (formal, informal) and language packs
