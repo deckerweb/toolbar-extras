@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Toolbar Extras\n"
-"POT-Creation-Date: 2018-07-29 23:36+0200\n"
-"PO-Revision-Date: 2018-07-29 23:37+0200\n"
+"POT-Creation-Date: 2018-08-30 21:19+0200\n"
+"PO-Revision-Date: 2018-08-30 21:19+0200\n"
 "Last-Translator: David Decker DECKERWEB.de -- https://deckerweb.de/\n"
 "Language-Team: David Decker DECKERWEB.de -- https://deckerweb.de/\n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.1\n"
+"X-Generator: Poedit 2.1.1\n"
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
@@ -44,25 +44,25 @@ msgid "Custom Menu"
 msgstr "Eigenes Menü"
 
 #. translators: Plugins page listing
-#: includes/admin/admin-extras.php:101
+#: includes/admin/admin-extras.php:113
 msgctxt "Plugins page listing"
 msgid "Support"
 msgstr "Support"
 
 #. translators: Plugins page listing
-#: includes/admin/admin-extras.php:104
+#: includes/admin/admin-extras.php:116
 msgctxt "Plugins page listing"
 msgid "Facebook Group"
 msgstr "Facebook-Gruppe"
 
 #. translators: Plugins page listing
-#: includes/admin/admin-extras.php:107
+#: includes/admin/admin-extras.php:119
 msgctxt "Plugins page listing"
 msgid "Translations"
 msgstr "Übersetzungen"
 
 #. translators: Plugins page listing
-#: includes/admin/admin-extras.php:110
+#: includes/admin/admin-extras.php:122
 msgctxt "Plugins page listing"
 msgid "Donate"
 msgstr "Spenden"
@@ -71,8 +71,8 @@ msgstr "Spenden"
 #. translators: Label for "Toolbar Extras" sub-menu item in left-hand admin menu
 #. translators: Plugin title
 #. Plugin Name of the plugin/theme
-#: includes/admin/admin-extras.php:152 includes/admin/admin-extras.php:192
-#: includes/admin/admin-extras.php:353 includes/admin/tbex-settings.php:1078
+#: includes/admin/admin-extras.php:164 includes/admin/admin-extras.php:204
+#: includes/admin/admin-extras.php:243 includes/admin/tbex-settings.php:1078
 #: includes/admin/views/help-content-menus.php:35
 #: includes/admin/views/notice-plugins-welcome.php:40
 #: includes/admin/views/settings-tab-about-support.php:43
@@ -83,27 +83,27 @@ msgid "Toolbar Extras"
 msgstr "Toolbar Extras"
 
 #. translators: %1$s - Term: 'The following menu location above is' / %2$s - "Super Admins" or "Admins" / %3$s - Name of plugin ("Toolbar Extras")
-#: includes/admin/admin-extras.php:189
+#: includes/admin/admin-extras.php:201
 #, php-format
 msgid "%1$s only for %2$s."
 msgstr "%1$s nur für %2$s."
 
-#: includes/admin/admin-extras.php:189
+#: includes/admin/admin-extras.php:201
 #, php-format
 msgid "This is provided by the plugin %3$s."
 msgstr "Dies wird bereitgestellt durch das Plugin %3$s."
 
-#: includes/admin/admin-extras.php:190
+#: includes/admin/admin-extras.php:202
 msgid "The following menu location above is"
 msgstr "Die folgende oben aufgelistete Menüposition ist"
 
-#: includes/admin/admin-extras.php:202
+#: includes/admin/admin-extras.php:214
 msgid "See help tab on top right corner for more usage instructions."
 msgstr ""
 "Der Hilfe-Tab oben rechts bietet weitere Instruktionen zum Einsatz der Menüs."
 
 #. translators: 1 - Toolbar Extras / 2 - Link to plugin review
-#: includes/admin/admin-extras.php:352
+#: includes/admin/admin-extras.php:242
 #, php-format
 msgid ""
 "Enjoyed %1$s? Please leave us a %2$s rating. We really appreciate your "
@@ -675,8 +675,8 @@ msgstr ""
 #: includes/plugins/items-wp-portfolio.php:96
 #: includes/plugins/items-wpforms.php:168
 #: includes/plugins/items-wpforms.php:172
-#: includes/plugins/items-wpstaging.php:57
-#: includes/plugins/items-wpstaging.php:61
+#: includes/plugins/items-wpstaging.php:140
+#: includes/plugins/items-wpstaging.php:144
 #: includes/themes-genesis/items-genesis-gbeaver.php:31
 #: includes/themes-genesis/items-genesis-gbeaver.php:35
 #: includes/themes/items-beaver-builder-theme.php:161
@@ -1603,7 +1603,7 @@ msgstr "Alle Templates"
 #: includes/elementor-addons/items-jetthemecore.php:254
 #: includes/elementor-addons/items-jetthemecore.php:258
 #: includes/elementor-addons/items-jetwoobuilder.php:58
-#: includes/elementor-addons/items-jetwoobuilder.php:62
+#: includes/elementor-addons/items-jetwoobuilder.php:63
 #: includes/elementor-addons/items-templementor.php:59
 #: includes/elementor-addons/items-templementor.php:63
 #: includes/elementor-official/items-elementor-core.php:140
@@ -1622,8 +1622,8 @@ msgstr "Neues Template"
 #: includes/elementor-addons/items-header-footer-builder.php:77
 #: includes/elementor-addons/items-jetthemecore.php:269
 #: includes/elementor-addons/items-jetthemecore.php:273
-#: includes/elementor-addons/items-jetwoobuilder.php:73
-#: includes/elementor-addons/items-jetwoobuilder.php:77
+#: includes/elementor-addons/items-jetwoobuilder.php:74
+#: includes/elementor-addons/items-jetwoobuilder.php:78
 #: includes/elementor-addons/items-templementor.php:74
 #: includes/elementor-addons/items-templementor.php:78
 #: includes/elementor-official/items-elementor-core.php:155
@@ -1706,8 +1706,8 @@ msgid "%s Products"
 msgstr "%s Produkte"
 
 #: includes/elementor-addons/items-briefcase-elementor-widgets.php:62
-#: includes/elementor-addons/items-jetwoobuilder.php:104
-#: includes/elementor-addons/items-jetwoobuilder.php:109
+#: includes/elementor-addons/items-jetwoobuilder.php:105
+#: includes/elementor-addons/items-jetwoobuilder.php:110
 #: includes/plugins/items-mailchimp-for-wp.php:264
 #: includes/plugins/items-mailchimp-for-wp.php:268
 msgid "WooCommerce"
@@ -1755,8 +1755,8 @@ msgstr "Codetic Addons"
 #: includes/elementor-addons/items-leap13-premium-addons.php:81
 #: includes/elementor-addons/items-massive-addons-for-elementor.php:48
 #: includes/elementor-addons/items-massive-addons-for-elementor.php:52
-#: includes/elementor-addons/items-powerpack-elements.php:55
-#: includes/elementor-addons/items-powerpack-elements.php:59
+#: includes/elementor-addons/items-powerpack-elements.php:67
+#: includes/elementor-addons/items-powerpack-elements.php:71
 #: includes/elementor-addons/items-pt-elementor.php:48
 #: includes/elementor-addons/items-pt-elementor.php:52
 #: includes/elementor-addons/items-widgetkit-for-elementor.php:48
@@ -1831,6 +1831,8 @@ msgstr "Dynamische Inhalte für Elementor"
 #: includes/plugins/items-formcraft.php:167
 #: includes/plugins/items-wp-show-posts.php:73
 #: includes/plugins/items-wp-show-posts.php:77
+#: includes/plugins/items-wpstaging.php:168
+#: includes/plugins/items-wpstaging.php:172
 #: includes/themes-genesis/items-dynamik-website-builder.php:187
 #: includes/themes-genesis/items-dynamik-website-builder.php:191
 #: includes/themes/items-freelancer.php:73
@@ -1935,8 +1937,8 @@ msgstr "Granular Controls für Elementor"
 #: includes/elementor-addons/items-granular-controls.php:52
 #: includes/elementor-addons/items-orbit-fox.php:48
 #: includes/elementor-addons/items-orbit-fox.php:52
-#: includes/elementor-addons/items-powerpack-elements.php:86
-#: includes/elementor-addons/items-powerpack-elements.php:90
+#: includes/elementor-addons/items-powerpack-elements.php:98
+#: includes/elementor-addons/items-powerpack-elements.php:102
 #: includes/plugins-genesis/items-blox.php:96
 #: includes/plugins-genesis/items-cobalt-genesis-extender.php:86
 #: includes/plugins-genesis/items-cobalt-genesis-extender.php:90
@@ -2027,37 +2029,47 @@ msgstr "Neue Auflistung"
 msgid "New Listing Builder"
 msgstr "Neue Auflistung bauen"
 
-#: includes/elementor-addons/items-jetengine.php:104
-#: includes/elementor-addons/items-jetengine.php:108
+#: includes/elementor-addons/items-jetengine.php:105
+#: includes/elementor-addons/items-jetengine.php:109
 msgid "All Post Types"
 msgstr "Alle Inhaltstypen"
 
-#: includes/elementor-addons/items-jetengine.php:117
-#: includes/elementor-addons/items-jetengine.php:121
+#: includes/elementor-addons/items-jetengine.php:118
+#: includes/elementor-addons/items-jetengine.php:122
 msgid "New Post Type"
 msgstr "Neuer Inhaltstyp"
 
-#: includes/elementor-addons/items-jetengine.php:130
-#: includes/elementor-addons/items-jetengine.php:134
+#: includes/elementor-addons/items-jetengine.php:132
+#: includes/elementor-addons/items-jetengine.php:136
 msgid "All Taxonomies"
 msgstr "Alle Taxonomien"
 
-#: includes/elementor-addons/items-jetengine.php:143
-#: includes/elementor-addons/items-jetengine.php:147
+#: includes/elementor-addons/items-jetengine.php:145
+#: includes/elementor-addons/items-jetengine.php:149
 msgid "New Taxonomy"
 msgstr "Neue Taxonomie"
 
-#: includes/elementor-addons/items-jetengine.php:164
+#: includes/elementor-addons/items-jetengine.php:159
+#: includes/elementor-addons/items-jetengine.php:163
+msgid "All Meta Boxes"
+msgstr "Alle Meta-Boxen"
+
+#: includes/elementor-addons/items-jetengine.php:172
+#: includes/elementor-addons/items-jetengine.php:176
+msgid "New Meta Box"
+msgstr "Neue Meta-Box"
+
+#: includes/elementor-addons/items-jetengine.php:193
 msgid "Skins Manager"
 msgstr "Skins verwalten"
 
 #. translators: %s - the words "Import & Export"
-#: includes/elementor-addons/items-jetengine.php:170
+#: includes/elementor-addons/items-jetengine.php:199
 #, php-format
 msgid "Skins Manager: %s"
 msgstr "Skins verwalten: %s"
 
-#: includes/elementor-addons/items-jetengine.php:171
+#: includes/elementor-addons/items-jetengine.php:200
 #: includes/plugins-genesis/items-cobalt-genesis-extender.php:73
 #: includes/plugins-genesis/items-cobalt-genesis-extender.php:77
 #: includes/plugins/items-arforms.php:167
@@ -2085,35 +2097,40 @@ msgstr "Skins verwalten: %s"
 msgid "Import &amp; Export"
 msgstr "Import &amp; Export"
 
-#: includes/elementor-addons/items-jetengine.php:233
+#: includes/elementor-addons/items-jetengine.php:269
 msgctxt "Toolbar New Content section"
 msgid "JetEngine Content"
 msgstr "JetEngine Inhalt"
 
-#: includes/elementor-addons/items-jetengine.php:237
+#: includes/elementor-addons/items-jetengine.php:273
 msgctxt "Toolbar New Content section"
 msgid "New JetEngine Content"
 msgstr "Neuer JetEngine-Inhalt"
 
-#: includes/elementor-addons/items-jetengine.php:247
-#: includes/elementor-addons/items-jetengine.php:251
+#: includes/elementor-addons/items-jetengine.php:283
+#: includes/elementor-addons/items-jetengine.php:287
 msgid "Listing"
 msgstr "Auflistung"
 
-#: includes/elementor-addons/items-jetengine.php:262
-#: includes/elementor-addons/items-jetengine.php:266
+#: includes/elementor-addons/items-jetengine.php:298
+#: includes/elementor-addons/items-jetengine.php:302
 msgid "Listing Builder"
 msgstr "Auflistung bauen"
 
-#: includes/elementor-addons/items-jetengine.php:278
-#: includes/elementor-addons/items-jetengine.php:282
+#: includes/elementor-addons/items-jetengine.php:314
+#: includes/elementor-addons/items-jetengine.php:318
 msgid "Post Type"
 msgstr "Inhaltstyp"
 
-#: includes/elementor-addons/items-jetengine.php:292
-#: includes/elementor-addons/items-jetengine.php:296
+#: includes/elementor-addons/items-jetengine.php:328
+#: includes/elementor-addons/items-jetengine.php:332
 msgid "Taxonomy"
 msgstr "Taxonomie"
+
+#: includes/elementor-addons/items-jetengine.php:342
+#: includes/elementor-addons/items-jetengine.php:346
+msgid "Meta Box"
+msgstr "Meta-Box"
 
 #: includes/elementor-addons/items-jetmenu.php:35
 #: includes/elementor-addons/items-jetmenu.php:39
@@ -2280,10 +2297,10 @@ msgstr "Jet Woo-Templates"
 #. translators: %s - Name of Elementor or white labeled name
 #. translators: %s - Name of WooCommerce
 #. translators: %s - Name of the Genesis Child Theme (from the Stylesheet)
-#: includes/elementor-addons/items-jetwoobuilder.php:89
-#: includes/elementor-addons/items-jetwoobuilder.php:94
-#: includes/elementor-addons/items-jetwoobuilder.php:104
-#: includes/elementor-addons/items-jetwoobuilder.php:109
+#: includes/elementor-addons/items-jetwoobuilder.php:90
+#: includes/elementor-addons/items-jetwoobuilder.php:95
+#: includes/elementor-addons/items-jetwoobuilder.php:105
+#: includes/elementor-addons/items-jetwoobuilder.php:110
 #: includes/string-switcher.php:423
 #, php-format
 msgid "%s Settings"
@@ -2599,20 +2616,20 @@ msgstr "Templates auswählen"
 
 #. translators: %s - Name of the Add-On plugin ("PowerPack)
 #. translators: %s - Name of the Add-On plugin ("PowerPack")
-#: includes/elementor-addons/items-powerpack-elements.php:41
-#: includes/elementor-addons/items-powerpack-elements.php:46
+#: includes/elementor-addons/items-powerpack-elements.php:53
+#: includes/elementor-addons/items-powerpack-elements.php:58
 #, php-format
 msgid "%s Elements"
 msgstr "%s Elements"
 
-#: includes/elementor-addons/items-powerpack-elements.php:71
+#: includes/elementor-addons/items-powerpack-elements.php:83
 #: includes/elementor-addons/items-powerpack-wlbfe.php:43
 #: includes/elementor-addons/items-powerpack-wlbfe.php:47
 #: includes/themes/items-astra.php:519
 msgid "White Label"
 msgstr "White-Label"
 
-#: includes/elementor-addons/items-powerpack-elements.php:75
+#: includes/elementor-addons/items-powerpack-elements.php:87
 #: includes/themes/items-astra.php:523
 msgid "White Label Branding"
 msgstr "White-Label-Branding"
@@ -3863,8 +3880,8 @@ msgstr "Hook-Konfiguration"
 #: includes/plugins/items-quform.php:174 includes/plugins/items-quform.php:178
 #: includes/plugins/items-wpforms.php:260
 #: includes/plugins/items-wpforms.php:264
-#: includes/plugins/items-wpstaging.php:70
-#: includes/plugins/items-wpstaging.php:74
+#: includes/plugins/items-wpstaging.php:153
+#: includes/plugins/items-wpstaging.php:157
 msgid "Tools"
 msgstr "Werkzeuge"
 
@@ -5855,13 +5872,30 @@ msgstr "via WPMU DEV"
 msgid "Install Plugins via WPMU DEV"
 msgstr "Plugin via WPMU DEV installieren"
 
-#: includes/plugins/items-wpstaging.php:31
-#: includes/plugins/items-wpstaging.php:35
+#: includes/plugins/items-wpstaging.php:42
+msgid "WP-Staging Pro"
+msgstr "WP-Staging Pro"
+
+#: includes/plugins/items-wpstaging.php:42
 msgid "WP-Staging"
 msgstr "WP-Staging"
 
-#: includes/plugins/items-wpstaging.php:44
-#: includes/plugins/items-wpstaging.php:48
+#: includes/plugins/items-wpstaging.php:88
+msgid "Open Clone"
+msgstr "Klon öffnen"
+
+#: includes/plugins/items-wpstaging.php:97
+#: includes/plugins/items-wpstaging.php:101
+msgid "Open"
+msgstr "Öffnen"
+
+#: includes/plugins/items-wpstaging.php:110
+#: includes/plugins/items-wpstaging.php:114
+msgid "Admin Login"
+msgstr "Admin-Anmeldung"
+
+#: includes/plugins/items-wpstaging.php:127
+#: includes/plugins/items-wpstaging.php:131
 msgid "Create Staging Clone"
 msgstr "Staging-Klon erstellen"
 

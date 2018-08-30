@@ -5,7 +5,7 @@ Tags: toolbar, adminbar, admin bar, elementor, page builder, themes, menu, links
 Requires at least: 4.7
 Tested up to: 4.9.8
 Requires PHP: 5.6
-Stable tag: 1.3.3
+Stable tag: 1.3.4
 License: GPL-2.0+
 License URI: https://opensource.org/licenses/GPL-2.0
 
@@ -341,6 +341,18 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 == Changelog ==
 
 ([For the full changelog of this plugin visit its website at ToolbarExtras.com](https://toolbarextras.com/changelog/))
+
+= 1.3.4 - 2018-08-30 =
+* New: Added `composer.json` file to the plugin's root folder - this is great for developers using Composer
+* New: Added `README.md` file for plugin's GitHub.com repository to make it more readable there
+* New: Added plugin update message also to Plugins page (overview table)
+* Tweak: Enhanced "WP-Staging" plugin support - added dynamic list of staging clones, plus, added support for "WP-Staging Pro" version
+* Tweak: Enhanced "JetEngine" plugin support - which is out of beta now! (added Meta Boxes)
+* Tweak: For "WP Schema Pro" plugin support - respect the advanced setting of menu position (dynamic)
+* Tweak: Added plugins recommendations library by deckerweb to improve the plugin installer tips (old filter function got removed)
+* Tweak: Enhanced, improved and corrected Readme.txt file here
+* Tweak: Updated `.pot` file plus all German translations (formal, informal) and language packs
+
 
 = 1.3.3 - 2018-08-08 =
 * New: Verified support for Business accounts on WordPress.com platform which support installation of other plugins (like Toolbar Extras) - [check the full tutorial on our plugin website](https://toolbarextras.com/docs/how-to-use-toolbar-extras-plugin-on-wordpress-com/)

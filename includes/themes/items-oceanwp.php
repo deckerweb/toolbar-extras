@@ -329,7 +329,7 @@ function ddw_tbex_themeitems_oceanwp() {
 						esc_attr__( '%s Hooks', 'toolbar-extras' ),
 						ddw_tbex_string_oceanwp_theme_name()
 					),
-					'href'   => esc_url( admin_url( 'edit-tags.php?taxonomy=ocean_sidebars' ) ),
+					'href'   => esc_url( admin_url( 'admin.php?page=oceanwp-panel-hooks' ) ),
 					'meta'   => array(
 						'target' => '',
 						'title'  => sprintf(

@@ -80,6 +80,7 @@ add_filter( 'plugin_row_meta', 'ddw_tbex_plugin_links', 10, 2 );
  * Add various support links to Plugins page.
  *
  * @since  1.0.0
+ * @since  1.3.4 Added more Dashicons.
  *
  * @uses   ddw_tbex_get_info_link()
  *
@@ -97,17 +98,28 @@ function ddw_tbex_plugin_links( $tbex_links, $tbex_file ) {
 	/** List additional links only for this plugin */
 	if ( $tbex_file === TBEX_PLUGIN_BASEDIR . 'toolbar-extras.php' ) {
 
-		/* translators: Plugins page listing */
-		$tbex_links[] = ddw_tbex_get_info_link( 'url_wporg_forum', esc_html_x( 'Support', 'Plugins page listing', 'toolbar-extras' ) );
+		?>
+			<style type="text/css">
+				tr[data-slug="toolbar-extras"] .plugin-version-author-uri a.dashicons-before:before {
+					font-size: 17px;
+					margin-right: 2px;
+					opacity: .85;
+					vertical-align: sub;
+				}
+			</style>
+		<?php
 
 		/* translators: Plugins page listing */
-		$tbex_links[] = ddw_tbex_get_info_link( 'url_fb_group', esc_html_x( 'Facebook Group', 'Plugins page listing', 'toolbar-extras' ) );
+		$tbex_links[] = ddw_tbex_get_info_link( 'url_wporg_forum', esc_html_x( 'Support', 'Plugins page listing', 'toolbar-extras' ), 'dashicons-before dashicons-sos' );
 
 		/* translators: Plugins page listing */
-		$tbex_links[] = ddw_tbex_get_info_link( 'url_translate', esc_html_x( 'Translations', 'Plugins page listing', 'toolbar-extras' ) );
+		$tbex_links[] = ddw_tbex_get_info_link( 'url_fb_group', esc_html_x( 'Facebook Group', 'Plugins page listing', 'toolbar-extras' ), 'dashicons-before dashicons-facebook' );
 
 		/* translators: Plugins page listing */
-		$tbex_links[] = ddw_tbex_get_info_link( 'url_donate', esc_html_x( 'Donate', 'Plugins page listing', 'toolbar-extras' ), 'button-primary' );
+		$tbex_links[] = ddw_tbex_get_info_link( 'url_translate', esc_html_x( 'Translations', 'Plugins page listing', 'toolbar-extras' ), 'dashicons-before dashicons-translation' );
+
+		/* translators: Plugins page listing */
+		$tbex_links[] = ddw_tbex_get_info_link( 'url_donate', esc_html_x( 'Donate', 'Plugins page listing', 'toolbar-extras' ), 'button-primary dashicons-before dashicons-thumbs-up' );
 
 	}  // end if plugin links
 
@@ -208,128 +220,6 @@ function ddw_tbex_help_info_menu_locations() {
 }  // end function
 
 
-add_filter( 'plugins_api_result', 'ddw_tbex_add_plugins_api_results', 11, 3 );
-/**
- * Filter plugin fetching API results to inject plugin "Multisite Toolbar Additions".
- *
- * @since   1.0.0
- * @since   1.3.2 Added Block Editor specifications for resutls.
- *
- * Code heavily inspired by original code from Remy Perona/ WP-Rocket.
- * @author  Remy Perona
- * @link    https://wp-rocket.me/
- * @license GPL-2.0+
- *
- * @uses    ddw_tbex_is_block_editor_active()
- *
- * @param   object|WP_Error $result Response object or WP_Error.
- * @param   string          $action The type of information being requested from the Plugin Install API.
- * @param   object          $args   Plugin API arguments.
- *
- * @return array Updated array of results.
- */
-function ddw_tbex_add_plugins_api_results( $result, $action, $args ) {
-
-	if ( empty( $args->browse ) || defined( 'CLPINST_PLUGIN_VERSION' ) ) {
-		return $result;
-	}
-
-	if ( 'featured' !== $args->browse
-		&& 'recommended' !== $args->browse
-		&& 'popular' !== $args->browse
-	) {
-		return $result;
-	}
-
-	if ( ! isset( $result->info[ 'page' ] ) || 1 < $result->info[ 'page' ] ) {
-		return $result;
-	}
-
-	$query_fields = array(
-		'icons'             => TRUE,
-		'active_installs'   => TRUE,
-		'short_description' => TRUE,
-		'group'             => TRUE,
-	);
-
-	/** Results for specific plugins (slugs) */
-	$elementor_query_args = array( 'slug' => 'elementor', 'fields' => $query_fields, );
-	//$gcfe_query_args      = array( 'slug' => 'granular-controls-for-elementor', 'fields' => $query_fields, );
-	$fep_query_args       = array( 'slug' => 'flexible-elementor-panel', 'fields' => $query_fields, );
-	$ccp_query_args       = array( 'slug' => 'kt-tinymce-color-grid', 'fields' => $query_fields, );
-	$dagb_query_args      = array( 'slug' => 'disable-gutenberg', 'fields' => $query_fields, );
-	$simplecss_query_args = array( 'slug' => 'simple-css', 'fields' => $query_fields, );
-	$cs_query_args        = array( 'slug' => 'code-snippets', 'fields' => $query_fields, );
-	$czs_query_args       = array( 'slug' => 'customizer-search', 'fields' => $query_fields, );
-	$czei_query_args      = array( 'slug' => 'customizer-export-import', 'fields' => $query_fields, );
-	$dbwfe_query_args     = array( 'slug' => 'dashboard-welcome-for-elementor', 'fields' => $query_fields, );
-	//$cpi_query_args       = array( 'slug' => 'cleaner-plugin-installer', 'fields' => $query_fields, );
-	$llar_query_args      = array( 'slug' => 'limit-login-attempts-reloaded', 'fields' => $query_fields, );
-	$aopz_query_args      = array( 'slug' => 'autoptimize', 'fields' => $query_fields, );
-	$spl_query_args       = array( 'slug' => 'swift-performance-lite', 'fields' => $query_fields, );
-	$de_query_args        = array( 'slug' => 'debug-elementor', 'fields' => $query_fields, );
-
-	$elementor_data = plugins_api( 'plugin_information', $elementor_query_args );
-	//$gcfe_data      = plugins_api( 'plugin_information', $gcfe_query_args );
-	$fep_data       = plugins_api( 'plugin_information', $fep_query_args );
-	$ccp_data       = plugins_api( 'plugin_information', $ccp_query_args );
-	$dagb_data      = plugins_api( 'plugin_information', $dagb_query_args );
-	$simplecss_data = plugins_api( 'plugin_information', $simplecss_query_args );
-	$cs_data        = plugins_api( 'plugin_information', $cs_query_args );
-	$czs_data       = plugins_api( 'plugin_information', $czs_query_args );
-	$czei_data      = plugins_api( 'plugin_information', $czei_query_args );
-	$dbwfe_data     = plugins_api( 'plugin_information', $dbwfe_query_args );
-	//$cpi_data       = plugins_api( 'plugin_information', $cpi_query_args );
-	$llar_data      = plugins_api( 'plugin_information', $llar_query_args );
-	$aopz_data      = plugins_api( 'plugin_information', $aopz_query_args );
-	$spl_data       = plugins_api( 'plugin_information', $spl_query_args );
-	$de_data        = plugins_api( 'plugin_information', $de_query_args );
-
-	/** For Block Editor (Gutenberg) */
-	if ( ddw_tbex_is_block_editor_active() ) {
-		
-		$cle_query_args   = array( 'slug' => 'classic-editor', 'fields' => $query_fields, );
-		$clea_query_args  = array( 'slug' => 'classic-editor-addon', 'fields' => $query_fields, );
-		$cfgb_query_args  = array( 'slug' => 'custom-fields-gutenberg', 'fields' => $query_fields, );
-
-		$cle_data   = plugins_api( 'plugin_information', $cle_query_args );
-		$clea_data  = plugins_api( 'plugin_information', $clea_query_args );
-		$cfgb_data  = plugins_api( 'plugin_information', $cfgb_query_args );
-
-	}  // end if
-
-	/** Hook in our results */
-	if ( 'featured' === $args->browse ) {
-
-		/** Set the default to empty */
-		$result->plugins = array();
-
-		/** Hook in our results */
-		if ( ddw_tbex_is_block_editor_active() ) {
-
-			array_push( $result->plugins, $dagb_data, $cle_data, $clea_data, $cfgb_data, $elementor_data, $ccp_data, $simplecss_data, $cs_data, $czs_data, $czei_data, $dbwfe_data, $llar_data, $aopz_data, $spl_data, $de_data );
-
-		} else {
-		
-			array_push( $result->plugins, $elementor_data, $ccp_data, $dagb_data, $simplecss_data, $fep_data, $cs_data, $czs_data, $czei_data, $dbwfe_data, $llar_data, $aopz_data, $spl_data, $de_data );
-
-		}  // end if
-
-	} elseif ( 'recommended' === $args->browse ) {
-
-		array_unshift( $result->plugins, $dagb_data, $aopz_data, $spl_data, $elementor_data );
-
-	} elseif ( 'popular' === $args->browse ) {
-
-		array_unshift( $result->plugins, $elementor_data, $dagb_data );
-
-	}  // end if
-
-	return $result;
-
-}  // end function
-
-
 add_filter( 'admin_footer_text', 'ddw_tbex_admin_footer_text' );
 /**
  * Modifies the "Thank you" text displayed in the WP Admin footer.
@@ -349,7 +239,7 @@ function ddw_tbex_admin_footer_text( $footer_text ) {
 
 		$footer_text = sprintf(
 			/* translators: 1 - Toolbar Extras / 2 - Link to plugin review */
-			__( 'Enjoyed %1$s? Please leave us a %2$s rating. We really appreciate your support!', 'elementor' ),
+			__( 'Enjoyed %1$s? Please leave us a %2$s rating. We really appreciate your support!', 'toolbar-extras' ),
 			'<strong>' . __( 'Toolbar Extras', 'toolbar-extras' ) . '</strong>',
 			'<a href="https://wordpress.org/support/plugin/toolbar-extras/reviews/?filter=5#new-post" target="_blank" rel="noopener noreferrer">&#9733;&#9733;&#9733;&#9733;&#9733;</a>'
 		);
@@ -359,3 +249,193 @@ function ddw_tbex_admin_footer_text( $footer_text ) {
 	return $footer_text;
 
 }  // end function
+
+
+/**
+ * Inline CSS fix for Plugins page update messages.
+ *
+ * @since 1.3.4
+ *
+ * @see   ddw_tbex_plugin_update_message()
+ * @see   ddw_tbex_multisite_subsite_plugin_update_message()
+ */
+function ddw_tbex_plugin_update_message_style_tweak() {
+
+	?>
+		<style type="text/css">
+			.tbex-update-message p:before,
+			.update-message.notice p:empty {
+				display: none !important;
+			}
+		</style>
+	<?php
+
+}  // end function
+
+
+add_action( 'in_plugin_update_message-' . TBEX_PLUGIN_BASEDIR . 'toolbar-extras.php', 'ddw_tbex_plugin_update_message', 10, 2 );
+/**
+ * On Plugins page add visible upgrade/update notice in the overview table.
+ *   Note: This action fires for regular single site installs, and for Multisite
+ *         installs where the plugin is activated Network-wide.
+ *
+ * @since  1.3.4
+ *
+ * @param  object $data
+ * @param  object $response
+ * @return string Echoed string and markup for the plugin's upgrade/update
+ *                notice.
+ */
+function ddw_tbex_plugin_update_message( $data, $response ) {
+
+	if ( isset( $data[ 'upgrade_notice' ] ) ) {
+
+		ddw_tbex_plugin_update_message_style_tweak();
+
+		printf(
+			'<div class="update-message tbex-update-message">%s</div>',
+			wpautop( $data[ 'upgrade_notice' ] )
+		);
+
+	}  // end if
+
+}  // end function
+
+
+add_action( 'after_plugin_row_wp-' . TBEX_PLUGIN_BASEDIR . 'toolbar-extras.php', 'ddw_tbex_multisite_subsite_plugin_update_message', 10, 2 );
+/**
+ * On Plugins page add visible upgrade/update notice in the overview table.
+ *   Note: This action fires for Multisite installs where the plugin is
+ *         activated on a per site basis.
+ *
+ * @since  1.3.4
+ *
+ * @param  string $file
+ * @param  object $plugin
+ * @return string Echoed string and markup for the plugin's upgrade/update
+ *                notice.
+ */
+function ddw_tbex_multisite_subsite_plugin_update_message( $file, $plugin ) {
+
+	if ( is_multisite() && version_compare( $plugin[ 'Version' ], $plugin[ 'new_version' ], '<' ) ) {
+
+		$wp_list_table = _get_list_table( 'WP_Plugins_List_Table' );
+
+		ddw_tbex_plugin_update_message_style_tweak();
+
+		printf(
+			'<tr class="plugin-update-tr"><td colspan="%s" class="plugin-update update-message notice inline notice-warning notice-alt"><div class="update-message tbex-update-message"><h4 style="margin: 0; font-size: 14px;">%s</h4>%s</div></td></tr>',
+			$wp_list_table->get_column_count(),
+			$plugin[ 'Name' ],
+			wpautop( $plugin[ 'upgrade_notice' ] )
+		);
+
+	}  // end if
+
+}  // end function
+
+
+/**
+ * Optionally tweaking Plugin API results to make more useful recommendations to
+ *   the user.
+ *
+ * @since 1.0.0
+ * @since 1.3.2 Added Block Editor specifications for results.
+ * @since 1.3.4 Complete refactoring, using library class DDWlib Plugin
+ *              Installer Recommendations
+ */
+
+add_filter( 'ddwlib_plir/filter/plugins', 'ddw_tbex_register_extra_plugin_recommendations' );
+/**
+ * Register specific plugins for the class "DDWlib Plugin Installer
+ *   Recommendations".
+ *   Note: The top-level array keys are plugin slugs from the WordPress.org
+ *         Plugin Directory.
+ *
+ * @since  1.3.4
+ *
+ * @param  array $plugins Array holding all plugin recommendations, coming from
+ *                        the class and the filter.
+ * @return array Filtered and merged array of all plugin recommendations.
+ */
+function ddw_tbex_register_extra_plugin_recommendations( array $plugins ) {
+  
+	/** Remove our own slug when we are already active :) */
+	if ( isset( $plugins[ 'toolbar-extras' ] ) ) {
+		$plugins[ 'toolbar-extras' ] = null;
+	}
+
+  	/** Add new keys to recommendations */
+  	$plugins[ 'custom-css-js' ] = array(
+		'featured'    => 'yes',
+		'recommended' => 'yes',
+		'popular'     => 'no',
+	);
+
+  	/** Register additional Elementor plugin recommendations */
+  	$plugins_elementor = array();
+
+  	if ( ddw_tbex_is_elementor_active() ) {
+
+		$plugins_elementor = array(
+			'flexible-elementor-panel' => array(
+				'featured'    => 'yes',
+				'recommended' => 'yes',
+				'popular'     => 'no',
+			),
+			'debug-elementor' => array(
+				'featured'    => 'yes',
+				'recommended' => 'yes',
+				'popular'     => 'no',
+			),
+			'custom-icons-for-elementor' => array(
+				'featured'    => 'no',
+				'recommended' => 'no',
+				'popular'     => 'yes',
+			),
+			'sticky-header-effects-for-elementor' => array(
+				'featured'    => 'no',
+				'recommended' => 'no',
+				'popular'     => 'yes',
+			),
+		);
+
+	}  // end if
+
+  	/** Register additional Block Editor (Gutenberg) plugin recommendations */
+  	$plugins_block_editor = array();
+
+  	if ( ddw_tbex_is_block_editor_active() ) {
+
+		$plugins_block_editor = array(
+			'classic-editor' => array(
+				'featured'    => 'yes',
+				'recommended' => 'yes',
+				'popular'     => 'yes',
+			),
+			'classic-editor-addon' => array(
+				'featured'    => 'yes',
+				'recommended' => 'yes',
+				'popular'     => 'yes',
+			),
+			'custom-fields-gutenberg' => array(
+				'featured'    => 'yes',
+				'recommended' => 'yes',
+				'popular'     => 'no',
+			),
+			'manager-for-gutenberg' => array(
+				'featured'    => 'no',
+				'recommended' => 'yes',
+				'popular'     => 'no',
+			),
+		);
+
+	}  // end if
+
+	/** Merge with the existing recommendations and return */
+	return array_merge( $plugins, $plugins_elementor, $plugins_block_editor );
+  
+}  // end function
+
+/** Include class DDWlib Plugin Installer Recommendations */
+require_once( TBEX_PLUGIN_DIR . 'includes/admin/classes/ddwlib-plugin-installer-recommendations.php' );

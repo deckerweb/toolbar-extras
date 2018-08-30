@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_jetengine', 100 );
 /**
- * Items for Add-On: JetEngine (Premium, by Zemez/ CrocoBlock)
+ * Items for Add-On: JetEngine (Premium, by Zemez Jet/ CrocoBlock)
  *
  * @since  1.3.2
  *
@@ -97,6 +97,7 @@ function ddw_tbex_aoitems_jetengine() {
 			)
 		);
 
+			/** Register Post Types */
 			$GLOBALS[ 'wp_admin_bar' ]->add_node(
 				array(
 					'id'     => 'ao-jetengine-cpts-all',
@@ -123,6 +124,7 @@ function ddw_tbex_aoitems_jetengine() {
 				)
 			);
 
+			/** Register Taxonomies */
 			$GLOBALS[ 'wp_admin_bar' ]->add_node(
 				array(
 					'id'     => 'ao-jetengine-tax-all',
@@ -145,6 +147,33 @@ function ddw_tbex_aoitems_jetengine() {
 					'meta'   => array(
 						'target' => '',
 						'title'  => esc_attr__( 'New Taxonomy', 'toolbar-extras' )
+					)
+				)
+			);
+
+			/** Register Metaboxes & Fields */
+			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				array(
+					'id'     => 'ao-jetengine-metabox-all',
+					'parent' => 'group-jetengine-posttypes',
+					'title'  => esc_attr__( 'All Meta Boxes', 'toolbar-extras' ),
+					'href'   => esc_url( admin_url( 'admin.php?page=jet-engine-meta' ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => esc_attr__( 'All Meta Boxes', 'toolbar-extras' )
+					)
+				)
+			);
+
+			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				array(
+					'id'     => 'ao-jetengine-metabox-new',
+					'parent' => 'group-jetengine-posttypes',
+					'title'  => esc_attr__( 'New Meta Box', 'toolbar-extras' ),
+					'href'   => esc_url( admin_url( 'admin.php?page=jet-engine-meta&cpt_meta_action=add-meta' ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => esc_attr__( 'New Meta Box', 'toolbar-extras' )
 					)
 				)
 			);
@@ -190,6 +219,13 @@ function ddw_tbex_aoitems_jetengine() {
 				'jetengine-docs',
 				'group-jetengine-resources',
 				'https://documentation.zemez.io/wordpress/index.php?project=jetengine'
+			);
+
+			ddw_tbex_resource_item(
+				'youtube-tutorials',
+				'jetengine-youtube-tutorials',
+				'group-jetengine-resources',
+				'https://www.youtube.com/watch?v=BNBdTs4sTLI&list=PLdaVCVrkty72p0ZbeBpHRKR2Y3maUd34M'
 			);
 
 			ddw_tbex_resource_item(
@@ -248,7 +284,7 @@ function ddw_tbex_aoitems_new_content_jetengine() {
 				'href'   => esc_url( admin_url( 'post-new.php?post_type=jet-engine' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Listing', 'toolbar-extras' )
+					'title'  => ddw_tbex_string_add_new_item( esc_attr__( 'Listing', 'toolbar-extras' ) )
 				)
 			)
 		);
@@ -263,7 +299,7 @@ function ddw_tbex_aoitems_new_content_jetengine() {
 					'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'jet-engine' ) ),
 					'meta'   => array(
 						'target' => ddw_tbex_meta_target( 'builder' ),
-						'title'  => esc_attr__( 'Listing Builder', 'toolbar-extras' )
+						'title'  => ddw_tbex_string_add_new_item( esc_attr__( 'Listing Builder', 'toolbar-extras' ) )
 					)
 				)
 			);
@@ -279,7 +315,7 @@ function ddw_tbex_aoitems_new_content_jetengine() {
 				'href'   => esc_url( admin_url( 'admin.php?page=jet-engine-cpt&cpt_action=add' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Post Type', 'toolbar-extras' )
+					'title'  => ddw_tbex_string_add_new_item( esc_attr__( 'Post Type', 'toolbar-extras' ) )
 				)
 			)
 		);
@@ -293,7 +329,21 @@ function ddw_tbex_aoitems_new_content_jetengine() {
 				'href'   => esc_url( admin_url( 'admin.php?page=jet-engine-cpt-tax&cpt_tax_action=add-tax' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Taxonomy', 'toolbar-extras' )
+					'title'  => ddw_tbex_string_add_new_item( esc_attr__( 'Taxonomy', 'toolbar-extras' ) )
+				)
+			)
+		);
+
+		/** Custom Meta Box */
+		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			array(
+				'id'     => 'tbex-jetengine-content-metabox-new',
+				'parent' => 'tbex-jetengine-content',
+				'title'  => esc_attr__( 'Meta Box', 'toolbar-extras' ),
+				'href'   => esc_url( admin_url( 'admin.php?page=jet-engine-meta&cpt_meta_action=add-meta' ) ),
+				'meta'   => array(
+					'target' => '',
+					'title'  => ddw_tbex_string_add_new_item( esc_attr__( 'Meta Box', 'toolbar-extras' ) )
 				)
 			)
 		);

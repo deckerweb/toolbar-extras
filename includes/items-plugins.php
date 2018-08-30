@@ -126,7 +126,7 @@ if ( defined( 'WINP_SNIPPETS_POST_TYPE' ) ) {
  * Plugin: Schema Pro (Premium, by Brainstorm Force)
  * @since 1.3.2
  */
-if ( defined( 'BSF_AIOSRS_PRO_VER' ) ) {
+if ( class_exists( 'BSF_AIOSRS_Pro_Admin' ) ) {
 	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-wp-schema-pro.php' );
 }
 
@@ -694,9 +694,10 @@ if ( class_exists( 'BackWPup' ) ) {
 
 /**
  * Plugin: WP-Staging (free, by WP-Staging & Rene Hermenau)
+ * Plugin: WP-Stagig Pro (Premium, by WP-Staging & Rene Hermenau)
  * @since 1.0.0
  */
-if ( defined( 'WPSTG_PLUGIN_DIR' ) ) {
+if ( defined( 'WPSTG_PLUGIN_DIR' ) || defined( 'WPSTGPRO_VERSION' ) ) {
 	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-wpstaging.php' );
 }
 

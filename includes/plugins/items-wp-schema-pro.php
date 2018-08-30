@@ -28,7 +28,7 @@ function ddw_tbex_site_items_wp_schema_pro() {
 			'id'     => 'wpschemapro',
 			'parent' => 'tbex-sitegroup-elements',
 			'title'  => esc_attr__( 'Schema Pro', 'toolbar-extras' ),
-			'href'   => esc_url( admin_url( 'options-general.php?page=aiosrs_pro_admin_menu_page&action=aiosrs-schema' ) ),
+			'href'   => esc_url( BSF_AIOSRS_Pro_Admin::get_page_url( 'aiosrs-schema' ) ),
 			'meta'   => array(
 				'target' => '',
 				'title'  => esc_attr__( 'Schema Pro', 'toolbar-extras' )
@@ -92,7 +92,7 @@ function ddw_tbex_site_items_wp_schema_pro() {
 				'id'     => 'wpschemapro-schemas-all',
 				'parent' => 'group-wpschemapro-schemas',
 				'title'  => esc_attr__( 'All Schemas', 'toolbar-extras' ),
-				'href'   => esc_url( admin_url( 'options-general.php?page=aiosrs_pro_admin_menu_page&action=aiosrs-schema' ) ),
+				'href'   => esc_url( BSF_AIOSRS_Pro_Admin::get_page_url( 'aiosrs-schema' ) ),
 				'meta'   => array(
 					'target' => '',
 					'title'  => esc_attr__( 'All Schemas', 'toolbar-extras' )
@@ -126,7 +126,7 @@ function ddw_tbex_site_items_wp_schema_pro() {
 				'id'     => 'wpschemapro-settings-general',
 				'parent' => 'group-wpschemapro-settings',
 				'title'  => esc_attr__( 'General Settings', 'toolbar-extras' ),
-				'href'   => esc_url( admin_url( 'options-general.php?page=aiosrs_pro_admin_menu_page&action=settings' ) ),
+				'href'   => esc_url( BSF_AIOSRS_Pro_Admin::get_page_url( 'settings' ) ),
 				'meta'   => array(
 					'target' => '',
 					'title'  => esc_attr__( 'General Settings', 'toolbar-extras' )
@@ -139,7 +139,7 @@ function ddw_tbex_site_items_wp_schema_pro() {
 				'id'     => 'wpschemapro-social-profiles',
 				'parent' => 'group-wpschemapro-settings',
 				'title'  => esc_attr__( 'Social Profiles', 'toolbar-extras' ),
-				'href'   => esc_url( admin_url( 'options-general.php?page=aiosrs_pro_admin_menu_page&action=settings&section=social-profiles' ) ),
+				'href'   => esc_url( BSF_AIOSRS_Pro_Admin::get_page_url( 'settings&section=social-profiles' ) ),
 				'meta'   => array(
 					'target' => '',
 					'title'  => esc_attr__( 'Social Profiles', 'toolbar-extras' )
@@ -152,7 +152,7 @@ function ddw_tbex_site_items_wp_schema_pro() {
 				'id'     => 'wpschemapro-other-schemas',
 				'parent' => 'group-wpschemapro-settings',
 				'title'  => esc_attr__( 'Other Schemas', 'toolbar-extras' ),
-				'href'   => esc_url( admin_url( 'options-general.php?page=aiosrs_pro_admin_menu_page&action=settings&section=global-schemas' ) ),
+				'href'   => esc_url( BSF_AIOSRS_Pro_Admin::get_page_url( 'settings&section=global-schemas' ) ),
 				'meta'   => array(
 					'target' => '',
 					'title'  => esc_attr__( 'Other Schemas', 'toolbar-extras' )
@@ -165,7 +165,7 @@ function ddw_tbex_site_items_wp_schema_pro() {
 				'id'     => 'wpschemapro-settings-advanced',
 				'parent' => 'group-wpschemapro-settings',
 				'title'  => esc_attr__( 'Advanced Settings', 'toolbar-extras' ),
-				'href'   => esc_url( admin_url( 'options-general.php?page=aiosrs_pro_admin_menu_page&action=settings&section=advanced-settings' ) ),
+				'href'   => esc_url( BSF_AIOSRS_Pro_Admin::get_page_url( 'settings&section=advanced-settings' ) ),
 				'meta'   => array(
 					'target' => '',
 					'title'  => esc_attr__( 'Advanced Settings', 'toolbar-extras' )

@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_jetwoobuilder', 100 );
 /**
- * Items for Add-On: JetWooBuilder (Premium, by Zemez/ CrocoBlock)
+ * Items for Add-On: JetWooBuilder (Premium, by Zemez Jet/ CrocoBlock)
  *
  * @since  1.2.0
  *
@@ -58,6 +58,7 @@ function ddw_tbex_aoitems_jetwoobuilder() {
 				'title'  => esc_attr__( 'New Template', 'toolbar-extras' ),
 				'href'   => esc_url( admin_url( 'post-new.php?post_type=jet-woo-builder' ) ),
 				'meta'   => array(
+					'class'  => 'jet-template-popup-active',
 					'target' => '',
 					'title'  => esc_attr__( 'New Template', 'toolbar-extras' )
 				)
