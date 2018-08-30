@@ -1,5 +1,5 @@
 === Toolbar Extras for Elementor - WordPress Admin Bar Enhanced ===
-Contributors: daveshine, deckerweb, wpautobahn
+Contributors: daveshine, deckerweb, wpautobahn, toolbarextras
 Donate link: https://www.paypal.me/deckerweb
 Tags: toolbar, adminbar, admin bar, elementor, page builder, themes, menu, links, settings, usability, deckerweb, ddwtoolbar
 Requires at least: 4.7
@@ -54,7 +54,7 @@ Out of the box the plugin includes support for dozens of awesome Plugins and The
 - [**Genesis Framework** (Premium, by StudioPress)](http://deckerweb.de/go/genesis/)
 - [**Page Builder Framework**](https://wordpress.org/themes/page-builder-framework/), including their **Premium Add-On plugin** (both by David Vongries & MapSteps)
 - [**StartWP**](https://wordpress.org/themes/start/), including their **StartWP Extended Add-On plugin** (both free and by Munir Kamal)
-- [**Kava Theme** (free & Premium, by Zemez & CrocoBlock)](https://toolbarextras.com/go/crocoblock/) - including all Jet Plugins
+- [**Kava Theme** (free & Premium, by Zemez Jet & CrocoBlock)](https://toolbarextras.com/go/crocoblock/) - including all Jet Plugins
 - **Suite of "Twenty 20.." default themes**, like *[Twenty Seventeen](https://wordpress.org/themes/twentyseventeen/)*
 - [**Elementor Hello Theme**](https://github.com/pojome/elementor-hello-theme)
 - [**Freelancer Framework** (free, by Cobalt Apps)]
@@ -64,7 +64,7 @@ Out of the box the plugin includes support for dozens of awesome Plugins and The
 - [**Customify** (free, by WPCustomify/ PressMaximum)](https://wordpress.org/themes/customify/), including **Customify Pro** (Add-On)
 - [**Flexia** (free)](https://wordpress.org/themes/flexia/) - including Flexia Core (free) and Flexia Pro (Premium) plugins (all three by Codetic)
 - [**Phlox** (free, by averta)](https://wordpress.org/themes/phlox/) - including the free Add-Ons "Phlox Core Elements" and "Phlox Portfolio"
-- [**Buildwall** (Premium, by Zemez)](https://toolbarextras.com/go/buildwall-tm/)
+- [**Buildwall** (Premium, by Zemez Jet)](https://toolbarextras.com/go/buildwall-tm/)
 - **All church-specific themes by churchthemes.com** (Premium)
 - *(Support for a few more great Themes is coming very soon...!)*
 
@@ -81,7 +81,7 @@ Out of the box the plugin includes support for dozens of awesome Plugins and The
 - [**AnyWhere Elementor Pro** (Premium, by WebTechStreet)]
 - [**Templementor - Persistent Elementor Templates** (free, by Lcweb)](https://wordpress.org/plugins/templementor/)
 - [**Addons for Elementor** (free, by Livemesh)](https://wordpress.org/plugins/addons-for-elementor/)
-- [**Addons for Elementor Pro** (Premium, by Livemesh)]
+- [**Addons for Elementor Premium** (Premium, by Livemesh)]
 - [**Essential Addons for Elementor Lite** (free, by Codetic)](https://wordpress.org/plugins/essential-addons-for-elementor-lite/)
 - [**Essential Addons for Elementor Pro** (Premium, by Codetic)]
 - [**Element Pack for Elementor** (Premium, by BdThemes)]
@@ -90,7 +90,7 @@ Out of the box the plugin includes support for dozens of awesome Plugins and The
 - [**Debug Elementor** (free, by Rami Yushuvaev)](https://wordpress.org/plugins/debug-elementor/)
 - [**Elementor Contact Form DB** (free, by Sean Barton)](https://www.sean-barton.co.uk/2017/04/elementor-contact-form-db-free-plugin/)
 - [**Lenix Elementor Leads addon** (free, by Lenix)](https://wordpress.org/plugins/lenix-elementor-leads-addon/)
-- [**Suite of "Jet Plugins"** by Zemez/ CrocoBlock (all Premium)], including *JetElements* and *JetWooBuilder*
+- [**Suite of "Jet Plugins"** by Zemez Jet/ CrocoBlock (all Premium)], including *JetElements* and *JetWooBuilder*
 - [**Elementor Custom Skin** (free, by Liviu Duda)](https://wordpress.org/plugins/ele-custom-skin/)
 - [**Extra Privacy for Elementor** (free, by Marian Heddesheimer)](https://wordpress.org/plugins/extra-privacy-for-elementor/)
 - [**White Label Branding for Elementor** (Premium, by IdeaBox Creations)] - including Toolbar Extras support for some of the white label features (where applicable)
@@ -417,7 +417,7 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 **New:** *Extended the Plugin support for Elementor Add-Ons:*
 
 * Split Test For Elementor (free, by Rocket Elements)
-* JetEngine (Premium, by Zemez/ CrocoBlock) - note: plugin is currently in beta
+* JetEngine (Premium, by Zemez Jet/ CrocoBlock) - note: plugin is currently in beta
 * Natalie - Personal Theme Builder for Elementor (Premium, by XLDevelopment/ Ashraf)
 * Dashboard Welcome for Elementor (free, by IdeaBox Creations)
 * Massive Addons for Elementor (free, by Blocksera)
@@ -488,7 +488,7 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 * New: Added Customizer link for "Edit" and "View" singular posts for any public post - also a new General setting included to display those links or not (on by default)
 * New: Build own Theme upload "tab" that can be linked to on its own (uses WordPress Core render function for the upload feature itself!) - see Toolbar under: + New > Install Theme > Upload ZIP file
 * New: Smart Tweak setting to remove "Media" from New Content group (to gain more space there) (off by default)
-* New: Added full support for CrocoBlock Subscription Service (Premium, by Zemez) - including Kava Pro, Kava free, plus all Jet Plugins with settings pages - this also includes 1-Click template creation for Jet Theme Parts (via JetThemeCore)
+* New: Added full support for CrocoBlock Subscription Service (Premium, by Zemez Jet) - including Kava Pro, Kava free, plus all Jet Plugins with settings pages - this also includes 1-Click template creation for Jet Theme Parts (via JetThemeCore)
 * New: Successfully tested with "Dark Mode" (free, by Daniel T. James) plugin - which may land in WordPress Core soon... :) - all CSS styles that Toolbar Extras adds are fully compatible
 * Tweak: On plugin's settings page/ tabs added visual separation of settings sections (horizontal lines)
 * Tweak: All Customizer deep links that customize the Blog archive/page of a site now use the set Blog URL as the preview URL/page within the Customizer - this applies to all supported themes that have such Customizer panel, section or control
@@ -509,9 +509,9 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 
 **New:** *Extended the Theme support for:*
 
-* Kava Pro (Premium, by Zemez/ CrocoBlock) - including the "Kava Extra" plugin
+* Kava Pro (Premium, by Zemez Jet/ CrocoBlock) - including the "Kava Extra" plugin
 * Phlox (free, by averta) - including the free Add-Ons "Phlox Core Elements" and "Phlox Portfolio"
-* Buildwall (Premium, by Zemez)
+* Buildwall (Premium, by Zemez Jet)
 * Resurrect (Premium, by churchthemes.com)
 * Exodus (Premium, by churchthemes.com)
 * Saved (Premium, by churchthemes.com)
@@ -528,7 +528,7 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 
 **New:** *Extended the Plugin support for Elementor Add-Ons:*
 
-* JetThemeCore (Premium, by Zemez/ CrocoBlock)
+* JetThemeCore (Premium, by Zemez Jet/ CrocoBlock)
 * Briefcase Elementor Widgets (Premium, by BriefcaseWP)
 * Kadence WooCommerce Elementor (free, by Kadence Themes)
 * Kadence WooCommerce Elementor Pro (Premium, by Kadence Themes)
@@ -536,9 +536,9 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 
 **New:** *Extended the general Plugin support for:*
 
-* Kava Extra (Premium, by Zemez/ CrocoBlock)
-* Jet Data Importer (Premium, by Zemez/ CrocoBlock)
-* Jet Plugins Wizard (Premium, by Zemez/ CrocoBlock)
+* Kava Extra (Premium, by Zemez Jet/ CrocoBlock)
+* Jet Data Importer (Premium, by Zemez Jet/ CrocoBlock)
+* Jet Plugins Wizard (Premium, by Zemez Jet/ CrocoBlock)
 * Home Page Banner for Astra Theme (free, by Brainstorm Force)
 * OceanWP Sticky Header (free, by Oren Hahiashvili)
 * Front Page Builder (free, by Themes4WP)
@@ -616,8 +616,8 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 **New:** *Extended the Plugin support for Elementor Add-Ons:*
 
 * White Label Branding for Elementor (Premium, by IdeaBox Creations) - including Toolbar Extras support for some of the white label features (where applicable)
-* JetWooBuilder (Product Templates for WooCommerce) (Premium, by Zemez/ CrocoBlock)
-* JetBlocks (Premium, by Zemez/ CrocoBlock)
+* JetWooBuilder (Product Templates for WooCommerce) (Premium, by Zemez Jet/ CrocoBlock)
+* JetBlocks (Premium, by Zemez Jet/ CrocoBlock)
 * DHWC Elementor (Product Templates for WooCommerce) (Premium, by Sitesao Team)
 * Revolution for Elementor (free/Premium, by Jan Thielemann)
 * Archivescode Addons for Elementor (free, by Archivescode)
@@ -658,7 +658,7 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 
 
 = 1.1.1 - 2018-04-20 =
-* New: Added theme support for "Kava Theme" (free, by Zemez & CrocoBlock)
+* New: Added theme support for "Kava Theme" (free, by Zemez Jet & CrocoBlock)
 * New: Added plugin support for "WidgetKit for Elementor" (free, by Themesgrove)
 * New: Added plugin support for "Genesis Extender" (Premium, by Cobalt Apps)
 * Tweak: Added new settings to plugin support for "Extra Privacy for Elementor" (free, by Marian Heddesheimer)
@@ -712,10 +712,10 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 * Elementor Custom Skin (free, by Liviu Duda)
 * Power-Ups for Elementor (free, by WpPug)
 * Press Elements (free/Premium, by Press Elements & Rami Yushuvaev)
-* JetElements (Premium, by Zemez)
-* JetMenu (Premium, by Zemez)
-* JetBlog (Premium, by Zemez)
-* JetReviews (Premium, by Zemez)
+* JetElements (Premium, by Zemez Jet/ CrocoBlock)
+* JetMenu (Premium, by Zemez Jet/ CrocoBlock)
+* JetBlog (Premium, by Zemez Jet/ CrocoBlock)
+* JetReviews (Premium, by Zemez Jet/ CrocoBlock)
 * Total Recipe Generator for Elementor (Premium, by SaurabhSharma)
 * PT Elementor Addons Lite (free, by ParamThemes)
 * Elementor Addon Elements (free, by WebTechStreet)
@@ -763,6 +763,12 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 ([For the full changelog of this plugin visit its website at ToolbarExtras.com](https://toolbarextras.com/changelog/))
 
 == Upgrade Notice =
+
+= 1.4.0 =
+???
+
+= 1.3.4 =
+Further improvements, tweaks and enhancements for plugin support, developer support as well as internals/ admin handling. Update recommended.
 
 = 1.3.3 =
 Maintenance release. Important fix to support "PowerPack Elements" Add-On v1.3.4+.
@@ -813,10 +819,19 @@ Credit where credit is due. The following code, classes and libraries were used 
 * Class "Persist Admin notices Dismissal" by Agbonghama Collins and Andy Fragen (GPLv2 or later)
 * Script "Dashicons Picker" by Brad Vincent (GPLv2 or later)
 * Code for frontend toolbar color by Daniel James (GPLv3)
-* Code for displaying additional results within plugin installer search results by Remy Perona (GPLv2 or later)
 
 == Additional Info ==
 **Idea Behind / Philosophy:** Just a little lightweight plugin for all the Non-Coder site builders out there using Elementor page builder - making their daily work and life just a little easier.
 
 == Last but not least ==
 **Special Thanks go out to my family for allowing me to do such spare time projects (aka free plugins) and supporting me in every possible way!**
+
+== My Other Plugins ==
+* [**Builder Template Categories - for WordPress Page Builders**](https://wordpress.org/plugins/builder-template-categories/)
+* [Genesis What's New Info](https://wordpress.org/plugins/genesis-whats-new-info/)
+* [Genesis Layout Extras](https://wordpress.org/plugins/genesis-layout-extras/)
+* [Genesis Widgetized Not Found & 404](https://wordpress.org/plugins/genesis-widgetized-notfound/)
+* [Genesis Widgetized Footer](https://wordpress.org/plugins/genesis-widgetized-footer/)
+* [Genesis Widgetized Archive](https://wordpress.org/plugins/genesis-widgetized-archive/)
+* [Multisite Toolbar Additions](https://wordpress.org/plugins/multisite-toolbar-additions/)
+* [Cleaner Plugin Installer](https://wordpress.org/plugins/cleaner-plugin-installer/)
