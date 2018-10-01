@@ -17,6 +17,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_blox_lite', 115 );
  * Items for Add-On: Blox (free/Pro, by Nick Diego)
  *
  * @since  1.0.0
+ * @since  1.3.5 Added BTC plugin support.
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -57,19 +58,41 @@ function ddw_tbex_aoitems_blox_lite() {
 		)
 	);
 
-	/** For: WordPress "New Content" section within the Toolbar */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
-		array(
-			'id'     => 'new-blox',
-			'parent' => 'new-content',
-			'title'  => esc_attr__( 'Global Content Block', 'toolbar-extras' ),
-			'href'   => esc_url( admin_url( 'post-new.php?post_type=blox' ) ),
-			'meta'   => array(
-				'target' => '',
-				'title'  => esc_attr__( 'Global Content Block', 'toolbar-extras' )
+	/** Block categories, via BTC plugin */
+	if ( ddw_tbex_is_btcplugin_active() ) {
+
+		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			array(
+				'id'     => 'global-blox-categories',
+				'parent' => 'genesis-global-blox',
+				'title'  => ddw_btc_string_template( 'block' ),
+				'href'   => esc_url( admin_url( 'edit-tags.php?taxonomy=builder-template-category&post_type=blox' ) ),
+				'meta'   => array(
+					'target' => '',
+					'title'  => esc_html( ddw_btc_string_template( 'block' ) )
+				)
 			)
-		)
-	);
+		);
+
+	}  // end if
+
+	/** For: WordPress "New Content" section within the Toolbar */
+	if ( ddw_tbex_display_items_new_content() ) {
+
+		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			array(
+				'id'     => 'new-blox',
+				'parent' => 'new-content',
+				'title'  => esc_attr__( 'Global Content Block', 'toolbar-extras' ),
+				'href'   => esc_url( admin_url( 'post-new.php?post_type=blox' ) ),
+				'meta'   => array(
+					'target' => '',
+					'title'  => esc_attr__( 'Global Content Block', 'toolbar-extras' )
+				)
+			)
+		);
+
+	}  // end if
 
 	/** Blox Settings */
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(

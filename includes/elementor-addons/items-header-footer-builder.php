@@ -14,11 +14,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_header_footer_builder', 100 );
 /**
- * Items for Add-On: Header Footer Builder for Elementor
+ * Items for Add-On: Header Footer Builder for Elementor (free, by Brainstorm Force)
  *
  * @since  1.0.0
+ * @since  1.3.5 Added BTC plugin support.
  *
- * @uses  ddw_tbex_resource_item()
+ * @uses   ddw_tbex_resource_item()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -75,6 +76,24 @@ function ddw_tbex_aoitems_header_footer_builder() {
 					'meta'   => array(
 						'target' => ddw_tbex_meta_target( 'builder' ),
 						'title'  => esc_attr__( 'New Template Builder', 'toolbar-extras' )
+					)
+				)
+			);
+
+		}  // end if
+
+		/** Template categories, via BTC plugin */
+		if ( ddw_tbex_is_btcplugin_active() ) {
+
+			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				array(
+					'id'     => 'ao-hfbuilder-categories',
+					'parent' => 'ao-hfbuilder',
+					'title'  => ddw_btc_string_template( 'template' ),
+					'href'   => esc_url( admin_url( 'edit-tags.php?taxonomy=builder-template-category&post_type=elementor-hf' ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => esc_html( ddw_btc_string_template( 'template' ) )
 					)
 				)
 			);

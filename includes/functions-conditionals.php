@@ -1077,14 +1077,39 @@ function ddw_tbex_use_block_editor_support() {
 
 
 /**
- * Check if the "Blocks Editor" (aka "Gutenberg") plugin is active or not.
+ * Check if the "Blocks Editor" is available or not. This can currently mean:
+ *   1) WordPress is in version 5.0.0+ (will contain blocks editor by default)
+ *   2) or, the "Gutenberg" plugin is active (is the blocks editor)
  *
  * @since  1.3.2
  *
- * @return bool TRUE if constant defined, otherwise FALSE.
+ * @global string $GLOBALS[ 'wp_version' ] 
+ * @return bool TRUE if blocks editor available, otherwise FALSE.
  */
 function ddw_tbex_is_block_editor_active() {
 
-	return ( defined( 'GUTENBERG_VERSION' ) ) ? TRUE : FALSE;
+	//return ( defined( 'GUTENBERG_VERSION' ) ) ? TRUE : FALSE;
+
+	if ( version_compare( $GLOBALS[ 'wp_version' ], '5.0.0', '>=' )
+		|| defined( 'GUTENBERG_VERSION' )
+	) {
+		return TRUE;
+	}
+
+	return FALSE;
 
 }  // end if
+
+
+/**
+ * Is the Builder Template Categories plugin active or not?
+ *
+ * @since  1.3.5
+ *
+ * @return bool TRUE if plugin is active, otherwise FALSE.
+ */
+function ddw_tbex_is_btcplugin_active() {
+
+	return function_exists( 'ddw_btc_string_template' );
+
+}  // end function

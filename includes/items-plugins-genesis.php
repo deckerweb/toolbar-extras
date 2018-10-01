@@ -49,7 +49,7 @@ if ( function_exists( 'genesis_portfolio_init' ) ) {
 
 
 /**
- * Plugin: Genesis Author Pro (free, by StudioPress/ copyblogger)
+ * Plugin: Genesis Author Pro (free, by StudioPress)
  * @since 1.0.0
  */
 if ( function_exists( 'genesis_author_pro_init' ) ) {
@@ -67,6 +67,15 @@ if ( function_exists( 'wpstudio_gts_init' ) ) {
 
 
 /**
+ * Plugin: Genesis Layout Extras (free, by David Decker - DECKERWEB)
+ * @since 1.3.5
+ */
+if ( defined( 'GLE_SETTINGS_FIELD' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-genesis-layout-extras.php' );
+}
+
+
+/**
  * Plugin: Display Featured Image for Genesis (free, by Robin Cornett)
  * @since 1.3.0
  */
@@ -76,11 +85,29 @@ if ( defined( 'DISPLAYFEATUREDIMAGEGENESIS_BASENAME' ) ) {
 
 
 /**
+ * Plugin: Display Related Posts Image for Genesis (free, by SEO Themes)
+ * @since 1.3.5
+ */
+if ( defined( 'DISPLAY_RELATED_POSTS_FOR_GENESIS_VERSION' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-display-related-posts-genesis.php' );
+}
+
+
+/**
  * Plugin: Genesis Coming Soon Page (free, by Jose Manuel Sanchez)
  * @since 1.0.0
  */
 if ( function_exists( 'gcs_genesis_init' ) ) {
 	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-genesis-coming-soon-page.php' );
+}
+
+
+/**
+ * Plugin: Genesis Widgetized Not Found & 404 (free, by David Decker - DECKERWEB)
+ * @since 1.3.5
+ */
+if ( defined( 'GWNF_VERSION' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-genesis-widgetized-notfound.php' );
 }
 
 
@@ -97,7 +124,7 @@ if ( function_exists( 'be_register_genesis_404_settings' ) ) {
  * Plugin: Blox Lite / Blox (free/Pro, by Nick Diego)
  * @since 1.0.0
  */
-if ( class_exists( 'Blox_Lite_Main' ) ) {
+if ( class_exists( 'Blox_Lite_Main' ) || class_exists( 'Blox_Main' ) ) {
 	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-blox.php' );
 }
 

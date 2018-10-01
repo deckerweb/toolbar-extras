@@ -140,6 +140,24 @@ function ddw_tbex_themeitems_oceanwp() {
 
 		}  // end if
 
+		/** Template categories, via BTC plugin */
+		if ( ddw_tbex_is_btcplugin_active() ) {
+
+			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				array(
+					'id'     => 'oceanwp-library-categories',
+					'parent' => 'oceanwp-library',
+					'title'  => ddw_btc_string_template( 'template' ),
+					'href'   => esc_url( admin_url( 'edit-tags.php?taxonomy=builder-template-category&post_type=oceanwp_library' ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => esc_html( ddw_btc_string_template( 'template' ) )
+					)
+				)
+			);
+
+		}  // end if
+		
 		/** OceanWP's own Portfolio Items (via Premium Add-On plugin) */
 		if ( function_exists( 'Ocean_Portfolio' ) ) {
 

@@ -11,6 +11,21 @@
 
 ## Changelog of the Plugin
 
+### 1.3.5 - 2018-10-02
+
+* New: Added plugin support for my very own plugin, Builder Template Categories (free, by David Decker - DECKERWEB) - for all integrations relevant for Toolbar Extras plugin
+* New: Added & verified plugin support for WPForms Pro versions (Premium, by WPForms)
+* New: Added theme support for Breakthrough (Premium, by StudioPress), a Child Theme for Genesis
+* New: Added plugin support for my own plugin, Genesis Widgetized Not Found & 404 (free, by David Decker - DECKERWEB)
+* New: Added plugin support for my own plugin, Genesis Layout Extras (free, by David Decker - DECKERWEB)
+* New: Added Plugin support for Display Related Posts for Genesis (free, by SEO Themes)
+* Tweak: Added "Blog" panel deep link to Page Builder Framework Theme support, Customizer items
+* Tweak: Added missing $page variable to Theme Uploader tab, to avoid any errors/notices and to exactly fullfill WP Core parameters
+* Tweak: Fixed an internal date function so it brings correct results under edge cases
+* Tweak: Updated bundled library DDWlib Plugin Installer Recommendations to latest version (v1.1.0) - which brings smaller additions and enhancements, like CSS styles to the upload areas and plugin cards, plus plugin version number on plugin cards
+* Tweak: Updated `.pot` file plus all German translations (formal, informal) and language packs
+
+
 ### 1.3.4 - 2018-08-30
 
 * New: Added `composer.json` file to the plugin's root folder - this is great for developers using Composer

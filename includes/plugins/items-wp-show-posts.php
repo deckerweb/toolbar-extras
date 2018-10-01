@@ -17,6 +17,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_wpshowposts', 105 );
  * Items for Add-On: WP Show Posts (free, by Tom Usborne)
  *
  * @since  1.1.0
+ * @since  1.3.5 Added BTC plugin support.
  *
  * @uses   ddw_tbex_customizer_focus()
  * @uses   ddw_tbex_resource_item()
@@ -63,6 +64,24 @@ function ddw_tbex_aoitems_wpshowposts() {
 				)
 			)
 		);
+
+		/** Listing categories, via BTC plugin */
+		if ( ddw_tbex_is_btcplugin_active() ) {
+
+			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				array(
+					'id'     => 'ao-wpsp-categories',
+					'parent' => 'ao-wpsp',
+					'title'  => ddw_btc_string_template( 'listing' ),
+					'href'   => esc_url( admin_url( 'edit-tags.php?taxonomy=builder-template-category&post_type=wp_show_posts' ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => esc_html( ddw_btc_string_template( 'listing' ) )
+					)
+				)
+			);
+
+		}  // end if
 
 		if ( defined( 'WPSP_PRO_VERSION' ) ) {
 

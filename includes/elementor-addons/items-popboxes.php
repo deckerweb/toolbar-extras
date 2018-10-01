@@ -17,6 +17,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_popboxes', 100 );
  * Items for Add-On: PopBoxes for Elementor (free, by Zulfikar Nore)
  *
  * @since  1.0.0
+ * @since  1.3.5 Added BTC plugin support.
  *
  * @uses   ddw_tbex_resource_item()
  *
@@ -81,6 +82,24 @@ function ddw_tbex_aoitems_popboxes() {
 
 		}  // end if
 
+		/** Popup categories, via BTC plugin */
+		if ( ddw_tbex_is_btcplugin_active() ) {
+
+			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				array(
+					'id'     => 'ao-popboxes-categories',
+					'parent' => 'ao-popboxes',
+					'title'  => ddw_btc_string_template( 'popup' ),
+					'href'   => esc_url( admin_url( 'edit-tags.php?taxonomy=builder-template-category&post_type=elementor-popup' ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => esc_html( ddw_btc_string_template( 'popup' ) )
+					)
+				)
+			);
+
+		}  // end if
+		
 		/** Group: Resources for PopBoxes */
 		if ( ddw_tbex_display_items_resources() ) {
 
@@ -153,4 +172,4 @@ function ddw_tbex_new_content_popbox() {
 		)
 	);
 
-}  // end if
+}  // end function

@@ -17,6 +17,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_dhwc_elementor', 100 );
  * Items for Add-On: DHWC Elementor (Premium, by Sitesao Team)
  *
  * @since  1.2.0
+ * @since  1.3.5 Added BTC plugin support.
  *
  * @uses   ddw_tbex_display_items_resources()
  * @uses   ddw_tbex_resource_item()
@@ -82,6 +83,24 @@ function ddw_tbex_aoitems_dhwc_elementor() {
 
 		}  // end if
 
+		/** Template categories, via BTC plugin */
+		if ( ddw_tbex_is_btcplugin_active() ) {
+
+			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				array(
+					'id'     => 'ao-dhwce-categories',
+					'parent' => 'ao-dhwce',
+					'title'  => ddw_btc_string_template( 'template' ),
+					'href'   => esc_url( admin_url( 'edit-tags.php?taxonomy=builder-template-category&post_type=dhwc_template' ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => esc_html( ddw_btc_string_template( 'template' ) )
+					)
+				)
+			);
+
+		}  // end if
+		
 		$GLOBALS[ 'wp_admin_bar' ]->add_node(
 			array(
 				'id'     => 'ao-dhwce-settings',

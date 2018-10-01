@@ -119,7 +119,7 @@ function ddw_tbex_themeitems_customize_genesis_featured_image() {
 			'parent' => 'theme-creative-customize',
 			/* translators: Autofocus panel in the Customizer */
 			'title'  => esc_attr__( 'Display Featured Image', 'toolbar-extras' ),
-			'href'   => ddw_tbex_customizer_focus( 'panel', 'displayfeaturedimagegenesis' ),
+			'href'   => ddw_tbex_customizer_focus( 'panel', 'displayfeaturedimagegenesis', get_post_type_archive_link( 'post' ) ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
 				'title'  => ddw_tbex_string_customize_attr( __( 'Display Featured Image', 'toolbar-extras' ) )

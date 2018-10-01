@@ -245,6 +245,8 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_generatepress_premium', 100 )
  * Items for Theme: GeneratePress Premium - Add-On Plugin (by Tom Usborne)
  *
  * @since  1.0.0
+ * @since  1.3.2 Added GP Elements support.
+ * @since  1.3.5 Added BTC plugin support.
  *
  * @uses   ddw_tbex_is_generatepress_premium_active()
  *
@@ -292,6 +294,24 @@ function ddw_tbex_themeitems_generatepress_premium() {
 					)
 				)
 			);
+
+			/** Element categories, via BTC plugin */
+			if ( ddw_tbex_is_btcplugin_active() ) {
+
+				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					array(
+						'id'     => 'gp-elements-categories',
+						'parent' => 'generatepress-elements',
+						'title'  => ddw_btc_string_template( 'element' ),
+						'href'   => esc_url( admin_url( 'edit-tags.php?taxonomy=builder-template-category&post_type=gp_elements' ) ),
+						'meta'   => array(
+							'target' => '',
+							'title'  => esc_html( ddw_btc_string_template( 'element' ) )
+						)
+					)
+				);
+
+			}  // end if
 
 	}  // end if
 
@@ -450,7 +470,7 @@ function ddw_tbex_themeitems_new_content_generatepress_premium() {
 			'href'   => esc_url( admin_url( 'post-new.php?post_type=gp_elements' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_add_new_item( esc_attr__( 'GeneratePress Element', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_add_new_item( __( 'GeneratePress Element', 'toolbar-extras' ) )
 			)
 		)
 	);

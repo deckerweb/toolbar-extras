@@ -76,6 +76,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_pbf_customize', 100 );
  * Customize items for Page Builder Framework Theme
  *
  * @since  1.1.0
+ * @since  1.3.5 Added Blog panel.
  *
  * @uses   ddw_tbex_customizer_focus()
  * @uses   ddw_tbex_string_customize_attr()
@@ -94,6 +95,20 @@ function ddw_tbex_themeitems_pbf_customize() {
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
 				'title'  => ddw_tbex_string_customize_attr( __( 'General', 'toolbar-extras' ) )
+			)
+		)
+	);
+
+	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		array(
+			'id'     => 'pbfcmz-blog',
+			'parent' => 'theme-creative-customize',
+			/* translators: Autofocus panel in the Customizer */
+			'title'  => esc_attr__( 'Blog', 'toolbar-extras' ),
+			'href'   => ddw_tbex_customizer_focus( 'panel', 'blog_panel', get_post_type_archive_link( 'post' ) ),
+			'meta'   => array(
+				'target' => ddw_tbex_meta_target(),
+				'title'  => ddw_tbex_string_customize_attr( __( 'Blog', 'toolbar-extras' ) )
 			)
 		)
 	);

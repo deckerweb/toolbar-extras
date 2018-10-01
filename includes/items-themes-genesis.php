@@ -54,6 +54,15 @@ if ( function_exists( 'essence_theme_defaults' ) ) {
 
 
 /**
+ * Breakthrough Pro (Premium, by StudioPress)
+ * @since 1.3.5
+ */
+if ( function_exists( 'breakthrough_theme_defaults' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-breakthrough-pro.php' );
+}
+
+
+/**
  * Business Pro (Premium, by SEO Themes)
  * @since 1.2.0
  */
@@ -337,7 +346,7 @@ if ( function_exists( 'metro_theme_defaults' ) ) {
  * @since 1.3.2
  */
 if ( 'showcase-pro' === get_stylesheet() ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-metro-pro.php' );
+	require_once( TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-showcase-pro.php' );
 }
 
 
@@ -346,7 +355,7 @@ if ( 'showcase-pro' === get_stylesheet() ) {
  * @since 1.3.2
  */
 if ( function_exists( 'spi_theme_defaults' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-metro-pro.php' );
+	require_once( TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-smart-passive-income-pro.php' );
 }
 
 

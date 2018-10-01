@@ -92,7 +92,7 @@ function ddw_tbex_aoitems_genesis_extender() {
 			)
 		);
 
-		/** Group: Resources for Extender Pro */
+		/** Group: Resources for Genesis Extender */
 		if ( ddw_tbex_display_items_resources() ) {
 
 			$GLOBALS[ 'wp_admin_bar' ]->add_group(

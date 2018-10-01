@@ -139,6 +139,7 @@ function ddw_tbex_get_info_link( $url_key = '', $text = '', $class = '' ) {
  * Get timespan of coding years for this plugin.
  *
  * @since  1.0.0
+ * @since  1.3.5 Improved first year logic.
  *
  * @uses   ddw_tbex_info_values()
  *
@@ -152,7 +153,7 @@ function ddw_tbex_coding_years( $first_year = '' ) {
 	$first_year = ( empty( $first_year ) ) ? absint( $tbex_info[ 'first_code' ] ) : absint( $first_year );
 
 	/** Set year of first released code */
-	$code_first_year = ( '' !== $first_year && date( 'Y' ) !== $first_year ) ? $first_year . '&#x02013;' : '';
+	$code_first_year = ( date( 'Y' ) == $first_year || 0 === $first_year ) ? '' : $first_year . '&#x02013;';
 
 	return $code_first_year . date( 'Y' );
 

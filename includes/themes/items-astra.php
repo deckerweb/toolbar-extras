@@ -353,6 +353,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_astra_pro', 100 );
  * Items for Theme: Astra Pro - Add-On Plugin (Premium, by Brainstorm Force)
  *
  * @since  1.0.0
+ * @since  1.3.5 Added BTC plugin support.
  *
  * @uses   ddw_tbex_is_astra_pro_active()
  * @uses   ddw_tbex_is_elementor_active()
@@ -428,6 +429,24 @@ function ddw_tbex_themeitems_astra_pro() {
 						'meta'   => array(
 							'target' => ddw_tbex_meta_target( 'builder' ),
 							'title'  => ddw_tbex_string_newcontent_create_with_builder()
+						)
+					)
+				);
+
+			}  // end if
+
+			/** Layout categories, via BTC plugin */
+			if ( ddw_tbex_is_btcplugin_active() ) {
+
+				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					array(
+						'id'     => 'astra-layouts-categories',
+						'parent' => 'astra-layouts',
+						'title'  => ddw_btc_string_template( 'layout' ),
+						'href'   => esc_url( admin_url( 'edit-tags.php?taxonomy=builder-template-category&post_type=astra-advanced-hook' ) ),
+						'meta'   => array(
+							'target' => '',
+							'title'  => esc_html( ddw_btc_string_template( 'layout' ) )
 						)
 					)
 				);

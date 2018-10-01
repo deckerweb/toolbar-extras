@@ -166,34 +166,51 @@ function ddw_tbex_theme_installer_upload_tab( array $tabs ) {
 }  // end function
 
 
-add_action( 'install_themes_tbex-upload', 'ddw_tbex_theme_installer_upload_tab_content' );
+add_action( 'install_themes_pre_tbex-upload', 'ddw_tbex_theme_installer_pre_upload_tab' );
+/**
+ * Necessary inbetween step to set a value for the global $paged variable.
+ *   This is needed to avoid any PHP errors/notices.
+ *
+ * @since  1.3.5
+ *
+ * @global int $GLOBALS[ 'paged' ]
+ */
+function ddw_tbex_theme_installer_pre_upload_tab() {
+
+	$GLOBALS[ 'paged' ] = 1;
+
+}  // end function
+
+
+add_action( 'install_themes_tbex-upload', 'ddw_tbex_theme_installer_upload_tab_content', 10, 1 );
 /**
  * Render the content of our newly added Theme Installer Tab - using WordPress
  *   Core render function for the Theme ZIP file upload form.
  *   Note: The admin URL is then: 'theme-install.php?tab=tbex-upload'
  *
  * @since 1.3.0
+ * @since 1.3.5 Added missing $paged variable to avoid errors/notices.
  *
  * @uses  install_themes_upload()
  */
-function ddw_tbex_theme_installer_upload_tab_content() {
-	
+function ddw_tbex_theme_installer_upload_tab_content( $paged ) {
+
 	/** Add our few CSS styles inline to remove unwanted elements: */
 	?>
 		<style type="text/css">
-	  		div.theme-browser.content-filterable,
+			div.theme-browser.content-filterable,
 			.wp-filter.hide-if-no-js,
-  			button.upload-view-toggle,
-  			span.spinner {
-	  			display: none !important;
+			button.upload-view-toggle,
+			span.spinner {
+				display: none !important;
 			}
 		</style>
 	<?php
   
-  	/** Render the WordPress Core Themes uploader input form */
-  	echo '<div class="show-upload-view"><div class="upload-theme">';
+	/** Render the WordPress Core Themes uploader input form */
+	echo '<div class="show-upload-view"><div class="upload-theme">';
 		install_themes_upload();
-  	echo '</div></div>';
+	echo '</div></div>';
 	
 }  // end function
 

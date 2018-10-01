@@ -17,6 +17,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_jetwoobuilder', 100 );
  * Items for Add-On: JetWooBuilder (Premium, by Zemez Jet/ CrocoBlock)
  *
  * @since  1.2.0
+ * @since  1.3.5 Added BTC plugin support.
  *
  * @uses   ddw_tbex_resource_item()
  *
@@ -82,6 +83,24 @@ function ddw_tbex_aoitems_jetwoobuilder() {
 
 		}  // end if
 
+		/** Template categories, via BTC plugin */
+		if ( ddw_tbex_is_btcplugin_active() ) {
+
+			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				array(
+					'id'     => 'ao-jetwoobuilder-categories',
+					'parent' => 'ao-jetwoobuilder',
+					'title'  => ddw_btc_string_template( 'template' ),
+					'href'   => esc_url( admin_url( 'edit-tags.php?taxonomy=builder-template-category&post_type=jet-woo-builder' ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => esc_html( ddw_btc_string_template( 'template' ) )
+					)
+				)
+			);
+
+		}  // end if
+
 		$GLOBALS[ 'wp_admin_bar' ]->add_node(
 			array(
 				'id'     => 'ao-jetwoobuilder-settings-elementor',
@@ -112,7 +131,7 @@ function ddw_tbex_aoitems_jetwoobuilder() {
 			)
 		);
 
-		/** Group: Resources for JetBlocks */
+		/** Group: Resources for JetWooBuilder */
 		if ( ddw_tbex_display_items_resources() ) {
 
 			$GLOBALS[ 'wp_admin_bar' ]->add_group(
