@@ -69,7 +69,9 @@ function ddw_tbex_custom_settings_links( $tbex_links ) {
 	/** Display plugin settings links */
 	return apply_filters(
 		'tbex_filter_menu_page_link',
-		$tbex_links
+		$tbex_links,
+		$tbex_settings_link,	// additional param
+		$tbex_menu_link			// additional param
 	);
 
 }  // end function
