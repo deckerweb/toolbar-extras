@@ -355,6 +355,7 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 
 27. Toolbar Extras - help tab for Admin Toolbar Menu
 
+
 == Changelog ==
 
 ([For the full changelog of this plugin visit its website at ToolbarExtras.com](https://toolbarextras.com/changelog/))
@@ -800,6 +801,7 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 
 ([For the full changelog of this plugin visit its website at ToolbarExtras.com](https://toolbarextras.com/changelog/))
 
+
 == Upgrade Notice =
 
 = 1.3.6 =
@@ -850,9 +852,11 @@ Maintenance release. Small fixes.
 = 1.0.0 =
 Plugin launch. Everything's new!
 
+
 == Donate ==
 Enjoy using *Toolbar Extras*? **[Please consider making a donation](https://www.paypal.me/deckerweb)** - every donation helps to support the project's continued development, maintenance and support.
 **Thank you very much in advance for your support!**
+
 
 == Credits ==
 Credit where credit is due. The following code, classes and libraries were used for this plugin, all licensed under the GPL. Note: Credit is also referenced in the code doc block inline where used.
@@ -861,11 +865,14 @@ Credit where credit is due. The following code, classes and libraries were used 
 * Script "Dashicons Picker" by Brad Vincent (GPLv2 or later)
 * Code for frontend toolbar color by Daniel James (GPLv3)
 
+
 == Additional Info ==
 **Idea Behind / Philosophy:** Just a little lightweight plugin for all the Non-Coder site builders out there using Elementor page builder - making their daily work and life just a little easier.
 
+
 == Last but not least ==
 **Special Thanks go out to my family for allowing me to do such spare time projects (aka free plugins) and supporting me in every possible way!**
+
 
 == My Other Plugins ==
 * [**Builder Template Categories - for WordPress Page Builders**](https://wordpress.org/plugins/builder-template-categories/)
