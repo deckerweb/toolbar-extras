@@ -3,10 +3,10 @@
 **Donate link:** https://www.paypal.me/deckerweb  
 **Tags:** toolbar, adminbar, admin bar, elementor, page builder, themes, menu, links, settings, usability, deckerweb, ddwtoolbar  
 **Requires at least:** 4.7  
-**Tested up to:** 4.9.8  
+**Tested up to:** 5.0  
 **Requires PHP:** 5.6  
-**Stable tag:** 1.3.5
-**License:** GPL-2.0+  
+**Stable tag:** 1.3.6
+**License:** GPL-2.0-or-later  
 **License URI:** https://opensource.org/licenses/GPL-2.0  
 
 Building sites with Elementor? Your work will get easier & faster with Toolbar Extras. With extended plugin & theme support baked right in.
@@ -417,6 +417,14 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 ## Changelog 
 
 ([For the full changelog of this plugin visit its website at ToolbarExtras.com](https://toolbarextras.com/changelog/))
+
+
+### 1.3.6 - 2018-10-30
+
+* New: Successfully tested with WordPress 5.0 Beta 1
+* Tweak: Updated bundled library DDWlib Plugin Installer Recommendations to latest version (v1.2.0) - which brings enhanced CSS styles, including for the "Dark Mode" plugin
+* Tweak: Few internal code tweaks and improvements
+* Tweak: Enhanced and improved Readme.txt file here - also added new FAQ entry
 
 
 ### 1.3.5 - 2018-10-02
@@ -883,6 +891,10 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 
 
 ## Upgrade Notice 
+
+
+### 1.3.6
+Maintenance release. Successfully tested with WordPress 5.0 Beta 1. Internal library update and code improvements. - Update recommended.
 
 
 ### 1.3.5

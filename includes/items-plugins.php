@@ -386,7 +386,7 @@ if ( defined( 'RG_CURRENT_VIEW' ) ) {
 
 
 /**
- * Plugin: WPForms Lite (free, by WPForms)
+ * Plugin: WPForms Lite/Pro (free/Premium, by WPForms)
  * @since 1.3.1
  */
 if ( class_exists( 'WPForms' ) ) {

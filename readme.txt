@@ -3,10 +3,10 @@ Contributors: daveshine, deckerweb, wpautobahn, toolbarextras
 Donate link: https://www.paypal.me/deckerweb
 Tags: toolbar, adminbar, admin bar, elementor, page builder, themes, menu, links, settings, usability, deckerweb, ddwtoolbar
 Requires at least: 4.7
-Tested up to: 4.9.8
+Tested up to: 5.0
 Requires PHP: 5.6
-Stable tag: 1.3.5
-License: GPL-2.0+
+Stable tag: 1.3.6
+License: GPL-2.0-or-later
 License URI: https://opensource.org/licenses/GPL-2.0
 
 Building sites with Elementor? Your work will get easier & faster with Toolbar Extras. With extended plugin & theme support baked right in.
@@ -199,14 +199,16 @@ You can also contribute code-wise via our [Toolbar Extras GitHub Repository](htt
 
 For documentation and tutorials visit our [Knowledge Base](https://toolbarextras.com/docs/).
 
+
 == Frequently Asked Questions ==
 
-**Why another Toolbar plugin, there are already some others!?**
+= Why another Toolbar plugin, there are already some others!? =
 You're right! If you're happy with one of the others then that's absolutely great and you don't need to add or switch anything! :) I just made this new plugin here for my very own needs. Since I love to give back to the Community and as some kind of an open source evangelist I like to release my stuff to the public - for free!
 
 Plugin developer David Decker: *What has proved its day to day usage and usefullness on more than 100 installs before, could be used by many other site builders as well, right? :-)))*
 
-**Why is the Administrator Role required?**
+
+= Why is the Administrator Role required? =
 This plugin only works and makes sense for Administrator users (and Super Admins in Multisite) just because the links it adds to the Toolbar normally do require those permissions for the original supported plugins and themes.
 
 Example: The Elementor settings page requires the capability `manage_options` - by default, only Administrators have this capability. So Toolbar Extras "inherits" those capabilities (permissions) as well.
@@ -215,7 +217,8 @@ So, to see anything added to the Toolbar, it is required the user must have the 
 
 (Note: Implementing other roles/ capabilities is not planned, and it makes no sense, really. It would require the codebase to be bloated with all those additional permission conditions and would give only very very few (if any at all!) additional links for roles like "Editor" or lower.)
 
-**Is Elementor required for this plugin?**
+
+= Is Elementor required for this plugin? =
 Technically Elementor is not required. However, without Elementor being activated this plugin (Toolbar Extras) doesn't make much sense. Of course, the plugin supports deactivation of Elementor, though (for development, testing, whatever). When you do that (maybe for testing something) nothing strange will happen; I've included a fallback. Toolbar Extras acts smart :)
 
 I totally [recommend Elementor](https://toolbarextras.com/go/elementor/) - so, with it active, this plugin here will make the perfect sense!
@@ -225,29 +228,34 @@ Absolutely not. The supported links in Toolbar Extras will only be displayed onc
 
 However, I [strongly recommend Elementor Pro](https://toolbarextras.com/go/elementor-pro/) as it is so useful for Non-Coder Designers site builders.
 
-**Is a Page Builder required at all for this Plugin to work?**
+
+= Is a Page Builder required at all for this Plugin to work? =
 Absolutely not. The Toolbar Extras plugin has a lot of features for the Admin Bar that are fully independent from any Page Builder at all. So, of course, you can use it even if you have no Page Builder in use, or even none of the other supported plugins or themes activated. Toolbar Extras only loads features for third-party products if those are installed and activated and otherwise goes gracefully out of the way.
 
-**Will other Page Builders be supported, beyond Elementor?**
+
+= Will other Page Builders be supported, beyond Elementor? =
 In general: This is planned middle to long-term. Nothing is set in stone yet.
 
 For "Beaver Builder" and "Thrive Architect" there are plans to release an Add-On for each one but no features or date is being set yet.
 
 (Note: For a Page Builder to be considered for adding support it must be working without Shortcodes, as those Shortcode-based Builders will obviously have no bright future...!)
 
-**Where can I find which exact Themes and Plugins are supported?**
+
+= Where can I find which exact Themes and Plugins are supported? =
 You can find full listings on the plugin's website:
 
 * [All supported Themes, Child Themes and Frameworks](https://toolbarextras.com/theme-support/)
 * [All supported Elementor Add-On Plugins](https://toolbarextras.com/elementor-addons-support/)
 * [All supported general Plugins](https://toolbarextras.com/plugin-support/)
 
-**Will other Themes be supported?**
+
+= Will other Themes be supported? =
 Yes, absolutely. – In general the Theme support in Toolbar Extras is considered as essential. And, I will only ever add Themes that work well with Page Builders (mostly Elementor) and are well established. If you have recommendations you can contact me.
 
 For reference, you can find the complete list of supported themes here: [Currently supported Themes/ Child Themes and Theme Frameworks](https://toolbarextras.com/theme-support/)
 
-**Will other third-party Plugins be supported?**
+
+= Will other third-party Plugins be supported? =
 Yes, absolutely. - Though, we won't support every plugin under the sun, of course. For support to be included, the plugin has to meet at least one - better all - of the following conditions:
 
 * is useful for site-builders and/or developers
@@ -255,10 +263,16 @@ Yes, absolutely. - Though, we won't support every plugin under the sun, of cours
 * has own settings/ admin pages or own post types/ page with data input
 * additionally it should have a good reputation and be just useful (yes, say that again!)
 
-**Will this Plugin slow down my site?**
+
+= Does the Plugin work with Gutenberg (Block Editor)? =
+Yes, absolutely. Since the Toolbar has no direct connection to the editor anyways, it is fully compatible by default. But to go the extra mile, it will get even (upcoming) special integration with Gutenberg and the optional Classic Editor in the next major version (v1.4.0). Even the growing Add-On ecosystem for Block Editor/ Gutenberg will also be supported very well in this next major version. So, if you want to work with this new Editor (coming in WordPress version 5.0) or not, Toolbar Extras gives you the best support and integrations for either alternative!
+
+
+= Will this Plugin slow down my site? =
 Absolutely not. The plugin will only do its stuff for logged-in Administrator users. It does nothing for visitors of your site. Plugin loads its stuff only when needed and if supported theme/ plugin is active. Plugin was built to be as lightweight as possible.
 
-**Does the Plugin work with Multisite?**
+
+= Does the Plugin work with Multisite? =
 Yes, it works fine in Multisite, you could even activate it Network-wide. However, it does add almost nothing additional to the Network Admin but rather to the Dashboard of each individual sub-site of the Network. Therefore I recommend to use "Toolbar Extras" only in single installs (default) currently.
 
 For Multisite installs I currently recommend my own plugin **["Multisite Toolbar Additions"](https://wordpress.org/plugins/multisite-toolbar-additions/)** which is like a "sister plugin" of Toolbar Extras (and even was there before it!).
@@ -267,12 +281,14 @@ For Multisite installs I currently recommend my own plugin **["Multisite Toolbar
 
 *Update II:* A special Multisite Add-On for Toolbar Extras is planned but no date is being set yet. This Add-On will bring many improvements to the Network Admin area as well as specific plugin support for Multisite.
 
-**Can the plugin be used on WordPress.com?**
+
+= Can the plugin be used on WordPress.com? =
 Normally not. But, when you are on the paid Business plan then installation of plugins is allowed for these account types. However, since WordPress.com replaces the original WordPress Toolbar with their "Masterbar" you first need to remove this via a code snippet. Then you can use plugins like Toolbar Extras.
 
 See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business account](https://toolbarextras.com/docs/how-to-use-toolbar-extras-plugin-on-wordpress-com/).
 
-**More info on Translations?**
+
+= More info on Translations? =
 
 * English - default, always included
 * German (de_DE): Deutsch - immer dabei! :-)
@@ -281,6 +297,7 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 **Easy WordPress.org plugin translation platform with GlotPress platform:** [**Translate "Toolbar Extras"...**](https://translate.wordpress.org/projects/wp-plugins/toolbar-extras)
 
 *Note:* All my plugins are internationalized/ translateable by default. This is very important for all users worldwide. So please contribute your language to the plugin to make it even more useful. For translating and validating I recommend the awesome ["Poedit Editor"](https://www.poedit.net/), which works fine on Windows, macOS and Linux.
+
 
 == Screenshots ==
 
@@ -341,6 +358,13 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 == Changelog ==
 
 ([For the full changelog of this plugin visit its website at ToolbarExtras.com](https://toolbarextras.com/changelog/))
+
+= 1.3.6 - 2018-10-30 =
+* New: Successfully tested with WordPress 5.0 Beta 1
+* Tweak: Updated bundled library DDWlib Plugin Installer Recommendations to latest version (v1.2.0) - which brings enhanced CSS styles, including for the "Dark Mode" plugin
+* Tweak: Few internal code tweaks and improvements
+* Tweak: Enhanced and improved Readme.txt file here - also added new FAQ entry
+
 
 = 1.3.5 - 2018-10-02 =
 * New: Added plugin support for my very own plugin, Builder Template Categories (free, by David Decker - DECKERWEB) - for all integrations relevant for Toolbar Extras plugin
@@ -777,6 +801,9 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 ([For the full changelog of this plugin visit its website at ToolbarExtras.com](https://toolbarextras.com/changelog/))
 
 == Upgrade Notice =
+
+= 1.3.6 =
+Maintenance release. Successfully tested with WordPress 5.0 Beta 1. Internal library update and code improvements. - Update recommended.
 
 = 1.3.5 =
 New supported plugins. Further enhancements and tweaks; internal libraries updated; fixes for warnings/notices. - Update recommended.

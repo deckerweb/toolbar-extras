@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 add_action( 'admin_bar_menu', 'ddw_tbex_site_items_wpforms' );
 /**
- * Items for Plugin: WPForms Lite (free, by WPForms)
+ * Items for Plugin: WPForms Lite/Pro (free/Premium, by WPForms)
  *
  * @since  1.3.1
  *

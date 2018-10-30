@@ -55,7 +55,7 @@ function ddw_tbex_info_values() {
 		'author_uri'        => __( 'https://deckerweb.de/', 'toolbar-extras' ),
 		'author_avatar'     => plugins_url( '/assets/images/plugin-author.jpg', dirname( __FILE__ ) ),
 		'author_gravatar'   => 'https://s.gravatar.com/avatar/37f92a97dd59cb35be4f86f3e6b56309?s=',		// size defined at usage!
-		'license'           => 'GPL-2.0+',
+		'license'           => 'GPL-2.0-or-later',
 		'url_license'       => 'https://opensource.org/licenses/GPL-2.0',
 		'first_code'        => '2012',
 		'url_donate'        => 'https://www.paypal.me/deckerweb',

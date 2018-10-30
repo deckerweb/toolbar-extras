@@ -633,8 +633,8 @@ function ddw_tbex_string_new_form( $form_system = '', $type = '' ) {
 	if ( 'view' === sanitize_key( $type ) ) {
 
 		return sprintf(
+			/* translators: %s - Name of Form System (for example: Formidable, Ninja, Caldera etc.) */
 			esc_attr_x(
-				/* translators: %s - Name of Form System (for example: Formidable, Ninja, Caldera etc.) */
 				'%s View',
 				'Toolbar New Content section',
 				'toolbar-extras'
@@ -645,8 +645,8 @@ function ddw_tbex_string_new_form( $form_system = '', $type = '' ) {
 	}  // end if
 
 	return sprintf(
+		/* translators: %s - Name of Form System (for example: Formidable, Ninja, Caldera etc.) */
 		esc_attr_x(
-			/* translators: %s - Name of Form System (for example: Formidable, Ninja, Caldera etc.) */
 			'%s Form',
 			'Toolbar New Content section',
 			'toolbar-extras'
@@ -668,8 +668,8 @@ function ddw_tbex_string_new_form( $form_system = '', $type = '' ) {
 function ddw_tbex_string_forms_system( $form_system = '' ) {
 
 	return sprintf(
+		/* translators: %s - Name of Form System (for example: Formidable, Ninja, Caldera etc.) */
 		esc_attr_x(
-			/* translators: %s - Name of Form System (for example: Formidable, Ninja, Caldera etc.) */
 			'%s Forms',
 			'A WordPress Form Builder Plugin',
 			'toolbar-extras'
@@ -692,8 +692,8 @@ function ddw_tbex_string_forms_system( $form_system = '' ) {
 function ddw_tbex_string_add_new_item( $item = '' ) {
 
 	return sprintf(
+		/* translators: %s - String for the element to be added (for example: "Backup Archive") */
 		esc_attr_x(
-			/* translators: %s - String for the element to be added (for example: "Backup Archive") */
 			'Add new %s',
 			'Toolbar New Content section',
 			'toolbar-extras'

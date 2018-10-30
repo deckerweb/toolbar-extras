@@ -241,7 +241,7 @@ function ddw_tbex_items_new_content_installer() {
 			'parent' => $addnewgroup,
 			'id'     => 'install-plugin',
 			'title'  => esc_attr__( 'Install Plugin', 'toolbar-extras' ),
-			'href'   => esc_url( network_admin_url( 'plugin-install.php' ) ),
+			'href'   => esc_url( network_admin_url( 'plugin-install.php?tab=featured' ) ),
 			'meta'   => array(
 				'target' => '',
 				'title'  => esc_attr__( 'Install Plugin - Search via WordPress.org', 'toolbar-extras' )
@@ -254,7 +254,7 @@ function ddw_tbex_items_new_content_installer() {
 				'id'     => 'search-plugin-repo',
 				'parent' => 'install-plugin',
 				'title'  => esc_attr__( 'Search Plugin Directory', 'toolbar-extras' ),
-				'href'   => esc_url( network_admin_url( 'plugin-install.php' ) ),
+				'href'   => esc_url( network_admin_url( 'plugin-install.php?tab=recommended' ) ),
 				'meta'   => array(
 					'target' => '',
 					'title'  => esc_attr__( 'Search WordPress.org Plugin Directory', 'toolbar-extras' )

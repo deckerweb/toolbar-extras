@@ -102,7 +102,7 @@ function ddw_tbex_plugin_links( $tbex_links, $tbex_file ) {
 
 		?>
 			<style type="text/css">
-				tr[data-slug="toolbar-extras"] .plugin-version-author-uri a.dashicons-before:before {
+				tr[data-plugin="<?php echo $tbex_file; ?>"] .plugin-version-author-uri a.dashicons-before:before {
 					font-size: 17px;
 					margin-right: 2px;
 					opacity: .85;
