@@ -25,6 +25,7 @@ function ddw_tbex_notice_plugins_welcome() {
 
 	/** Check if message should be displayed */
 	if ( ! PAnD::is_admin_notice_active( 'tbex-notice-plugins-welcome-forever' )
+		|| 'forever' === get_site_transient( 'tbex-notice-plugins-welcome' )
 		|| ! is_plugin_active( 'toolbar-extras/toolbar-extras.php' )
 		|| 'plugins.php' !== $GLOBALS[ 'pagenow' ]
 	) {

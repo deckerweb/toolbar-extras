@@ -355,6 +355,7 @@ add_filter( 'ddwlib_plir/filter/plugins', 'ddw_tbex_register_extra_plugin_recomm
  *         Plugin Directory.
  *
  * @since  1.3.4
+ * @since  1.3.7 Added new Block Editor recommendations.
  *
  * @param  array $plugins Array holding all plugin recommendations, coming from
  *                        the class and the filter.
@@ -420,7 +421,22 @@ function ddw_tbex_register_extra_plugin_recommendations( array $plugins ) {
 				'recommended' => 'yes',
 				'popular'     => 'yes',
 			),
+			'block-builder' => array(
+				'featured'    => 'yes',
+				'recommended' => 'yes',
+				'popular'     => 'yes',
+			),
 			'custom-fields-gutenberg' => array(
+				'featured'    => 'yes',
+				'recommended' => 'yes',
+				'popular'     => 'no',
+			),
+			'lazy-blocks' => array(
+				'featured'    => 'yes',
+				'recommended' => 'yes',
+				'popular'     => 'no',
+			),
+			'block-lab' => array(
 				'featured'    => 'yes',
 				'recommended' => 'yes',
 				'popular'     => 'no',

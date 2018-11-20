@@ -22,8 +22,8 @@ add_action( 'plugins_loaded', 'ddw_tbex_plugin_check_version' );
  */
 function ddw_tbex_plugin_check_version() {
 
-	/** Bail early if we already on plugin version 1.3.1 or higher */
-	if ( version_compare( get_option( 'tbex-plugin-version' ), '1.3.1', '>=' ) ) {
+	/** Bail early if we already on plugin version 1.3.7 or higher */
+	if ( version_compare( get_option( 'tbex-plugin-version' ), '1.3.7', '>=' ) ) {
 		return;
 	}
 
@@ -100,13 +100,15 @@ function ddw_tbex_plugin_check_version() {
 	 */
 	/** New general options */
 	$general_options_v130 = array(
-		'display_items_new_content' => 'yes',	// on by default!
-		'builder_links_blank'       => 'yes',	// on by default!
+		'display_items_new_content'  => 'yes',	// on by default!
+		'display_items_edit_content' => 'yes',	// on by default!
+		'builder_links_blank'        => 'yes',	// on by default!
 	);
 
 	$existing_general = (array) get_option( 'tbex-options-general' );
 
 	if ( ! array_key_exists( 'display_items_new_content', $existing_general )
+		|| ! array_key_exists( 'display_items_edit_content', $existing_general )
 		|| ! array_key_exists( 'builder_links_blank', $existing_general )
 	) {
 		update_option( 'tbex-options-general', array_merge( $existing_general, $general_options_v130 ) );

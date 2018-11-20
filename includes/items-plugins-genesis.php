@@ -22,6 +22,33 @@ if ( defined( 'GPP_VER' ) ) {
 
 
 /**
+ * Plugin: Genesis Simple Edits (free, by StudioPress)
+ * @since 1.3.7
+ */
+if ( class_exists( 'Genesis_Simple_Edits' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-genesis-simple-edits.php' );
+}
+
+
+/**
+ * Plugin: Genesis Footer Builder (free, by Shivanand Sharma)
+ * @since 1.3.7
+ */
+if ( defined( 'GFB_SETTINGS_FIELD' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-genesis-footer-builder.php' );
+}
+
+
+/**
+ * Plugin: Genesis Grid (free, by Bill Erickson)
+ * @since 1.3.7
+ */
+if ( class_exists( 'BE_Genesis_Grid' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-genesis-grid.php' );
+}
+
+
+/**
  * Plugin: Genesis Simple Hooks (free, by StudioPress)
  * @since 1.0.0
  */
@@ -72,6 +99,15 @@ if ( function_exists( 'wpstudio_gts_init' ) ) {
  */
 if ( defined( 'GLE_SETTINGS_FIELD' ) ) {
 	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-genesis-layout-extras.php' );
+}
+
+
+/**
+ * Plugin: Genesis Accessible (free, by Rian Rietveld, Robin Cornett)
+ * @since 1.3.7
+ */
+if ( defined( 'GENWPACC_VERSION' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-genesis-accessible.php' );
 }
 
 

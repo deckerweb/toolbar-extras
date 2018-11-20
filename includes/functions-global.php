@@ -52,7 +52,7 @@ function ddw_tbex_info_values() {
 		'url_ddw_series'    => 'https://wordpress.org/plugins/tags/ddwtoolbar',
 		'url_snippets'      => 'https://gist.github.com/deckerweb',
 		'author'            => __( 'David Decker - DECKERWEB', 'toolbar-extras' ),
-		'author_uri'        => __( 'https://deckerweb.de/', 'toolbar-extras' ),
+		'author_uri'        => 'https://deckerweb.de/',
 		'author_avatar'     => plugins_url( '/assets/images/plugin-author.jpg', dirname( __FILE__ ) ),
 		'author_gravatar'   => 'https://s.gravatar.com/avatar/37f92a97dd59cb35be4f86f3e6b56309?s=',		// size defined at usage!
 		'license'           => 'GPL-2.0-or-later',

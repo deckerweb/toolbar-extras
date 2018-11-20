@@ -8,8 +8,28 @@
 * [**Donate** for the further development & support of the plugin](https://www.paypal.me/deckerweb)
 * [Plugin's documentation & knowledge base](https://toolbarextras.com/docs/)
 * [Plugin's public roadmap (Trello Board)](https://toolbarextras.com/go/public-roadmap/)
+* [Facebook Community User Group](https://www.facebook.com/groups/ToolbarExtras/)
 
 ## Changelog of the Plugin
+
+### 1.3.7 - 2018-11-20
+
+* New: Successfully tested with WordPress 5.0 Beta 5
+* New: Added Plugin support for Genesis Simple Edits (free, by StudioPress)
+* New: Added Plugin support for Genesis Footer Builder (free, by Shivanand Sharma)
+* New: Added Plugin support for Genesis Accessible (free, by Rian Rietveld, Robin Cornett)
+* New: Added Plugin support for Genesis Grid (free, by Bill Erickson)
+* New: Added Markdown Readme.md to `/languages/` folder also (great for Translators and Developers)
+* Tweak: Reworked latest post logic for "Display Related Posts for Genesis" Plugin support
+* Tweak: Prepare admin notices for upcoming PAnD library changes
+* Tweak: Updated bundled library DDWlib Plugin Installer Recommendations to latest version (v1.2.1) - CSS fixes
+* Tweak: Updated `.pot` file plus all German translations (formal, informal) and language packs
+* Fix: Proper `$media` param for wp_register_style() occurrences
+* Fix: Proper file including for some supported Genesis child themes
+* Fix: Added forgotten setting from v1.3.0 to the settings updater routine to avoid PHP notice
+* Fix: Changed few `translators` comments in code to properly trigger the language pack creation on WordPress.org for some translateable strings
+* *Stay tuned: Version 1.4.0 of Toolbar Extras is coming soon and will be our biggest feature release yet! You will love it! ;-)*
+
 
 ### 1.3.6 - 2018-10-30
 

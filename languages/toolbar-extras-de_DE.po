@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Toolbar Extras\n"
-"POT-Creation-Date: 2018-10-01 22:58+0200\n"
-"PO-Revision-Date: 2018-10-01 22:58+0200\n"
+"POT-Creation-Date: 2018-11-20 17:39+0100\n"
+"PO-Revision-Date: 2018-11-20 17:39+0100\n"
 "Last-Translator: David Decker DECKERWEB.de -- https://deckerweb.de/\n"
 "Language-Team: David Decker DECKERWEB.de -- https://deckerweb.de/\n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.1.1\n"
+"X-Generator: Poedit 2.2\n"
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
@@ -44,25 +44,25 @@ msgid "Custom Menu"
 msgstr "Eigenes Menü"
 
 #. translators: Plugins page listing
-#: includes/admin/admin-extras.php:113
+#: includes/admin/admin-extras.php:115
 msgctxt "Plugins page listing"
 msgid "Support"
 msgstr "Support"
 
 #. translators: Plugins page listing
-#: includes/admin/admin-extras.php:116
+#: includes/admin/admin-extras.php:118
 msgctxt "Plugins page listing"
 msgid "Facebook Group"
 msgstr "Facebook-Gruppe"
 
 #. translators: Plugins page listing
-#: includes/admin/admin-extras.php:119
+#: includes/admin/admin-extras.php:121
 msgctxt "Plugins page listing"
 msgid "Translations"
 msgstr "Übersetzungen"
 
 #. translators: Plugins page listing
-#: includes/admin/admin-extras.php:122
+#: includes/admin/admin-extras.php:124
 msgctxt "Plugins page listing"
 msgid "Donate"
 msgstr "Spenden"
@@ -71,10 +71,10 @@ msgstr "Spenden"
 #. translators: Label for "Toolbar Extras" sub-menu item in left-hand admin menu
 #. translators: Plugin title
 #. Plugin Name of the plugin/theme
-#: includes/admin/admin-extras.php:164 includes/admin/admin-extras.php:204
-#: includes/admin/admin-extras.php:243 includes/admin/tbex-settings.php:1078
+#: includes/admin/admin-extras.php:166 includes/admin/admin-extras.php:206
+#: includes/admin/admin-extras.php:245 includes/admin/tbex-settings.php:1078
 #: includes/admin/views/help-content-menus.php:35
-#: includes/admin/views/notice-plugins-welcome.php:40
+#: includes/admin/views/notice-plugins-welcome.php:41
 #: includes/admin/views/settings-tab-about-support.php:43
 #: includes/admin/views/settings-tab-general.php:560
 #: includes/functions-global.php:942 includes/string-switcher.php:592
@@ -83,27 +83,27 @@ msgid "Toolbar Extras"
 msgstr "Toolbar Extras"
 
 #. translators: %1$s - Term: 'The following menu location above is' / %2$s - "Super Admins" or "Admins" / %3$s - Name of plugin ("Toolbar Extras")
-#: includes/admin/admin-extras.php:201
+#: includes/admin/admin-extras.php:203
 #, php-format
 msgid "%1$s only for %2$s."
 msgstr "%1$s nur für %2$s."
 
-#: includes/admin/admin-extras.php:201
+#: includes/admin/admin-extras.php:203
 #, php-format
 msgid "This is provided by the plugin %3$s."
 msgstr "Dies wird bereitgestellt durch das Plugin %3$s."
 
-#: includes/admin/admin-extras.php:202
+#: includes/admin/admin-extras.php:204
 msgid "The following menu location above is"
 msgstr "Die folgende oben aufgelistete Menüposition ist"
 
-#: includes/admin/admin-extras.php:214
+#: includes/admin/admin-extras.php:216
 msgid "See help tab on top right corner for more usage instructions."
 msgstr ""
 "Der Hilfe-Tab oben rechts bietet weitere Instruktionen zum Einsatz der Menüs."
 
 #. translators: 1 - Toolbar Extras / 2 - Link to plugin review
-#: includes/admin/admin-extras.php:242
+#: includes/admin/admin-extras.php:244
 #, php-format
 msgid ""
 "Enjoyed %1$s? Please leave us a %2$s rating. We really appreciate your "
@@ -112,12 +112,12 @@ msgstr ""
 "Gefällt dir %1$s? Dann gib uns bitte eine %2$s Bewertung. Wir schätzen deine "
 "Unterstützung!"
 
-#: includes/admin/admin-extras.php:459
+#: includes/admin/admin-extras.php:477
 msgctxt "Plugin installer: Tab name in installer toolbar"
 msgid "Newest"
 msgstr "Neueste"
 
-#: includes/admin/admin-extras.php:465
+#: includes/admin/admin-extras.php:483
 msgctxt "Plugin card: plugin version"
 msgid "Version:"
 msgstr "Version:"
@@ -578,7 +578,7 @@ msgstr ""
 
 #. translators: Label for "Settings" in left-hand admin menu
 #. translators: Autofocus panel in the Customizer
-#: includes/admin/views/notice-plugins-welcome.php:38
+#: includes/admin/views/notice-plugins-welcome.php:39
 #: includes/elementor-addons/items-dynamic-content-for-elementor.php:48
 #: includes/elementor-addons/items-dynamic-content-for-elementor.php:52
 #: includes/elementor-addons/items-elements-plus.php:48
@@ -706,7 +706,7 @@ msgstr "Einstellungen"
 
 #. translators: Label for "Appearance" in left-hand admin menu
 #. translators: Autofocus panel in the Customizer
-#: includes/admin/views/notice-plugins-welcome.php:47
+#: includes/admin/views/notice-plugins-welcome.php:48
 #: includes/items-edit-content.php:36 includes/items-edit-content.php:41
 #: includes/plugins/items-mailchimp-for-wp.php:121
 #: includes/plugins/items-mailchimp-for-wp.php:125
@@ -717,44 +717,44 @@ msgid "Appearance"
 msgstr "Design"
 
 #. translators: Label for "Menus" sub-menu item in left-hand admin menu
-#: includes/admin/views/notice-plugins-welcome.php:49
+#: includes/admin/views/notice-plugins-welcome.php:50
 msgid "Menus"
 msgstr "Menüs"
 
-#: includes/admin/views/notice-plugins-welcome.php:55
+#: includes/admin/views/notice-plugins-welcome.php:56
 msgid "Thank You for Installing and Activating the Toolbar Extras Plugin!"
 msgstr ""
 "Vielen Dank, dass du das Toolbar Extras Plugin installiert und aktiviert "
 "hast!"
 
-#: includes/admin/views/notice-plugins-welcome.php:56
+#: includes/admin/views/notice-plugins-welcome.php:57
 msgid "You'll find the plugin's settings under:"
 msgstr "Du findest die Einstellungen des Plugins unter:"
 
-#: includes/admin/views/notice-plugins-welcome.php:57
+#: includes/admin/views/notice-plugins-welcome.php:58
 msgid "To create an (optional) Admin Toolbar Menu just build a new menu here:"
 msgstr ""
 "Um ein (optionales) Toolbar-Menü für Admins zu erstellen, lege einfach ein "
 "neues Nav-Menü hier an:"
 
-#: includes/admin/views/notice-settings-welcome.php:35
+#: includes/admin/views/notice-settings-welcome.php:37
 msgid "Welcome to Toolbar Extras - Thank You for Using this Plugin!"
 msgstr ""
 "Willkommen bei Toolbar Extras - Danke, dass du dieses Plugin verwendest!"
 
-#: includes/admin/views/notice-settings-welcome.php:36
+#: includes/admin/views/notice-settings-welcome.php:38
 msgid "Video with short summary of what the plugin does"
 msgstr "Video mit kurzer Zusammenfassung, was das Plugin macht"
 
-#: includes/admin/views/notice-settings-welcome.php:39
+#: includes/admin/views/notice-settings-welcome.php:41
 msgid "Toolbar Extras Plugin - the Video Tour"
 msgstr "Toolbar Extras-Plugin - die Video-Tour"
 
-#: includes/admin/views/notice-settings-welcome.php:40
+#: includes/admin/views/notice-settings-welcome.php:42
 msgid "See the Video Tour"
 msgstr "Video-Tour anschauen"
 
-#: includes/admin/views/notice-settings-welcome.php:42
+#: includes/admin/views/notice-settings-welcome.php:44
 msgid ""
 "Below you'll find all options for this plugin as well as all resources for "
 "support."
@@ -762,7 +762,7 @@ msgstr ""
 "Unterhalb findest du alle Optionen für dieses Plugin und ebenso alle "
 "Ressourcen für Support."
 
-#: includes/admin/views/notice-settings-welcome.php:43
+#: includes/admin/views/notice-settings-welcome.php:45
 msgid "Have a great day and enjoy building your site."
 msgstr "Viel Erfolg beim Erschaffen deiner Website!"
 
@@ -3230,11 +3230,7 @@ msgstr "Mein Benutzerkonto %s"
 #. Author of the plugin/theme
 #: includes/functions-global.php:54
 msgid "David Decker - DECKERWEB"
-msgstr "David Decker - DECKERWEB.de"
-
-#: includes/functions-global.php:55
-msgid "https://deckerweb.de/"
-msgstr "https://deckerweb.de/"
+msgstr "David Decker - DECKERWEB"
 
 #: includes/functions-global.php:178
 msgid "No Page Builder registered"
@@ -4007,8 +4003,8 @@ msgid "Content Types"
 msgstr "Inhaltstypen"
 
 #. translators: Autofocus panel in the Customizer
-#: includes/plugins-genesis/items-display-related-posts-genesis.php:44
 #: includes/plugins-genesis/items-display-related-posts-genesis.php:48
+#: includes/plugins-genesis/items-display-related-posts-genesis.php:52
 msgid "Display Related Posts"
 msgstr "Anzeige ähnlicher Beiträge"
 
@@ -4025,6 +4021,11 @@ msgstr "404-Seite bearbeiten"
 #: includes/plugins/items-404page.php:54 includes/plugins/items-404page.php:58
 msgid "404 Live Test"
 msgstr "404 Live-Test"
+
+#: includes/plugins-genesis/items-genesis-accessible.php:30
+#: includes/plugins-genesis/items-genesis-accessible.php:34
+msgid "Genesis Accessible"
+msgstr "Genesis Barrierefrei"
 
 #: includes/plugins-genesis/items-genesis-author-pro.php:37
 #: includes/plugins-genesis/items-genesis-author-pro.php:41
@@ -4087,6 +4088,25 @@ msgstr "Helferlein"
 msgid "Support"
 msgstr "Support"
 
+#. translators: Autofocus panel in the Customizer
+#: includes/plugins-genesis/items-genesis-footer-builder.php:30
+#: includes/themes/items-customify.php:104
+#: includes/themes/items-customify.php:108
+msgid "Footer Builder"
+msgstr "Footer-Builder"
+
+#: includes/plugins-genesis/items-genesis-footer-builder.php:34
+msgid "Genesis Footer Builder"
+msgstr "Genesis Footer-Builder"
+
+#: includes/plugins-genesis/items-genesis-grid.php:30
+msgid "Grid Settings"
+msgstr "Raster-Einstellungen"
+
+#: includes/plugins-genesis/items-genesis-grid.php:34
+msgid "Genesis Grid Settings"
+msgstr "Genesis Raster-Einstellungen"
+
 #: includes/plugins-genesis/items-genesis-layout-extras.php:30
 msgid "Layout Extras"
 msgstr "Layout-Extras"
@@ -4116,6 +4136,14 @@ msgstr "Alle Portolio-Beiträge"
 #: includes/themes/items-oceanwp.php:188 includes/themes/items-oceanwp.php:192
 msgid "New Portfolio Item"
 msgstr "Neuer Portfolio-Beitrag"
+
+#: includes/plugins-genesis/items-genesis-simple-edits.php:30
+msgid "Simple Edits"
+msgstr "Einfache Anpassungen"
+
+#: includes/plugins-genesis/items-genesis-simple-edits.php:34
+msgid "Genesis Simple Edits for Footer and Entry Meta"
+msgstr "Genesis einfache Anpassungen für Footer und Beitrags-Metadaten"
 
 #: includes/plugins-genesis/items-genesis-simple-hooks.php:30
 msgid "Simple Hooks"
@@ -6189,28 +6217,24 @@ msgstr "Website"
 msgid "%3$s Toolbar Menu"
 msgstr "%3$s Toolbar-Menü"
 
-#. translators: %s - Name of Form System (for example: Formidable, Ninja, Caldera etc.)
 #: includes/string-switcher.php:638
 #, php-format
 msgctxt "Toolbar New Content section"
 msgid "%s View"
 msgstr "%s Ansicht"
 
-#. translators: %s - Name of Form System (for example: Formidable, Ninja, Caldera etc.)
 #: includes/string-switcher.php:650
 #, php-format
 msgctxt "Toolbar New Content section"
 msgid "%s Form"
 msgstr "%s Formular"
 
-#. translators: %s - Name of Form System (for example: Formidable, Ninja, Caldera etc.)
 #: includes/string-switcher.php:673
 #, php-format
 msgctxt "A WordPress Form Builder Plugin"
 msgid "%s Forms"
 msgstr "%s Formulare"
 
-#. translators: %s - String for the element to be added (for example: "Backup Archive")
 #: includes/string-switcher.php:697
 #, php-format
 msgctxt "Toolbar New Content section"
@@ -7116,12 +7140,6 @@ msgid "Header Builder"
 msgstr "Header-Builder"
 
 #. translators: Autofocus panel in the Customizer
-#: includes/themes/items-customify.php:104
-#: includes/themes/items-customify.php:108
-msgid "Footer Builder"
-msgstr "Footer-Builder"
-
-#. translators: Autofocus panel in the Customizer
 #: includes/themes/items-customify.php:118
 #: includes/themes/items-customify.php:122
 msgid "Layouts"
@@ -7548,6 +7566,9 @@ msgstr ""
 "Werkzeugleiste (Toolbar, Adminbar) hinzu. Das ist besonders hilfreich bei "
 "der Website-Erstellung mit dem Elementor Page Builder und dessen Ökosystem "
 "aus Add-Ons sowie aus dem Bereich der Themes."
+
+#~ msgid "https://deckerweb.de/"
+#~ msgstr "https://deckerweb.de/"
 
 #~ msgid "Add PHP Snippet"
 #~ msgstr "PHP-Snippet hinzufügen"

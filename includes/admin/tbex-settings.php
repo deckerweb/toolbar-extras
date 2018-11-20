@@ -1135,7 +1135,7 @@ function ddw_tbex_enqueue_admin_styles_scripts() {
 		plugins_url( '/assets/css/tbex-settings.css', dirname( dirname( __FILE__ ) ) ),
 		array(),
 		TBEX_PLUGIN_VERSION,
-		FALSE
+		'screen'
 	);
 
 	wp_enqueue_style( 'tbex-settings-page' );
@@ -1160,7 +1160,7 @@ function ddw_tbex_enqueue_admin_styles_scripts() {
 		plugins_url( '/assets/css/dashicons-picker.css', dirname( dirname( __FILE__ ) ) ),
 		array( 'dashicons' ),
 		TBEX_PLUGIN_VERSION,
-		FALSE
+		'screen'
 	);
 
 	wp_enqueue_style( 'tbex-dashicons-picker' );

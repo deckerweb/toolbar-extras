@@ -24,7 +24,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 function ddw_tbex_notice_settings_welcome() {
 
 	/** Check if message should be displayed */
-	if ( ! PAnD::is_admin_notice_active( 'tbex-notice-welcome-forever' ) ) {
+	if ( ! PAnD::is_admin_notice_active( 'tbex-notice-welcome-forever' )
+		|| 'forever' === get_site_transient( 'tbex-notice-welcome' )
+	) {
 		return;
 	}
 

@@ -5,7 +5,7 @@
 **Requires at least:** 4.7  
 **Tested up to:** 5.0  
 **Requires PHP:** 5.6  
-**Stable tag:** 1.3.6
+**Stable tag:** 1.3.7
 **License:** GPL-2.0-or-later  
 **License URI:** https://opensource.org/licenses/GPL-2.0  
 
@@ -417,6 +417,25 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 ## Changelog 
 
 ([For the full changelog of this plugin visit its website at ToolbarExtras.com](https://toolbarextras.com/changelog/))
+
+
+### 1.3.7 - 2018-11-20
+
+* New: Successfully tested with WordPress 5.0 Beta 5
+* New: Added Plugin support for Genesis Simple Edits (free, by StudioPress)
+* New: Added Plugin support for Genesis Footer Builder (free, by Shivanand Sharma)
+* New: Added Plugin support for Genesis Accessible (free, by Rian Rietveld, Robin Cornett)
+* New: Added Plugin support for Genesis Grid (free, by Bill Erickson)
+* New: Added Markdown Readme.md to `/languages/` folder also (great for Translators and Developers)
+* Tweak: Reworked latest post logic for "Display Related Posts for Genesis" Plugin support
+* Tweak: Prepare admin notices for upcoming PAnD library changes
+* Tweak: Updated bundled library DDWlib Plugin Installer Recommendations to latest version (v1.2.1) - CSS fixes
+* Tweak: Updated `.pot` file plus all German translations (formal, informal) and language packs
+* Fix: Proper `$media` param for wp_register_style() occurrences
+* Fix: Proper file including for some supported Genesis child themes
+* Fix: Added forgotten setting from v1.3.0 to the settings updater routine to avoid PHP notice
+* Fix: Changed few `translators` comments in code to properly trigger the language pack creation on WordPress.org for some translateable strings
+* *Stay tuned: Version 1.4.0 of Toolbar Extras is coming soon and will be our biggest feature release yet! You will love it! ;-)*
 
 
 ### 1.3.6 - 2018-10-30
@@ -891,6 +910,10 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 
 
 ## Upgrade Notice 
+
+
+### 1.3.7
+Maintenance release. Successfully tested with WordPress 5.0 Beta 5. New supported plugins. Plus: some tweaks, fixes, and internal library update. - Update highly recommended.
 
 
 ### 1.3.6
