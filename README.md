@@ -435,7 +435,7 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 * Fix: Proper file including for some supported Genesis child themes
 * Fix: Added forgotten setting from v1.3.0 to the settings updater routine to avoid PHP notice
 * Fix: Changed few `translators` comments in code to properly trigger the language pack creation on WordPress.org for some translateable strings
-* *Stay tuned: Version 1.4.0 of Toolbar Extras is coming soon and will be our biggest feature release yet! You will love it! ;-)*
+* ***Stay tuned:** Version 1.4.0 of Toolbar Extras is coming soon and will be our biggest feature release yet! You will love it! ;-)*
 
 
 ### 1.3.6 - 2018-10-30
