@@ -1003,6 +1003,7 @@ Credit where credit is due. The following code, classes and libraries were used 
 
 ## My Other Plugins 
 * [**Builder Template Categories - for WordPress Page Builders**](https://wordpress.org/plugins/builder-template-categories/)
+* [**Polylang Connect for Elementor – Language Switcher & Template Tweaks**](https://wordpress.org/plugins/connect-polylang-elementor/)
 * [Genesis What's New Info](https://wordpress.org/plugins/genesis-whats-new-info/)
 * [Genesis Layout Extras](https://wordpress.org/plugins/genesis-layout-extras/)
 * [Genesis Widgetized Not Found & 404](https://wordpress.org/plugins/genesis-widgetized-notfound/)
