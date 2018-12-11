@@ -228,6 +228,9 @@ add_filter( 'admin_footer_text', 'ddw_tbex_admin_footer_text' );
  *   Fired by 'admin_footer_text' filter.
  *
  * @since  1.3.2
+ * @since  1.3.8 Reworked current screen logic; tweaked rating link.
+ *
+ * @uses   get_current_screen()
  *
  * @param  string $footer_text The content that will be printed.
  * @return string The content that will be printed.
@@ -235,20 +238,62 @@ add_filter( 'admin_footer_text', 'ddw_tbex_admin_footer_text' );
 function ddw_tbex_admin_footer_text( $footer_text ) {
 
 	$current_screen = get_current_screen();
-	$is_tbex_screen = ( $current_screen && FALSE !== strpos( $current_screen->id, 'toolbar-extras' ) );
 
-	if ( $is_tbex_screen ) {
+	/** Active settings tab logic */
+	$active_tab = isset( $_GET[ 'tab' ] ) ? sanitize_key( wp_unslash( $_GET[ 'tab' ] ) ) : '';
+	$tbex_tabs  = array( 'general', 'smart-tweaks', 'development', 'about-support' );
+
+	if ( 'settings_page_toolbar-extras' === $current_screen->id && in_array( $active_tab, $tbex_tabs ) ) {
+
+		$rating = sprintf(
+			/* translators: %s - 5 stars icons */
+			'<a href="https://wordpress.org/support/plugin/toolbar-extras/reviews/?filter=5#new-post" target="_blank" rel="noopener noreferrer">' . __( '%s rating', 'toolbar-extras' ) . '</a>',
+			'&#9733;&#9733;&#9733;&#9733;&#9733;'
+		);
 
 		$footer_text = sprintf(
-			/* translators: 1 - Toolbar Extras / 2 - Link to plugin review */
-			__( 'Enjoyed %1$s? Please leave us a %2$s rating. We really appreciate your support!', 'toolbar-extras' ),
+			/* translators: 1 - Plugin name "Toolbar Extras" / 2 - label "5 star rating" */
+			__( 'Enjoyed %1$s? Please leave us a %2$s. We really appreciate your support!', 'toolbar-extras' ),
 			'<strong>' . __( 'Toolbar Extras', 'toolbar-extras' ) . '</strong>',
-			'<a href="https://wordpress.org/support/plugin/toolbar-extras/reviews/?filter=5#new-post" target="_blank" rel="noopener noreferrer">&#9733;&#9733;&#9733;&#9733;&#9733;</a>'
+			$rating
 		);
 
 	}  // end if
 
 	return $footer_text;
+
+}  // end function
+
+
+add_filter( 'update_right_now_text', 'ddw_tbex_dashboard_plugin_version_info', 11 );
+/**
+ * Add our plugin version to the "Right Now" text within the "At a Glance"
+ *   Dashboard Widget.
+ *   Note: We hook in at '11' to be a bit later than other plugins/ themes, to
+ *         appear more towards the end of that text paragraph :).
+ *
+ * @since  1.3.8
+ *
+ * @param  string $content Existing Right Now text in "At a Glance" Widget.
+ * @return string Amended Right Now text.
+ */
+function ddw_tbex_dashboard_plugin_version_info( $content ) {
+
+	/**
+	 * Bail early if no Toolbar items wanted (and therefore no hint to the
+	 *   plugin)
+	 */
+	if ( ! ddw_tbex_show_toolbar_items() ) {
+		return;
+	}
+
+	$tbex_info = sprintf(
+		/* translators: %s - Toolbar Extras plugin version */
+		' | ' . __( 'Using Toolbar Extras %s', 'toolbar-extras' ),
+		'<a href="' . esc_url( admin_url( 'options-general.php?page=toolbar-extras' ) ) . '">' . TBEX_PLUGIN_VERSION . '</a>'
+	);
+
+	return $content . $tbex_info;
 
 }  // end function
 

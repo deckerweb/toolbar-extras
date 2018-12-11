@@ -258,6 +258,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_wpbf_premium', 100 );
  * Items for Theme: Page Builder Framework Premium - Add-On Plugin (Premium, by David Vongries & MapSteps)
  *
  * @since  1.1.0
+ * @since  1.3.8 Added "Custom Sections" support.
  *
  * @uses   ddw_tbex_is_wpbf_premium_active()
  * @uses   ddw_tbex_customizer_focus()
@@ -311,6 +312,83 @@ function ddw_tbex_themeitems_wpbf_premium() {
 			)
 		);
 
+	/** Premium: Custom Sections */
+	if ( class_exists( '\WPBF\HookSystem' ) ) {
+
+		$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			array(
+				'id'     => 'wpbf-sections',
+				'parent' => 'theme-creative'
+			)
+		);
+
+			$type = 'wpbf_hooks';
+
+			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				array(
+					'id'     => 'wpbf-sections-all',
+					'parent' => 'wpbf-sections',
+					'title'  => esc_attr__( 'Custom Sections', 'toolbar-extras' ),
+					'href'   => esc_url( admin_url( 'edit.php?post_type=' . $type ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => esc_attr__( 'Custom Sections', 'toolbar-extras' )
+					)
+				)
+			);
+
+			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				array(
+					'id'     => 'wpbf-sections-new',
+					'parent' => 'wpbf-sections',
+					'title'  => esc_attr__( 'New Section', 'toolbar-extras' ),
+					'href'   => esc_url( admin_url( 'post-new.php?post_type=' . $type ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => esc_attr__( 'New Section', 'toolbar-extras' )
+					)
+				)
+			);
+
+			if ( ddw_tbex_is_elementor_active() && \Elementor\User::is_current_user_can_edit_post_type( $type ) ) {
+
+				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					array(
+						'id'     => 'wpbf-sections-builder',
+						'parent' => 'wpbf-sections',
+						'title'  => esc_attr__( 'New Section Builder', 'toolbar-extras' ),
+						'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( $type ) ),
+						'meta'   => array(
+							'target' => ddw_tbex_meta_target( 'builder' ),
+							'title'  => esc_attr__( 'New Section Builder', 'toolbar-extras' )
+						)
+					)
+				);
+
+			}  // end if
+
+			/** Section categories, via BTC plugin */
+			/*
+				if ( ddw_tbex_is_btcplugin_active() ) {
+
+					$GLOBALS[ 'wp_admin_bar' ]->add_node(
+						array(
+							'id'     => 'wpbf-sections-categories',
+							'parent' => 'wpbf-sections',
+							'title'  => ddw_btc_string_template( 'section' ),
+							'href'   => esc_url( admin_url( 'edit-tags.php?taxonomy=builder-template-category&post_type=' . $type ) ),
+							'meta'   => array(
+								'target' => '',
+								'title'  => esc_html( ddw_btc_string_template( 'section' ) )
+							)
+						)
+					);
+
+				}  // end if
+			*/
+
+	}  // end if Custom Sections
+
 	/** Premium Add-On: Customizer additions */
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(
 		array(
@@ -358,5 +436,55 @@ function ddw_tbex_themeitems_wpbf_premium_resources() {
 		'group-theme-resources',
 		'http://translate.wp-pagebuilderframework.com/sign-up/'
 	);
+
+}  // end function
+
+
+add_action( 'tbex_new_content_before_nav_menu', 'ddw_tbex_themeitems_new_content_wpbf_premium' );
+/**
+ * Items for "New Content" section: New Custom Section
+ *
+ * @since  1.3.8
+ *
+ * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ */
+function ddw_tbex_themeitems_new_content_wpbf_premium() {
+
+	/** Bail early if items display is not wanted */
+	if ( ! ddw_tbex_display_items_new_content() ) {
+		return;
+	}
+
+	$type = 'wpbf_hooks';
+
+	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		array(
+			'id'     => 'tbex-new-' . $type,
+			'parent' => 'new-content',
+			'title'  => esc_attr__( 'Custom Section', 'toolbar-extras' ),
+			'href'   => esc_url( admin_url( 'post-new.php?post_type=' . $type ) ),
+			'meta'   => array(
+				'target' => '',
+				'title'  => esc_attr__( 'New Custom Section', 'toolbar-extras' ),
+			)
+		)
+	);
+
+	if ( ddw_tbex_is_elementor_active() && \Elementor\User::is_current_user_can_edit_post_type( $type ) ) {
+
+		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			array(
+				'id'     => 'wpbf-section-with-builder',
+				'parent' => 'tbex-new-' . $type,
+				'title'  => ddw_tbex_string_newcontent_with_builder(),
+				'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( $type ) ),
+				'meta'   => array(
+					'target' => ddw_tbex_meta_target( 'builder' ),
+					'title'  => ddw_tbex_string_newcontent_create_with_builder()
+				)
+			)
+		);
+
+	}  // end if
 
 }  // end function

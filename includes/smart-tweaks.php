@@ -557,48 +557,9 @@ function ddw_tbex_tweak_remove_items_cobaltapps() {
 /**
  * 3rd GROUP: Tweak behavior of translations
  * @since 1.2.0
+ * @since 1.3.8 Refactored into own file: /includes/smart-tweaks-translations.php
  * -----------------------------------------------------------------------------
  */
-
-add_action( 'init', 'ddw_tbex_tweak_unload_textdomain_elementor', 100 );
-/**
- * Unload Textdomain for "Elementor" and "Elementor Pro" plugins.
- *
- * @since 1.2.0
- *
- * @uses  ddw_tbex_use_tweak_unload_translations_elementor()
- */
-function ddw_tbex_tweak_unload_textdomain_elementor() {
-
-	/** Bail early if tweak shouldn't be used */
-	if ( ! ddw_tbex_use_tweak_unload_translations_elementor() ) {
-		return;
-	}
-
-	unload_textdomain( 'elementor' );
-	unload_textdomain( 'elementor-pro' );
-
-}  // end function
-
-
-add_action( 'init', 'ddw_tbex_tweak_unload_textdomain_toolbar_extras', 100 );
-/**
- * Unload Textdomain for "Toolbar Extras" plugins.
- *
- * @since 1.2.0
- *
- * @uses  ddw_tbex_use_tweak_unload_translations_toolbar_extras()
- */
-function ddw_tbex_tweak_unload_textdomain_toolbar_extras() {
-
-	/** Bail early if tweak shouldn't be used */
-	if ( ! ddw_tbex_use_tweak_unload_translations_toolbar_extras() ) {
-		return;
-	}
-
-	unload_textdomain( 'toolbar-extras' );
-
-}  // end function
 
 
 

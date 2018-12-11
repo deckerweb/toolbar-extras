@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: Toolbar Extras\n"
-"POT-Creation-Date: 2018-11-20 17:40+0100\n"
+"POT-Creation-Date: 2018-12-11 01:44+0100\n"
 "PO-Revision-Date: 2018-04-04 01:47+0200\n"
 "Last-Translator: David Decker DECKERWEB.de -- https://deckerweb.de/\n"
 "Language-Team: David Decker DECKERWEB.de -- https://deckerweb.de/\n"
@@ -71,7 +71,7 @@ msgstr ""
 #. translators: Plugin title
 #. Plugin Name of the plugin/theme
 #: includes/admin/admin-extras.php:166 includes/admin/admin-extras.php:206
-#: includes/admin/admin-extras.php:245 includes/admin/tbex-settings.php:1078
+#: includes/admin/admin-extras.php:257 includes/admin/tbex-settings.php:1078
 #: includes/admin/views/help-content-menus.php:35
 #: includes/admin/views/notice-plugins-welcome.php:41
 #: includes/admin/views/settings-tab-about-support.php:43
@@ -100,20 +100,31 @@ msgstr ""
 msgid "See help tab on top right corner for more usage instructions."
 msgstr ""
 
-#. translators: 1 - Toolbar Extras / 2 - Link to plugin review
-#: includes/admin/admin-extras.php:244
+#. translators: %s - 5 stars icons
+#: includes/admin/admin-extras.php:250
 #, php-format
-msgid ""
-"Enjoyed %1$s? Please leave us a %2$s rating. We really appreciate your "
-"support!"
+msgid "%s rating"
 msgstr ""
 
-#: includes/admin/admin-extras.php:477
+#. translators: 1 - Plugin name "Toolbar Extras" / 2 - label "5 star rating"
+#: includes/admin/admin-extras.php:256
+#, php-format
+msgid ""
+"Enjoyed %1$s? Please leave us a %2$s. We really appreciate your support!"
+msgstr ""
+
+#. translators: %s - Toolbar Extras plugin version
+#: includes/admin/admin-extras.php:292
+#, php-format
+msgid "Using Toolbar Extras %s"
+msgstr ""
+
+#: includes/admin/admin-extras.php:522
 msgctxt "Plugin installer: Tab name in installer toolbar"
 msgid "Newest"
 msgstr ""
 
-#: includes/admin/admin-extras.php:483
+#: includes/admin/admin-extras.php:528
 msgctxt "Plugin card: plugin version"
 msgid "Version:"
 msgstr ""
@@ -396,40 +407,40 @@ msgid "Text of Toolbar Item"
 msgstr ""
 
 #. translators: Settings page title in WP-Admin
-#: includes/admin/tbex-settings.php:1207
+#: includes/admin/tbex-settings.php:1209
 msgid "Toolbar Extras - Settings"
 msgstr ""
 
-#: includes/admin/tbex-settings.php:1214
+#: includes/admin/tbex-settings.php:1216
 msgid "Let the Toolbar Work for You!"
 msgstr ""
 
-#: includes/admin/tbex-settings.php:1216
+#: includes/admin/tbex-settings.php:1218
 msgid ""
 "Decide which additional items should be displayed or not. Also use some "
 "smart tweaks or enable development modes."
 msgstr ""
 
 #. translators: Settings tab title in WP-Admin
-#: includes/admin/tbex-settings.php:1226
+#: includes/admin/tbex-settings.php:1228
 msgctxt "Plugin settings tab title"
 msgid "General Settings"
 msgstr ""
 
 #. translators: Settings tab title in WP-Admin
-#: includes/admin/tbex-settings.php:1232
+#: includes/admin/tbex-settings.php:1234
 msgctxt "Plugin settings tab title"
 msgid "Smart Tweaks"
 msgstr ""
 
 #. translators: Settings tab title in WP-Admin
-#: includes/admin/tbex-settings.php:1238
+#: includes/admin/tbex-settings.php:1240
 msgctxt "Plugin settings tab title"
 msgid "For Development"
 msgstr ""
 
 #. translators: Settings tab title in WP-Admin
-#: includes/admin/tbex-settings.php:1244
+#: includes/admin/tbex-settings.php:1246
 msgctxt "Plugin settings tab title"
 msgid "About &amp; Support"
 msgstr ""
@@ -1696,8 +1707,8 @@ msgstr ""
 #: includes/themes-genesis/items-dynamik-website-builder.php:191
 #: includes/themes/items-freelancer.php:73
 #: includes/themes/items-freelancer.php:77
-#: includes/themes/items-page-builder-framework.php:305
-#: includes/themes/items-page-builder-framework.php:309
+#: includes/themes/items-page-builder-framework.php:306
+#: includes/themes/items-page-builder-framework.php:310
 msgid "License"
 msgstr ""
 
@@ -5686,6 +5697,11 @@ msgstr ""
 msgid "Edit Timeline Posts"
 msgstr ""
 
+#: includes/plugins/items-transients-manager.php:40
+#: includes/plugins/items-transients-manager.php:44
+msgid "Transients Manager"
+msgstr ""
+
 #: includes/plugins/items-updraftplus.php:46
 #: includes/plugins/items-updraftplus.php:50
 msgid "UpdraftPlus"
@@ -6077,6 +6093,11 @@ msgstr ""
 #, php-format
 msgctxt "Toolbar New Content section"
 msgid "Add new %s"
+msgstr ""
+
+#: includes/string-switcher.php:717
+msgctxt "Plugin's settings page save button"
+msgid "Save Changes"
 msgstr ""
 
 #: includes/themes-genesis/items-dynamik-website-builder.php:93
@@ -7243,8 +7264,8 @@ msgstr ""
 
 #. translators: Autofocus panel in the Customizer
 #: includes/themes/items-oceanwp.php:441 includes/themes/items-oceanwp.php:445
-#: includes/themes/items-page-builder-framework.php:320
-#: includes/themes/items-page-builder-framework.php:324
+#: includes/themes/items-page-builder-framework.php:398
+#: includes/themes/items-page-builder-framework.php:402
 msgid "Scripts &amp; Styles"
 msgstr ""
 
@@ -7295,14 +7316,37 @@ msgstr ""
 msgid "WooCommerce Integration"
 msgstr ""
 
-#: includes/themes/items-page-builder-framework.php:279
-#: includes/themes/items-page-builder-framework.php:283
+#: includes/themes/items-page-builder-framework.php:280
+#: includes/themes/items-page-builder-framework.php:284
 msgid "PBF Premium Settings"
 msgstr ""
 
-#: includes/themes/items-page-builder-framework.php:292
-#: includes/themes/items-page-builder-framework.php:296
+#: includes/themes/items-page-builder-framework.php:293
+#: includes/themes/items-page-builder-framework.php:297
 msgid "Global Settings"
+msgstr ""
+
+#: includes/themes/items-page-builder-framework.php:331
+#: includes/themes/items-page-builder-framework.php:335
+msgid "Custom Sections"
+msgstr ""
+
+#: includes/themes/items-page-builder-framework.php:344
+#: includes/themes/items-page-builder-framework.php:348
+msgid "New Section"
+msgstr ""
+
+#: includes/themes/items-page-builder-framework.php:359
+#: includes/themes/items-page-builder-framework.php:363
+msgid "New Section Builder"
+msgstr ""
+
+#: includes/themes/items-page-builder-framework.php:464
+msgid "Custom Section"
+msgstr ""
+
+#: includes/themes/items-page-builder-framework.php:468
+msgid "New Custom Section"
 msgstr ""
 
 #. translators: Autofocus panel in the Customizer

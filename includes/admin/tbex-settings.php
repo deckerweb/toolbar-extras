@@ -1188,6 +1188,8 @@ function ddw_tbex_enqueue_admin_styles_scripts() {
  * @since 1.0.0
  *
  * @see   ddw_tbex_settings_add_admin_page()
+ *
+ * @uses  ddw_tbex_string_save_changes()
  */
 function ddw_tbex_settings_create_admin_page() {
 
@@ -1260,7 +1262,7 @@ function ddw_tbex_settings_create_admin_page() {
 
 							do_action( 'tbex_after_settings_general_view' );
 
-							submit_button();
+							submit_button( ddw_tbex_string_save_changes() );
 						break;
 
 						/** 2) Tab Smart Tweaks */
@@ -1274,7 +1276,7 @@ function ddw_tbex_settings_create_admin_page() {
 
 							do_action( 'tbex_after_settings_tweaks_view' );
 
-							submit_button();
+							submit_button( ddw_tbex_string_save_changes() );
 						break;
 
 						/** 3) Tab Development */
@@ -1288,7 +1290,7 @@ function ddw_tbex_settings_create_admin_page() {
 
 							do_action( 'tbex_after_settings_development_view' );
 
-							submit_button();
+							submit_button( ddw_tbex_string_save_changes() );
 						break;
 
 						/** 4) Tab About & Support - only text, no submit button! */

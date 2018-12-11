@@ -702,3 +702,21 @@ function ddw_tbex_string_add_new_item( $item = '' ) {
 	);
 
 }  // end function
+
+
+/**
+ * Build string for plugin's settings page submit button title.
+ *
+ * @since  1.3.8
+ *
+ * @return string Translateable string.
+ */
+function ddw_tbex_string_save_changes() {
+
+	return esc_attr_x(
+		'Save Changes',
+		'Plugin\'s settings page save button',
+		'toolbar-extras'
+	);
+
+}  // end function

@@ -12,6 +12,20 @@
 
 ## Changelog of the Plugin
 
+### 1.3.8 - 2018-12-11
+
+* New: Successfully tested with WordPress 5.0.0 major release version
+* New: Added our plugin version to the "Right Now" text in the "At a Glance" Dashboard Widget
+* New: Added Plugin support for Transients Manager (free, by Pippin Williamson) - for Dev Mode
+* Tweak: Refactored the feature for optionally unloading the translations for "Toolbar Extras", "Elementor", "Elementor Pro" plugins - now it should work under all circumstances ([Topic](https://wordpress.org/support/topic/unloading-of-languages-not-working-anymore/))
+* Tweak: Enhanced "Page Builder Framework" theme support - new "Custom Sections" via WPBF Premium Add-On
+* Tweak: Improved "WPForms" plugin support (Lite & Pro), to include version 1.5.x or higher
+* Tweak: Refactored logic for displaying the review link on plugin's settings pages
+* Tweak: Submit button tweaks (settings page)
+* Tweak: Updated `.pot` file plus all German translations (formal, informal) and language packs
+* ***Stay tuned:** Version 1.4.0 of Toolbar Extras is coming soon and will be our biggest feature release yet! You will love it! ;-)*
+
+
 ### 1.3.7 - 2018-11-20
 
 * New: Successfully tested with WordPress 5.0 Beta 5

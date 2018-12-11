@@ -350,6 +350,15 @@ if ( class_exists( 'Deprecated_Log' ) ) {
 
 
 /**
+ * Dev Add-On: Transients Manager (free, by Pippin Williamson)
+ * @since 1.3.8
+ */
+if ( class_exists( 'PW_Transients_Manager' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-transients-manager.php' );
+}
+
+
+/**
  * Dev Add-On: WP Synchro (free, by WPSynchro)
  * @since 1.3.2
  */

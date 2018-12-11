@@ -3,9 +3,9 @@ Contributors: daveshine, deckerweb, wpautobahn, toolbarextras
 Donate link: https://www.paypal.me/deckerweb
 Tags: toolbar, adminbar, admin bar, elementor, page builder, themes, menu, links, settings, usability, deckerweb, ddwtoolbar
 Requires at least: 4.7
-Tested up to: 5.0
+Tested up to: 5.0.0
 Requires PHP: 5.6
-Stable tag: 1.3.7
+Stable tag: 1.3.8
 License: GPL-2.0-or-later
 License URI: https://opensource.org/licenses/GPL-2.0
 
@@ -822,6 +822,9 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 
 
 == Upgrade Notice =
+
+= 1.3.8 =
+Maintenance release. Important feature and settings tweaks, plus smaller fixes. Enhanced plugin and theme support. - Update highly recommended.
 
 = 1.3.7 =
 Maintenance release. Successfully tested with WordPress 5.0 Beta 5. New supported plugins. Plus: some tweaks, fixes, and internal library update. - Update highly recommended.

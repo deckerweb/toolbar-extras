@@ -538,7 +538,8 @@ function ddw_tbex_is_addon_kava_extra() {
  */
 function ddw_tbex_use_smart_tweaks() {
 
-	return ( defined( 'TBEX_USE_SMART_TWEAKS' ) && TBEX_USE_SMART_TWEAKS ) ? TRUE : FALSE;
+	//return ( defined( 'TBEX_USE_SMART_TWEAKS' ) && TBEX_USE_SMART_TWEAKS ) ? TRUE : FALSE;
+	return defined( 'TBEX_USE_SMART_TWEAKS' ) ? TBEX_USE_SMART_TWEAKS : FALSE;
 
 }  // end function
 

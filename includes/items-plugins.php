@@ -389,7 +389,7 @@ if ( defined( 'RG_CURRENT_VIEW' ) ) {
  * Plugin: WPForms Lite/Pro (free/Premium, by WPForms)
  * @since 1.3.1
  */
-if ( class_exists( 'WPForms' ) ) {
+if ( class_exists( '\WPForms\WPForms' ) || class_exists( 'WPForms' ) ) {
 	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-wpforms.php' );
 }
 
