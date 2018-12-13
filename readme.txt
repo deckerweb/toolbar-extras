@@ -3,7 +3,7 @@ Contributors: daveshine, deckerweb, wpautobahn, toolbarextras
 Donate link: https://www.paypal.me/deckerweb
 Tags: toolbar, adminbar, admin bar, elementor, page builder, themes, menu, links, settings, usability, deckerweb, ddwtoolbar
 Requires at least: 4.7
-Tested up to: 5.0.0
+Tested up to: 5.0
 Requires PHP: 5.6
 Stable tag: 1.3.8
 License: GPL-2.0-or-later
@@ -360,6 +360,19 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 == Changelog ==
 
 ([For the full changelog of this plugin visit its website at ToolbarExtras.com](https://toolbarextras.com/changelog/))
+
+= 1.3.8 - 2018-12-11 =
+* New: Successfully tested with WordPress 5.0.0 major release version
+* New: Added our plugin version to the "Right Now" text in the "At a Glance" Dashboard Widget
+* New: Added Plugin support for Transients Manager (free, by Pippin Williamson) - for Dev Mode
+* Tweak: Refactored the feature for optionally unloading the translations for "Toolbar Extras", "Elementor", "Elementor Pro" plugins - now it should work under all circumstances ([Topic](https://wordpress.org/support/topic/unloading-of-languages-not-working-anymore/))
+* Tweak: Enhanced "Page Builder Framework" theme support - new "Custom Sections" via WPBF Premium Add-On
+* Tweak: Improved "WPForms" plugin support (Lite & Pro), to include version 1.5.x or higher
+* Tweak: Refactored logic for displaying the review link on plugin's settings pages
+* Tweak: Submit button tweaks (settings page)
+* Tweak: Updated `.pot` file plus all German translations (formal, informal) and language packs
+* ***Stay tuned:** Version 1.4.0 of Toolbar Extras is coming soon and will be our biggest feature release yet! You will love it! ;-)*
+
 
 = 1.3.7 - 2018-11-20 =
 * New: Successfully tested with WordPress 5.0 Beta 5
@@ -902,6 +915,7 @@ Credit where credit is due. The following code, classes and libraries were used 
 == My Other Plugins ==
 * [**Builder Template Categories - for WordPress Page Builders**](https://wordpress.org/plugins/builder-template-categories/)
 * [**Polylang Connect for Elementor – Language Switcher & Template Tweaks**](https://wordpress.org/plugins/connect-polylang-elementor/)
+* [**Simple Download Manager for WP Document Revisions**](https://wordpress.org/plugins/wpdr-simple-downloads/)
 * [Genesis What's New Info](https://wordpress.org/plugins/genesis-whats-new-info/)
 * [Genesis Layout Extras](https://wordpress.org/plugins/genesis-layout-extras/)
 * [Genesis Widgetized Not Found & 404](https://wordpress.org/plugins/genesis-widgetized-notfound/)
