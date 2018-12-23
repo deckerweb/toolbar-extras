@@ -1,6 +1,6 @@
 <?php
 
-// includes/plugins/items-optinmonster
+// includes/plugins-forms/items-optinmonster
 
 /**
  * Prevent direct access to this file.

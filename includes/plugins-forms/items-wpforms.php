@@ -1,6 +1,6 @@
 <?php
 
-// includes/plugins/items-wpforms
+// includes/plugins-forms/items-wpforms
 
 /**
  * Prevent direct access to this file.

@@ -105,6 +105,24 @@ $tbex_info = (array) ddw_tbex_info_values();
 				<?php _e( 'Stay tuned: I want to add more plugin and theme support and hopefully a few add-ons.', 'toolbar-extras' ); ?>
 			</p>
 
+			<h3 class="tbex-as-section tbex-inner"><?php _e( 'Join a thriving Community of Site Builders', 'toolbar-extras' ); ?></h3>
+			<p>
+				<?php echo sprintf(
+					/* translators: %s - name of the plugin, "Toolbar Extras" */
+					__( 'Get all future insider news about the %s plugin and more fine WordPress plugins from DECKERWEB.', 'toolbar-extras' ),
+					'<em>' . __( 'Toolbar Extras', 'toolbar-extras' ) . '</em>'
+				); ?> 
+				<?php _e( 'On top of that get useful tutorials and awesome deals for great WordPress plugins and services.', 'toolbar-extras' ); ?> 
+				<strong><?php echo __( 'Subscribe to my Newsletter', 'toolbar-extras' ) . ':'; ?></strong>
+			</p>
+			<p>
+				<?php echo sprintf(
+					'<a class="button button-secondary button-hero" href="%1$s" target="_blank" rel="nofollow noopener noreferrer">%2$s</a>',
+					ddw_tbex_get_info_url( 'url_newsletter' ),
+					__( 'Join my Newsletter Now!', 'toolbar-extras' )
+				); ?>
+			</p>
+			
 			<h3 class="tbex-as-section tbex-inner"><?php _e( 'How To Get Support', 'toolbar-extras' ); ?></h3>
 			<p>
 				<?php _e( 'Thank you for using my plugin! I am happy to help and assist with any question or feedback you have for this plugin.', 'toolbar-extras' ); ?>

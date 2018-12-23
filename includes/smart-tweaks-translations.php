@@ -23,6 +23,8 @@ add_filter( 'load_textdomain_mofile', 'ddw_tbex_tweak_maybe_unload_textdomains',
  *
  * @since 1.3.8
  *
+ * @uses ddw_tbex_is_translations_unloading_allowed()
+ *
  * @param string $mofile Path to .mo file.
  * @param string $domain Textdomain.
  * @return string|null If our specified domain return null, the path of .mo file
@@ -39,7 +41,9 @@ function ddw_tbex_tweak_maybe_unload_textdomains( $mofile, $domain ) {
 	/**
 	 * If current text domain is in the above array, stop loading the .mo file.
 	 */
-	if ( in_array( $domain, $domains ) ) {
+	if ( in_array( $domain, $domains )
+		&& ddw_tbex_is_translations_unloading_allowed()
+	) {
 		$mofile = null;
 	}
   

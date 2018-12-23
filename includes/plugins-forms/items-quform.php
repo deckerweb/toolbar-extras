@@ -1,6 +1,6 @@
 <?php
 
-// includes/plugins/items-quform
+// includes/plugins-forms/items-quform
 
 /**
  * Prevent direct access to this file.

@@ -157,6 +157,24 @@ if ( function_exists( 'be_register_genesis_404_settings' ) ) {
 
 
 /**
+ * Plugin: Genesis Extra Settings Transporter (free, by David Decker - DECKERWEB)
+ * @since 1.3.9
+ */
+if ( defined( 'GEST_PLUGIN_BASEDIR' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-genesis-extra-settings-transporter.php' );
+}
+
+
+/**
+ * Plugin: Genesis Custom Headers (free, by Nick Diego)
+ * @since 1.3.9
+ */
+if ( function_exists( 'gch_activation_check' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-genesis-custom-headers.php' );
+}
+
+
+/**
  * Plugin: Blox Lite / Blox (free/Pro, by Nick Diego)
  * @since 1.0.0
  */

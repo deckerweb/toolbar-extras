@@ -1,6 +1,6 @@
 <?php
 
-// includes/plugins/items-ninja-forms
+// includes/plugins-forms/items-ninja-forms
 
 /**
  * Prevent direct access to this file.

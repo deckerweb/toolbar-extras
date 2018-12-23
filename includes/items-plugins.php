@@ -314,6 +314,16 @@ if ( class_exists( 'Popup_Maker' ) ) {
 
 
 /**
+ * Plugin: WP Document Revisions (free, by Ben Balter)
+ *   Add-On Plugin: WP Document Revisions Simple Downloads (free, by David Decker - DECKERWEB)
+ * @since 1.3.9
+ */
+if ( class_exists( 'WP_Document_Revisions' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-wp-document-revisions.php' );
+}
+
+
+/**
  * Plugin: Delightful Downloads (free, by Ashley Rich)
  * @since 1.0.0
  */
@@ -373,114 +383,6 @@ if ( defined( 'ASTRA_PORTFOLIO_VER' ) ) {
  */
 if ( function_exists( 'portfolio_post_type_init' ) ) {
 	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-cpt-portfolio.php' );
-}
-
-
-/**
- * Plugin: Gravity Forms (Premium, by Rocketgenius, Inc.)
- * @since 1.0.0
- */
-if ( defined( 'RG_CURRENT_VIEW' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-gravity-forms.php' );
-}
-
-
-/**
- * Plugin: WPForms Lite/Pro (free/Premium, by WPForms)
- * @since 1.3.1
- */
-if ( class_exists( '\WPForms\WPForms' ) || class_exists( 'WPForms' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-wpforms.php' );
-}
-
-
-/**
- * Plugin: Formidable Forms (Premium, by Strategy11)
- * @since 1.3.1
- */
-if ( function_exists( 'load_formidable_forms' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-formidable-forms.php' );
-}
-
-
-/**
- * Plugin: Ninja Forms (free, by The WP Ninjas)
- * @since 1.3.1
- */
-if ( class_exists( 'Ninja_Forms' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-ninja-forms.php' );
-}
-
-
-/**
- * Plugin: Caldera Forms (Premium, by Caldera Labs)
- * @since 1.3.1
- */
-if ( defined( 'CFCORE_PATH' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-caldera-forms.php' );
-}
-
-
-/**
- * Plugin: Contact Form 7 (free, by Takayuki Miyoshi)
- * @since 1.3.1
- */
-if ( defined( 'WPCF7_VERSION' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-contact-form-7.php' );
-}
-
-
-/**
- * Plugin: Quform (Premium, by ThemeCatcher)
- * @since 1.3.1
- */
-if ( defined( 'QUFORM_VERSION' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-quform.php' );
-}
-
-
-/**
- * Plugin: Everest Forms (free, by WPEverest)
- * @since 1.3.2
- */
-if ( class_exists( 'EverestForms' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-everest-forms.php' );
-}
-
-
-/**
- * Plugin: FormCraft 3 (Premium, by nCrafts)
- * @since 1.3.2
- */
-if ( function_exists( 'formcraft3_activate' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-formcraft.php' );
-}
-
-
-/**
- * Plugin: ARForms (Premium, by Repute InfoSystems)
- * @since 1.3.2
- */
-if ( defined( 'ARFPLUGINTITLE' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-arforms.php' );
-}
-
-
-/**
- * Plugin: MailChimp for WordPress (free, by ibericode)
- * @since 1.3.2
- */
-if ( class_exists( 'MC4WP_Form_Manager' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-mailchimp-for-wp.php' );
-}
-
-
-/**
- * Plugin: HappyForms (free, by The Theme Foundry)
- * @since 1.3.2
- */
-if ( defined( 'HAPPYFORMS_VERSION' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-happyforms.php' );
 }
 
 
@@ -592,7 +494,6 @@ if ( defined( 'COOL_TIMELINE_VERSION_CURRENT' ) ) {
 }
 
 
-
 /**
  * Plugin: Regenerate Thumbnails (free, by Alex Mills)
  * @since 1.0.0
@@ -694,11 +595,20 @@ if ( class_exists( 'BackWPup' ) ) {
 
 /**
  * Plugin: WP-Staging (free, by WP-Staging & Rene Hermenau)
- * Plugin: WP-Stagig Pro (Premium, by WP-Staging & Rene Hermenau)
+ *   Plugin: WP-Stagig Pro (Premium, by WP-Staging & Rene Hermenau)
  * @since 1.0.0
  */
 if ( defined( 'WPSTG_PLUGIN_DIR' ) || defined( 'WPSTGPRO_VERSION' ) ) {
 	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-wpstaging.php' );
+}
+
+
+/**
+ * Plugin: Custom Importer & Exporter (free, by Protech.Inc)
+ * @since 1.3.9
+ */
+if ( function_exists( 'cie_menuSettings' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-custom-importer-exporter.php' );
 }
 
 
@@ -708,49 +618,4 @@ if ( defined( 'WPSTG_PLUGIN_DIR' ) || defined( 'WPSTGPRO_VERSION' ) ) {
  */
 if ( class_exists( 'Members_Plugin' ) ) {
 	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-members.php' );
-}
-
-
-/**
- * Plugin: OptinMonster API (free/Premium, by OptinMonster Team/ Retyp, LLC)
- * @since 1.2.0
- */
-if ( class_exists( 'OMAPI' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-optinmonster.php' );
-}
-
-
-/**
- * Plugin: Convert Pro (Premium, by Brainstorm Force)
- * @since 1.2.0
- */
-if ( function_exists( 'cp_load_convertpro' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-convertpro.php' );
-}
-
-
-/**
- * Plugin: Convert Plus (Premium, by Brainstorm Force)
- * @since 1.2.0
- */
-if ( class_exists( 'Convert_Plug' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-convertplus.php' );
-}
-
-
-/**
- * Plugin: Hustle (free, by WPMU DEV)
- * @since 1.3.1
- */
-if ( class_exists( 'Hustle_Init' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-hustle.php' );
-}
-
-
-/**
- * Plugin: Bloom (Premium, by Elegant Themes)
- * @since 1.3.1
- */
-if ( class_exists( 'ET_Bloom' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-bloom.php' );
 }

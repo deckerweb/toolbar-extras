@@ -1,6 +1,6 @@
 <?php
 
-// includes/plugins/items-gravity-forms
+// includes/plugins-forms/items-gravity-forms
 
 /**
  * Prevent direct access to this file.

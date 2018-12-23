@@ -1,6 +1,6 @@
 <?php
 
-// includes/plugins/items-contact-form-7
+// includes/plugins-forms/items-contact-form-7
 
 /**
  * Prevent direct access to this file.

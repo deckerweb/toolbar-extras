@@ -5,12 +5,31 @@
 * [Plugin's own website: toolbarextras.com](https://toolbarextras.com/)
 * [Plugin page on WordPress.org: wordpress.org/plugins/toolbar-extras/](https://wordpress.org/plugins/toolbar-extras/)
 * [Translate the plugin](https://translate.wordpress.org/projects/wp-plugins/toolbar-extras)
+* [**Join plugin's newsletter for insider info, tutorials and more**](https://eepurl.com/gbAUUn)
 * [**Donate** for the further development & support of the plugin](https://www.paypal.me/deckerweb)
 * [Plugin's documentation & knowledge base](https://toolbarextras.com/docs/)
 * [Plugin's public roadmap (Trello Board)](https://toolbarextras.com/go/public-roadmap/)
 * [Facebook Community User Group](https://www.facebook.com/groups/ToolbarExtras/)
 
 ## Changelog of the Plugin
+
+### 1.3.9 - 2018-12-23
+
+* *New: Successfully tested with WordPress 5.0.2*
+* New: Added plugin support for my own plugin, Genesis Extra Settings Transporter (free, by David Decker - DECKERWEB)
+* New: Added plugin support for my own plugin, WP Document Revisions Simple Downloads (free, by David Decker - DECKERWEB)
+* New: Added plugin support for WP Document Revisions (free, by Ben Balter)
+* New: Added plugin support for Piotnet Addons For Elementor (PAFE) (Pro) (free/Premium, by Luong Huu Phuoc (Louis Hufer))
+* New: Added plugin support for Genesis Custom Headers (free, by Nick Diego)
+* New: Added plugin support for Custom Importer & Exporter (free, by Protech.Inc)
+* New: [Join my newsletter for DECKERWEB WordPress Plugins](https://eepurl.com/gbAUUn) - insider info, plus tutorials and more useful stuff
+* Tweak: Make the Smart Tweaks for unloading translations limited to logged-in users - thanks to user feedback ([Topic](https://wordpress.org/support/topic/elementor-unload-language-only-for-logged-in-user/))
+* Tweak: Enhanced settings page feature description for translations unloading Smart Tweak
+* Tweak: Added new resource for "Code Snippets" plugin support (Facebook Community User Group)
+* Tweak: Updated `.pot` file plus all German translations (formal, informal) and language packs
+* Tweak: Enhanced, improved and corrected Readme.txt file here :)
+* ***Stay tuned:** Version 1.4.0 of Toolbar Extras is coming soon and will be our biggest feature release yet! You will love it! ;-)*
+
 
 ### 1.3.8 - 2018-12-11
 
@@ -23,7 +42,6 @@
 * Tweak: Refactored logic for displaying the review link on plugin's settings pages
 * Tweak: Submit button tweaks (settings page)
 * Tweak: Updated `.pot` file plus all German translations (formal, informal) and language packs
-* ***Stay tuned:** Version 1.4.0 of Toolbar Extras is coming soon and will be our biggest feature release yet! You will love it! ;-)*
 
 
 ### 1.3.7 - 2018-11-20
@@ -42,7 +60,6 @@
 * Fix: Proper file including for some supported Genesis child themes
 * Fix: Added forgotten setting from v1.3.0 to the settings updater routine to avoid PHP notice
 * Fix: Changed few `translators` comments in code to properly trigger the language pack creation on WordPress.org for some translateable strings
-* ***Stay tuned:** Version 1.4.0 of Toolbar Extras is coming soon and will be our biggest feature release yet! You will love it! ;-)*
 
 
 ### 1.3.6 - 2018-10-30

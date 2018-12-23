@@ -1,6 +1,6 @@
 <?php
 
-// includes/plugins/items-bloom
+// includes/plugins-forms/items-bloom
 
 /**
  * Prevent direct access to this file.

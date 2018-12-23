@@ -40,6 +40,16 @@ function ddw_tbex_get_option( $type = '', $option_key = '' ) {
  */
 function ddw_tbex_info_values() {
 
+	/** Get current user */
+	$user = wp_get_current_user();
+
+	/** Build Newsletter URL */
+	$url_nl = sprintf(
+		'https://deckerweb.us2.list-manage.com/subscribe?u=e09bef034abf80704e5ff9809&amp;id=380976af88&amp;MERGE0=%1$s&amp;MERGE1=%2$s',
+		esc_attr( $user->user_email ),
+		esc_attr( $user->user_firstname )
+	);
+	
 	$tbex_info = array(
 
 		'url_translate'     => 'https://translate.wordpress.org/projects/wp-plugins/toolbar-extras',
@@ -59,6 +69,7 @@ function ddw_tbex_info_values() {
 		'url_license'       => 'https://opensource.org/licenses/GPL-2.0',
 		'first_code'        => '2012',
 		'url_donate'        => 'https://www.paypal.me/deckerweb',
+		'url_newsletter'    => $url_nl,
 		'url_plugin'        => 'https://toolbarextras.com/',
 		'url_plugin_docs'   => 'https://toolbarextras.com/docs/',
 		'url_plugin_faq'    => 'https://toolbarextras.com/docs-category/faqs/',

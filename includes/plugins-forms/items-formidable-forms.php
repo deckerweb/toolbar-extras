@@ -1,6 +1,6 @@
 <?php
 
-// includes/plugins/items-formidable-forms
+// includes/plugins-forms/items-formidable-forms
 
 /**
  * Prevent direct access to this file.

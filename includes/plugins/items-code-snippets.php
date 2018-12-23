@@ -117,6 +117,13 @@ function ddw_tbex_site_items_codesnippets() {
 			);
 
 			ddw_tbex_resource_item(
+				'facebook-group',
+				'codesnippets-facebook-group',
+				'group-codesnippets-resources',
+				'https://www.facebook.com/groups/codesnippetsplugin/'
+			);
+
+			ddw_tbex_resource_item(
 				'github',
 				'codesnippets-github',
 				'group-codesnippets-resources',

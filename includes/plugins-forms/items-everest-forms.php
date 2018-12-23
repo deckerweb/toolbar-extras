@@ -1,6 +1,6 @@
 <?php
 
-// includes/plugins/items-everest-forms
+// includes/plugins-forms/items-everest-forms
 
 /**
  * Prevent direct access to this file.

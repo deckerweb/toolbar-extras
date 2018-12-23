@@ -54,7 +54,9 @@ function ddw_tbex_help_tab_content_menus() {
 
 		'&nbsp;&nbsp;' . ddw_tbex_get_info_link( 'url_translate', esc_html_x( 'Translations', 'Help tab info', 'toolbar-extras' ), 'button' ) .
 
-		'&nbsp;&nbsp;' . ddw_tbex_get_info_link( 'url_donate', esc_html_x( 'Donate', 'Help tab info', 'toolbar-extras' ), 'button button-primary' ) .
+		'&nbsp;&nbsp;' . ddw_tbex_get_info_link( 'url_donate', esc_html_x( 'Donate', 'Help tab info', 'toolbar-extras' ), 'button tbex' ) .
+
+		'&nbsp;&nbsp;' . ddw_tbex_get_info_link( 'url_newsletter', esc_html_x( 'Join our Newsletter', 'Help tab info', 'toolbar-extras' ), 'button button-primary tbex' ) .
 
 		sprintf(
 			'<p><a href="%1$s" target="_blank" rel="nofollow noopener noreferrer" title="%2$s">%2$s</a> &#x000A9; %3$s <a href="%4$s" target="_blank" rel="noopener noreferrer" title="%5$s">%5$s</a></p>',

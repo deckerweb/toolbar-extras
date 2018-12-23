@@ -1114,3 +1114,41 @@ function ddw_tbex_is_btcplugin_active() {
 	return function_exists( 'ddw_btc_string_template' );
 
 }  // end function
+
+
+/**
+ * Set filterable capability for unloading translations.
+ *   Default is: 'manage_options' (Administrator)
+ *
+ * @since 1.3.9
+ *
+ * @return string String ID of capability.
+ */
+function ddw_tbex_capability_unloading_translations() {
+
+	return sanitize_key(
+		apply_filters(
+			'tbex_filter_capability_unloading_translations',
+			'manage_options'
+		)
+	);
+
+}  // end function
+
+
+/**
+ * Conditional helper function to check if unloading of translations is allowed:
+ *   - current user is logged in
+ *
+ * @since 1.3.9
+ *
+ * @uses ddw_tbex_capability_unloading_translations()
+ *
+ * @return bool TRUE if current user is logged and the capability is met, FALSE
+ *              otherwise.
+ */
+function ddw_tbex_is_translations_unloading_allowed() {
+
+	return is_user_logged_in() && current_user_can( ddw_tbex_capability_unloading_translations() );
+
+}  // end function

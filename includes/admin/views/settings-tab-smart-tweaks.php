@@ -69,6 +69,17 @@ function ddw_tbex_settings_section_info_translations() {
 		<p class="description">
 			<?php echo '<strong>' . __( 'Usage example', 'toolbar-extras' ) . ':</strong> ' . __( 'The site of your client is completely in French. You as the Administrator and site builder speak no French, only English, and the site cannot be switched to English. The user profile language setting doesn’t help as it is only for the WP-Admin. So, in this case when you need to edit stuff in Elementor and want to use Toolbar Extras as well: Then the tweaks below help you to get a English-language environment for Elementor.', 'toolbar-extras' ); ?>
 		</p>
+		<p>
+			<?php echo sprintf(
+				/* translators: %s - a capability, 'manage_options' */
+				__( 'Please note: this feature is limited to logged-in users which have the capability %s.', 'toolbar-extras' ),
+				'<code>manage_options</code>'
+			); ?> <?php _e( 'By default these are administrator user roles only. However, developers can use a filter and set a different cabability if needed.', 'toolbar-extras' ); ?> <?php echo sprintf(
+				/* translators: %s - word "documentation", linked to plugin's knowledge base */
+				__( 'Have a look in our %s for a code snippet.', 'toolbar-extras' ),
+				'<a href="https://toolbarextras.com/docs/custom-capability-for-unloading-translations/" target="_blank" rel="noopener noreferrer">' . __( 'documentation', 'toolbar-extras' ) . '</a>'
+			); ?>
+		</p>
 	<?php
 
 }  // end function
@@ -633,6 +644,8 @@ function ddw_tbex_settings_cb_unload_td_elementor() {
 
 	$tbex_options = get_option( 'tbex-options-tweaks' );
 
+	$domains = ddw_tbex_is_elementor_pro_active() ? '<code>elementor, elementor-pro</code>' : '<code>elementor</code>';
+
 	?>
 		<select name="tbex-options-tweaks[unload_td_elementor]" id="tbex-options-tweaks-unload_td_elementor">
 			<option value="yes" <?php selected( sanitize_key( $tbex_options[ 'unload_td_elementor' ] ), 'yes' ); ?>><?php _e( 'Yes', 'toolbar-extras' ); ?></option>
@@ -643,6 +656,13 @@ function ddw_tbex_settings_cb_unload_td_elementor() {
 		</label>
 		<p class="description">
 			<?php _e( 'This tweak unloads the translations for Elementor, and if active also for Elementor Pro, so it falls back to the English default strings.', 'toolbar-extras' ); ?>
+		</p>
+		<p class="description">
+			<?php echo sprintf(
+				/* translators: %s - text domain(s), 'elementor' (and 'elementor-pro') */
+				__( 'Effected text domains: %s', 'toolbar-extras' ),
+				$domains
+			); ?>
 		</p>
 	<?php
 
@@ -668,6 +688,13 @@ function ddw_tbex_settings_cb_unload_td_toolbar_extras() {
 		</label>
 		<p class="description">
 			<?php _e( 'This tweak unloads the translations for Toolbar Extras, so it falls back to the English default strings.', 'toolbar-extras' ); ?>
+		</p>
+		<p class="description">
+			<?php echo sprintf(
+				/* translators: %s - a text domain string, 'toolbar-extras' */
+				__( 'Effected text domain: %s', 'toolbar-extras' ),
+				'<code>toolbar-extras</code>'
+			); ?>
 		</p>
 	<?php
 

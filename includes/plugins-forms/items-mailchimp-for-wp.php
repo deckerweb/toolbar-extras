@@ -1,6 +1,6 @@
 <?php
 
-// includes/plugins/items-mailchimp-for-wp
+// includes/plugins-forms/items-mailchimp-for-wp
 
 /**
  * Prevent direct access to this file.

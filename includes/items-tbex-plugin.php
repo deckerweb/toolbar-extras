@@ -1,6 +1,6 @@
 <?php
 
-// includes/items-tbex-plugin.php
+// includes/items-tbex-plugin
 
 /**
  * Prevent direct access to this file.
@@ -14,12 +14,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 add_action( 'admin_bar_menu', 'ddw_tbex_items_plugin_settings_resources', 25 );
 /**
- * Items in the type of "Manage Content"
+ * Items for this plugin itself: settings & resources.
  *
  * @since  1.0.0
+ * @since  1.3.9 Added newsletter resource.
  *
  * @uses   ddw_tbex_display_items_resources()
  * @uses   ddw_tbex_resource_item()
+ * @uses   ddw_tbex_get_info_url()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -136,35 +138,49 @@ function ddw_tbex_items_plugin_settings_resources() {
 			'support-forum',
 			'tbex-support',
 			'tbex-resources',
-			'https://wordpress.org/support/plugin/toolbar-extras'
+			ddw_tbex_get_info_url( 'url_wporg_forum' )	//'https://wordpress.org/support/plugin/toolbar-extras'
 		);
 
 		ddw_tbex_resource_item(
 			'documentation',
 			'tbex-docs',
 			'tbex-resources',
-			'https://toolbarextras.com/docs/'
+			ddw_tbex_get_info_url( 'url_plugin_docs' )	//'https://toolbarextras.com/docs/'
 		);
 
 		ddw_tbex_resource_item(
 			'translations-community',
 			'tbex-translate',
 			'tbex-resources',
-			'https://translate.wordpress.org/projects/wp-plugins/toolbar-extras'
+			ddw_tbex_get_info_url( 'url_translate' )	//'https://translate.wordpress.org/projects/wp-plugins/toolbar-extras'
 		);
 
 		ddw_tbex_resource_item(
 			'github',
 			'tbex-github',
 			'tbex-resources',
-			'https://github.com/deckerweb/toolbar-extras'
+			ddw_tbex_get_info_url( 'url_github' )	//'https://github.com/deckerweb/toolbar-extras'
 		);
 
 		ddw_tbex_resource_item(
 			'official-site',
 			'tbex-site',
 			'tbex-resources',
-			'https://toolbarextras.com/'
+			ddw_tbex_get_info_url( 'url_plugin' )	//'https://toolbarextras.com/'
+		);
+
+		/** Newsletter */
+		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			array(
+				'id'     => 'tbex-ddw-plugins-newsletter',
+				'parent' => 'tbex-resources',
+				'title'  => esc_attr__( 'Join Newsletter', 'toolbar-extras' ),
+				'href'   => ddw_tbex_get_info_url( 'url_newsletter' ),
+				'meta'   => array(
+					'target' => '',
+					'title'  => esc_attr__( 'Join Newsletter to get insider info and great resources and deals for WordPress', 'toolbar-extras' )
+				)
+			)
 		);
 
 	}  // end if

@@ -1,6 +1,6 @@
 <?php
 
-// includes/plugins/items-happyforms
+// includes/plugins-forms/items-happyforms
 
 /**
  * Prevent direct access to this file.

@@ -5,7 +5,7 @@ Tags: toolbar, adminbar, admin bar, elementor, page builder, themes, menu, links
 Requires at least: 4.7
 Tested up to: 5.0
 Requires PHP: 5.6
-Stable tag: 1.3.8
+Stable tag: 1.3.9
 License: GPL-2.0-or-later
 License URI: https://opensource.org/licenses/GPL-2.0
 
@@ -140,21 +140,21 @@ Toolbar Extras supports even more plugins as listed here. Also, the plugin was t
 For full list of [supported plugins](https://toolbarextras.com/plugin-support/) and [third-party plugin compatibility](https://toolbarextras.com/docs/plugin-compatibility/) just **[visit our website at https://toolbarextras.com/features/](https://toolbarextras.com/features/)**
 
 = Important: Required/ Recommended for plugin usage =
-- Required: User has role `Administrator` (needed capabilities `manage_options` and `edit_theme_options`)
-- Required: Toolbar/ Admin Bar is enabled (user profile settings in WordPress)
-- Required: User is logged in (of course)
-- Recommended: Plugin's settings are enabled to show the wanted links (or any filter/ constant in code)
-- Recommended: Elementor Page Builder is installed & activated - Toolbar Extras plugin integrates fully with Elementor (Pro included) and is optimized for it
+* Required: User has role `Administrator` (needed capabilities `manage_options` and `edit_theme_options`)
+* Required: Toolbar/ Admin Bar is enabled (user profile settings in WordPress)
+* Required: User is logged in (of course)
+* Recommended: Plugin's settings are enabled to show the wanted links (or any filter/ constant in code)
+* Recommended: Elementor Page Builder is installed & activated - Toolbar Extras plugin integrates fully with Elementor (Pro included) and is optimized for it
 
 = Translations =
-- English (United States) - `en_US` = default, always included
-- [German (informal, default)](https://translate.wordpress.org/locale/de/default/wp-plugins/toolbar-extras) - `de_DE`
-- [German (formal)](https://translate.wordpress.org/locale/de/formal/wp-plugins/toolbar-extras) - `de_DE_formal`
-- [English (Canada)](https://translate.wordpress.org/locale/en-ca/default/wp-plugins/toolbar-extras) - `en_CA`
-- [English (UK - United Kingdom)](https://translate.wordpress.org/locale/en-gb/default/wp-plugins/toolbar-extras) - `en_GB`
-- [English (New Zealand)](https://translate.wordpress.org/locale/en-nz/default/wp-plugins/toolbar-extras) - `en_NZ`
-- [English (Australia)](https://translate.wordpress.org/locale/en-au/default/wp-plugins/toolbar-extras) - `en_AU`
-- `.pot` file (`toolbar-extras.pot`) for translators is always included in the plugin's 'languages' folder :)
+* English (United States) - `en_US` = default, always included
+* [German (informal, default)](https://translate.wordpress.org/locale/de/default/wp-plugins/toolbar-extras) - `de_DE`
+* [German (formal)](https://translate.wordpress.org/locale/de/formal/wp-plugins/toolbar-extras) - `de_DE_formal`
+* [English (Canada)](https://translate.wordpress.org/locale/en-ca/default/wp-plugins/toolbar-extras) - `en_CA`
+* [English (UK - United Kingdom)](https://translate.wordpress.org/locale/en-gb/default/wp-plugins/toolbar-extras) - `en_GB`
+* [English (New Zealand)](https://translate.wordpress.org/locale/en-nz/default/wp-plugins/toolbar-extras) - `en_NZ`
+* [English (Australia)](https://translate.wordpress.org/locale/en-au/default/wp-plugins/toolbar-extras) - `en_AU`
+* `.pot` file (`toolbar-extras.pot`) for translators is always included in the plugin's 'languages' folder :)
 
 = Be a Contributor =
 If you want to translate, [go to the Translation Portal at translate.wordpress.org](https://translate.wordpress.org/projects/wp-plugins/toolbar-extras).
@@ -162,18 +162,19 @@ If you want to translate, [go to the Translation Portal at translate.wordpress.o
 You can also contribute code-wise via our [Toolbar Extras GitHub Repository](https://github.com/deckerweb/toolbar-extras) - and see where you can help.
 
 = Documentation and Support =
-- For more information about features, FAQs and documentation, check out our website at [Toolbar Extras Plugin](https://toolbarextras.com/).
-- If you have any more questions, visit our support on the [Plugin's Forum](https://wordpress.org/support/plugin/toolbar-extras).
-- An overview about the ongoing development you'll find on our [Trello Board for the Plugin's Roadmap](https://trello.com/b/JrpjwlX4/toolbar-extras-public-roadmap)
+* For more information about features, FAQs and documentation, check out our website at [Toolbar Extras Plugin](https://toolbarextras.com/).
+* If you have any more questions, visit our support on the [Plugin's Forum](https://wordpress.org/support/plugin/toolbar-extras).
+* An overview about the ongoing development you'll find on our [Trello Board for the Plugin's Roadmap](https://trello.com/b/JrpjwlX4/toolbar-extras-public-roadmap)
 
 = Liked Toolbar Extras Plugin? =
-- Join our [Facebook Community Group](https://www.facebook.com/groups/ToolbarExtras/).
-- Or rate us on [WordPress](https://wordpress.org/support/plugin/toolbar-extras/reviews/?filter=5/#new-post) :)
+* Join our [Facebook Community Group](https://www.facebook.com/groups/ToolbarExtras/)
+* **Rate us 5 stars** on [WordPress](https://wordpress.org/support/plugin/toolbar-extras/reviews/?filter=5/#new-post) :)
+* [**Subscribe to my Newsletter for insider info on this plugin**](https://eepurl.com/gbAUUn), plus tutorials and more stuff on deckerweb WordPress plugins - join a thriving community of site builders!
 
 = This Plugin ... =
-- ... scratches my own itch!
-- ... is *Quality Made in Germany*
-- ... was created with love (plus some coffee) :-) - [if you like it consider donating](https://www.paypal.me/deckerweb)
+* ... scratches my own itch!
+* ... is *Quality Made in Germany*
+* ... was created with love (plus some coffee) :-) - [if you like it consider donating](https://www.paypal.me/deckerweb)
 
 == Installation ==
 
@@ -360,6 +361,23 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 == Changelog ==
 
 ([For the full changelog of this plugin visit its website at ToolbarExtras.com](https://toolbarextras.com/changelog/))
+
+= 1.3.9 - 2018-12-23 =
+* *New: Successfully tested with WordPress 5.0.2*
+* New: Added plugin support for my own plugin, Genesis Extra Settings Transporter (free, by David Decker - DECKERWEB)
+* New: Added plugin support for my own plugin, WP Document Revisions Simple Downloads (free, by David Decker - DECKERWEB)
+* New: Added plugin support for WP Document Revisions (free, by Ben Balter)
+* New: Added plugin support for Piotnet Addons For Elementor (PAFE) (Pro) (free/Premium, by Luong Huu Phuoc (Louis Hufer))
+* New: Added plugin support for Genesis Custom Headers (free, by Nick Diego)
+* New: Added plugin support for Custom Importer & Exporter (free, by Protech.Inc)
+* New: [Join my newsletter for DECKERWEB WordPress Plugins](https://eepurl.com/gbAUUn) - insider info, plus tutorials and more useful stuff
+* Tweak: Make the Smart Tweaks for unloading translations limited to logged-in users - thanks to user feedback ([Topic](https://wordpress.org/support/topic/elementor-unload-language-only-for-logged-in-user/))
+* Tweak: Enhanced settings page feature description for translations unloading Smart Tweak
+* Tweak: Added new resource for "Code Snippets" plugin support (Facebook Community User Group)
+* Tweak: Updated `.pot` file plus all German translations (formal, informal) and language packs
+* Tweak: Enhanced, improved and corrected Readme.txt file here :)
+* ***Stay tuned:** Version 1.4.0 of Toolbar Extras is coming soon and will be our biggest feature release yet! You will love it! ;-)*
+
 
 = 1.3.8 - 2018-12-11 =
 * New: Successfully tested with WordPress 5.0.0 major release version
@@ -836,6 +854,9 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 
 == Upgrade Notice =
 
+= 1.3.9 =
+Maintenance release. Important feature and settings tweaks, plus smaller fixes. Enhanced plugin support. - **Update highly recommended.**
+
 = 1.3.8 =
 Maintenance release. Important feature and settings tweaks, plus smaller fixes. Enhanced plugin and theme support. - Update highly recommended.
 
@@ -923,3 +944,4 @@ Credit where credit is due. The following code, classes and libraries were used 
 * [Genesis Widgetized Archive](https://wordpress.org/plugins/genesis-widgetized-archive/)
 * [Multisite Toolbar Additions](https://wordpress.org/plugins/multisite-toolbar-additions/)
 * [Cleaner Plugin Installer](https://wordpress.org/plugins/cleaner-plugin-installer/)
+* [*My plugins newsletter*](https://eepurl.com/gbAUUn)

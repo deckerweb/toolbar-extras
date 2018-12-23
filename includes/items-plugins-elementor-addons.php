@@ -355,6 +355,15 @@ if ( ddw_tbex_is_elementor_active() && class_exists( 'Jet_Reviews' ) ) {
 
 
 /**
+ * Add-On: Piotnet Addons For Elementor (PAFE) (Pro) (free/Premium, by Luong Huu Phuoc (Louis Hufer))
+ * @since 1.3.9
+ */
+if ( defined( 'PAFE_VERSION' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-piotnet-addons.php' );
+}
+
+
+/**
  * Add-On: Total Recipe Generator (Premium, by SaurabhSharma)
  * @since 1.1.0
  */
@@ -527,7 +536,7 @@ if ( ddw_tbex_is_elementor_active()
 	&& ddw_tbex_is_elementor_pro_active()
 	&& function_exists( 'CF7DBPlugin_i18n_init' )
 ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-cfdb.php' );
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-forms/items-cfdb.php' );
 }
 
 
