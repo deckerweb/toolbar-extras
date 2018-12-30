@@ -18,6 +18,7 @@
 * Tweak: Open plugin's newsletter link in new browser tab
 * Fix: Correct function names for plugin support of "Genesis Custom Headers" and "Genesis Extra Settings Transporter"
 * Fix: Correct admin URL for Piotnet Addons plugin support
+* ***Stay tuned:** Version 1.4.0 of Toolbar Extras is coming soon and will be our biggest feature release yet! You will love it! ;-)*
 
 
 ### 1.3.9 - 2018-12-23
@@ -35,7 +36,6 @@
 * Tweak: Added new resource for "Code Snippets" plugin support (Facebook Community User Group)
 * Tweak: Updated `.pot` file plus all German translations (formal, informal) and language packs
 * Tweak: Enhanced, improved and corrected Readme.txt file here :)
-* ***Stay tuned:** Version 1.4.0 of Toolbar Extras is coming soon and will be our biggest feature release yet! You will love it! ;-)*
 
 
 ### 1.3.8 - 2018-12-11
