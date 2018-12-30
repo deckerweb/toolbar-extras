@@ -48,7 +48,7 @@ function ddw_tbex_aoitems_piotnet_addons() {
 			'id'     => 'ao-piotnet-addons',
 			'parent' => 'tbex-addons',
 			'title'  => ddw_tbex_is_pafe_pro_active() ? esc_attr__( 'Piotnet Addons Pro', 'toolbar-extras' ) : esc_attr__( 'Piotnet Addons', 'toolbar-extras' ),
-			'href'   => esc_url( admin_url( 'admin.php?page=jet-widgets-settings' ) ),
+			'href'   => esc_url( admin_url( 'admin.php?page=piotnet-addons-for-elementor' ) ),
 			'meta'   => array(
 				'target' => '',
 				'title'  => ddw_tbex_is_pafe_pro_active() ? ddw_tbex_string_premium_addon_title_attr( __( 'Piotnet Addons Pro', 'toolbar-extras' ) ) : ddw_tbex_string_free_addon_title_attr( __( 'Piotnet Addons', 'toolbar-extras' ) )
@@ -61,7 +61,7 @@ function ddw_tbex_aoitems_piotnet_addons() {
 				'id'     => 'ao-piotnet-addons-settings',
 				'parent' => 'ao-piotnet-addons',
 				'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
-				'href'   => esc_url( admin_url( 'admin.php?page=jet-widgets-settings' ) ),
+				'href'   => esc_url( admin_url( 'admin.php?page=piotnet-addons-for-elementor' ) ),
 				'meta'   => array(
 					'target' => '',
 					'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
