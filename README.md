@@ -5,7 +5,7 @@
 **Requires at least:** 4.7  
 **Tested up to:** 5.0  
 **Requires PHP:** 5.6  
-**Stable tag:** 1.3.9  
+**Stable tag:** 1.3.10  
 **License:** GPL-2.0-or-later  
 **License URI:** https://opensource.org/licenses/GPL-2.0  
 
@@ -418,6 +418,13 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 ## Changelog 
 
 ([For the full changelog of this plugin visit its website at ToolbarExtras.com](https://toolbarextras.com/changelog/))
+
+
+### 1.3.10 - 2018-12-30 
+
+* Tweak: Open plugin's newsletter link in new browser tab
+* Fix: Correct function names for plugin support of "Genesis Custom Headers" and "Genesis Extra Settings Transporter"
+* Fix: Correct admin URL for Piotnet Addons plugin support
 
 
 ### 1.3.9 - 2018-12-23
@@ -945,6 +952,10 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 
 
 ## Upgrade Notice 
+
+
+### 1.3.10
+Maintenance release. Important feature and settings tweaks, plus smaller fixes. Enhanced plugin support. - **Update highly recommended.**
 
 
 ### 1.3.9

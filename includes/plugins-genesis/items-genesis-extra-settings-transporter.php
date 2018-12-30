@@ -16,7 +16,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_genesis_extra_settings_transport
 /**
  * Items for Add-On: Genesis Extra Settings Transporter (free, by David Decker - DECKERWEB)
  *
- * @since  1.3.9
+ * @since 1.3.9
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */

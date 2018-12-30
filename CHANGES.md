@@ -13,6 +13,13 @@
 
 ## Changelog of the Plugin
 
+### 1.3.10 - 2018-12-30 
+
+* Tweak: Open plugin's newsletter link in new browser tab
+* Fix: Correct function names for plugin support of "Genesis Custom Headers" and "Genesis Extra Settings Transporter"
+* Fix: Correct admin URL for Piotnet Addons plugin support
+
+
 ### 1.3.9 - 2018-12-23
 
 * *New: Successfully tested with WordPress 5.0.2*

@@ -16,11 +16,11 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_genesis_custom_headers', 115 );
 /**
  * Items for Add-On: Genesis Custom Headers (free, by Nick Diego)
  *
- * @since  1.3.9
+ * @since 1.3.9
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
-function ddw_tbex_aoitems_genesis_extra_settings_transporter() {
+function ddw_tbex_aoitems_genesis_custom_headers() {
 
 	/** For: Genesis Creative items */
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(

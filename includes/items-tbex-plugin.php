@@ -177,7 +177,8 @@ function ddw_tbex_items_plugin_settings_resources() {
 				'title'  => esc_attr__( 'Join Newsletter', 'toolbar-extras' ),
 				'href'   => ddw_tbex_get_info_url( 'url_newsletter' ),
 				'meta'   => array(
-					'target' => '',
+					'target' => '_blank',
+					'rel'    => 'nofollow noopener noreferrer',
 					'title'  => esc_attr__( 'Join Newsletter to get insider info and great resources and deals for WordPress', 'toolbar-extras' )
 				)
 			)
