@@ -18,7 +18,7 @@ add_action( 'wp_before_admin_bar_render', 'ddw_tbex_site_items_devmode_debug_ele
 /**
  * Items for Plugin: Debug Elementor (by Rami Yushuvaev)
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */

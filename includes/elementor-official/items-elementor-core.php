@@ -8,7 +8,7 @@
  *
  * @since 1.0.0
  */
-if ( ! defined( 'WPINC' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit( 'Sorry, you are not allowed to access this file directly.' );
 }
 
@@ -17,9 +17,9 @@ add_filter( 'tbex_filter_get_pagebuilders', 'ddw_tbex_register_pagebuilder_eleme
 /**
  * Register Elementor Page Builder.
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
- * @param  array $builders Holds array of all registered Page Builders.
+ * @param array $builders Holds array of all registered Page Builders.
  * @return array Tweaked array of Registered Page Builders.
  */
 function ddw_tbex_register_pagebuilder_elementor( array $builders ) {
@@ -40,22 +40,38 @@ function ddw_tbex_register_pagebuilder_elementor( array $builders ) {
 }  // end function
 
 
+/**
+ * Inlude specific Elementor helper functions.
+ * @since 1.4.0
+ */
+require_once( TBEX_PLUGIN_DIR . 'includes/elementor-official/elementor-functions.php' );
+
+
 add_action( 'admin_bar_menu', 'ddw_tbex_items_elementor_core', 99 );
 /**
- * Add Elementor (free, Core) main items.
+ * Add main items for the free/core version of "Elementor" plugin
+ *   (free, by Elementor Team/ Elementor Ltd.).
  *
- * @since  1.0.0
- * @since  1.3.5 Added BTC plugin support.
+ * @since 1.0.0
+ * @since 1.3.5 Added BTC plugin support.
+ * @since 1.4.0 Added 2 tasks from Elementor Tools (for Admin only).
  *
- * @uses   ddw_tbex_is_elementor_version()
- * @uses   ddw_tbex_string_elementor()
- * @uses   ddw_tbex_get_elementor_template_add_new_url()
- * @uses   ddw_tbex_string_elementor_template_with_builder()
- * @uses   ddw_tbex_string_elementor_template_create_with_builder()
+ * @uses ddw_tbex_get_default_pagebuilder()
+ * @uses ddw_tbex_is_elementor_version()
+ * @uses ddw_tbex_string_elementor()
+ * @uses ddw_tbex_get_elementor_template_add_new_url()
+ * @uses ddw_tbex_string_elementor_template_with_builder()
+ * @uses ddw_tbex_string_elementor_template_create_with_builder()
+ * @uses ddw_tbex_string_elementor_categories_via()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
 function ddw_tbex_items_elementor_core() {
+
+	/** Bail early if Elementor is not set as default page builder */
+	if ( 'elementor' !== ddw_tbex_get_default_pagebuilder() ) {
+		return;
+	}
 
 	/** Elementor Library */
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(
@@ -85,7 +101,7 @@ function ddw_tbex_items_elementor_core() {
 		);
 
 		/** Display only for Elementor 2.0+ */
-		if ( ddw_tbex_is_elementor_version( 'core', '2.0.0-beta1', '>=' ) /* class_exists( '\Elementor\Core\Base\Document' ) */ ) {
+		if ( ddw_tbex_is_elementor_version( 'core', '2.0.0', '>=' ) ) {
 
 			$GLOBALS[ 'wp_admin_bar' ]->add_node(
 				array(
@@ -139,9 +155,9 @@ function ddw_tbex_items_elementor_core() {
 				'id'     => 'elementor-library-new',
 				'parent' => 'elementor-library',
 				'title'  => esc_attr__( 'New Template', 'toolbar-extras' ),
-				'href'   => esc_url( admin_url( 'post-new.php?post_type=elementor_library' ) ),
+				'href'   => ddw_tbex_get_elementor_new_template_url(),
 				'meta'   => array(
-					'target' => '',
+					'target' => ddw_tbex_meta_target( 'builder' ),
 					'title'  => esc_attr__( 'New Template', 'toolbar-extras' )
 				)
 			)
@@ -193,24 +209,42 @@ function ddw_tbex_items_elementor_core() {
 
 		}  // end if
 
-	/** Template categories, via BTC plugin */
-	if ( ddw_tbex_is_btcplugin_active() ) {
+		/** Categories (since Elementor 2.4.0+) */
+		if ( ddw_tbex_is_elementor_version( 'core', TBEX_ELEMENTOR_240_BETA, '>=' ) ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
-			array(
-				'id'     => 'elementor-library-categories',
-				'parent' => 'elementor-library',
-				'title'  => ddw_btc_string_template( 'template' ),
-				'href'   => esc_url( admin_url( 'edit-tags.php?taxonomy=builder-template-category&post_type=elementor_library' ) ),
-				'meta'   => array(
-					'target' => '',
-					'title'  => esc_html( ddw_btc_string_template( 'template' ) )
+			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				array(
+					'id'     => 'elementor-library-categories-core',
+					'parent' => 'elementor-library',
+					'title'  => esc_attr__( 'Categories', 'toolbar-extras' ),
+					'href'   => esc_url( admin_url( 'edit-tags.php?taxonomy=elementor_library_category&post_type=elementor_library' ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => esc_attr__( 'Template Categories', 'toolbar-extras' ) . ddw_tbex_string_elementor_categories_via( 'elementor' )
+					)
 				)
-			)
-		);
+			);
 
-	}  // end if
-	
+		}  // end if
+
+		/** Template categories, via BTC plugin */
+		if ( ddw_tbex_is_btcplugin_active() ) {
+
+			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				array(
+					'id'     => 'elementor-library-template-categories',
+					'parent' => 'elementor-library',
+					'title'  => ddw_btc_string_template( 'template' ),
+					'href'   => esc_url( admin_url( 'edit-tags.php?taxonomy=builder-template-category&post_type=elementor_library' ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => esc_html( ddw_btc_string_template( 'template' ) ) . ddw_tbex_string_elementor_categories_via( 'btc' )
+					)
+				)
+			);
+
+		}  // end if
+
 	/** Action Hook: After Elementor Library */
 	do_action( 'tbex_after_elementor_library' );
 
@@ -268,7 +302,7 @@ function ddw_tbex_items_elementor_core() {
 		);
 
 		/** Display only for Elementor 2.0+ */
-		if ( ddw_tbex_is_elementor_version( 'core', '2.0.0-beta1', '>=' ) /* class_exists( '\Elementor\Core\Base\Document' ) */ ) {
+		if ( ddw_tbex_is_elementor_version( 'core', '2.0.0', '>=' ) ) {
 
 			$GLOBALS[ 'wp_admin_bar' ]->add_node(
 				array(
@@ -364,6 +398,62 @@ function ddw_tbex_items_elementor_core() {
 			)
 		);
 
+		/**
+		 * Bring two Elementor tasks (from "Tools") to the Toolbar.
+		 *   Note: This only works within the WP-Admin, NOT the frontend.
+		 *         Additionally, this also does not work on the "Tools" page
+		 *         itself.
+		 * @since 1.4.0
+		 */
+		if ( is_admin() ) {
+
+			/** get_current_screen() works only in Admin! */
+			if ( 'elementor_page_elementor-tools' !== get_current_screen()->id ) {
+
+				/** Clear CSS Cache - Regenerate CSS */
+				$css_html = sprintf(
+					'<a href="#" data-nonce="%s" class="elementor-button-spinner" id="elementor-clear-cache-button">%s</a>',
+					wp_create_nonce( 'elementor_clear_cache' ),
+					esc_attr__( 'Task: Regenerate CSS', 'toolbar-extras' )
+				);
+
+				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					array(
+						'id'     => 'elementor-tools-regenerate-css',
+						'parent' => 'elementor-tools',
+						'title'  => $css_html,
+						'href'   => false,
+						'meta'   => array(
+							'target' => '',
+							'title'  => esc_attr__( 'Task: Regenerate CSS', 'toolbar-extras' )
+						)
+					)
+				);
+
+				/** Sync the external Template Library again */
+				$sync_html = sprintf(
+					'<a href="#" data-nonce="%s" class="elementor-button-spinner" id="elementor-library-sync-button">%s</a>',
+					wp_create_nonce( 'elementor_reset_library' ),
+					esc_attr__( 'Task: Sync Library', 'toolbar-extras' )
+				);
+
+				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					array(
+						'id'     => 'elementor-tools-sync-library',
+						'parent' => 'elementor-tools',
+						'title'  => $sync_html,
+						'href'   => false,
+						'meta'   => array(
+							'target' => '',
+							'title'  => esc_attr__( 'Task: Sync external Template Library', 'toolbar-extras' )
+						)
+					)
+				);
+
+			}  // end if
+
+		}  // end if
+
 	/** Action Hook: After Elementor Tools */
 	do_action( 'tbex_after_elementor_tools' );
 
@@ -374,18 +464,18 @@ add_action( 'admin_bar_menu', 'ddw_tbex_user_items_elementor_core_roles', 99 );
 /**
  * Add User items for Elementor (free, Core).
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
- * @uses   ddw_tbex_display_items_users()
- * @uses   ddw_tbex_is_elementor_version()
- * @uses   ddw_tbex_item_title_with_icon()
+ * @uses ddw_tbex_display_items_users()
+ * @uses ddw_tbex_is_elementor_version()
+ * @uses ddw_tbex_item_title_with_icon()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
 function ddw_tbex_user_items_elementor_core_roles() {
 
 	/** Elementor Role Manager */
-	if ( ! ddw_tbex_display_items_users() || ddw_tbex_is_elementor_version( 'core', '2.0.0-beta3', '<' ) ) {
+	if ( ! ddw_tbex_display_items_users() || ddw_tbex_is_elementor_version( 'core', '2.0.0', '<' ) ) {
 		return;
 	}
 
@@ -407,21 +497,145 @@ function ddw_tbex_user_items_elementor_core_roles() {
 }  // end function
 
 
+add_filter( 'admin_bar_menu', 'ddw_tbex_aoitems_new_content_elementor_core_main', 80 );
+/**
+ * Items for "New Content" section: New Elementor Template
+ *   Note: Filter the existing Toolbar node to make a few tweaks with the
+ *         existing item.
+ *
+ * @since 1.4.0
+ *
+ * @uses ddw_tbex_is_elementor_version()
+ * @uses ddw_tbex_string_elementor_template()
+ * @uses ddw_tbex_get_elementor_new_template_url()
+ * @uses ddw_tbex_string_elementor_template_new()
+ *
+ * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ *
+ * @param object $wp_admin_bar Holds all nodes of the Toolbar.
+ */
+function ddw_tbex_aoitems_new_content_elementor_core_main( $wp_admin_bar ) {
+
+	/** Bail early if items display is not wanted */
+	if ( ! ddw_tbex_display_items_new_content() || ddw_tbex_is_elementor_version( 'core', TBEX_ELEMENTOR_BEFORE_240, '<=' ) ) {
+		return;
+	}
+
+	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		array(
+			'id'     => 'new-elementor_library',	// same as original!
+			'parent' => 'new-content',
+			'title'  => ddw_tbex_string_elementor_template(),
+			'href'   => ddw_tbex_get_elementor_new_template_url(),
+			'meta'   => array(
+				'target' => ddw_tbex_meta_target( 'builder' ),
+				'title'  => ddw_tbex_string_elementor_template_new()
+			)
+		)
+	);
+
+}  // end function
+
+
+add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_new_content_elementor_core_sub', 90 );
+/**
+ * Sub items for "New Content" section: New Elementor Template types.
+ *
+ * @since 1.0.0
+ * @since 1.4.0 Refactored; moved into function(s).
+ *
+ * @uses ddw_tbex_display_items_new_content()
+ * @uses ddw_tbex_is_elementor_version()
+ */
+function ddw_tbex_aoitems_new_content_elementor_core_sub() {
+
+	/** Bail early if items display is not wanted */
+	if ( ! ddw_tbex_display_items_new_content() ) {
+		return;
+	}
+
+	if ( ddw_tbex_is_elementor_version( 'core', TBEX_ELEMENTOR_240_BETA, '>=' ) ) {
+		
+		/** Group: Pro Custom Fonts */
+		$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			array(
+				'id'     => 'group-elementor-nclib',
+				'parent' => 'new-elementor_library'
+			)
+		);
+
+		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			array(
+				'id'     => 'elementor-nclib-new-template',
+				'parent' => 'group-elementor-nclib',
+				'title'  => esc_attr_x( 'Template', 'Elementor - in Toolbar New Content section', 'toolbar-extras' ),
+				'href'   => esc_url( admin_url( 'edit.php?post_type=elementor_library#add_new' ) ),
+				'meta'   => array(
+					'target' => ddw_tbex_meta_target( 'builder' ),
+					'title'  => esc_attr_x( 'Template', 'Elementor - in Toolbar New Content section', 'toolbar-extras' )
+				)
+			)
+		);
+
+	}  // end if
+
+	if ( \Elementor\User::is_current_user_can_edit_post_type( 'elementor_library' ) ) {
+
+		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			array(
+				'id'     => 'eltpl-page-with-builder',
+				'parent' => ddw_tbex_elementor_addnew_parent(),		//'tbex-elementor-template',
+				'title'  => ddw_tbex_string_elementor_template_with_builder( _x( 'Page', 'Elementor Template type', 'toolbar-extras' ) ),
+				'href'   => ddw_tbex_get_elementor_template_add_new_url( 'page' ),
+				'meta'   => array(
+					'target' => ddw_tbex_meta_target( 'builder' ),
+					'rel'    => ddw_tbex_meta_rel(),
+					'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Page', 'Elementor Template type', 'toolbar-extras' ) )
+				)
+			)
+		);
+
+		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			array(
+				'id'     => 'eltpl-section-with-builder',
+				'parent' => ddw_tbex_elementor_addnew_parent(),		//'tbex-elementor-template',
+				'title'  => ddw_tbex_string_elementor_template_with_builder( _x( 'Section', 'Elementor Template type', 'toolbar-extras' ) ),
+				'href'   => ddw_tbex_get_elementor_template_add_new_url( 'section' ),
+				'meta'   => array(
+					'target' => ddw_tbex_meta_target( 'builder' ),
+					'rel'    => ddw_tbex_meta_rel(),
+					'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Section', 'Elementor Template type', 'toolbar-extras' ) )
+				)
+			)
+		);
+
+	}  // end if
+
+}  // end function
+
+
 add_action( 'admin_bar_menu', 'ddw_tbex_items_elementor_core_resources', 99 );
 /**
  * Add Elementor external resources items
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
- * @uses   ddw_tbex_display_items_resources()
- * @uses   ddw_tbex_resource_item()
+ * @uses ddw_tbex_display_items_resources()
+ * @uses ddw_tbex_get_default_pagebuilder()
+ * @uses ddw_tbex_resource_item()
+ * @uses ddw_tbex_get_resource_url()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
 function ddw_tbex_items_elementor_core_resources() {
 
-	/** Bail early if resources display is disabled */
-	if ( ! ddw_tbex_display_items_resources() ) {
+	/**
+	 * Bail early if resources display is disabled or Elementor is not the
+	 *   default Page Builder.
+	 */
+	if ( ! ddw_tbex_display_items_resources()
+		|| 'elementor' !== ddw_tbex_get_default_pagebuilder()
+	) {
 		return;
 	}
 
@@ -430,7 +644,7 @@ function ddw_tbex_items_elementor_core_resources() {
 			'id'     => 'elementor-resources',
 			'parent' => 'group-pagebuilder-resources',
 			'title'  => ddw_tbex_string_elementor_resources(),
-			'href'   => 'https://docs.elementor.com/',
+			'href'   => ddw_tbex_get_resource_url( 'elementor', 'url_docs' ),
 			'meta'   => array(
 				'rel'    => ddw_tbex_meta_rel(),
 				'target' => ddw_tbex_meta_target(),
@@ -443,21 +657,21 @@ function ddw_tbex_items_elementor_core_resources() {
 			'documentation',
 			'elementor-resources-docs',
 			'elementor-resources',
-			'https://docs.elementor.com/'
+			ddw_tbex_get_resource_url( 'elementor', 'url_docs' )
 		);
 
 		ddw_tbex_resource_item(
 			'support-forum',
 			'elementor-resources-support',
 			'elementor-resources',
-			'https://wordpress.org/support/plugin/elementor'
+			ddw_tbex_get_resource_url( 'elementor', 'url_free_support' )
 		);
 
 		ddw_tbex_resource_item(
 			'official-blog',
 			'elementor-resources-youtube',
 			'elementor-resources',
-			'https://elementor.com/blog/',
+			ddw_tbex_get_resource_url( 'elementor', 'url_blog' ),
 			esc_attr__( 'Official Elementor Blog', 'toolbar-extras' )
 		);
 
@@ -465,7 +679,7 @@ function ddw_tbex_items_elementor_core_resources() {
 			'youtube-channel',
 			'elementor-resources-blog',
 			'elementor-resources',
-			'https://www.youtube.com/c/elementor',
+			ddw_tbex_get_resource_url( 'elementor', 'url_videos' ),
 			esc_attr__( 'Official Elementor YouTube Channel', 'toolbar-extras' )
 		);
 
@@ -473,7 +687,7 @@ function ddw_tbex_items_elementor_core_resources() {
 			'github',
 			'elementor-resources-github',
 			'elementor-resources',
-			'https://github.com/pojome/elementor'
+			ddw_tbex_get_resource_url( 'elementor', 'url_github' )
 		);
 
 	/** Action Hook: After Elementor Resources */
@@ -485,7 +699,7 @@ function ddw_tbex_items_elementor_core_resources() {
 			'id'     => 'elementor-community',
 			'parent' => 'group-pagebuilder-resources',
 			'title'  => ddw_tbex_string_elementor_community(),
-			'href'   => 'https://www.facebook.com/groups/Elementors/',
+			'href'   => ddw_tbex_get_resource_url( 'elementor', 'url_fb_group' ),
 			'meta'   => array(
 				'rel'    => ddw_tbex_meta_rel(),
 				'target' => ddw_tbex_meta_target(),
@@ -498,35 +712,28 @@ function ddw_tbex_items_elementor_core_resources() {
 			'facebook-group',
 			'elementor-community-facebook',
 			'elementor-community',
-			'https://www.facebook.com/groups/Elementors/'
+			ddw_tbex_get_resource_url( 'elementor', 'url_fb_group' )
 		);
 
 		ddw_tbex_resource_item(
 			'translations-community',
 			'elementor-community-translations',
 			'elementor-community',
-			'https://translate.wordpress.org/projects/wp-plugins/elementor'
+			ddw_tbex_get_resource_url( 'elementor', 'url_translations' )
 		);
 
 		ddw_tbex_resource_item(
 			'github-issues',
 			'elementor-community-github-issues',
 			'elementor-community',
-			'https://github.com/pojome/elementor/issues'
+			ddw_tbex_get_resource_url( 'elementor', 'url_github_issues' )
 		);
 
 		ddw_tbex_resource_item(
 			'community-forum',
 			'elementor-community-elmforums',
 			'elementor-community',
-			'https://elementorforums.com/community/'
-		);
-
-		ddw_tbex_resource_item(
-			'user-forum',
-			'elementor-community-elmtalk',
-			'elementor-community',
-			'//www.elementortalk.com/'
+			ddw_tbex_get_resource_url( 'elementor', 'url_el_forums' )
 		);
 
 }  // end function
@@ -537,17 +744,21 @@ add_action( 'admin_bar_menu', 'ddw_tbex_items_elementor_core_developers', 99 );
  * Add Elementor external developers items
  *   NOTE: Only when Dev Mode & Resources are activated.
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
- * @uses   ddw_tbex_display_items_resources()
- * @uses   ddw_tbex_resource_item()
+ * @uses ddw_tbex_display_items_dev_mode()
+ * @uses ddw_tbex_display_items_resources()
+ * @uses ddw_tbex_get_default_pagebuilder()
+ * @uses ddw_tbex_resource_item()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
 function ddw_tbex_items_elementor_core_developers() {
 
 	/** Bail early if Dev Mode & Resources display are disabled */
-	if ( ! ddw_tbex_display_items_dev_mode() && ! ddw_tbex_display_items_resources() ) {
+	if ( ( ! ddw_tbex_display_items_dev_mode() || ! ddw_tbex_display_items_resources() )
+		|| 'elementor' !== ddw_tbex_get_default_pagebuilder()
+	) {
 		return;
 	}
 
@@ -557,7 +768,7 @@ function ddw_tbex_items_elementor_core_developers() {
 			'id'     => 'elementor-developers',
 			'parent' => 'group-pagebuilder-resources',
 			'title'  => ddw_tbex_string_elementor_developers(),
-			'href'   => 'https://developers.elementor.com/',
+			'href'   => ddw_tbex_get_resource_url( 'elementor', 'url_developers' ),
 			'meta'   => array(
 				'rel'    => ddw_tbex_meta_rel(),
 				'target' => ddw_tbex_meta_target(),
@@ -570,22 +781,70 @@ function ddw_tbex_items_elementor_core_developers() {
 			'documentation',
 			'elementor-developers-docs',
 			'elementor-developers',
-			'https://developers.elementor.com/'
+			ddw_tbex_get_resource_url( 'elementor', 'url_developers' )
 		);
 
 		ddw_tbex_resource_item(
 			'code-reference',
 			'elementor-developers-code',
 			'elementor-developers',
-			'https://code.elementor.com/'
+			ddw_tbex_get_resource_url( 'elementor', 'url_code_reference' )
 		);
 
 		ddw_tbex_resource_item(
 			'facebook-group',
 			'elementor-developers-fbdev-group',
 			'elementor-developers',
-			'https://www.facebook.com/groups/1388158027894331/',
+			ddw_tbex_get_resource_url( 'elementor', 'url_fbdev_group' ),
 			esc_attr__( 'Advanced User &amp; Developer Community Group', 'toolbar-extras' )
 		);
+
+}  // end function
+
+
+add_action( 'tbex_label_local_dev_color_picker', 'ddw_tbex_label_local_dev_color_picker_elementor' );
+/**
+ * Output additional label description for color and feature Elementor red color.
+ *   Current value: #d30c5c
+ *   Testing value: #bb2962
+ *
+ * @since 1.4.0
+ *
+ * @see plugin file: /includes/admin/views/settings-tab-development.php
+ *
+ * @return string Echoing markup and content for additional label description.
+ */
+function ddw_tbex_label_local_dev_color_picker_elementor() {
+
+	echo sprintf(
+		/* translators: %s - a color code in HEX notation, #d30c5c */
+		'<span class="description tbex-space-top">' . __( 'Elementor Red: %s', 'toolbar-extras' ) . '</span>',
+		'<div class="bg-local-base bg-local-elementor tbex-align-middle"></div><code class="tbex-align-middle">#d30c5c</code>'
+	);
+
+}  // end function
+
+
+add_action( 'elementor/finder/categories/init', 'ddw_tbex_elementor_finder_add_items' );
+/**
+ * Add "Toolbar Extras" category to the Elementor Finder (Elementor v2.3.0+).
+ *
+ * @since 1.4.0
+ *
+ * @see plugin file: includes/elementor-official/items-finder-elementor-resources.php
+ *
+ * @param object $categories_manager
+ */
+function ddw_tbex_elementor_finder_add_items( $categories_manager ) {
+
+	/** Include the Finder Category class files */
+	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-official/items-finder-tbex.php' );
+	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-official/items-finder-elementor-resources.php' );
+
+	/** Add the Toolbar Extras category */
+	$categories_manager->add_category( 'toolbar-extras', new DDW_Toolbar_Extras_Finder_Category() );
+
+	/** Add the Elementor Resources category */
+	$categories_manager->add_category( 'tbex-elementor-resources', new DDW_Elementor_Resources_Finder_Category() );
 
 }  // end function

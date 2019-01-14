@@ -16,9 +16,9 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_duplicator', 10 );
 /**
  * Items for Plugin: Duplicator (free, by Snap Creek)
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
- * @uses   ddw_tbex_resource_item()
+ * @uses ddw_tbex_resource_item()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar']
  */
@@ -137,7 +137,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_new_content_duplicator', 100 );
 /**
  * Items for "New Content" section: New Duplicator Package Archive
  *
- * @since  1.3.2
+ * @since 1.3.2
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */

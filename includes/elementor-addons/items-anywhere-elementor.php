@@ -20,10 +20,10 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_anywhere_elementor', 100 );
 /**
  * Items for Add-On: AnyWhere Elementor (free, by WebTechStreet)
  *
- * @since  1.0.0
- * @since  1.3.5 Added BTC plugin support.
+ * @since 1.0.0
+ * @since 1.3.5 Added BTC plugin support.
  *
- * @uses   ddw_tbex_resource_item()
+ * @uses ddw_tbex_resource_item()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -138,9 +138,9 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_anywhere_elementor_pro', 100 );
 /**
  * Items for Add-On: AnyWhere Elementor Pro (Premium, by WebTechStreet)
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
- * @since  ddw_tbex_resource_item()
+ * @since ddw_tbex_resource_item()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -205,7 +205,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_new_content_aetemplate' );
 /**
  * Items for "New Content" section: New AE Global Template
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */

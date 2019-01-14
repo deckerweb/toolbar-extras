@@ -12,11 +12,31 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 
+/**
+ * Check if WPForms Pro plugin is active or not.
+ *
+ * @since 1.4.0
+ *
+ * @return bool TRUE if conditions are met, FALSE otherwise.
+ */
+function ddw_tbex_is_wpforms_pro_active() {
+
+	if ( ( defined( 'WPFORMS_PLUGIN_SLUG' ) && 'wpforms' === WPFORMS_PLUGIN_SLUG )
+		|| class_exists( 'WPForms_Pro' )
+	) {
+		return TRUE;
+	}
+
+	return FALSE;
+
+}  // end function
+
+
 add_action( 'admin_bar_menu', 'ddw_tbex_site_items_wpforms' );
 /**
  * Items for Plugin: WPForms Lite/Pro (free/Premium, by WPForms)
  *
- * @since  1.3.1
+ * @since 1.3.1
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -103,18 +123,44 @@ function ddw_tbex_site_items_wpforms() {
 						)
 					);
 
-					$GLOBALS[ 'wp_admin_bar' ]->add_node(
-						array(
-							'id'     => 'forms-wpforms-form-' . $form->ID . '-entries',
-							'parent' => 'forms-wpforms-form-' . $form->ID,
-							'title'  => esc_attr__( 'Entries', 'toolbar-extras' ),
-							'href'   => esc_url( admin_url( 'admin.php?page=wpforms-entries&view=list&form_id=' . $form->ID ) ),
-							'meta'   => array(
-								'target' => '',
-								'title'  => esc_attr__( 'Entries', 'toolbar-extras' )
+					/** Entries (Pro feature) */
+					if ( ddw_tbex_is_wpforms_pro_active() ) {
+
+						$GLOBALS[ 'wp_admin_bar' ]->add_node(
+							array(
+								'id'     => 'forms-wpforms-form-' . $form->ID . '-entries',
+								'parent' => 'forms-wpforms-form-' . $form->ID,
+								'title'  => esc_attr__( 'Entries', 'toolbar-extras' ),
+								'href'   => esc_url( admin_url( 'admin.php?page=wpforms-entries&view=list&form_id=' . $form->ID ) ),
+								'meta'   => array(
+									'target' => '',
+									'title'  => esc_attr__( 'Entries', 'toolbar-extras' )
+								)
 							)
-						)
-					);
+						);
+
+					}  // end if
+
+					/**
+					 * Third-party Add-On:
+					 *   Entries For WPForms (free, by Sanjeev Aryal)
+					 */
+					if ( defined( 'WPFORMS_ENTRIES_PLUGIN_FILE' ) ) {
+
+						$GLOBALS[ 'wp_admin_bar' ]->add_node(
+							array(
+								'id'     => 'forms-wpforms-form-' . $form->ID . '-entries-efwpf',
+								'parent' => 'forms-wpforms-form-' . $form->ID,
+								'title'  => esc_attr__( 'Entries', 'toolbar-extras' ),
+								'href'   => esc_url( admin_url( 'admin.php?page=wpforms-entires-list-table&form_id=' . $form->ID ) ),
+								'meta'   => array(
+									'target' => '',
+									'title'  => esc_attr__( 'Entries', 'toolbar-extras' )
+								)
+							)
+						);
+
+					}  // end if
 
 			}  // end foreach
 
@@ -226,6 +272,24 @@ function ddw_tbex_site_items_wpforms() {
 				)
 			);
 
+			/** Payments (Pro feature) */
+			if ( ddw_tbex_is_wpforms_pro_active() ) {
+
+				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					array(
+						'id'     => 'forms-wpforms-settings-payments',
+						'parent' => 'forms-wpforms-settings',
+						'title'  => esc_attr__( 'Payments', 'toolbar-extras' ),
+						'href'   => esc_url( admin_url( 'admin.php?page=wpforms-settings&view=payments' ) ),
+						'meta'   => array(
+							'target' => '',
+							'title'  => esc_attr__( 'Payments', 'toolbar-extras' )
+						)
+					)
+				);
+
+			}  // end if
+
 			$GLOBALS[ 'wp_admin_bar' ]->add_node(
 				array(
 					'id'     => 'forms-wpforms-settings-integrations',
@@ -305,6 +369,46 @@ function ddw_tbex_site_items_wpforms() {
 				)
 			);
 
+		/** About */
+		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			array(
+				'id'     => 'forms-wpforms-about',
+				'parent' => 'forms-wpforms',
+				'title'  => esc_attr__( 'About', 'toolbar-extras' ),
+				'href'   => esc_url( admin_url( 'admin.php?page=wpforms-about' ) ),
+				'meta'   => array(
+					'target' => '',
+					'title'  => esc_attr__( 'About', 'toolbar-extras' )
+				)
+			)
+		);
+
+			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				array(
+					'id'     => 'forms-wpforms-about-getstarted',
+					'parent' => 'forms-wpforms-about',
+					'title'  => esc_attr__( 'Getting Started', 'toolbar-extras' ),
+					'href'   => esc_url( admin_url( 'admin.php?page=wpforms-about&view=getting-started' ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => esc_attr__( 'Getting Started', 'toolbar-extras' )
+					)
+				)
+			);
+
+			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				array(
+					'id'     => 'forms-wpforms-about-devteam',
+					'parent' => 'forms-wpforms-about',
+					'title'  => esc_attr__( 'Developer Team', 'toolbar-extras' ),
+					'href'   => esc_url( admin_url( 'admin.php?page=wpforms-about&view=about' ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => esc_attr__( 'Developer Team', 'toolbar-extras' )
+					)
+				)
+			);
+
 		/** Optionally, let other WPForms Add-Ons hook in */
 		do_action( 'tbex_after_wpforms_settings' );
 
@@ -319,12 +423,25 @@ function ddw_tbex_site_items_wpforms() {
 				)
 			);
 			
-			ddw_tbex_resource_item(
-				'support-forum',
-				'wpforms-support',
-				'group-wpforms-resources',
-				'https://wordpress.org/support/plugin/wpforms-lite'
-			);
+			if ( ddw_tbex_is_wpforms_pro_active() ) {
+
+				ddw_tbex_resource_item(
+					'support-contact',
+					'wpforms-contact',
+					'group-wpforms-resources',
+					'https://wpforms.com/account/support/'
+				);
+
+			} else {
+
+				ddw_tbex_resource_item(
+					'support-forum',
+					'wpforms-support',
+					'group-wpforms-resources',
+					'https://wordpress.org/support/plugin/wpforms-lite'
+				);
+
+			}  // end if
 
 			ddw_tbex_resource_item(
 				'documentation',
@@ -333,12 +450,16 @@ function ddw_tbex_site_items_wpforms() {
 				'https://wpforms.com/docs/'
 			);
 
-			ddw_tbex_resource_item(
-				'translations-community',
-				'wpforms-translate',
-				'group-wpforms-resources',
-				'https://translate.wordpress.org/projects/wp-plugins/wpforms-lite'
-			);
+			if ( ! ddw_tbex_is_wpforms_pro_active() ) {
+
+				ddw_tbex_resource_item(
+					'translations-community',
+					'wpforms-translate',
+					'group-wpforms-resources',
+					'https://translate.wordpress.org/projects/wp-plugins/wpforms-lite'
+				);
+
+			}  // end if
 
 			ddw_tbex_resource_item(
 				'official-site',
@@ -374,7 +495,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_new_content_wpforms', 80 );
 /**
  * Items for "New Content" section: New WPForms Form
  *
- * @since  1.3.1
+ * @since 1.3.1
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -393,7 +514,7 @@ function ddw_tbex_aoitems_new_content_wpforms() {
 			'href'   => esc_url( admin_url( 'admin.php?page=wpforms-builder' ) ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target( 'builder' ),
-				'title'  => ddw_tbex_string_new_form( 'WPForms' )
+				'title'  => ddw_tbex_string_add_new_item( ddw_tbex_string_new_form( 'WPForms' ) )
 			)
 		)
 	);

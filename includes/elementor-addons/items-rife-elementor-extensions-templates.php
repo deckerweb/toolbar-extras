@@ -16,9 +16,9 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_rife_extensions_templates', 100 
 /**
  * Items for Add-On: Rife Elementor Extensions & Templates (free, by Apollo13 Themes)
  *
- * @since  1.3.2
+ * @since 1.3.2
  *
- * @uses   ddw_tbex_resource_item()
+ * @uses ddw_tbex_resource_item()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */

@@ -16,14 +16,15 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_customizer_export_import', 999 )
 /**
  * Items for Add-On: Customizer Export Import (free, by The Beaver Builder Team)
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
- * @uses   ddw_tbex_customizer_focus()
+ * @uses ddw_tbex_customizer_focus()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
 function ddw_tbex_aoitems_customizer_export_import() {
 
+	/** Theme Creative Group */
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(
 		array(
 			'id'     => 'ao-cei',
@@ -38,6 +39,7 @@ function ddw_tbex_aoitems_customizer_export_import() {
 		)
 	);
 
+	/** Frontend: Customizer sub item */
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(
 		array(
 			'id'     => 'customize-cei',
@@ -46,7 +48,7 @@ function ddw_tbex_aoitems_customizer_export_import() {
 			'title'  => ddw_tbex_item_title_with_icon( esc_attr__( 'Export &amp; Import', 'toolbar-extras' ) ),
 			'href'   => ddw_tbex_customizer_focus( 'section', 'cei-section' ),
 			'meta'   => array(
-				'target' => '',
+				'target' => ddw_tbex_meta_target(),
 				'title'  => esc_attr__( 'Export &amp; Import Customizer Options', 'toolbar-extras' )
 			)
 		)

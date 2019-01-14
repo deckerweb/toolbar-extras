@@ -17,10 +17,10 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_slush_pro_customize', 90 );
  * Customize items for Genesis Child Theme:
  *   Slush Pro (Premium, by zigzagpress)
  *
- * @since  1.2.0
+ * @since 1.2.0
  *
- * @uses   ddw_tbex_customizer_focus()
- * @uses   ddw_tbex_string_customize_attr()
+ * @uses ddw_tbex_customizer_focus()
+ * @uses ddw_tbex_string_customize_attr()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */

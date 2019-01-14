@@ -16,10 +16,10 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_genesis_extender', 102 );
 /**
  * Items for Add-On: Genesis Extender (Premium, by Cobalt Apps)
  *
- * @since  1.1.1
+ * @since 1.1.1
  *
- * @uses   ddw_tbex_display_items_resources()
- * @uses   ddw_tbex_resource_item()
+ * @uses ddw_tbex_display_items_resources()
+ * @uses ddw_tbex_resource_item()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */

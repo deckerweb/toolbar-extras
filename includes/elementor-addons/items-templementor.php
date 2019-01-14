@@ -16,11 +16,11 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_templementor', 100 );
 /**
  * Items for Add-On: Templementor – Persistent Elementor Templates (free, by Lcweb)
  *
- * @since  1.0.0
- * @since  1.3.5 Added BTC plugin support.
+ * @since 1.0.0
+ * @since 1.3.5 Added BTC plugin support.
  *
- * @uses   ddw_tbex_display_items_resources()
- * @uses   ddw_tbex_resource_item()
+ * @uses ddw_tbex_display_items_resources()
+ * @uses ddw_tbex_resource_item()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */

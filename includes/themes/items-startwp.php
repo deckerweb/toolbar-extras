@@ -15,9 +15,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Check if StartWP Extended Add-On plugin is active or not.
  *
- * @since  1.1.0
+ * @since 1.1.0
  *
- * @return bool TRUE if constant defined, otherwise FALSE.
+ * @return bool TRUE if constant defined, FALSE otherwise.
  */
 function ddw_tbex_is_startwp_extended_active() {
 
@@ -30,11 +30,11 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_startwp', 100 );
 /**
  * Items for Theme: StartWP (free, by Munir Kamal)
  *
- * @since  1.1.0
+ * @since 1.1.0
  *
- * @uses   ddw_tbex_string_theme_title()
- * @uses   ddw_tbex_customizer_focus()
- * @uses   ddw_tbex_customizer_start()
+ * @uses ddw_tbex_string_theme_title()
+ * @uses ddw_tbex_customizer_focus()
+ * @uses ddw_tbex_customizer_start()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -74,10 +74,10 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_startwp_customize', 100 );
 /**
  * Customize items for StartWP Theme
  *
- * @since  1.1.0
+ * @since 1.1.0
  *
- * @uses   ddw_tbex_customizer_focus()
- * @uses   ddw_tbex_string_customize_attr()
+ * @uses ddw_tbex_customizer_focus()
+ * @uses ddw_tbex_string_customize_attr()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -154,7 +154,7 @@ function ddw_tbex_themeitems_startwp_customize() {
 	);
 
 	/** 404 Error Page */
-	$url_404_live = get_site_url() . '/404-live-test-' . md5( rand() );
+	$url_404_live = get_site_url() . '/404-live-test-' . md5( mt_rand() );
 
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(
 		array(
@@ -236,9 +236,9 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_startwp_resources', 120 );
  *
  * @since 1.1.0
  *
- * @uses  ddw_tbex_is_startwp_extended_active()
- * @uses  ddw_tbex_display_items_resources()
- * @uses  ddw_tbex_resource_item()
+ * @uses ddw_tbex_is_startwp_extended_active()
+ * @uses ddw_tbex_display_items_resources()
+ * @uses ddw_tbex_resource_item()
  */
 function ddw_tbex_themeitems_startwp_resources() {
 
@@ -284,10 +284,10 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_startwp_extended', 100 );
 /**
  * Items for Theme: StartWP Extended - Add-On Plugin (free, by Munir Kamal)
  *
- * @since  1.1.0
+ * @since 1.1.0
  *
- * @uses   ddw_tbex_is_startwp_extended_active()
- * @uses   ddw_tbex_customizer_focus()
+ * @uses ddw_tbex_is_startwp_extended_active()
+ * @uses ddw_tbex_customizer_focus()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */

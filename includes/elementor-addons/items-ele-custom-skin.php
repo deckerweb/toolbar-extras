@@ -15,7 +15,7 @@ add_filter( 'tbex_filter_elementor_template_types', 'ddw_tbex_add_elementor_temp
 /**
  * Add new Elementor Template type 'loop' for supported plugin "Elementor Custom Skin"
  *
- * @since  1.1.0
+ * @since 1.1.0
  *
  * @return array Filtered, enhanced array of template types.
  */
@@ -32,11 +32,11 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_ele_custom_skin', 200 );
 /**
  * Items for Add-On: Elementor Custom Skin (free, by Liviu Duda)
  *
- * @since  1.1.0
+ * @since 1.1.0
  *
- * @uses   ddw_tbex_string_elementor_template_with_builder()
- * @uses   ddw_tbex_string_elementor_template_create_with_builder()
- * @uses   ddw_tbex_get_elementor_template_add_new_url()
+ * @uses ddw_tbex_string_elementor_template_with_builder()
+ * @uses ddw_tbex_string_elementor_template_create_with_builder()
+ * @uses ddw_tbex_get_elementor_template_add_new_url()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -81,11 +81,11 @@ add_action( 'admin_bar_menu', 'ddw_tbex_items_ele_custom_skin_new_content', 140 
 /**
  * Add Elementor Custom Skin template types with Page Builder to the "New Content" group.
  *
- * @since  1.1.0
+ * @since 1.1.0
  *
- * @uses   ddw_tbex_string_elementor_template_with_builder()
- * @uses   ddw_tbex_string_elementor_template_create_with_builder()
- * @uses   ddw_tbex_get_elementor_template_add_new_url()
+ * @uses ddw_tbex_string_elementor_template_with_builder()
+ * @uses ddw_tbex_string_elementor_template_create_with_builder()
+ * @uses ddw_tbex_get_elementor_template_add_new_url()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */

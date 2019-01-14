@@ -18,24 +18,24 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 1.3.0
  *
  * @return bool TRUE if class 'Kava_Module_Base' exists (only available in Kava
- *              Pro), otherwise FALSE.
+ *              Pro), FALSE otherwise.
  */
 function ddw_tbex_is_theme_kava_pro() {
 
-	return ( class_exists( 'Kava_Module_Base' ) ) ? TRUE : FALSE;
+	return class_exists( 'Kava_Module_Base' );
 
 }  // end function
 
 
 add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_kava', 100 );
 /**
- * Items for Theme: Kava Theme free / Kava Pro Theme (free/Premium, by Zemez & CrocoBlock)
+ * Items for Theme: Kava Theme free / Kava Pro Theme (free/Premium, by Zemez Jet & CrocoBlock)
  *
- * @since  1.1.1
+ * @since 1.1.1
  *
- * @uses   ddw_tbex_string_theme_title()
- * @uses   ddw_tbex_customizer_focus()
- * @uses   ddw_tbex_customizer_start()
+ * @uses ddw_tbex_string_theme_title()
+ * @uses ddw_tbex_customizer_focus()
+ * @uses ddw_tbex_customizer_start()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -75,10 +75,10 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_kava_customize', 100 );
 /**
  * Customize items for Kava Theme
  *
- * @since  1.1.1
+ * @since 1.1.1
  *
- * @uses   ddw_tbex_customizer_focus()
- * @uses   ddw_tbex_string_customize_attr()
+ * @uses ddw_tbex_customizer_focus()
+ * @uses ddw_tbex_string_customize_attr()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -202,8 +202,8 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_kava_resources', 120 );
  *
  * @since 1.1.1
  *
- * @uses  ddw_tbex_display_items_resources()
- * @uses  ddw_tbex_resource_item()
+ * @uses ddw_tbex_display_items_resources()
+ * @uses ddw_tbex_resource_item()
  */
 function ddw_tbex_themeitems_kava_resources() {
 
@@ -264,10 +264,10 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_kava_pro_settings', 100 );
  * Items for Theme: Kava Pro Theme
  *   Settings - added either by "Kava Extra" and/ or "JetThemeCore" Plugins.
  *
- * @since  1.3.0
+ * @since 1.3.0
  *
- * @uses   ddw_tbex_is_addon_jetthemecore()
- * @uses   ddw_tbex_is_addon_kava_extra()
+ * @uses ddw_tbex_is_addon_jetthemecore()
+ * @uses ddw_tbex_is_addon_kava_extra()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -455,11 +455,11 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_kava_pro_sites_import', 100 )
  *   Jet Data Importer (Premium, by Zemez/ CrocoBlock)
  *   JetThemeCore (Premium, by Zemez/ CrocoBlock)
  *
- * @since  1.3.0
+ * @since 1.3.0
  *
- * @uses   ddw_tbex_display_items_demo_import()
- * @uses   ddw_tbex_id_sites_browser()
- * @uses   ddw_tbex_item_title_with_settings_icon()
+ * @uses ddw_tbex_display_items_demo_import()
+ * @uses ddw_tbex_id_sites_browser()
+ * @uses ddw_tbex_item_title_with_settings_icon()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -533,9 +533,9 @@ function ddw_tbex_themeitems_kava_pro_sites_import() {
 /**
  * Items for Site Group: CrocoBlock Updates
  *
- * @since  1.3.0
+ * @since 1.3.0
  *
- * @uses   ddw_tbex_is_addon_jetthemecore()
+ * @uses ddw_tbex_is_addon_jetthemecore()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */

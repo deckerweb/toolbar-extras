@@ -36,11 +36,14 @@ if ( 'dynamik-gen' === get_stylesheet() ) {
 
 
 /**
- * Mai Lifestyle (Premium, by Mike Hemberger, BizBudding Inc.)
+ * All child themes based on "Mai Theme Engine" plugin (all Premium, by Mike
+ *   Hemberger, BizBudding Inc.).
  * @since 1.0.0
+ * @since 1.4.0 Refactored using the theme-dependent plugin instead of the
+ *              specific child theme.
  */
 if ( class_exists( 'Mai_Theme_Engine' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-mai-lifestyle.php' );
+	require_once( TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-mai-theme-engine.php' );
 }
 
 

@@ -17,10 +17,10 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_customize_genesis_related_pos
  * Customizer items for Plugin:
  *   Display Related Posts for Genesis (free, by SEO Themes)
  *
- * @since  1.3.5
- * @since  1.3.7 Reworked latest post logic.
+ * @since 1.3.5
+ * @since 1.3.7 Reworked latest post logic.
  *
- * @uses   ddw_tbex_customizer_focus()
+ * @uses ddw_tbex_customizer_focus()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */

@@ -15,9 +15,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Check if Flexia Pro Add-On plugin is active or not.
  *
- * @since  1.2.0
+ * @since 1.2.0
  *
- * @return bool TRUE if constant defined, otherwise FALSE.
+ * @return bool TRUE if constant defined, FALSE otherwise.
  */
 function ddw_tbex_is_flexia_pro_active() {
 
@@ -30,10 +30,10 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_flexia', 100 );
 /**
  * Items for Theme: Flexia (free & Premium, by Codetic)
  *
- * @since  1.2.0
+ * @since 1.2.0
  *
- * @uses   ddw_tbex_string_customize_design()
- * @uses   ddw_tbex_customizer_start()
+ * @uses ddw_tbex_string_customize_design()
+ * @uses ddw_tbex_customizer_start()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -73,10 +73,10 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_flexia_customize', 100 );
 /**
  * Customize items for Flexia Theme
  *
- * @since  1.2.0
+ * @since 1.2.0
  *
- * @uses   ddw_tbex_customizer_focus()
- * @uses   ddw_tbex_string_customize_attr()
+ * @uses ddw_tbex_customizer_focus()
+ * @uses ddw_tbex_string_customize_attr()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -202,10 +202,10 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_flexia_resources', 120 );
  * General resources items for Flexia Theme.
  *   Hook in later to have these items at the bottom.
  *
- * @since  1.2.0
+ * @since 1.2.0
  *
- * @uses   ddw_tbex_display_items_resources()
- * @uses   ddw_tbex_resource_item()
+ * @uses ddw_tbex_display_items_resources()
+ * @uses ddw_tbex_resource_item()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -278,10 +278,10 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_flexia_pro', 100 );
 /**
  * Items for Theme: Flexia Pro - Add-On Plugin (Premium, by Codetic)
  *
- * @since  1.2.0
+ * @since 1.2.0
  *
- * @uses   ddw_tbex_is_flexia_pro_active()
- * @uses   ddw_tbex_is_elementor_active()
+ * @uses ddw_tbex_is_flexia_pro_active()
+ * @uses ddw_tbex_is_elementor_active()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -431,10 +431,10 @@ add_action( 'tbex_new_content_before_nav_menu', 'ddw_tbex_new_content_flexia_pro
 /**
  * Items for "New Content" section: New Flexia Pro Portfolio
  *
- * @since  1.2.0
+ * @since 1.2.0
  *
- * @uses   ddw_tbex_display_items_new_content()
- * @uses   ddw_tbex_is_elementor_active()
+ * @uses ddw_tbex_display_items_new_content()
+ * @uses ddw_tbex_is_elementor_active()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */

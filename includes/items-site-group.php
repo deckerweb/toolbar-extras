@@ -19,7 +19,7 @@ add_action( 'wp_before_admin_bar_render', 'ddw_tbex_remove_wp_site_items' );
  *   stuff in a more organized and logical way - and also identical for Admin
  *   and Frontend!
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -46,7 +46,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_base_groups', 99 );
  * Set base groups for "own" Site Group as "hook places".
  *   Set additional action hooks to enable custom groups.
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -129,7 +129,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_manage_content' );
 /**
  * Items in the type of "Manage Content"
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -238,9 +238,9 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_nav_menus' );
 /**
  * Items for managing WP Nav Menus
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
- * @uses   ddw_tbex_customizer_focus()
+ * @uses ddw_tbex_customizer_focus()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -266,7 +266,7 @@ function ddw_tbex_site_items_nav_menus() {
 				'title'  => esc_attr__( 'Customize Live', 'toolbar-extras' ),
 				'href'   => ddw_tbex_customizer_focus( 'panel', 'nav_menus' ),
 				'meta'   => array(
-					'target' => '',
+					'target' => ddw_tbex_meta_target(),
 					'title'  => esc_attr__( 'Customize Nav Menus with Live Preview', 'toolbar-extras' )
 				)
 			)
@@ -305,9 +305,9 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_widgets' );
 /**
  * Items for managing WP Widgets
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
- * @uses   ddw_tbex_customizer_focus()
+ * @uses ddw_tbex_customizer_focus()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -328,19 +328,6 @@ function ddw_tbex_site_items_widgets() {
 
 		$GLOBALS[ 'wp_admin_bar' ]->add_node(
 			array(
-				'id'     => 'wpwidgets-live',
-				'parent' => 'wpwidgets',
-				'title'  => esc_attr__( 'Customize Live', 'toolbar-extras' ),
-				'href'   => ddw_tbex_customizer_focus( 'panel', 'widgets' ),
-				'meta'   => array(
-					'target' => '',
-					'title'  => esc_attr__( 'Customize Widgets with Live Preview', 'toolbar-extras' )
-				)
-			)
-		);
-
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
-			array(
 				'id'     => 'wpwidgets-admin',
 				'parent' => 'wpwidgets',
 				'title'  => esc_attr__( 'Manage in WP-Admin', 'toolbar-extras' ),
@@ -352,6 +339,19 @@ function ddw_tbex_site_items_widgets() {
 			)
 		);
 
+		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			array(
+				'id'     => 'wpwidgets-live',
+				'parent' => 'wpwidgets',
+				'title'  => esc_attr__( 'Customize Live', 'toolbar-extras' ),
+				'href'   => ddw_tbex_customizer_focus( 'panel', 'widgets' ),
+				'meta'   => array(
+					'target' => ddw_tbex_meta_target(),
+					'title'  => esc_attr__( 'Customize Widgets with Live Preview', 'toolbar-extras' )
+				)
+			)
+		);
+
 }  // end function
 
 
@@ -359,7 +359,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_more_stuff', 20 );
 /**
  * More Items: Updates, Plugins, etc.
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -376,7 +376,7 @@ function ddw_tbex_site_items_more_stuff() {
 			array(
 				'id'     => 'update-check',
 				'parent' => 'tbex-sitegroup-stuff',
-				'title'  => esc_attr__( 'Force Check Updates', 'toolbar-extras' ),
+				'title'  => '<strong>' . esc_attr__( 'Force Check Updates', 'toolbar-extras' ) . '</strong>',
 				'href'   => is_multisite() ? esc_url( network_admin_url( 'update-core.php?force-check=1' ) ) : esc_url( admin_url( 'update-core.php?force-check=1' ) ),
 				'meta'   => array(
 					'target' => '',
@@ -471,9 +471,9 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_customizer' );
 /**
  * Items for hooking in under "Customize" on the frontend.
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
- * @uses   ddw_tbex_customizer_focus()
+ * @uses ddw_tbex_customizer_focus()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar']
  */
@@ -491,7 +491,7 @@ function ddw_tbex_site_items_customizer() {
 			'title'  => ddw_tbex_item_title_with_icon( esc_attr__( 'Widgets', 'toolbar-extras' ) ),
 			'href'   => ddw_tbex_customizer_focus( 'panel', 'widgets' ),
 			'meta'   => array(
-				'target' => '',
+				'target' => ddw_tbex_meta_target(),
 				'title'  => esc_attr__( 'Customize Widgets with Live Preview', 'toolbar-extras' )
 			)
 		)
@@ -504,7 +504,7 @@ function ddw_tbex_site_items_customizer() {
 			'title'  => ddw_tbex_item_title_with_icon( esc_attr__( 'Nav Menus', 'toolbar-extras' ) ),
 			'href'   => ddw_tbex_customizer_focus( 'panel', 'nav_menus' ),
 			'meta'   => array(
-				'target' => '',
+				'target' => ddw_tbex_meta_target(),
 				'title'  => esc_attr__( 'Customize Nav Menus with Live Preview', 'toolbar-extras' )
 			)
 		)
@@ -517,7 +517,7 @@ function ddw_tbex_site_items_customizer() {
 			'title'  => ddw_tbex_item_title_with_icon( esc_attr__( 'Custom CSS', 'toolbar-extras' ) ),
 			'href'   => ddw_tbex_customizer_focus( 'section', 'custom_css' ),
 			'meta'   => array(
-				'target' => '',
+				'target' => ddw_tbex_meta_target(),
 				'title'  => esc_attr__( 'Customize CSS with Live Preview', 'toolbar-extras' )
 			)
 		)

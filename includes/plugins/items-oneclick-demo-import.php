@@ -16,10 +16,10 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_oneclick_demo_import', 100 );
 /**
  * Items for Add-On: One Click Demo Import (free, by ProteusThemes)
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
- * @uses   ddw_tbex_display_items_demo_import()
- * @uses   ddw_tbex_item_title_with_settings_icon()
+ * @uses ddw_tbex_display_items_demo_import()
+ * @uses ddw_tbex_item_title_with_settings_icon()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */

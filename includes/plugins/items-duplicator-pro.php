@@ -15,9 +15,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Check if Duplicator Pro plugin is activated Network-wide or not.
  *
- * @since  1.3.2
+ * @since 1.3.2
  *
- * @return bool TRUE if activated Network-wide, otherwise FALSE.
+ * @return bool TRUE if activated Network-wide, FALSE otherwise.
  */
 function ddw_tbex_is_network_active_duplicator_pro() {
 
@@ -40,9 +40,9 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_duplicator_pro', 10 );
 /**
  * Items for Plugin: Duplicator Pro (Premium, by Snap Creek)
  *
- * @since  1.3.2
+ * @since 1.3.2
  *
- * @uses   ddw_tbex_resource_item()
+ * @uses ddw_tbex_resource_item()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar']
  */
@@ -407,7 +407,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_new_content_duplicator_pro', 100
 /**
  * Items for "New Content" section: New Duplicator Pro Package Archive
  *
- * @since  1.3.2
+ * @since 1.3.2
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */

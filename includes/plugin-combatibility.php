@@ -18,11 +18,13 @@ add_action( 'plugins_loaded', 'ddw_tbex_plugin_combatibility', -1 );
  *   More combat tweaks may come up in the future here.
  *
  * @since 1.0.0
+ *
+ * @uses ddw_tbex_is_mstba_active()
  */
 function ddw_tbex_plugin_combatibility() {
 
 	/** Plugin compatibility with "Multisite Toolbar Additions" */
-	if ( defined( 'MSTBA_PLUGIN_BASEDIR' ) ) {
+	if ( ddw_tbex_is_mstba_active() ) {
 		
 		/**
 		 * Let not display the "Site Group" of Multisite Toolbar Additions"
@@ -44,7 +46,7 @@ function ddw_tbex_plugin_combatibility() {
  * @since 1.0.0
  * @since 1.3.4 Tweak for BackWPup plugin support in MSTBA.
  *
- * @uses  ddw_tbex_use_tweak_mstba_siteextgroup()
+ * @uses ddw_tbex_use_tweak_mstba_siteextgroup()
  */
 function ddw_tbex_remove_mstba_items() {
 

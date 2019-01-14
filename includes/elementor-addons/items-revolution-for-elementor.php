@@ -16,9 +16,9 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_revolution_for_elementor', 100 )
 /**
  * Items for Add-On: Revolution for Elementor (free/Premium, by Jan Thielemann)
  *
- * @since  1.2.0
+ * @since 1.2.0
  *
- * @uses   ddw_tbex_resource_item()
+ * @uses ddw_tbex_resource_item()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -281,11 +281,11 @@ add_action( 'admin_bar_menu', 'ddw_tbex_items_rfe_premium_new_content', 140 );
 /**
  * Add "Taxonomy Related" post type with Page Builder to the "New Content" group.
  *
- * @since  1.2.0
+ * @since 1.2.0
  *
- * @uses   ddw_tbex_display_items_new_content()
- * @uses   ddw_tbex_string_newcontent_with_builder()
- * @uses   ddw_tbex_string_newcontent_create_with_builder()
+ * @uses ddw_tbex_display_items_new_content()
+ * @uses ddw_tbex_string_newcontent_with_builder()
+ * @uses ddw_tbex_string_newcontent_create_with_builder()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */

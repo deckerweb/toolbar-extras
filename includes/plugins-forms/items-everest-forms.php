@@ -16,7 +16,8 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_everest_forms' );
 /**
  * Items for Plugin: Everest Forms (free, by WPEverest)
  *
- * @since  1.3.2
+ * @since 1.3.2
+ * @since 1.4.0 Added individual form preview items.
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -40,6 +41,7 @@ function ddw_tbex_site_items_everest_forms() {
 		 * Add each individual form as an item.
 		 *   Forms are saved as a post type therefore a query necessary.
 		 * @since 1.3.2
+		 * @since 1.4.0 Added form preview.
 		 */
 		$args = array(
 			'post_type'      => 'everest_form',
@@ -84,6 +86,19 @@ function ddw_tbex_site_items_everest_forms() {
 							'meta'   => array(
 								'target' => '',
 								'title'  => esc_attr__( 'Form Builder', 'toolbar-extras' )
+							)
+						)
+					);
+
+					$GLOBALS[ 'wp_admin_bar' ]->add_node(
+						array(
+							'id'     => 'forms-everestforms-form-' . $form->ID . '-preview',
+							'parent' => 'forms-everestforms-form-' . $form->ID,
+							'title'  => esc_attr__( 'Preview', 'toolbar-extras' ),
+							'href'   => esc_url( site_url( '/?form_id=' . $form->ID . '&evf_preview=true' ) ),
+							'meta'   => array(
+								'target' => ddw_tbex_meta_target(),
+								'title'  => esc_attr__( 'Preview', 'toolbar-extras' )
 							)
 						)
 					);

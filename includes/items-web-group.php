@@ -16,7 +16,7 @@ add_action( 'wp_before_admin_bar_render', 'ddw_tbex_web_items_remove_wp_nodes', 
 /**
  * Remove nodes of "WP Logo" item (including sub-items).
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -33,7 +33,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_web_items_site_node', -1 );
  *   displays the site icon as "icon". If no site icon is setup yet, it falls
  *   back to the "globe" Dashicon.
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -74,9 +74,10 @@ function ddw_tbex_web_items_site_node() {
 
 add_action( 'admin_bar_menu', 'ddw_tbex_web_items_external_resources', 99 );
 /**
- * Add Elementor external resources items
+ * Add external resources items for various web services.
  *
- * @since  1.0.0
+ * @since 1.0.0
+ * @since 1.4.0 Refined test items, added some submit/test scenarios.
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -91,6 +92,7 @@ function ddw_tbex_web_items_external_resources() {
 		)
 	);
 
+	/** Pingdom Tools (no submit/test possible!) */
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(
 		array(
 			'id'     => 'webr-pingdomtools',
@@ -105,6 +107,7 @@ function ddw_tbex_web_items_external_resources() {
 		)
 	);
 
+	/** Gtmetrix */
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(
 		array(
 			'id'     => 'webr-gtmetrix',
@@ -119,6 +122,40 @@ function ddw_tbex_web_items_external_resources() {
 		)
 	);
 
+		/** Frontend + Singular items of post types */
+		if ( ! is_admin() && is_singular() ) {
+
+			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				array(
+					'id'     => 'webr-gtmetrix-submit-singular-url',
+					'parent' => 'webr-gtmetrix',
+					'title'  => esc_attr__( 'Submit Current Page URL', 'toolbar-extras' ),
+					'href'   => esc_url( 'https://gtmetrix.com/?url=' . get_permalink( get_the_ID() ) ),
+					'meta'   => array(
+						'rel'    => ddw_tbex_meta_rel(),
+						'target' => ddw_tbex_meta_target(),
+						'title'  => esc_attr__( 'Submit Current Page URL', 'toolbar-extras' )
+					)
+				)
+			);
+
+		}  // end if
+
+		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			array(
+				'id'     => 'webr-gtmetrix-submit-home-url',
+				'parent' => 'webr-gtmetrix',
+				'title'  => esc_attr__( 'Submit Home URL', 'toolbar-extras' ),
+				'href'   => esc_url( 'https://gtmetrix.com/?url=' . home_url( '/' ) ),
+				'meta'   => array(
+					'rel'    => ddw_tbex_meta_rel(),
+					'target' => ddw_tbex_meta_target(),
+					'title'  => esc_attr__( 'Submit Home URL', 'toolbar-extras' )
+				)
+			)
+		);
+
+	/** Google PageSpeed */
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(
 		array(
 			'id'     => 'webr-google-pagespeed',
@@ -133,6 +170,91 @@ function ddw_tbex_web_items_external_resources() {
 		)
 	);
 
+		/** Frontend + Singular items of post types */
+		if ( ! is_admin() && is_singular() ) {
+
+			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				array(
+					'id'     => 'webr-google-pagespeed-test-singular-url',
+					'parent' => 'webr-google-pagespeed',
+					'title'  => esc_attr__( 'Test Current Page URL', 'toolbar-extras' ),
+					'href'   => esc_url( 'https://developers.google.com/speed/pagespeed/insights/?url=' . get_permalink( get_the_ID() ) ),
+					'meta'   => array(
+						'rel'    => ddw_tbex_meta_rel(),
+						'target' => ddw_tbex_meta_target(),
+						'title'  => esc_attr__( 'Test Current Page URL', 'toolbar-extras' )
+					)
+				)
+			);
+
+		}  // end if
+
+		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			array(
+				'id'     => 'webr-google-pagespeed-test-home-url',
+				'parent' => 'webr-google-pagespeed',
+				'title'  => esc_attr__( 'Test Home URL', 'toolbar-extras' ),
+				'href'   => esc_url( 'https://developers.google.com/speed/pagespeed/insights/?url=' . home_url( '/' ) ),
+				'meta'   => array(
+					'rel'    => ddw_tbex_meta_rel(),
+					'target' => ddw_tbex_meta_target(),
+					'title'  => esc_attr__( 'Test Home URL', 'toolbar-extras' )
+				)
+			)
+		);
+
+//https://app.loadimpact.com/k6/anonymous-test/custom?url=https://cdu.de
+// https://loadimpact.com/
+
+	/** Load Impact */
+	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		array(
+			'id'     => 'webr-loadimpact',
+			'parent' => 'group-web-resources',
+			'title'  => esc_attr__( 'Load Impact', 'toolbar-extras' ),
+			'href'   => 'https://loadimpact.com/',
+			'meta'   => array(
+				'rel'    => ddw_tbex_meta_rel(),
+				'target' => ddw_tbex_meta_target(),
+				'title'  => esc_attr__( 'Load Impact', 'toolbar-extras' )
+			)
+		)
+	);
+
+		/** Frontend + Singular items of post types */
+		if ( ! is_admin() && is_singular() ) {
+
+			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				array(
+					'id'     => 'webr-loadimpact-test-singular-url',
+					'parent' => 'webr-loadimpact',
+					'title'  => esc_attr__( 'Test Current Page URL', 'toolbar-extras' ),
+					'href'   => esc_url( 'https://app.loadimpact.com/k6/anonymous-test/custom?url=' . get_permalink( get_the_ID() ) ),
+					'meta'   => array(
+						'rel'    => ddw_tbex_meta_rel(),
+						'target' => ddw_tbex_meta_target(),
+						'title'  => esc_attr__( 'Test Current Page URL', 'toolbar-extras' )
+					)
+				)
+			);
+
+		}  // end if
+
+		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			array(
+				'id'     => 'webr-loadimpact-test-home-url',
+				'parent' => 'webr-loadimpact',
+				'title'  => esc_attr__( 'Test Home URL', 'toolbar-extras' ),
+				'href'   => esc_url( 'https://app.loadimpact.com/k6/anonymous-test/custom?url=' . home_url( '/' ) ),
+				'meta'   => array(
+					'rel'    => ddw_tbex_meta_rel(),
+					'target' => ddw_tbex_meta_target(),
+					'title'  => esc_attr__( 'Test Home URL', 'toolbar-extras' )
+				)
+			)
+		);
+
+	/** More Google services: */
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(
 		array(
 			'id'     => 'webr-google-searchconsole',

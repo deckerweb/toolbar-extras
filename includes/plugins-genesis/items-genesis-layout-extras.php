@@ -16,7 +16,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_genesis_layout_extras', 115 );
 /**
  * Items for Add-On: Genesis Layout Extras (free, by David Decker - DECKERWEB)
  *
- * @since  1.3.5
+ * @since 1.3.5
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -26,7 +26,7 @@ function ddw_tbex_aoitems_genesis_layout_extras() {
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(
 		array(
 			'id'     => 'genesis-layout-extras',
-			'parent' => 'theme-creative',
+			'parent' => 'group-genesisplugins-creative',
 			'title'  => esc_attr__( 'Layout Extras', 'toolbar-extras' ),
 			'href'   => esc_url( admin_url( 'admin.php?page=gle-layout-extras' ) ),
 			'meta'   => array(

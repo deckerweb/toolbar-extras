@@ -14,11 +14,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_jetmenu', 100 );
 /**
- * Items for Add-On: JetMenu (Premium, by Zemez)
+ * Items for Add-On: JetMenu (Premium, by Zemez Jet/ CrocoBlock)
  *
- * @since  1.1.0
+ * @since 1.1.0
  *
- * @uses   ddw_tbex_resource_item()
+ * @uses ddw_tbex_resource_item()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -108,7 +108,7 @@ add_action( 'wp_before_admin_bar_render', 'ddw_tbex_tweak_remove_items_jetmenu' 
 /**
  * Remove New Content Group items from JetMenu plugin.
  *
- * @since  1.1.0
+ * @since 1.1.0
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */

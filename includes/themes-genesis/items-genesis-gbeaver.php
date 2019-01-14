@@ -17,7 +17,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_gbeaver', 100 );
  * Items for Theme: GBeaver (Premium, by WP Beaver World)
  *   Note: This is a Genesis Child Theme.
  *
- * @since  1.1.0
+ * @since 1.1.0
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -60,8 +60,8 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_gbeaver_resources', 120 );
  *
  * @since 1.1.0
  *
- * @uses  ddw_tbex_display_items_resources()
- * @uses  ddw_tbex_resource_item()
+ * @uses ddw_tbex_display_items_resources()
+ * @uses ddw_tbex_resource_item()
  */
 function ddw_tbex_themeitems_gbeaver_resources() {
 

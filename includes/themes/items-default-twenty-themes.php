@@ -16,11 +16,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_default_twenty', 100 );
 /**
  * Items for Themes: "Twenty ..." Default Themes (by WordPress.org)
  *
- * @since  1.0.0
+ * @since 1.0.0
+ * @since 1.4.0 Added few standard Customizer deep links.
  *
- * @uses   ddw_tbex_string_theme_title()
- * @uses   ddw_tbex_customizer_start()
- * @uses   ddw_tbex_string_customize_design()
+ * @uses ddw_tbex_string_theme_title()
+ * @uses ddw_tbex_customizer_start()
+ * @uses ddw_tbex_string_customize_design()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -40,18 +41,45 @@ function ddw_tbex_themeitems_default_twenty() {
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
-			array(
-				'id'     => 'theme-creative-customize',
-				'parent' => 'theme-creative',
-				'title'  => ddw_tbex_string_customize_design(),
-				'href'   => ddw_tbex_customizer_start(),
-				'meta'   => array(
-					'target' => ddw_tbex_meta_target(),
-					'title'  => ddw_tbex_string_customize_design()
-				)
-			)
-		);
+	/** Theme customize */
+	ddw_tbex_item_theme_creative_customize();
+
+}  // end function
+
+
+add_filter( 'tbex_filter_items_theme_customizer_deep', 'ddw_tbex_themeitems_default_twenty_customize' );
+/**
+ * Customize items for: "Twenty ..." Default Themes (by WordPress.org)
+ *
+ * @since 1.0.0
+ * @since 1.4.0 Refactored using filter/array declaration.
+ *
+ * @param array $items Existing array of params for creating Toolbar nodes.
+ * @return array Tweaked array of params for creating Toolbar nodes.
+ */
+function ddw_tbex_themeitems_default_twenty_customize( array $items ) {
+
+	/** Declare theme's items */
+	$twenty_items = array(
+		'colors' => array(
+			'type'  => 'section',
+			'title' => __( 'Colors', 'toolbar-extras' ),
+			'id'    => 'default-twenty-colors',
+		),
+		'background_image' => array(
+			'type'  => 'section',
+			'title' => __( 'Background Image', 'toolbar-extras' ),
+			'id'    => 'default-twenty-background-image',
+		),
+		'custom_css' => array(
+			'type'  => 'section',
+			'title' => __( 'Custom CSS', 'toolbar-extras' ),
+			'id'    => 'default-twenty-css',
+		),
+	);
+
+	/** Merge and return with all items */
+	return array_merge( $items, $twenty_items );
 
 }  // end function
 
@@ -61,10 +89,10 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_default_twenty_resources', 99
  * General resources items for Twenty default Themes.
  *   Hook in later to have these items at the bottom.
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
- * @uses   ddw_tbex_display_items_resources()
- * @uses   ddw_tbex_resource_item()
+ * @uses ddw_tbex_display_items_resources()
+ * @uses ddw_tbex_resource_item()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -84,8 +112,9 @@ function ddw_tbex_themeitems_default_twenty_resources() {
 		)
 	);
 
-	$theme_slug = get_stylesheet();
-
+	//$theme_slug = get_stylesheet();
+	$theme_slug = basename( get_template_directory() );
+	
 	ddw_tbex_resource_item(
 		'support-forum',
 		$theme_slug . '-support',

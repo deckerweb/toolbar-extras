@@ -16,7 +16,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_ct_church_content', 110 );
 /**
  * Site items for Plugin: Church Content (free, by churchthemes.com)
  *
- * @since  1.3.0
+ * @since 1.3.0
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -299,7 +299,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_ct_church_content', 15 );
 /**
  * Site items for Plugin: Church Content (free, by churchthemes.com)
  *
- * @since  1.3.0
+ * @since 1.3.0
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -411,7 +411,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_new_content_ct_church_content' );
  * Items for "New Content" section: New Sermons/ Events/ Persons/ Locations with
  *   Builder
  *
- * @since  1.3.0
+ * @since 1.3.0
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -506,8 +506,8 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_ct_church_content_resources', 15
  *
  * @since 1.3.0
  *
- * @uses  ddw_tbex_display_items_resources()
- * @uses  ddw_tbex_resource_item()
+ * @uses ddw_tbex_display_items_resources()
+ * @uses ddw_tbex_resource_item()
  */
 function ddw_tbex_aoitems_ct_church_content_resources() {
 

@@ -16,7 +16,8 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_wpsynchro' );
 /**
  * Items for Plugin: WP Synchro (free, by WPSynchro)
  *
- * @since  1.3.2
+ * @since 1.3.2
+ * @since 1.4.0 Added new sub items.
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -170,6 +171,19 @@ function ddw_tbex_site_items_wpsynchro() {
 
 		$GLOBALS[ 'wp_admin_bar' ]->add_node(
 			array(
+				'id'     => 'wpsynchro-logs',
+				'parent' => 'wpsynchro',
+				'title'  => esc_attr__( 'Logs', 'toolbar-extras' ),
+				'href'   => esc_url( admin_url( 'admin.php?page=wpsynchro_log' ) ),
+				'meta'   => array(
+					'target' => '',
+					'title'  => esc_attr__( 'Logs', 'toolbar-extras' )
+				)
+			)
+		);
+
+		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			array(
 				'id'     => 'wpsynchro-setup',
 				'parent' => 'wpsynchro',
 				'title'  => esc_attr__( 'Setup', 'toolbar-extras' ),
@@ -177,6 +191,19 @@ function ddw_tbex_site_items_wpsynchro() {
 				'meta'   => array(
 					'target' => '',
 					'title'  => esc_attr__( 'Setup', 'toolbar-extras' )
+				)
+			)
+		);
+
+		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			array(
+				'id'     => 'wpsynchro-system-info',
+				'parent' => 'wpsynchro',
+				'title'  => esc_attr__( 'System Info &amp; Support', 'toolbar-extras' ),
+				'href'   => esc_url( admin_url( '/admin.php?page=wpsynchro_support' ) ),
+				'meta'   => array(
+					'target' => '',
+					'title'  => esc_attr__( 'System Info &amp; Support', 'toolbar-extras' )
 				)
 			)
 		);
@@ -225,7 +252,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_new_content_wpsynchro', 100 );
 /**
  * Items for "New Content" section: New WP Synchro Installation
  *
- * @since  1.3.2
+ * @since 1.3.2
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -244,7 +271,7 @@ function ddw_tbex_aoitems_new_content_wpsynchro() {
 			'href'   => esc_url( admin_url( 'admin.php?page=wpsynchro_addedit' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_add_new_item( esc_attr__( 'WP Synchro Install', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_add_new_item( __( 'WP Synchro Install', 'toolbar-extras' ) )
 			)
 		)
 	);

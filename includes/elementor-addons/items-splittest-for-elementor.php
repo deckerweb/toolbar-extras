@@ -16,10 +16,10 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_splittest_for_elementor', 100 );
 /**
  * Items for Add-On: Split Test For Elementor (free, by Rocket Elements)
  *
- * @since  1.3.2
+ * @since 1.3.2
  *
- * @uses   ddw_tbex_display_items_resources()
- * @uses   ddw_tbex_resource_item()
+ * @uses ddw_tbex_display_items_resources()
+ * @uses ddw_tbex_resource_item()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -174,7 +174,7 @@ add_action( 'tbex_new_content_before_nav_menu', 'ddw_tbex_new_content_splittest_
 /**
  * Items for "New Content" section: New Split Test for Elementor
  *
- * @since  1.3.2
+ * @since 1.3.2
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -198,4 +198,4 @@ function ddw_tbex_new_content_splittest_for_elementor() {
 		)
 	);
 
-}  // end if
+}  // end function

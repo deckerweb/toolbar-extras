@@ -16,7 +16,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_cherry_services_list', 15 );
 /**
  * Site items for Plugin: Cherry Services List (free, by Zemez)
  *
- * @since  1.1.0
+ * @since 1.1.0
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -64,7 +64,7 @@ add_action( 'tbex_new_content_before_nav_menu', 'ddw_tbex_new_content_cherry_ser
 /**
  * Items for "New Content" section: New Service with Builder
  *
- * @since  1.1.0
+ * @since 1.1.0
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */

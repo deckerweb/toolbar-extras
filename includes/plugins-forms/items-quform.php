@@ -37,9 +37,9 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_quform' );
 /**
  * Items for Plugin: Quform (Premium, by ThemeCatcher)
  *
- * @since  1.3.1
+ * @since 1.3.1
  *
- * @uses   Quform_Repository
+ * @uses Quform_Repository
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -315,14 +315,14 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_new_content_quform', 80 );
 /**
  * Items for "New Content" section: New Quform Form
  *
- * @since  1.3.1
+ * @since 1.3.1
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
 function ddw_tbex_aoitems_new_content_quform() {
 
 	/** Bail early if items display is not wanted */
-	if ( ! ddw_tbex_display_items_new_content() ) {
+	if ( ! ddw_tbex_display_items_new_content() || is_network_admin() ) {
 		return;
 	}
 
@@ -334,7 +334,7 @@ function ddw_tbex_aoitems_new_content_quform() {
 			'href'   => esc_url( admin_url( 'admin.php?page=quform.forms&sp=add' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_new_form( 'Quform' )
+				'title'  => ddw_tbex_string_add_new_item( ddw_tbex_string_new_form( 'Quform' ) )
 			)
 		)
 	);

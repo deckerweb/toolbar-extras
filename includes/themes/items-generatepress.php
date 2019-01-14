@@ -3,6 +3,8 @@
 // items-generatepress
 // items-generatepress-premium
 
+// includes/themes/items-generatepress
+
 /**
  * Prevent direct access to this file.
  *
@@ -16,9 +18,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Check if GeneratePress Premium Add-On plugin is active or not.
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
- * @return bool TRUE if constant defined, otherwise FALSE.
+ * @return bool TRUE if constant defined, FALSE otherwise.
  */
 function ddw_tbex_is_generatepress_premium_active() {
 
@@ -31,10 +33,10 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_generatepress', 100 );
 /**
  * Items for Theme: GeneratePress (by Tom Usborne)
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
- * @uses   ddw_tbex_string_theme_title()
- * @uses   ddw_tbex_customizer_start()
+ * @uses ddw_tbex_string_theme_title()
+ * @uses ddw_tbex_customizer_start()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -74,10 +76,10 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_generatepress_customize', 100
 /**
  * Customize items for GeneratePress Theme
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
- * @uses   ddw_tbex_customizer_focus()
- * @uses   ddw_tbex_string_customize_attr()
+ * @uses ddw_tbex_customizer_focus()
+ * @uses ddw_tbex_string_customize_attr()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -171,9 +173,9 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_generatepress_resources', 120
  *
  * @since 1.0.0
  *
- * @uses  ddw_tbex_display_items_resources()
- * @uses  ddw_tbex_is_generatepress_premium_active()
- * @uses  ddw_tbex_resource_item()
+ * @uses ddw_tbex_display_items_resources()
+ * @uses ddw_tbex_is_generatepress_premium_active()
+ * @uses ddw_tbex_resource_item()
  */
 function ddw_tbex_themeitems_generatepress_resources() {
 
@@ -244,11 +246,11 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_generatepress_premium', 100 )
 /**
  * Items for Theme: GeneratePress Premium - Add-On Plugin (by Tom Usborne)
  *
- * @since  1.0.0
- * @since  1.3.2 Added GP Elements support.
- * @since  1.3.5 Added BTC plugin support.
+ * @since 1.0.0
+ * @since 1.3.2 Added GP Elements support.
+ * @since 1.3.5 Added BTC plugin support.
  *
- * @uses   ddw_tbex_is_generatepress_premium_active()
+ * @uses ddw_tbex_is_generatepress_premium_active()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -427,8 +429,8 @@ add_action( 'tbex_after_theme_free_docs', 'ddw_tbex_themeitems_generatepress_pre
  *
  * @since 1.0.0
  *
- * @uses  ddw_tbex_is_generatepress_premium_active()
- * @uses  ddw_tbex_resource_item()
+ * @uses ddw_tbex_is_generatepress_premium_active()
+ * @uses ddw_tbex_resource_item()
  */
 function ddw_tbex_themeitems_generatepress_premium_resources() {
 
@@ -451,7 +453,7 @@ add_action( 'tbex_new_content_before_nav_menu', 'ddw_tbex_themeitems_new_content
 /**
  * Items for "New Content" section: New GP Premium "Element" Content
  *
- * @since  1.3.2
+ * @since 1.3.2
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -482,11 +484,11 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_generatepress_sites_import', 
 /**
  * Items for Demos Import: GeneratePress Sites
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
- * @uses   ddw_tbex_display_items_demo_import()
- * @uses   ddw_tbex_id_sites_browser()
- * @uses   ddw_tbex_item_title_with_settings_icon()
+ * @uses ddw_tbex_display_items_demo_import()
+ * @uses ddw_tbex_id_sites_browser()
+ * @uses ddw_tbex_item_title_with_settings_icon()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */

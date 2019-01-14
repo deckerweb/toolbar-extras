@@ -13,6 +13,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 
 /**
+ * Plugin: Genesis Super Customizer (free, by Mario Giancini)
+ * @since 1.4.0
+ */
+if ( class_exists( 'Geneis_Super_Customizer' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-genesis-super-customizer.php' );
+}
+
+
+/**
  * Plugin: Genesis Design Palette Pro (Premium, by Reaktiv Studios)
  * @since 1.0.0
  */
@@ -94,6 +103,15 @@ if ( function_exists( 'wpstudio_gts_init' ) ) {
 
 
 /**
+ * Plugin: Genesis Simple FAQ (free, by StudioPress)
+ * @since 1.4.0
+ */
+if ( class_exists( 'Genesis_Simple_FAQ' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-genesis-simple-faq.php' );
+}
+
+
+/**
  * Plugin: Genesis Layout Extras (free, by David Decker - DECKERWEB)
  * @since 1.3.5
  */
@@ -126,6 +144,15 @@ if ( defined( 'DISPLAYFEATUREDIMAGEGENESIS_BASENAME' ) ) {
  */
 if ( defined( 'DISPLAY_RELATED_POSTS_FOR_GENESIS_VERSION' ) ) {
 	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-display-related-posts-genesis.php' );
+}
+
+
+/**
+ * Plugin: Genesis Simple Share (free, by StudioPress)
+ * @since 1.4.0
+ */
+if ( function_exists( 'genesis_simple_share_init' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-genesis-simple-share.php' );
 }
 
 
@@ -171,6 +198,24 @@ if ( defined( 'GEST_PLUGIN_BASEDIR' ) ) {
  */
 if ( function_exists( 'gch_activation_check' ) ) {
 	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-genesis-custom-headers.php' );
+}
+
+
+/**
+ * Plugin: Easy Genesis (free, by Doug Yuen)
+ * @since 1.4.0
+ */
+if ( function_exists( 'egwp_activation' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-easy-genesis.php' );
+}
+
+
+/**
+ * Plugin: Genesis Featured Image Header (free, by Scott DeLuzio)
+ * @since 1.4.0
+ */
+if ( function_exists( 'gfih_load_textdomain' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-genesis-featured-image-header.php' );
 }
 
 

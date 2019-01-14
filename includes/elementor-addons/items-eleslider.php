@@ -16,11 +16,9 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_eleslider', 150 );
 /**
  * Items for Add-On: Eleslider (free, by wpmasters)
  *
- * @since  1.2.0
+ * @since 1.2.0
  *
- * @uses   ddw_tbex_string_elementor_template_with_builder()
- * @uses   ddw_tbex_string_elementor_template_create_with_builder()
- * @uses   ddw_tbex_get_elementor_template_add_new_url()
+ * @uses ddw_tbex_resource_item()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -116,7 +114,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_new_content_eleslider', 140 );
 /**
  * Items for "New Content" section: New Eleslider Post
  *
- * @since  1.2.0
+ * @since 1.2.0
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */

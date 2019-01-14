@@ -16,7 +16,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_download_monitor', 20 );
 /**
  * Items for Add-On: Download Monitor
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */

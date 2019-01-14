@@ -15,13 +15,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Check if (Leap13) Premium Addons Pro Add-On plugin is active or not.
  *
- * @since  1.3.2
+ * @since 1.3.2
  *
- * @return bool TRUE if constant defined, otherwise FALSE.
+ * @return bool TRUE if constant defined, FALSE otherwise.
  */
 function ddw_tbex_is_l13pa_pro_active() {
 
-	return ( defined( 'PREMIUM_PRO_ADDONS_VERSION' ) ) ? TRUE : FALSE;
+	return defined( 'PREMIUM_PRO_ADDONS_VERSION' );
 
 }  // end function
 
@@ -30,9 +30,9 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_leap13_premium_addons', 100 );
 /**
  * Items for Add-On: Premium Addons for Elementor (free, by Leap13)
  *
- * @since  1.1.0
+ * @since 1.1.0
  *
- * @uses   ddw_tbex_resource_item()
+ * @uses ddw_tbex_resource_item()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -251,7 +251,7 @@ add_action( 'wp_before_admin_bar_render', 'ddw_tbex_maybe_remove_items_l13pa_pro
  * Conditionally remove Leap13 Premium Addons Pro items depending on its white
  *   label settings.
  *
- * @since  1.3.2
+ * @since 1.3.2
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */

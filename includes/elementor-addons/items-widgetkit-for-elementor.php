@@ -16,9 +16,9 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_widgetkit_for_elementor', 100 );
 /**
  * Items for Add-On: WidgetKit for Elementor (free, by Themesgrove)
  *
- * @since  1.1.1
+ * @since 1.1.1
  *
- * @uses   ddw_tbex_resource_item()
+ * @uses ddw_tbex_resource_item()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */

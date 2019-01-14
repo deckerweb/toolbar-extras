@@ -13,8 +13,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 
 /**
- * 1st GROUP: Tweak WordPress behavior
+ * 1st GROUP: Tweak WordPress' own behavior
  * @since 1.0.0
+ * @since 1.4.0 Added optional "Howdy" tweak/removal.
  * -----------------------------------------------------------------------------
  */
 
@@ -25,14 +26,14 @@ add_action( 'wp_enqueue_scripts', 'ddw_tbex_tweak_frontend_toolbar_color', 10, 0
  *   Note: As of now only the 8 built-in Core-Themes are supported by this tweak.
  *
  * Original code by Daniel James.
- * @author  Daniel James
- * @link    https://www.danieltj.co.uk/
+ * @author Daniel James
+ * @link https://www.danieltj.co.uk/
  * @license GNU GPL v3
  *
  * @since 1.0.0
  *
- * @uses  ddw_tbex_in_local_environment()
- * @uses  ddw_tbex_use_tweak_frontend_toolbar_color()
+ * @uses ddw_tbex_in_local_environment()
+ * @uses ddw_tbex_use_tweak_frontend_toolbar_color()
  */
 function ddw_tbex_tweak_frontend_toolbar_color() {
 
@@ -84,9 +85,9 @@ add_filter( 'body_class', 'ddw_tbex_tweak_frontend_toolbar_color_body_class', 10
  * Add the admin color scheme class to the frontend body tag, plus a helper
  *   class from the plugin.
  *
- * @since  1.2.0
+ * @since 1.2.0
  *
- * @param  array $classes The array of frontend body classes
+ * @param array $classes The array of frontend body classes
  *
  * @return array Array $classes of frontend body classes.
  */
@@ -108,9 +109,9 @@ add_action( 'wp_before_admin_bar_render', 'ddw_tbex_tweak_remove_items_wplogo' )
 /**
  * Remove WP Logo item in top left corner.
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
- * @uses   ddw_tbex_use_tweak_wplogo()
+ * @uses ddw_tbex_use_tweak_wplogo()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -131,9 +132,9 @@ add_action( 'wp_before_admin_bar_render', 'ddw_tbex_tweak_remove_items_customize
 /**
  * Remove Customize item in frontend view of the Toolbar.
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
- * @uses   ddw_tbex_use_tweak_customizer()
+ * @uses ddw_tbex_use_tweak_customizer()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -154,9 +155,9 @@ add_action( 'wp_before_admin_bar_render', 'ddw_tbex_tweak_remove_items_media_new
 /**
  * Remove Media item from New Content group of the Toolbar.
  *
- * @since  1.3.0
+ * @since 1.3.0
  *
- * @uses   ddw_tbex_use_tweak_media_newcontent()
+ * @uses ddw_tbex_use_tweak_media_newcontent()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -177,9 +178,9 @@ add_action( 'wp_before_admin_bar_render', 'ddw_tbex_tweak_remove_items_user_newc
 /**
  * Remove User item from New Content group of the Toolbar.
  *
- * @since  1.2.0
+ * @since 1.2.0
  *
- * @uses   ddw_tbex_use_tweak_user_newcontent()
+ * @uses ddw_tbex_use_tweak_user_newcontent()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -192,6 +193,112 @@ function ddw_tbex_tweak_remove_items_user_newcontent() {
 
 	/** Remove User item */
 	$GLOBALS[ 'wp_admin_bar' ]->remove_node( 'new-user' );
+
+}  // end function
+
+
+add_filter( 'wp_before_admin_bar_render', 'ddw_tbex_maybe_tweak_howdy_welcome' );
+/**
+ * Optionally tweak the "My Account" item - remove or replace the ridiculous
+ *   "Howdy" string, and more.
+ *
+ * Note: Code heavily based on WordPress Core: wp-includes/admin-bar.php
+ *
+ * @since 1.4.0
+ *
+ * @uses ddw_tbex_use_tweak_myaccount_item()
+ * @uses ddw_tbex_get_option()
+ * @uses ddw_tbex_meta_target()
+ * @uses do_shortcode()
+ *
+ * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ *
+ * @param WP_Admin_Bar $wp_admin_bar
+ * @return object Tweaked Toolbar node.
+ */
+function ddw_tbex_maybe_tweak_howdy_welcome( $wp_admin_bar ) {
+
+	/** Bail early if tweak shouldn't be used */
+	if ( ! ddw_tbex_use_tweak_myaccount_item() ) {
+		return;
+	}
+
+	/** Get current user */
+	$user_id      = get_current_user_id();
+	$current_user = wp_get_current_user();
+
+	/** Bail early if no user */
+	if ( ! $user_id ) {
+		return;
+	}
+
+	/** Default: Get the user's profile URL */
+	if ( current_user_can( 'read' ) ) {
+		$profile_url = get_edit_profile_url( $user_id );
+	} elseif ( is_multisite() ) {
+		$profile_url = get_dashboard_url( $user_id, 'profile.php' );
+	} else {
+		$profile_url = FALSE;
+	}
+
+	/** Get optional custom URL from our plugin settings */
+	$custom_url = ddw_tbex_get_option( 'tweaks', 'custom_myaccount_url' );
+
+	/** Set final "My Account" URL */
+	$myaccount_url = ( ! empty( $custom_url ) ) ? $custom_url : $profile_url;
+
+	/** Get user's avatar */
+	$avatar = get_avatar( $user_id, 26 );
+
+	/** User display name */
+	$user_display_name = '<span class="display-name">' . $current_user->display_name . '</span>';
+
+	/** Set default title string */
+	$title = sprintf(
+		/* translators: %s: current user's display name */
+		__( 'Howdy, %s' ),
+		$user_display_name
+	);
+
+	/** Use "Howdy" tweak or not */
+	$use_howdy_replace = ddw_tbex_get_option( 'tweaks', 'use_howdy_replace' );
+
+	if ( 'replace' === $use_howdy_replace ) {
+		
+		$title = sprintf(
+			'%1$s %2$s',
+			wp_filter_nohtml_kses( do_shortcode( ddw_tbex_get_option( 'tweaks', 'howdy_replacement' ) ) ),
+			$user_display_name
+		);
+
+	} elseif ( 'custom' === $use_howdy_replace ) {
+		
+		$title = wp_filter_nohtml_kses( do_shortcode( ddw_tbex_get_option( 'tweaks', 'custom_welcome' ) ) );
+
+	}  // end if
+
+	/** CSS class logic */
+	$class = sprintf(
+		'tbex-my-account%s',
+		empty( $avatar ) ? '' : ' with-avatar'
+	);
+
+	$target = sanitize_key( ddw_tbex_get_option( 'tweaks', 'custom_myaccount_target' ) );
+
+	/** Finally, render the tweaked Toolbar item */
+	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		array(
+			'id'     => 'my-account',		// same as original
+			'parent' => 'top-secondary',	// same as original
+			'title'  => $title . $avatar,
+			'href'   => $myaccount_url,
+			'meta'   => array(
+				'class'  => $class,
+				'target' => ! empty( $custom_url ) ? $target : '',
+				'rel'    => ( '_blank' === $target ) ? ddw_tbex_meta_rel() : '',
+			),
+		)
+	);
 
 }  // end function
 
@@ -210,12 +317,12 @@ add_filter( 'admin_bar_menu', 'ddw_tbex_rehook_items_nextgen_gallery' );
  *   hook place for galleries & sliders.
  *   Note: Existing Toolbar node gets filtered.
  *
- * @since  1.1.0
+ * @since 1.1.0
  *
- * @uses   ddw_tbex_use_tweak_nextgen()
+ * @uses ddw_tbex_use_tweak_nextgen()
  *
  * @global mixed  $GLOBALS[ 'wp_admin_bar' ]
- * @param  object $wp_admin_bar Holds all nodes of the Toolbar.
+ * @param object $wp_admin_bar Holds all nodes of the Toolbar.
  */
 function ddw_tbex_rehook_items_nextgen_gallery( $wp_admin_bar ) {
 
@@ -247,10 +354,11 @@ function ddw_tbex_rehook_items_nextgen_gallery( $wp_admin_bar ) {
 add_action( 'wp_before_admin_bar_render', 'ddw_tbex_rehook_items_ithemes_security' );
 /**
  * Re-hook items from iThemes Security plugin.
+ *   Note: Existing Toolbar node gets filtered.
  *
- * @since  1.1.0
+ * @since 1.1.0
  *
- * @uses   ddw_tbex_use_tweak_ithemes_security()
+ * @uses ddw_tbex_use_tweak_ithemes_security()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -273,7 +381,7 @@ function ddw_tbex_rehook_items_ithemes_security() {
 			'title'  => esc_attr_x( 'Security', 'Label for iThemes Security plugin', 'toolbar-extras' ),
 			'href'   => esc_url( admin_url( 'admin.php?page=itsec' ) ),
 			'meta'   => array(
-				'class'  => 'tbex-ngg',
+				'class'  => 'tbex-itsec',
 				'target' => '',
 				'title'  => esc_attr__( 'Security (via iThemes Security)', 'toolbar-extras' )
 			)
@@ -287,9 +395,9 @@ add_action( 'wp_before_admin_bar_render', 'ddw_tbex_tweak_remove_items_woocommer
 /**
  * Remove some items from WooCommerce plugin within the New Content Group.
  *
- * @since  1.2.0
+ * @since 1.2.0
  *
- * @uses   ddw_tbex_use_tweak_woocommerce_newcontent()
+ * @uses ddw_tbex_use_tweak_woocommerce_newcontent()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -310,9 +418,9 @@ add_action( 'wp_before_admin_bar_render', 'ddw_tbex_tweak_remove_items_aioseo', 
 /**
  * Remove items from All In One SEO Pack (Pro) plugin.
  *
- * @since  1.1.0
+ * @since 1.1.0
  *
- * @uses   ddw_tbex_use_tweak_aioseo()
+ * @uses ddw_tbex_use_tweak_aioseo()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -335,9 +443,9 @@ add_action( 'wp_before_admin_bar_render', 'ddw_tbex_tweak_remove_items_updraftpl
 /**
  * Remove items from UpdraftPlus plugin.
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
- * @uses   ddw_tbex_use_tweak_updraftplus()
+ * @uses ddw_tbex_use_tweak_updraftplus()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -357,9 +465,9 @@ add_action( 'wp_before_admin_bar_render', 'ddw_tbex_tweak_remove_items_members' 
 /**
  * Remove items from Members plugin.
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
- * @uses   ddw_tbex_use_tweak_members()
+ * @uses ddw_tbex_use_tweak_members()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -375,6 +483,28 @@ function ddw_tbex_tweak_remove_items_members() {
 }  // end function
 
 
+add_action( 'wp_before_admin_bar_render', 'ddw_tbex_tweak_remove_items_easy_updates_manager' );
+/**
+ * Remove items from Easy Updates Manager plugin.
+ *
+ * @since 1.4.0
+ *
+ * @uses ddw_tbex_use_tweak_easy_updates_manager()
+ *
+ * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ */
+function ddw_tbex_tweak_remove_items_easy_updates_manager() {
+
+	/** Bail early if tweak shouldn't be used */
+	if ( ! ddw_tbex_use_tweak_easy_updates_manager()	) {
+		return;
+	}
+
+	$GLOBALS[ 'wp_admin_bar' ]->remove_node( 'easy-updates-manager-admin-bar' );
+
+}  // end function
+
+
 add_filter( 'admin_bar_menu', 'ddw_tbex_site_items_wprocket' );
 /**
  * Items for Plugin: WP Rocket (Premium, by WP Rocket)
@@ -382,12 +512,12 @@ add_filter( 'admin_bar_menu', 'ddw_tbex_site_items_wprocket' );
  *   tools.
  *   Note: Existing Toolbar node gets filtered.
  *
- * @since  1.2.0
+ * @since 1.2.0
  *
- * @uses   ddw_tbex_use_tweak_autoptimize()
+ * @uses ddw_tbex_use_tweak_autoptimize()
  *
  * @global mixed  $wp_admin_bar
- * @param  object $wp_admin_bar Holds all nodes of the Toolbar.
+ * @param object $wp_admin_bar Holds all nodes of the Toolbar.
  */
 function ddw_tbex_site_items_wprocket( $wp_admin_bar ) {
 
@@ -423,12 +553,12 @@ add_filter( 'admin_bar_menu', 'ddw_tbex_site_items_autoptimize' );
  *   tools.
  *   Note: Existing Toolbar node gets filtered.
  *
- * @since  1.2.0
+ * @since 1.2.0
  *
- * @uses   ddw_tbex_use_tweak_autoptimize()
+ * @uses ddw_tbex_use_tweak_autoptimize()
  *
  * @global mixed  $wp_admin_bar
- * @param  object $wp_admin_bar Holds all nodes of the Toolbar.
+ * @param object $wp_admin_bar Holds all nodes of the Toolbar.
  */
 function ddw_tbex_site_items_autoptimize( $wp_admin_bar ) {
 
@@ -465,12 +595,12 @@ add_filter( 'admin_bar_menu', 'ddw_tbex_site_items_swift_performance' );
  *   tools.
  *   Note: Existing Toolbar node gets filtered.
  *
- * @since  1.2.0
+ * @since 1.2.0
  *
- * @uses   ddw_tbex_use_tweak_swiftperformance()
+ * @uses ddw_tbex_use_tweak_swiftperformance()
  *
- * @global mixed  $wp_admin_bar
- * @param  object $wp_admin_bar Holds all nodes of the Toolbar.
+ * @global mixed $wp_admin_bar
+ * @param object $wp_admin_bar Holds all nodes of the Toolbar.
  */
 function ddw_tbex_site_items_swift_performance( $wp_admin_bar ) {
 
@@ -511,9 +641,9 @@ add_action( 'wp_before_admin_bar_render', 'ddw_tbex_tweak_remove_items_apspider'
 /**
  * Remove items from Admin Page Spider (Pro Pack) plugin.
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
- * @uses   ddw_tbex_use_tweak_adminpagespider()
+ * @uses ddw_tbex_use_tweak_adminpagespider()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -533,9 +663,9 @@ add_action( 'wp_before_admin_bar_render', 'ddw_tbex_tweak_remove_items_cobaltapp
 /**
  * Remove items from Cobalt Apps plugins.
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
- * @uses   ddw_tbex_use_tweak_cobaltapps()
+ * @uses ddw_tbex_use_tweak_cobaltapps()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -582,7 +712,7 @@ if ( ddw_tbex_is_elementor_active() && ddw_tbex_use_tweak_elementor_remove_wpwid
 	 * Optionally remove all WordPress widgets from the Elementor Live Editor.
 	 *   Note: A native Elementor filter is used.
 	 *
-	 * @since  1.2.0
+	 * @since 1.2.0
 	 *
 	 * @return array Array of black listed WordPress widgets.
 	 */
@@ -602,3 +732,49 @@ if ( ddw_tbex_is_elementor_active() && ddw_tbex_use_tweak_elementor_remove_wpwid
 	}  // end function
 
 endif;
+
+
+add_filter( 'admin_bar_menu', 'ddw_tbex_rehook_items_elementor_inspector', 11 );
+/**
+ * Re-hook items from "Elementor Inspector" feature.
+ *   If tweak setting is active then re-hook from the top as a sub item in our
+ *   own "Build" group (very first sub item).
+ *   Note I: Existing Toolbar node gets filtered.
+ *   Note II: Is only for frontend, as it is (Theme) template-dependent!
+ *
+ * @since 1.4.0
+ *
+ * @uses ddw_tbex_use_tweak_elementor_inspector()
+ * @uses ddw_tbex_is_elementor_active()
+ *
+ * @global mixed  $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $wp_admin_bar Holds all nodes of the Toolbar.
+ * @return object Tweaked Toolbar node.
+ */
+function ddw_tbex_rehook_items_elementor_inspector( $wp_admin_bar ) {
+
+	//$log_status = \Elementor\Core\Debug\Inspector;
+	//|| empty( $log_status->log )
+
+
+	/** Bail early if Elementor Inspector tweak should NOT be used */
+	if ( is_admin()
+		|| ! ddw_tbex_use_tweak_elementor_inspector()
+		|| ! ddw_tbex_is_elementor_active()
+	) {
+		return;
+	}
+
+	/** Re-hook for: Build Group -> Creative Content, on the top */
+	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		array(
+			'id'     => 'elementor_inspector',		// same as original!
+			'parent' => 'group-creative-content',	//'group-elementor-inspector',
+			'meta'   => array(
+				'class'  => 'tbex-elementor-inspector',
+				'title'  => esc_attr__( 'Elementor Template Inspector', 'toolbar-extras' )
+			)
+		)
+	);
+
+}  // end function

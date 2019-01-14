@@ -16,9 +16,9 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_orbit_fox', 100 );
 /**
  * Items for Add-On: Orbit Fox Companion (free, by Themeisle)
  *
- * @since  1.1.0
+ * @since 1.1.0
  *
- * @uses   ddw_tbex_resource_item()
+ * @uses ddw_tbex_resource_item()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -56,7 +56,7 @@ function ddw_tbex_aoitems_orbit_fox() {
 
 		$obfx_templates = get_option( 'obfx_data' );
 
-		if ( $obfx_templates[ 'module_status' ][ 'template-directory' ][ 'active' ] ) {
+		if ( isset( $obfx_templates[ 'module_status' ][ 'template-directory' ][ 'active' ] ) && $obfx_templates[ 'module_status' ][ 'template-directory' ][ 'active' ] ) {
 
 			$GLOBALS[ 'wp_admin_bar' ]->add_node(
 				array(

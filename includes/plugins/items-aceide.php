@@ -17,7 +17,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_devmode_aceide' );
 /**
  * Items for Plugin: AceIDE (free, by AceIDE)
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */

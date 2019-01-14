@@ -16,11 +16,11 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_powerpack_elements', 100 );
 /**
  * Items for Add-On: PowerPack Elements (Premium, by IdeaBox Creations)
  *
- * @since  1.0.0
- * @since  1.3.3 Namespaced classes in PowerPack Elements
+ * @since 1.0.0
+ * @since 1.3.3 Namespaced classes in PowerPack Elements.
  *
- * @uses   \PowerpackElements\Classes\PP_Admin_Settings::get_settings()
- * @uses   ddw_tbex_resource_item()
+ * @uses \PowerpackElements\Classes\PP_Admin_Settings::get_settings()
+ * @uses ddw_tbex_resource_item()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */

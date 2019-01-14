@@ -17,10 +17,10 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_gallery_pro_customize', 90 );
  * Customize items for Genesis Child Theme:
  *   Gallery Pro (Premium, by Design by Bloom)
  *
- * @since  1.3.2
+ * @since 1.3.2
  *
- * @uses   ddw_tbex_customizer_focus()
- * @uses   ddw_tbex_string_customize_attr()
+ * @uses ddw_tbex_customizer_focus()
+ * @uses ddw_tbex_string_customize_attr()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */

@@ -15,13 +15,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Check if Kadence WooCommerce Elementor Pro plugin is active or not.
  *
- * @since  1.3.0
+ * @since 1.3.0
  *
- * @return bool TRUE if class exists, otherwise FALSE.
+ * @return bool TRUE if class exists, FALSE otherwise.
  */
 function ddw_tbex_is_kwce_pro_active() {
 
-	return ( class_exists( 'Kadence_Woocommerce_Elementor_Pro' ) ) ? TRUE : FALSE;
+	return class_exists( 'Kadence_Woocommerce_Elementor_Pro' );
 
 }  // end function
 
@@ -32,11 +32,11 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_kadence_woocommerce_elementor', 
  *   Kadence WooCommerce Elementor (free, by Kadence Themes)
  *   Kadence WooCommerce Elementor Pro (Premium, by Kadence Themes)
  *
- * @since  1.3.0
- * @since  1.3.5 Added BTC plugin support.
+ * @since 1.3.0
+ * @since 1.3.5 Added BTC plugin support.
  *
- * @uses   ddw_tbex_display_items_resources()
- * @uses   ddw_tbex_resource_item()
+ * @uses ddw_tbex_display_items_resources()
+ * @uses ddw_tbex_resource_item()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -311,7 +311,7 @@ add_action( 'tbex_new_content_before_nav_menu', 'ddw_tbex_new_content_kadence_wo
 /**
  * Items for "New Content" section: New Product Template
  *
- * @since  1.3.0
+ * @since 1.3.0
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -420,4 +420,4 @@ function ddw_tbex_new_content_kadence_woocommerce_elementor() {
 
 	}  // end if Pro version check
 
-}  // end if
+}  // end function

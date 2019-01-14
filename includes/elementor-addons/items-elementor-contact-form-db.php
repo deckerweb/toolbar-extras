@@ -16,10 +16,10 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_elementor_contact_form_db', 100 
 /**
  * Items for Add-On: Elementor Contact Form DB (free, by Sean Barton)
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
- * @uses   ddw_tbex_string_elementor()
- * @uses   ddw_tbex_resource_item()
+ * @uses ddw_tbex_string_elementor()
+ * @uses ddw_tbex_resource_item()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */

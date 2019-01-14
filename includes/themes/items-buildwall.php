@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 1.3.0
  *
  * @return bool TRUE if class 'Kava_Module_Base' exists (only available in Kava
- *              Pro), otherwise FALSE.
+ *              Pro), FALSE otherwise.
  */
 function ddw_tbex_is_theme_kava_pro() {
 
@@ -31,11 +31,11 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_buildwall', 100 );
 /**
  * Items for Theme: Buildwall (Premium, by Zemez)
  *
- * @since  1.3.0
+ * @since 1.3.0
  *
- * @uses   ddw_tbex_string_theme_title()
- * @uses   ddw_tbex_customizer_focus()
- * @uses   ddw_tbex_customizer_start()
+ * @uses ddw_tbex_string_theme_title()
+ * @uses ddw_tbex_customizer_focus()
+ * @uses ddw_tbex_customizer_start()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -75,10 +75,10 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_buildwall_customize', 100 );
 /**
  * Customize items for Buildwall Theme
  *
- * @since  1.3.0
+ * @since 1.3.0
  *
- * @uses   ddw_tbex_customizer_focus()
- * @uses   ddw_tbex_string_customize_attr()
+ * @uses ddw_tbex_customizer_focus()
+ * @uses ddw_tbex_string_customize_attr()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -193,7 +193,7 @@ function ddw_tbex_themeitems_buildwall_customize() {
 	);
 
 	/** 404 Error Page */
-	$url_404_live = get_site_url() . '/404-live-test-' . md5( rand() );
+	$url_404_live = get_site_url() . '/404-live-test-' . md5( mt_rand() );
 
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(
 		array(
@@ -247,8 +247,8 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_buildwall_resources', 120 );
  *
  * @since 1.3.0
  *
- * @uses  ddw_tbex_display_items_resources()
- * @uses  ddw_tbex_resource_item()
+ * @uses ddw_tbex_display_items_resources()
+ * @uses ddw_tbex_resource_item()
  */
 function ddw_tbex_themeitems_buildwall_resources() {
 
@@ -301,7 +301,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_buildwall_settings', 100 );
 /**
  * Items for Theme: Buildwall settings
  *
- * @since  1.3.0
+ * @since 1.3.0
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -355,11 +355,11 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_buildwall_sites_import', 100 
  *   Cherry Plugins Wizard (Premium, by Zemez)
  *   Cherry Data Importer (Premium, by Zemez)
  *
- * @since  1.3.0
+ * @since 1.3.0
  *
- * @uses   ddw_tbex_display_items_demo_import()
- * @uses   ddw_tbex_id_sites_browser()
- * @uses   ddw_tbex_item_title_with_settings_icon()
+ * @uses ddw_tbex_display_items_demo_import()
+ * @uses ddw_tbex_id_sites_browser()
+ * @uses ddw_tbex_item_title_with_settings_icon()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */

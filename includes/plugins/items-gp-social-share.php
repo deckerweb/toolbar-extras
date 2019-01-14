@@ -16,7 +16,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_gp_social_share', 200 );
 /**
  * Items for Plugin: GP Social Share (free, by Jon Mather)
  *
- * @since  1.3.0
+ * @since 1.3.0
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */

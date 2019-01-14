@@ -15,13 +15,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Check if Formidable Pro Add-On plugin is active or not.
  *
- * @since  1.3.1
+ * @since 1.3.1
  *
- * @return bool TRUE if function exists, otherwise FALSE.
+ * @return bool TRUE if function exists, FALSE otherwise.
  */
 function ddw_tbex_is_formidable_pro_active() {
 
-	return ( function_exists( 'load_formidable_pro' ) ) ? TRUE : FALSE;
+	return function_exists( 'load_formidable_pro' );
 
 }  // end function
 
@@ -30,11 +30,11 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_formidable_forms' );
 /**
  * Items for Plugin: Formidable Lite/ Pro (free/ Premium, by Strategy11)
  *
- * @since  1.3.1
+ * @since 1.3.1
  *
- * @uses   FrmForm::get_published_forms()
- * @uses   FrmAppHelper::truncate()
- * @uses   FrmFormsHelper::get_direct_link()
+ * @uses FrmForm::get_published_forms()
+ * @uses FrmAppHelper::truncate()
+ * @uses FrmFormsHelper::get_direct_link()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -426,7 +426,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_new_content_formidable', 80 );
 /**
  * Items for "New Content" section: New Formidable Form
  *
- * @since  1.3.1
+ * @since 1.3.1
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -445,7 +445,7 @@ function ddw_tbex_aoitems_new_content_formidable() {
 			'href'   => esc_url( admin_url( 'admin.php?page=formidable&frm_action=new' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_new_form( 'Formidable' )
+				'title'  => ddw_tbex_string_add_new_item( ddw_tbex_string_new_form( 'Formidable' ) )
 			)
 		)
 	);
@@ -461,7 +461,7 @@ function ddw_tbex_aoitems_new_content_formidable() {
 				'href'   => esc_url( admin_url( 'post-new.php?post_type=frm_display' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => ddw_tbex_string_new_form( 'Formidable', 'view' )
+					'title'  => ddw_tbex_string_add_new_item( ddw_tbex_string_new_form( 'Formidable', 'view' ) )
 				)
 			)
 		);

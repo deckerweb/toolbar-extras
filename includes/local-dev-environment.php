@@ -16,10 +16,11 @@ add_action( 'admin_bar_menu', 'ddw_tbex_local_dev_environment' );
 /**
  * Add Local Development Environment text to the right side of the Toolbar.
  *
- * @since  1.0.0
+ * @since 1.0.0
+ * @since 1.4.0 Added filter for title attribute.
  *
- * @uses   ddw_tbex_string_local_dev_environment()
- * @uses   ddw_tbex_item_title_with_settings_icon()
+ * @uses ddw_tbex_string_local_dev_environment()
+ * @uses ddw_tbex_item_title_with_settings_icon()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar']
  */
@@ -27,9 +28,12 @@ function ddw_tbex_local_dev_environment() {
 
 	$environment_text = ddw_tbex_string_local_dev_environment();
 
-	if ( defined( 'TBEX_LOCAL_DEV_TEXT' ) && TBEX_LOCAL_DEV_TEXT ) {
-		$environment_text = esc_attr( TBEX_LOCAL_DEV_TEXT );
-	}
+	$title_attr = esc_attr(
+		apply_filters(
+			'tbex_filter_local_dev_tooltip',
+			__( 'Note: You Are Currently In a Local Development Environment', 'toolbar-extras' )
+		)
+	);
 
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(
 		array(
@@ -37,7 +41,7 @@ function ddw_tbex_local_dev_environment() {
 			'parent' => 'top-secondary',	/** Puts the text on the right side of the Toolbar! */
 			'title'  => ddw_tbex_item_title_with_settings_icon( strtoupper( $environment_text ), 'development', 'local_dev_icon' ),
 			'meta'   => array(
-				'title'  => esc_attr__( 'Note: You Are Currently In a Local Development Environment', 'toolbar-extras' )
+				'title'  => $title_attr
 			)
 		)
 	);
@@ -52,7 +56,7 @@ add_action( 'admin_head', 'ddw_tbex_local_dev_toolbar_styles' );
  * 
  * @since 1.0.0
  *
- * @uses  ddw_tbex_get_option()
+ * @uses ddw_tbex_get_option()
  */
 function ddw_tbex_local_dev_toolbar_styles() {
 	
@@ -72,7 +76,6 @@ function ddw_tbex_local_dev_toolbar_styles() {
 
 	/** Inline CSS styles */
 	?>
-
 		<!-- TBEX Local Dev Admin Bar Notice -->
 		<style type='text/css'>
 			#wp-admin-bar-tbex-local-dev-text > div,
@@ -117,7 +120,6 @@ function ddw_tbex_local_dev_toolbar_styles() {
 				color: #eee !important;
 			}
 		</style>
-
 	<?php
 
 }  // end function

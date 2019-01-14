@@ -15,9 +15,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Helper function to return filterable hook priority for the super admin nav menu.
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
- * @uses   ddw_tbex_get_option()
+ * @uses ddw_tbex_get_option()
  *
  * @return int Hook priority for super admin nav menu.
  */
@@ -46,10 +46,10 @@ add_action( 'init', 'ddw_tbex_super_admin_menu_init', 15 );
  * Setup a custom nav menu intended towards Site Admins (and editable by (Super)
  *    Admins only).
  *
- * @since   1.0.0
+ * @since 1.0.0
  *
- * @uses    ddw_tbex_string_super_admin_menu_location()
- * @uses    ddw_tbex_menu_hook_priority()
+ * @uses ddw_tbex_string_super_admin_menu_location()
+ * @uses ddw_tbex_menu_hook_priority()
  */
 function ddw_tbex_super_admin_menu_init() {
 
@@ -72,14 +72,14 @@ function ddw_tbex_super_admin_menu_init() {
 /**
  * Build the custom menu for the Toolbar and hook it in.
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
- * @uses   has_nav_menu()           To check if menu is registered.
- * @uses   get_nav_menu_locations() To get menu locations.
- * @uses   wp_get_nav_menu_object() To get menu object.
- * @uses   wp_get_nav_menu_items()  To get menu args.
+ * @uses has_nav_menu()           To check if menu is registered.
+ * @uses get_nav_menu_locations() To get menu locations.
+ * @uses wp_get_nav_menu_object() To get menu object.
+ * @uses wp_get_nav_menu_items()  To get menu args.
  *
- * @param  obj $wp_admin_bar
+ * @param object $wp_admin_bar
  *
  * @global mixed $wp_admin_bar
  */

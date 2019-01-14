@@ -16,9 +16,9 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_front_page_builder', 900 );
 /**
  * Items for Add-On: Front Page Builder (free, by Themes4WP)
  *
- * @since  1.3.0
+ * @since 1.3.0
  *
- * @uses   ddw_tbex_customizer_focus()
+ * @uses ddw_tbex_customizer_focus()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */

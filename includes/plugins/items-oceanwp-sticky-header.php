@@ -16,7 +16,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_oceanwp_sticky_header', 200 );
 /**
  * Items for Plugin: OceanWP Sticky Header (free, by Oren Hahiashvili)
  *
- * @since  1.3.0
+ * @since 1.3.0
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */

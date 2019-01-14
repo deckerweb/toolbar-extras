@@ -16,12 +16,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_items_plugin_settings_resources', 25 );
 /**
  * Items for this plugin itself: settings & resources.
  *
- * @since  1.0.0
- * @since  1.3.9 Added newsletter resource.
+ * @since 1.0.0
+ * @since 1.3.9 Added newsletter resource.
  *
- * @uses   ddw_tbex_display_items_resources()
- * @uses   ddw_tbex_resource_item()
- * @uses   ddw_tbex_get_info_url()
+ * @uses ddw_tbex_display_items_resources()
+ * @uses ddw_tbex_resource_item()
+ * @uses ddw_tbex_get_info_url()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -87,6 +87,24 @@ function ddw_tbex_items_plugin_settings_resources() {
 					)
 				)
 			);
+
+			if ( defined( 'TBEXMWP_PLUGIN_VERSION' ) ) {
+
+				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					array(
+						'id'     => 'tbex-settings-mainwp',
+						'parent' => 'tbex-settings',
+						'title'  => esc_attr_x( 'MainWP Add-On', 'For Toolbar Extras Plugin', 'toolbar-extras' ),
+						'href'   => esc_url( admin_url( 'options-general.php?page=toolbar-extras&tab=mainwp' ) ),
+						'meta'   => array(
+							'target' => '',
+							/* translators: Title attribute for Toolbar Extras "MainWP Add-On" settings link */
+							'title'  => esc_attr_x( 'MainWP Add-On', 'For Toolbar Extras Plugin', 'toolbar-extras' )
+						)
+					)
+				);
+
+			}  // end if
 
 			$GLOBALS[ 'wp_admin_bar' ]->add_node(
 				array(

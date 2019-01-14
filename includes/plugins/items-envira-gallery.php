@@ -16,7 +16,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_envira_gallery', 15 );
 /**
  * Site items for Plugin: Envira Gallery Lite/Pro (free/Premium, by Envira Gallery Team)
  *
- * @since  1.1.0
+ * @since 1.1.0
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -209,7 +209,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_new_content_envira_gallery' );
 /**
  * Items for "New Content" section: New Envira Gallery with Builder
  *
- * @since  1.1.0
+ * @since 1.1.0
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */

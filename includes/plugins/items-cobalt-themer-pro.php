@@ -16,11 +16,11 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_themer_pro', 102 );
 /**
  * Items for Add-On: Themer Pro (Premium, by Cobalt Apps)
  *
- * @since  1.1.0
+ * @since 1.1.0
  *
- * @uses   themer_pro_get_settings()
- * @uses   ddw_tbex_display_items_resources()
- * @uses   ddw_tbex_resource_item()
+ * @uses themer_pro_get_settings()
+ * @uses ddw_tbex_display_items_resources()
+ * @uses ddw_tbex_resource_item()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -170,10 +170,10 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_devmode_themer_pro' );
 /**
  * Dev Mode items for Plugin: Themer Pro
  *
- * @since  1.1.0
+ * @since 1.1.0
  *
- * @uses   ddw_tbex_display_items_dev_mode()
- * @uses   themer_pro_get_settings()
+ * @uses ddw_tbex_display_items_dev_mode()
+ * @uses themer_pro_get_settings()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */

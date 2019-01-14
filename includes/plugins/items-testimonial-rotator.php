@@ -16,7 +16,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_testimonial_rotator', 115 );
 /**
  * Items for Add-On: Testimonial Rotator (free, by Hal Gatewood)
  *
- * @since  1.2.0
+ * @since 1.2.0
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */

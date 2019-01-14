@@ -17,7 +17,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_devmode_transients_manager', 
 /**
  * Items for Plugin: Transients Manager (free, by Pippin Williamson)
  *
- * @since  1.3.8
+ * @since 1.3.8
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */

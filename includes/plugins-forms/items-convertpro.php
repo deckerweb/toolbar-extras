@@ -16,7 +16,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_convertpro', 20 );
 /**
  * Items for Plugin: Convert Pro (Premium, by Brainstorm Force)
  *
- * @since  1.2.0
+ * @since 1.2.0
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -220,7 +220,7 @@ function ddw_tbex_site_items_convertpro() {
 			
 			if ( 1 == esc_attr( get_option( 'cpro_branding_enable_support' ) ) ) {
 
-				$cp_support_url = ( ! empty( esc_attr( get_option( 'cpro_branding_url_support' ) ) ) ) ? esc_attr( get_option( 'cpro_branding_url_support' ) ) : 'https://www.convertplug.com/pro/support/submit-a-ticket/';
+				$cp_support_url = ( ! empty( esc_attr( get_option( 'cpro_branding_url_support' ) ) ) ) ? esc_attr( get_option( 'cpro_branding_url_support' ) ) : 'https://www.convertpro.net/submit-a-ticket/';
 
 				ddw_tbex_resource_item(
 					'support-contact',
@@ -233,7 +233,7 @@ function ddw_tbex_site_items_convertpro() {
 
 			if ( 1 == esc_attr( get_option( 'cpro_branding_enable_kb' ) ) ) {
 
-				$cp_kb_url = ( ! empty( esc_attr( get_option( 'cpro_branding_url_kb' ) ) ) ) ? esc_attr( get_option( 'cpro_branding_url_kb' ) ) : 'https://www.convertplug.com/pro/docs/';
+				$cp_kb_url = ( ! empty( esc_attr( get_option( 'cpro_branding_url_kb' ) ) ) ) ? esc_attr( get_option( 'cpro_branding_url_kb' ) ) : 'https://www.convertpro.net/docs/';
 
 				ddw_tbex_resource_item(
 					'knowledge-base',
@@ -255,7 +255,7 @@ function ddw_tbex_site_items_convertpro() {
 				'official-site',
 				'convertpro-site',
 				'group-convertpro-resources',
-				'https://www.convertplug.com/pro/'
+				'https://www.convertpro.net/'
 			);
 
 		}  // end if

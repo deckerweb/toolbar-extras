@@ -17,10 +17,10 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_breakthrough_pro_customize', 
  * Customize items for Genesis Child Theme:
  *   Breakthrough Pro (Premium, by StudioPress)
  *
- * @since  1.3.5
+ * @since 1.3.5
  *
- * @uses   ddw_tbex_customizer_focus()
- * @uses   ddw_tbex_string_customize_attr()
+ * @uses ddw_tbex_customizer_focus()
+ * @uses ddw_tbex_string_customize_attr()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */

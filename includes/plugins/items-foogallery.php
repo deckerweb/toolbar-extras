@@ -16,7 +16,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_foogallery', 15 );
 /**
  * Site items for Plugin: FooGallery (free, by FooPlugins)
  *
- * @since  1.1.0
+ * @since 1.1.0
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */

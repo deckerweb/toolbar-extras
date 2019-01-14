@@ -16,7 +16,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_soliloquy', 15 );
 /**
  * Site items for Plugin: Soliloquy Sliders Lite/Pro (free/Premium, by Soliloquy Team)
  *
- * @since  1.1.0
+ * @since 1.1.0
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -159,7 +159,7 @@ add_action( 'tbex_new_content_before_nav_menu', 'ddw_tbex_new_content_soliloquy'
 /**
  * Items for "New Content" section: New Soliloquy Slider
  *
- * @since  1.1.0
+ * @since 1.1.0
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */

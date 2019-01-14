@@ -17,10 +17,10 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_wpmigratedb', 19 );
 /**
  * Items for Plugin: WP Migrate DB (Pro) (free/Premium, by Delicious Brains)
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
- * @uses   ddw_tbex_display_items_resources()
- * @uses   ddw_tbex_resource_item()
+ * @uses ddw_tbex_display_items_resources()
+ * @uses ddw_tbex_resource_item()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar']
  */

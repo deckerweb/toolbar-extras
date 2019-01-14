@@ -16,7 +16,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_optinmonster', 20 );
 /**
  * Items for Plugin: OptinMonster API (free/Premium, by OptinMonster Team/ Retyp, LLC)
  *
- * @since  1.2.0
+ * @since 1.2.0
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */

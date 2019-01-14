@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="256px" height="256px" viewBox="0 0 256 256" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.2 (51160) - http://www.bohemiancoding.com/sketch -->
+    <title>toolbar-extras-iconsvg</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="0%" y1="0%" x2="101.999998%" y2="100.999999%" id="linearGradient-1">
+            <stop stop-color="#3023AE" offset="0%"></stop>
+            <stop stop-color="#C86DD7" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Rectangle" fill="url(#linearGradient-1)" x="0" y="0" width="256" height="256"></rect>
+        <text id="Toolbar-Extras" font-family="PTSans-Bold, PT Sans" font-size="36" font-weight="bold" fill="#FFFFFF">
+            <tspan x="70.562" y="71">Toolbar</tspan>
+            <tspan x="80.03" y="118">Extras</tspan>
+        </text>
+        <text id="" font-family="eicons" font-size="96" font-weight="normal" fill="#FFFFFF">
+            <tspan x="80.5" y="225"></tspan>
+        </text>
+    </g>
+</svg>

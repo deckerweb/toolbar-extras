@@ -1,0 +1,42 @@
+== Credits ==
+
+
+= Class "Persist Admin notices Dismissal" (PAnD) =
+
+@author Agbonghama Collins and Andy Fragen
+@license GPL-2.0-or-later
+@link https://github.com/collizo4sky/persist-admin-notices-dismissal
+@link https://w3guy.com/wordpress-admin-notices-dismissible/
+
+
+
+= Class "Astra Notices" =
+
+@author Brainstorm Force
+@license GPL-2.0-or-later
+@link https://www.brainstormforce.com/
+@link https://github.com/brainstormforce/astra
+
+
+
+= jQuery Plugin, JavaScript "Dashicons Picker" =
+
+@author Brad Vincent
+@license GPL-2.0-or-later
+@link https://github.com/bradvin/dashicons-picker
+
+
+
+= Admin Settings JavaScript *
+
+@author StudioPress
+@license GPL-2.0-or-later
+@link https://www.studiopress.com/
+
+
+
+= Code for frontend Toolbar color =
+
+@author Daniel James
+@license GPLv3
+@link https://github.com/danieltj27/Style-the-Toolbar

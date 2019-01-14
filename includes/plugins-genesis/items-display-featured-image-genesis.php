@@ -16,9 +16,9 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_display_featured_image_genesis',
 /**
  * Items for Add-On: Display Featured Image for Genesis (free, by Robin Cornett)
  *
- * @since  1.3.0
+ * @since 1.3.0
  *
- * @uses   ddw_tbex_meta_target()
+ * @uses ddw_tbex_meta_target()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -28,7 +28,7 @@ function ddw_tbex_aoitems_display_featured_image_genesis() {
 	$GLOBALS[ 'wp_admin_bar' ]->add_group(
 		array(
 			'id'     => 'group-genesis-featured-image',
-			'parent' => 'theme-creative'
+			'parent' => 'group-genesisplugins-creative'
 		)
 	);
 
@@ -105,9 +105,9 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_customize_genesis_featured_im
 /**
  * Customizer items for Plugin: Display Featured Image for Genesis
  *
- * @since  1.3.0
+ * @since 1.3.0
  *
- * @uses   ddw_tbex_customizer_focus()
+ * @uses ddw_tbex_customizer_focus()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */

@@ -16,9 +16,9 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_custom_css_pro', 105 );
 /**
  * Items for Add-On: Custom CSS Pro (free, by WaspThemes)
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
- * @uses   ddw_tbex_meta_target()
+ * @uses ddw_tbex_meta_target()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -44,9 +44,9 @@ add_action( 'wp_before_admin_bar_render', 'ddw_tbex_remove_items_customcsspro' )
 /**
  * Remove items from Custom CSS Pro plugin.
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
- * @uses   ddw_tbex_use_tweak_customcsspro()
+ * @uses ddw_tbex_use_tweak_customcsspro()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */

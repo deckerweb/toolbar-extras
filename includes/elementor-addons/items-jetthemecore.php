@@ -17,9 +17,9 @@ if ( ! defined( 'ABSPATH' ) ) {
  *   Note: Filter 'tbex_filter_jetthemecore_template_types' allows for plugins
  *         to add or remove template types.
  *
- * @since  1.3.0
- * @since  1.3.2 Added new template types.
- * @see    ddw_tbex_get_elementor_template_types() in includes/functions-global.php
+ * @since 1.3.0
+ * @since 1.3.2 Added new template types.
+ * @see ddw_tbex_get_elementor_template_types() in includes/functions-global.php
  *
  * @return array Array of JetThemeCore template types.
  */
@@ -39,13 +39,13 @@ function ddw_tbex_get_jetthemecore_template_types() {
  * Create an "Add New" link for an JetThemeCore Library Template Type, including
  *   the setting of a template type.
  *
- * @since  1.3.0
- * @since  1.3.2 Added new template types.
+ * @since 1.3.0
+ * @since 1.3.2 Added new template types.
  *
- * @uses   ddw_tbex_get_jetthemecore_template_types()
+ * @uses ddw_tbex_get_jetthemecore_template_types()
  *
- * @param  string $type Key of the JetThemeCore template type.
- * @param  string $name Title/ Label of to be created template.
+ * @param string $type Key of the JetThemeCore template type.
+ * @param string $name Title/ Label of to be created template.
  * @return string URL for adding a new JetThemeCore template, containing the
  *                proper template type plus the title/ label name.
  */
@@ -114,11 +114,11 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_jetthemecore', 100 );
 /**
  * Items for Add-On: JetThemeCore (Premium, by Zemez Jet/ CrocoBlock)
  *
- * @since  1.3.0
- * @since  1.3.2 Added new template types.
- * @since  1.3.5 Added BTC plugin support.
+ * @since 1.3.0
+ * @since 1.3.2 Added new template types.
+ * @since 1.3.5 Added BTC plugin support.
  *
- * @uses   ddw_tbex_resource_item()
+ * @uses ddw_tbex_resource_item()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -386,8 +386,8 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_jetthemecore_resources', 200 );
  *
  * @since 1.3.0
  *
- * @uses  ddw_tbex_display_items_resources()
- * @uses  ddw_tbex_resource_item()
+ * @uses ddw_tbex_display_items_resources()
+ * @uses ddw_tbex_resource_item()
  */
 function ddw_tbex_aoitems_jetthemecore_resources() {
 
@@ -419,8 +419,8 @@ add_action( 'tbex_new_content_before_nav_menu', 'ddw_tbex_aoitems_new_content_je
 /**
  * Items for "New Content" section: New Jet Templates
  *
- * @since  1.3.0
- * @since  1.3.2 Added new template types.
+ * @since 1.3.0
+ * @since 1.3.2 Added new template types.
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */

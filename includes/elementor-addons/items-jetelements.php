@@ -14,11 +14,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_jetelements', 100 );
 /**
- * Items for Add-On: JetElements (Premium, by Zemez)
+ * Items for Add-On: JetElements (Premium, by Zemez Jet/ CrocoBlock)
  *
- * @since  1.1.0
+ * @since 1.1.0
  *
- * @uses   ddw_tbex_resource_item()
+ * @uses ddw_tbex_resource_item()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */

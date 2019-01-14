@@ -16,9 +16,9 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_addfromserver', 15 );
 /**
  * Site Group Items from Plugin: Add From Server (free, by Dion Hulse)
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
- * @uses   ddw_tbex_display_items_new_content()
+ * @uses ddw_tbex_display_items_new_content()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */

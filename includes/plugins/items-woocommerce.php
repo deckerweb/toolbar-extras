@@ -12,13 +12,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 
-add_action( 'admin_bar_menu', 'ddw_tbex_site_items_woocommerce', 15 );
+add_action( 'admin_bar_menu', 'ddw_tbex_site_items_woocommerce', 31 );
 /**
  * Site items for Plugin: WooCommerce (free, by Automattic)
  *
- * @since  1.0.0
+ * @since 1.0.0
+ * @since 1.4.0 Added frontend item.
  *
- * @uses   ddw_tbex_is_elementor_active()
+ * @uses ddw_tbex_is_elementor_active()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -56,6 +57,26 @@ function ddw_tbex_site_items_woocommerce() {
 
 	}  // end if
 
+	/** For Site Group - Frontend */
+	if ( ! is_admin()
+		&& ( intval( get_option( 'page_on_front' ) ) !== wc_get_page_id( 'shop' ) )
+	) {
+
+		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			array(
+				'id'     => 'view-store',
+				'parent' => 'site-name',
+				'title'  => esc_attr__( 'Visit Store', 'toolbar-extras' ),
+				'href'   => wc_get_page_permalink( 'shop' ),
+				'meta'   => array(
+					'target' => ddw_tbex_meta_target(),
+					'title'  => esc_attr__( 'Visit Store', 'toolbar-extras' )
+				)
+			)
+		);
+
+	}  // end if
+
 }  // end function
 
 
@@ -63,15 +84,14 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_wc_plugin', 500 );
 /**
  * Customizer items for Plugin: WooCommerce - plus optional Add-Ons
  *
- * @since  1.1.0
+ * @since 1.1.0
+ * @since 1.3.1 Added Add-On item.
  *
- * @uses   ddw_tbex_customizer_focus()
+ * @uses ddw_tbex_customizer_focus()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
 function ddw_tbex_themeitems_wc_plugin() {
-
-	//$shop_page_id = get_option( 'woocommerce_shop_page_id' );
 
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(
 		array(
@@ -90,7 +110,7 @@ function ddw_tbex_themeitems_wc_plugin() {
 	/**
 	 * Additional Plugin item from: Decorator – WooCommerce Email Customizer (free, by RightPress)
 	 * @since 1.3.1
-	 * @uses  RP_Decorator_Customizer::get_customizer_url()
+	 * @uses RP_Decorator_Customizer::get_customizer_url()
 	 */
 	if ( defined( 'RP_DECORATOR_VERSION' ) ) {
 
@@ -106,6 +126,7 @@ function ddw_tbex_themeitems_wc_plugin() {
 				)
 			)
 		);
+
 	}  // end if
 
 }  // end function
@@ -115,7 +136,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_user_items_wc_shopmanager', 15 );
 /**
  * User items for Plugin: WooCommerce
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */

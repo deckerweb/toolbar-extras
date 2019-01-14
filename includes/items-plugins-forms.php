@@ -112,11 +112,56 @@ if ( class_exists( 'MC4WP_Form_Manager' ) ) {
 
 
 /**
+ * Plugin: Forminator (Pro) (free/Premium, by WPMU DEV)
+ * @since 1.4.0
+ */
+if ( class_exists( 'Forminator_API' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-forms/items-forminator.php' );
+}
+
+
+/**
  * Plugin: HappyForms (free, by The Theme Foundry)
  * @since 1.3.2
  */
 if ( defined( 'HAPPYFORMS_VERSION' ) ) {
 	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-forms/items-happyforms.php' );
+}
+
+
+/**
+ * Plugin: Form Maker (free, by WebDorado Form Builder Team)
+ * @since 1.4.0
+ */
+if ( class_exists( 'WDFM' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-forms/items-form-maker.php' );
+}
+
+
+/**
+ * Plugin: Mailster (Premium, by EverPress)
+ * @since 1.4.0
+ */
+if ( defined( 'MAILSTER_VERSION' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-forms/items-mailster.php' );
+}
+
+
+/**
+ * Plugin: MailPoet 3 (free, by MailPoet)
+ * @since 1.4.0
+ */
+if ( defined( 'MAILPOET_VERSION' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-forms/items-mailpoet.php' );
+}
+
+
+/**
+ * Plugin: MailPoet Newsletters (Previous) (Version 2, Legacy) (free, by MailPoet)
+ * @since 1.4.0
+ */
+if ( class_exists( 'WYSIJA' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-forms/items-mailpoet-legacy.php' );
 }
 
 

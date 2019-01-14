@@ -18,7 +18,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_local_development', 20 );
 /**
  * Items for Plugin: Local Development (free, by Andy Fragen)
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar']
  */

@@ -2,6 +2,7 @@
 
 // items-oceanwp
 // items-oceanwp-premium
+// items-oceanwp-extensions
 
 // includes/themes/items-oceanwp
 
@@ -18,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Get OceanWP Theme name by respecting possible white label settings.
  *
- * @since  1.1.0
+ * @since 1.1.0
  *
  * @return string String of the Theme name.
  */
@@ -43,12 +44,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_oceanwp', 100 );
  *         main functions. Reason: OceanWP has no central Premium plugin but
  *         rather a lot of them.
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
- * @uses   ddw_tbex_string_oceanwp_theme_name()
- * @uses   ddw_tbex_customizer_start()
- * @uses   ddw_tbex_string_customize_design()
- * @uses   ddw_tbex_is_elementor_active()
+ * @uses ddw_tbex_string_oceanwp_theme_name()
+ * @uses ddw_tbex_customizer_start()
+ * @uses ddw_tbex_string_customize_design()
+ * @uses ddw_tbex_is_elementor_active()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -97,12 +98,14 @@ function ddw_tbex_themeitems_oceanwp() {
 			)
 		);
 
+		$owp_library_type = 'oceanwp_library';
+
 		$GLOBALS[ 'wp_admin_bar' ]->add_node(
 			array(
 				'id'     => 'owp-myl-all',
 				'parent' => 'oceanwp-library',
 				'title'  => esc_attr__( 'Template Library', 'toolbar-extras' ),
-				'href'   => esc_url( admin_url( 'edit.php?post_type=oceanwp_library' ) ),
+				'href'   => esc_url( admin_url( 'edit.php?post_type=' . $owp_library_type ) ),
 				'meta'   => array(
 					'target' => '',
 					'title'  => esc_attr__( 'Template Library - All Templates', 'toolbar-extras' )
@@ -115,7 +118,7 @@ function ddw_tbex_themeitems_oceanwp() {
 				'id'     => 'owp-myl-new',
 				'parent' => 'oceanwp-library',
 				'title'  => esc_attr__( 'New Template', 'toolbar-extras' ),
-				'href'   => esc_url( admin_url( 'post-new.php?post_type=oceanwp_library' ) ),
+				'href'   => esc_url( admin_url( 'post-new.php?post_type=' . $owp_library_type ) ),
 				'meta'   => array(
 					'target' => '',
 					'title'  => esc_attr__( 'New Template', 'toolbar-extras' )
@@ -123,14 +126,14 @@ function ddw_tbex_themeitems_oceanwp() {
 			)
 		);
 
-		if ( ddw_tbex_is_elementor_active() && \Elementor\User::is_current_user_can_edit_post_type( 'oceanwp_library' ) ) {
+		if ( ddw_tbex_is_elementor_active() && \Elementor\User::is_current_user_can_edit_post_type( $owp_library_type ) ) {
 
 			$GLOBALS[ 'wp_admin_bar' ]->add_node(
 				array(
 					'id'     => 'owp-myl-builder',
 					'parent' => 'oceanwp-library',
 					'title'  => esc_attr__( 'New Template Builder', 'toolbar-extras' ),
-					'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'oceanwp_library' ) ),
+					'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( $owp_library_type ) ),
 					'meta'   => array(
 						'target' => ddw_tbex_meta_target( 'builder' ),
 						'title'  => esc_attr__( 'New Template Builder', 'toolbar-extras' )
@@ -148,7 +151,7 @@ function ddw_tbex_themeitems_oceanwp() {
 					'id'     => 'oceanwp-library-categories',
 					'parent' => 'oceanwp-library',
 					'title'  => ddw_btc_string_template( 'template' ),
-					'href'   => esc_url( admin_url( 'edit-tags.php?taxonomy=builder-template-category&post_type=oceanwp_library' ) ),
+					'href'   => esc_url( admin_url( 'edit-tags.php?taxonomy=builder-template-category&post_type=' . $owp_library_type ) ),
 					'meta'   => array(
 						'target' => '',
 						'title'  => esc_html( ddw_btc_string_template( 'template' ) )
@@ -168,12 +171,14 @@ function ddw_tbex_themeitems_oceanwp() {
 				)
 			);
 
+			$owp_portfolio_type = 'ocean_portfolio';
+
 			$GLOBALS[ 'wp_admin_bar' ]->add_node(
 				array(
 					'id'     => 'owp-portfolio-all',
 					'parent' => 'oceanwp-portfolio',
 					'title'  => esc_attr__( 'All Portfolio Items', 'toolbar-extras' ),
-					'href'   => esc_url( admin_url( 'edit.php?post_type=ocean_portfolio' ) ),
+					'href'   => esc_url( admin_url( 'edit.php?post_type=' . $owp_portfolio_type ) ),
 					'meta'   => array(
 						'target' => '',
 						'title'  => esc_attr__( 'All Portfolio Items', 'toolbar-extras' )
@@ -186,7 +191,7 @@ function ddw_tbex_themeitems_oceanwp() {
 					'id'     => 'owp-portfolio-new',
 					'parent' => 'oceanwp-portfolio',
 					'title'  => esc_attr__( 'New Portfolio Item', 'toolbar-extras' ),
-					'href'   => esc_url( admin_url( 'post-new.php?post_type=ocean_portfolio' ) ),
+					'href'   => esc_url( admin_url( 'post-new.php?post_type=' . $owp_portfolio_type ) ),
 					'meta'   => array(
 						'target' => '',
 						'title'  => esc_attr__( 'New Portfolio Item', 'toolbar-extras' )
@@ -194,14 +199,14 @@ function ddw_tbex_themeitems_oceanwp() {
 				)
 			);
 
-			if ( ddw_tbex_is_elementor_active() && \Elementor\User::is_current_user_can_edit_post_type( 'ocean_portfolio' ) ) {
+			if ( ddw_tbex_is_elementor_active() && \Elementor\User::is_current_user_can_edit_post_type( $owp_portfolio_type ) ) {
 
 				$GLOBALS[ 'wp_admin_bar' ]->add_node(
 					array(
 						'id'     => 'owp-portfolio-builder',
 						'parent' => 'oceanwp-portfolio',
 						'title'  => esc_attr__( 'New Portfolio Builder', 'toolbar-extras' ),
-						'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'ocean_portfolio' ) ),
+						'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( $owp_portfolio_type ) ),
 						'meta'   => array(
 							'target' => ddw_tbex_meta_target( 'builder' ),
 							'title'  => esc_attr__( 'New Portfolio Builder', 'toolbar-extras' )
@@ -266,7 +271,7 @@ function ddw_tbex_themeitems_oceanwp() {
 					'id'     => 'owp-postslider-all',
 					'parent' => 'oceanwp-postslider',
 					'title'  => esc_attr__( 'All Post Sliders', 'toolbar-extras' ),
-					'href'   => esc_url( admin_url( 'edit.php?post_type=ocean_modal_window' ) ),
+					'href'   => esc_url( admin_url( 'edit.php?post_type=ocean_posts_slider' ) ),
 					'meta'   => array(
 						'target' => '',
 						'title'  => esc_attr__( 'All Post Sliders', 'toolbar-extras' )
@@ -279,7 +284,7 @@ function ddw_tbex_themeitems_oceanwp() {
 					'id'     => 'owp-postslider-new',
 					'parent' => 'oceanwp-postslider',
 					'title'  => esc_attr__( 'New Post Slider', 'toolbar-extras' ),
-					'href'   => esc_url( admin_url( 'post-new.php?post_type=ocean_modal_window' ) ),
+					'href'   => esc_url( admin_url( 'post-new.php?post_type=ocean_posts_slider' ) ),
 					'meta'   => array(
 						'target' => '',
 						'title'  => esc_attr__( 'New Post Slider', 'toolbar-extras' )
@@ -410,6 +415,19 @@ function ddw_tbex_themeitems_oceanwp() {
 
 		$GLOBALS[ 'wp_admin_bar' ]->add_node(
 			array(
+				'id'     => 'theme-settings-wizard',
+				'parent' => 'theme-settings',
+				'title'  => esc_attr__( 'Setup Wizard', 'toolbar-extras' ),
+				'href'   => esc_url( admin_url( 'admin.php?page=owp_setup' ) ),
+				'meta'   => array(
+					'target' => ddw_tbex_meta_target(),
+					'title'  => esc_attr__( 'Setup Wizard', 'toolbar-extras' )
+				)
+			)
+		);
+
+		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			array(
 				'id'     => 'theme-settings-features',
 				'parent' => 'theme-settings',
 				'title'  => esc_attr__( 'Activate Features', 'toolbar-extras' ),
@@ -467,10 +485,10 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_oceanwp_customize', 100 );
 /**
  * Customize items for OceanWP Theme
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
- * @uses   ddw_tbex_customizer_focus()
- * @uses   ddw_tbex_string_customize_attr()
+ * @uses ddw_tbex_customizer_focus()
+ * @uses ddw_tbex_string_customize_attr()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -709,8 +727,8 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_oceanwp_resources', 120 );
  *
  * @since 1.0.0
  *
- * @uses  ddw_tbex_display_items_resources()
- * @uses  ddw_tbex_resource_item()
+ * @uses ddw_tbex_display_items_resources()
+ * @uses ddw_tbex_resource_item()
  */
 function ddw_tbex_themeitems_oceanwp_resources() {
 
@@ -781,26 +799,28 @@ add_action( 'tbex_new_content_before_nav_menu', 'ddw_tbex_themeitems_new_content
 /**
  * Items for "New Content" section: New OceanWP Content
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
- * @uses   ddw_tbex_string_oceanwp_theme_name()
- * @uses   ddw_tbex_is_elementor_active()
+ * @uses ddw_tbex_string_oceanwp_theme_name()
+ * @uses ddw_tbex_is_elementor_active()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
 function ddw_tbex_themeitems_new_content_oceanwp() {
 
 	/** OceanWP Library (Core) */
+	$type_libray = 'oceanwp_library';
+
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(
 		array(
-			'id'     => 'new-oceanwp_library',
+			'id'     => 'new-' . $type_libray,
 			'parent' => 'new-content',
 			'title'  => sprintf(
 				/* translators: %s - (Static) Theme name OceanWP - optionally white labeled string */
 				esc_attr__( '%s Library', 'toolbar-extras' ),
 				ddw_tbex_string_oceanwp_theme_name()
 			),
-			'href'   => esc_url( admin_url( 'post-new.php?post_type=oceanwp_library' ) ),
+			'href'   => esc_url( admin_url( 'post-new.php?post_type=' . $type_libray ) ),
 			'meta'   => array(
 				'target' => '',
 				'title'  => sprintf(
@@ -812,14 +832,14 @@ function ddw_tbex_themeitems_new_content_oceanwp() {
 		)
 	);
 
-	if ( ddw_tbex_is_elementor_active() && \Elementor\User::is_current_user_can_edit_post_type( 'oceanwp_library' ) ) {
+	if ( ddw_tbex_is_elementor_active() && \Elementor\User::is_current_user_can_edit_post_type( $type_libray ) ) {
 
 		$GLOBALS[ 'wp_admin_bar' ]->add_node(
 			array(
 				'id'     => 'owplibrary-with-builder',
-				'parent' => 'new-oceanwp_library',
+				'parent' => 'new-' . $type_libray,
 				'title'  => ddw_tbex_string_newcontent_with_builder(),
-				'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'oceanwp_library' ) ),
+				'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( $type_libray ) ),
 				'meta'   => array(
 					'target' => ddw_tbex_meta_target( 'builder' ),
 					'title'  => ddw_tbex_string_newcontent_create_with_builder()
@@ -830,17 +850,19 @@ function ddw_tbex_themeitems_new_content_oceanwp() {
 	}  // end if
 
 	/** OceanWP Portfolio (Premium Add-On) */
+	$type_portfolio = 'ocean_portfolio';
+
 	if ( function_exists( 'Ocean_Portfolio' )
 		&& ddw_tbex_is_elementor_active()
-		&& \Elementor\User::is_current_user_can_edit_post_type( 'ocean_portfolio' )
+		&& \Elementor\User::is_current_user_can_edit_post_type( $type_portfolio )
 	) {
 
 		$GLOBALS[ 'wp_admin_bar' ]->add_node(
 			array(
 				'id'     => 'owpportfolio-with-builder',
-				'parent' => 'new-ocean_portfolio',
+				'parent' => 'new-' . $type_portfolio,
 				'title'  => ddw_tbex_string_newcontent_with_builder(),
-				'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'ocean_portfolio' ) ),
+				'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( $type_portfolio ) ),
 				'meta'   => array(
 					'target' => ddw_tbex_meta_target( 'builder' ),
 					'title'  => ddw_tbex_string_newcontent_create_with_builder()
@@ -855,13 +877,14 @@ function ddw_tbex_themeitems_new_content_oceanwp() {
 
 add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_oceanwp_sites_import', 100 );
 /**
- * Items for Demos Import: OceanWP Sites
+ * Items for Demos Import: OceanWP Sites (free/Pro).
  *
- * @since  1.0.0
+ * @since 1.0.0
+ * @since 1.4.0 Updated for Ocean Extra update.
  *
- * @uses   ddw_tbex_display_items_demo_import()
- * @uses   ddw_tbex_id_sites_browser()
- * @uses   ddw_tbex_item_title_with_settings_icon()
+ * @uses ddw_tbex_display_items_demo_import()
+ * @uses ddw_tbex_id_sites_browser()
+ * @uses ddw_tbex_item_title_with_settings_icon()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -873,7 +896,10 @@ function ddw_tbex_themeitems_oceanwp_sites_import() {
 	}
 
 	/** free & Pro Demos */
-	if ( function_exists( 'Ocean_Demo_Import' ) || function_exists( 'Ocean_Pro_Demos' ) ) {
+	if ( class_exists( 'OceanWP_Demos' )
+		|| function_exists( 'Ocean_Demo_Import' )
+		|| function_exists( 'Ocean_Pro_Demos' )
+	) {
 
 		$GLOBALS[ 'wp_admin_bar' ]->add_node(
 			array(

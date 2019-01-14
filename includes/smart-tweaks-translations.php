@@ -66,7 +66,8 @@ add_filter( 'tbex_filter_unloading_textdomains', 'ddw_tbex_tweak_unload_textdoma
 function ddw_tbex_tweak_unload_textdomain_toolbar_extras( $textdomains ) {
 
 	/** Bail early if tweak shouldn't be used */
-	if ( ! ddw_tbex_use_tweak_unload_translations_toolbar_extras() ) {
+	if ( ! ddw_tbex_use_tweak_unload_translations_toolbar_extras()
+	) {
 		return $textdomains;
 	}
 

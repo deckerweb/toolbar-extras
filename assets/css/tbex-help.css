@@ -1,0 +1,155 @@
+/**
+ * // assets/css/tbex-help
+ * @package Toolbar Extras - Assets
+ * @since 1.0.0
+ * @since 1.4.0 Moved to own CSS file; enhanced styles.
+ */
+
+/* Toolbar Extras Admin Page
+------------------------------------------------------------ */
+
+/** Dashicons commons */
+
+#tab-link-btc-edit-help a:before {
+	display: inline-block;
+	-webkit-font-smoothing: antialiased;
+	font-family: 'dashicons';
+	font-weight: 400;
+	vertical-align: top;
+}
+
+
+/** Our help tab */
+
+#tab-link-btc-edit-help a:before {
+	clear: left;
+	content: "\f106";
+	float: left;
+	margin: 1px 5px 25px -3px;
+}
+
+#tab-panel-btc-edit-help .dashicons-before:before {
+	margin-right: 3px;
+	vertical-align: top;
+}
+
+
+/** Help tab content */
+
+.tbex-help-header {
+	font-size: 1.15em;
+}
+
+.tbex-help-version {
+	opacity: .77;
+}
+
+.tbex-help-sidebar-icons:before {
+	margin-right: 4px;
+	text-decoration: none !important;
+}
+
+.tbex-help-notice.dashicons-info:before {
+	clear: left;
+	float: left;
+	font-size: 20px;
+	margin-right: 10px !important;
+	margin-top: 3px;
+	opacity: .77;
+}
+
+.tbex-help-notice {
+	margin-left: 9px;
+	padding: 5px 10px;
+}
+
+.help-tab-content h2,
+.help-tab-content h5 {
+	color: #7e49c2;
+}
+
+.help-tab-content h5,
+.tbex-help-footer {
+	font-size: 13.7px;
+}
+
+.tbex-help-footer {
+	opacity: .77;
+}
+
+a.dashicons-before.tbex-inline:before {
+	font-size: 18px;
+	text-decoration: none;
+}
+
+
+/** Help steps */
+
+body {
+    counter-reset: tbex-step;
+}
+
+.tbex-help-step:before {
+	background-color: #7e49c2;
+	border-radius: 50%;
+	color: #fafafa;
+	display: inline-block;
+	font-weight: 600;
+	margin-right: 17px;
+	padding: 4px 8px;
+	min-width: 12px;
+}
+
+.tbex-help-step:before {
+	counter-increment: tbex-step;
+	content: counter(tbex-step) ". ";
+}
+
+.tbex-step-info {
+	margin-left: 48px;
+}
+
+.tbex-step-inline {
+	margin-left: 5px;
+}
+
+
+/** Help sidebar */
+
+.tbex-help-sidebar {
+	font-size: 1.15em;
+}
+
+.tbex-help-sidebar-icons:before {
+	margin-right: 4px;
+	text-decoration: none !important;
+}
+
+
+/* Menus Admin Page
+------------------------------------------------------------ */
+
+/** Dashicons commons */
+
+.nav-menus-php #tab-link-tbex-menus-help a:before {
+	display: inline-block;
+	-webkit-font-smoothing: antialiased;
+	font-family: 'dashicons';
+	font-weight: 400;
+	vertical-align: top;
+}
+
+
+/** Our help tab */
+
+.nav-menus-php #tab-link-tbex-menus-help a:before {
+	clear: left;
+	content: "\f106";
+	float: left;
+	margin: 1px 5px 25px -3px;
+}
+
+.nav-menus-php #tab-panel-tbex-menus-help .dashicons-before:before {
+	margin-right: 3px;
+	vertical-align: top;
+}

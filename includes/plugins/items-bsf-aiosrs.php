@@ -16,7 +16,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_bsf_aiosrs' );
 /**
  * Items for Plugin: All In One Schema Rich Snippets (free, by Brainstorm Force)
  *
- * @since  1.3.2
+ * @since 1.3.2
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */

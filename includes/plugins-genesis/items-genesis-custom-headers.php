@@ -26,7 +26,7 @@ function ddw_tbex_aoitems_genesis_custom_headers() {
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(
 		array(
 			'id'     => 'genesis-custom-headers',
-			'parent' => 'theme-creative',
+			'parent' => 'group-genesisplugins-creative',
 			'title'  => esc_attr__( 'Custom Headers', 'toolbar-extras' ),
 			'href'   => esc_url( admin_url( 'themes.php?page=genesis-custom-header' ) ),
 			'meta'   => array(

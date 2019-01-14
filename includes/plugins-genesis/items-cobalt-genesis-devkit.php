@@ -16,10 +16,10 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_genesis_devkit', 140 );
 /**
  * Items for Add-On: Genesis DevKit (Premium, by Cobalt Apps)
  *
- * @since  1.1.3
+ * @since 1.1.3
  *
- * @uses   ddw_tbex_display_items_resources()
- * @uses   ddw_tbex_resource_item()
+ * @uses ddw_tbex_display_items_resources()
+ * @uses ddw_tbex_resource_item()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */

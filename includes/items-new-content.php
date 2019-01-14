@@ -16,67 +16,42 @@ add_action( 'admin_bar_menu', 'ddw_tbex_items_new_content_types', 71 );
 /**
  * Add new content types to the WordPress "New Content" section within the Toolbar.
  *
- * @since  1.0.0
+ * @since 1.0.0
+ * @since 1.4.0 Added optional Block Editor (Gutenberg) support.
  *
- * @uses   ddw_tbex_is_elementor_active()
- * @uses   ddw_tbex_string_elementor()
+ * @uses ddw_tbex_is_elementor_active()
+ * @uses ddw_tbex_string_elementor()
+ * @uses ddw_tbex_get_elementor_new_template_url()
+ * @uses ddw_tbex_is_block_editor_user_switch()
+ * @uses ddw_tbex_is_classic_editor_plugin_active()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
 function ddw_tbex_items_new_content_types() {
 
-	/** New Elementor Template Item */
+	/** New Elementor Template items */
 	if ( ddw_tbex_is_elementor_active() ) {
 
-		$template_title = sprintf(
-			/* translators: %1$s - Word Elementor (page builder) */
-			esc_attr_x( '%1$s Template', 'Toolbar New Content section', 'toolbar-extras' ),
-			ddw_tbex_string_elementor()
-		);
-
-		$template_title_attr = sprintf(
-			/* translators: %1$s - Word Elementor (page builder) */
-			esc_attr_x( 'New %1$s Template', 'Toolbar New Content section', 'toolbar-extras' ),
-			ddw_tbex_string_elementor()
-		);
-
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
-			array(
-				'id'     => 'tbex-elementor-template',
-				'parent' => 'new-content',
-				'title'  => $template_title,
-				'href'   => esc_url( admin_url( 'post-new.php?post_type=elementor_library' ) ),
-				'meta'   => array(
-					'target' => '',
-					'title'  => $template_title_attr
-				)
-			)
-		);
-
-		if ( \Elementor\User::is_current_user_can_edit_post_type( 'elementor_library' ) ) {
+		/**
+		 * Root item for "New Elementor Template" in "New Content" Group.
+		 *   This is only used for Elementor v2.3.x or lower. For Elementor 
+		 *   2.4.0+ the core item gets filtered and used as hook-place.
+		 * @since 1.0.0
+		 * @since 1.4.0 Overhauled for Elementor v2.4.0 or higher.
+		 * @see plugin file /includes/elementor-official/elementor-functions.php
+		 * @see plugin file /includes/elementor-official/items-elementor-core.php
+		 */
+		if ( ddw_tbex_is_elementor_version( 'core', TBEX_ELEMENTOR_BEFORE_240, '<=' ) ) {
 
 			$GLOBALS[ 'wp_admin_bar' ]->add_node(
 				array(
-					'id'     => 'et-page-with-builder',
-					'parent' => 'tbex-elementor-template',
-					'title'  => ddw_tbex_string_elementor_template_with_builder( _x( 'Page', 'Elementor Template type', 'toolbar-extras' ) ),
-					'href'   => ddw_tbex_get_elementor_template_add_new_url( 'page' ),
+					'id'     => 'tbex-elementor-template',
+					'parent' => 'new-content',
+					'title'  => ddw_tbex_string_elementor_template(),
+					'href'   => ddw_tbex_get_elementor_new_template_url(),
 					'meta'   => array(
-						'target' => ddw_tbex_meta_target( 'builder' ),
-						'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Page', 'Elementor Template type', 'toolbar-extras' ) )
-					)
-				)
-			);
-
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
-				array(
-					'id'     => 'et-section-with-builder',
-					'parent' => 'tbex-elementor-template',
-					'title'  => ddw_tbex_string_elementor_template_with_builder( _x( 'Section', 'Elementor Template type', 'toolbar-extras' ) ),	//ddw_tbex_string_newcontent_with_builder(),
-					'href'   => ddw_tbex_get_elementor_template_add_new_url( 'section' ),
-					'meta'   => array(
-						'target' => ddw_tbex_meta_target( 'builder' ),
-						'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Section', 'Elementor Template type', 'toolbar-extras' ) )		//ddw_tbex_string_newcontent_create_with_builder()
+						'target' => '',
+						'title'  => ddw_tbex_string_elementor_template_new()
 					)
 				)
 			);
@@ -87,12 +62,13 @@ function ddw_tbex_items_new_content_types() {
 
 			$GLOBALS[ 'wp_admin_bar' ]->add_node(
 				array(
-					'id'     => 'post-with-builder',
+					'id'     => 'wp-post-with-builder',
 					'parent' => 'new-post',
 					'title'  => ddw_tbex_string_newcontent_with_builder(),
 					'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'post' ) ),
 					'meta'   => array(
 						'target' => ddw_tbex_meta_target( 'builder' ),
+						'rel'    => ddw_tbex_meta_rel(),
 						'title'  => ddw_tbex_string_newcontent_create_with_builder()
 					)
 				)
@@ -104,12 +80,13 @@ function ddw_tbex_items_new_content_types() {
 
 			$GLOBALS[ 'wp_admin_bar' ]->add_node(
 				array(
-					'id'     => 'page-with-builder',
+					'id'     => 'wp-page-with-builder',
 					'parent' => 'new-page',
 					'title'  => ddw_tbex_string_newcontent_with_builder(),
 					'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'page' ) ),
 					'meta'   => array(
 						'target' => ddw_tbex_meta_target( 'builder' ),
+						'rel'    => ddw_tbex_meta_rel(),
 						'title'  => ddw_tbex_string_newcontent_create_with_builder()
 					)
 				)
@@ -120,9 +97,80 @@ function ddw_tbex_items_new_content_types() {
 	}  // end if (Elementor active)
 
 	/**
-	 * Let hook in more items between "beginning" Elementor item and "closing" Nav Menu item.
+	 * Let hook in more items between "beginning" Elementor item and "closing"
+	 *   Nav Menu item.
+	 *   Note: Of course, this also works with Elementor being not active.
+	 * @since 1.0.0
 	 */
 	do_action( 'tbex_new_content_before_nav_menu' );
+
+	/**
+	 * Block Editor support: Editor alternatives/ switching
+	 *   Note: This requires the Classic Editor plugin and/or the Disable
+	 *         Gutenberg plugins to be active and having the appropriate setting
+	 *         enabled.
+	 * @since 1.4.0
+	 * @see ddw_tbex_is_block_editor_user_switch() in /includes/functions-conditionals.php
+	 */
+	if ( ddw_tbex_is_block_editor_user_switch() ) {
+		
+		$classic_forget = ddw_tbex_is_classic_editor_plugin_active() ? '&classic-editor__forget' : '';
+
+		/** Posts */
+		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			array(
+				'id'     => 'new-post-with-classic-editor',
+				'parent' => 'new-post',
+				'title'  => esc_attr_x( 'New Post with Classic Editor', 'Toolbar New Content section', 'toolbar-extras' ),
+				'href'   => esc_url( admin_url( 'post-new.php?post_type=post&classic-editor' . $classic_forget ) ),
+				'meta'   => array(
+					'target' => '',
+					'title'  => esc_attr_x( 'Add new Post with Classic Editor', 'Toolbar New Content section', 'toolbar-extras' )
+				)
+			)
+		);
+
+		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			array(
+				'id'     => 'new-post-with-block-editor',
+				'parent' => 'new-post',
+				'title'  => esc_attr_x( 'New Post with Block Editor', 'Toolbar New Content section', 'toolbar-extras' ),
+				'href'   => esc_url( admin_url( 'post-new.php?post_type=post&block-editor' . $classic_forget ) ),
+				'meta'   => array(
+					'target' => '',
+					'title'  => esc_attr_x( 'Add new Post with Block Editor', 'Toolbar New Content section', 'toolbar-extras' )
+				)
+			)
+		);
+
+		/** Pages */
+		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			array(
+				'id'     => 'new-page-with-classic-editor',
+				'parent' => 'new-page',
+				'title'  => esc_attr_x( 'New Page with Classic Editor', 'Toolbar New Content section', 'toolbar-extras' ),
+				'href'   => esc_url( admin_url( 'post-new.php?post_type=page&classic-editor' . $classic_forget ) ),
+				'meta'   => array(
+					'target' => '',
+					'title'  => esc_attr_x( 'Add new Page with Classic Editor', 'Toolbar New Content section', 'toolbar-extras' )
+				)
+			)
+		);
+
+		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			array(
+				'id'     => 'new-page-with-block-editor',
+				'parent' => 'new-page',
+				'title'  => esc_attr_x( 'New Page with Block Editor', 'Toolbar New Content section', 'toolbar-extras' ),
+				'href'   => esc_url( admin_url( 'post-new.php?post_type=page&block-editor' . $classic_forget ) ),
+				'meta'   => array(
+					'target' => '',
+					'title'  => esc_attr_x( 'Add new Page with Block Editor', 'Toolbar New Content section', 'toolbar-extras' )
+				)
+			)
+		);
+
+	}  // end if (Block Editor switches)
 
 	/** New Nav Menu */
 	if ( ! is_network_admin() ) {
@@ -145,13 +193,13 @@ function ddw_tbex_items_new_content_types() {
 }  // end function
 
 
-add_filter( 'install_themes_tabs', 'ddw_tbex_theme_installer_upload_tab', 10, 1 );
+add_filter( 'install_themes_tabs', 'ddw_tbex_theme_installer_upload_tab', 20, 1 );
 /**
  * Add new "virtual" Tab on the Theme Installer page - using that for ZIP uploads.
  *
- * @since  1.3.0
+ * @since 1.3.0
  *
- * @param  array $tabs Array of the Tabs on the Theme Installer admin page.
+ * @param array $tabs Array of the Tabs on the Theme Installer admin page.
  * @return array Array of the filtered/ extended Tabs on the Theme Installer
  *               admin page.
  */
@@ -171,7 +219,7 @@ add_action( 'install_themes_pre_tbex-upload', 'ddw_tbex_theme_installer_pre_uplo
  * Necessary inbetween step to set a value for the global $paged variable.
  *   This is needed to avoid any PHP errors/notices.
  *
- * @since  1.3.5
+ * @since 1.3.5
  *
  * @global int $GLOBALS[ 'paged' ]
  */
@@ -191,7 +239,7 @@ add_action( 'install_themes_tbex-upload', 'ddw_tbex_theme_installer_upload_tab_c
  * @since 1.3.0
  * @since 1.3.5 Added missing $paged variable to avoid errors/notices.
  *
- * @uses  install_themes_upload()
+ * @uses install_themes_upload() WP Core function!
  */
 function ddw_tbex_theme_installer_upload_tab_content( $paged ) {
 
@@ -215,11 +263,64 @@ function ddw_tbex_theme_installer_upload_tab_content( $paged ) {
 }  // end function
 
 
+add_action( 'admin_menu', 'ddw_tbex_add_installer_upload_pages', 999 );
+/**
+ * Optionally add admin sub menu item on "Appearance" for Theme ZIP Upload and
+ *   on "Plugins" for Plugin ZIP Upload - but only when in Dev Mode (by Toolbar
+ *   Extras).
+ *
+ * @since 1.4.0
+ *
+ * @see ddw_tbex_theme_installer_upload_tab_content()
+ *
+ * @uses ddw_tbex_use_devmode_uploader_menus()
+ */
+function ddw_tbex_add_installer_upload_pages() {
+
+	/** Bail early if not in Dev Mode */
+	if ( ! ddw_tbex_display_items_dev_mode()
+		|| ! ddw_tbex_use_devmode_uploader_menus()
+	) {
+		return;
+	}
+
+	/** Theme ZIP uploader */
+	if ( current_user_can( 'install_themes' )
+		|| current_user_can( 'upload_themes' )	// Multisite only
+	) {
+
+		add_theme_page(
+			esc_attr__( 'Theme Installer - Upload Theme', 'toolbar-extras' ),
+			esc_attr__( 'Upload Theme ZIP', 'toolbar-extras' ),
+			'edit_theme_options',
+			network_admin_url( 'theme-install.php?tab=tbex-upload' )
+		);
+		
+	}  // end if
+
+	/** Plugin ZIP uploader */
+	if ( current_user_can( 'install_plugins' )
+		|| current_user_can( 'upload_plugins' )	// Multisite only
+	) {
+
+		add_plugins_page(
+			esc_attr__( 'Plugin Installer - Upload Plugin', 'toolbar-extras' ),
+			esc_attr__( 'Upload Plugin ZIP', 'toolbar-extras' ),
+			'install_plugins',
+			network_admin_url( 'plugin-install.php?tab=upload' )
+		);
+		
+	}  // end if
+
+}  // end function
+
+
 add_action( 'admin_bar_menu', 'ddw_tbex_items_new_content_installer', 99 );
 /**
  * Add Install Plugin & Themes items to WordPress "New Content" section in Toolbar.
  *
- * @since  1.0.0
+ * @since 1.0.0
+ * @since 1.4.0 Added "Newest" plugins & themes items.
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -274,6 +375,24 @@ function ddw_tbex_items_new_content_installer() {
 				)
 			)
 		);
+
+		/** For Dev Mode: Newest Plugins on WordPress.org */
+		if ( ddw_tbex_display_items_dev_mode() ) {
+
+			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				array(
+					'id'     => 'install-plugin-newest',
+					'parent' => 'install-plugin',
+					'title'  => esc_attr__( 'Newest Plugins', 'toolbar-extras' ),
+					'href'   => esc_url( network_admin_url( 'plugin-install.php?tab=new' ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => esc_attr__( 'Newest Plugins added on WordPress.org', 'toolbar-extras' )
+					)
+				)
+			);
+
+		}  // end if
 
 		/** Plugin support: "Cleaner Plugin Installer" (by myself :) */
 		if ( defined( 'CLPINST_PLUGIN_BASEDIR' ) ) {
@@ -346,6 +465,24 @@ function ddw_tbex_items_new_content_installer() {
 			)
 		);
 
+		/** For Dev Mode: Newest Themes on WordPress.org */
+		if ( ddw_tbex_display_items_dev_mode() ) {
+
+			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				array(
+					'id'     => 'install-theme-newest',
+					'parent' => 'install-theme',
+					'title'  => esc_attr__( 'Newest Themes', 'toolbar-extras' ),
+					'href'   => esc_url( network_admin_url( 'theme-install.php?browse=new' ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => esc_attr__( 'Newest Themes added on WordPress.org', 'toolbar-extras' )
+					)
+				)
+			);
+
+		}  // end if
+		
 		$GLOBALS[ 'wp_admin_bar' ]->add_node(
 			array(
 				'id'     => 'install-theme-favorites',

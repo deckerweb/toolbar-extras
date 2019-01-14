@@ -16,7 +16,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_mc4wp_forms' );
 /**
  * Items for Plugin: MailChimp for WordPress (free, by ibericode)
  *
- * @since  1.3.2
+ * @since 1.3.2
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -255,7 +255,7 @@ function ddw_tbex_site_items_mc4wp_forms() {
 
 				}  // end if
 
-				if ( class_exists( 'WooCommerce' ) ) {
+				if ( ddw_tbex_is_woocommerce_active() ) {
 
 					$GLOBALS[ 'wp_admin_bar' ]->add_node(
 						array(
@@ -272,7 +272,7 @@ function ddw_tbex_site_items_mc4wp_forms() {
 
 				}  // end if
 
-				if ( class_exists( 'Easy_Digital_Downloads' ) ) {
+				if ( ddw_tbex_is_edd_active() ) {
 
 					$GLOBALS[ 'wp_admin_bar' ]->add_node(
 						array(
@@ -406,7 +406,7 @@ function ddw_tbex_site_items_mc4wp_forms() {
 		);
 
 		/** Optionally, let other MC4WP Add-Ons hook in */
-		do_action( 'tbex_after_cf7_settings' );
+		do_action( 'tbex_after_mc4wp_settings' );
 
 		/** Group: Resources for MC4WP */
 		if ( ddw_tbex_display_items_resources() ) {

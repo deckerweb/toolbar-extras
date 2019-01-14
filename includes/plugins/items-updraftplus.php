@@ -16,13 +16,13 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Check if UpdraftPlus Premium version with Multisite/Network Add-On is active
  *   or not.
  *
- * @since  1.3.2
+ * @since 1.3.2
  *
- * @return bool TRUE if in Multisite and class exists, otherwise FALSE.
+ * @return bool TRUE if in Multisite and class exists, FALSE otherwise.
  */
 function ddw_tbex_is_updraftplus_multisite() {
 
-	return ( is_multisite() && class_exists( 'UpdraftPlusAddOn_MultiSite' ) ) ? TRUE : FALSE;
+	return ( is_multisite() && class_exists( 'UpdraftPlusAddOn_MultiSite' ) );
 
 }  // end function
 
@@ -31,9 +31,9 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_updraftplus', 10 );
 /**
  * Items for Plugin: UpdraftPlus (Premium) (free/ Premium, by Team Updraft, David Anderson)
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
- * @uses   ddw_tbex_resource_item()
+ * @uses ddw_tbex_resource_item()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar']
  */

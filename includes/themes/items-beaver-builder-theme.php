@@ -16,11 +16,11 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_bbtheme', 100 );
 /**
  * Items for Theme: Beaver Builder Theme (Premium, by FastLine Media LLC)
  *
- * @since  1.1.0
+ * @since 1.1.0
  *
- * @uses   ddw_tbex_string_theme_title()
- * @uses   ddw_tbex_customizer_focus()
- * @uses   ddw_tbex_customizer_start()
+ * @uses ddw_tbex_string_theme_title()
+ * @uses ddw_tbex_customizer_focus()
+ * @uses ddw_tbex_customizer_start()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -60,10 +60,10 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_bbtheme_customize', 100 );
 /**
  * Customize items for Beaver Builder Theme
  *
- * @since  1.1.0
+ * @since 1.1.0
  *
- * @uses   ddw_tbex_customizer_focus()
- * @uses   ddw_tbex_string_customize_attr()
+ * @uses ddw_tbex_customizer_focus()
+ * @uses ddw_tbex_string_customize_attr()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -196,8 +196,8 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_bbtheme_resources', 120 );
  *
  * @since 1.1.0
  *
- * @uses  ddw_tbex_display_items_resources()
- * @uses  ddw_tbex_resource_item()
+ * @uses ddw_tbex_display_items_resources()
+ * @uses ddw_tbex_resource_item()
  */
 function ddw_tbex_themeitems_bbtheme_resources() {
 

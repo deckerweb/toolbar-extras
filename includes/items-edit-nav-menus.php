@@ -16,10 +16,10 @@ add_action( 'admin_bar_menu', 'ddw_tbex_list_edit_nav_menus', 500 );
 /**
  * Add edit Nav Menu items for all existing Nav Menus.
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
- * @uses   ddw_tbex_get_menu_id_from_menu_location()
- * @uses   wp_get_nav_menus()
+ * @uses ddw_tbex_get_menu_id_from_menu_location()
+ * @uses wp_get_nav_menus()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -69,9 +69,9 @@ add_action( 'admin_bar_menu', 'ddw_tbex_edit_custom_toolbar_menus', 1000 );
 /**
  * Add edit Nav Menu item for our own custom Super Admin Toolbar Menu.
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
- * @uses   ddw_tbex_get_menu_id_from_menu_location()
+ * @uses ddw_tbex_get_menu_id_from_menu_location()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */

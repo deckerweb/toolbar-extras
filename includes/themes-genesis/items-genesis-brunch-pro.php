@@ -17,10 +17,10 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_brunch_pro_customize', 90 );
  * Customize items for Genesis Child Theme:
  *   Brunch Pro (Premium, by Feast Design Co.)
  *
- * @since  1.2.0
+ * @since 1.2.0
  *
- * @uses   ddw_tbex_customizer_focus()
- * @uses   ddw_tbex_string_customize_attr()
+ * @uses ddw_tbex_customizer_focus()
+ * @uses ddw_tbex_string_customize_attr()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -104,7 +104,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_brunch_pro', 100 );
  * Theme items for Genesis Child Theme:
  *   Brunch Pro (Premium, by Feast Design Co.)
  *
- * @since  1.2.0
+ * @since 1.2.0
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */

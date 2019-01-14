@@ -12,7 +12,7 @@
  * Plugin Name:       Toolbar Extras
  * Plugin URI:        https://toolbarextras.com/
  * Description:       This plugins adds a lot of quick jump links to the WordPress Toolbar helpful for Site Builders who use Elementor and its ecosystem of add-ons and from the theme space.
- * Version:           1.3.10
+ * Version:           1.4.0
  * Author:            David Decker - DECKERWEB
  * Author URI:        https://toolbarextras.com/
  * License:           GPL-2.0-or-later
@@ -39,7 +39,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 1.0.0
  */
 /** Plugin version */
-define( 'TBEX_PLUGIN_VERSION', '1.3.10' );
+define( 'TBEX_PLUGIN_VERSION', '1.4.0' );
 
 /** Plugin directory */
 define( 'TBEX_PLUGIN_DIR', trailingslashit( dirname( __FILE__ ) ) );
@@ -77,9 +77,9 @@ function ddw_tbex_helper_constants() {
 	}
 
 	/** Smart Tweaks */
-	if ( ! defined( 'TBEX_USE_BLOGK_EDITOR_SUPPORT' ) ) {
-		define( 'TBEX_USE_BLOGK_EDITOR_SUPPORT', FALSE );
-	}
+	//if ( ! defined( 'TBEX_USE_BLOGK_EDITOR_SUPPORT' ) ) {
+	//	define( 'TBEX_USE_BLOGK_EDITOR_SUPPORT', TRUE );
+	//}
 
 }  // end function
 
@@ -90,10 +90,10 @@ add_action( 'init', 'ddw_tbex_load_translations', 1 );
  *
  * @since 1.0.0
  *
- * @uses  get_user_locale()
- * @uses  get_locale()
- * @uses  load_textdomain() To load translations first from WP_LANG_DIR sub folder.
- * @uses  load_plugin_textdomain() To additionally load default translations from plugin folder (default).
+ * @uses get_user_locale()
+ * @uses get_locale()
+ * @uses load_textdomain() To load translations first from WP_LANG_DIR sub folder.
+ * @uses load_plugin_textdomain() To additionally load default translations from plugin folder (default).
  */
 function ddw_tbex_load_translations() {
 
@@ -136,6 +136,8 @@ require_once( TBEX_PLUGIN_DIR . 'includes/functions-global.php' );
 
 /** Include (global) conditionals functions */
 require_once( TBEX_PLUGIN_DIR . 'includes/functions-conditionals.php' );
+require_once( TBEX_PLUGIN_DIR . 'includes/functions-conditionals-external.php' );
+require_once( TBEX_PLUGIN_DIR . 'includes/functions-conditionals-tweaks.php' );
 
 /** Load plugin combat early */
 require_once( TBEX_PLUGIN_DIR . 'includes/plugin-combatibility.php' );
@@ -196,15 +198,19 @@ function ddw_tbex_setup_plugin() {
 			require_once( TBEX_PLUGIN_DIR . 'includes/items-edit-content.php' );
 		}
 
-		/** Include basic/core stuff for free Elementor plugin */
+		/** Include items for Elementor Page Builder plugin support */
 		if ( ddw_tbex_is_elementor_active() ) {
-			require_once( TBEX_PLUGIN_DIR . 'includes/elementor-official/items-elementor-core.php' );
-		}
 
-		/** Conditionally load items for Elementor Pro */
-		if ( ddw_tbex_is_elementor_pro_active() ) {
-			require_once( TBEX_PLUGIN_DIR . 'includes/elementor-official/items-elementor-pro.php' );
-		}
+			/** Include basic/core stuff for free Elementor plugin */
+			require_once( TBEX_PLUGIN_DIR . 'includes/elementor-official/elementor-resources.php' );
+			require_once( TBEX_PLUGIN_DIR . 'includes/elementor-official/items-elementor-core.php' );
+
+			/** Conditionally load items for Elementor Pro */
+			if ( ddw_tbex_is_elementor_pro_active() ) {
+				require_once( TBEX_PLUGIN_DIR . 'includes/elementor-official/items-elementor-pro.php' );
+			}
+
+		}  // end if
 
 		/** Conditionally load items for (general) Plugins */
 		if ( ddw_tbex_display_items_plugins() ) {
@@ -223,11 +229,11 @@ function ddw_tbex_setup_plugin() {
 		}  // end if
 
 		/** Conditionally load items for Elementor-specific Add-On plugins */
-		if ( ddw_tbex_display_items_addons() ) {
+		if ( ddw_tbex_display_items_addons() && ddw_tbex_is_elementor_active() ) {
 			require_once( TBEX_PLUGIN_DIR . 'includes/items-plugins-elementor-addons.php' );
 		}
 
-		/** Conditionally load items for Elementor-savvy themes */
+		/** Conditionally load items for Page Builder-savvy themes */
 		if ( ddw_tbex_display_items_themes() && current_user_can( 'edit_theme_options' ) ) {
 			require_once( TBEX_PLUGIN_DIR . 'includes/items-themes.php' );
 		}
@@ -267,12 +273,27 @@ function ddw_tbex_setup_plugin() {
 			require_once( TBEX_PLUGIN_DIR . 'includes/items-web-group.php' );
 		}
 
-		/** Load Block Editor (Gutenberg) Items & Support */
-		if ( ddw_tbex_use_block_editor_support() && ddw_tbex_is_block_editor_active() ) {
-			require_once( TBEX_PLUGIN_DIR . 'includes/block-editor/items-block-editor.php' );
+		/** Load Comments items */
+		if ( ddw_tbex_display_items_wpcomments() ) {
+			require_once( TBEX_PLUGIN_DIR . 'includes/items-wpcomments.php' );
 		}
 
-	}  // end if
+		/** Load Block Editor (Gutenberg) items, support, and add-ons/plugins support */
+		if ( ddw_tbex_is_block_editor_active() && ddw_tbex_is_block_editor_wanted() ) {
+
+			/** Block Editor specific items */
+			if ( ddw_tbex_use_block_editor_support() ) {
+				require_once( TBEX_PLUGIN_DIR . 'includes/block-editor/items-block-editor.php' );
+			}
+
+			/** Block Editor Add-Ons/ Plugin support */
+			if ( ddw_tbex_use_block_editor_addons_support() ) {
+				require_once( TBEX_PLUGIN_DIR . 'includes/items-plugins-block-editor-addons.php' );
+			}
+
+		}  // end if
+
+	}  // end if ddw_tbex_show_toolbar_items() check
 
 	/** Only register & add additional toolbar menu for super admins */
 	if ( ddw_tbex_display_items_super_admin_nav_menu() && is_super_admin() ) {
@@ -285,6 +306,7 @@ function ddw_tbex_setup_plugin() {
 	/** Include admin helper functions */
 	if ( is_admin() ) {
 		require_once( TBEX_PLUGIN_DIR . 'includes/admin/admin-extras.php' );
+		require_once( TBEX_PLUGIN_DIR . 'includes/admin/admin-help.php' );
 	}
 
 	/** Add links to Settings and Menu pages to Plugins page */
@@ -304,6 +326,9 @@ function ddw_tbex_setup_plugin() {
 
 	}  // end if
 
+	/** Add some more tools */
+	require_once( TBEX_PLUGIN_DIR . 'includes/tools/dark-mode-automatic.php' );
+	
 }  // end function
 
 
@@ -311,9 +336,11 @@ function ddw_tbex_setup_plugin() {
  * Set base groups for our Toolbar main item as "hook places".
  *   Set additional action hooks to enable custom groups.
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
- * @see    ddw_tbex_setup_plugin() Hooked-in conditionally there.
+ * @see ddw_tbex_setup_plugin() Hooked-in conditionally there.
+ *
+ * @uses ddw_tbex_id_main_item()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar']
  */
@@ -384,11 +411,11 @@ require_once( TBEX_PLUGIN_DIR . 'includes/tbex-update-settings.php' );
  * @since 1.0.0
  * @since 1.3.2 Moved to own function to improve reuseability.
  *
- * @see   includes/admin/tbex-settings.php
+ * @see plugin file includes/admin/tbex-settings.php
  *
- * @uses  ddw_tbex_register_settings_general()
- * @uses  ddw_tbex_register_settings_smart_tweaks()
- * @uses  ddw_tbex_register_settings_development()
+ * @uses ddw_tbex_register_settings_general()
+ * @uses ddw_tbex_register_settings_smart_tweaks()
+ * @uses ddw_tbex_register_settings_development()
  */
 function ddw_tbex_plugin_activation_routine() {
 
@@ -420,9 +447,9 @@ register_activation_hook( __FILE__, 'ddw_tbex_run_plugin_activation', 10, 1 );
  * @since 1.0.0
  * @since 1.3.2 Refactored to cover Multisite Network-wide activation.
  *
- * @link  https://leaves-and-love.net/blog/making-plugin-multisite-compatible/
+ * @link https://leaves-and-love.net/blog/making-plugin-multisite-compatible/
  *
- * @uses  ddw_tbex_plugin_activation_routine()
+ * @uses ddw_tbex_plugin_activation_routine()
  */
 function ddw_tbex_run_plugin_activation( $network_wide ) {
 
@@ -462,7 +489,7 @@ add_action( 'wpmu_new_blog', 'ddw_tbex_network_new_site_run_plugin_activation', 
  *
  * @since 1.3.2
  *
- * @uses  ddw_tbex_plugin_activation_routine()
+ * @uses ddw_tbex_plugin_activation_routine()
  */
 function ddw_tbex_network_new_site_run_plugin_activation( $blog_id, $user_id, $domain, $path, $site_id, $meta ) {
 

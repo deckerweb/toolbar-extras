@@ -16,10 +16,10 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_hestia', 100 );
 /**
  * Items for Theme: Hestia & Hestia Child Themes (all free, by Themeisle)
  *
- * @since  1.1.0
+ * @since 1.1.0
  *
- * @uses   ddw_tbex_string_theme_title()
- * @uses   ddw_tbex_customizer_start()
+ * @uses ddw_tbex_string_theme_title()
+ * @uses ddw_tbex_customizer_start()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -59,10 +59,10 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_hestia_customize', 100 );
 /**
  * Customize items for Hestia Theme
  *
- * @since  1.1.0
+ * @since 1.1.0
  *
- * @uses   ddw_tbex_customizer_focus()
- * @uses   ddw_tbex_string_customize_attr()
+ * @uses ddw_tbex_customizer_focus()
+ * @uses ddw_tbex_string_customize_attr()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -140,8 +140,8 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_hestia_resources', 120 );
  *
  * @since 1.1.0
  *
- * @uses  ddw_tbex_display_items_resources()
- * @uses  ddw_tbex_resource_item()
+ * @uses ddw_tbex_display_items_resources()
+ * @uses ddw_tbex_resource_item()
  */
 function ddw_tbex_themeitems_hestia_resources() {
 

@@ -16,7 +16,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_caldera_forms' );
 /**
  * Items for Plugin: Caldera Forms (free, by Caldera Labs)
  *
- * @since  1.3.1
+ * @since 1.3.1
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */

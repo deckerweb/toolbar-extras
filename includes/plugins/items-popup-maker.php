@@ -16,7 +16,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_popup_maker', 15 );
 /**
  * Items for Plugin: Popup Maker (free, by WP Popup Maker & Daniel Iser)
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */

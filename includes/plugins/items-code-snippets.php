@@ -16,10 +16,10 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_codesnippets', 15 );
 /**
  * Site Group Items from Plugin: Code Snippets (free, by Shea Bunge)
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
- * @uses   ddw_tbex_display_items_resources()
- * @uses   ddw_tbex_resource_item()
+ * @uses ddw_tbex_display_items_resources()
+ * @uses ddw_tbex_resource_item()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -146,7 +146,7 @@ add_action( 'tbex_new_content_before_nav_menu', 'ddw_tbex_aoitems_new_content_co
 /**
  * Items for "New Content" section: New Code Snippet
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */

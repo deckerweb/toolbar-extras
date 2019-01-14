@@ -16,8 +16,8 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_popboxes', 100 );
 /**
  * Items for Add-On: PopBoxes for Elementor (free, by Zulfikar Nore)
  *
- * @since  1.0.0
- * @since  1.3.5 Added BTC plugin support.
+ * @since 1.0.0
+ * @since 1.3.5 Added BTC plugin support.
  *
  * @uses   ddw_tbex_resource_item()
  *
@@ -148,7 +148,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_new_content_popbox' );
 /**
  * Items for "New Content" section: New PopBox
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */

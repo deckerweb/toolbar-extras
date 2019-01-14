@@ -16,9 +16,9 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_press_elements', 100 );
 /**
  * Items for Add-On: Press Elements – Widgets for Elementor (free/Premium, by Press Elements & Rami Yushuvaev)
  *
- * @since  1.1.0
+ * @since 1.1.0
  *
- * @uses   ddw_tbex_resource_item()
+ * @usesddw_tbex_resource_item()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */

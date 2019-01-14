@@ -16,7 +16,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_github_updater', 100 );
 /**
  * Items for Plugin: GitHub Updater (free, by Andy Fragen)
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar']
  */

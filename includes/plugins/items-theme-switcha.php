@@ -17,7 +17,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_devmode_theme_switcha', 50 );
 /**
  * Items for Plugin: Theme Switcha (free, by Jeff Starr)
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */

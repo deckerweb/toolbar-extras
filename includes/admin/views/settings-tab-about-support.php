@@ -15,11 +15,13 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Tab About & Support - "About" content.
  *
  * @since 1.0.0
+ * @since 1.4.0 Optimizations.
  *
- * @uses  ddw_tbex_get_info_url()
- * @uses  ddw_tbex_get_info_link()
- * @uses  ddw_tbex_is_elementor_active()
- * @uses  ddw_tbex_coding_years()
+ * @uses ddw_tbex_get_info_url()
+ * @uses ddw_tbex_get_info_link()
+ * @uses ddw_tbex_is_elementor_active()
+ * @uses ddw_tbex_coding_years()
+ * @uses ddw_tbex_string_toolbar_extras()
  */
 
 $tbex_info = (array) ddw_tbex_info_values();
@@ -40,7 +42,7 @@ $tbex_info = (array) ddw_tbex_info_values();
 						__( 'Multisite Toolbar Additions', 'toolbar-extras' )
 					),
 					/* translators: Plugin title */
-					'<strong>&#x00BB;' . __( 'Toolbar Extras', 'toolbar-extras' ) . '&#x00AB;</strong>'
+					'<strong>&#x00BB;' . ddw_tbex_string_toolbar_extras() . '&#x00AB;</strong>'
 				); ?>
 				<div class="tbex-author">
 					<div class="tbex-author-image"><a href="<?php echo ddw_tbex_get_info_url( 'url_donate' ); ?>" target="_blank" rel="nofollow noopener noreferrer"><?php echo sprintf(
@@ -59,8 +61,8 @@ $tbex_info = (array) ddw_tbex_info_values();
 
 			<h3 class="tbex-as-section tbex-inner"><?php _e( 'Share the Love', 'toolbar-extras' ); ?></h3>
 			<p>
-				<strong><span class="dashicons-before dashicons-star-filled tbex-review"></span> <?php _e( 'If you find it useful please review the plugin at WordPress.org', 'toolbar-extras' ); ?></strong>
-				<br /><?php echo ddw_tbex_get_info_link( 'url_wporg_review', __( 'Write Review', 'toolbar-extras' ), 'button tbex-button' ); ?>
+				<strong><span class="tbex-review">&#9733;&#9733;&#9733;&#9733;&#9733;</span> <?php _e( 'If you find it useful please add a 5-star review for the plugin at WordPress.org', 'toolbar-extras' ); ?></strong>
+				<br /><?php echo ddw_tbex_get_info_link( 'url_wporg_review', __( 'Write Review', 'toolbar-extras' ), 'button tbex-button dashicons-before dashicons-external' ); ?>
 			</p>
 			<p>
 				<strong><?php _e( 'Subscripe to our YouTube Channel and give our videos a thumbs up', 'toolbar-extras' ); ?></strong>
@@ -110,7 +112,7 @@ $tbex_info = (array) ddw_tbex_info_values();
 				<?php echo sprintf(
 					/* translators: %s - name of the plugin, "Toolbar Extras" */
 					__( 'Get all future insider news about the %s plugin and more fine WordPress plugins from DECKERWEB.', 'toolbar-extras' ),
-					'<em>' . __( 'Toolbar Extras', 'toolbar-extras' ) . '</em>'
+					'<em>' . ddw_tbex_string_toolbar_extras() . '</em>'
 				); ?> 
 				<?php _e( 'On top of that get useful tutorials and awesome deals for great WordPress plugins and services.', 'toolbar-extras' ); ?> 
 				<strong><?php echo __( 'Subscribe to my Newsletter', 'toolbar-extras' ) . ':'; ?></strong>
@@ -122,7 +124,7 @@ $tbex_info = (array) ddw_tbex_info_values();
 					__( 'Join my Newsletter Now!', 'toolbar-extras' )
 				); ?>
 			</p>
-			
+
 			<h3 class="tbex-as-section tbex-inner"><?php _e( 'How To Get Support', 'toolbar-extras' ); ?></h3>
 			<p>
 				<?php _e( 'Thank you for using my plugin! I am happy to help and assist with any question or feedback you have for this plugin.', 'toolbar-extras' ); ?>

@@ -3,6 +3,8 @@
 // items-page-builder-framework
 // items-page-builder-framework-premium
 
+// includes/themes/items-page-builder-framework
+
 /**
  * Prevent direct access to this file.
  *
@@ -16,163 +18,128 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Check if Page Builder Framework Premium Add-On plugin is active or not.
  *
- * @since  1.1.0
+ * @since 1.1.0
  *
- * @return bool TRUE if constant defined, otherwise FALSE.
+ * @return bool TRUE if constant defined, FALSE otherwise.
  */
 function ddw_tbex_is_wpbf_premium_active() {
 
-	return ( defined( 'WPBF_PREMIUM_VERSION' ) ) ? TRUE : FALSE;
+	return defined( 'WPBF_PREMIUM_VERSION' );
 
 }  // end function
 
 
 add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_pbf', 100 );
 /**
- * Items for Theme: Page Builder Framework (free & Premium, by David Vongries & MapSteps)
+ * Items for Theme:
+ *   Page Builder Framework (free & Premium, by David Vongries & MapSteps)
  *
- * @since  1.1.0
+ * @since 1.1.0
+ * @since 1.4.0 Simplified functions; added White Label support.
  *
- * @uses   ddw_tbex_string_theme_title()
- * @uses   ddw_tbex_customizer_focus()
- * @uses   ddw_tbex_customizer_start()
+ * @uses ddw_tbex_is_wpbf_premium_active()
+ * @uses ddw_tbex_string_theme_title()
+ * @uses ddw_tbex_customizer_focus()
+ * @uses ddw_tbex_item_theme_creative_customize()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
 function ddw_tbex_themeitems_pbf() {
+
+	/** Get Premium White Label settings */
+	$wpbf_settings = get_option( 'wpbf_settings' );
+
+	/** Set optional Theme title via White Label settings */
+	$title = ( ddw_tbex_is_wpbf_premium_active() && ! empty( $wpbf_settings[ 'wpbf_theme_name' ] ) ) ? esc_attr( $wpbf_settings[ 'wpbf_theme_name' ] ) : '';
 
 	/** Page Builder Framework creative */
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(
 		array(
 			'id'     => 'theme-creative',
 			'parent' => 'group-active-theme',
-			'title'  => ddw_tbex_string_theme_title(),
+			'title'  => ddw_tbex_string_theme_title( 'title', 'child', $title ),
 			'href'   => ddw_tbex_customizer_focus( 'panel', 'layout_panel' ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_theme_title( 'attr' )
+				'title'  => ddw_tbex_string_theme_title( 'attr', 'child', $title )
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
-			array(
-				'id'     => 'theme-creative-customize',
-				'parent' => 'theme-creative',
-				'title'  => esc_attr__( 'Customize Design', 'toolbar-extras' ),
-				'href'   => ddw_tbex_customizer_start(),
-				'meta'   => array(
-					'target' => ddw_tbex_meta_target(),
-					'title'  => esc_attr__( 'Customize Design', 'toolbar-extras' )
-				)
-			)
-		);
+	/** Page Builder Framework customize */
+	ddw_tbex_item_theme_creative_customize();
 
 }  // end function
 
 
-add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_pbf_customize', 100 );
+add_filter( 'tbex_filter_items_theme_customizer_deep', 'ddw_tbex_themeitems_pbf_customize' );
 /**
  * Customize items for Page Builder Framework Theme
  *
- * @since  1.1.0
- * @since  1.3.5 Added Blog panel.
+ * @since 1.1.0
+ * @since 1.3.5 Added Blog panel.
+ * @since 1.4.0 Refactored using filter/array declaration.
  *
- * @uses   ddw_tbex_customizer_focus()
- * @uses   ddw_tbex_string_customize_attr()
+ * @uses ddw_tbex_is_woocommerce_active()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param array $items Existing array of params for creating Toolbar nodes.
+ * @return array Tweaked array of params for creating Toolbar nodes.
  */
-function ddw_tbex_themeitems_pbf_customize() {
+function ddw_tbex_themeitems_pbf_customize( array $items ) {
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
-		array(
-			'id'     => 'pbfcmz-general',
-			'parent' => 'theme-creative-customize',
-			/* translators: Autofocus panel in the Customizer */
-			'title'  => esc_attr__( 'General', 'toolbar-extras' ),
-			'href'   => ddw_tbex_customizer_focus( 'panel', 'layout_panel' ),
-			'meta'   => array(
-				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'General', 'toolbar-extras' ) )
-			)
-		)
+	/** Remove default item (to re-add at another position) */
+	if ( isset( $items[ 'title_tagline' ] ) ) {
+		$items[ 'title_tagline' ] = null;
+	}
+
+	/** Declare theme's items */
+	$pbf_items = array(
+		'layout_panel' => array(
+			'type'  => 'panel',
+			'title' => __( 'General', 'toolbar-extras' ),
+			'id'    => 'pbfcmz-general',
+		),
+		'blog_panel' => array(
+			'type'        => 'panel',
+			'title'       => __( 'Blog', 'toolbar-extras' ),
+			'id'          => 'pbfcmz-blog',
+			'preview_url' => get_post_type_archive_link( 'post' ),
+		),
+		'typo_panel' => array(
+			'type'  => 'panel',
+			'title' => __( 'Typography', 'toolbar-extras' ),
+			'id'    => 'pbfcmz-typography',
+		),
+		'header_panel' => array(
+			'type'  => 'panel',
+			'title' => __( 'Header', 'toolbar-extras' ),
+			'id'    => 'pbfcmz-header',
+		),
+		'wpbf_footer_options' => array(
+			'type'  => 'section',
+			'title' => __( 'Footer', 'toolbar-extras' ),
+			'id'    => 'pbfcmz-footer',
+		),
+		/** Re-add here */
+		'title_tagline' => array(
+			'type' => 'section',
+		),
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
-		array(
-			'id'     => 'pbfcmz-blog',
-			'parent' => 'theme-creative-customize',
-			/* translators: Autofocus panel in the Customizer */
-			'title'  => esc_attr__( 'Blog', 'toolbar-extras' ),
-			'href'   => ddw_tbex_customizer_focus( 'panel', 'blog_panel', get_post_type_archive_link( 'post' ) ),
-			'meta'   => array(
-				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Blog', 'toolbar-extras' ) )
-			)
-		)
-	);
+	/** Optional WooCommerce item */
+	if ( ddw_tbex_is_woocommerce_active() && function_exists( 'wpbf_woo_deregister_defaults' ) ) {
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
-		array(
-			'id'     => 'pbfcmz-typography',
-			'parent' => 'theme-creative-customize',
-			/* translators: Autofocus panel in the Customizer */
-			'title'  => esc_attr__( 'Typography', 'toolbar-extras' ),
-			'href'   => ddw_tbex_customizer_focus( 'panel', 'typo_panel' ),
-			'meta'   => array(
-				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Typography', 'toolbar-extras' ) )
-			)
-		)
-	);
-
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
-		array(
-			'id'     => 'pbfcmz-header',
-			'parent' => 'theme-creative-customize',
-			/* translators: Autofocus panel in the Customizer */
-			'title'  => esc_attr__( 'Header', 'toolbar-extras' ),
-			'href'   => ddw_tbex_customizer_focus( 'panel', 'header_panel' ),
-			'meta'   => array(
-				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Header', 'toolbar-extras' ) )
-			)
-		)
-	);
-
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
-		array(
-			'id'     => 'pbfcmz-footer',
-			'parent' => 'theme-creative-customize',
-			/* translators: Autofocus section in the Customizer */
-			'title'  => esc_attr__( 'Footer', 'toolbar-extras' ),
-			'href'   => ddw_tbex_customizer_focus( 'section', 'wpbf_footer_options' ),
-			'meta'   => array(
-				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Footer', 'toolbar-extras' ) )
-			)
-		)
-	);
-
-	/** Optional WooCommerce customization - since PBF 1.8 Beta 1 or higher */
-	if ( function_exists( 'wpbf_woo_deregister_defaults' ) ) {
-		
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
-			array(
-				'id'     => 'pbfcmz-woocommerce',
-				'parent' => 'theme-creative-customize',
-				/* translators: Autofocus panel in the Customizer */
-				'title'  => esc_attr__( 'WooCommerce Integration', 'toolbar-extras' ),
-				'href'   => ddw_tbex_customizer_focus( 'panel', 'woocommerce', get_post_type_archive_link( 'product' ) ),
-				'meta'   => array(
-					'target' => ddw_tbex_meta_target(),
-					'title'  => ddw_tbex_string_customize_attr( __( 'WooCommerce Integration', 'toolbar-extras' ) )
-				)
-			)
+		$pbf_items[ 'woocommerce' ] = array(
+			'type'        => 'panel',
+			'title'       => __( 'WooCommerce Integration', 'toolbar-extras' ),
+			'id'          => 'pbfcmz-woocommerce',
+			'preview_url' => get_post_type_archive_link( 'product' ),
 		);
 
 	}  // end if
+
+	/** Merge and return with all items */
+	return array_merge( $items, $pbf_items );
 
 }  // end function
 
@@ -184,9 +151,9 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_pbf_resources', 120 );
  *
  * @since 1.1.0
  *
- * @uses  ddw_tbex_display_items_resources()
- * @uses  ddw_tbex_is_wpbf_premium_active()
- * @uses  ddw_tbex_resource_item()
+ * @uses ddw_tbex_display_items_resources()
+ * @uses ddw_tbex_is_wpbf_premium_active()
+ * @uses ddw_tbex_resource_item()
  */
 function ddw_tbex_themeitems_pbf_resources() {
 
@@ -257,11 +224,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_wpbf_premium', 100 );
 /**
  * Items for Theme: Page Builder Framework Premium - Add-On Plugin (Premium, by David Vongries & MapSteps)
  *
- * @since  1.1.0
- * @since  1.3.8 Added "Custom Sections" support.
+ * @since 1.1.0
+ * @since 1.3.8 Added "Custom Sections" support.
+ * @since 1.4.0 Added White Label support.
  *
- * @uses   ddw_tbex_is_wpbf_premium_active()
- * @uses   ddw_tbex_customizer_focus()
+ * @uses ddw_tbex_is_wpbf_premium_active()
+ * @uses ddw_tbex_customizer_focus()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -272,16 +240,26 @@ function ddw_tbex_themeitems_wpbf_premium() {
 		return;
 	}
 
+	/** Get Premium White Label settings */
+	$wpbf_settings = get_option( 'wpbf_settings' );
+
+	/** Set optional Premium Add-On title via White Label settings */
+	$title = sprintf(
+		/* translators: %s - name of the White-labeled Premium Add-On plugin; fallback is "PBF Premium" */
+		esc_attr__( '%s Settings', 'toolbar-extras' ),
+		( ! empty( $wpbf_settings[ 'wpbf_plugin_name' ] ) ) ? esc_attr( $wpbf_settings[ 'wpbf_plugin_name' ] ) : __( 'PBF Premium', 'toolbar-extras' )
+	);
+
 	/** Page Builder Framework settings */
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(
 		array(
 			'id'     => 'theme-settings',
 			'parent' => 'group-active-theme',
-			'title'  => esc_attr__( 'PBF Premium Settings', 'toolbar-extras' ),
+			'title'  => $title,
 			'href'   => esc_url( admin_url( 'themes.php?page=wpbf-premium' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'PBF Premium Settings', 'toolbar-extras' )
+				'title'  => $title,
 			)
 		)
 	);
@@ -413,8 +391,8 @@ add_action( 'tbex_after_theme_free_docs', 'ddw_tbex_themeitems_wpbf_premium_reso
  *
  * @since 1.2.0
  *
- * @uses  ddw_tbex_is_wpbf_premium_active()
- * @uses  ddw_tbex_resource_item()
+ * @uses ddw_tbex_is_wpbf_premium_active()
+ * @uses ddw_tbex_resource_item()
  */
 function ddw_tbex_themeitems_wpbf_premium_resources() {
 
@@ -444,7 +422,7 @@ add_action( 'tbex_new_content_before_nav_menu', 'ddw_tbex_themeitems_new_content
 /**
  * Items for "New Content" section: New Custom Section
  *
- * @since  1.3.8
+ * @since 1.3.8
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */

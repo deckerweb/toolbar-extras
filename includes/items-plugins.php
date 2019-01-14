@@ -24,11 +24,29 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 
 /**
- * Plugin: Central Color Palette
+ * Plugin: Central Color Palette (free, by Gáravo)
  * @since 1.0.0
  */
 if ( class_exists( 'kt_Central_Palette' ) ) {
 	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-central-color-palette.php' );
+}
+
+
+/**
+ * Plugin: Iris Color Picker Enhancer (free, by Maeve Lander)
+ * @since 1.4.0
+ */
+if ( defined( 'ICPE_PLUGIN_VERSION' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-iris-color-picker-enhancer.php' );
+}
+
+
+/**
+ * Plugin: Custom Swatches for Iris Color Picker (free, by Iceberg Web Design)
+ * @since 1.4.0
+ */
+if ( function_exists( 'add_iceberg_iris_menu' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-custom-swatches-iris.php' );
 }
 
 
@@ -63,13 +81,13 @@ if ( defined( 'SCCSS_OPTION' ) ) {
  * Plugin: Custom CSS Pro (free, by WaspThemes)
  * @since 1.0.0
  */
-if ( function_exists( 'ccp_frame_loader' ) ) {
+if ( ddw_tbex_is_custom_css_pro_active() ) {
 	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-custom-css-pro.php' );
 }
 
 
 /**
- * Plugin: WP Show Posts CSS (free, by Tom Usborne)
+ * Plugin: WP Show Posts (free, by Tom Usborne)
  * @since 1.1.0
  */
 if ( defined( 'WPSP_VERSION' ) ) {
@@ -87,6 +105,15 @@ if ( defined( 'FPB_SAMPLE_PLUGIN_URL' ) ) {
 
 
 /**
+ * Plugin: IconPress Lite/Pro (free/Premium, by IconPress Team)
+ * @since 1.4.0
+ */
+if ( defined( 'ICONPRESSLITE_VERSION' ) || class_exists( '\IconPress\Base' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-iconpress.php' );
+}
+
+
+/**
  * Plugin: Customizer Export Import (free, by The Beaver Builder Team)
  * @since 1.0.0
  */
@@ -96,11 +123,56 @@ if ( class_exists( 'CEI_Core' ) ) {
 
 
 /**
+ * Plugin: Catch Import Export (free, by Catch Plugins)
+ * @since 1.4.0
+ */
+if ( defined( 'CATCH_IMPORT_EXPORT_VERSION' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-catch-import-export.php' );
+}
+
+
+/**
  * Plugin: One Click Demo Import (free, by ProteusThemes)
  * @since 1.0.0
  */
 if ( class_exists( 'OCDI_Plugin' ) ) {
 	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-oneclick-demo-import.php' );
+}
+
+
+/**
+ * Plugin: WP Mobile Menu (free, by Takanakui)
+ * @since 1.4.0
+ */
+if ( class_exists( 'WP_Mobile_Menu' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-wp-mobile-menu.php' );
+}
+
+
+/**
+ * Plugin: Login Designer (free, by Rich Tabor from ThatPluginCompany)
+ * @since 1.4.0
+ */
+if ( class_exists( 'Login_Designer' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-login-designer.php' );
+}
+
+
+/**
+ * Plugin: Easy Login Styler Pro (Premium, by Phpbits Creative Studio)
+ * @since 1.4.0
+ */
+if ( class_exists( 'Easy_Login_Styler_Pro' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-easy-login-styler.php' );
+}
+
+
+/**
+ * Plugin: Simple Links (free, by Mat Lipe)
+ * @since 1.4.0
+ */
+if ( defined( 'SIMPLE_LINKS_VERSION' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-simple-links.php' );
 }
 
 
@@ -250,9 +322,36 @@ if ( class_exists( 'Church_Theme_Content' ) ) {
 }
 
 
+/**
+ * Plugin: Envato Elements – Template Kits (free, by Envato)
+ * @since 1.4.0
+ */
+if ( defined( 'ENVATO_ELEMENTS_VER' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-envato-elements-template-kits.php' );
+}
+
+
 
 /**
- * 2nd GROUP: Miscellaneous stuff
+ * 2nd GROUP: Builder-related stuff
+ * @since 1.4.0
+ * -----------------------------------------------------------------------------
+ */
+
+/**
+ * Plugin: Epic News Elements (Premium, by Jegtheme)
+ * @since 1.4.0
+ */
+if ( ( ddw_tbex_is_elementor_active() || ddw_tbex_is_wpbakery_active() || ddw_tbex_is_block_editor_active() )	// Elementor, Block Editor (Gutenberg), or WPBakery is needed
+	&& class_exists( '\EPIC\Init' )
+) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-epic-news-elements.php' );
+}
+
+
+
+/**
+ * 3rd GROUP: Miscellaneous stuff
  * @since 1.0.0
  * -----------------------------------------------------------------------------
  */
@@ -285,7 +384,7 @@ if ( in_array( 'github-updater/github-updater.php', apply_filters( 'active_plugi
 
 
 /**
- * Dev Add-On: Local Development (by Andy Fragen)
+ * Dev Add-On: Local Development (free, by Andy Fragen)
  * @since 1.0.0
  */
 if ( ddw_tbex_display_items_dev_mode()
@@ -296,16 +395,16 @@ if ( ddw_tbex_display_items_dev_mode()
 
 
 /**
- * Plugin: WooCommerce (by Automattic)
+ * Plugin: WooCommerce (free, by Automattic)
  * @since 1.0.0
  */
-if ( class_exists( 'WooCommerce' ) ) {
+if ( ddw_tbex_is_woocommerce_active() ) {
 	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-woocommerce.php' );
 }
 
 
 /**
- * Plugin: Popup Maker (by WP Popup Maker & Daniel Iser)
+ * Plugin: Popup Maker (free, by WP Popup Maker & Daniel Iser)
  * @since 1.0.0
  */
 if ( class_exists( 'Popup_Maker' ) ) {
@@ -363,7 +462,7 @@ if ( class_exists( 'SimpleURLs' ) ) {
  * Plugin: Easy Digital Downloads (free)
  * @since 1.0.0
  */
-if ( class_exists( 'Easy_Digital_Downloads' ) ) {
+if ( ddw_tbex_is_edd_active() ) {
 	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-edd.php' );
 }
 
@@ -494,6 +593,7 @@ if ( defined( 'COOL_TIMELINE_VERSION_CURRENT' ) ) {
 }
 
 
+
 /**
  * Plugin: Regenerate Thumbnails (free, by Alex Mills)
  * @since 1.0.0
@@ -540,11 +640,38 @@ if ( class_exists( 'Widget_Importer_Exporter' ) ) {
 
 
 /**
+ * Plugin: The SEO Framework (free, by Sybre Waaijer)
+ * @since 1.4.0
+ */
+if ( defined( 'THE_SEO_FRAMEWORK_VERSION' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-seo-framework.php' );
+}
+
+
+/**
+ * Plugin: Yoast SEO (free, by Team Yoast)
+ * @since 1.4.0
+ */
+if ( defined( 'WPSEO_VERSION' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-yoastseo.php' );
+}
+
+
+/**
  * Plugin: SEOPress (Pro) (free/ Premium, by Benjamin Denis)
  * @since 1.3.2
  */
 if ( defined( 'SEOPRESS_VERSION' ) ) {
 	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-seopress.php' );
+}
+
+
+/**
+ * Plugin: Hummingbird (Pro) (free/Premium, by WPMU DEV)
+ * @since 1.4.0
+ */
+if ( class_exists( 'WP_Hummingbird' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-hummingbird.php' );
 }
 
 
@@ -604,6 +731,87 @@ if ( defined( 'WPSTG_PLUGIN_DIR' ) || defined( 'WPSTGPRO_VERSION' ) ) {
 
 
 /**
+ * Plugin: WP Security Audit Log (free, by WP White Security)
+ * @since 1.4.0
+ */
+if ( class_exists( 'WpSecurityAuditLog' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-wp-security-audit-log.php' );
+}
+
+
+/**
+ * Plugin: Redirection (free, by John Godley)
+ * @since 1.4.0
+ */
+if ( defined( 'REDIRECTION_DB_VERSION' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-redirection.php' );
+}
+
+
+/**
+ * Plugin: Safe Redirect Manager (free, by 10up)
+ * @since 1.4.0
+ */
+if ( class_exists( 'SRM_Redirect' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-safe-redirect-manager.php' );
+}
+
+
+/**
+ * Plugin: SEO Redirection (free, by Fakhri Alsadi)
+ * @since 1.4.0
+ */
+if ( defined( 'WP_SEO_REDIRECTION_VERSION' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-seo-redirection.php' );
+}
+
+
+/**
+ * Plugin: MainWP Child (free, by MainWP)
+ * @since 1.4.0
+ */
+if ( defined( 'MAINWP_CHILD_URL' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-mainwp-child.php' );
+}
+
+
+/**
+ * Plugin: Disable Gutenberg (free, by Jeff Starr)
+ * @since 1.4.0
+ */
+if ( ddw_tbex_is_disable_gutenberg_active() ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-disable-gutenberg.php' );
+}
+
+
+/**
+ * Plugin: Classic Editor (free, by WordPress Contributors)
+ * @since 1.4.0
+ */
+if ( ddw_tbex_is_classic_editor_plugin_active() ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-classic-editor.php' );
+}
+
+
+/**
+ * Plugin: Gutenberg Ramp (free, by Automattic, Inc.)
+ * @since 1.4.0
+ */
+if ( ddw_tbex_is_gutenberg_ramp_active() ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-gutenberg-ramp.php' );
+}
+
+
+/**
+ * Plugin: Dismiss Gutenberg Nag (free, by Luciano Croce)
+ * @since 1.4.0
+ */
+if ( class_exists( 'Dismiss_Gutenberg_Nag_Option_Settings' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-dismiss-gutenberg-nag.php' );
+}
+
+
+/**
  * Plugin: Custom Importer & Exporter (free, by Protech.Inc)
  * @since 1.3.9
  */
@@ -613,9 +821,36 @@ if ( function_exists( 'cie_menuSettings' ) ) {
 
 
 /**
+ * Plugin: Export Import Menus (free, by Akshay Menariya)
+ * @since 1.4.0
+ */
+if ( class_exists( 'DspExportImportMenus' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-export-import-menus.php' );
+}
+
+
+/**
  * Plugin: Members (free, by Justin Tadlock)
  * @since 1.0.0
  */
 if ( class_exists( 'Members_Plugin' ) ) {
 	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-members.php' );
+}
+
+
+/**
+ * Plugin: Thrive Comments (Premium, by Thrive Themes)
+ * @since 1.4.0
+ */
+if ( class_exists( 'Thrive_Comments' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-thrive-comments.php' );
+}
+
+
+/**
+ * Plugin: Easy Updates Manager (free, by Easy Updates Manager Team)
+ * @since 1.4.0
+ */
+if ( ddw_tbex_is_easy_updates_manager_active() ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-easy-updates-manager.php' );
 }

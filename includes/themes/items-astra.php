@@ -19,9 +19,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Check if Astra Pro Add-On plugin is active or not.
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
- * @return bool TRUE if class exists, otherwise FALSE.
+ * @return bool TRUE if class exists, FALSE otherwise.
  */
 function ddw_tbex_is_astra_pro_active() {
 
@@ -34,12 +34,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_astra', 100 );
 /**
  * Items for Theme: Astra (free, by Brainstorm Force)
  *
- * @since  1.0.0
+ * @since 1.0.0
+ * @since 1.4.0 Simplified functions.
  *
- * @uses   ddw_tbex_is_astra_pro_active()
- * @uses   Astra_Ext_White_Label_Markup::get_white_labels()
- * @uses   ddw_tbex_string_customize_design()
- * @uses   ddw_tbex_customizer_start()
+ * @uses ddw_tbex_is_astra_pro_active()
+ * @uses Astra_Ext_White_Label_Markup::get_white_labels()
+ * @uses ddw_tbex_item_theme_creative_customize()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -63,169 +63,94 @@ function ddw_tbex_themeitems_astra() {
 			'href'   => esc_url( admin_url( 'themes.php?page=astra' ) ),
 			'meta'   => array(
 				'target' => '',
-				/* translators: (Static) Theme name OceanWP - optionally white labeled string */
+				/* translators: (Static) Theme name Astra - optionally white labeled string */
 				'title'  => sprintf( esc_attr__( 'Active Theme: %s', 'toolbar-extras' ), $astra_theme_name )
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
-			array(
-				'id'     => 'theme-creative-customize',
-				'parent' => 'theme-creative',
-				'title'  => ddw_tbex_string_customize_design(),
-				'href'   => ddw_tbex_customizer_start(),
-				'meta'   => array(
-					'target' => ddw_tbex_meta_target(),
-					'title'  => ddw_tbex_string_customize_design()
-				)
-			)
-		);
+	/** Astra customize */
+	ddw_tbex_item_theme_creative_customize();
 
 }  // end function
 
 
-add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_astra_customize', 100 );
+add_filter( 'tbex_filter_items_theme_customizer_deep', 'ddw_tbex_themeitems_astra_customize' );
 /**
  * Customize items for Astra Theme
  *
- * @since  1.0.0
+ * @since 1.0.0
+ * @since 1.4.0 Refactored using filter/array declaration.
  *
- * @uses   ddw_tbex_customizer_focus()
- * @uses   ddw_tbex_string_customize_attr()
- * @uses   ddw_tbex_is_astra_pro_active()
+ * @uses ddw_tbex_is_woocommerce_active()
+ * @uses ddw_tbex_is_edd_active()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param array $items Existing array of params for creating Toolbar nodes.
+ * @return array Tweaked array of params for creating Toolbar nodes.
  */
-function ddw_tbex_themeitems_astra_customize() {
+function ddw_tbex_themeitems_astra_customize( array $items ) {
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
-		array(
-			'id'     => 'astracmz-logo',
-			'parent' => 'theme-creative-customize',
-			/* translators: Autofocus control in the Customizer */
-			'title'  => esc_attr__( 'Logo', 'toolbar-extras' ),
-			'href'   => ddw_tbex_customizer_focus( 'control', 'custom_logo' ),
-			'meta'   => array(
-				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Logo', 'toolbar-extras' ) )
-			)
-		)
+	$header_item = ddw_tbex_is_astra_pro_active() ? 'section-header-group' : 'section-header';
+
+	/** Declare theme's items */
+	$astra_items = array(
+		'custom_logo' => array(
+			'type'  => 'control',
+			'title' => __( 'Logo', 'toolbar-extras' ),
+			'id'    => 'astracmz-logo',
+		),
+		'panel-colors-background' => array(
+			'type'  => 'panel',
+			'title' => __( 'Colors', 'toolbar-extras' ),
+			'id'    => 'astracmz-colors',
+		),
+		'panel-typography' => array(
+			'type'  => 'panel',
+			'title' => __( 'Fonts', 'toolbar-extras' ),
+			'id'    => 'astracmz-fonts',
+		),
+		$header_item => array(
+			'type'  => 'section',
+			'title' => __( 'Header Options', 'toolbar-extras' ),
+			'id'    => 'astracmz-header',
+		),
+		'section-footer-group' => array(
+			'type'  => 'section',
+			'title' => __( 'Footer Settings', 'toolbar-extras' ),
+			'id'    => 'astracmz-footer',
+		),
+		'panel-layout' => array(
+			'type'  => 'panel',
+			'title' => __( 'Layout', 'toolbar-extras' ),
+			'id'    => 'astracmz-layout',
+		),
+		'section-sidebars' => array(
+			'type'  => 'section',
+			'title' => __( 'Sidebars', 'toolbar-extras' ),
+			'id'    => 'astracmz-sidebars',
+		),
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
-		array(
-			'id'     => 'astracmz-colors',
-			'parent' => 'theme-creative-customize',
-			/* translators: Autofocus panel in the Customizer */
-			'title'  => esc_attr__( 'Colors', 'toolbar-extras' ),
-			'href'   => ddw_tbex_customizer_focus( 'panel', 'panel-colors-background' ),
-			'meta'   => array(
-				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Colors', 'toolbar-extras' ) )
-			)
-		)
-	);
+	/** WooCommerce module */
+	if ( ddw_tbex_is_woocommerce_active() ) {
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
-		array(
-			'id'     => 'astracmz-fonts',
-			'parent' => 'theme-creative-customize',
-			/* translators: Autofocus panel in the Customizer */
-			'title'  => esc_attr__( 'Fonts', 'toolbar-extras' ),
-			'href'   => ddw_tbex_customizer_focus( 'panel', 'panel-typography' ),
-			'meta'   => array(
-				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Fonts', 'toolbar-extras' ) )
-			)
-		)
-	);
+		$astra_items[ 'section-woo-group' ] = array(
+			'type'        => 'section',
+			'title'       => __( 'WooCommerce Layout', 'toolbar-extras' ),
+			'id'          => 'astracmz-layout-woocommerce',
+			'preview_url' => get_post_type_archive_link( 'product' ),
+		);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
-		array(
-			'id'     => 'astracmz-header',
-			'parent' => 'theme-creative-customize',
-			/* translators: Autofocus section in the Customizer */
-			'title'  => esc_attr__( 'Header Options', 'toolbar-extras' ),
-			'href'   => ddw_tbex_is_astra_pro_active() ? ddw_tbex_customizer_focus( 'section', 'section-header-group' ) : ddw_tbex_customizer_focus( 'section', 'section-header' ),
-			'meta'   => array(
-				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Header Options', 'toolbar-extras' ) )
-			)
-		)
-	);
+	}  // end if
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
-		array(
-			'id'     => 'astracmz-footer',
-			'parent' => 'theme-creative-customize',
-			/* translators: Autofocus section in the Customizer */
-			'title'  => esc_attr__( 'Footer Settings', 'toolbar-extras' ),
-			'href'   => ddw_tbex_customizer_focus( 'section', 'section-footer-group' ),
-			'meta'   => array(
-				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Footer Settings', 'toolbar-extras' ) )
-			)
-		)
-	);
+	/** EDD module */
+	if ( ddw_tbex_is_edd_active() ) {
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
-		array(
-			'id'     => 'astracmz-layout',
-			'parent' => 'theme-creative-customize',
-			/* translators: Autofocus panel in the Customizer */
-			'title'  => esc_attr__( 'Layout', 'toolbar-extras' ),
-			'href'   => ddw_tbex_customizer_focus( 'panel', 'panel-layout' ),
-			'meta'   => array(
-				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Layout', 'toolbar-extras' ) )
-			)
-		)
-	);
-
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
-		array(
-			'id'     => 'astracmz-blog',
-			'parent' => 'theme-creative-customize',
-			/* translators: Autofocus section in the Customizer */
-			'title'  => esc_attr__( 'Blog Layouts', 'toolbar-extras' ),
-			'href'   => ddw_tbex_customizer_focus( 'section', 'section-blog-group', get_post_type_archive_link( 'post' ) ),
-			'meta'   => array(
-				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Blog Layouts', 'toolbar-extras' ) )
-			)
-		)
-	);
-
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
-		array(
-			'id'     => 'astracmz-sidebars',
-			'parent' => 'theme-creative-customize',
-			/* translators: Autofocus section in the Customizer */
-			'title'  => esc_attr__( 'Sidebars', 'toolbar-extras' ),
-			'href'   => ddw_tbex_customizer_focus( 'section', 'section-sidebars' ),
-			'meta'   => array(
-				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Sidebars', 'toolbar-extras' ) )
-			)
-		)
-	);
-
-	/** Optional: WooCommerce Support */
-	if ( class_exists( 'WooCommerce' ) ) {
-
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
-			array(
-				'id'     => 'astracmz-layout-woocommerce',
-				'parent' => 'theme-creative-customize',
-				/* translators: Autofocus section in the Customizer */
-				'title'  => esc_attr__( 'WooCommerce Layout', 'toolbar-extras' ),
-				'href'   => ddw_tbex_customizer_focus( 'section', 'section-woo-group', get_post_type_archive_link( 'product' ) ),
-				'meta'   => array(
-					'target' => ddw_tbex_meta_target(),
-					'title'  => ddw_tbex_string_customize_attr( __( 'WooCommerce Layout', 'toolbar-extras' ) )
-				)
-			)
+		$astra_items[ 'section-edd-group' ] = array(
+			'type'        => 'section',
+			'title'       => __( 'Easy Digital Downloads Layout', 'toolbar-extras' ),
+			'id'          => 'astracmz-layout-edd',
+			'preview_url' => get_post_type_archive_link( 'download' ),
 		);
 
 	}  // end if
@@ -233,18 +158,11 @@ function ddw_tbex_themeitems_astra_customize() {
 	/** Optional: LifterLMS Support */
 	if ( class_exists( 'LifterLMS' ) ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
-			array(
-				'id'     => 'astracmz-layout-lifterlms',
-				'parent' => 'theme-creative-customize',
-				/* translators: Autofocus section in the Customizer */
-				'title'  => esc_attr__( 'LifterLMS Layout', 'toolbar-extras' ),
-				'href'   => ddw_tbex_customizer_focus( 'section', 'section-lifterlms', get_post_type_archive_link( 'course' ) ),
-				'meta'   => array(
-					'target' => ddw_tbex_meta_target(),
-					'title'  => ddw_tbex_string_customize_attr( __( 'LifterLMS Layout', 'toolbar-extras' ) )
-				)
-			)
+		$astra_items[ 'section-lifterlms' ] = array(
+			'type'        => 'section',
+			'title'       => __( 'LifterLMS Layout', 'toolbar-extras' ),
+			'id'          => 'astracmz-layout-lifterlms',
+			'preview_url' => get_post_type_archive_link( 'course' ),
 		);
 
 	}  // end if
@@ -252,21 +170,17 @@ function ddw_tbex_themeitems_astra_customize() {
 	/** Optional: LearnDash Support */
 	if ( defined( 'LEARNDASH_VERSION' ) ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
-			array(
-				'id'     => 'astracmz-layout-learndash',
-				'parent' => 'theme-creative-customize',
-				/* translators: Autofocus section in the Customizer */
-				'title'  => esc_attr__( 'LearnDash Layout', 'toolbar-extras' ),
-				'href'   => ddw_tbex_customizer_focus( 'section', 'section-learndash', get_post_type_archive_link( 'sfwd-courses' ) ),
-				'meta'   => array(
-					'target' => ddw_tbex_meta_target(),
-					'title'  => ddw_tbex_string_customize_attr( __( 'LearnDash Layout', 'toolbar-extras' ) )
-				)
-			)
+		$astra_items[ 'section-learndash' ] = array(
+			'type'        => 'section',
+			'title'       => __( 'LearnDash Layout', 'toolbar-extras' ),
+			'id'          => 'astracmz-layout-learndash',
+			'preview_url' => get_post_type_archive_link( 'sfwd-courses' ),
 		);
 
 	}  // end if
+
+	/** Merge and return with all items */
+	return array_merge( $items, $astra_items );
 
 }  // end function
 
@@ -276,10 +190,10 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_astra_resources', 120 );
  * General resources items for Astra Theme.
  *   Hook in later to have these items at the bottom.
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
- * @uses   ddw_tbex_display_items_resources()
- * @uses   ddw_tbex_resource_item()
+ * @uses ddw_tbex_display_items_resources()
+ * @uses ddw_tbex_resource_item()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -352,12 +266,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_astra_pro', 100 );
 /**
  * Items for Theme: Astra Pro - Add-On Plugin (Premium, by Brainstorm Force)
  *
- * @since  1.0.0
- * @since  1.3.5 Added BTC plugin support.
+ * @since 1.0.0
+ * @since 1.3.5 Added BTC plugin support.
  *
- * @uses   ddw_tbex_is_astra_pro_active()
- * @uses   ddw_tbex_is_elementor_active()
- * @uses   Astra_Ext_White_Label_Markup::get_white_labels()
+ * @uses ddw_tbex_is_astra_pro_active()
+ * @uses ddw_tbex_is_elementor_active()
+ * @uses Astra_Ext_White_Label_Markup::get_white_labels()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -378,12 +292,14 @@ function ddw_tbex_themeitems_astra_pro() {
 			)
 		);
 
+			$type_al = 'astra-advanced-hook';
+
 			$GLOBALS[ 'wp_admin_bar' ]->add_node(
 				array(
 					'id'     => 'a-l-all',
 					'parent' => 'astra-layouts',
 					'title'  => esc_attr__( 'Custom Layouts', 'toolbar-extras' ),
-					'href'   => esc_url( admin_url( 'edit.php?post_type=astra-advanced-hook' ) ),
+					'href'   => esc_url( admin_url( 'edit.php?post_type=' . $type_al ) ),
 					'meta'   => array(
 						'target' => '',
 						'title'  => esc_attr__( 'Custom Layouts', 'toolbar-extras' )
@@ -396,7 +312,7 @@ function ddw_tbex_themeitems_astra_pro() {
 					'id'     => 'a-l-new',
 					'parent' => 'astra-layouts',
 					'title'  => esc_attr__( 'New Layout', 'toolbar-extras' ),
-					'href'   => esc_url( admin_url( 'post-new.php?post_type=astra-advanced-hook' ) ),
+					'href'   => esc_url( admin_url( 'post-new.php?post_type=' . $type_al ) ),
 					'meta'   => array(
 						'target' => '',
 						'title'  => esc_attr__( 'New Layout', 'toolbar-extras' )
@@ -404,14 +320,14 @@ function ddw_tbex_themeitems_astra_pro() {
 				)
 			);
 
-			if ( ddw_tbex_is_elementor_active() && \Elementor\User::is_current_user_can_edit_post_type( 'astra-advanced-hook' ) ) {
+			if ( ddw_tbex_is_elementor_active() && \Elementor\User::is_current_user_can_edit_post_type( $type_al ) ) {
 
 				$GLOBALS[ 'wp_admin_bar' ]->add_node(
 					array(
 						'id'     => 'a-l-builder',
 						'parent' => 'astra-layouts',
 						'title'  => esc_attr__( 'New Layout Builder', 'toolbar-extras' ),
-						'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'astra-advanced-hook' ) ),
+						'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( $type_al ) ),
 						'meta'   => array(
 							'target' => ddw_tbex_meta_target( 'builder' ),
 							'title'  => esc_attr__( 'New Layout Builder', 'toolbar-extras' )
@@ -425,7 +341,7 @@ function ddw_tbex_themeitems_astra_pro() {
 						'id'     => 'alayout-with-builder',
 						'parent' => 'new-astra-advanced-hook',
 						'title'  => ddw_tbex_string_newcontent_with_builder(),
-						'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'astra-advanced-hook' ) ),
+						'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( $type_al ) ),
 						'meta'   => array(
 							'target' => ddw_tbex_meta_target( 'builder' ),
 							'title'  => ddw_tbex_string_newcontent_create_with_builder()
@@ -443,7 +359,7 @@ function ddw_tbex_themeitems_astra_pro() {
 						'id'     => 'astra-layouts-categories',
 						'parent' => 'astra-layouts',
 						'title'  => ddw_btc_string_template( 'layout' ),
-						'href'   => esc_url( admin_url( 'edit-tags.php?taxonomy=builder-template-category&post_type=astra-advanced-hook' ) ),
+						'href'   => esc_url( admin_url( 'edit-tags.php?taxonomy=builder-template-category&post_type=' . $type_al ) ),
 						'meta'   => array(
 							'target' => '',
 							'title'  => esc_html( ddw_btc_string_template( 'layout' ) )
@@ -465,12 +381,14 @@ function ddw_tbex_themeitems_astra_pro() {
 			)
 		);
 
+			$type_avh = 'astra_adv_header';
+
 			$GLOBALS[ 'wp_admin_bar' ]->add_node(
 				array(
 					'id'     => 'a-h-all',
 					'parent' => 'astra-headers',
 					'title'  => esc_attr__( 'Advanced Header', 'toolbar-extras' ),
-					'href'   => esc_url( admin_url( 'edit.php?post_type=astra_adv_header' ) ),
+					'href'   => esc_url( admin_url( 'edit.php?post_type=' . $type_avh ) ),
 					'meta'   => array(
 						'target' => '',
 						'title'  => esc_attr__( 'Advanced Header', 'toolbar-extras' )
@@ -483,7 +401,7 @@ function ddw_tbex_themeitems_astra_pro() {
 					'id'     => 'a-h-new',
 					'parent' => 'astra-headers',
 					'title'  => esc_attr__( 'New Header', 'toolbar-extras' ),
-					'href'   => esc_url( admin_url( 'post-new.php?post_type=astra_adv_header' ) ),
+					'href'   => esc_url( admin_url( 'post-new.php?post_type=' . $type_avh ) ),
 					'meta'   => array(
 						'target' => '',
 						'title'  => esc_attr__( 'New Header', 'toolbar-extras' )
@@ -529,20 +447,24 @@ function ddw_tbex_themeitems_astra_pro() {
 		);
 
 		/** Only show white label settings if they are not hidden */
-		if ( ! $astra_whitelabel[ 'astra-agency' ][ 'hide_branding' ] ) {
+		if ( ! ddw_tbex_hide_astra_whitelabel() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
-				array(
-					'id'     => 'theme-settings-whitelabel',
-					'parent' => 'theme-settings',
-					'title'  => esc_attr__( 'White Label', 'toolbar-extras' ),
-					'href'   => esc_url( admin_url( 'themes.php?page=astra&action=white-label' ) ),
-					'meta'   => array(
-						'target' => '',
-						'title'  => esc_attr__( 'White Label Branding', 'toolbar-extras' )
+			if ( ! $astra_whitelabel[ 'astra-agency' ][ 'hide_branding' ] ) {
+
+				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					array(
+						'id'     => 'theme-settings-whitelabel',
+						'parent' => 'theme-settings',
+						'title'  => esc_attr__( 'White Label', 'toolbar-extras' ),
+						'href'   => esc_url( admin_url( 'themes.php?page=astra&action=white-label' ) ),
+						'meta'   => array(
+							'target' => '',
+							'title'  => esc_attr__( 'White Label Branding', 'toolbar-extras' )
+						)
 					)
-				)
-			);
+				);
+
+			}  // end if
 
 		}  // end if
 
@@ -555,8 +477,8 @@ add_action( 'tbex_after_theme_free_docs', 'ddw_tbex_themeitems_astra_pro_resourc
  *
  * @since 1.0.0
  *
- * @uses  ddw_tbex_is_astra_pro_active()
- * @uses  ddw_tbex_resource_item()
+ * @uses ddw_tbex_is_astra_pro_active()
+ * @uses ddw_tbex_resource_item()
  */
 function ddw_tbex_themeitems_astra_pro_resources() {
 
@@ -588,7 +510,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_astra_developer_resources', 2
  *
  * @since 1.2.0
  *
- * @uses  ddw_tbex_resource_item()
+ * @uses ddw_tbex_resource_item()
  */
 function ddw_tbex_themeitems_astra_developer_resources() {
 
@@ -612,11 +534,11 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_astra_sites_import', 100 );
  * Items for Demos Import:
  *   Astra Starter Sites (free) / Astra Premium Sites (Agency - Premium)
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
- * @uses   ddw_tbex_display_items_demo_import()
- * @uses   ddw_tbex_id_sites_browser()
- * @uses   ddw_tbex_item_title_with_settings_icon()
+ * @uses ddw_tbex_display_items_demo_import()
+ * @uses ddw_tbex_id_sites_browser()
+ * @uses ddw_tbex_item_title_with_settings_icon()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -652,7 +574,7 @@ function ddw_tbex_themeitems_astra_sites_import() {
 
 	}  // end if
 
-}  // end if
+}  // end function
 
 
 add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_astra_custom_fonts', 200 );
@@ -662,8 +584,8 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_astra_custom_fonts', 200 );
  *
  * @since 1.0.0
  *
- * @uses  ddw_tbex_is_astra_pro_active()
- * @uses  Astra_Ext_White_Label_Markup::get_white_labels()
+ * @uses ddw_tbex_is_astra_pro_active()
+ * @uses Astra_Ext_White_Label_Markup::get_white_labels()
  */
 function ddw_tbex_themeitems_astra_custom_fonts() {
 
@@ -744,10 +666,10 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_astra_home_page_banner', 100 
  * Customize items for Astra-specific plugin:
  *   Home Page Banner for Astra Theme (free, by Brainstorm Force)
  *
- * @since  1.3.0
+ * @since 1.3.0
  *
- * @uses   ddw_tbex_customizer_focus()
- * @uses   ddw_tbex_string_customize_attr()
+ * @uses ddw_tbex_customizer_focus()
+ * @uses ddw_tbex_string_customize_attr()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -772,4 +694,4 @@ function ddw_tbex_themeitems_astra_home_page_banner() {
 		)
 	);
 
-}  // end if
+}  // end function

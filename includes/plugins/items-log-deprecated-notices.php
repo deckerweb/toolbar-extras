@@ -17,7 +17,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_devmode_log_deprecated_notice
 /**
  * Items for Plugin: Log Deprecated Notices (free, by Andrew Nacin)
  *
- * @since  1.3.2
+ * @since 1.3.2
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -65,7 +65,7 @@ add_action( 'wp_before_admin_bar_render', 'ddw_tbex_remove_items_log_deprecated_
 /**
  * Remove plugin's "Add New" item as it is not possible to manually add new logs.
  *
- * @since  1.3.2
+ * @since 1.3.2
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */

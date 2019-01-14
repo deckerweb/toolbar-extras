@@ -16,9 +16,9 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_bdthemes_element_pack', 100 );
 /**
  * Items for Add-On: Element Pack (by BdThemes)
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
- * @uses   ddw_tbex_resource_item()
+ * @uses ddw_tbex_resource_item()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -89,6 +89,19 @@ function ddw_tbex_aoitems_bdthemes_element_pack() {
 				'meta'   => array(
 					'target' => '',
 					'title'  => esc_attr__( 'API Settings', 'toolbar-extras' )
+				)
+			)
+		);
+
+		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			array(
+				'id'     => 'ao-bdepack-settings-other',
+				'parent' => 'ao-bdepack',
+				'title'  => esc_attr__( 'Other Settings', 'toolbar-extras' ),
+				'href'   => esc_url( admin_url( 'admin.php?page=element_pack_options#element_pack_other_settings' ) ),
+				'meta'   => array(
+					'target' => '',
+					'title'  => esc_attr__( 'Other Settings', 'toolbar-extras' )
 				)
 			)
 		);

@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Check if PAFE Pro version plugin is active or not.
  *
- * @since  1.3.9
+ * @since 1.3.9
  *
  * @return bool TRUE if constant defined, FALSE otherwise.
  */
@@ -30,10 +30,10 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_piotnet_addons', 100 );
 /**
  * Items for Add-On: Piotnet Addons For Elementor (PAFE) (Pro) (free/Premium, by Luong Huu Phuoc (Louis Hufer))
  *
- * @since  1.3.9
+ * @since 1.3.9
  *
- * @uses   ddw_tbex_is_pafe_pro_active()
- * @uses   ddw_tbex_resource_item()
+ * @uses ddw_tbex_is_pafe_pro_active()
+ * @uses ddw_tbex_resource_item()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */

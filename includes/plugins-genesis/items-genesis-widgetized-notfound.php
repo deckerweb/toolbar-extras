@@ -14,26 +14,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_genesis_widgetized_notfound', 140 );
 /**
- * Items for Add-On: Genesis Widgetized Not Found & 404 (free, by David Decker - DECKERWEB)
+ * Items for Add-On:
+ *   Genesis Widgetized Not Found & 404 (free, by David Decker - DECKERWEB)
  *
- * @since  1.3.5
+ * @since 1.3.5
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
 function ddw_tbex_aoitems_genesis_widgetized_notfound() {
 
-	/** For: Genesis Creative items */
-	$GLOBALS[ 'wp_admin_bar' ]->add_group(
-		array(
-			'id'     => 'be-404page',
-			'parent' => 'theme-creative'
-		)
-	);
-
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(
 		array(
 			'id'     => 'genesis-widgetized-notfound',
-			'parent' => 'theme-creative',
+			'parent' => 'group-genesisplugins-creative',
 			'title'  => esc_attr__( 'Not Found &amp; 404 Page', 'toolbar-extras' ),
 			'href'   => esc_url( admin_url( 'widgets.php#gwnf-404-widget' ) ),
 			'meta'   => array(
@@ -56,7 +49,7 @@ function ddw_tbex_aoitems_genesis_widgetized_notfound() {
 					'id'     => 'gwnf-404page-live-preview',
 					'parent' => 'group-gwnf-404page',
 					'title'  => esc_attr__( 'Edit 404 Page Live Preview', 'toolbar-extras' ),
-					'href'   => ddw_tbex_customizer_focus( 'section', 'sidebar-widgets-gwnf-404-widget', get_site_url() . '/404page-test-' . md5( rand() ) ),
+					'href'   => ddw_tbex_customizer_focus( 'section', 'sidebar-widgets-gwnf-404-widget', get_site_url() . '/404page-test-' . md5( mt_rand() ) ),
 					'meta'   => array(
 						'target' => ddw_tbex_meta_target(),
 						'title'  => esc_attr__( 'Edit 404 Page Live Preview', 'toolbar-extras' )
@@ -82,7 +75,7 @@ function ddw_tbex_aoitems_genesis_widgetized_notfound() {
 					'id'     => 'gwnf-404page-live-test',
 					'parent' => 'group-gwnf-404page',
 					'title'  => esc_attr__( '404 Live Test', 'toolbar-extras' ),
-					'href'   => esc_url( get_site_url() . '/404page-test-' . md5( rand() ) ),
+					'href'   => esc_url( get_site_url() . '/404page-test-' . md5( mt_rand() ) ),
 					'meta'   => array(
 						'target' => ddw_tbex_meta_target(),
 						'title'  => esc_attr__( '404 Live Test', 'toolbar-extras' )
@@ -103,7 +96,7 @@ function ddw_tbex_aoitems_genesis_widgetized_notfound() {
 					'id'     => 'gwnf-search-notfound-live-preview',
 					'parent' => 'group-gwnf-search-notfound',
 					'title'  => esc_attr__( 'Edit Not Found Page Live Preview', 'toolbar-extras' ),
-					'href'   => ddw_tbex_customizer_focus( 'section', 'sidebar-widgets-gwnf-notfound-widget', get_site_url() . '/?s=' . md5( rand() ) ),
+					'href'   => ddw_tbex_customizer_focus( 'section', 'sidebar-widgets-gwnf-notfound-widget', get_site_url() . '/?s=' . md5( mt_rand() ) ),
 					'meta'   => array(
 						'target' => ddw_tbex_meta_target(),
 						'title'  => esc_attr__( 'Edit Not Found Page Live Preview', 'toolbar-extras' )
@@ -129,7 +122,7 @@ function ddw_tbex_aoitems_genesis_widgetized_notfound() {
 					'id'     => 'gwnf-search-notfound-live-test',
 					'parent' => 'group-gwnf-search-notfound',
 					'title'  => esc_attr__( 'Search Not Found Live Test', 'toolbar-extras' ),
-					'href'   => esc_url( get_site_url() . '/?s=' . md5( rand() ) ),
+					'href'   => esc_url( get_site_url() . '/?s=' . md5( mt_rand() ) ),
 					'meta'   => array(
 						'target' => ddw_tbex_meta_target(),
 						'title'  => esc_attr__( 'Search Not Found Live Test', 'toolbar-extras' )

@@ -17,7 +17,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_bsf_wp_portfolio' );
  * Site Items for Plugin: WP Portfolio (Premium, by Brainstorm Force)
  *   Note: Plugin also known as "Astra Portfolio"
  *
- * @since  1.3.2
+ * @since 1.3.2
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -45,7 +45,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_bsf_wp_portfolio', 110 );
  * Theme Items for Plugin: WP Portfolio (Premium, by Brainstorm Force)
  *   Note: Plugin also known as "Astra Portfolio"
  *
- * @since  1.3.2
+ * @since 1.3.2
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */

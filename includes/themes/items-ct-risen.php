@@ -16,10 +16,10 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_ct_risen', 100 );
 /**
  * Items for Theme: Risen & Risen Child Themes (all Premium, by Steven Gliebe)
  *
- * @since  1.3.0
+ * @since 1.3.0
  *
- * @uses   ddw_tbex_string_theme_title()
- * @uses   ddw_tbex_customizer_start()
+ * @uses ddw_tbex_string_theme_title()
+ * @uses ddw_tbex_customizer_start()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -73,10 +73,10 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_ct_risen_settings', 100 );
 /**
  * Settings items for Risen Theme
  *
- * @since  1.3.0
+ * @since 1.3.0
  *
- * @uses   ddw_tbex_string_theme_title()
- * @uses   ddw_tbex_customizer_start()
+ * @uses ddw_tbex_string_theme_title()
+ * @uses ddw_tbex_customizer_start()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -201,8 +201,8 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_ct_risen_resources', 120 );
  *
  * @since 1.3.0
  *
- * @uses  ddw_tbex_display_items_resources()
- * @uses  ddw_tbex_resource_item()
+ * @uses ddw_tbex_display_items_resources()
+ * @uses ddw_tbex_resource_item()
  */
 function ddw_tbex_themeitems_ct_risen_resources() {
 
@@ -248,7 +248,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_ct_risen_post_types', 110 );
 /**
  * Site items for Theme post types: Risen Theme
  *
- * @since  1.3.0
+ * @since 1.3.0
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -625,7 +625,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_ct_risen_post_types', 15 );
 /**
  * Site items for Theme post types: Risen Theme
  *
- * @since  1.3.0
+ * @since 1.3.0
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -794,7 +794,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_new_content_ct_risen_post_types' );
  * Items for "New Content" section: New Sermons/ Gallery/ Events/ Persons/
  *   Locations with Builder
  *
- * @since  1.3.0
+ * @since 1.3.0
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -897,4 +897,4 @@ function ddw_tbex_new_content_ct_risen_post_types() {
 
 	}  // end if
 
-}  // end if
+}  // end function

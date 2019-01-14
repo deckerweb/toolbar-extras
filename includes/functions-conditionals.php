@@ -16,10 +16,10 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Check if we are on localhost. Uses an (filterable) array of common localhost
  *   server names/ IP addresses as well as domain name checks (for '.local').
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
  * @return bool TRUE if Host is a local host (based on known local hosts
- *              listing), otherwise FALSE.
+ *              listing), FALSE otherwise.
  */
 function ddw_tbex_is_localhost() {
 
@@ -67,29 +67,38 @@ function ddw_tbex_is_localhost() {
 
 
 /**
- * Does the current user have the permission to show Toolbar items at all?
+ * Allows for filtering the general user role/capability to display main
+ *   & sub-level items
+ *   Default capability: 'manage_options' (Default cap for Elementor
+ *   settings page).
  *
- * @since  1.0.0
+ * @since 1.0.0
+ * @since 1.4.0 Moved into own function for reusability.
  *
- * @uses   ddw_tbex_display_items()
- *
- * @return bool TRUE if all permissions in place, otherwise FALSE.
+ * @return string Filterable cabability ID.
  */
-function ddw_tbex_show_toolbar_items() {
+function ddw_tbex_capability_show_all() {
 
-	/**
-	 * Allows for filtering the general user role/capability to display main
-	 *   & sub-level items
-	 *   Default capability: 'manage_options' (Default cap for Elementor
-	 *   settings page)
-	 * @since 1.0.0
-	 */
-	$tbex_cap_default = sanitize_key(
+	return sanitize_key(
 		apply_filters(
 			'tbex_filter_capability_all',
 			'manage_options'
 		)
 	);
+
+}  // end function
+/**
+ * Does the current user have the permission to show Toolbar items at all?
+ *
+ * @since 1.0.0
+ * @since 1.4.0 Moved capability setup & filter into own function.
+ *
+ * @uses ddw_tbex_capability_show_all()
+ * @uses ddw_tbex_display_items()
+ *
+ * @return bool TRUE if all permissions in place, FALSE otherwise.
+ */
+function ddw_tbex_show_toolbar_items() {
 
 	/**
 	 * Required WordPress cabability to display new toolbar / admin bar entry
@@ -99,7 +108,7 @@ function ddw_tbex_show_toolbar_items() {
 	 */
 	if ( ! is_user_logged_in()
 		|| ! is_admin_bar_showing()
-		|| ! current_user_can( $tbex_cap_default )	// allows for custom filtering the required role/capability
+		|| ! current_user_can( ddw_tbex_capability_show_all() )	// allows for custom filtering the required role/capability
 		|| ! ddw_tbex_display_items()	// allows for custom disabling
 	) {
 
@@ -120,10 +129,10 @@ function ddw_tbex_show_toolbar_items() {
  * Display items at all or not?
  *   (Allows for custom disabling)
  *
- * @since  1.0.0
- * @todo   TBEX Settings integration!
+ * @since 1.0.0
+ * @todo TBEX Settings integration!
  *
- * @return bool TRUE if constant defined & true, otherwise FALSE.
+ * @return bool TRUE if constant defined & true, FALSE otherwise.
  */
 function ddw_tbex_display_items() {
 
@@ -135,11 +144,11 @@ function ddw_tbex_display_items() {
 /**
  * Display Resource items at all or not?
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
- * @uses   ddw_tbex_get_option()
+ * @uses ddw_tbex_get_option()
  *
- * @return bool TRUE if setting is on 'yes', otherwise FALSE.
+ * @return bool TRUE if setting is on 'yes', FALSE otherwise.
  */
 function ddw_tbex_display_items_resources() {
 
@@ -151,11 +160,11 @@ function ddw_tbex_display_items_resources() {
 /**
  * Display Themes items at all or not?
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
- * @uses   ddw_tbex_get_option()
+ * @uses ddw_tbex_get_option()
  *
- * @return bool TRUE if setting is on 'yes', otherwise FALSE.
+ * @return bool TRUE if setting is on 'yes', FALSE otherwise.
  */
 function ddw_tbex_display_items_themes() {
 
@@ -167,11 +176,11 @@ function ddw_tbex_display_items_themes() {
 /**
  * Display (general) Plugin items at all or not?
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
- * @uses   ddw_tbex_get_option()
+ * @uses ddw_tbex_get_option()
  *
- * @return bool TRUE if setting is on 'yes', otherwise FALSE.
+ * @return bool TRUE if setting is on 'yes', FALSE otherwise.
  */
 function ddw_tbex_display_items_plugins() {
 
@@ -183,11 +192,11 @@ function ddw_tbex_display_items_plugins() {
 /**
  * Display (Elementor) Plugin Add-Ons items at all or not?
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
- * @uses   ddw_tbex_get_option()
+ * @uses ddw_tbex_get_option()
  *
- * @return bool TRUE if setting is on 'yes', otherwise FALSE.
+ * @return bool TRUE if setting is on 'yes', FALSE otherwise.
  */
 function ddw_tbex_display_items_addons() {
 
@@ -199,11 +208,11 @@ function ddw_tbex_display_items_addons() {
 /**
  * Display New Content items at all or not?
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
- * @uses   ddw_tbex_get_option()
+ * @uses ddw_tbex_get_option()
  *
- * @return bool TRUE if setting is on 'yes', otherwise FALSE.
+ * @return bool TRUE if setting is on 'yes', FALSE otherwise.
  */
 function ddw_tbex_display_items_new_content() {
 
@@ -215,11 +224,11 @@ function ddw_tbex_display_items_new_content() {
 /**
  * Display Site items at all or not?
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
- * @uses   ddw_tbex_get_option()
+ * @uses ddw_tbex_get_option()
  *
- * @return bool TRUE if setting is on 'yes', otherwise FALSE.
+ * @return bool TRUE if setting is on 'yes', FALSE otherwise.
  */
 function ddw_tbex_display_items_site() {
 
@@ -231,17 +240,15 @@ function ddw_tbex_display_items_site() {
 /**
  * Display items for edit/ view Post Type singular at all or not?
  *
- * @since  1.3.0
+ * @since 1.3.0
  *
- * @uses   ddw_tbex_get_option()
+ * @uses ddw_tbex_get_option()
  *
- * @return bool TRUE if setting is on 'yes', otherwise FALSE.
+ * @return bool TRUE if setting is on 'yes', FALSE otherwise.
  */
 function ddw_tbex_display_items_edit_content() {
 
 	return ( 'yes' === ddw_tbex_get_option( 'general', 'display_items_edit_content' ) ) ? TRUE : FALSE;
-
-	//return TRUE;
 
 }  // end function
 
@@ -249,11 +256,11 @@ function ddw_tbex_display_items_edit_content() {
 /**
  * Display edit Nav Menus items at all or not?
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
- * @uses   ddw_tbex_get_option()
+ * @uses ddw_tbex_get_option()
  *
- * @return bool TRUE if setting is on 'yes', otherwise FALSE.
+ * @return bool TRUE if setting is on 'yes', FALSE otherwise.
  */
 function ddw_tbex_display_items_edit_nav_menus() {
 
@@ -265,10 +272,10 @@ function ddw_tbex_display_items_edit_nav_menus() {
 /**
  * Display edit Super Admin Nav Menu items at all or not?
  *
- * @since  1.0.0
- * @todo   TBEX Settings integration!
+ * @since 1.0.0
+ * @todo TBEX Settings integration!
  *
- * @return bool TRUE if constant defined & true, otherwise FALSE.
+ * @return bool TRUE if constant defined & true, FALSE otherwise.
  */
 function ddw_tbex_display_items_super_admin_nav_menu() {
 
@@ -280,11 +287,11 @@ function ddw_tbex_display_items_super_admin_nav_menu() {
 /**
  * Display Plugin's own settings items at all or not?
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
- * @uses   ddw_tbex_get_option()
+ * @uses ddw_tbex_get_option()
  *
- * @return bool TRUE if setting is on 'yes', otherwise FALSE.
+ * @return bool TRUE if setting is on 'yes', FALSE otherwise.
  */
 function ddw_tbex_display_items_plugin_settings() {
 
@@ -297,11 +304,11 @@ function ddw_tbex_display_items_plugin_settings() {
  * Display link title attributes (Tooltips) in the Toolbar at all or not?
  *   Note: 'yes' is the default setting!
  *
- * @since  1.2.0
+ * @since 1.2.0
  *
- * @uses   ddw_tbex_get_option()
+ * @uses ddw_tbex_get_option()
  *
- * @return bool TRUE if setting is on 'yes', otherwise FALSE.
+ * @return bool TRUE if setting is on 'yes', FALSE otherwise.
  */
 function ddw_tbex_display_link_title_attributes() {
 
@@ -313,11 +320,11 @@ function ddw_tbex_display_link_title_attributes() {
 /**
  * Display optional Dev Mode items at all or not?
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
- * @uses   ddw_tbex_get_option()
+ * @uses ddw_tbex_get_option()
  *
- * @return bool TRUE if setting is on 'yes', otherwise FALSE.
+ * @return bool TRUE if setting is on 'yes', FALSE otherwise.
  */
 function ddw_tbex_display_items_dev_mode() {
 
@@ -331,11 +338,11 @@ function ddw_tbex_display_items_dev_mode() {
 /**
  * Display optional Demo Import items at all or not?
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
- * @uses   ddw_tbex_get_option()
+ * @uses ddw_tbex_get_option()
  *
- * @return bool TRUE if setting is on 'yes', otherwise FALSE.
+ * @return bool TRUE if setting is on 'yes', FALSE otherwise.
  */
 function ddw_tbex_display_items_demo_import() {
 
@@ -347,11 +354,11 @@ function ddw_tbex_display_items_demo_import() {
 /**
  * Display optional Users items at all or not?
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
- * @uses   ddw_tbex_get_option()
+ * @uses ddw_tbex_get_option()
  *
- * @return bool TRUE if setting is on 'yes', otherwise FALSE.
+ * @return bool TRUE if setting is on 'yes', FALSE otherwise.
  */
 function ddw_tbex_display_items_users() {
 
@@ -363,11 +370,11 @@ function ddw_tbex_display_items_users() {
 /**
  * Display optional Web Group items at all or not?
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
- * @uses   ddw_tbex_get_option()
+ * @uses ddw_tbex_get_option()
  *
- * @return bool TRUE if items should be displayed, otherwise FALSE.
+ * @return bool TRUE if items should be displayed, FALSE otherwise.
  */
 function ddw_tbex_display_items_webgroup() {
 
@@ -377,18 +384,34 @@ function ddw_tbex_display_items_webgroup() {
 
 
 /**
+ * Display optional WP Comments items at all or not?
+ *
+ * @since 1.4.0
+ *
+ * @uses ddw_tbex_get_option()
+ *
+ * @return bool TRUE if items should be displayed, FALSE otherwise.
+ */
+function ddw_tbex_display_items_wpcomments() {
+
+	return ( 'yes' === ddw_tbex_get_option( 'general', 'display_items_wpcomments' ) ) ? TRUE : FALSE;
+
+}  // end function
+
+
+/**
  * Determine whether or not we are in a Local Dev Environment.
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
- * @uses   ddw_tbex_get_option()
- * @uses   ddw_tbex_is_localhost()
+ * @uses ddw_tbex_get_option()
+ * @uses ddw_tbex_is_localhost()
  *
  * @return bool When our constant is defined: TRUE when constant returns TRUE,
  *              otherwise FALSE.
  *              When setting is on 'auto' TRUE when ddw_tbex_is_localhost()
- *              returns TRUE, otherwise FALSE.
- *              When setting is on 'yes' TRUE, otherwise FALSE.
+ *              returns TRUE, FALSE otherwise.
+ *              When setting is on 'yes' TRUE, FALSE otherwise.
  */
 function ddw_tbex_in_local_environment() {
 
@@ -426,115 +449,12 @@ function ddw_tbex_in_local_environment() {
 
 
 /**
- * Is Elementor (free) plugin active or not?
- *
- * @since  1.0.0
- *
- * @return bool TRUE if Elementor is active, otherwise FALSE.
- */
-function ddw_tbex_is_elementor_active() {
-
-	return ( defined( 'ELEMENTOR_VERSION' ) ) ? TRUE : FALSE;
-
-}  // end function
-
-
-/**
- * Is Elementor Pro plugin active or not?
- *
- * @since  1.0.0
- *
- * @return bool TRUE if Elementor Pro active, otherwise FALSE.
- */
-function ddw_tbex_is_elementor_pro_active() {
-
-	return ( defined( 'ELEMENTOR_PRO_VERSION' ) ) ? TRUE : FALSE;
-
-}  // end function
-
-
-/**
- * Check for a specific version of Elementor Core/Pro.
- *
- * @since  1.0.0
- *
- * @param  string $type Type of Elementor, free Core or Pro Version.
- * @param  string $version Version of Elementor Core/Pro to check against.
- * @param  string $operator Comparison operator.
- * @return bool TRUE if the specific Elementor Core/Pro version is active, otherwise FALSE.
- */
-function ddw_tbex_is_elementor_version( $type = 'core', $version = '', $operator = '' ) {
-
-	/** Check type for the 2 possible values */
-	switch ( strtolower( esc_attr( $type ) ) ) {
-
-		case 'core':
-			$elementor_version = ELEMENTOR_VERSION;
-			break;
-
-		case 'pro':
-			$elementor_version = ELEMENTOR_PRO_VERSION;
-			break;
-
-	}  // end switch
-
-	return version_compare( $elementor_version, strtolower( $version ), strtolower( $operator ) );
-
-}  // end function
-
-
-/**
- * Is Genesis Framework plugin active or not?
- *   (A Premium theme by StudioPress/ Rainmaker Digital, LLC)
- *   NOTE: Usage of Genesis without Child Theme is absolutely NOT recommended,
- *         therefore Toolbar Extras plugin does not support that!
- *
- * @since  1.0.0
- *
- * @return bool TRUE if Genesis is active, otherwise FALSE.
- */
-function ddw_tbex_is_genesis_active() {
-
-	return ( 'genesis' === basename( get_template_directory() ) && function_exists( 'genesis_html5' ) );
-
-}  // end function
-
-
-/**
- * Check if Add-On "JetThemeCore" is active or not.
- *
- * @since  1.3.0
- *
- * @return bool TRUE if class 'Jet_Theme_Core' exists, otherwise FALSE.
- */
-function ddw_tbex_is_addon_jetthemecore() {
-
-	return ( class_exists( 'Jet_Theme_Core' ) ) ? TRUE : FALSE;
-
-}  // end function
-
-
-/**
- * Check if Add-On "Kava Extra" is active or not.
- *
- * @since  1.3.0
- *
- * @return bool TRUE if class 'Kava_Extra' exists, otherwise FALSE.
- */
-function ddw_tbex_is_addon_kava_extra() {
-
-	return ( class_exists( 'Kava_Extra' ) ) ? TRUE : FALSE;
-
-}  // end function
-
-
-/**
  * Use smart tweaks at all or not?
  *
- * @since  1.0.0
- * @todo   (Maybe enhanced TBEX Settings integration?)
+ * @since 1.0.0
+ * @todo (Maybe enhanced TBEX Settings integration?)
  *
- * @return bool TRUE if constant defined & true, otherwise FALSE.
+ * @return bool TRUE if constant defined & true, FALSE otherwise.
  */
 function ddw_tbex_use_smart_tweaks() {
 
@@ -545,547 +465,55 @@ function ddw_tbex_use_smart_tweaks() {
 
 
 /**
- * Tweak: Change frontend Toolbar color the backend color?
- *
- * @since  1.0.0
- *
- * @uses   ddw_tbex_get_option()
- *
- * @return bool TRUE if tweak should be used (setting 'yes'), otherwise FALSE.
- */
-function ddw_tbex_use_tweak_frontend_toolbar_color() {
-
-	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'toolbar_front_color' ) ) ? TRUE : FALSE;;
-
-}  // end function
-
-
-/**
- * Tweak: Remove WordPress Logo items from the top left corner?
- *
- * @since  1.0.0
- *
- * @uses   ddw_tbex_get_option()
- *
- * @return bool TRUE if tweak should be used (setting 'yes'), otherwise FALSE.
- */
-function ddw_tbex_use_tweak_wplogo() {
-
-	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'remove_wp_logo' ) ) ? TRUE : FALSE;;
-
-}  // end function
-
-
-/**
- * Tweak: Remove Customize item(s) from the top?
- *
- * @since  1.0.0
- *
- * @uses   ddw_tbex_get_option()
- *
- * @return bool TRUE if tweak should be used (setting 'yes'), otherwise FALSE.
- */
-function ddw_tbex_use_tweak_customizer() {
-
-	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'remove_front_customizer' ) ) ? TRUE : FALSE;;
-
-}  // end function
-
-
-/**
- * Tweak: Remove Media item from New Content group?
- *
- * @since  1.3.0
- *
- * @uses   ddw_tbex_get_option()
- *
- * @return bool TRUE if tweak should be used (setting 'yes'), otherwise FALSE.
- */
-function ddw_tbex_use_tweak_media_newcontent() {
-
-	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'remove_media_newcontent' ) ) ? TRUE : FALSE;;
-
-}  // end function
-
-
-/**
- * Tweak: Remove User item from New Content group?
- *
- * @since  1.2.0
- *
- * @uses   ddw_tbex_get_option()
- *
- * @return bool TRUE if tweak should be used (setting 'yes'), otherwise FALSE.
- */
-function ddw_tbex_use_tweak_user_newcontent() {
-
-	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'remove_user_newcontent' ) ) ? TRUE : FALSE;;
-
-}  // end function
-
-
-/**
- * Tweak: Re-hook Gravity Forms items from the top to our Site Group or not?
- *
- * @since  1.0.0
- *
- * @uses   ddw_tbex_get_option()
- *
- * @return bool TRUE if tweak should be used (setting 'yes'), otherwise FALSE.
- */
-function ddw_tbex_use_tweak_gravityforms() {
-
-	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'rehook_gravityforms' ) ) ? TRUE : FALSE;;
-
-}  // end function
-
-
-/**
- * Tweak: Re-hook Smart Slider 3 items from the top to our Site Group or not?
- *
- * @since  1.0.0
- *
- * @uses   ddw_tbex_get_option()
- *
- * @return bool TRUE if tweak should be used (setting 'yes'), otherwise FALSE.
- */
-function ddw_tbex_use_tweak_smartslider() {
-
-	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'rehook_smartslider' ) ) ? TRUE : FALSE;;
-
-}  // end function
-
-
-/**
- * Tweak: Re-hook NextGen Gallery items from the top to our Site Group or not?
- *
- * @since  1.1.0
- *
- * @uses   ddw_tbex_get_option()
- *
- * @return bool TRUE if tweak should be used (setting 'yes'), otherwise FALSE.
- */
-function ddw_tbex_use_tweak_nextgen() {
-
-	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'rehook_nextgen' ) ) ? TRUE : FALSE;;
-
-}  // end function
-
-
-/**
- * Tweak: Re-hook iThemes Security items from the top to our Site Group or not?
- *
- * @since  1.1.0
- *
- * @uses   ddw_tbex_get_option()
- *
- * @return bool TRUE if tweak should be used (setting 'yes'), otherwise FALSE.
- */
-function ddw_tbex_use_tweak_ithemes_security() {
-
-	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'rehook_ithsec' ) ) ? TRUE : FALSE;;
-
-}  // end function
-
-
-/**
- * Tweak: Re-hook WP Rocket items from the top to our Site Group or not?
- *
- * @since  1.2.0
- *
- * @uses   ddw_tbex_get_option()
- *
- * @return bool TRUE if tweak should be used (setting 'yes'), otherwise FALSE.
- */
-function ddw_tbex_use_tweak_wprocket() {
-
-	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'rehook_wprocket' ) ) ? TRUE : FALSE;;
-
-}  // end function
-
-
-/**
- * Tweak: Re-hook Autoptimize items from the top to our Site Group or not?
- *
- * @since  1.2.0
- *
- * @uses   ddw_tbex_get_option()
- *
- * @return bool TRUE if tweak should be used (setting 'yes'), otherwise FALSE.
- */
-function ddw_tbex_use_tweak_autoptimize() {
-
-	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'rehook_autoptimize' ) ) ? TRUE : FALSE;;
-
-}  // end function
-
-
-/**
- * Tweak: Re-hook Swift Performance Lite items from the top to our Site Group or
- *   not?
- *
- * @since  1.2.0
- *
- * @uses   ddw_tbex_get_option()
- *
- * @return bool TRUE if tweak should be used (setting 'yes'), otherwise FALSE.
- */
-function ddw_tbex_use_tweak_swift_performance() {
-
-	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'rehook_swiftperformance' ) ) ? TRUE : FALSE;;
-
-}  // end function
-
-
-/**
- * Tweak: Remove some WooCommerce post type entries from New Content?
- *
- * @since  1.2.0
- *
- * @uses   ddw_tbex_get_option()
- *
- * @return bool TRUE if tweak should be used (setting 'yes'), otherwise FALSE.
- */
-function ddw_tbex_use_tweak_woocommerce_newcontent() {
-
-	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'remove_woo_posttypes' ) ) ? TRUE : FALSE;
-
-}  // end function
-
-
-/**
- * Tweak: Remove All In One SEO Pack items from the top?
- *
- * @since  1.1.0
- *
- * @uses   ddw_tbex_get_option()
- *
- * @return bool TRUE if tweak should be used (setting 'yes'), otherwise FALSE.
- */
-function ddw_tbex_use_tweak_aioseo() {
-
-	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'remove_aioseo' ) ) ? TRUE : FALSE;
-
-}  // end function
-
-
-/**
- * Tweak: Remove UpdraftPlus items from the top?
- *
- * @since  1.0.0
- *
- * @uses   ddw_tbex_get_option()
- *
- * @return bool TRUE if tweak should be used (setting 'yes'), otherwise FALSE.
- */
-function ddw_tbex_use_tweak_updraftplus() {
-
-	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'remove_updraftplus' ) ) ? TRUE : FALSE;
-
-}  // end function
-
-
-/**
- * Tweak: Remove Members (Role) item from "New Content"?
- *
- * @since  1.0.0
- *
- * @uses   ddw_tbex_get_option()
- *
- * @return bool TRUE if tweak should be used (setting 'yes'), otherwise FALSE.
- */
-function ddw_tbex_use_tweak_members() {
-
-	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'remove_members' ) ) ? TRUE : FALSE;;
-
-}  // end function
-
-
-/**
- * Tweak: Remove Cobalt Apps items from the top?
- *
- * @since  1.0.0
- *
- * @uses   ddw_tbex_get_option()
- *
- * @return bool TRUE if tweak should be used (setting 'yes'), otherwise FALSE.
- */
-function ddw_tbex_use_tweak_cobaltapps() {
-
-	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'remove_cobaltapps' ) ) ? TRUE : FALSE;
-
-}  // end function
-
-
-/**
- * Tweak: Remove Custom CSS Pro item from the top?
- *
- * @since  1.0.0
- *
- * @uses   ddw_tbex_get_option()
- *
- * @return bool TRUE if tweak should be used (setting 'yes'), otherwise FALSE.
- */
-function ddw_tbex_use_tweak_customcsspro() {
-
-	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'remove_customcsspro' ) ) ? TRUE : FALSE;
-
-}  // end function
-
-
-/**
- * Tweak: Remove Admin Page Spider (Pro Pack) item from the Site Group?
- *
- * @since  1.0.0
- *
- * @uses   ddw_tbex_get_option()
- *
- * @return bool TRUE if tweak should be used (setting 'yes'), otherwise FALSE.
- */
-function ddw_tbex_use_tweak_adminpagespider() {
-
-	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'remove_apspider' ) ) ? TRUE : FALSE;
-
-}  // end function
-
-
-/**
- * Tweak: Remove Multisite Toolbar Additions > Site Extend Group items from the
- *   Site Group?
- *
- * @since  1.0.0
- *
- * @uses   ddw_tbex_get_option()
- *
- * @return bool TRUE if tweak should be used (setting 'yes'), otherwise FALSE.
- */
-function ddw_tbex_use_tweak_mstba_siteextgroup() {
-
-	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'remove_mstba_siteextgroup' ) ) ? TRUE : FALSE;
-
-}  // end function
-
-
-
-/**
- * Tweak: Unload Elementor translations?
- *
- * @since  1.2.0
- *
- * @uses   ddw_tbex_get_option()
- *
- * @return bool TRUE if tweak should be used (setting 'yes'), otherwise FALSE.
- */
-function ddw_tbex_use_tweak_unload_translations_elementor() {
-
-	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'unload_td_elementor' ) ) ? TRUE : FALSE;
-
-}  // end function
-
-
-/**
- * Tweak: Unload Toolbar Extras translations?
- *
- * @since  1.2.0
- *
- * @uses   ddw_tbex_get_option()
- *
- * @return bool TRUE if tweak should be used (setting 'yes'), otherwise FALSE.
- */
-function ddw_tbex_use_tweak_unload_translations_toolbar_extras() {
-
-	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'unload_td_toolbar_extras' ) ) ? TRUE : FALSE;
-
-}  // end function
-
-
-/**
- * Tweak: Remove the WordPress Widgets from the Elementor Live Editor?
- *
- * @since  1.2.0
- *
- * @uses   ddw_tbex_get_option()
- *
- * @return bool TRUE if tweak should be used (setting 'yes'), otherwise FALSE.
- */
-function ddw_tbex_use_tweak_elementor_remove_wpwidgets() {
-
-	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'remove_elementor_wpwidgets' ) ) ? TRUE : FALSE;
-
-}  // end function
-
-
-/**
- * Check if current Theme/ Child Theme is a Twenty default theme, or one of the
- *   supported (third-party) child themes.
- *
- * @since  1.0.0
- *
- * @return bool TRUE if current active Theme/ Child Theme is in the array of
- *              supported themes, otherwise FALSE.
- */
-function ddw_tbex_is_default_twenty() {
-
-	$supported_twenty = array(
-
-		/** Supported official default themes */
-		'twentyseventeen',
-		'twentysixteen',
-		'twentyfifteen',
-		'twentyfourteen',
-		'twentythirteen',
-		'twentytwelve',
-		'twentyeleven',
-		'twentyten',
-
-		/** Supported (third-party) child themes */
-		'minimal-2017',
-		'2016-vcready',
-		'2012-vcready'
-	);
-
-	return in_array( get_stylesheet(), $supported_twenty );
-
-}  // end function
-
-
-/**
- * Check if current Theme/ Child Theme is a Hestia theme (by Themeisle), or one
- *   of the supported child themes.
- *
- * @since  1.1.0
- *
- * @return bool TRUE if current active Theme/ Child Theme is in the array of
- *              supported themes, otherwise FALSE.
- */
-function ddw_tbex_is_theme_hestia() {
-
-	$supported_hestia = array(
-
-		/** Supported official Hestia themes */
-		'hestia',
-
-		/** Supported Hestia child themes */
-		'tiny-hestia',
-		'orfeo',
-		'christmas-hestia',
-	);
-
-	return in_array( get_stylesheet(), $supported_hestia );
-
-}  // end function
-
-
-/**
- * Check if current Parent Theme belongs to the Framework Themes supported by
- *   Cobalt Apps plugins.
- *
- * @since  1.1.0
- *
- * @see    Extender Pro: https://cobaltapps.com/extender-pro-supported-themes/
- * @see    Themer Pro: https://cobaltapps.com/themer-pro-supported-themes/
- *
- * @param  string $plugin Helper "handle" of the supported plugin to check for
- * @return bool TRUE if current active Parent Theme is in the array of
- *              supported themes, otherwise FALSE.
- */
-function ddw_tbex_is_cobalt_supported_theme( $plugin = '' ) {
-
-	$supported_frameworks = array(
-		'genesis',
-		'generatepress',
-		'oceanwp',
-		'astra',
-		'bb-theme',
-		'freelancer',
-	);
-
-	$supported_twenty = array(
-		'twentyseventeen',
-		'twentysixteen',
-	);
-
-	/** For: Extender Pro Plugin */
-	if ( 'extender-pro' === sanitize_key( $plugin ) ) {
-		return in_array( basename( get_template_directory() ), $supported_frameworks );
-	}
-
-	/** For: Themer Pro Plugin */
-	if ( 'themer-pro' === sanitize_key( $plugin ) ) {
-		return in_array( basename( get_template_directory() ), array_merge( $supported_frameworks, $supported_twenty ) );
-	}
-
-	/** Fallback "FALSE" if no supported theme active */
-	return FALSE;
-
-}  // end function
-
-
-/**
- * To use the optional hook place for (general) gallery & slider plugins or not.
- *
- * @since  1.1.0
- *
- * @return bool TRUE if the conditions are met, otherwise FALSE.
- */
-function ddw_tbex_use_hook_place_gallery_slider() {
-
-	if ( ddw_tbex_use_tweak_nextgen()
-		|| ddw_tbex_use_tweak_smartslider()
-		|| ( class_exists( 'Envira_Gallery_Lite' ) || class_exists( 'Envira_Gallery' ) )
-		|| ( class_exists( 'Soliloquy_Lite' ) || class_exists( 'Soliloquy' ) )
-		|| defined( 'FOOGALLERY_VERSION' )
-		|| class_exists( 'MaxGalleria' )
-	) {
-
-		/** Use Gallery/ Slider hook place */
-		return TRUE;
-
-	}  // end if
-
-	return FALSE;
-
-}  // end function
-
-
-/**
- * Display item for white label setting of UAEL Add-On at all or not?
- *
- * @since  1.1.0
- *
- * @return bool TRUE if constant defined & false, otherwise FALSE.
- */
-function ddw_tbex_hide_uael_witelabel() {
-
-	//return ( defined( 'WP_UAEL_WL' ) && TRUE === WP_UAEL_WL ) ? TRUE : FALSE;
-	return ( defined( 'WP_UAEL_WL' ) ) ? WP_UAEL_WL : FALSE;
-
-}  // end function
-
-
-/**
  * Use Block Editor support at all or not?
  *
- * @since  1.3.2
+ * @since 1.3.2
+ * @since 1.4.0 Added settings integration.
  *
- * @return bool TRUE if constant defined & true, otherwise FALSE.
+ * @uses ddw_tbex_get_option()
+ *
+ * @return bool Defined constant has higher priority than the settings.
+ *              In either way: if set to TRUE/yes return TRUE, FALSE otherwise.
  */
 function ddw_tbex_use_block_editor_support() {
 
-	return ( defined( 'TBEX_USE_BLOGK_EDITOR_SUPPORT' ) ) ? TBEX_USE_BLOGK_EDITOR_SUPPORT : FALSE;
+	//return ( defined( 'TBEX_USE_BLOGK_EDITOR_SUPPORT' ) ) ? TBEX_USE_BLOGK_EDITOR_SUPPORT : FALSE;
+
+	if ( defined( 'TBEX_USE_BLOGK_EDITOR_SUPPORT' ) ) {
+		return (bool) TBEX_USE_BLOGK_EDITOR_SUPPORT;
+	}
+
+	return ( 'yes' === ddw_tbex_get_option( 'general', 'use_blockeditor_support' ) ) ? TRUE : FALSE;
 
 }  // end function
 
 
 /**
- * Check if the "Blocks Editor" is available or not. This can currently mean:
- *   1) WordPress is in version 5.0.0+ (will contain blocks editor by default)
- *   2) or, the "Gutenberg" plugin is active (is the blocks editor)
+ * Enable Add-Ons/ Plugins support for Block Editor (Gutenberg) at all or not?
  *
- * @since  1.3.2
+ * @since 1.4.0
+ *
+ * @uses ddw_tbex_get_option()
+ *
+ * @return bool By default TRUE (= support enabled). Only if Block Editor
+ *              Add-Ons support is explicitely disabled then FALSE.
+ */
+function ddw_tbex_use_block_editor_addons_support() {
+
+	return ( 'yes' === ddw_tbex_get_option( 'general', 'display_blockeditor_addons' ) ) ? TRUE : FALSE;
+
+}  // end function
+
+
+/**
+ * Check if the "Block Editor" is available or not. This can currently mean:
+ *   1) WordPress is in version 5.0.0+ (will contain Block Editor by default)
+ *   2) or, the "Gutenberg" plugin is active (it is the Blocks Editor)
+ *
+ * @since 1.3.2
  *
  * @global string $GLOBALS[ 'wp_version' ] 
- * @return bool TRUE if blocks editor available, otherwise FALSE.
+ * @return bool TRUE if Block Editor available, FALSE otherwise.
  */
 function ddw_tbex_is_block_editor_active() {
 
@@ -1103,15 +531,144 @@ function ddw_tbex_is_block_editor_active() {
 
 
 /**
- * Is the Builder Template Categories plugin active or not?
+ * When Block Editor is active, check if any external plugin is deactiving the
+ *   Block Editor.
  *
- * @since  1.3.5
+ * @since 1.4.0
  *
- * @return bool TRUE if plugin is active, otherwise FALSE.
+ * @uses ddw_tbex_is_block_editor_active()
+ * @uses ddw_tbex_is_classic_editor_plugin_active()
+ * @uses ddw_tbex_is_classic_editor_addon_active()
+ * @uses ddw_tbex_is_disable_gutenberg_active()
+ * @uses ddw_tbex_is_gutenberg_ramp_active()
+ * @uses ddw_tbex_is_nogutenberg_plugin_active()
+ * @uses ddw_tbex_is_disable_wpgutenberg_update_active()
+ *
+ * @return bool TRUE if certain popular plugins are NOT globally disabling the
+ *              Block Editor.
  */
-function ddw_tbex_is_btcplugin_active() {
+function ddw_tbex_is_block_editor_wanted() {
 
-	return function_exists( 'ddw_btc_string_template' );
+	/** Bail early if Block Editor isn't active at all */
+	if ( ! ddw_tbex_is_block_editor_active() ) {
+		return FALSE;
+	}
+
+	/**
+	 * For: "Classic Editor Add-On" plugin (it deactivates Block Editor
+	 *   completely, automatically).
+	 *   FALSE when plugin is active.
+	 */
+	if ( ddw_tbex_is_classic_editor_addon_active() ) {
+		return FALSE;
+	}
+
+	/**
+	 * For: "No Gutenberg" plugin (deactivates Block Editor completely).
+	 *   FALSE when plugin is active.
+	 */
+	if ( ddw_tbex_is_nogutenberg_plugin_active() ) {
+		return FALSE;
+	}
+
+	/**
+	 * For: "Disable WordPress 'Gutenberg' Update" plugin (keeps WordPress on
+	 *   the legacy 4.9 branch - no updates to 5.0+).
+	 *   FALSE when plugin is active.
+	 */
+	if ( ddw_tbex_is_disable_wpgutenberg_update_active() ) {
+		return FALSE;
+	}
+
+	/**
+	 * For: "Classic Editor" plugin (there are various options we need to check).
+	 *   FALSE when "Classic Editor" is set and users cannot change editor.
+	 */
+	$classic_type = get_option( 'classic-editor-replace' );
+	$classic_user = get_option( 'classic-editor-allow-users' );
+
+	if ( ddw_tbex_is_classic_editor_plugin_active()
+		&& ( isset( $classic_type ) && 'classic' === $classic_type )
+		&& ( isset( $classic_user ) && 'disallow' === $classic_user )
+	) {
+		return FALSE;
+	}
+
+	/**
+	 * For: "Disable Gutenberg" plugin (there are various options we need to
+	 *   check).
+	 *   FALSE when option 'disable for all' is set.
+	 */
+	$g7g_options = get_option( 'disable_gutenberg_options', 'default_disabled_all_not_saved' );
+
+	if ( ddw_tbex_is_disable_gutenberg_active()
+		&& (
+			( 'default_disabled_all_not_saved' === $g7g_options )
+			|| ( isset( $g7g_options[ 'disable-all' ] ) && 1 === $g7g_options[ 'disable-all' ] )
+		)
+	) {
+		return FALSE;
+	}
+
+	/**
+	 * For: "Gutenberg Ramp" plugin (there are various options we need to check).
+	 */
+	if ( ddw_tbex_is_gutenberg_ramp_active() ) {
+
+		$gutenberg_ramp = Gutenberg_Ramp::get_instance();
+		$gbramp_types   = get_option( 'gutenberg_ramp_post_types' );
+
+		/**
+		 * FALSE when no $criteria set & no post types in settings are set
+		 */
+		if ( FALSE === $gutenberg_ramp->active && empty( $gbramp_types ) ) {
+			return FALSE;
+		}
+
+	}  // end if
+
+	/** For: Default - TRUE */
+	return TRUE;
+
+}  // end function
+
+
+/**
+ * When Block Editor is active check if "editor switching" options for users -
+ *   provided by certain plugins - are active.
+ *   Currently supported plugins:
+ *   - Classic Editor
+ *   - Disable Gutenberg
+ *
+ * @since 1.4.0
+ *
+ * @uses ddw_tbex_is_block_editor_active()
+ * @uses ddw_tbex_is_classic_editor_plugin_active()
+ * @uses ddw_tbex_is_disable_gutenberg_active()
+ *
+ * @return bool TRUE when "editor switching" or "editor links" are enabled,
+ *              FALSE otherwise.
+ */
+function ddw_tbex_is_block_editor_user_switch() {
+
+	/** Bail early if Block Editor isn't active at all */
+	if ( ! ddw_tbex_is_block_editor_active() ) {
+		return FALSE;
+	}
+
+	/** Get plugin options */
+	$classic_user = get_option( 'classic-editor-allow-users' );
+	$g7g_options  = get_option( 'disable_gutenberg_options' );
+
+	/** According to plugin settings return TRUE */
+	if ( ( ddw_tbex_is_classic_editor_plugin_active() && ( isset( $classic_user ) && 'allow' === $classic_user ) )
+		|| ( ddw_tbex_is_disable_gutenberg_active() && ( isset( $g7g_options[ 'links-enable' ] ) && 1 === $g7g_options[ 'links-enable' ] ) )
+	) {
+		return TRUE;
+	}
+
+	/** By default, return FALSE */
+	return FALSE;
 
 }  // end function
 
@@ -1144,11 +701,77 @@ function ddw_tbex_capability_unloading_translations() {
  *
  * @uses ddw_tbex_capability_unloading_translations()
  *
- * @return bool TRUE if current user is logged and the capability is met, FALSE
- *              otherwise.
+ * @return bool TRUE if current user is logged in and the capability is met,
+ *              FALSE otherwise.
  */
 function ddw_tbex_is_translations_unloading_allowed() {
 
 	return is_user_logged_in() && current_user_can( ddw_tbex_capability_unloading_translations() );
+
+}  // end function
+
+
+/**
+ * Enable element IDs at all or not? (Post type singulars/tax/archive pages)
+ *
+ * @since 1.4.0
+ *
+ * @uses ddw_tbex_get_option()
+ *
+ * @return bool TRUE if items display wanted, FALSE otherwise.
+ */
+function ddw_tbex_use_devmode_element_ids() {
+
+	return ( 'yes' === ddw_tbex_get_option( 'development', 'use_element_ids' ) ) ? TRUE : FALSE;
+
+}  // end function
+
+
+/**
+ * Use additional Plugin/Theme uploader sub menus in left-hand Admin menu at all
+ *   or not?
+ *
+ * @since 1.4.0
+ *
+ * @uses ddw_tbex_get_option()
+ *
+ * @return bool TRUE if items display wanted, FALSE otherwise.
+ */
+function ddw_tbex_use_devmode_uploader_menus() {
+
+	return ( 'yes' === ddw_tbex_get_option( 'development', 'use_uploader_menus' ) ) ? TRUE : FALSE;
+
+}  // end function
+
+
+/**
+ * Check for various conditions (admin screens etc.) if the display of Admin
+ *   Notice for plugin review is allowed/ wanted.
+ *
+ * @since 1.4.0
+ *
+ * @uses ddw_tbex_capability_show_all()
+ *
+ * @param object $current_screen This global (via get_current_screen()) holds
+ *                               the current screen object.
+ * @return bool If current screen matches the conditions return TRUE, FALSE
+ *              otherwise.
+ */
+function ddw_tbex_is_notice_review_allowed( $current_screen ) {
+
+	$needle_mainwp = 'mainwp';
+
+	/** For specific cases & admin screens don't show the notice */
+	if (
+		! current_user_can( ddw_tbex_capability_show_all() )
+		|| ( 'edit' == $current_screen->base || 'post' == $current_screen->base || 'post-new' == $current_screen->base )
+		|| is_network_admin()
+		|| ( strpos( $needle_mainwp, $current_screen->base ) !== FALSE )
+	) {
+		return FALSE;
+	}
+
+	/** By default let return TRUE (notice will appear) */
+	return TRUE;
 
 }  // end function

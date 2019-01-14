@@ -19,7 +19,7 @@ add_action( 'init', 'ddw_tbex_maybe_turnon_gravityforms_toolbar', 20 );
  *
  * @since 1.2.1
  *
- * @uses  ddw_tbex_use_tweak_gravityforms()
+ * @uses ddw_tbex_use_tweak_gravityforms()
  */
 function ddw_tbex_maybe_turnon_gravityforms_toolbar() {
 
@@ -37,12 +37,13 @@ add_filter( 'wp_before_admin_bar_render', 'ddw_tbex_site_items_gravityforms', 10
  * Items for Plugin: Gravity Forms (Premium, by Rocketgenius, Inc.)
  *   Note: Existing Toolbar node gets filtered.
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
- * @uses   ddw_tbex_use_tweak_gravityforms()
+ * @uses ddw_tbex_use_tweak_gravityforms()
  *
  * @global mixed  $GLOBALS[ 'wp_admin_bar' ]
- * @param  object $wp_admin_bar Holds all nodes of the Toolbar.
+ *
+ * @param object $wp_admin_bar Holds all nodes of the Toolbar.
  */
 function ddw_tbex_site_items_gravityforms( $wp_admin_bar ) {
 
@@ -74,9 +75,9 @@ add_action( 'admin_head', 'ddw_tbex_styles_gravityforms' );
 /**
  * Special styles for re-hooked Gravity Forms item only.
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
- * @uses   ddw_tbex_use_tweak_gravityforms()
+ * @uses ddw_tbex_use_tweak_gravityforms()
  *
  * @return string CSS rules for item tweaks.
  */
@@ -128,7 +129,7 @@ add_action( 'wp_before_admin_bar_render', 'ddw_tbex_site_items_gravityforms_exte
 /**
  * Resources items for Plugin: Gravity Forms
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -266,10 +267,10 @@ add_action( 'wp_before_admin_bar_render', 'ddw_tbex_site_items_gravityforms_reso
 /**
  * Resources items for Plugin: Gravity Forms
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
- * @uses   ddw_tbex_display_items_resources()
- * @uses   ddw_tbex_resource_item()
+ * @uses ddw_tbex_display_items_resources()
+ * @uses ddw_tbex_resource_item()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -324,10 +325,11 @@ add_filter( 'wp_before_admin_bar_render', 'ddw_tbex_aoitems_new_content_gravityf
  * Items for "New Content" section: New Gravity Form
  *   Note: Existing Toolbar node gets filtered.
  *
- * @since  1.3.2
+ * @since 1.3.2
  *
  * @global mixed  $GLOBALS[ 'wp_admin_bar' ]
- * @param  object $wp_admin_bar Holds all nodes of the Toolbar.
+ *
+ * @param object $wp_admin_bar Holds all nodes of the Toolbar.
  */
 function ddw_tbex_aoitems_new_content_gravityforms( $wp_admin_bar ) {
 
@@ -342,7 +344,7 @@ function ddw_tbex_aoitems_new_content_gravityforms( $wp_admin_bar ) {
 			'parent' => 'new-content',
 			'title'  => ddw_tbex_string_new_form( 'Gravity' ),
 			'meta'   => array(
-				'title'  => ddw_tbex_string_new_form( 'Gravity' )
+				'title'  => ddw_tbex_string_add_new_item( ddw_tbex_string_new_form( 'Gravity' ) )
 			)
 		)
 	);
@@ -353,7 +355,7 @@ function ddw_tbex_aoitems_new_content_gravityforms( $wp_admin_bar ) {
 /**
  * Items for Site Group: Gravity Forms Updates
  *
- * @since  1.3.1
+ * @since 1.3.1
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */

@@ -16,7 +16,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_content_aware_sidebars' );
 /**
  * Items for Plugin: Content Aware Sidebars (free, by Joachim Jensen - DEV Institute)
  *
- * @since  1.3.1
+ * @since 1.3.1
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */

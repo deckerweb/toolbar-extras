@@ -16,7 +16,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_regenerate_thumbnails' );
 /**
  * Items for Plugin: Regenerate Thumbnails (free, by Alex Mills)
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */

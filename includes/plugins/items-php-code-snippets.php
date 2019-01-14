@@ -16,10 +16,10 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_php_code_snippets', 15 );
 /**
  * Site Group Items from Plugin: PHP Code Snippets (Insert PHP) (free, by Webcraftic)
  *
- * @since  1.3.2
+ * @since 1.3.2
  *
- * @uses   ddw_tbex_display_items_resources()
- * @uses   ddw_tbex_resource_item()
+ * @uses ddw_tbex_display_items_resources()
+ * @uses ddw_tbex_resource_item()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -126,10 +126,10 @@ add_filter( 'admin_bar_menu', 'ddw_tbex_aoitems_new_content_php_code_snippet', 1
  * Items for "New Content" section: New PHP Code Snippet
  *   Note: Existing Toolbar node gets filtered.
  *
- * @since  1.3.2
+ * @since 1.3.2
  *
  * @global mixed  $GLOBALS[ 'wp_admin_bar' ]
- * @param  object $wp_admin_bar Holds all nodes of the Toolbar.
+ * @param object $wp_admin_bar Holds all nodes of the Toolbar.
  */
 function ddw_tbex_aoitems_new_content_php_code_snippet( $wp_admin_bar ) {
 

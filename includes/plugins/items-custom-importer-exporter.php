@@ -16,9 +16,9 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_custom_importer_exporter', 10
 /**
  * Items for Plugin: Custom Importer & Exporter (free, by Protech.Inc)
  *
- * @since  1.3.9
+ * @since 1.3.9
  *
- * @uses   ddw_tbex_resource_item()
+ * @uses ddw_tbex_resource_item()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar']
  */

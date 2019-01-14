@@ -16,17 +16,19 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_genesis_testimonial_slider', 115
 /**
  * Items for Add-On: Genesis Testimonial Slider (free, by Frank Schrijvers, WPStudio)
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
 function ddw_tbex_aoitems_genesis_testimonial_slider() {
 
+	$type = 'testimonial';
+
 	/** For: Genesis Creative items */
 	$GLOBALS[ 'wp_admin_bar' ]->add_group(
 		array(
 			'id'     => 'group-genesis-testimonialslider',
-			'parent' => 'theme-creative'
+			'parent' => 'group-genesisplugins-creative'
 		)
 	);
 
@@ -35,7 +37,7 @@ function ddw_tbex_aoitems_genesis_testimonial_slider() {
 			'id'     => 'gts-all',
 			'parent' => 'group-genesis-testimonialslider',
 			'title'  => esc_attr__( 'All Testimonials', 'toolbar-extras' ),
-			'href'   => esc_url( admin_url( 'edit.php?post_type=testimonial' ) ),
+			'href'   => esc_url( admin_url( 'edit.php?post_type=' . $type ) ),
 			'meta'   => array(
 				'target' => '',
 				'title'  => esc_attr__( 'All Testimonials', 'toolbar-extras' )
@@ -48,7 +50,7 @@ function ddw_tbex_aoitems_genesis_testimonial_slider() {
 			'id'     => 'gts-new',
 			'parent' => 'group-genesis-testimonialslider',
 			'title'  => esc_attr__( 'New Testimonial', 'toolbar-extras' ),
-			'href'   => esc_url( admin_url( 'post-new.php?post_type=testimonial' ) ),
+			'href'   => esc_url( admin_url( 'post-new.php?post_type=' . $type ) ),
 			'meta'   => array(
 				'target' => '',
 				'title'  => esc_attr__( 'New Testimonial', 'toolbar-extras' )
@@ -56,14 +58,14 @@ function ddw_tbex_aoitems_genesis_testimonial_slider() {
 		)
 	);
 
-	if ( ddw_tbex_is_elementor_active() && \Elementor\User::is_current_user_can_edit_post_type( 'testimonial' ) ) {
+	if ( ddw_tbex_is_elementor_active() && \Elementor\User::is_current_user_can_edit_post_type( $type ) ) {
 
 		$GLOBALS[ 'wp_admin_bar' ]->add_node(
 			array(
 				'id'     => 'gts-builder',
 				'parent' => 'group-genesis-testimonialslider',
 				'title'  => esc_attr__( 'New Testimonial Builder', 'toolbar-extras' ),
-				'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'testimonial' ) ),
+				'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( $type ) ),
 				'meta'   => array(
 					'target' => ddw_tbex_meta_target( 'builder' ),
 					'title'  => esc_attr__( 'New Testimonial Builder', 'toolbar-extras' )
@@ -75,9 +77,9 @@ function ddw_tbex_aoitems_genesis_testimonial_slider() {
 		$GLOBALS[ 'wp_admin_bar' ]->add_node(
 			array(
 				'id'     => 'gts-with-builder',
-				'parent' => 'new-testimonial',
+				'parent' => 'new-' . $type,
 				'title'  => ddw_tbex_string_newcontent_with_builder(),
-				'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'testimonial' ) ),
+				'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( $type ) ),
 				'meta'   => array(
 					'target' => ddw_tbex_meta_target( 'builder' ),
 					'title'  => ddw_tbex_string_newcontent_create_with_builder()
@@ -106,7 +108,7 @@ function ddw_tbex_aoitems_genesis_testimonial_slider() {
 			'id'     => 'manage-content-genesis-testimonial-slider',
 			'parent' => 'manage-content',
 			'title'  => esc_attr__( 'Edit Testimonials', 'toolbar-extras' ),
-			'href'   => esc_url( admin_url( 'edit.php?post_type=testimonial' ) ),
+			'href'   => esc_url( admin_url( 'edit.php?post_type=' . $type ) ),
 			'meta'   => array(
 				'target' => '',
 				'title'  => esc_attr__( 'Edit Testimonials', 'toolbar-extras' )
@@ -122,10 +124,11 @@ add_filter( 'wp_before_admin_bar_render', 'ddw_tbex_site_items_genesis_testimoni
  * Tweak original Testimonial post type label in "New Content" group.
  *   Note: Existing Toolbar node gets filtered.
  *
- * @since  1.3.2
+ * @since 1.3.2
  *
  * @global mixed  $GLOBALS[ 'wp_admin_bar' ]
- * @param  object $wp_admin_bar Holds all nodes of the Toolbar.
+ *
+ * @param object $wp_admin_bar Holds all nodes of the Toolbar.
  */
 function ddw_tbex_site_items_genesis_testimonial_slider( $wp_admin_bar ) {
 

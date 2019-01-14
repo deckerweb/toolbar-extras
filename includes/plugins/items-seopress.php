@@ -15,13 +15,55 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Check if SEOPress Pro version plugin is active or not.
  *
- * @since  1.3.2
+ * @since 1.3.2
  *
- * @return bool TRUE if constant defined, otherwise FALSE.
+ * @return bool TRUE if constant defined, FALSE otherwise.
  */
 function ddw_tbex_is_seopress_pro_active() {
 
-	return ( defined( 'SEOPRESS_PRO_VERSION' ) ) ? TRUE : FALSE;
+	return defined( 'SEOPRESS_PRO_VERSION' );
+
+}  // end function
+
+
+add_filter( 'wp_before_admin_bar_render', 'ddw_tbex_site_items_rehook_seopress' );
+/**
+ * Items for Plugin: SEOPress (Pro) (free/ Premium, by Benjamin Denis)
+ *   If tweak setting is active then re-hook from the top to the tools hook
+ *   place in the Site Group.
+ *   Note: Existing Toolbar node gets filtered.
+ *
+ * @since 1.4.0
+ *
+ * @uses ddw_tbex_use_tweak_seopress()
+ *
+ * @global mixed  $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $wp_admin_bar Holds all nodes of the Toolbar.
+ */
+function ddw_tbex_site_items_rehook_seopress( $wp_admin_bar ) {
+
+	/** Bail early if SEOPress Toolbar items are deactivated */
+	if ( function_exists( 'seopress_advanced_appearance_adminbar_option' ) && '' != seopress_advanced_appearance_adminbar_option() ) {
+		return;
+	}
+
+	/** Bail early if SEOPress tweak should NOT be used */
+	if ( ! ddw_tbex_use_tweak_seopress() ) {
+		return;
+	}
+
+	/** Re-hook for: Site Group */
+	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		array(
+			'id'     => 'seopress_custom_top_level',			// same as original!
+			'parent' => 'tbex-sitegroup-tools',
+			'title'  => esc_attr__( 'SEOPress', 'toolbar-extras' ),
+			'meta'   => array(
+				'class'  => 'tbex-seopress',
+				'title'  => esc_attr__( 'SEOPress', 'toolbar-extras' )
+			)
+		)
+	);
 
 }  // end function
 
@@ -30,9 +72,9 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_seopress', 100 );
 /**
  * Additional items for Plugin: SEOPress (Pro) (free/ Premium, by Benjamin Denis)
  *
- * @since  1.3.2
+ * @since 1.3.2
  *
- * @uses   ddw_tbex_resource_item()
+ * @uses ddw_tbex_resource_item()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar']
  */
@@ -43,7 +85,7 @@ function ddw_tbex_site_items_seopress() {
 		return;
 	}
 
-	/** Get SEOPress options which feature aka "toggle" is activated */
+	/** Get SEOPress options which feature (aka "toggle") is activated */
 	$sp_options = get_option( 'seopress_toggle' );
 
 	/** Redirections */
@@ -192,7 +234,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_new_content_seopress_pro', 100 )
 /**
  * Items for "New Content" section: New SEOPress Pro 404 Redirection
  *
- * @since  1.3.2
+ * @since 1.3.2
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -228,9 +270,9 @@ add_action( 'wp_before_admin_bar_render', 'ddw_tbex_maybe_remove_items_seopress'
  * Conditionally remove SEOPress Toolbar items if features in SEOPress itself
  *   were deactivated.
  *
- * @since  1.3.2
+ * @since 1.3.2
  *
- * @uses   seopress_advanced_appearance_adminbar_option()
+ * @uses seopress_advanced_appearance_adminbar_option()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -241,7 +283,7 @@ function ddw_tbex_maybe_remove_items_seopress() {
 		return;
 	}
 
-	/** Get SEOPress options which feature aka "toggle" is activated */
+	/** Get SEOPress options which feature (aka "toggle") is activated */
 	$sp_options = get_option( 'seopress_toggle' );
 
 	/** Loop through all toggles */

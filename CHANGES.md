@@ -13,6 +13,184 @@
 
 ## Changelog of the Plugin
 
+### 1.4.0 - 2019-01-14
+
+* New: Full support for WordPress 5.0+ new Block Editor (Gutenberg) - set as default "Page Builder" integration (for Toolbar); also supported are popular plugins "Classic Editor" and "Disable Gutenberg" plugins
+* New: Lots of additional resource links for Block Editor (Gutenberg) added (can be disabled like other resources)
+* New: Support for dozens of Block Editor specific Gutenberg Add-On plugins and themes now built-in - see appropriate changelog sections below -- the add-on support can be disabled via plugin's settings
+* New: You can now set a default Page Builder (in General settings tab) - perfect if you are using the new Block Editor (Gutenberg) for posts but Elementor Page Builder for everything else - this is also in preparation for upcoming Add-Ons for other Page Builders
+* New: Add new items to the WP Comments Group - as well as the popular newcomer "Thrive Comments" plugin - additional items can be disabled via plugin's settings
+* New: Add plugin support for "Thrive Comments" (Premium, by Thrive Themes) - if active it replaces the comments moderation link in the Toolbar with the Thrive Comments Moderation queue, which is only logical (and natural then) - of course this integrates with the before mentioned WP Comments Group support as well :)
+* New: Customize the Howdy/Welcome item on top right corner - replace "Howdy" word, or use complete custom strings; set custom URL
+* New: Greatly enhanced the "Fallback" item (instead of Main item, in "Build" Group) - if no supported Page Builder active, you can now still set a different icon, name and even URL
+* New: For Main Item (Build Group) you can now optionally set a custom URL, including the URL target
+* New: Added more detailed help tabs and enhanced help content throughout - also improved user guidance on different areas of the plugin
+* New: On user profile pages added short info/description and link to plugin's settings page (to adjust more stuff for the Toolbar)
+* New: For Dev Mode - add additional sub page under "Appearance" for the Theme Installer ZIP Uploader - more convenient for admins and site builders testing themes during development phases for example :)
+* New: For Dev Mode - add additional sub page under "Plugins" for the Plugin Installer ZIP Uploader - more convenient for admins and site builders installing and/or testing (premium) plugins
+* New: For Dev Mode - added (optional) "ID" sub item for viewing Archives, Singles, Taxonomies - makes it easier to determine the ID of a given object/item - and avoids yet another plugin
+* New: For Dev Mode - added "Newest Plugins" to the plugin installer sub items in the Toolbar (developers often need to test new plugins, this new item saves them a few clicks!)
+* New: For Dev Mode - added "Newest Themes" to the theme installer sub items in the Toolbar (developers often need to test new themes, this new item saves them a few clicks!)
+* Mew: Prepared plugin internally for its first (upcoming) Add-On plugin
+* New: Added full support for newest features and changes coming with Elementor v2.4.0+, including Elementor Pro v2.4.0+
+* New: Added "Toolbar Extras" integration with "Elementor Finder" feature - the interactive search since Elementor v2.3.0+
+* New: Added official and third-party external "Elementor Resources" to the Elementor Finder feature
+* New: Added the Elementor Tools tasks for "Regnerating CSS" (clear cache) and re-syncing the (external) Template Library to the Toolbar - ***Note:** this is only available within the Admin context, not on the Frontend Toolbar!*
+* New: Added full plugin support for Yoast SEO and Yoast SEO Premium, including re-hooking from the top-level to the Site Group (optional Smart Tweak)
+* New: Added "Toolbar Tools" submenu to "Tools" (currently pointing to our "Smart Tweaks")
+* New: Added CSS styling to fix the overflow issue from WordPress Core, with too many top-level Toolbar items, for screens/viewports equal or wider than 783px
+* New: Added full Theme support for "Suki" (free), including all current features of the optional Suki Pro Add-On plugin (Premium) (both by SukiWP/ David Rozando)
+* New: Added plugin support for "Easy Updates Manager" (free, by Easy Updates Manager Team) - plus a Smart Tweak to remove the top-level Toolbar item of the plugin
+* New: Successfully tested with latest WordPress versions 5.0.3 and 5.0.2 before
+* Tweak: Updated and further improved the styling of the plugin's settings page: easier to visually distinct various settings sections and fields - also included: better support for the "Dark Mode" plugin
+* Tweak: Added new external site check service "Load Impact" to the Web Group (optional Smart Tweak)
+* Tweak: Added submit/test Site URLs or Singular URLs for "GTmetrix", "Google PageSpeed Insights" and "Load Impact" for the Web Group (optional Smart Tweak)
+* Tweak: Again, greatly enhanced plugin support for "Genesis Design Palette Pro" - with sub section links, plus Customizer deep links (if enabled)
+* Tweak: Greatly enhanced "Customify" Theme support - added more Toolbar items, as well as all new Pro Modules (via Customify Pro Add-On plugin)
+* Tweak: Improved and updated "OceanWP" Theme support, including some Add-Ons (Demos, Wizard, Posts Slider etc.)
+* Tweak: Enhanced "SEOPress" plugin support with re-hook setting feature (optional Smart Tweak) to move items from top-level to the Site Group
+* Tweak: Switched the Customizer and Admin link positions for "Widgets" in the Site Group
+* Tweak: Enhanced "JetEngine" plugin support - which is out of beta - added Meta Boxes, Post Relations
+* Tweak: Enhanced "Everest Forms" plugin support - added individual form preview links that are now available within Everest
+* Tweak: For "WP Schema Pro" plugin support - respect the advanced setting of menu position (dynamic)
+* Tweak: Improved "Mai Lifestyle Pro" Theme support - better integration for its "Mai Theme Engine" plugin, plus integration of "Mai Demo Importer" Add-On
+* Tweak: Optimized "Genesis" overall Theme support when using lots of sub items from child theme and various supported plugins 
+* Tweak: Enhanced "Astra" Theme support - added EDD Customizer module
+* Tweak: Enhanced "Elementor Hello" Theme support
+* Tweak: Enhanced "Page Builder Framework" Theme support - new "White Label" feature via WPBF Premium Add-On
+* Tweak: Improved string rendering & translations for some of the supported form builder plugins
+* Tweak: Improved plugin support for "Livemesh Addons for Elementor Premium"
+* Tweak: Enhanced plugin support for "WooCommerce"
+* Tweak: Enhanced plugin support for "WPForms" (Lite) and "WPForms Pro"
+* Tweak: Enhanced plugin support for "WP Synchro"
+* Tweak: For color picker set color palette with appropriate predefined colors (Toolbar color in "Local Development Environment" settings)
+* Tweak: For my own plugin, ["Builder Template Categories"](https://wordpress.org/plugins/builder-template-categories/), added it to the full Block Editor (Gutenberg) integration
+* Tweak: For Dev Mode - added new resource item (Block Editor Handbook)
+* Tweak: Added some new translator inline comments, and improved some existing ones
+* Tweak: Updated bundled library Persistant Admin notices Removal to latest version (v1.4.2) - ***Important:** you may need to dismiss the notices once again*
+* Tweak: Enhanced plugin recommendations (powered by DDWlib Plugin Installer Recommendations)
+* Tweak: Updated `.pot` file plus all German translations (formal, informal) and language packs
+* Tweak: Enhanced, improved and corrected Readme.txt file here - also added new FAQ entry
+* Fix: Minor HTML markup issues on the settings page
+
+**New:** *Extended the Theme support for:*
+
+* Atomic Blocks (free, by Atomic Blocks/ Array Themes)
+* Editor Blocks (free, by Editor Blocks/ Danny Cooper)
+* Twenty Nineteen (free, the WordPress.org team) - *Note: the new default theme since WordPress 5.0+*
+* Mai Law Pro (Child Theme for Genesis) (Premium, by Mike Hemberger, BizBudding Inc.)
+* CoBlocks (free, by Rich Tabor of CoBlocks)
+* Sydney (free, by athemes)
+* Suki (free, by SukiWP/ David Rozando) - including Suki Pro Add-On plugin (Premium, by SukiWP/ David Rozando)
+* Visual Composer Starter (free, by The Visual Composer Team)
+
+**New:** *Extended the Plugin support for Elementor Add-Ons:*
+
+* JetWidgets For Elementor (free, by CrocoBlock/ Zemez Jet)
+* JetWoo Widgets For Elementor (free, by CrocoBlock/ Zemez Jet)
+* Custom Icons for Elementor (free, by Michael Bourne)
+* Widgets For Elementor (free, by maxster)
+* Envato Elements – Template Kits (Beta) (free, by Envato) - *Also integration in New Content installer*
+* StylePress for Elementor (free, by David Baker (dtbaker)) - *Note: only for plugin version v1.2.1 or higher!*
+* Formentor – Elementor Form Plus (free, by Tziki Trop)
+* JetPopup (Premium, by Zemez Jet/ CrocoBlock)
+* JetSmartFilters (Premium, by Zemez Jet/ CrocoBlock)
+* JetDesignKit (Premium, by Zemez Jet/ CrocoBlock)
+* JetWooProductGallery (Premium, by Zemez Jet/ CrocoBlock)
+* GT3 Elementor Photo Gallery (free, by GT3 Themes)
+* Opal Megamenu for Elementor (free, by wpopal)
+* Opal Widgets for Elementor (free, by wpopal)
+* [Elementor White Label](https://github.com/namncn/elementor-white-label) (free, by Nam Truong, PhoenixDigi Việt Nam)
+* [Elementor White Label Pro](https://namncn.com/plugins/elementor-white-label/) (Premium, by Nam Truong, PhoenixDigi Việt Nam)
+* Elementor White Label Branding (free, by Ozan Canakli)
+* PowerPack Lite for Elementor (free, by IdeaBox Creations)
+
+**New:** *Introduced Plugin support for Block Editor Add-Ons (Gutenberg):*
+
+* Disable Gutenberg (free, by Jeff Starr)
+* Custom Fields for Gutenberg (free, by Jeff Starr)
+* Block Lab (free, by Block Lab)
+* Advanced Custom Blocks (free, by Rheinard Korf, Luke Carbis, Rob Stinson)
+* WP Block Ink (free, by Dave Ryan)
+* Lazy Blocks – Gutenberg Blocks Constructor (free, by nK)
+* Advanced Gutenberg (free, by JoomUnited)
+* Advanced Gutenberg Blocks (free, by Maxime Bernard-Jaquet)
+* Amazon Block (free, by Ryo Utsunomiya)
+* Block Options (free, by Phpbits Creative Studio)
+* Blocks Google Map (free, by Govind Kumar)
+* Blocks Layouts (free, by Jordy Meow)
+* Atomic Blocks (free, by Atomic Blocks/ Array Themes)
+* Editor Blocks (free, by Editor Blocks/ Danny Cooper)
+* Disable Gutenberg Blocks (free, by Danny Cooper)
+* Cloud Blocks (free, by Frontkom - Fouad Yousefi) - *Also integration in New Content installer*
+* Placeholder Block (free, by Square Happiness)
+* Ultimate Addons for Gutenberg (free, by Brainstorm Force)
+* Gutenberg Ramp (free, by Automattic, Inc.)
+* Custom Color Palette for Gutenberg (free, by ThemeZee)
+* Ultimate Blocks (free, by Imtiaz Rayhan)
+* Theme Support for Gutenberg (free, by wpweaver)
+* Enable Gutenberg Theme Support (free, by Israel Escuer, Jose Angel Vidania)
+* UltraBlocks Free/Pro (free/Premium, by FestPlugins)
+* Kadence Blocks - Gutenberg Page Builder Toolkit (free, by Kadence Themes)
+* Stag Blocks (free, by Codestag)
+* GutenBeGone (free, by Lee Rickler)
+* Gutenberg Manager (free, by unCommons Team)
+* Unregister Gutenberg Blocks (free, by Luke Kowalski)
+* WPBlocks (free, by WPBlocks)
+* Gutenberg Templates (Block Templates) (free, by Konstantinos Galanakis)
+* Stackable Gutenberg Blocks (free, by Gambit Technologies, Inc.)
+* Caxton (free, by PootlePress)
+* WE Blocks (free, by wordpresteem)
+* Premium Blocks for Gutenberg (free, by Leap13)
+* Elegant Blocks (free, by ravisakya, cyclonetheme)
+
+**New:** *Extended the Genesis Plugin support for:*
+
+* Mai Demo Importer (free, by Mike Hemberger, BizBudding Inc.) - *an Add-On for the "Mai Themes" for Genesis*
+* Genesis Super Customizer (free, by Mario Giancini) - *Note: only version 1.2.2 or higher supported*
+* Genesis Simple Share (free, by StudioPress)
+* Genesis Simple FAQ (free, by StudioPress)
+* Genesis Featured Image Header (free, by Scott DeLuzio)
+* Easy Genesis (free, by Doug Yuen)
+* Easy Genesis - Pages Extension (free, by Doug Yuen)
+
+**New:** *Extended the general Plugin support for:*
+
+* IconPress Lite (free, by IconPress Team)
+* IconPress Pro (Premium, by IconPress Team)
+* Iris Color Picker Enhancer (free, by Maeve Lander)
+* Custom Swatches for Iris Color Picker (free, by Iceberg Web Design)
+* Yoast SEO (free, by Team Yoast)
+* Yoast SEO Premium (Premium, by Team Yoast)
+* Catch Import Export (free, by Catch Plugins)
+* MainWP Child (free, by MainWP)
+* MainWP Child Reports (free, by MainWP)
+* WP Security Audit Log (free, by WP White Security)
+* Thrive Comments (Premium, by Thrive Themes)
+* Forminator (Pro) (free/Premium, by WPMU DEV)
+* Form Maker (free, by WebDorado Form Builder Team)
+* MailPoet 3 (free, by MailPoet)
+* MailPoet Newsletters (Previous) (Version 2, Legacy) (free, by MailPoet)
+* Mailster (Premium, by EverPress)
+* Epic News Elements (Premium, by Jegtheme) - an Add-On for Elementor, Block Editor (Gutenberg) and WPBakery Page Builder (old Visual Composer)
+* Classic Editor (free, by WordPress Contributors)
+* Export Import Menus (free, by Akshay Menariya)
+* Entries For WPForms (free, by Sanjeev Aryal)
+* Hummingbird (free, by WPMU DEV)
+* Hummingbird Pro (Premium, by WPMU DEV)
+* Redirection (free, by John Godley)
+* Safe Redirect Manager (free, by 10up)
+* SEO Redirection (free, by Fakhri Alsadi)
+* Easy Updates Manager (free, by Easy Updates Manager Team)
+* Dismiss Gutenberg Nag (free, by Luciano Croce)
+* Easy Login Styler (Premium, by Phpbits Creative Studio)
+* Login Designer (free, by Rich Tabor from ThatPluginCompany)
+* WP Mobile Menu (free, by Takanakui)
+* Simple Links (free, by Mat Lipe)
+* Error Log Viewer (free, by BestWebSoft) - for Dev Mode
+* The SEO Framework (free, by Sybre Waaijer)
+
+
 ### 1.3.10 - 2018-12-30 
 
 * Tweak: Open plugin's newsletter link in new browser tab

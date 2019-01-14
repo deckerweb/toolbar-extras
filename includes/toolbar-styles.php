@@ -17,11 +17,13 @@ add_action( 'admin_head', 'ddw_tbex_toolbar_styles', 100 );
 /**
  * Add the needed CSS styles for Toolbar items of "Toolbar Extras" plugin.
  * 
- * @since  1.0.0
+ * @see https://developer.wordpress.org/resource/dashicons/
  *
- * @uses   ddw_tbex_display_items_site()
- * @uses   ddw_tbex_id_main_item()
- * @uses   ddw_tbex_id_sites_browser()
+ * @since 1.0.0
+ *
+ * @uses ddw_tbex_display_items_site()
+ * @uses ddw_tbex_id_main_item()
+ * @uses ddw_tbex_id_sites_browser()
  *
  * @return string CSS styling for selected Toolbar items.
  */
@@ -50,6 +52,11 @@ function ddw_tbex_toolbar_styles() {
 				padding: 4px 0;
 				position: relative;
 				speak: none;
+			}
+
+			#wpadminbar #wp-admin-bar-my-sub-item .ab-label {
+				margin-left: -5px;
+				margin-top: -2px;
 			}',
 			'\f336'
 		);
@@ -130,12 +137,23 @@ function ddw_tbex_toolbar_styles() {
 				top: 2px;
 			}
 
-			#wpadminbar #wp-admin-bar-customize-cei {
+			#wpadminbar #wp-admin-bar-customize-cei,
+			#wpadminbar #wp-admin-bar-customize-catch-importexport {
 				margin-bottom: 7px;
 			}
 
-			#wpadminbar #wp-admin-bar-customize-cei .ab-icon:before {
+			#wpadminbar #wp-admin-bar-customize-cei .ab-icon:before,
+			#wpadminbar #wp-admin-bar-customize-catch-importexport .ab-icon:before {
 				content: '\f111';
+				top: 2px;
+			}
+
+			#wpadminbar #wp-admin-bar-customize-easyloginstyler-pro {
+				margin-bottom: 7px;
+			}
+
+			#wpadminbar #wp-admin-bar-customize-easyloginstyler-pro .ab-icon:before {
+				content: '\f336';
 				top: 2px;
 			}
 
@@ -153,13 +171,26 @@ function ddw_tbex_toolbar_styles() {
 				margin-top: -3px;
 			}
 
+			#wpadminbar .tbex-element-id .ab-icon:before {
+				content: '\f107';
+				top: 2px;
+			}
+
+			#wpadminbar .tbex-element-id {
+				bottom: 2px;
+				margin-top: 2px;
+			}
+
 			/* Sites Browser/ Demos */
-			#wpadminbar #wp-admin-bar-<?php echo ddw_tbex_id_sites_browser(); ?> {
+			#wpadminbar #wp-admin-bar-<?php echo ddw_tbex_id_sites_browser(); ?>,
+			#wpadminbar #wp-admin-bar-envato-elements-template-kits {
 				margin-top: -3px;
 			}
 
 			/* Web Group */
 			#wpadminbar #wp-admin-bar-tbex-web-resources .tbex-siteicon img {
+				margin-bottom: 8px;  /* Compat fix */
+				margin-top: 4px;  /* Compat fix */
 				width: 16px;
 				height: 16px;
 			}
@@ -192,13 +223,20 @@ function ddw_tbex_toolbar_styles() {
 
 			/* Tweaks for groups */
 			#wp-admin-bar-group-devmode-resources,
-			#wp-admin-bar-group-churchcontent-resources {
-				border-top: 1px solid rgba(235, 235, 235, 0.35);
+			#wp-admin-bar-group-churchcontent-resources,
+			#wp-admin-bar-group-envatoelements-resources {
+				border-top: 1px dotted rgba(235, 235, 235, 0.35);
 			}
 
 			.admin-color-light #wp-admin-bar-group-devmode-resources,
-			.admin-color-light #wp-admin-bar-group-churchcontent-resources {
-				border-top: 1px solid rgba(7, 7, 7, 0.2);
+			.admin-color-light #wp-admin-bar-group-churchcontent-resources,
+			.admin-color-light #wp-admin-bar-group-envatoelements-resources {
+				border-top: 1px dotted rgba(7, 7, 7, 0.2);
+			}
+
+			/* Tweaks for icons set via settings */
+			#wpadminbar .ab-icon.tbexmwp-settings-icon {
+				top: 2px;
 			}
 
 			/* Color fixes */
@@ -220,8 +258,16 @@ function ddw_tbex_toolbar_styles() {
 			#wpadminbar #wp-admin-bar-customize-sccss .ab-label,
 			#wpadminbar #wp-admin-bar-customize-cei .ab-icon:before,
 			#wpadminbar #wp-admin-bar-customize-cei .ab-label,
+			#wpadminbar #wp-admin-bar-customize-catch-importexport .ab-icon:before,
+			#wpadminbar #wp-admin-bar-customize-catch-importexport .ab-label,
+			#wpadminbar #wp-admin-bar-customize-easyloginstyler-pro .ab-icon:before,
+			#wpadminbar #wp-admin-bar-customize-easyloginstyler-pro .ab-label,
+			#wpadminbar #wp-admin-bar-my-sub-item .ab-icon:before,
+			#wpadminbar #wp-admin-bar-my-sub-item .ab-label,
 			#wpadminbar .tbex-customize-content .ab-icon:before,
 			#wpadminbar .tbex-customize-content .ab-label,
+			#wpadminbar .tbex-element-id .ab-icon:before,
+			#wpadminbar .tbex-element-id .ab-label,
 			#wpadminbar #wp-admin-bar-rapid-dev .ab-icon:before,
 			#wpadminbar #wp-admin-bar-rapid-dev .ab-label,
 			#wpadminbar #wp-admin-bar-<?php echo ddw_tbex_id_sites_browser(); ?> .ab-icon:before,
@@ -234,14 +280,21 @@ function ddw_tbex_toolbar_styles() {
 
 			/* Icon Label Fixes */
 			#wp-admin-bar-customize-sccss .ab-label,
-			#wp-admin-bar-group-demo-import .ab-label {
+			#wp-admin-bar-group-demo-import .ab-label,
+			#wpadminbar #wp-admin-bar-customize-easyloginstyler-pro .ab-label {
 				margin-right: 15px !important;
 				padding-right: 15px !important;
 			}
 
-			#wpadminbar .tbex-customize-content .ab-label {
+			#wpadminbar .tbex-customize-content .ab-label,
+			#wpadminbar .tbex-element-id .ab-label {
 				padding-right: 25px;
 			}
+
+			/* .tbex-elementor-inspector > .ab-empty-item {
+				display: none !important;
+			} */
+
 			<?php echo $fix_logindesigner; ?>
 
 			/* Media Queries */
@@ -274,5 +327,32 @@ function ddw_tbex_toolbar_styles() {
 			}
 		</style>
 	<?php
+
+}  // end function
+
+
+add_action( 'wp_enqueue_scripts', 'ddw_tbex_toolbar_overflow_fix_styles' );
+add_action( 'admin_enqueue_scripts', 'ddw_tbex_toolbar_overflow_fix_styles' );
+/**
+ * For viewports equal or wider than 783px load CSS styles to fix the overflow
+ *   issue in WordPress Core Toolbar styling when there are too many items.
+ *
+ * Note: Code inspired by "Admin Bar Wrap Fix" plugin (GPLv2 or later).
+ *
+ * @since 1.4.0
+ *
+ * @see plugin file: /assets/css/toolbar-overflow-fix.css
+ */
+function ddw_tbex_toolbar_overflow_fix_styles() {
+
+	wp_register_style(
+		'tbex-toolbar-overflow-fix',
+		plugins_url( '/assets/css/toolbar-overflow-fix.css', dirname( __FILE__ ) ),
+		array(),
+		TBEX_PLUGIN_VERSION,
+		'screen'
+	);
+
+	wp_enqueue_style( 'tbex-toolbar-overflow-fix' );
 
 }  // end function

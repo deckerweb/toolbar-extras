@@ -16,10 +16,10 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_eletheme', 100 );
 /**
  * Items for Theme: Eletheme (free, by Liviu Duda)
  *
- * @since  1.2.0
+ * @since 1.2.0
  *
- * @uses   ddw_tbex_string_theme_title()
- * @uses   ddw_tbex_customizer_start()
+ * @uses ddw_tbex_string_theme_title()
+ * @uses ddw_tbex_customizer_start()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -76,9 +76,9 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_eletheme_resources', 120 );
  *
  * @since 1.2.0
  *
- * @uses  ddw_tbex_is_startwp_extended_active()
- * @uses  ddw_tbex_display_items_resources()
- * @uses  ddw_tbex_resource_item()
+ * @uses ddw_tbex_is_startwp_extended_active()
+ * @uses ddw_tbex_display_items_resources()
+ * @uses ddw_tbex_resource_item()
  */
 function ddw_tbex_themeitems_eletheme_resources() {
 

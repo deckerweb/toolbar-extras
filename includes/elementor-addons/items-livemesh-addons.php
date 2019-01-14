@@ -16,9 +16,9 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_livemesh_addons', 100 );
 /**
  * Items for Add-On: Addons for Elementor (free/Premium, by Livemesh)
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
- * @uses   ddw_tbex_resource_item()
+ * @uses ddw_tbex_resource_item()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -30,8 +30,8 @@ function ddw_tbex_aoitems_livemesh_addons() {
 	/** Check for active Pro version of the Add-On */
 	$is_livemesh_pro = FALSE;
 
-	if ( class_exists( '\LivemeshAddons\Livemesh_Elementor_Addons_Pro' )
-		|| ( function_exists( 'lae_fs' ) && lae_fs()->can_use_premium_code__premium_only() )
+	if ( in_array( 'addons-for-elementor-premium/addons-for-elementor.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) )
+		|| class_exists( '\LivemeshAddons\Livemesh_Elementor_Addons_Pro' )
 	) {
 		$is_livemesh_pro = TRUE;
 	}

@@ -16,9 +16,9 @@ add_action( 'tbex_before_site_group_content', 'ddw_tbex_site_items_dev_mode' );
 /**
  * Set main item for Dev Mode.
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
- * @uses   ddw_tbex_item_title_with_settings_icon()
+ * @uses ddw_tbex_item_title_with_settings_icon()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -61,7 +61,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_devmode_file_editors', 15 );
 /**
  * Optionally hook in Theme Editor and Plugin Editor to Dev Mode items.
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -126,7 +126,7 @@ add_action( 'tbex_before_site_group_content', 'ddw_tbex_site_items_devmode_plugi
 /**
  * Hook in more "Plugins Page" items for Dev Mode.
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -211,14 +211,107 @@ function ddw_tbex_site_items_devmode_plugin_status() {
 }  // end function
 
 
+add_action( 'admin_bar_menu', 'ddw_tbex_items_devmode_element_ids' );
+/**
+ * Add ID of current queried object (Singular/Tax/Archive Page) as sub item to
+ *   the edit/view items.
+ *
+ * @since 1.4.0
+ *
+ * @uses ddw_tbex_use_devmode_element_ids()
+ * @uses ddw_tbex_item_title_with_icon()
+ *
+ * @global object $GLOBALS[ 'wp_the_query' ]
+ * @global mixed  $GLOBALS[ 'wp_admin_bar' ]
+ */
+function ddw_tbex_items_devmode_element_ids() {
+
+	/** Bail early if items should not be displayed */
+	if ( ! ddw_tbex_use_devmode_element_ids()
+		|| ( is_admin() && ! in_array( get_current_screen()->base, array( 'edit', 'post', 'term' ) ) )
+	) {
+		return;
+	}
+
+	/** Set default */
+	$the_id = '';
+
+	/** Helper for proper parent ID for Toolbar node */
+	$parent = ( 'draft' === get_post_status( get_the_ID() ) ) ? 'preview' : 'view';
+
+	/** The "ID" logic for Admin & Frontend, plus Singular & Term */
+	if ( is_admin() ) {
+
+		/** Get current Admin screen */
+		$current_screen = get_current_screen();
+
+		if ( 'term' === $current_screen->base
+			&& isset( $_GET[ 'tag_ID' ] )
+		) {
+
+			/** (Admin) ID for taxonomy term */
+			$the_id = absint( wp_unslash( $_GET[ 'tag_ID' ] ) );
+
+		} elseif ( in_array( $current_screen->base, array( 'post', 'edit' ) ) ) {
+
+			/** (Admin) ID for singular item */
+			$the_id = absint( get_the_ID() );
+
+		}  // end if
+
+	} else {
+
+		if ( is_singular() ) {
+
+			/** (Frontend) ID for singular item */
+			$the_id = absint( get_the_ID() );
+
+		} else {
+
+			/** Get current queried object */
+			$current_object = $GLOBALS[ 'wp_the_query' ]->get_queried_object();
+
+			/** (Frontend) ID for taxonomy term */
+			if ( is_object( $current_object ) ) {
+				$the_id = absint( $current_object->term_id );
+			}
+
+		}  // end if
+
+	}  // end if
+
+	/** Build the title string */
+	$title = sprintf(
+		'%s: %s',
+		esc_attr_x( 'ID', 'ID of current element/ queried object', 'toolbar-extras' ),
+		$the_id
+	);
+
+	/** Build the complete Toolbar node */
+	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		array(
+			'id'     => 'tbex-element-id-' . $the_id,
+			'parent' => is_blog_admin() ? $parent : 'edit',
+			'title'  => ddw_tbex_item_title_with_icon( $title ),
+			'href'   => FALSE,
+			'meta'   => array(
+				'class'  => 'tbex-element-id',
+				'title'  => esc_attr__( 'Internal WordPress ID of current element', 'toolbar-extras' )
+			)
+		)
+	);
+
+}  // end function
+
+
 add_action( 'admin_bar_menu', 'ddw_tbex_site_items_devmode_resources', 999 );
 /**
  * Optional resource items for Dev Mode.
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
- * @uses   ddw_tbex_display_items_resources()
- * @uses   ddw_tbex_resource_item()
+ * @uses ddw_tbex_display_items_resources()
+ * @uses ddw_tbex_resource_item()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -257,6 +350,24 @@ function ddw_tbex_site_items_devmode_resources() {
 			)
 		)
 	);
+
+	if ( ddw_tbex_is_block_editor_active() ) {
+
+		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			array(
+				'id'     => 'wp-handbook-block-editor',
+				'parent' => 'group-devmode-resources',
+				'title'  => esc_attr__( 'Block Editor (Gutenberg) Handbook', 'toolbar-extras' ),
+				'href'   => 'https://wordpress.org/gutenberg/handbook/',
+				'meta'   => array(
+					'rel'    => ddw_tbex_meta_rel(),
+					'target' => ddw_tbex_meta_target(),
+					'title'  => esc_attr__( 'Block Editor (Gutenberg) Handbook', 'toolbar-extras' )
+				)
+			)
+		);
+
+	}  // end if
 
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(
 		array(
@@ -299,7 +410,7 @@ function ddw_tbex_site_items_devmode_resources() {
  * Dev Add-On: Debug Elementor (free, by Rami Yushuvaev)
  * @since 1.0.0
  */
-if ( class_exists( 'Debug_Elementor' ) ) {
+if ( class_exists( 'Debug_Elementor' ) && ddw_tbex_is_elementor_active() ) {
 	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-debug-elementor.php' );
 }
 
@@ -337,6 +448,15 @@ if ( class_exists( 'Theme_Switcha' ) ) {
  */
 if ( in_array( 'log-viewer/log-viewer.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
 	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-log-viewer.php' );
+}
+
+
+/**
+ * Dev Add-On: Error Log Viewer (free, by BestWebSoft)
+ * @since 1.4.0
+ */
+if ( function_exists( 'rrrlgvwr_init' ) ) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-error-log-viewer.php' );
 }
 
 

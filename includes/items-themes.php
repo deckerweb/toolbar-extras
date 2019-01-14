@@ -53,7 +53,7 @@ if ( ( 'OceanWP' == wp_get_theme() && function_exists( 'Ocean_Extra' ) )	// Ocea
  *   NOTE: Usage without Child Theme is absolutely NOT recommended, therefore
  *         not supported!
  * @since 1.0.0
- * @uses  ddw_tbex_is_genesis_active()
+ * @uses ddw_tbex_is_genesis_active()
  */
 if ( ddw_tbex_is_genesis_active() ) {
 
@@ -180,6 +180,39 @@ if ( ( 'Freelancer' == wp_get_theme() && function_exists( 'freelancer_theme_setu
 
 
 /**
+ * Themes: Suki (free, by SukiWP/ David Rozando)
+ * @since 1.4.0
+ */
+if ( ( 'Suki' == wp_get_theme() && class_exists( 'Suki' ) )	// Suki w/o child theme
+	|| ( 'suki' === basename( get_template_directory() ) && class_exists( 'Suki' ) )		// Suki w/ child theme
+) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/themes/items-suki.php' );
+}
+
+
+/**
+ * Themes: Sydney (free, by athemes)
+ * @since 1.4.0
+ */
+if ( ( 'Sydney' == wp_get_theme() && function_exists( 'sydney_setup' ) )	// Sydney w/o child theme
+	|| ( 'sydney' === basename( get_template_directory() ) && function_exists( 'sydney_setup' ) )		// Sydney w/ child theme
+) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/themes/items-sydney.php' );
+}
+
+
+/**
+ * Themes: Visual Composer Starter (free, by The Visual Composer Team)
+ * @since 1.4.0
+ */
+if ( ( 'Visual Composer Starter' == wp_get_theme() && function_exists( 'visualcomposerstarter_setup' ) )	// Visual Composer Starter w/o child theme
+	|| ( 'visual-composer-starter' === basename( get_template_directory() ) && function_exists( 'visualcomposerstarter_setup' ) )		// Visual Composer Starter w/ child theme
+) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/themes/items-visual-composer-starter.php' );
+}
+
+
+/**
  * Themes: Default Twenty Themes (2010-2017), plus supported (third-party) Child Themes
  * @since 1.0.0
  */
@@ -190,11 +223,18 @@ if ( ddw_tbex_is_default_twenty() ) {
 
 /**
  * Themes: Elementor Hello Theme (free, by Elementor/ Pojo Me Digital)
+ *   Note: Only loaded if Elementor plugin is active!
  * @since 1.0.0
+ * @since 1.4.0 Make dependent on Elementor (base) plugin.
  */
-if ( 'elementor-hello-theme' == get_stylesheet() || 'elementor-hello-theme-master' == get_stylesheet() ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-official/items-elementor-hello-theme.php' );
-}
+if ( ddw_tbex_is_elementor_active() ) :
+	if ( 'elementor-hello-theme' == get_stylesheet()
+		|| 'elementor-hello' == get_stylesheet()
+		|| 'elementor-hello-theme-master' == get_stylesheet()
+	) {
+		require_once( TBEX_PLUGIN_DIR . 'includes/elementor-official/items-elementor-hello-theme.php' );
+	}
+endif;
 
 
 /**
@@ -258,4 +298,61 @@ if ( ( 'Risen' == wp_get_theme() && function_exists( 'risen_setup' ) )	// Risen 
 	|| ( 'risen' === basename( get_template_directory() ) && function_exists( 'risen_setup' ) )		// Risen w/ child theme
 ) {
 	require_once( TBEX_PLUGIN_DIR . 'includes/themes/items-ct-risen.php' );
+}
+
+
+/**
+ * Themes: Atomic Blocks (free, by Atomic Blocks/ Array Themes)
+ * @since 1.4.0
+ */
+if ( ( 'Atomic Blocks' == wp_get_theme() && function_exists( 'atomic_blocks_setup' ) )	// Atomic Blocks w/o child theme
+	|| ( 'atomic-blocks' === basename( get_template_directory() ) && function_exists( 'atomic_blocks_setup' ) )		// Atomic Blocks w/ child theme
+) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/themes/items-atomic-blocks.php' );
+}
+
+
+/**
+ * Themes: Editor Blocks (free, by Editor Blocks/ Danny Cooper)
+ * @since 1.4.0
+ */
+if ( ( 'Editor Blocks' == wp_get_theme() && function_exists( 'editor_blocks_setup' ) )	// Editor Blocks w/o child theme
+	|| ( 'editor-blocks' === basename( get_template_directory() ) && function_exists( 'editor_blocks_setup' ) )		// Editor Blocks w/ child theme
+) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/themes/items-editor-blocks.php' );
+}
+
+
+/**
+ * Themes: CoBlocks (free, by Rich Tabor of CoBlocks)
+ * @since 1.4.0
+ */
+if ( ( 'CoBlocks' == wp_get_theme() && function_exists( 'coblocks_setup' ) )	// CoBlocks w/o child theme
+	|| ( 'coblocks' === basename( get_template_directory() ) && function_exists( 'coblocks_setup' ) )		// CoBlocks w/ child theme
+) {
+	require_once( TBEX_PLUGIN_DIR . 'includes/themes/items-coblocks.php' );
+}
+
+
+
+/**
+ * Conditional Customizer items for the current active Theme
+ * @since 1.4.0
+ * -----------------------------------------------------------------------------
+ */
+
+/**
+ * Add Customizer deep link items for the current active theme, declared via the
+ *   filter 'tbex_filter_items_theme_customizer_deep' and the appropriate array.
+ *   Only fire the action which adds the Toolbar nodes if there are any Themes
+ *   which have actually used the filter.
+ *
+ * @since 1.4.0
+ *
+ * @see ddw_tbex_items_theme_customizer_deep()
+ *
+ * @uses ddw_tbex_customizer_deep_items_priority()
+ */
+if ( has_filter( 'tbex_filter_items_theme_customizer_deep' ) ) {
+	add_action( 'admin_bar_menu', 'ddw_tbex_items_theme_customizer_deep', ddw_tbex_customizer_deep_items_priority() );
 }

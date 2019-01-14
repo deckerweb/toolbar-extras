@@ -16,11 +16,11 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_uael', 100 );
 /**
  * Items for Add-On: Ultimate Addons for Elementor (Premium, by Brainstorm Force)
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
- * @uses   \UltimateElementor\Classes\UAEL_Helper::get_white_labels()
- * @uses   ddw_tbex_display_uael_witelabel()
- * @uses   ddw_tbex_resource_item()
+ * @uses \UltimateElementor\Classes\UAEL_Helper::get_white_labels()
+ * @uses ddw_tbex_display_uael_witelabel()
+ * @uses ddw_tbex_resource_item()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -83,7 +83,7 @@ function ddw_tbex_aoitems_uael() {
 		}  // end if
 
 		/** Only show white label settings if they are not hidden */
-		if ( ! ddw_tbex_hide_uael_witelabel() ) {
+		if ( ! ddw_tbex_hide_uael_whitelabel() ) {
 
 			if ( '1' !== $uael_whitelabel[ 'agency' ][ 'hide_branding' ] ) {
 

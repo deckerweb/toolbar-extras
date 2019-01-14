@@ -16,7 +16,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_arforms' );
 /**
  * Items for Plugin: ARForms (Premium, by Repute InfoSystems)
  *
- * @since  1.3.2
+ * @since 1.3.2
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -243,7 +243,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_new_content_arforms', 80 );
 /**
  * Items for "New Content" section: New ARForms Form
  *
- * @since  1.3.2
+ * @since 1.3.2
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -262,7 +262,7 @@ function ddw_tbex_aoitems_new_content_arforms() {
 			'href'   => esc_url( admin_url( 'admin.php?page=ARForms&arfaction=new&isp=1' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_new_form( 'ARForms' )
+				'title'  => ddw_tbex_string_add_new_item( ddw_tbex_string_new_form( 'ARForms' ) )
 			)
 		)
 	);

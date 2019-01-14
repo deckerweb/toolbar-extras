@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Check if WPDR Simple Downloads Add-On plugin is active or not.
  *
- * @since  1.3.9
+ * @since 1.3.9
  *
  * @return bool TRUE if constant defined, FALSE otherwise.
  */
@@ -30,10 +30,10 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_wp_document_revisions', 20 );
 /**
  * Site items for Plugin: WP Document Revisions (free, by Ben Balter)
  *
- * @since  1.3.9
+ * @since 1.3.9
  *
- * @uses   ddw_wpdrsd_get_options()
- * @uses   ddw_tbex_is_wpdr_simple_downloads_active()
+ * @uses ddw_wpdrsd_get_options()
+ * @uses ddw_tbex_is_wpdr_simple_downloads_active()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */

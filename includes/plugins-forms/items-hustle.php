@@ -1,6 +1,6 @@
 <?php
 
-// includes/plugins/items-hustle
+// includes/plugins-forms/items-hustle
 
 /**
  * Prevent direct access to this file.
@@ -16,7 +16,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_hustle', 20 );
 /**
  * Items for Plugin: Hustle (free, by WPMU DEV)
  *
- * @since  1.3.1
+ * @since 1.3.1
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */

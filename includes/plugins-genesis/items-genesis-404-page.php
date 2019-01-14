@@ -16,7 +16,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_genesis_404_page', 140 );
 /**
  * Items for Add-On: Genesis 404 Page (free, by Bill Erickson)
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -26,7 +26,7 @@ function ddw_tbex_aoitems_genesis_404_page() {
 	$GLOBALS[ 'wp_admin_bar' ]->add_group(
 		array(
 			'id'     => 'be-404page',
-			'parent' => 'theme-creative'
+			'parent' => 'group-genesisplugins-creative'
 		)
 	);
 
@@ -50,7 +50,7 @@ function ddw_tbex_aoitems_genesis_404_page() {
 			'id'     => 'be-404page-live',
 			'parent' => 'be-404page',
 			'title'  => esc_attr__( '404 Live Test', 'toolbar-extras' ),
-			'href'   => esc_url( get_site_url() . '/404page-test-' . md5( rand() ) ),
+			'href'   => esc_url( get_site_url() . '/404page-test-' . md5( mt_rand() ) ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
 				'title'  => esc_attr__( '404 Live Test', 'toolbar-extras' )

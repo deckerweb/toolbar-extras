@@ -31,7 +31,7 @@ function ddw_tbex_aoitems_genesis_extra_settings_transporter() {
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(
 		array(
 			'id'     => 'genesis-extra-settings-transporter',
-			'parent' => 'theme-creative',
+			'parent' => 'group-genesisplugins-creative',
 			'title'  => esc_attr__( 'Extra Settings Transporter', 'toolbar-extras' ),
 			'href'   => esc_url( admin_url( 'admin.php?page=genesis-import-export' ) ),
 			'meta'   => array(

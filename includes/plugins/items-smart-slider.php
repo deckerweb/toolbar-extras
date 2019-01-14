@@ -19,13 +19,13 @@ add_filter( 'admin_bar_menu', 'ddw_tbex_site_items_smartslider' );
  *   hook place for galleries & sliders.
  *   Note: Existing Toolbar node gets filtered.
  *
- * @since  1.0.0
- * @since  1.1.0 Filter the existing Toolbar node instead of removing/add new.
+ * @since 1.0.0
+ * @since 1.1.0 Filter the existing Toolbar node instead of removing/add new.
  *
- * @uses   ddw_tbex_use_tweak_smartslider()
+ * @uses ddw_tbex_use_tweak_smartslider()
  *
  * @global mixed  $GLOBALS[ 'wp_admin_bar' ]
- * @param  object $wp_admin_bar Holds all nodes of the Toolbar.
+ * @param object $wp_admin_bar Holds all nodes of the Toolbar.
  */
 function ddw_tbex_site_items_smartslider( $wp_admin_bar ) {
 
@@ -56,7 +56,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_smartslider_extend', 100 );
 /**
  * Resources items for Plugin: Smart Slider 3
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -95,10 +95,10 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_smartslider_resources', 200 )
 /**
  * Resources items for Plugin: Smart Slider 3
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
- * @uses   ddw_tbex_display_items_resources()
- * @uses   ddw_tbex_resource_item()
+ * @uses ddw_tbex_display_items_resources()
+ * @uses ddw_tbex_resource_item()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */

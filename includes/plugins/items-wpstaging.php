@@ -15,13 +15,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Check if WP-Staging Pro plugin is active or not.
  *
- * @since  1.3.4
+ * @since 1.3.4
  *
- * @return bool TRUE if constant defined, otherwise FALSE.
+ * @return bool TRUE if constant defined, FALSE otherwise.
  */
 function ddw_tbex_is_wpstaging_pro_active() {
 
-	return ( defined( 'WPSTGPRO_VERSION' ) ) ? TRUE : FALSE;
+	return defined( 'WPSTGPRO_VERSION' );
 
 }  // end function
 
@@ -30,10 +30,10 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_wpstaging', 10 );
 /**
  * Items for Plugin: WP-Staging (free, by WP-Staging & Rene Hermenau)
  *
- * @since  1.0.0
- * @since  1.3.4 Added list of clones as items.
+ * @since 1.0.0
+ * @since 1.3.4 Added list of clones as items.
  *
- * @uses   ddw_tbex_resource_item()
+ * @uses ddw_tbex_resource_item()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar']
  */

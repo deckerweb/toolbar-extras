@@ -14,13 +14,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 add_action( 'admin_bar_menu', 'ddw_tbex_site_items_simple_custom_css_js', 15 );
 /**
- * Site Group Items from Plugin: Simple Custom CSS and JS (free/Pro, by Diana Burduja)
+ * Site Group Items from Plugin:
+ *   Simple Custom CSS and JS (free/Pro, by Diana Burduja)
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
- * @uses   ddw_tbex_string_cpt()
- * @uses   ddw_tbex_display_items_resources()
- * @uses   ddw_tbex_resource_item()
+ * @uses ddw_tbex_string_cpt()
+ * @uses ddw_tbex_display_items_resources()
+ * @uses ddw_tbex_resource_item()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -239,9 +240,9 @@ add_action( 'admin_bar_menu', 'ddw_tbex_new_content_simple_custom_css_js' );
 /**
  * Items for "New Content" section: New CSS/JS/HTML Code
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
- * @uses   ddw_tbex_string_cpt()
+ * @uses ddw_tbex_string_cpt()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -293,7 +294,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_user_items_sccssjs_designer', 15 );
 /**
  * User items for Plugin: SCCSSJS Web Designer
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */

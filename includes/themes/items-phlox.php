@@ -15,9 +15,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Check if Phlox Core Elements Add-On plugin is active or not.
  *
- * @since  1.3.0
+ * @since 1.3.0
  *
- * @return bool TRUE if class exists, otherwise FALSE.
+ * @return bool TRUE if class exists, FALSE otherwise.
  */
 function ddw_tbex_is_phlox_core_active() {
 
@@ -30,10 +30,10 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_phlox', 100 );
 /**
  * Items for Theme: Phlox (free, by averta)
  *
- * @since  1.3.0
+ * @since 1.3.0
  *
- * @uses   ddw_tbex_string_customize_design()
- * @uses   ddw_tbex_customizer_start()
+ * @uses ddw_tbex_string_customize_design()
+ * @uses ddw_tbex_customizer_start()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -73,10 +73,10 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_phlox_customize', 100 );
 /**
  * Customize items for Phlox Theme
  *
- * @since  1.3.0
+ * @since 1.3.0
  *
- * @uses   ddw_tbex_customizer_focus()
- * @uses   ddw_tbex_string_customize_attr()
+ * @uses ddw_tbex_customizer_focus()
+ * @uses ddw_tbex_string_customize_attr()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -207,10 +207,10 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_phlox_resources', 120 );
  * General resources items for Phlox Theme.
  *   Hook in later to have these items at the bottom.
  *
- * @since  1.3.0
+ * @since 1.3.0
  *
- * @uses   ddw_tbex_display_items_resources()
- * @uses   ddw_tbex_resource_item()
+ * @uses ddw_tbex_display_items_resources()
+ * @uses ddw_tbex_resource_item()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -273,9 +273,9 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_phlox_core_elements', 100 );
 /**
  * Items for Theme: Phlox Core Elements - Add-On Plugin (free, by averta)
  *
- * @since  1.3.0
+ * @since 1.3.0
  *
- * @uses   ddw_tbex_is_phlox_core_active()
+ * @uses ddw_tbex_is_phlox_core_active()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -346,11 +346,11 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_phlox_demos_import', 100 );
 /**
  * Items for Demos Import
  *
- * @since  1.3.0
+ * @since 1.3.0
  *
- * @uses   ddw_tbex_display_items_demo_import()
- * @uses   ddw_tbex_id_sites_browser()
- * @uses   ddw_tbex_item_title_with_settings_icon()
+ * @uses ddw_tbex_display_items_demo_import()
+ * @uses ddw_tbex_id_sites_browser()
+ * @uses ddw_tbex_item_title_with_settings_icon()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -378,7 +378,7 @@ function ddw_tbex_themeitems_phlox_demos_import() {
 		)
 	);
 
-}  // end if
+}  // end function
 
 
 /**
@@ -386,7 +386,7 @@ function ddw_tbex_themeitems_phlox_demos_import() {
  *
  * @since 1.3.0
  *
- * @uses  General portfolio post type support (CPT: 'portfolio')
+ * @uses General portfolio post type support (CPT: 'portfolio')
  */
 if ( defined( 'AUXPFO_VERSION' ) ) {
 
@@ -399,7 +399,7 @@ add_action( 'wp_before_admin_bar_render', 'ddw_tbex_remove_items_phlox_upgrade' 
 /**
  * Remove "Upgrade" promotion of Phlox Theme from the Toolbar.
  *
- * @since  1.3.0
+ * @since 1.3.0
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */

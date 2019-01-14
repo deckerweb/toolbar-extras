@@ -16,7 +16,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_cpt_items_portfolio', 115 );
 /**
  * Items for Custom Post Type: "Portfolio" ('portfolio')
  *
- * @since  1.3.0
+ * @since 1.3.0
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */

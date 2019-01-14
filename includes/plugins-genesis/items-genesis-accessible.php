@@ -16,7 +16,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_genesis_accessible', 115 );
 /**
  * Items for Add-On: Genesis Accessible (free, by Rian Rietveld, Robin Cornett)
  *
- * @since  1.3.7
+ * @since 1.3.7
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -26,7 +26,7 @@ function ddw_tbex_aoitems_genesis_accessible() {
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(
 		array(
 			'id'     => 'genesis-accessible',
-			'parent' => 'theme-creative',
+			'parent' => 'group-genesisplugins-creative',
 			'title'  => esc_attr__( 'Genesis Accessible', 'toolbar-extras' ),
 			'href'   => esc_url( admin_url( 'admin.php?page=genesis-accessible' ) ),
 			'meta'   => array(

@@ -16,28 +16,30 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_blox_lite', 115 );
 /**
  * Items for Add-On: Blox (free/Pro, by Nick Diego)
  *
- * @since  1.0.0
- * @since  1.3.5 Added BTC plugin support.
+ * @since 1.0.0
+ * @since 1.3.5 Added BTC plugin support.
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
 function ddw_tbex_aoitems_blox_lite() {
 
+	$type = 'blox';
+
 	/** For: Genesis Creative items */
 	$GLOBALS[ 'wp_admin_bar' ]->add_group(
 		array(
 			'id'     => 'genesis-global-blox',
-			'parent' => 'theme-creative'
+			'parent' => 'group-genesisplugins-creative'
 		)
 	);
 
 
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(
 		array(
-			'id'     => 'global-blox-all',
+			'id'     => 'global-' . $type . '-all',
 			'parent' => 'genesis-global-blox',
 			'title'  => esc_attr__( 'All Global Blocks', 'toolbar-extras' ),
-			'href'   => esc_url( admin_url( 'edit.php?post_type=blox' ) ),
+			'href'   => esc_url( admin_url( 'edit.php?post_type=' . $type ) ),
 			'meta'   => array(
 				'target' => '',
 				'title'  => esc_attr__( 'All Global Content Blocks', 'toolbar-extras' )
@@ -50,7 +52,7 @@ function ddw_tbex_aoitems_blox_lite() {
 			'id'     => 'global-blox-new',
 			'parent' => 'genesis-global-blox',
 			'title'  => esc_attr__( 'New Global Block', 'toolbar-extras' ),
-			'href'   => esc_url( admin_url( 'post-new.php?post_type=blox' ) ),
+			'href'   => esc_url( admin_url( 'post-new.php?post_type=' . $type ) ),
 			'meta'   => array(
 				'target' => '',
 				'title'  => esc_attr__( 'New Global Content Block', 'toolbar-extras' )
@@ -66,7 +68,7 @@ function ddw_tbex_aoitems_blox_lite() {
 				'id'     => 'global-blox-categories',
 				'parent' => 'genesis-global-blox',
 				'title'  => ddw_btc_string_template( 'block' ),
-				'href'   => esc_url( admin_url( 'edit-tags.php?taxonomy=builder-template-category&post_type=blox' ) ),
+				'href'   => esc_url( admin_url( 'edit-tags.php?taxonomy=builder-template-category&post_type=' . $type ) ),
 				'meta'   => array(
 					'target' => '',
 					'title'  => esc_html( ddw_btc_string_template( 'block' ) )
@@ -84,7 +86,7 @@ function ddw_tbex_aoitems_blox_lite() {
 				'id'     => 'new-blox',
 				'parent' => 'new-content',
 				'title'  => esc_attr__( 'Global Content Block', 'toolbar-extras' ),
-				'href'   => esc_url( admin_url( 'post-new.php?post_type=blox' ) ),
+				'href'   => esc_url( admin_url( 'post-new.php?post_type=' . $type ) ),
 				'meta'   => array(
 					'target' => '',
 					'title'  => esc_attr__( 'Global Content Block', 'toolbar-extras' )
@@ -100,7 +102,7 @@ function ddw_tbex_aoitems_blox_lite() {
 			'id'     => 'blox-settings',
 			'parent' => 'genesis-global-blox',
 			'title'  => esc_attr__( 'Block Settings', 'toolbar-extras' ),
-			'href'   => esc_url( admin_url( 'edit.php?post_type=blox&page=blox-settings' ) ),
+			'href'   => esc_url( admin_url( 'edit.php?post_type=' . $type . '&page=blox-settings' ) ),
 			'meta'   => array(
 				'target' => '',
 				'title'  => esc_attr__( 'Block Settings', 'toolbar-extras' )
@@ -113,7 +115,7 @@ function ddw_tbex_aoitems_blox_lite() {
 				'id'     => 'bxs-general',
 				'parent' => 'blox-settings',
 				'title'  => esc_attr__( 'General', 'toolbar-extras' ),
-				'href'   => esc_url( admin_url( 'edit.php?post_type=blox&page=blox-settings&tab=general' ) ),
+				'href'   => esc_url( admin_url( 'edit.php?post_type=' . $type . '&page=blox-settings&tab=general' ) ),
 				'meta'   => array(
 					'target' => '',
 					'title'  => esc_attr__( 'General Settings', 'toolbar-extras' )
@@ -126,7 +128,7 @@ function ddw_tbex_aoitems_blox_lite() {
 				'id'     => 'bxs-defaults',
 				'parent' => 'blox-settings',
 				'title'  => esc_attr__( 'Defaults', 'toolbar-extras' ),
-				'href'   => esc_url( admin_url( 'edit.php?post_type=blox&page=blox-settings&tab=default' ) ),
+				'href'   => esc_url( admin_url( 'edit.php?post_type=' . $type . '&page=blox-settings&tab=default' ) ),
 				'meta'   => array(
 					'target' => '',
 					'title'  => esc_attr__( 'Defaults', 'toolbar-extras' )
@@ -139,7 +141,7 @@ function ddw_tbex_aoitems_blox_lite() {
 				'id'     => 'bxs-styles',
 				'parent' => 'blox-settings',
 				'title'  => esc_attr__( 'Styles', 'toolbar-extras' ),
-				'href'   => esc_url( admin_url( 'edit.php?post_type=blox&page=blox-settings&tab=style' ) ),
+				'href'   => esc_url( admin_url( 'edit.php?post_type=' . $type . '&page=blox-settings&tab=style' ) ),
 				'meta'   => array(
 					'target' => '',
 					'title'  => esc_attr__( 'Styles', 'toolbar-extras' )
@@ -152,7 +154,7 @@ function ddw_tbex_aoitems_blox_lite() {
 				'id'     => 'bxs-misc',
 				'parent' => 'blox-settings',
 				'title'  => esc_attr__( 'Misc', 'toolbar-extras' ),
-				'href'   => esc_url( admin_url( 'edit.php?post_type=blox&page=blox-settings&tab=misc' ) ),
+				'href'   => esc_url( admin_url( 'edit.php?post_type=' . $type . '&page=blox-settings&tab=misc' ) ),
 				'meta'   => array(
 					'target' => '',
 					'title'  => esc_attr__( 'Misc', 'toolbar-extras' )
@@ -167,7 +169,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_blox_pro', 120 );
 /**
  * Items for Add-On: Blox (Pro, by Nick Diego)
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -186,7 +188,7 @@ function ddw_tbex_aoitems_blox_pro() {
 				'id'     => 'bloxpro-sandbox',
 				'parent' => 'genesis-global-blox',
 				'title'  => esc_attr__( 'Sandboxed Functions', 'toolbar-extras' ),
-				'href'   => esc_url( admin_url( 'edit.php?post_type=blox&page=blox-settings&tab=sandbox' ) ),
+				'href'   => esc_url( admin_url( 'edit.php?post_type=' . $type . '&page=blox-settings&tab=sandbox' ) ),
 				'meta'   => array(
 					'target' => '',
 					'title'  => esc_attr__( 'Sandboxed Functions', 'toolbar-extras' )
@@ -202,7 +204,7 @@ function ddw_tbex_aoitems_blox_pro() {
 			'id'     => 'bloxpro-hooks',
 			'parent' => 'genesis-global-blox',
 			'title'  => esc_attr__( 'Hook Config', 'toolbar-extras' ),
-			'href'   => esc_url( admin_url( 'edit.php?post_type=blox&page=blox-settings&tab=hooks' ) ),
+			'href'   => esc_url( admin_url( 'edit.php?post_type=' . $type . '&page=blox-settings&tab=hooks' ) ),
 			'meta'   => array(
 				'target' => '',
 				'title'  => esc_attr__( 'Hook Config', 'toolbar-extras' )
@@ -215,7 +217,7 @@ function ddw_tbex_aoitems_blox_pro() {
 			'id'     => 'bloxpro-tools',
 			'parent' => 'blox-settings',
 			'title'  => esc_attr__( 'Tools', 'toolbar-extras' ),
-			'href'   => esc_url( admin_url( 'edit.php?post_type=blox&page=blox-tools' ) ),
+			'href'   => esc_url( admin_url( 'edit.php?post_type=' . $type . '&page=blox-tools' ) ),
 			'meta'   => array(
 				'target' => '',
 				'title'  => esc_attr__( 'Tools', 'toolbar-extras' )
@@ -228,7 +230,7 @@ function ddw_tbex_aoitems_blox_pro() {
 			'id'     => 'bloxpro-license',
 			'parent' => 'blox-settings',
 			'title'  => esc_attr__( 'License', 'toolbar-extras' ),
-			'href'   => esc_url( admin_url( 'edit.php?post_type=blox&page=blox-licenses' ) ),
+			'href'   => esc_url( admin_url( 'edit.php?post_type=' . $type . '&page=blox-licenses' ) ),
 			'meta'   => array(
 				'target' => '',
 				'title'  => esc_attr__( 'License', 'toolbar-extras' )

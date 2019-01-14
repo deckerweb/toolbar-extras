@@ -16,7 +16,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_wpmudev_dashboard', 99 );
 /**
  * Items for Plugin: WPMU Dev Dashboard (Premium, by WPMU DEV)
  *
- * @since  1.3.2
+ * @since 1.3.2
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */

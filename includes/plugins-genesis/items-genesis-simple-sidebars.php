@@ -16,7 +16,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_genesis_simple_sidebars', 115 );
 /**
  * Items for Add-On: Genesis Simple Sidebars (free, by StudioPress)
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -26,7 +26,7 @@ function ddw_tbex_aoitems_genesis_simple_sidebars() {
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(
 		array(
 			'id'     => 'genesis-simple-sidebars',
-			'parent' => 'theme-creative',
+			'parent' => 'group-genesisplugins-creative',
 			'title'  => esc_attr__( 'Simple Sidebars', 'toolbar-extras' ),
 			'href'   => esc_url( admin_url( 'admin.php?page=simple-sidebars' ) ),
 			'meta'   => array(

@@ -16,9 +16,9 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_powerpack_wlbfe', 100 );
 /**
  * Items for Add-On: White Label Branding for Elementor (Premium, by IdeaBox Creations)
  *
- * @since  1.2.0
+ * @since 1.2.0
  *
- * @uses   ddw_tbex_resource_item()
+ * @uses ddw_tbex_resource_item()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -137,7 +137,7 @@ add_action( 'wp_before_admin_bar_render', 'ddw_tbex_aotweaks_tweak_elementor_bra
  *   the Toolbar, depending on settings from plugin "White Label Branding for
  *   Elementor".
  *
- * @since  1.2.0
+ * @since 1.2.0
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */

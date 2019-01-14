@@ -16,9 +16,9 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_genesis_coming_soon_page', 130 )
 /**
  * Items for Add-On: Genesis Coming Soon Page (free, by Jose Manuel Sanchez)
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
- * @uses   ddw_tbex_meta_target()
+ * @uses ddw_tbex_meta_target()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -28,7 +28,7 @@ function ddw_tbex_aoitems_genesis_coming_soon_page() {
 	$GLOBALS[ 'wp_admin_bar' ]->add_group(
 		array(
 			'id'     => 'gcs-page',
-			'parent' => 'theme-creative'
+			'parent' => 'group-genesisplugins-creative'
 		)
 	);
 

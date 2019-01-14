@@ -17,9 +17,9 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 1.0.0
  *
- * @uses  PAnD::is_admin_notice_active()
- * @uses  ddw_tbex_get_info_url()
- * @uses  ddw_tbex_string_notice_shown_once()
+ * @uses PAnD::is_admin_notice_active()
+ * @uses ddw_tbex_get_info_url()
+ * @uses ddw_tbex_string_notice_shown_once()
  */
 function ddw_tbex_notice_settings_welcome() {
 

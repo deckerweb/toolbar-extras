@@ -14,11 +14,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_central_color_palette', 110 );
 /**
- * Items for Add-On: Central Color Palette
+ * Items for Add-On: Central Color Palette (free, by Gáravo)
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
- * @uses   ddw_tbex_resource_item()
+ * @uses ddw_tbex_resources_color_wheel()
+ * @uses ddw_tbex_resource_item()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -50,6 +51,9 @@ function ddw_tbex_aoitems_central_color_palette() {
 				)
 			)
 		);
+
+		/** Color Wheel Resources */
+		ddw_tbex_resources_color_wheel( 'ccp', 'ao-colorpalette' );
 
 		/** Group: Resources for Central Color Palette */
 		if ( ddw_tbex_display_items_resources() ) {

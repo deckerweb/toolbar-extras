@@ -1,0 +1,55 @@
+/**
+ * // assets/css/toolbar-overflow-fix
+ * @package Toolbar Extras - Assets
+ * @since 1.4.0
+ */
+
+@media screen and (min-width: 783px) {
+
+	#wpadminbar .quicklinks {
+		justify-content: space-between;
+	}
+
+	#wpadminbar .quicklinks,
+	#wpadminbar .quicklinks > ul {
+		display: -ms-flexbox;
+		display: flex;
+		flex-wrap: nowrap;
+		-ms-flex-wrap: nowrap;
+		min-width: 0 !important;
+	}
+
+	#wpadminbar #wp-admin-bar-top-secondary {
+		flex-direction: row-reverse;
+		-ms-flex-direction: row-reverse;
+	}
+
+	#wpadminbar .quicklinks > ul > li {
+		float: none !important;
+	}
+
+	#wp-admin-bar-root-default > li,
+	#wp-admin-bar-top-secondary > li,
+	#wp-admin-bar-root-default > li > .ab-item,
+	#wp-admin-bar-top-secondary > li > .ab-item {
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		min-width: 0 !important;
+	}
+
+	#wp-admin-bar-root-default > li > .ab-item,
+	#wp-admin-bar-top-secondary > li > .ab-item {
+		overflow: hidden;
+	}
+
+	#wp-admin-bar-user-info > .ab-item {
+		overflow: initial !important;
+	}
+
+	#wp-admin-bar-root-default > li > .ab-item .ab-label,
+	#wp-admin-bar-top-secondary > li > .ab-item .display-name {
+		float: none;
+		display: inline;
+	}
+
+}

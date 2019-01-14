@@ -16,8 +16,8 @@ add_action( 'admin_bar_menu', 'ddw_tbex_user_items_profiles' );
 /**
  * Items for Users
  *
- * @since  1.0.0
- * @since  1.3.2 Added Multisite support for Network admin.
+ * @since 1.0.0
+ * @since 1.3.2 Added Multisite support for Network admin.
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */

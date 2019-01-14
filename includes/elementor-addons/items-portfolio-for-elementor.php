@@ -16,10 +16,10 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_portfolio_for_elementor', 100 );
 /**
  * Items for Add-On: Portfolio for Elementor (free, by WpPug)
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
- * @uses   ddw_tbex_display_items_resources()
- * @uses   ddw_tbex_resource_item()
+ * @uses ddw_tbex_display_items_resources()
+ * @uses ddw_tbex_resource_item()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -129,7 +129,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_new_content_elemenfolio' );
 /**
  * Items for "New Content" section: New Portfolio Item
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -153,4 +153,4 @@ function ddw_tbex_new_content_elemenfolio() {
 		)
 	);
 
-}  // end if
+}  // end function

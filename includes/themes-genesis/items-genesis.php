@@ -16,10 +16,10 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Check if current user has access to one of the possible Genesis Settings
  *   pages or not.
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
- * @param  string $genesis_handle Helper key to identify a settings page
- * @return bool TRUE if settings are active, otherwise FALSE.
+ * @param string $genesis_handle Helper key to identify a settings page
+ * @return bool TRUE if settings are active, FALSE otherwise.
  */
 function ddw_tbex_is_genesis_settings_active( $genesis_handle = '' ) {
 
@@ -32,10 +32,12 @@ function ddw_tbex_is_genesis_settings_active( $genesis_handle = '' ) {
 			$options   = 'genesis-admin-menu';
 			$user_meta = 'genesis_admin_menu';
 			break;
+
 		case 'seo':
 			$options   = 'genesis-seo-settings-menu';
 			$user_meta = 'genesis_seo_settings_menu';
 			break;
+
 		case 'export':
 			$options   = 'genesis-import-export-menu';
 			$user_meta = 'genesis_import_export_menu';
@@ -54,12 +56,13 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_genesis', 100 );
 /**
  * Items for Theme: Genesis Framework (by StudioPress/ Rainmaker Digital, LLC)
  *
- * @since  1.0.0
+ * @since 1.0.0
+ * @since 1.4.0 Various tweaks & optimizations.
  *
- * @uses   ddw_tbex_string_theme_title()
- * @uses   ddw_tbex_is_genesis_settings_active()
- * @uses   ddw_tbex_customizer_start()
- * @uses   ddw_tbex_string_customize_design()
+ * @uses ddw_tbex_string_theme_title()
+ * @uses ddw_tbex_is_genesis_settings_active()
+ * @uses ddw_tbex_item_theme_creative_customize()
+ * @uses ddw_tbex_customizer_start()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -79,16 +82,22 @@ function ddw_tbex_themeitems_genesis() {
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		/** Genesis customize */
+		ddw_tbex_item_theme_creative_customize();
+
+		/** Add optional child theme group */
+		$GLOBALS[ 'wp_admin_bar' ]->add_group(
 			array(
-				'id'     => 'theme-creative-customize',
+				'id'     => 'group-genesischild-creative',
 				'parent' => 'theme-creative',
-				'title'  => ddw_tbex_string_customize_design(),
-				'href'   => ddw_tbex_customizer_start(),
-				'meta'   => array(
-					'target' => ddw_tbex_meta_target(),
-					'title'  => ddw_tbex_string_customize_design()
-				)
+			)
+		);
+
+		/** Add optional plugins group */
+		$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			array(
+				'id'     => 'group-genesisplugins-creative',
+				'parent' => 'theme-creative',
 			)
 		);
 
@@ -174,46 +183,34 @@ function ddw_tbex_themeitems_genesis() {
 }  // end function
 
 
-add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_genesis_customize', 100 );
+add_filter( 'tbex_filter_items_theme_customizer_deep', 'ddw_tbex_themeitems_genesis_customize', 100 );
 /**
  * Customize items for Genesis Framework
  *
- * @since  1.0.0
+ * @since 1.0.0
+ * @since 1.4.0 Refactored using filter/array declaration.
  *
- * @uses   ddw_tbex_customizer_focus()
- * @uses   ddw_tbex_string_customize_attr()
- *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param array $items Existing array of params for creating Toolbar nodes.
+ * @return array Tweaked array of params for creating Toolbar nodes.
  */
-function ddw_tbex_themeitems_genesis_customize() {
+function ddw_tbex_themeitems_genesis_customize( array $items ) {
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
-		array(
-			'id'     => 'gencmz-theme',
-			'parent' => 'theme-creative-customize',
-			/* translators: Autofocus panel in the Customizer */
-			'title'  => esc_attr__( 'Theme Settings', 'toolbar-extras' ),
-			'href'   => ddw_tbex_customizer_focus( 'panel', 'genesis' ),
-			'meta'   => array(
-				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Theme Settings', 'toolbar-extras' ) )
-			)
-		)
+	/** Declare theme's items */
+	$genesis_items = array(
+		'genesis' => array(
+			'type'  => 'panel',
+			'title' => __( 'Theme Settings', 'toolbar-extras' ),
+			'id'    => 'gencmz-theme',
+		),
+		'genesis-seo' => array(
+			'type'  => 'panel',
+			'title' => __( 'SEO Settings', 'toolbar-extras' ),
+			'id'    => 'gencmz-seo',
+		),
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
-		array(
-			'id'     => 'gencmz-seo',
-			'parent' => 'theme-creative-customize',
-			/* translators: Autofocus panel in the Customizer */
-			'title'  => esc_attr__( 'SEO Settings', 'toolbar-extras' ),
-			'href'   => ddw_tbex_customizer_focus( 'panel', 'genesis-seo' ),
-			'meta'   => array(
-				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'SEO Settings', 'toolbar-extras' ) )
-			)
-		)
-	);
+	/** Merge and return with all items */
+	return array_merge( $items, $genesis_items );
 
 }  // end function
 
@@ -223,11 +220,11 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_genesis_resources', 130 );
  * General resources items for Genesis Framework.
  *   Hook in later to have these items at the bottom.
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
- * @uses   ddw_tbex_display_items_resources()
- * @uses   ddw_tbex_is_genesis_settings_active()
- * @uses   ddw_tbex_resource_item()
+ * @uses ddw_tbex_display_items_resources()
+ * @uses ddw_tbex_is_genesis_settings_active()
+ * @uses ddw_tbex_resource_item()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -255,6 +252,9 @@ function ddw_tbex_themeitems_genesis_resources() {
 			'meta'   => array( 'class' => 'ab-sub-secondary' )
 		)
 	);
+
+	/** Testing Child resources */
+	do_action( 'tbex_resouces_genesis_child' );
 
 	ddw_tbex_resource_item(
 		'official-support',

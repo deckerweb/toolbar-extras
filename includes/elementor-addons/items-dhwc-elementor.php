@@ -16,11 +16,11 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_dhwc_elementor', 100 );
 /**
  * Items for Add-On: DHWC Elementor (Premium, by Sitesao Team)
  *
- * @since  1.2.0
- * @since  1.3.5 Added BTC plugin support.
+ * @since 1.2.0
+ * @since 1.3.5 Added BTC plugin support.
  *
- * @uses   ddw_tbex_display_items_resources()
- * @uses   ddw_tbex_resource_item()
+ * @uses ddw_tbex_display_items_resources()
+ * @uses ddw_tbex_resource_item()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -148,7 +148,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_new_content_dhwc_elementor' );
 /**
  * Items for "New Content" section: New Product Template
  *
- * @since  1.2.0
+ * @since 1.2.0
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */

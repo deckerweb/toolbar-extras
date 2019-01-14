@@ -16,7 +16,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_tm_timeline', 15 );
 /**
  * Site items for Plugin: TM Timeline (free, by Jetimpex/ Zemez)
  *
- * @since  1.2.0
+ * @since 1.2.0
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -63,7 +63,7 @@ add_action( 'tbex_new_content_before_nav_menu', 'ddw_tbex_new_content_tm_timelin
 /**
  * Items for "New Content" section: New TM Timeline with Builder
  *
- * @since  1.2.0
+ * @since 1.2.0
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */

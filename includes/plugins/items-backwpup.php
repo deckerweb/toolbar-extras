@@ -16,7 +16,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_backwpup' );
 /**
  * Items for Plugin: BackWPup (free, by Inpsyde GmbH)
  *
- * @since  1.3.2
+ * @since 1.3.2
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -332,7 +332,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_new_content_backwpup', 100 );
 /**
  * Items for "New Content" section: New BackWPup Job
  *
- * @since  1.3.2
+ * @since 1.3.2
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */

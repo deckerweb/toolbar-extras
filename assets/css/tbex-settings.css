@@ -1,11 +1,27 @@
 /**
  * // assets/css/tbex-settings
  * @package Toolbar Extras - Assets
- * @since   1.0.0
+ * @since 1.0.0
+ * @since 1.3.0 Added borders between settings sections.
+ * @since 1.4.0 General improvements; plus, added Add-On related styles.
  */
 
 .settings_page_toolbar-extras #wpbody-content .wrap {
 	width: 70vw;
+}
+
+.tbex-icon,
+.tbex-label,
+.nav-tab,
+.tbex-settings-section,
+.button.dashicons-picker {
+	color: #7e49c2;
+}
+.dark-mode .tbex-label,
+.dark-mode .nav-tab,
+.dark-mode .tbex-settings-section,
+.dark-mode .button.dashicons-picker {
+	color: #c56cd7;
 }
 
 .tbex-icon:before {
@@ -16,9 +32,13 @@
 }
 
 .tbex-version {
-	color: #c7c7c7;
+	/* color: #c7c7c7; */
 	font-size: 90%;
 	margin-left: 10px;
+	opacity: .5;
+}
+.dark-mode .tbex-version {
+	opacity: .6;
 }
 
 .tbex-intro {
@@ -36,31 +56,168 @@
 	padding-right: 13px;
 }
 
+.tbex-settings-page h2:empty {
+	display: none;
+}
+
 .tbex-settings-section,
 .tbex-as-section {
 	margin-top: 20px;
 	padding-top: 10px;
 }
 
-
-/** Anfang: v1.3.0 Testing */
+/* Border between settings sections */
 .tbex-settings-section {
-	border-top: 1px solid #c7c7c7 !important;
+	border-top: 2px solid #c7c7c7 !important;
 	padding-top: 25px;
+}
+.dark-mode .tbex-settings-section {
+	border-top: 2px solid #666 !important;
 }
 
 .tbex-settings-section.first {
 	border-top: none !important;
 	padding-top: 10px;
 }
-/** Ende: v1.3.0 Testing */
 
 
-.bg-local-default {
-	background-color: #0073aa;
+/** Anfang: v1.4.0 Testing */
+
+/* Add-On specific */
+.tbex-addon-header {
+	margin-top: 40px;
+	padding-left: 100px;
+}
+
+.tbex-addon-title {
+	font-size: 145%;
+}
+
+.tbex-addon-header.dashicons-before:before {
+	clear: left;
+	color: #c7c7c7;
+	display: inline;
+	float: left;
+	font-size: 450%;
+	margin-left: -80px;
+}
+
+.tbexmwp-component-block {
+	color: #aaa;
+	display: block;
+	font-size: 18px;
+	font-style: italic;
+	font-weight: 600;
+	margin-bottom: 10px;
+	/* margin-left: -230px; */
+	margin-top: -100px;
+	overflow: hidden;
+	padding: 10px 10px 10px 0;
+}
+.dark-mode .tbexmwp-component-block {
+	opacity: .5;
+}
+
+.tbexmwp-component-block .dashicons-before:before {
+	margin-top: 2px;
+}
+
+/* Settings form table general */
+.form-table tr:hover {
+	background-color: #f0ebe8;
+	-moz-box-shadow: 1px 1px 5px #ddd;
+	-webkit-box-shadow: 1px 1px 5px #ddd;
+	-khtml-box-shadow: 1px 1px 5px #ddd;
+	box-shadow: 1px 1px 5px #ddd;
+}
+.dark-mode .form-table tr:hover {
+	background-color: #21262f !important;  /* #22272f */
+	-moz-box-shadow: 1px 1px 4px #111921;
+	-webkit-box-shadow: 1px 1px 4px #111921;
+	-khtml-box-shadow: 1px 1px 4px #111921;
+	box-shadow: 1px 1px 4px #111921;
+}
+
+.form-table th {
+	padding-left: 20px;
+	width: 265px;
+}
+
+.form-table .tbexmwp-component td {
+	vertical-align: bottom;
+}
+
+.tbex-setting-field-block-top {
+	border-top: 2px #ddd dotted;
+}
+.dark-mode .tbex-setting-field-block-top {
+	border-top: 2px #404C58 dotted;
+}
+
+.tbex-setting-field-block-top th,
+.tbex-setting-field-first th {
+	padding-top: 60px;  /* 40px; */
+	vertical-align: top;
+}
+
+.tbex-setting-field-block-top td {
+	padding-top: 35px;
+}
+
+.tbex-setting-field-block-bottom td {
+	padding-bottom: 40px;
+}
+
+.settings_page_toolbar-extras .submit {
+	margin-left: 20px;
+	margin-top: 40px;
+}
+
+.settings_page_toolbar-extras .submit .button-primary {
+	font-size: 17px;
+	padding: 4px 20px;
+	height: auto;
+}
+
+.dashicons-picker .dashicons-before:before {
+	margin-top: 4px;
+}
+
+.tbex-setting-field-block-top th,
+.tbex-setting-field-first th {
+	margin-top: 60px;  /* 50px; */
+	display: inline-block;
+}
+
+/* Settings General: Main/Fallback logic */
+.tbex-main.is-main-inactive,
+.is-fallback.is-main-active {
+	display: none;
+}
+
+/** Ende: v1.4.0 Testing */
+
+
+.bg-local-base {
 	display: inline-block;
 	width: 28px;
 	height: 22px;
+}
+
+.bg-local-default {
+	background-color: #0073aa;
+}
+
+.bg-local-blockeditor {
+	background-color: #555d66;
+}
+
+.bg-local-elementor {
+	background-color: #d30c5c;
+}
+
+.bg-local-mainwp {
+	background-color: #7fb100;
 }
 
 .tbex-align-middle {
@@ -71,6 +228,7 @@
 	vertical-align: bottom;
 }
 
+/* Tab: About & Support */
 .tbex-about-support {
 	display: block;
 	overflow: hidden;
@@ -164,6 +322,9 @@
 	padding-bottom: 20px;
 	padding-left: 20px;
 }
+.dark-mode .tbex-heart-icon:before {
+	opacity: .6;
+}
 
 .tbex-heart-icon:hover:before,
 .second-as:hover .tbex-heart-icon:before {
@@ -176,12 +337,22 @@
 	height: 40px !important;
 } */
 
+.second-as .button-hero {
+	font-weight: 700;
+}
+
 .tbex-button {
 	margin: 5px 23px 20px !important;
 }
 
+.tbex-as-column .tbex-button.dashicons-before:before {
+	margin-right: 4px;
+	margin-top: 3px;
+}
+
 .tbex-review {
 	color: orange;
+	font-size: 125%;
 }
 
 .tbex-share {
@@ -215,6 +386,14 @@
 	padding-top: 3px;
 }
 
+.tbex-space-top {
+	display: block;
+	margin-top: 7px;
+}
+
+
+/* Media Queries
+------------------------------------------------------------ */
 
 @media only screen and (max-width: 1500px) {
 
@@ -269,6 +448,19 @@
 
 	.tbex-as-column {
 		padding: 0 20px 20px;
+	}
+
+	.form-table th,
+	.form-table td {
+		padding-left: 10px;
+	}
+
+	.tbex-setting-field-block-top td {
+		padding-top: 5px;
+	}
+
+	.form-table .tbexmwp-component td {
+		vertical-align: inherit;
 	}
 	
 }

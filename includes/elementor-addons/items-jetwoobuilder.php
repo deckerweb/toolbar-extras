@@ -16,10 +16,10 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_jetwoobuilder', 100 );
 /**
  * Items for Add-On: JetWooBuilder (Premium, by Zemez Jet/ CrocoBlock)
  *
- * @since  1.2.0
- * @since  1.3.5 Added BTC plugin support.
+ * @since 1.2.0
+ * @since 1.3.5 Added BTC plugin support.
  *
- * @uses   ddw_tbex_resource_item()
+ * @uses ddw_tbex_resource_item()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -172,7 +172,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_new_content_jetwoobuilder' );
 /**
  * Items for "New Content" section: New Product Template
  *
- * @since  1.2.0
+ * @since 1.2.0
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */

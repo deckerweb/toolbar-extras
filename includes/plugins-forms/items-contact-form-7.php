@@ -15,13 +15,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Check if Flamingo Add-On plugin is active or not.
  *
- * @since  1.3.1
+ * @since 1.3.1
  *
- * @return bool TRUE if constant defined, otherwise FALSE.
+ * @return bool TRUE if constant defined, FALSE otherwise.
  */
 function ddw_tbex_is_flamingo_active() {
 
-	return ( defined( 'FLAMINGO_VERSION' ) ) ? TRUE : FALSE;
+	return defined( 'FLAMINGO_VERSION' );
 
 }  // end function
 
@@ -30,7 +30,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_contact_form_7' );
 /**
  * Items for Plugin: Contact Form 7 (free, by Takayuki Miyoshi)
  *
- * @since  1.3.1
+ * @since 1.3.1
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -259,7 +259,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_new_content_cf7_form', 80 );
 /**
  * Items for "New Content" section: New CF7 Form
  *
- * @since  1.3.1
+ * @since 1.3.1
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -278,7 +278,7 @@ function ddw_tbex_aoitems_new_content_cf7_form() {
 			'href'   => esc_url( admin_url( 'admin.php?page=wpcf7-new' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_new_form( 'CF7' )
+				'title'  => ddw_tbex_string_add_new_item( ddw_tbex_string_new_form( 'CF7' ) )
 			)
 		)
 	);

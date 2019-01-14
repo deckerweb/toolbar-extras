@@ -14,12 +14,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 add_action( 'tbex_after_site_group_update_check', 'ddw_tbex_site_items_health_check' );
 /**
- * Items for Plugin: Health Check & Troubleshooting (free, by The WordPress.org community)
+ * Items for Plugin:
+ *   Health Check & Troubleshooting (free, by The WordPress.org community)
  *
- * @since  1.0.0
- * @since  1.3.2 Changed Site Status tab URL; added new resources.
+ * @since 1.0.0
+ * @since 1.3.2 Changed Site Status tab URL; added new resources.
  *
- * @uses   ddw_tbex_resource_item()
+ * @uses ddw_tbex_resource_item()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */

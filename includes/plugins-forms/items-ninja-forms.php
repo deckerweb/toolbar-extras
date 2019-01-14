@@ -15,10 +15,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Check if any Ninja Form Pro Add-On plugin is active or not.
  *
- * @since  1.3.1
+ * @since 1.3.1
  *
- * @param  string $addon Identifier of the Add-On to check for.
- * @return bool TRUE if constant/ function/ class exists, otherwise FALSE.
+ * @param string $addon Identifier of the Add-On to check for.
+ *
+ * @return bool TRUE if constant/ function/ class exists, FALSE otherwise.
  */
 function ddw_tbex_is_ninjaforms_pro_addon_active( $addon = '' ) {
 
@@ -48,7 +49,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_ninja_forms' );
 /**
  * Items for Plugin: Ninja Forms (free, by The WP Ninjas)
  *
- * @since  1.3.1
+ * @since 1.3.1
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -487,7 +488,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_new_content_ninja_forms', 80 );
 /**
  * Items for "New Content" section: New Ninja Form
  *
- * @since  1.3.1
+ * @since 1.3.1
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -506,7 +507,7 @@ function ddw_tbex_aoitems_new_content_ninja_forms() {
 			'href'   => esc_url( admin_url( 'admin.php?page=ninja-forms#new-form' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_new_form( 'Ninja' )
+				'title'  => ddw_tbex_string_add_new_item( ddw_tbex_string_new_form( 'Ninja' ) )
 			)
 		)
 	);

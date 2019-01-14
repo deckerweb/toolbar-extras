@@ -16,7 +16,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_bsf_sidebar_manager' );
 /**
  * Items for Plugin: Lightweight Sidebar Manager (free, by Brainstorm Force)
  *
- * @since  1.2.0
+ * @since 1.2.0
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */

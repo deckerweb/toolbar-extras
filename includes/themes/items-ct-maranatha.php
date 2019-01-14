@@ -16,10 +16,10 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_ct_maranatha', 100 );
 /**
  * Items for Theme: Maranatha & Maranatha Child Themes (all Premium, by churchthemes.com)
  *
- * @since  1.3.0
+ * @since 1.3.0
  *
- * @uses   ddw_tbex_string_theme_title()
- * @uses   ddw_tbex_customizer_start()
+ * @uses ddw_tbex_string_theme_title()
+ * @uses ddw_tbex_customizer_start()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -59,7 +59,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_ct_maranatha_license', 111 );
 /**
  * Items for Theme: Maranatha License
  *
- * @since  1.3.0
+ * @since 1.3.0
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -85,10 +85,10 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_ct_maranatha_customize', 100 
 /**
  * Customize items for Maranatha Theme
  *
- * @since  1.3.0
+ * @since 1.3.0
  *
- * @uses   ddw_tbex_customizer_focus()
- * @uses   ddw_tbex_string_customize_attr()
+ * @uses ddw_tbex_customizer_focus()
+ * @uses ddw_tbex_string_customize_attr()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -202,8 +202,8 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_ct_maranatha_resources', 120 
  *
  * @since 1.3.0
  *
- * @uses  ddw_tbex_display_items_resources()
- * @uses  ddw_tbex_resource_item()
+ * @uses ddw_tbex_display_items_resources()
+ * @uses ddw_tbex_resource_item()
  */
 function ddw_tbex_themeitems_ct_maranatha_resources() {
 

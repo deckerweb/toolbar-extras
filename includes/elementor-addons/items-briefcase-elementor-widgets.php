@@ -16,9 +16,9 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_briefcase_elementor_widgets', 10
 /**
  * Items for Add-On: Briefcase Elementor Widgets (Premium, by BriefcaseWP)
  *
- * @since  1.3.0
+ * @since 1.3.0
  *
- * @uses   ddw_tbex_resource_item()
+ * @uses ddw_tbex_resource_item()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -54,7 +54,7 @@ function ddw_tbex_aoitems_briefcase_elementor_widgets() {
 			)
 		);
 
-		if ( class_exists( 'WooCommerce' ) ) {
+		if ( ddw_tbex_is_woocommerce_active() ) {
 
 			$woo_products_title = sprintf(
 				/* translator: %s - "WooCommerce" porducts */
@@ -77,7 +77,7 @@ function ddw_tbex_aoitems_briefcase_elementor_widgets() {
 
 		}  // end if
 
-		if ( class_exists( 'Easy_Digital_Downloads' ) ) {
+		if ( ddw_tbex_is_edd_active() ) {
 
 			$edd_products_title = sprintf(
 				/* translator: %s - "Downloads" products */

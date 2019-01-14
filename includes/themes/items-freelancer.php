@@ -16,11 +16,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_freelancer', 100 );
 /**
  * Items for Theme: Freelancer Framework (free, by Cobalt Apps)
  *
- * @since  1.1.0
+ * @since 1.1.0
+ * @since 1.4.0 Simplified functions.
  *
- * @uses   ddw_tbex_string_theme_title()
- * @uses   ddw_tbex_customizer_focus()
- * @uses   ddw_tbex_customizer_start()
+ * @uses ddw_tbex_string_theme_title()
+ * @uses ddw_tbex_customizer_focus()
+ * @uses ddw_tbex_item_theme_creative_customize()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -40,18 +41,8 @@ function ddw_tbex_themeitems_freelancer() {
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
-			array(
-				'id'     => 'theme-creative-customize',
-				'parent' => 'theme-creative',
-				'title'  => esc_attr__( 'Customize Design', 'toolbar-extras' ),
-				'href'   => ddw_tbex_customizer_start(),
-				'meta'   => array(
-					'target' => ddw_tbex_meta_target(),
-					'title'  => esc_attr__( 'Customize Design', 'toolbar-extras' )
-				)
-			)
-		);
+		/** Freelancer customize */
+		ddw_tbex_item_theme_creative_customize();
 
 		$GLOBALS[ 'wp_admin_bar' ]->add_node(
 			array(
@@ -82,6 +73,32 @@ function ddw_tbex_themeitems_freelancer() {
 }  // end function
 
 
+add_filter( 'tbex_filter_items_theme_customizer_deep', 'ddw_tbex_themeitems_freelancer_customize' );
+/**
+ * Customize items for Freelancer Theme
+ *
+ * @since 1.4.0
+ *
+ * @param array $items Existing array of params for creating Toolbar nodes.
+ * @return array Tweaked array of params for creating Toolbar nodes.
+ */
+function ddw_tbex_themeitems_freelancer_customize( array $items ) {
+
+	/** Declare theme's items */
+	$freelancer_items = array(
+		'custom_css' => array(
+			'type'  => 'section',
+			'title' => __( 'Custom CSS', 'toolbar-extras' ),
+			'id'    => 'freelancercmz-css',
+		),
+	);
+
+	/** Merge and return with all items */
+	return array_merge( $items, $freelancer_items );
+
+}  // end function
+
+
 add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_freelancer_resources', 120 );
 /**
  * General resources items for Freelancer Theme.
@@ -89,8 +106,8 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_freelancer_resources', 120 );
  *
  * @since 1.1.0
  *
- * @uses  ddw_tbex_display_items_resources()
- * @uses  ddw_tbex_resource_item()
+ * @uses ddw_tbex_display_items_resources()
+ * @uses ddw_tbex_resource_item()
  */
 function ddw_tbex_themeitems_freelancer_resources() {
 

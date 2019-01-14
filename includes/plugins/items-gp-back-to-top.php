@@ -16,7 +16,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_gp_back_to_top', 200 );
 /**
  * Items for Plugin: GP Back To Top (free, by Mai Dong Giang (Peter Mai))
  *
- * @since  1.3.0
+ * @since 1.3.0
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */

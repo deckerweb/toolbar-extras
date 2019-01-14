@@ -12,46 +12,34 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 
-add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_genesis_sample_customize', 90 );
+add_filter( 'tbex_filter_items_theme_customizer_deep', 'ddw_tbex_themeitems_genesis_sample_customize' );
 /**
  * Customize items for Genesis Child Theme:
  *   Genesis Sample (Premium, by StudioPress) - only for version 2.6.0 or higher!
  *
- * @since  1.2.0
+ * @since 1.2.0
+ * @since 1.4.0 Refactored using filter/array declaration.
  *
- * @uses   ddw_tbex_customizer_focus()
- * @uses   ddw_tbex_string_customize_attr()
- *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param array $items Existing array of params for creating Toolbar nodes.
+ * @return array Tweaked array of params for creating Toolbar nodes.
  */
-function ddw_tbex_themeitems_genesis_sample_customize() {
+function ddw_tbex_themeitems_genesis_sample_customize( array $items ) {
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
-		array(
-			'id'     => 'genesis-sample-colors',
-			'parent' => 'theme-creative-customize',
-			/* translators: Autofocus section in the Customizer */
-			'title'  => esc_attr__( 'Colors', 'toolbar-extras' ),
-			'href'   => ddw_tbex_customizer_focus( 'section', 'colors' ),
-			'meta'   => array(
-				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Colors', 'toolbar-extras' ) )
-			)
-		)
+	/** Declare theme's items */
+	$sample_items = array(
+		'colors' => array(
+			'type'  => 'section',
+			'title' => __( 'Colors', 'toolbar-extras' ),
+			'id'    => 'genesis-sample-colors',
+		),
+		'custom_css' => array(
+			'type'  => 'section',
+			'title' => __( 'Custom CSS', 'toolbar-extras' ),
+			'id'    => 'genesis-sample-css',
+		),
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
-		array(
-			'id'     => 'genesis-sample-identity',
-			'parent' => 'theme-creative-customize',
-			/* translators: Autofocus section in the Customizer */
-			'title'  => esc_attr__( 'Site Identity', 'toolbar-extras' ),
-			'href'   => ddw_tbex_customizer_focus( 'section', 'title_tagline' ),
-			'meta'   => array(
-				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Site Identity', 'toolbar-extras' ) )
-			)
-		)
-	);
+	/** Merge and return with all items */
+	return array_merge( $items, $sample_items );
 
 }  // end function

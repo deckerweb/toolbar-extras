@@ -16,9 +16,9 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_pufe', 100 );
 /**
  * Items for Add-On: Power-Ups for Elementor (free, by WpPug)
  *
- * @since  1.1.0
+ * @since 1.1.0
  *
- * @uses   ddw_tbex_resource_item()
+ * @uses ddw_tbex_resource_item()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -95,7 +95,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_pufe_elemenfolio', 100 );
 /**
  * Items for Add-On: Power-Ups for Elementor (Portfolio Items) (free, by WpPug)
  *
- * @since  1.1.0
+ * @since 1.1.0
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -172,7 +172,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_new_content_pufe_elemenfolio' );
 /**
  * Items for "New Content" section: New Portfolio Item
  *
- * @since  1.1.0
+ * @since 1.1.0
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -200,4 +200,4 @@ function ddw_tbex_new_content_pufe_elemenfolio() {
 		)
 	);
 
-}  // end if
+}  // end function
