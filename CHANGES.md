@@ -73,7 +73,7 @@
 * Tweak: Enhanced, improved and corrected Readme.txt file here - also added new FAQ entry
 * Fix: Minor HTML markup issues on the settings page
 
-**New:** *Extended the Theme support for:*
+**New, 1.4.0:** *Extended the Theme support for:*
 
 * Atomic Blocks (free, by Atomic Blocks/ Array Themes)
 * Editor Blocks (free, by Editor Blocks/ Danny Cooper)
@@ -84,7 +84,7 @@
 * Suki (free, by SukiWP/ David Rozando) - including Suki Pro Add-On plugin (Premium, by SukiWP/ David Rozando)
 * Visual Composer Starter (free, by The Visual Composer Team)
 
-**New:** *Extended the Plugin support for Elementor Add-Ons:*
+**New, 1.4.0:** *Extended the Plugin support for Elementor Add-Ons:*
 
 * JetWidgets For Elementor (free, by CrocoBlock/ Zemez Jet)
 * JetWoo Widgets For Elementor (free, by CrocoBlock/ Zemez Jet)
@@ -105,7 +105,7 @@
 * Elementor White Label Branding (free, by Ozan Canakli)
 * PowerPack Lite for Elementor (free, by IdeaBox Creations)
 
-**New:** *Introduced Plugin support for Block Editor Add-Ons (Gutenberg):*
+**New, 1.4.0:** *Introduced Plugin support for Block Editor Add-Ons (Gutenberg):*
 
 * Disable Gutenberg (free, by Jeff Starr)
 * Custom Fields for Gutenberg (free, by Jeff Starr)
@@ -144,7 +144,7 @@
 * Premium Blocks for Gutenberg (free, by Leap13)
 * Elegant Blocks (free, by ravisakya, cyclonetheme)
 
-**New:** *Extended the Genesis Plugin support for:*
+**New, 1.4.0:** *Extended the Genesis Plugin support for:*
 
 * Mai Demo Importer (free, by Mike Hemberger, BizBudding Inc.) - *an Add-On for the "Mai Themes" for Genesis*
 * Genesis Super Customizer (free, by Mario Giancini) - *Note: only version 1.2.2 or higher supported*
@@ -154,7 +154,7 @@
 * Easy Genesis (free, by Doug Yuen)
 * Easy Genesis - Pages Extension (free, by Doug Yuen)
 
-**New:** *Extended the general Plugin support for:*
+**New, 1.4.0:** *Extended the general Plugin support for:*
 
 * IconPress Lite (free, by IconPress Team)
 * IconPress Pro (Premium, by IconPress Team)
@@ -196,7 +196,6 @@
 * Tweak: Open plugin's newsletter link in new browser tab
 * Fix: Correct function names for plugin support of "Genesis Custom Headers" and "Genesis Extra Settings Transporter"
 * Fix: Correct admin URL for Piotnet Addons plugin support
-* ***Stay tuned:** Version 1.4.0 of Toolbar Extras is coming soon and will be our biggest feature release yet! You will love it! ;-)*
 
 
 ### 1.3.9 - 2018-12-23

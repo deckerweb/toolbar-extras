@@ -652,7 +652,7 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 * Tweak: Open plugin's newsletter link in new browser tab
 * Fix: Correct function names for plugin support of "Genesis Custom Headers" and "Genesis Extra Settings Transporter"
 * Fix: Correct admin URL for Piotnet Addons plugin support
-* ***Stay tuned:** Version 1.4.0 of Toolbar Extras is coming soon and will be our biggest feature release yet! You will love it! ;-)*
+
 
 
 ### 1.3.9 - 2018-12-23
@@ -781,7 +781,7 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 * Fix: Corrected plugin support for "Health Check & Troubleshooting"
 * Fix: Corrected errors in readme.txt here :)
 
-**New:** *Extended and Enhanced Multisite Support*
+**New, 1.3.2:** *Extended and Enhanced Multisite Support*
 
 * Multisite is now a "first-class citizen" within Toolbar Extras - this is the begin of prerequisites for a future Multisite Add-On!
 * Added specific support for Network-wide activation on Multisite installs - this then creates the proper plugin defaults on a per site basis
@@ -793,7 +793,7 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 * Tweak: Made "Local Development" plugin support compatible with Multisite
 * Tweak: Made "GitHub Updater" plugin support compatible with Multisite
 
-**New:** *Extended the Theme support for:*
+**New, 1.3.2:** *Extended the Theme support for:*
 
 * Niche Pro (Child Theme for Genesis) (Premium, by Design by Bloom)
 * Lifestyle Pro (Child Theme for Genesis) (Premium, by StudioPress)
@@ -808,7 +808,7 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 * Showcase Pro (Child Theme for Genesis) (Premium, by Design by Bloom)
 * Smart Passive Income Pro (Child Theme for Genesis) (Premium, by StudioPress)
 
-**New:** *Extended the Plugin support for Elementor Add-Ons:*
+**New, 1.3.2:** *Extended the Plugin support for Elementor Add-Ons:*
 
 * Split Test For Elementor (free, by Rocket Elements)
 * JetEngine (Premium, by Zemez Jet/ CrocoBlock) - note: plugin is currently in beta
@@ -822,7 +822,7 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 * Funnelmentals Premium (Premium, by Web Disrupt)
 * Rife Elementor Extensions & Templates (free, by Apollo13 Themes)
 
-**New:** *Extended the general Plugin support for:*
+**New, 1.3.2:** *Extended the general Plugin support for:*
 
 * FormCraft 3 (Premium, by nCrafts)
 * WP Synchro (free, by WPSynchro) - for Dev Mode
@@ -860,7 +860,7 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 * Fix: Fixing one more instance - proper template type for "Create with Builder" URL for adding new "Single" template (Elementor Pro)
 * Fix: "Convert Pro" plugin support - proper check if "Pro Add-On" is active to avoid fatal error
 
-**New:** *Extended the general Plugin support for:*
+**New, 1.3.1:** *Extended the general Plugin support for:*
 
 * WP Migrate DB Pro (Premium, by Delicious Brains) - for Dev Mode
 * Contact Form 7 (free, by Takayuki Miyoshi)
@@ -905,7 +905,7 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 * Fix: Proper template type for "Create with Builder" URL for adding new "Single" template (Elementor Pro)
 * Fix: Proper Link title labels for "White Label Branding for Elementor" plugin support
 
-**New:** *Extended the Theme support for:*
+**New, 1.3.0:** *Extended the Theme support for:*
 
 * Kava Pro (Premium, by Zemez Jet/ CrocoBlock) - including the "Kava Extra" plugin
 * Phlox (free, by averta) - including the free Add-Ons "Phlox Core Elements" and "Phlox Portfolio"
@@ -924,7 +924,7 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 * Parallax Pro (Child Theme for Genesis) (Premium, by StudioPress)
 * Wellness Pro (Child Theme for Genesis) (Premium, by StudioPress)
 
-**New:** *Extended the Plugin support for Elementor Add-Ons:*
+**New, 1.3.0:** *Extended the Plugin support for Elementor Add-Ons:*
 
 * JetThemeCore (Premium, by Zemez Jet/ CrocoBlock)
 * Briefcase Elementor Widgets (Premium, by BriefcaseWP)
@@ -932,7 +932,7 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 * Kadence WooCommerce Elementor Pro (Premium, by Kadence Themes)
 * Elementor Google Map Extended Pro (Premium, by InternetCSS)
 
-**New:** *Extended the general Plugin support for:*
+**New, 1.3.0:** *Extended the general Plugin support for:*
 
 * Kava Extra (Premium, by Zemez Jet/ CrocoBlock)
 * Jet Data Importer (Premium, by Zemez Jet/ CrocoBlock)
@@ -994,7 +994,7 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 * Tweak: Changed plugin author avatar image to local file instead of external hashed Gravatar image
 * Tweak: Enhanced, improved and corrected Readme.txt file here :)
 
-**New:** *Extended the Theme support for:*
+**New, 1.2.0:** *Extended the Theme support for:*
 
 * Customify (free, by WPCustomify/ PressMaximum)
 * Flexia (free) - including Flexia Core (free) and Flexia Pro (Premium) plugins (all three by Codedic)
@@ -1015,7 +1015,7 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 * Brunch Pro (Child Theme for Genesis) (Premium, by Feast Design Co.)
 * Genesis Sample (the default Child Theme for Genesis) (Premium, by StudioPress) - only for version 2.6.0 or higher
 
-**New:** *Extended the Plugin support for Elementor Add-Ons:*
+**New, 1.2.0:** *Extended the Plugin support for Elementor Add-Ons:*
 
 * White Label Branding for Elementor (Premium, by IdeaBox Creations) - including Toolbar Extras support for some of the white label features (where applicable)
 * JetWooBuilder (Product Templates for WooCommerce) (Premium, by Zemez Jet/ CrocoBlock)
@@ -1027,7 +1027,7 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 * Eleslider (free, by wpmasters)
 * SJ Elementor Addon (free, by sandesh055)
 
-**New:** *Extended the general Plugin support for:*
+**New, 1.2.0:** *Extended the general Plugin support for:*
 
 * Lightweight Sidebar Manager (free, by Brainstorm Force)
 * TM Timeline (free, by Jetimpex/ Zemez)
@@ -1102,7 +1102,7 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 * Fix: White label name for OceanWP for Library in "New Content" Group
 * Fix: Inline documentation and typo fixes all around
 
-**New:** *Extended the Theme support for:*
+**New, 1.1.0:** *Extended the Theme support for:*
 
 * Page Builder Framework (free & Premium, by David Vongries & MapSteps)
 * StartWP (free, by Munir Kamal)
@@ -1115,7 +1115,7 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 * Orfeo (Child Theme for Hestia) (free, by Themeisle)
 * Christmas Hestia (Child Theme for Hestia) (free, by Themeisle)
 
-**New:** *Extended the Plugin support for Elementor Add-Ons:*
+**New, 1.1.0:** *Extended the Plugin support for Elementor Add-Ons:*
 
 * Premium Addons for Elementor (free, by Leap13)
 * Elements Plus! (free, by The CSSIgniter Team)
@@ -1133,7 +1133,7 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 * Orbit Fox Companion (free, by Themeisle)
 * Elementor Google Map Extended (free, by InternetCSS)
 
-**New:** *Extended the general Plugin support for:*
+**New, 1.1.0:** *Extended the general Plugin support for:*
 
 * WP Show Posts (free/Pro, by Tom Usborne)
 * StartWP Extended (free, by Munir Kamal)
