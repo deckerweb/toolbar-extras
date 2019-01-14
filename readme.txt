@@ -548,7 +548,7 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 * SEO Redirection (free, by Fakhri Alsadi)
 * Easy Updates Manager (free, by Easy Updates Manager Team)
 * Dismiss Gutenberg Nag (free, by Luciano Croce)
-* Easy Login Styler (Premium, by Phpbits Creative Studio)
+* Easy Login Styler Pro (Premium, by Phpbits Creative Studio)
 * Login Designer (free, by Rich Tabor from ThatPluginCompany)
 * WP Mobile Menu (free, by Takanakui)
 * Simple Links (free, by Mat Lipe)
