@@ -601,7 +601,7 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 
 **New, 1.4.0:** *Extended the Genesis Plugin support for:*
 
-* Mai Demo Importer (free, by Mike Hemberger, BizBudding Inc.) - *an Add-On for the "Mai Themes" for Genesis*
+* Mai Demo Importer (free, by Mike Hemberger, BizBudding Inc.) - *An Add-On for the "Mai Themes" for Genesis*
 * Genesis Super Customizer (free, by Mario Giancini) - *Note: only version 1.2.2 or higher supported*
 * Genesis Simple Share (free, by StudioPress)
 * Genesis Simple FAQ (free, by StudioPress)
@@ -627,7 +627,7 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 * MailPoet 3 (free, by MailPoet)
 * MailPoet Newsletters (Previous) (Version 2, Legacy) (free, by MailPoet)
 * Mailster (Premium, by EverPress)
-* Epic News Elements (Premium, by Jegtheme) - an Add-On for Elementor, Block Editor (Gutenberg) and WPBakery Page Builder (old Visual Composer)
+* Epic News Elements (Premium, by Jegtheme) - *An Add-On for Elementor, Block Editor (Gutenberg) and WPBakery Page Builder (old Visual Composer)*
 * Classic Editor (free, by WordPress Contributors)
 * Export Import Menus (free, by Akshay Menariya)
 * Entries For WPForms (free, by Sanjeev Aryal)
