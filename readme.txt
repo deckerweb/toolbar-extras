@@ -55,7 +55,7 @@ Out of the box the plugin includes support for dozens of awesome Plugins and The
 * [**Astra**](https://wordpress.org/themes/astra/), including **Astra Pro** (Add-On) (both by Brainstorm Force)
 * [**GeneratePress**](https://wordpress.org/themes/generatepress/), including **GeneratePress Premium** (Add-On) (both by Tom Usborne)
 * [**OceanWP**](https://wordpress.org/themes/oceanwp/), including Suite of Premium Extras (Add-Ons)
-* [**Genesis Framework** (Premium, by StudioPress)](http://deckerweb.de/go/genesis/)
+* [**Genesis Framework** (Premium, by StudioPress)](https://deckerweb.de/go/genesis/)
 * [**Page Builder Framework**](https://wordpress.org/themes/page-builder-framework/), including their **Premium Add-On plugin** (both by David Vongries & MapSteps)
 * [**Customify** (free, by WPCustomify/ PressMaximum)](https://wordpress.org/themes/customify/), including **Customify Pro** (Add-On)
 * [**Suki** (free, by SukiWP/ David Rozando)](https://wordpress.org/themes/suki/), including **Suki Pro** (Add-On)
@@ -63,9 +63,9 @@ Out of the box the plugin includes support for dozens of awesome Plugins and The
 * [**Kava Theme** (free & Premium, by Zemez Jet & CrocoBlock)](https://toolbarextras.com/go/crocoblock/) - including all Jet Plugins
 * **Suite of "Twenty 20.." default themes**, like [*Twenty Nineteen*](https://wordpress.org/themes/twentynineteen/) and [*Twenty Seventeen*](https://wordpress.org/themes/twentyseventeen/)
 * [**Elementor Hello Theme**](https://github.com/pojome/elementor-hello-theme), a simple starter theme for developers
-* [**Freelancer Framework** (free, by Cobalt Apps)]
+* **Freelancer Framework** (free, by Cobalt Apps)
 * [**Dynamik Website Builder (Child Theme for Genesis)** (Premium, by Cobalt Apps)]
-* [**Beaver Builder Theme** (Premium, by FastLine Media LLC)]
+* **Beaver Builder Theme** (Premium, by FastLine Media LLC)
 * [**Hestia**](https://wordpress.org/themes/hestia/), including its Child Themes "Orfeo", "Tiny Hestia", "Christmas Hestia" (all by Themeisle)
 * [**Sydney** (free, by athemes)](https://wordpress.org/themes/sydney/)
 * [**Flexia** (free)](https://wordpress.org/themes/flexia/) - including Flexia Core (free) and Flexia Pro (Premium) plugins (all three by Codetic)
@@ -79,19 +79,19 @@ Out of the box the plugin includes support for dozens of awesome Plugins and The
 
 = Support for Elementor specific Add-On Plugins =
 * [**Header Footer for Elementor** (free, by Brainstorm Force)](https://wordpress.org/plugins/header-footer-elementor/)
-* [**Elementor Extras** (Premium, by Namogo)]
-* [**Ultimate Addons for Elementor** (Premium, by Brainstorm Force)]
-* [**PowerPack Elements** (free/Premium, by IdeaBox Creations)]
+* **Elementor Extras** (Premium, by Namogo)
+* **Ultimate Addons for Elementor** (Premium, by Brainstorm Force)
+* **PowerPack Elements** (free/Premium, by IdeaBox Creations)
 * [**AnyWhere Elementor** (free, by WebTechStreet)](https://wordpress.org/plugins/anywhere-elementor/)
-* [**AnyWhere Elementor Pro** (Premium, by WebTechStreet)]
+* **AnyWhere Elementor Pro** (Premium, by WebTechStreet)
 * [**StylePress for Elementor** (free, by David Baker (dtbaker))](https://wordpress.org/plugins/full-site-builder-for-elementor/)
 * [**Templementor - Persistent Elementor Templates** (free, by Lcweb)](https://wordpress.org/plugins/templementor/)
 * [**Envato Elements – Template Kits** (free, by Envato)](https://wordpress.org/plugins/envato-elements/)
 * [**Livemesh Addons for Elementor** (free, by Livemesh)](https://wordpress.org/plugins/addons-for-elementor/)
-* [**Livemesh Addons for Elementor Premium** (Premium, by Livemesh)]
+* **Livemesh Addons for Elementor Premium** (Premium, by Livemesh)
 * [**Essential Addons for Elementor Lite** (free, by Codetic)](https://wordpress.org/plugins/essential-addons-for-elementor-lite/)
-* [**Essential Addons for Elementor Pro** (Premium, by Codetic)]
-* [**Element Pack for Elementor** (Premium, by BdThemes)]
+* **Essential Addons for Elementor Pro** (Premium, by Codetic)
+* **Element Pack for Elementor** (Premium, by BdThemes)
 * [**Premium Addons for Elementor** (free, by Leap13)](https://wordpress.org/plugins/premium-addons-for-elementor/)
 * [**Elements Plus!** (free, by The CSSIgniter Team)](https://wordpress.org/plugins/elements-plus/)
 * [**Debug Elementor** (free, by Rami Yushuvaev)](https://wordpress.org/plugins/debug-elementor/)
@@ -102,9 +102,9 @@ Out of the box the plugin includes support for dozens of awesome Plugins and The
 * [**Extra Privacy for Elementor** (free, by Marian Heddesheimer)](https://wordpress.org/plugins/extra-privacy-for-elementor/)
 * [**White Label Branding for Elementor** (Premium, by IdeaBox Creations)] - including Toolbar Extras support for some of the white label features (where applicable)
 * [**Dashboard Welcome for Elementor** (free, by IdeaBox Creations)](https://wordpress.org/plugins/dashboard-welcome-for-elementor/)
-* [**DHWC Elementor** (Product Templates for WooCommerce) (Premium, by Sitesao Team)]
+* **DHWC Elementor** (Product Templates for WooCommerce) (Premium, by Sitesao Team)
 * [**Revolution for Elementor** (free, by Jan Thielemann)](https://wordpress.org/plugins/revolution-for-elementor/)
-* [**Revolution for Elementor Premium** (Premium, by Jan Thielemann)]
+* **Revolution for Elementor Premium** (Premium, by Jan Thielemann)
 * [**Portfolio for Elementor** (free, by WpPug)](https://wordpress.org/plugins/portfolio-elementor/)
 * [**PT Elementor Addons Lite** (free, by ParamThemes)](https://wordpress.org/plugins/pt-elementor-addons-lite/)
 * [**Elementor Addon Elements** (free, by WebTechStreet)](https://wordpress.org/plugins/addon-elements-for-elementor-page-builder/)
@@ -129,11 +129,11 @@ Out of the box the plugin includes support for dozens of awesome Plugins and The
 * All major visual **form builders** beyond Gravity Forms: WPForms (Lite & Pro), Formidable Forms (Lite & Pro), Ninja Forms, Caldera Forms, Contact Form 7 (CF7), HappyForms, Form Maker, Everest Forms, QuForm 2, ARForms, FormCraft 3 :)
 * [**Popup Maker** (free, by Daniel Iser)](https://wordpress.org/plugins/popup-maker/) (requires v1.7+)
 * [**Smart Slider 3** (free/Premium, by Nextend)](https://wordpress.org/plugins/smart-slider-3/)
-* [**Themer Pro** (Premium, by Cobalt Apps)]
-* [**Extender Pro** (Premium, by Cobalt Apps)]
-* [**Freelancer DevKit** (Premium, by Cobalt Apps)]
+* **Themer Pro** (Premium, by Cobalt Apps)
+* **Extender Pro** (Premium, by Cobalt Apps)
+* **Freelancer DevKit** (Premium, by Cobalt Apps)
 * [**IconPress Lite/Pro** (free/Premium, by IconPress Team)](https://wordpress.org/plugins/iconpress-lite/)
-* [**Instant IDE** (Premium, by Cobalt Apps)]
+* **Instant IDE** (Premium, by Cobalt Apps)
 * [**All-in-one Migration** (free, by ServMask)](https://wordpress.org/plugins/all-in-one-wp-migration/)
 * [**UpdraftPlus** (free, by UpdraftPlus.Com, DavidAnderson)](https://wordpress.org/plugins/updraftplus/)
 * [**Duplicator** (free, by Snap Creek)](https://wordpress.org/plugins/duplicator/)
