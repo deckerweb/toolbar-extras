@@ -31,7 +31,7 @@
 * New: For Dev Mode - added (optional) "ID" sub item for viewing Archives, Singles, Taxonomies - makes it easier to determine the ID of a given object/item - and avoids yet another plugin
 * New: For Dev Mode - added "Newest Plugins" to the plugin installer sub items in the Toolbar (developers often need to test new plugins, this new item saves them a few clicks!)
 * New: For Dev Mode - added "Newest Themes" to the theme installer sub items in the Toolbar (developers often need to test new themes, this new item saves them a few clicks!)
-* Mew: Prepared plugin internally for its first (upcoming) Add-On plugin
+* New: Prepared plugin internally for its first (upcoming) Add-On plugin
 * New: Added full support for newest features and changes coming with Elementor v2.4.0+, including Elementor Pro v2.4.0+
 * New: Added "Toolbar Extras" integration with "Elementor Finder" feature - the interactive search since Elementor v2.3.0+
 * New: Added official and third-party external "Elementor Resources" to the Elementor Finder feature
@@ -77,7 +77,7 @@
 
 * Atomic Blocks (free, by Atomic Blocks/ Array Themes)
 * Editor Blocks (free, by Editor Blocks/ Danny Cooper)
-* Twenty Nineteen (free, the WordPress.org team) - *Note: the new default theme since WordPress 5.0+*
+* Twenty Nineteen (free, by the WordPress.org team) - *Note: the new default theme since WordPress 5.0+*
 * Mai Law Pro (Child Theme for Genesis) (Premium, by Mike Hemberger, BizBudding Inc.)
 * CoBlocks (free, by Rich Tabor of CoBlocks)
 * Sydney (free, by athemes)
@@ -182,7 +182,6 @@
 * Safe Redirect Manager (free, by 10up)
 * SEO Redirection (free, by Fakhri Alsadi)
 * Easy Updates Manager (free, by Easy Updates Manager Team)
-* Dismiss Gutenberg Nag (free, by Luciano Croce)
 * Easy Login Styler Pro (Premium, by Phpbits Creative Studio)
 * Login Designer (free, by Rich Tabor from ThatPluginCompany)
 * WP Mobile Menu (free, by Takanakui)
@@ -293,7 +292,7 @@
 ### 1.3.2 - 2018-07-29
 
 * New: Added "Elements" to the "GeneratePress" Theme support for the Premium Add-On v1.7 or higher (including backwards compat for Page Headers and Hooks)
-* New: First few features & tweaks to support the Block Editor (known as "Gutenberg") which is planned for upcoming WordPress 5.0: if "Gutenberg" plugin is active offer an "Editor switch" between "Block Editor" (Gutenberg) and "Classic Editor" when editing any post type content (which in general needs to have post type support for the Editor) -- Please Note: these features are currently only available with `define( 'TBEX_USE_BLOGK_EDITOR_SUPPORT', FALSE );` - support in plugin's settings comes with next major version!
+* New: First few features & tweaks to support the Block Editor (known as "Gutenberg") which is planned for upcoming WordPress 5.0: if "Gutenberg" plugin is active offer an "Editor switch" between "Block Editor" (Gutenberg) and "Classic Editor" when editing any post type content (which in general needs to have post type support for the Editor) -- Please Note: these features are currently only available with `define( 'TBEX_USE_BLOCK_EDITOR_SUPPORT', TRUE );` - support in plugin's settings comes with next major version!
 * New: Finally, complete translation of the German plugin page on WordPress.org: [https://de.wordpress.org/plugins/toolbar-extras/](https://de.wordpress.org/plugins/toolbar-extras/) - this translation will also be maintained from now on (note: it can only be in informal German, which is the guideline set by the platform)
 * Tweak: On Plugin's settings page, About & Support, enhanced optional System Info
 * Tweak: Improved Theme support for "GeneratePress" Theme and its Premium Add-On Plugin
