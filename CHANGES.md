@@ -6,6 +6,7 @@
 * [Plugin page on WordPress.org: wordpress.org/plugins/toolbar-extras/](https://wordpress.org/plugins/toolbar-extras/)
 * [Translate the plugin](https://translate.wordpress.org/projects/wp-plugins/toolbar-extras)
 * [**Join plugin's newsletter for insider info, tutorials and more**](https://eepurl.com/gbAUUn)
+* [**Become a Patron**](https://www.patreon.com/deckerweb) and support ongoing development, maintenance and support of this plugin
 * [**Donate** for the further development & support of the plugin](https://www.paypal.me/deckerweb)
 * [Plugin's documentation & knowledge base](https://toolbarextras.com/docs/)
 * [Plugin's public roadmap (Trello Board)](https://toolbarextras.com/go/public-roadmap/)
@@ -13,7 +14,18 @@
 
 ## Changelog of the Plugin
 
-### 1.4.0 - 2019-01-14
+### ⚡ 1.4.1 - 2019-03-05
+
+* *New: Successfully tested with WordPress 5.1*
+* Tweak: Added new resource link for "Elementor Extras" (by Namogo) plugin support
+* Tweak: Added new developer resource link for "WPForms" plugin support
+* Tweak: Changed GitHub resource links for Elementor support to new the URLs
+* Tweak: Switched the Customizer and Admin link positions for "Nav Menus" in the Site Group
+* Tweak: Updated `.pot` file plus all German translations (formal, informal) and language packs
+* Fix: Removing of WordPress Widgets from Elementor Live Editor (panel) now works again, especially with Elementor 2.5.0 or higher - thanks to user feedback ([Topic](https://wordpress.org/support/topic/remove-wordpress-widgets-incompatible-with-elementor-2-5/))
+
+
+### 🎉 1.4.0 - 2019-01-14
 
 * New: Full support for WordPress 5.0+ new Block Editor (Gutenberg) - set as default "Page Builder" integration (for Toolbar); also supported are popular plugins "Classic Editor" and "Disable Gutenberg" plugins
 * New: Lots of additional resource links for Block Editor (Gutenberg) added (can be disabled like other resources)
@@ -190,14 +202,14 @@
 * The SEO Framework (free, by Sybre Waaijer)
 
 
-### 1.3.10 - 2018-12-30 
+### ⚡ 1.3.10 - 2018-12-30 
 
 * Tweak: Open plugin's newsletter link in new browser tab
 * Fix: Correct function names for plugin support of "Genesis Custom Headers" and "Genesis Extra Settings Transporter"
 * Fix: Correct admin URL for Piotnet Addons plugin support
 
 
-### 1.3.9 - 2018-12-23
+### ⚡ 1.3.9 - 2018-12-23
 
 * *New: Successfully tested with WordPress 5.0.2*
 * New: Added plugin support for my own plugin, Genesis Extra Settings Transporter (free, by David Decker - DECKERWEB)
@@ -214,7 +226,7 @@
 * Tweak: Enhanced, improved and corrected Readme.txt file here :)
 
 
-### 1.3.8 - 2018-12-11
+### ⚡ 1.3.8 - 2018-12-11
 
 * New: Successfully tested with WordPress 5.0.0 major release version
 * New: Added our plugin version to the "Right Now" text in the "At a Glance" Dashboard Widget
@@ -227,7 +239,7 @@
 * Tweak: Updated `.pot` file plus all German translations (formal, informal) and language packs
 
 
-### 1.3.7 - 2018-11-20
+### ⚡ 1.3.7 - 2018-11-20
 
 * New: Successfully tested with WordPress 5.0 Beta 5
 * New: Added Plugin support for Genesis Simple Edits (free, by StudioPress)
@@ -245,7 +257,7 @@
 * Fix: Changed few `translators` comments in code to properly trigger the language pack creation on WordPress.org for some translateable strings
 
 
-### 1.3.6 - 2018-10-30
+### ⚡ 1.3.6 - 2018-10-30
 
 * New: Successfully tested with WordPress 5.0 Beta 1
 * Tweak: Updated bundled library DDWlib Plugin Installer Recommendations to latest version (v1.2.0) - which brings enhanced CSS styles, including for the "Dark Mode" plugin
@@ -253,7 +265,7 @@
 * Tweak: Enhanced and improved Readme.txt file here - also added new FAQ entry
 
 
-### 1.3.5 - 2018-10-02
+### ⚡ 1.3.5 - 2018-10-02
 
 * New: Added plugin support for my very own plugin, Builder Template Categories (free, by David Decker - DECKERWEB) - for all integrations relevant for Toolbar Extras plugin
 * New: Added & verified plugin support for WPForms Pro versions (Premium, by WPForms)
@@ -268,7 +280,7 @@
 * Tweak: Updated `.pot` file plus all German translations (formal, informal) and language packs
 
 
-### 1.3.4 - 2018-08-30
+### ⚡ 1.3.4 - 2018-08-30
 
 * New: Added `composer.json` file to the plugin's root folder - this is great for developers using Composer
 * New: Added `README.md` file for plugin's GitHub.com repository to make it more readable there
@@ -282,14 +294,14 @@
 * Tweak: Updated `.pot` file plus all German translations (formal, informal) and language packs
 
 
-### 1.3.3 - 2018-08-08
+### ⚡ 1.3.3 - 2018-08-08
 
 * New: Verified support for Business accounts on WordPress.com platform which support installation of other plugins (like Toolbar Extras) - [check the full tutorial on our plugin website](https://toolbarextras.com/docs/how-to-use-toolbar-extras-plugin-on-wordpress-com/)
 * Tweak: Improved and corrected Readme.txt file here
 * Fix: Respect namespaced classes in "PowerPack Elements" plugin support for their v1.3.4+ release
 
 
-### 1.3.2 - 2018-07-29
+### ⚡ 1.3.2 - 2018-07-29
 
 * New: Added "Elements" to the "GeneratePress" Theme support for the Premium Add-On v1.7 or higher (including backwards compat for Page Headers and Hooks)
 * New: First few features & tweaks to support the Block Editor (known as "Gutenberg") which is planned for upcoming WordPress 5.0: if "Gutenberg" plugin is active offer an "Editor switch" between "Block Editor" (Gutenberg) and "Classic Editor" when editing any post type content (which in general needs to have post type support for the Editor) -- Please Note: these features are currently only available with `define( 'TBEX_USE_BLOCK_EDITOR_SUPPORT', TRUE );` - support in plugin's settings comes with next major version!
@@ -373,7 +385,7 @@
   * Cool Timeline (free, by Cool Plugins) - as a basis for the by the same author, "Cool Timeline Addon For Elementor" (native Elementor widget)
 
 
-### 1.3.1 - 2018-06-30
+### ⚡ 1.3.1 - 2018-06-30
 
 * New: Added two upcoming WooCommerce Template types for a future Elementor Pro version
 * Tweak: Added icons to the new Customizer link for "Edit" and "View" singular posts for any public post (feature from v1.3.0)
@@ -403,7 +415,7 @@
   * Content Aware Sidebars (free, by Joachim Jensen - DEV Institute)
 
 
-### 1.3.0 - 2018-06-25
+### 🎉 1.3.0 - 2018-06-25
 
 * New: General setting to set link target for "Create with Builder" links (add new templates...) - by default this is now set to "_blank" (means new browser tab/ window)
 * New: Added Customizer link for "Edit" and "View" singular posts for any public post - also a new General setting included to display those links or not (on by default)
@@ -469,7 +481,7 @@
   * Display Featured Image for Genesis (free, by Robin Cornett)
 
 
-### 1.2.1 - 2018-06-09
+### ⚡ 1.2.1 - 2018-06-09
 
 * Tweak: Improved logic for some Smart Tweaks so any items are always hidden when the supported plugin is not active (important for the re-hook tweaks)
 * Tweak: Improved plugin support for "JetWooBuilder" with the adding of its WooCommerce settings page
@@ -483,7 +495,7 @@
 * Fix: Proper check for white label settings in "Ultimate Addons for Elementor" plugin support
 
 
-### 1.2.0 - 2018-05-31
+### 🎉 1.2.0 - 2018-05-31
 
 * New: General setting to remove all title attributes (Tooltips) from links in the Toolbar, including from all items added by Toolbar Extras (Toolbar Extras Settings > General)
 * New: Smart Tweak setting to re-hook "WP Rocket" items from the top-level to the Site Group > More Stuff (off by default) (Plugin: WP Rocket - Premium, by WP Rocket)
@@ -548,7 +560,7 @@
   * Widget Options (free/Premium, by Phpbits Creative Studio)
 
 
-### 1.1.3 - 2018-04-30
+### ⚡ 1.1.3 - 2018-04-30
 
 * New: [Launched plugin's own website at toolbarextras.com](https://toolbarextras.com/) with full listing of theme and plugin support, features, blog as well as documentation, knowledge base and changelogs
 * New: Added plugin support for "Genesis DevKit" (Premium, by Cobalt Apps)
@@ -563,14 +575,14 @@
 * Fix: Proper filter name for 'tbex_filter_meta_target'
 
 
-### 1.1.2 - 2018-04-23
+### ⚡ 1.1.2 - 2018-04-23
 
 * Tweak: Made support for "Genesis Extender" plugin compatible with their newest version 1.9.0 or higher (versions below v1.9.0 are still supported, though)
 * Fix: Proper dismissal parameter for admin notices
 * Fix: Re-added /assets/ folder within plugin - really sorry for that mistake in v1.1.1!
 
 
-### 1.1.1 - 2018-04-20
+### ⚡ 1.1.1 - 2018-04-20
 
 * New: Added theme support for "Kava Theme" (free, by Zemez & CrocoBlock)
 * New: Added plugin support for "WidgetKit for Elementor" (free, by Themesgrove)
@@ -584,7 +596,7 @@
 * Fix: Add Thickbox JS & CSS on settings page if needed (for video tour)
 
 
-### 1.1.0 - 2018-04-18
+### 🎉 1.1.0 - 2018-04-18
 
 * New: Successfully tested with Elementor Pro 2.0 final release (and many Beta versions before)
 * New: Successfully tested with "Laragon" app on Windows 10 - automatic detection of local sites with `.test` domain worked great
@@ -649,7 +661,7 @@
   * MaxGalleria (free, by Max Foundry)
 
 
-### 1.0.2 - 2018-04-05
+### ⚡ 1.0.2 - 2018-04-05
 
 * New: Added first language packs via WordPress.org translations platform - for German (de_DE - informal) and German Formal (de_DE_formal) - thanks to Team WordPress DE! ;-)
 * New: Added plugin support for "Cleaner Plugin Installer".
@@ -658,13 +670,13 @@
 * Fix: Fatal error related to "Dev Mode" in Multisite context.
 
 
-### 1.0.1 - 2018-04-04
+### ⚡ 1.0.1 - 2018-04-04
 
 * Tweak: Improved localization functions.
 * Tweak: Improved Readme.txt
 
 
-### 1.0.0 - 2018-04-03
+### 🎉 1.0.0 - 2018-04-03
 
 * *Plugin launch. Everything's new!*
 * New: Including support for 17 Themes/ Frameworks (which all work well with Elementor, including the Theme Builder since Pro v2.0+)

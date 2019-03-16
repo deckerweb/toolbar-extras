@@ -509,3 +509,37 @@ function ddw_tbex_use_tweak_easy_updates_manager() {
 	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'remove_easy_um' ) ) ? TRUE : FALSE;;
 
 }  // end function
+
+
+add_filter( 'elementor/widgets/black_list', 'ddw_tbex_tweak_elementor_remove_wp_widgets' );
+/**
+ * Optionally remove all WordPress widgets from the Elementor Live Editor.
+ *   Note: A native Elementor filter is used.
+ *
+ * @since 1.2.0
+ * @since 1.4.1 Refactored and relocated into file
+ *              'includes/functions-conditionals-tweaks.php'.
+ *
+ * @uses ddw_tbex_is_elementor_active()
+ * @uses ddw_tbex_use_tweak_elementor_remove_wpwidgets()
+ *
+ * @param array $black_list Array holding all blacklisted WordPress widgets.
+ * @return array Tweaked array of black listed WordPress widgets.
+ */
+function ddw_tbex_tweak_elementor_remove_wp_widgets( $black_list ) {
+
+	/** Bail early if Elementor not active or tweak not wanted */
+	if ( ! ddw_tbex_is_elementor_active() || ! ddw_tbex_use_tweak_elementor_remove_wpwidgets() ) {
+		return $black_list;
+	}
+
+	/**
+	 * Get all registered WordPress widgets, but only the classes
+	 *   (= the first-level array keys)
+	 */
+	$black_list = array_keys( $GLOBALS[ 'wp_widget_factory' ]->widgets );
+
+	/** Return black list array for filter */
+	return (array) $black_list;
+
+}  // end function

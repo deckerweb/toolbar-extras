@@ -261,19 +261,6 @@ function ddw_tbex_site_items_nav_menus() {
 
 		$GLOBALS[ 'wp_admin_bar' ]->add_node(
 			array(
-				'id'     => 'wpmenus-live',
-				'parent' => 'wpmenus',
-				'title'  => esc_attr__( 'Customize Live', 'toolbar-extras' ),
-				'href'   => ddw_tbex_customizer_focus( 'panel', 'nav_menus' ),
-				'meta'   => array(
-					'target' => ddw_tbex_meta_target(),
-					'title'  => esc_attr__( 'Customize Nav Menus with Live Preview', 'toolbar-extras' )
-				)
-			)
-		);
-
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
-			array(
 				'id'     => 'wpmenus-admin',
 				'parent' => 'wpmenus',
 				'title'  => esc_attr__( 'Manage in WP-Admin', 'toolbar-extras' ),
@@ -281,6 +268,19 @@ function ddw_tbex_site_items_nav_menus() {
 				'meta'   => array(
 					'target' => '',
 					'title'  => esc_attr__( 'Manage Nav Menus in WP-Admin Dashboard (Classic)', 'toolbar-extras' )
+				)
+			)
+		);
+
+		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			array(
+				'id'     => 'wpmenus-live',
+				'parent' => 'wpmenus',
+				'title'  => esc_attr__( 'Customize Live', 'toolbar-extras' ),
+				'href'   => ddw_tbex_customizer_focus( 'panel', 'nav_menus' ),
+				'meta'   => array(
+					'target' => ddw_tbex_meta_target(),
+					'title'  => esc_attr__( 'Customize Nav Menus with Live Preview', 'toolbar-extras' )
 				)
 			)
 		);

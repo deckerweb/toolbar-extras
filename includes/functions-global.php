@@ -947,6 +947,7 @@ function ddw_tbex_string_theme_title( $title_attr = '', $child = '', $custom_nam
  *   'support-forum'          - Support Forum
  *   'support-contact'        - Support Contact
  *   'documentation'          - Documtation
+ *   'documentation-dev'      - Developer Documentation
  *   'facebook-group'         - Facebook Group
  *   'official-support'       - Official Support
  *   'official-site'          - Official Site
@@ -974,6 +975,7 @@ function ddw_tbex_string_theme_title( $title_attr = '', $child = '', $custom_nam
  *   'slack-channel'          - Slack Channel
  *
  * @since 1.0.0
+ * @since 1.4.1 Added type developer docs.
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  *
@@ -1000,6 +1002,9 @@ function ddw_tbex_resource_item( $type = '', $id = '', $parent = '', $url = '', 
 			break;
 		case 'documentation':
 			$title = esc_attr__( 'Documentation', 'toolbar-extras' );
+			break;
+		case 'documentation-dev':
+			$title = esc_attr__( 'Developer Documentation', 'toolbar-extras' );
 			break;
 		case 'facebook-group':
 			$title = esc_attr__( 'Facebook Group', 'toolbar-extras' );

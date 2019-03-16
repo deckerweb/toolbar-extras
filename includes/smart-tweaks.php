@@ -696,43 +696,10 @@ function ddw_tbex_tweak_remove_items_cobaltapps() {
 /**
  * 4th GROUP: Tweak behavior of Page Builder
  * @since 1.2.0
+ * @since 1.4.1 Re-located WordPress Widgets tweak to plugin file
+ *              'includes/functions-conditionals-tweaks.php'.
  * -----------------------------------------------------------------------------
  */
-
-/**
- * Only execute tweak if Elementor is active and the Tweak setting is on 'yes'.
- *   Note: We choose this approach to not return an empty array to the filter if
- *         the conditions are not met. That way we will not "harm" other
- *         plugins or themes also using this - native Elementor - filter.
- */
-if ( ddw_tbex_is_elementor_active() && ddw_tbex_use_tweak_elementor_remove_wpwidgets() ) :
-
-	add_filter( 'elementor/widgets/black_list', 'ddw_tbex_tweak_elementor_remove_wp_widgets' );
-	/**
-	 * Optionally remove all WordPress widgets from the Elementor Live Editor.
-	 *   Note: A native Elementor filter is used.
-	 *
-	 * @since 1.2.0
-	 *
-	 * @return array Array of black listed WordPress widgets.
-	 */
-	function ddw_tbex_tweak_elementor_remove_wp_widgets() {
-
-		$black_list = array();
-
-		/**
-		 * Get all registered WordPress widgets, but only the classes
-		 *   (= the first-level array keys)
-		 */
-		$black_list = array_keys( $GLOBALS[ 'wp_widget_factory' ]->widgets );
-
-		/** Return black list array for filter */
-		return (array) $black_list;
-
-	}  // end function
-
-endif;
-
 
 add_filter( 'admin_bar_menu', 'ddw_tbex_rehook_items_elementor_inspector', 11 );
 /**

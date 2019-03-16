@@ -32,8 +32,8 @@ function ddw_tbex_resources_elementor() {
 		'url_docs_pro'         => 'https://docs.elementor.com/collection/147-elementor-pro',
 		'url_developers'       => 'https://developers.elementor.com/',
 		'url_code_reference'   => 'https://code.elementor.com/',
-		'url_github'           => 'https://github.com/pojome/elementor',
-		'url_github_issues'    => 'https://github.com/pojome/elementor/issues',
+		'url_github'           => 'https://github.com/elementor/elementor',
+		'url_github_issues'    => 'https://github.com/elementor/elementor/issues',
 		'url_blog'             => 'https://elementor.com/blog/',
 		'url_videos'           => 'https://www.youtube.com/c/elementor',
 		'url_fb_group'         => 'https://www.facebook.com/groups/Elementors/',
@@ -49,7 +49,7 @@ function ddw_tbex_resources_elementor() {
 		'url_fbdev_group'      => 'https://www.facebook.com/groups/1388158027894331/',
 
 		/** Hello Theme */
-		'url_ehello_github'    => 'https://github.com/pojome/elementor-hello-theme',
+		'url_ehello_github'    => 'https://github.com/elementor/elementor-hello-theme',
 
 	);  // end of array
 

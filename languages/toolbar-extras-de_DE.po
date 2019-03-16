@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Toolbar Extras\n"
-"POT-Creation-Date: 2019-01-14 22:28+0100\n"
-"PO-Revision-Date: 2019-01-14 22:29+0100\n"
+"POT-Creation-Date: 2019-03-05 01:08+0100\n"
+"PO-Revision-Date: 2019-03-05 01:09+0100\n"
 "Last-Translator: David Decker DECKERWEB.de -- https://deckerweb.de/\n"
 "Language-Team: David Decker DECKERWEB.de -- https://deckerweb.de/\n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2\n"
+"X-Generator: Poedit 2.2.1\n"
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
@@ -985,7 +985,7 @@ msgid "Smart Tweaks"
 msgstr "Smarte Anpassungen"
 
 #: includes/admin/views/help-content-header.php:34
-#: includes/functions-global.php:1193
+#: includes/functions-global.php:1198
 msgid "Plugin"
 msgstr "Plugin"
 
@@ -1098,7 +1098,7 @@ msgstr "Verbinden"
 
 #: includes/admin/views/help-content-sidebar.php:32
 #: includes/admin/views/settings-tab-about-support.php:142
-#: includes/functions-global.php:1005
+#: includes/functions-global.php:1010
 msgid "Facebook Group"
 msgstr "Facebook-Gruppe"
 
@@ -1205,7 +1205,7 @@ msgstr "Habe ich schon erledigt"
 
 #. translators: Label for "Settings" in left-hand admin menu
 #. translators: Autofocus panel in the Customizer
-#: includes/admin/views/notice-plugins-welcome.php:39
+#: includes/admin/views/notice-plugins-welcome.php:42
 #: includes/block-editor-addons/items-advanced-gutenberg.php:70
 #: includes/block-editor-addons/items-advanced-gutenberg.php:74
 #: includes/block-editor-addons/items-amazon-block.php:47
@@ -1417,7 +1417,7 @@ msgstr "Einstellungen"
 
 #. translators: Label for "Appearance" in left-hand admin menu
 #. translators: Autofocus panel in the Customizer
-#: includes/admin/views/notice-plugins-welcome.php:48
+#: includes/admin/views/notice-plugins-welcome.php:52
 #: includes/items-edit-content.php:44 includes/items-edit-content.php:49
 #: includes/plugins-forms/items-mailchimp-for-wp.php:121
 #: includes/plugins-forms/items-mailchimp-for-wp.php:125
@@ -1428,31 +1428,31 @@ msgid "Appearance"
 msgstr "Design"
 
 #. translators: Label for "Menus" sub-menu item in left-hand admin menu
-#: includes/admin/views/notice-plugins-welcome.php:50
+#: includes/admin/views/notice-plugins-welcome.php:54
 msgid "Menus"
 msgstr "Menüs"
 
-#: includes/admin/views/notice-plugins-welcome.php:56
+#: includes/admin/views/notice-plugins-welcome.php:61
 msgid "Yes, I want the info"
 msgstr "Ja, ich will die Infos"
 
-#: includes/admin/views/notice-plugins-welcome.php:62
+#: includes/admin/views/notice-plugins-welcome.php:67
 msgid "Thank You for Installing and Activating the Toolbar Extras Plugin!"
 msgstr ""
 "Vielen Dank, dass du das Toolbar Extras Plugin installiert und aktiviert "
 "hast!"
 
-#: includes/admin/views/notice-plugins-welcome.php:63
+#: includes/admin/views/notice-plugins-welcome.php:68
 msgid "You'll find the plugin's settings under:"
 msgstr "Du findest die Einstellungen des Plugins unter:"
 
-#: includes/admin/views/notice-plugins-welcome.php:64
+#: includes/admin/views/notice-plugins-welcome.php:69
 msgid "To create an (optional) Admin Toolbar Menu just build a new menu here:"
 msgstr ""
 "Um ein (optionales) Toolbar-Menü für Admins zu erstellen, lege einfach ein "
 "neues Nav-Menü hier an:"
 
-#: includes/admin/views/notice-plugins-welcome.php:65
+#: includes/admin/views/notice-plugins-welcome.php:70
 msgid "Stay in the loop and subscribe to my Plugins Newsletter:"
 msgstr "Bleibe auf dem Laufenden und abonniere meinen Plugins-Newsletter:"
 
@@ -1650,7 +1650,7 @@ msgid "Free product support @ WordPress.org plugin forum"
 msgstr "Kostenloser Produkt-Support @ WordPress.org Plugin-Forum"
 
 #: includes/admin/views/settings-tab-about-support.php:134
-#: includes/functions-global.php:996
+#: includes/functions-global.php:998
 msgid "Support Forum"
 msgstr "Support-Forum"
 
@@ -1659,7 +1659,7 @@ msgid "Plugin documentation &amp; Knowledge Base articles"
 msgstr "Plugin-Dokumentation &amp; Knowledge Base-Artikel"
 
 #: includes/admin/views/settings-tab-about-support.php:138
-#: includes/functions-global.php:1002
+#: includes/functions-global.php:1004
 msgid "Documentation"
 msgstr "Dokumentation"
 
@@ -3250,7 +3250,7 @@ msgstr "UltraBlocks"
 
 #: includes/block-editor-addons/items-ultrablocks.php:73
 #: includes/block-editor-addons/items-ultrablocks.php:77
-#: includes/functions-global.php:999
+#: includes/functions-global.php:1001
 msgid "Support Contact"
 msgstr "Support-Kontakt"
 
@@ -4722,7 +4722,7 @@ msgstr "Erweitert"
 
 #: includes/elementor-addons/items-revolution-for-elementor.php:221
 #: includes/elementor-addons/items-revolution-for-elementor.php:225
-#: includes/functions-global.php:1058
+#: includes/functions-global.php:1063
 msgid "My Account"
 msgstr "Mein Benutzerkonto"
 
@@ -5576,135 +5576,139 @@ msgstr "Theme: %s"
 msgid "Active Theme: %s"
 msgstr "Aktives Theme: %s"
 
-#: includes/functions-global.php:1008
+#: includes/functions-global.php:1007
+msgid "Developer Documentation"
+msgstr "Entwickler-Dokumentation"
+
+#: includes/functions-global.php:1013
 msgid "Official Support"
 msgstr "Offizieller Support"
 
-#: includes/functions-global.php:1011
+#: includes/functions-global.php:1016
 msgid "Official Site"
 msgstr "Offizielle Website"
 
-#: includes/functions-global.php:1014
+#: includes/functions-global.php:1019
 msgid "Official Blog"
 msgstr "Offizieller Blog"
 
-#: includes/functions-global.php:1017
+#: includes/functions-global.php:1022
 msgid "Development @ GitHub"
 msgstr "Entwicklung @ GitHub"
 
-#: includes/functions-global.php:1020
+#: includes/functions-global.php:1025
 msgid "GitHub Issues"
 msgstr "GitHub Issues"
 
 #. translators: Title attribute for linked text
-#: includes/functions-global.php:1022
+#: includes/functions-global.php:1027
 msgid "GitHub Issues (Bug Tracker)"
 msgstr "GitHub Issues (Bugtracker)"
 
-#: includes/functions-global.php:1025
+#: includes/functions-global.php:1030
 msgid "Community Translations"
 msgstr "Community-Übersetzungen"
 
 #. translators: Title attribute for linked text
-#: includes/functions-global.php:1027
+#: includes/functions-global.php:1032
 msgid "Community Translations (at WordPress.org)"
 msgstr "Community-Übersetzungen (bei WordPress.org)"
 
-#: includes/functions-global.php:1030
+#: includes/functions-global.php:1035
 msgid "Translate Pro Plugin"
 msgstr "Pro-Plugin übersetzen"
 
-#: includes/functions-global.php:1033
+#: includes/functions-global.php:1038
 msgid "YouTube Channel"
 msgstr "YouTube-Kanal"
 
-#: includes/functions-global.php:1036
+#: includes/functions-global.php:1041
 msgid "YouTube Tutorials"
 msgstr "YouTube-Anleitungen"
 
-#: includes/functions-global.php:1039
+#: includes/functions-global.php:1044
 msgid "Videos"
 msgstr "Videos"
 
-#: includes/functions-global.php:1042
+#: includes/functions-global.php:1047
 msgid "Knowledge Base"
 msgstr "Wissensbasis"
 
 #. translators: Title attribute for linked text
-#: includes/functions-global.php:1044
+#: includes/functions-global.php:1049
 msgid "Knowledge Base Articles"
 msgstr "Wissensbasis-Artikel (KB)"
 
-#: includes/functions-global.php:1047
+#: includes/functions-global.php:1052
 msgid "Tutorials"
 msgstr "Anleitungen"
 
 #. translators: Title attribute for linked text
-#: includes/functions-global.php:1049
+#: includes/functions-global.php:1054
 msgid "Tutorial Articles"
 msgstr "Anleitungen"
 
-#: includes/functions-global.php:1052
+#: includes/functions-global.php:1057
 msgid "User Forum"
 msgstr "Anwenderforum"
 
-#: includes/functions-global.php:1055
+#: includes/functions-global.php:1060
 msgid "Community Forum"
 msgstr "Community-Forum"
 
-#: includes/functions-global.php:1061
+#: includes/functions-global.php:1066
 msgid "Code Reference"
 msgstr "Code-Referenz"
 
-#: includes/functions-global.php:1064
+#: includes/functions-global.php:1069
 msgid "Pro Docs"
 msgstr "Pro-Dokumentation"
 
-#: includes/functions-global.php:1067
+#: includes/functions-global.php:1072
 msgid "Pro: Documentation"
 msgstr "Pro: Dokumentation"
 
-#: includes/functions-global.php:1070
+#: includes/functions-global.php:1075
 msgid "Pro: Modules Documentation"
 msgstr "Pro: Modul-Dokumentation"
 
-#: includes/functions-global.php:1073
+#: includes/functions-global.php:1078
 msgid "Pro: Facebook Group"
 msgstr "Pro: Facebook-Gruppe"
 
-#: includes/functions-global.php:1076
+#: includes/functions-global.php:1081
 msgid "Pro: Support"
 msgstr "Pro: Support"
 
-#: includes/functions-global.php:1079
+#: includes/functions-global.php:1084
 msgid "Pro: Official Site"
 msgstr "Pro: Offizielle Website"
 
-#: includes/functions-global.php:1082
+#: includes/functions-global.php:1087
 msgid "Pro: APIs"
 msgstr "Pro: APIs"
 
-#: includes/functions-global.php:1085
+#: includes/functions-global.php:1090
 msgid "Slack Channel"
 msgstr "Slack-Kanal"
 
-#: includes/functions-global.php:1088
+#: includes/functions-global.php:1093
 msgid "External Resource"
 msgstr "Externe Ressource"
 
-#: includes/functions-global.php:1189
+#: includes/functions-global.php:1194
 msgid "You have no sufficient permission to edit this special menu."
 msgstr ""
 "Du hast keine ausreichende Berechtigung, um dieses besondere Menü bearbeiten "
 "zu können."
 
-#: includes/functions-global.php:1389
+#: includes/functions-global.php:1394
 msgid "Test this custom URL"
 msgstr "Diese benutzerdefinierte URL testen"
 
 #. translators: Autofocus section in the Customizer
-#: includes/functions-global.php:1470 includes/functions-global.php:1475
-#: includes/functions-global.php:1522
+#: includes/functions-global.php:1475 includes/functions-global.php:1480
+#: includes/functions-global.php:1527
 #: includes/themes-genesis/items-genesis-academy-pro.php:76
 #: includes/themes-genesis/items-genesis-academy-pro.php:80
 #: includes/themes-genesis/items-genesis-agentpress-pro.php:62
@@ -5791,7 +5795,7 @@ msgid "Site Identity"
 msgstr "Website-Identität"
 
 #. translators: Autofocus section in the Customizer
-#: includes/functions-global.php:1526
+#: includes/functions-global.php:1531
 #: includes/themes-genesis/items-genesis-academy-pro.php:62
 #: includes/themes-genesis/items-genesis-academy-pro.php:66
 #: includes/themes-genesis/items-genesis-agentpress-pro.php:48
@@ -5860,7 +5864,7 @@ msgid "Header Image"
 msgstr "Headerbild"
 
 #. translators: Autofocus section in the Customizer
-#: includes/functions-global.php:1530
+#: includes/functions-global.php:1535
 #: includes/themes-genesis/items-genesis-agentpress-pro.php:34
 #: includes/themes-genesis/items-genesis-agentpress-pro.php:38
 #: includes/themes-genesis/items-genesis-atmosphere-pro.php:76
@@ -5914,7 +5918,7 @@ msgstr "Hintergrundbild"
 #. translators: Autofocus panel in the Customizer
 #. translators: Autofocus section in the Customizer
 #. translators: Autofocus section/ panel in the Customizer
-#: includes/functions-global.php:1534
+#: includes/functions-global.php:1539
 #: includes/plugins/items-wp-mobile-menu.php:83
 #: includes/plugins/items-wp-mobile-menu.php:87
 #: includes/themes-genesis/items-genesis-academy-pro.php:48
@@ -6001,11 +6005,11 @@ msgstr "Hintergrundbild"
 msgid "Colors"
 msgstr "Farben"
 
-#: includes/functions-global.php:1682 includes/functions-global.php:1687
+#: includes/functions-global.php:1687 includes/functions-global.php:1692
 msgid "Color Wheel &amp; Color Schemes"
 msgstr "Farbrad &amp; Farbschemata"
 
-#: includes/functions-global.php:1697 includes/functions-global.php:1702
+#: includes/functions-global.php:1702 includes/functions-global.php:1707
 msgid "Color Scheme Designer"
 msgstr "Farbschema-Designer"
 
@@ -6309,21 +6313,21 @@ msgstr "Nav-Menüs"
 msgid "Manage Nav Menus"
 msgstr "Nav-Menüs verwalten"
 
-#: includes/items-site-group.php:266 includes/items-site-group.php:346
-msgid "Customize Live"
-msgstr "Live anpassen"
-
-#: includes/items-site-group.php:270 includes/items-site-group.php:508
-msgid "Customize Nav Menus with Live Preview"
-msgstr "Nav-Menüs mit Live-Vorschau im Customizer bearbeiten"
-
-#: includes/items-site-group.php:279 includes/items-site-group.php:333
+#: includes/items-site-group.php:266 includes/items-site-group.php:333
 msgid "Manage in WP-Admin"
 msgstr "Bearbeiten in WP-Admin"
 
-#: includes/items-site-group.php:283
+#: includes/items-site-group.php:270
 msgid "Manage Nav Menus in WP-Admin Dashboard (Classic)"
 msgstr "Nav-Menüs im WP-Admin Dashboard bearbeiten (klassisch)"
+
+#: includes/items-site-group.php:279 includes/items-site-group.php:346
+msgid "Customize Live"
+msgstr "Live anpassen"
+
+#: includes/items-site-group.php:283 includes/items-site-group.php:508
+msgid "Customize Nav Menus with Live Preview"
+msgstr "Nav-Menüs mit Live-Vorschau im Customizer bearbeiten"
 
 #: includes/items-site-group.php:292
 msgid "Menu Locations"
@@ -10435,7 +10439,7 @@ msgstr "Lite"
 msgid "Swift Performance %s"
 msgstr "Swift Performance %s"
 
-#: includes/smart-tweaks.php:775
+#: includes/smart-tweaks.php:742
 msgid "Elementor Template Inspector"
 msgstr "Elementor Template-Inspektor"
 

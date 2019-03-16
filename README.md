@@ -9,9 +9,9 @@
 **Donate link:** https://www.paypal.me/deckerweb  
 **Tags:** toolbar, adminbar, admin bar, elementor, page builder, themes, menu, links, settings, usability, deckerweb, ddwtoolbar  
 **Requires at least:** 4.7  
-**Tested up to:** 5.0  
+**Tested up to:** 5.1  
 **Requires PHP:** 5.6  
-**Stable tag:** 1.4.0  
+**Stable tag:** 1.4.1  
 **License:** GPL-2.0-or-later  
 **License URI:** https://opensource.org/licenses/GPL-2.0  
 
@@ -80,7 +80,7 @@ Out of the box the plugin includes support for dozens of awesome Plugins and The
 * **Beaver Builder Theme** (Premium, by FastLine Media LLC)
 * [**Hestia**](https://wordpress.org/themes/hestia/), including its Child Themes "Orfeo", "Tiny Hestia", "Christmas Hestia" (all by Themeisle)
 * [**Sydney** (free, by athemes)](https://wordpress.org/themes/sydney/)
-* [**Flexia** (free)](https://wordpress.org/themes/flexia/) - including Flexia Core (free) and Flexia Pro (Premium) plugins (all three by Codetic)
+* [**Flexia** (free)](https://wordpress.org/themes/flexia/) - including Flexia Core (free) and Flexia Pro (Premium) plugins (all three by WPDeveloper)
 * [**Phlox** (free, by averta)](https://wordpress.org/themes/phlox/) - including the free Add-Ons "Phlox Core Elements" and "Phlox Portfolio"
 * [**Buildwall** (Premium, by Zemez Jet)](https://toolbarextras.com/go/buildwall-tm/)
 * **All church-specific themes by churchthemes.com** (Premium)
@@ -102,8 +102,8 @@ Out of the box the plugin includes support for dozens of awesome Plugins and The
 * [**Envato Elements – Template Kits** (free, by Envato)](https://wordpress.org/plugins/envato-elements/)
 * [**Addons for Elementor** (free, by Livemesh)](https://wordpress.org/plugins/addons-for-elementor/)
 * **Addons for Elementor Premium** (Premium, by Livemesh)
-* [**Essential Addons for Elementor Lite** (free, by Codetic)](https://wordpress.org/plugins/essential-addons-for-elementor-lite/)
-* **Essential Addons for Elementor Pro** (Premium, by Codetic)
+* [**Essential Addons for Elementor Lite** (free, by WPDeveloper)](https://wordpress.org/plugins/essential-addons-for-elementor-lite/)
+* **Essential Addons for Elementor Pro** (Premium, by WPDeveloper)
 * **Element Pack for Elementor** (Premium, by BdThemes)
 * [**Premium Addons for Elementor** (free, by Leap13)](https://wordpress.org/plugins/premium-addons-for-elementor/), plus optional Pro Add-On
 * [**Elements Plus!** (free, by The CSSIgniter Team)](https://wordpress.org/plugins/elements-plus/)
@@ -203,6 +203,7 @@ You can also contribute code-wise via our [Toolbar Extras GitHub Repository](htt
 * Join our [Facebook Community Group](https://www.facebook.com/groups/ToolbarExtras/)
 * **Rate us 5 stars** on [WordPress](https://wordpress.org/support/plugin/toolbar-extras/reviews/?filter=5/#new-post) :)
 * [**Subscribe to my Newsletter for insider info on this plugin**](https://eepurl.com/gbAUUn), plus tutorials and more stuff on deckerweb WordPress plugins - join a thriving community of site builders!
+* [**Become a Patron**](https://www.patreon.com/deckerweb) and support ongoing development, maintenance and support of this plugin
 
 
 ### This Plugin ... 
@@ -256,7 +257,7 @@ This plugin only works and makes sense for Administrator users (and Super Admins
 
 Example: The Elementor settings page requires the capability `manage_options` - by default, only Administrators have this capability. So Toolbar Extras "inherits" those capabilities (permissions) as well.
 
-So, to see anything added to the Toolbar, it is required the user must have the cababilities of `manage_options` and `edit_theme_options`. As long as these are in place, Toolbar Extras is the perfect companion! :-)
+So, to see anything added to the Toolbar, it is required the user must have the capabilities of `manage_options` and `edit_theme_options`. As long as these are in place, Toolbar Extras is the perfect companion! :-)
 
 (Note: Implementing other roles/ capabilities is not planned, and it makes no sense, really. It would require the codebase to be bloated with all those additional permission conditions and would give only very very few (if any at all!) additional links for roles like "Editor" or lower. Again, offering all items only for Admins follows the supported integrations, prevents bloat and big footprint while also avoiding very high maintenance costs.)
 
@@ -469,7 +470,17 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 ([For the full changelog of this plugin visit its website at ToolbarExtras.com](https://toolbarextras.com/changelog/))
 
 
-### 1.4.0 - 2019-01-14
+### ⚡ 1.4.1 - 2019-03-05
+* *New: Successfully tested with WordPress 5.1*
+* Tweak: Added new resource link for "Elementor Extras" (by Namogo) plugin support
+* Tweak: Added new developer resource link for "WPForms" plugin support
+* Tweak: Changed GitHub resource links for Elementor support to new the URLs
+* Tweak: Switched the Customizer and Admin link positions for "Nav Menus" in the Site Group
+* Tweak: Updated `.pot` file plus all German translations (formal, informal) and language packs
+* Fix: Removing of WordPress Widgets from Elementor Live Editor (panel) now works again, especially with Elementor 2.5.0 or higher - thanks to user feedback ([Topic](https://wordpress.org/support/topic/remove-wordpress-widgets-incompatible-with-elementor-2-5/))
+
+
+### 🎉 1.4.0 - 2019-01-14
 * New: Full support for WordPress 5.0+ new Block Editor (Gutenberg) - set as default "Page Builder" integration (for Toolbar); also supported are popular plugins "Classic Editor" and "Disable Gutenberg" plugins
 * New: Lots of additional resource links for Block Editor (Gutenberg) added (can be disabled like other resources)
 * New: Support for dozens of Block Editor specific Gutenberg Add-On plugins and themes now built-in - see appropriate changelog sections below -- the add-on support can be disabled via plugin's settings
@@ -646,7 +657,7 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 
 
 
-### 1.3.10 - 2018-12-30 
+### ⚡ 1.3.10 - 2018-12-30 
 
 * Tweak: Open plugin's newsletter link in new browser tab
 * Fix: Correct function names for plugin support of "Genesis Custom Headers" and "Genesis Extra Settings Transporter"
@@ -654,7 +665,7 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 
 
 
-### 1.3.9 - 2018-12-23
+### ⚡ 1.3.9 - 2018-12-23
 
 * *New: Successfully tested with WordPress 5.0.2*
 * New: Added plugin support for my own plugin, Genesis Extra Settings Transporter (free, by David Decker - DECKERWEB)
@@ -672,7 +683,7 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 
 
 
-### 1.3.8 - 2018-12-11
+### ⚡ 1.3.8 - 2018-12-11
 
 * New: Successfully tested with WordPress 5.0.0 major release version
 * New: Added our plugin version to the "Right Now" text in the "At a Glance" Dashboard Widget
@@ -686,7 +697,7 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 
 
 
-### 1.3.7 - 2018-11-20
+### ⚡ 1.3.7 - 2018-11-20
 
 * New: Successfully tested with WordPress 5.0 Beta 5
 * New: Added Plugin support for Genesis Simple Edits (free, by StudioPress)
@@ -714,7 +725,7 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 
 
 
-### 1.3.5 - 2018-10-02
+### ⚡ 1.3.5 - 2018-10-02
 
 * New: Added plugin support for my very own plugin, Builder Template Categories (free, by David Decker - DECKERWEB) - for all integrations relevant for Toolbar Extras plugin
 * New: Added & verified plugin support for WPForms Pro versions (Premium, by WPForms)
@@ -730,7 +741,7 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 
 
 
-### 1.3.4 - 2018-08-30
+### ⚡ 1.3.4 - 2018-08-30
 
 * New: Added `composer.json` file to the plugin's root folder - this is great for developers using Composer
 * New: Added `README.md` file for plugin's GitHub.com repository to make it more readable there
@@ -745,7 +756,7 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 
 
 
-### 1.3.3 - 2018-08-08
+### ⚡ 1.3.3 - 2018-08-08
 
 * New: Verified support for Business accounts on WordPress.com platform which support installation of other plugins (like Toolbar Extras) - [check the full tutorial on our plugin website](https://toolbarextras.com/docs/how-to-use-toolbar-extras-plugin-on-wordpress-com/)
 * Tweak: Improved and corrected Readme.txt file here
@@ -753,7 +764,7 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 
 
 
-### 1.3.2 - 2018-07-29
+### ⚡ 1.3.2 - 2018-07-29
 
 * New: Added "Elements" to the "GeneratePress" Theme support for the Premium Add-On v1.7 or higher (including backwards compat for Page Headers and Hooks)
 * New: First few features & tweaks to support the Block Editor (known as "Gutenberg") which is planned for upcoming WordPress 5.0: if "Gutenberg" plugin is active offer an "Editor switch" between "Block Editor" (Gutenberg) and "Classic Editor" when editing any post type content (which in general needs to have post type support for the Editor) -- Please Note: these features are currently only available with `define( 'TBEX_USE_BLOCK_EDITOR_SUPPORT', TRUE );` - support in plugin's settings comes with next major version!
@@ -846,7 +857,7 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 
 
 
-### 1.3.1 - 2018-06-30
+### ⚡ 1.3.1 - 2018-06-30
 
 * New: Added two upcoming WooCommerce Template types for a future Elementor Pro version
 * Tweak: Added icons to the new Customizer link for "Edit" and "View" singular posts for any public post (feature from v1.3.0)
@@ -879,7 +890,7 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 
 
 
-### 1.3.0 - 2018-06-25
+### 🎉 1.3.0 - 2018-06-25
 
 * New: General setting to set link target for "Create with Builder" links (add new templates...) - by default this is now set to "_blank" (means new browser tab/ window)
 * New: Added Customizer link for "Edit" and "View" singular posts for any public post - also a new General setting included to display those links or not (on by default)
@@ -952,7 +963,7 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 
 
 
-### 1.2.1 - 2018-06-09
+### ⚡ 1.2.1 - 2018-06-09
 
 * Tweak: Improved logic for some Smart Tweaks so any items are always hidden when the supported plugin is not active (important for the re-hook tweaks)
 * Tweak: Improved plugin support for "JetWooBuilder" with the adding of its WooCommerce settings page
@@ -967,7 +978,7 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 
 
 
-### 1.2.0 - 2018-05-31
+### 🎉 1.2.0 - 2018-05-31
 
 * New: General setting to remove all title attributes (Tooltips) from links in the Toolbar, including from all items added by Toolbar Extras (Toolbar Extras Settings > General)
 * New: Smart Tweak setting to re-hook "WP Rocket" items from the top-level to the Site Group > More Stuff (off by default) (Plugin: WP Rocket - Premium, by WP Rocket)
@@ -1039,7 +1050,7 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 
 
 
-### 1.1.3 - 2018-04-30
+### ⚡ 1.1.3 - 2018-04-30
 
 * New: [Launched plugin's own website at toolbarextras.com](https://toolbarextras.com/) with full listing of theme and plugin support, features, blog as well as documentation, knowledge base and changelogs
 * New: Added plugin support for "Genesis DevKit" (Premium, by Cobalt Apps)
@@ -1055,7 +1066,7 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 
 
 
-### 1.1.2 - 2018-04-23
+### ⚡ 1.1.2 - 2018-04-23
 
 * Tweak: Made support for "Genesis Extender" plugin compatible with their newest version 1.9.0 or higher (versions below v1.9.0 are still supported, though)
 * Fix: Proper dismissal parameter for admin notices
@@ -1063,7 +1074,7 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 
 
 
-### 1.1.1 - 2018-04-20
+### ⚡ 1.1.1 - 2018-04-20
 
 * New: Added theme support for "Kava Theme" (free, by Zemez Jet & CrocoBlock)
 * New: Added plugin support for "WidgetKit for Elementor" (free, by Themesgrove)
@@ -1078,7 +1089,7 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 
 
 
-### 1.1.0 - 2018-04-18
+### 🎉 1.1.0 - 2018-04-18
 
 * New: Successfully tested with Elementor Pro 2.0 final release (and many Beta versions before)
 * New: Successfully tested with "Laragon" app on Windows 10 - automatic detection of local sites with `.test` domain worked great
@@ -1150,7 +1161,7 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 
 
 
-### 1.0.2 - 2018-04-05
+### ⚡ 1.0.2 - 2018-04-05
 
 * New: Added first language packs via WordPress.org translations platform - for German (de_DE - informal) and German Formal (de_DE_formal) - thanks to Team WordPress DE! ;-)
 * New: Added plugin support for "Cleaner Plugin Installer"
@@ -1160,14 +1171,14 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 
 
 
-### 1.0.1 - 2018-04-04
+### ⚡ 1.0.1 - 2018-04-04
 
 * Tweak: Improved localization functions.
 * Tweak: Improved Readme.txt
 
 
 
-### 1.0.0 - 2018-04-03
+### 🎉 1.0.0 - 2018-04-03
 
 * *Plugin launch. Everything's new!*
 * New: Including support for 17 Themes/ Frameworks (which all work well with Elementor, including the Theme Builder since Pro v2.0+)
@@ -1179,6 +1190,10 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 
 
 ## Upgrade Notice 
+
+
+### 1.4.1
+Important maintenance release: Fixes and tweaks for Elementor 2.5 compatibility. - **Update highly recommended.**
 
 
 ### 1.4.0

@@ -468,6 +468,18 @@ function ddw_tbex_site_items_wpforms() {
 				'https://wpforms.com/'
 			);
 
+			/** Developer documentation */
+			if ( ddw_tbex_display_items_dev_mode() ) {
+
+				ddw_tbex_resource_item(
+					'documentation-dev',
+					'wpforms-developer-docs',
+					'group-wpforms-resources',
+					'https://developers.wpforms.com/'
+				);
+
+			}  // end if
+			
 		}  // end if
 
 }  // end function

@@ -3,9 +3,9 @@ Contributors: daveshine, deckerweb, wpautobahn, toolbarextras
 Donate link: https://www.paypal.me/deckerweb
 Tags: toolbar, adminbar, admin bar, elementor, page builder, themes, menu, links, settings, usability, deckerweb, ddwtoolbar
 Requires at least: 4.7
-Tested up to: 5.0
+Tested up to: 5.1
 Requires PHP: 5.6
-Stable tag: 1.4.0
+Stable tag: 1.4.1
 License: GPL-2.0-or-later
 License URI: https://opensource.org/licenses/GPL-2.0
 
@@ -183,6 +183,7 @@ You can also contribute code-wise via our [Toolbar Extras GitHub Repository](htt
 * Join our [Facebook Community Group](https://www.facebook.com/groups/ToolbarExtras/)
 * **Rate us 5 stars** on [WordPress.org](https://wordpress.org/support/plugin/toolbar-extras/reviews/?filter=5/#new-post) :)
 * [**Subscribe to my Newsletter for insider info on this plugin**](https://eepurl.com/gbAUUn), plus tutorials and more stuff on deckerweb WordPress plugins - join a thriving community of site builders!
+* [**Become a Patron**](https://www.patreon.com/deckerweb) and support ongoing development, maintenance and support of this plugin
 
 = This Plugin ... =
 * ... scratches my own itch!
@@ -377,6 +378,16 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 == Changelog ==
 
 ([For the full changelog of this plugin visit its website at ToolbarExtras.com](https://toolbarextras.com/changelog/))
+
+
+= ⚡ 1.4.1 - 2019-03-05 =
+* *New: Successfully tested with WordPress 5.1*
+* Tweak: Added new resource link for "Elementor Extras" (by Namogo) plugin support
+* Tweak: Added new developer resource link for "WPForms" plugin support
+* Tweak: Changed GitHub resource links for Elementor support to new the URLs
+* Tweak: Switched the Customizer and Admin link positions for "Nav Menus" in the Site Group
+* Tweak: Updated `.pot` file plus all German translations (formal, informal) and language packs
+* Fix: Removing of WordPress Widgets from Elementor Live Editor (panel) now works again, especially with Elementor 2.5.0 or higher - thanks to user feedback ([Topic](https://wordpress.org/support/topic/remove-wordpress-widgets-incompatible-with-elementor-2-5/))
 
 
 = 1.4.0 - 2019-01-14 =
@@ -1050,6 +1061,9 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 
 
 == Upgrade Notice =
+
+= 1.4.1 =
+Important maintenance release: Fixes and tweaks for Elementor 2.5 compatibility. - **Update highly recommended.**
 
 = 1.4.0 =
 Major feature release: Lots of new settings options. Over 90 new plugin & theme integrations supported. Enhancements and updates on all fronts. - **Update highly recommended.**

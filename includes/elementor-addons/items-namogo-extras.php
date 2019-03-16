@@ -105,6 +105,13 @@ function ddw_tbex_aoitems_elementor_extras() {
 			);
 
 			ddw_tbex_resource_item(
+				'documentation',
+				'namogoextras-docs',
+				'group-namogoextras-resources',
+				'https://shop.namogo.com/docs/'
+			);
+			
+			ddw_tbex_resource_item(
 				'facebook-group',
 				'namogoextras-facebook',
 				'group-namogoextras-resources',
