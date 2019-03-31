@@ -44,8 +44,8 @@ function ddw_tbex_tbexcom_api_get_addons() {
 
 		if ( ! empty( $data ) && is_array( $data ) ) {
 
-			/** Store the data for a week */
-			set_transient( 'toolbar-extras-addons', $data, 7 * MINUTE_IN_SECONDS );
+			/** Store the data for a week / MINUTE_IN_SECONDS */
+			set_transient( 'toolbar-extras-addons', $data, 7 * DAY_IN_SECONDS );
 
 			return $data;
 
