@@ -520,6 +520,9 @@ add_filter( 'elementor/widgets/black_list', 'ddw_tbex_tweak_elementor_remove_wp_
  * @since 1.4.1 Refactored and relocated into file
  *              'includes/functions-conditionals-tweaks.php'.
  *
+ * @uses ddw_tbex_is_elementor_active()
+ * @uses ddw_tbex_use_tweak_elementor_remove_wpwidgets()
+ *
  * @param array $black_list Array holding all blacklisted WordPress widgets.
  * @return array Tweaked array of black listed WordPress widgets.
  */

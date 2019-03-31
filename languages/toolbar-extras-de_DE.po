@@ -3,6 +3,8 @@ msgstr ""
 "Project-Id-Version: Toolbar Extras\n"
 "POT-Creation-Date: 2019-03-31 17:20+0200\n"
 "PO-Revision-Date: 2019-03-31 17:20+0200\n"
+"POT-Creation-Date: 2019-03-05 01:08+0100\n"
+"PO-Revision-Date: 2019-03-05 01:09+0100\n"
 "Last-Translator: David Decker DECKERWEB.de -- https://deckerweb.de/\n"
 "Language-Team: David Decker DECKERWEB.de -- https://deckerweb.de/\n"
 "Language: de_DE\n"
@@ -1547,6 +1549,11 @@ msgstr ""
 msgid "Smart Tweaks"
 msgstr "Smarte Anpassungen"
 
+#: includes/admin/views/help-content-header.php:34
+#: includes/functions-global.php:1198
+msgid "Plugin"
+msgstr "Plugin"
+
 #. translators: %s - constant TBEX_DISPLAY_SUPER_ADMIN_NAV_MENU
 #: includes/admin/views/help-content-menus.php:44
 #, php-format
@@ -1670,6 +1677,7 @@ msgstr "Verbinden"
 #: includes/admin/views/help-content-sidebar.php:42
 #: includes/admin/views/settings-tab-about-support.php:142
 #: includes/functions-global.php:1202
+#: includes/functions-global.php:1010
 msgid "Facebook Group"
 msgstr "Facebook-Gruppe"
 
@@ -1775,6 +1783,7 @@ msgid "I already did"
 msgstr "Habe ich schon erledigt"
 
 #. translators: Label for "Settings" in left-hand admin menu
+#. translators: Autofocus panel in the Customizer
 #: includes/admin/views/notice-plugins-welcome.php:42
 #: includes/block-editor-addons/items-advanced-gutenberg.php:70
 #: includes/block-editor-addons/items-advanced-gutenberg.php:74
@@ -2033,6 +2042,11 @@ msgstr "Einstellungen"
 #: includes/plugins-forms/items-mailchimp-for-wp.php:336
 #: includes/themes-genesis/items-genesis.php:419
 #: includes/themes-genesis/items-genesis.php:424
+#: includes/items-edit-content.php:44 includes/items-edit-content.php:49
+#: includes/plugins-forms/items-mailchimp-for-wp.php:121
+#: includes/plugins-forms/items-mailchimp-for-wp.php:125
+#: includes/plugins-forms/items-mailchimp-for-wp.php:325
+#: includes/plugins-forms/items-mailchimp-for-wp.php:329
 #: includes/themes/items-phlox.php:104 includes/themes/items-phlox.php:108
 msgid "Appearance"
 msgstr "Design"
@@ -2261,6 +2275,7 @@ msgstr "Kostenloser Produkt-Support @ WordPress.org Plugin-Forum"
 
 #: includes/admin/views/settings-tab-about-support.php:134
 #: includes/functions-global.php:1190
+#: includes/functions-global.php:998
 msgid "Support Forum"
 msgstr "Support-Forum"
 
@@ -2270,6 +2285,7 @@ msgstr "Plugin-Dokumentation &amp; Knowledge Base-Artikel"
 
 #: includes/admin/views/settings-tab-about-support.php:138
 #: includes/functions-global.php:1196
+#: includes/functions-global.php:1004
 msgid "Documentation"
 msgstr "Dokumentation"
 
@@ -4055,6 +4071,7 @@ msgstr "UltraBlocks"
 #: includes/block-editor-addons/items-ultrablocks.php:73
 #: includes/block-editor-addons/items-ultrablocks.php:77
 #: includes/functions-global.php:1193
+#: includes/functions-global.php:1001
 msgid "Support Contact"
 msgstr "Support-Kontakt"
 
@@ -5919,6 +5936,7 @@ msgstr "Erweitert"
 #: includes/elementor-addons/items-revolution-for-elementor.php:221
 #: includes/elementor-addons/items-revolution-for-elementor.php:225
 #: includes/functions-global.php:1255
+#: includes/functions-global.php:1063
 msgid "My Account"
 msgstr "Mein Benutzerkonto"
 
@@ -6877,6 +6895,27 @@ msgid "Development @ GitHub"
 msgstr "Entwicklung @ GitHub"
 
 #: includes/functions-global.php:1217
+#: includes/functions-global.php:1007
+msgid "Developer Documentation"
+msgstr "Entwickler-Dokumentation"
+
+#: includes/functions-global.php:1013
+msgid "Official Support"
+msgstr "Offizieller Support"
+
+#: includes/functions-global.php:1016
+msgid "Official Site"
+msgstr "Offizielle Website"
+
+#: includes/functions-global.php:1019
+msgid "Official Blog"
+msgstr "Offizieller Blog"
+
+#: includes/functions-global.php:1022
+msgid "Development @ GitHub"
+msgstr "Entwicklung @ GitHub"
+
+#: includes/functions-global.php:1025
 msgid "GitHub Issues"
 msgstr "GitHub Issues"
 
@@ -6886,6 +6925,11 @@ msgid "GitHub Issues (Bug Tracker)"
 msgstr "GitHub Issues (Bugtracker)"
 
 #: includes/functions-global.php:1222
+#: includes/functions-global.php:1027
+msgid "GitHub Issues (Bug Tracker)"
+msgstr "GitHub Issues (Bugtracker)"
+
+#: includes/functions-global.php:1030
 msgid "Community Translations"
 msgstr "Community-Übersetzungen"
 
@@ -6911,6 +6955,27 @@ msgid "Videos"
 msgstr "Videos"
 
 #: includes/functions-global.php:1239
+#: includes/functions-global.php:1032
+msgid "Community Translations (at WordPress.org)"
+msgstr "Community-Übersetzungen (bei WordPress.org)"
+
+#: includes/functions-global.php:1035
+msgid "Translate Pro Plugin"
+msgstr "Pro-Plugin übersetzen"
+
+#: includes/functions-global.php:1038
+msgid "YouTube Channel"
+msgstr "YouTube-Kanal"
+
+#: includes/functions-global.php:1041
+msgid "YouTube Tutorials"
+msgstr "YouTube-Anleitungen"
+
+#: includes/functions-global.php:1044
+msgid "Videos"
+msgstr "Videos"
+
+#: includes/functions-global.php:1047
 msgid "Knowledge Base"
 msgstr "Wissensbasis"
 
@@ -6920,6 +6985,11 @@ msgid "Knowledge Base Articles"
 msgstr "Wissensbasis-Artikel (KB)"
 
 #: includes/functions-global.php:1244
+#: includes/functions-global.php:1049
+msgid "Knowledge Base Articles"
+msgstr "Wissensbasis-Artikel (KB)"
+
+#: includes/functions-global.php:1052
 msgid "Tutorials"
 msgstr "Anleitungen"
 
@@ -6977,18 +7047,96 @@ msgid "External Resource"
 msgstr "Externe Ressource"
 
 #: includes/functions-global.php:1386
+#: includes/functions-global.php:1054
+msgid "Tutorial Articles"
+msgstr "Anleitungen"
+
+#: includes/functions-global.php:1057
+msgid "User Forum"
+msgstr "Anwenderforum"
+
+#: includes/functions-global.php:1060
+msgid "Community Forum"
+msgstr "Community-Forum"
+
+#: includes/functions-global.php:1066
+msgid "Code Reference"
+msgstr "Code-Referenz"
+
+#: includes/functions-global.php:1069
+msgid "Pro Docs"
+msgstr "Pro-Dokumentation"
+
+#: includes/functions-global.php:1072
+msgid "Pro: Documentation"
+msgstr "Pro: Dokumentation"
+
+#: includes/functions-global.php:1075
+msgid "Pro: Modules Documentation"
+msgstr "Pro: Modul-Dokumentation"
+
+#: includes/functions-global.php:1078
+msgid "Pro: Facebook Group"
+msgstr "Pro: Facebook-Gruppe"
+
+#: includes/functions-global.php:1081
+msgid "Pro: Support"
+msgstr "Pro: Support"
+
+#: includes/functions-global.php:1084
+msgid "Pro: Official Site"
+msgstr "Pro: Offizielle Website"
+
+#: includes/functions-global.php:1087
+msgid "Pro: APIs"
+msgstr "Pro: APIs"
+
+#: includes/functions-global.php:1090
+msgid "Slack Channel"
+msgstr "Slack-Kanal"
+
+#: includes/functions-global.php:1093
+msgid "External Resource"
+msgstr "Externe Ressource"
+
+#: includes/functions-global.php:1194
 msgid "You have no sufficient permission to edit this special menu."
 msgstr ""
 "Du hast keine ausreichende Berechtigung, um dieses besondere Menü bearbeiten "
 "zu können."
 
 #: includes/functions-global.php:1586
+#: includes/functions-global.php:1394
 msgid "Test this custom URL"
 msgstr "Diese benutzerdefinierte URL testen"
 
 #. translators: Autofocus section in the Customizer
 #: includes/functions-global.php:1667 includes/functions-global.php:1672
 #: includes/functions-global.php:1719
+#: includes/functions-global.php:1475 includes/functions-global.php:1480
+#: includes/functions-global.php:1527
+#: includes/themes-genesis/items-genesis-academy-pro.php:76
+#: includes/themes-genesis/items-genesis-academy-pro.php:80
+#: includes/themes-genesis/items-genesis-agentpress-pro.php:62
+#: includes/themes-genesis/items-genesis-agentpress-pro.php:66
+#: includes/themes-genesis/items-genesis-altitude-pro.php:76
+#: includes/themes-genesis/items-genesis-altitude-pro.php:80
+#: includes/themes-genesis/items-genesis-aspire-pro.php:90
+#: includes/themes-genesis/items-genesis-aspire-pro.php:94
+#: includes/themes-genesis/items-genesis-atmosphere-pro.php:90
+#: includes/themes-genesis/items-genesis-atmosphere-pro.php:94
+#: includes/themes-genesis/items-genesis-author-pro.php:76
+#: includes/themes-genesis/items-genesis-author-pro.php:80
+#: includes/themes-genesis/items-genesis-authority-pro.php:76
+#: includes/themes-genesis/items-genesis-authority-pro.php:80
+#: includes/themes-genesis/items-genesis-boss-pro.php:76
+#: includes/themes-genesis/items-genesis-boss-pro.php:80
+#: includes/themes-genesis/items-genesis-breakthrough-pro.php:75
+#: includes/themes-genesis/items-genesis-breakthrough-pro.php:79
+#: includes/themes-genesis/items-genesis-brunch-pro.php:90
+#: includes/themes-genesis/items-genesis-brunch-pro.php:94
+#: includes/themes-genesis/items-genesis-cookd-pro.php:90
+#: includes/themes-genesis/items-genesis-cookd-pro.php:94
 #: includes/themes-genesis/items-genesis-daily-dish-pro.php:89
 #: includes/themes-genesis/items-genesis-daily-dish-pro.php:93
 #: includes/themes-genesis/items-genesis-digital-pro.php:90
@@ -7057,6 +7205,27 @@ msgstr "Website-Identität"
 #: includes/themes-genesis/items-genesis-boss-pro.php:42
 #: includes/themes-genesis/items-genesis-brunch-pro.php:42
 #: includes/themes-genesis/items-genesis-cookd-pro.php:42
+#: includes/functions-global.php:1531
+#: includes/themes-genesis/items-genesis-academy-pro.php:62
+#: includes/themes-genesis/items-genesis-academy-pro.php:66
+#: includes/themes-genesis/items-genesis-agentpress-pro.php:48
+#: includes/themes-genesis/items-genesis-agentpress-pro.php:52
+#: includes/themes-genesis/items-genesis-altitude-pro.php:62
+#: includes/themes-genesis/items-genesis-altitude-pro.php:66
+#: includes/themes-genesis/items-genesis-aspire-pro.php:76
+#: includes/themes-genesis/items-genesis-aspire-pro.php:80
+#: includes/themes-genesis/items-genesis-atmosphere-pro.php:48
+#: includes/themes-genesis/items-genesis-atmosphere-pro.php:52
+#: includes/themes-genesis/items-genesis-author-pro.php:48
+#: includes/themes-genesis/items-genesis-author-pro.php:52
+#: includes/themes-genesis/items-genesis-authority-pro.php:62
+#: includes/themes-genesis/items-genesis-authority-pro.php:66
+#: includes/themes-genesis/items-genesis-boss-pro.php:62
+#: includes/themes-genesis/items-genesis-boss-pro.php:66
+#: includes/themes-genesis/items-genesis-brunch-pro.php:62
+#: includes/themes-genesis/items-genesis-brunch-pro.php:66
+#: includes/themes-genesis/items-genesis-cookd-pro.php:62
+#: includes/themes-genesis/items-genesis-cookd-pro.php:66
 #: includes/themes-genesis/items-genesis-daily-dish-pro.php:61
 #: includes/themes-genesis/items-genesis-daily-dish-pro.php:65
 #: includes/themes-genesis/items-genesis-digital-pro.php:48
@@ -7117,6 +7286,17 @@ msgstr "Headerbild"
 #: includes/themes-genesis/items-genesis-author-pro.php:42
 #: includes/themes-genesis/items-genesis-breakthrough-pro.php:44
 #: includes/themes-genesis/items-genesis-brunch-pro.php:47
+#: includes/functions-global.php:1535
+#: includes/themes-genesis/items-genesis-agentpress-pro.php:34
+#: includes/themes-genesis/items-genesis-agentpress-pro.php:38
+#: includes/themes-genesis/items-genesis-atmosphere-pro.php:76
+#: includes/themes-genesis/items-genesis-atmosphere-pro.php:80
+#: includes/themes-genesis/items-genesis-author-pro.php:62
+#: includes/themes-genesis/items-genesis-author-pro.php:66
+#: includes/themes-genesis/items-genesis-breakthrough-pro.php:61
+#: includes/themes-genesis/items-genesis-breakthrough-pro.php:65
+#: includes/themes-genesis/items-genesis-brunch-pro.php:76
+#: includes/themes-genesis/items-genesis-brunch-pro.php:80
 #: includes/themes-genesis/items-genesis-business-pro.php:62
 #: includes/themes-genesis/items-genesis-business-pro.php:66
 #: includes/themes-genesis/items-genesis-cookd-pro.php:47
@@ -7157,6 +7337,7 @@ msgstr "Hintergrundbild"
 #. translators: Autofocus section in the Customizer
 #. translators: Autofocus section/ panel in the Customizer
 #: includes/functions-global.php:1731
+#: includes/functions-global.php:1539
 #: includes/plugins/items-wp-mobile-menu.php:83
 #: includes/plugins/items-wp-mobile-menu.php:87
 #: includes/themes-genesis/items-genesis-academy-pro.php:39
@@ -7242,6 +7423,11 @@ msgid "Color Wheel &amp; Color Schemes"
 msgstr "Farbrad &amp; Farbschemata"
 
 #: includes/functions-global.php:1895 includes/functions-global.php:1900
+#: includes/functions-global.php:1687 includes/functions-global.php:1692
+msgid "Color Wheel &amp; Color Schemes"
+msgstr "Farbrad &amp; Farbschemata"
+
+#: includes/functions-global.php:1702 includes/functions-global.php:1707
 msgid "Color Scheme Designer"
 msgstr "Farbschema-Designer"
 
