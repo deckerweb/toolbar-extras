@@ -14,19 +14,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_block_lab', 150 );
 /**
- * Site items for Plugin: Block Lab (free, by Block Lab)
+ * Add-On items for Plugin: Block Lab (free, by Block Lab)
  *
  * @since 1.4.0
  *
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar']
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_block_lab() {
+function ddw_tbex_aoitems_block_lab( $admin_bar ) {
 
 	$post_type = 'block_lab';
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'tbex-blocklab',
 			'parent' => 'group-creative-content',
@@ -34,12 +34,12 @@ function ddw_tbex_aoitems_block_lab() {
 			'href'   => esc_url( admin_url( 'edit.php?post_type=' . $post_type ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_free_addon_title_attr( __( 'Block Lab', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_free_addon_title_attr( __( 'Block Lab', 'toolbar-extras' ) ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'blocklab-all',
 				'parent' => 'tbex-blocklab',
@@ -47,12 +47,12 @@ function ddw_tbex_aoitems_block_lab() {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=' . $post_type ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'All Blocks', 'toolbar-extras' )
+					'title'  => esc_attr__( 'All Blocks', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'blocklab-new',
 				'parent' => 'tbex-blocklab',
@@ -60,7 +60,7 @@ function ddw_tbex_aoitems_block_lab() {
 				'href'   => esc_url( admin_url( 'post-new.php?post_type=' . $post_type ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'New Block', 'toolbar-extras' )
+					'title'  => esc_attr__( 'New Block', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -68,7 +68,7 @@ function ddw_tbex_aoitems_block_lab() {
 		/** Block categories, via BTC plugin */
 		if ( ddw_tbex_is_btcplugin_active() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'blocklab-categories',
 					'parent' => 'tbex-blocklab',
@@ -76,7 +76,7 @@ function ddw_tbex_aoitems_block_lab() {
 					'href'   => esc_url( admin_url( 'edit-tags.php?taxonomy=builder-template-category&post_type=' . $post_type ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_html( ddw_btc_string_template( 'block' ) )
+						'title'  => esc_html( ddw_btc_string_template( 'block' ) ),
 					)
 				)
 			);
@@ -86,11 +86,11 @@ function ddw_tbex_aoitems_block_lab() {
 		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-blocklab-resources',
 					'parent' => 'tbex-blocklab',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

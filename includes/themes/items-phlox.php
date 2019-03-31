@@ -390,7 +390,7 @@ function ddw_tbex_themeitems_phlox_demos_import() {
  */
 if ( defined( 'AUXPFO_VERSION' ) ) {
 
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-cpt-portfolio.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-cpt-portfolio.php';
 
 }  // end if
 

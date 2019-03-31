@@ -122,5 +122,5 @@ function ddw_tbex_themeitems_slush_pro_customize() {
  * @since 1.2.0
  */
 if ( function_exists( 'zp_custom_post_type' ) && ! function_exists( 'genesis_portfolio_init' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-genesis-portfolio-pro.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-genesis-portfolio-pro.php';
 }

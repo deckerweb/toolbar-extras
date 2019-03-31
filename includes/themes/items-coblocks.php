@@ -17,6 +17,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_coblocks', 100 );
  * Items for Theme: CoBlocks (free, by Rich Tabor of CoBlocks)
  *
  * @since 1.4.0
+ * @since 1.4.2 Simplified functions.
  *
  * @uses ddw_tbex_string_theme_title()
  * @uses ddw_tbex_customizer_start()
@@ -34,65 +35,45 @@ function ddw_tbex_themeitems_coblocks() {
 			'href'   => ddw_tbex_customizer_start(),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_theme_title( 'attr' )
+				'title'  => ddw_tbex_string_theme_title( 'attr', 'child' )
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
-			array(
-				'id'     => 'theme-creative-customize',
-				'parent' => 'theme-creative',
-				'title'  => esc_attr__( 'Customize Design', 'toolbar-extras' ),
-				'href'   => ddw_tbex_customizer_start(),
-				'meta'   => array(
-					'target' => ddw_tbex_meta_target(),
-					'title'  => esc_attr__( 'Customize Design', 'toolbar-extras' )
-				)
-			)
-		);
+	/** CoBlocks customize */
+	ddw_tbex_item_theme_creative_customize();
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
-				array(
-					'id'     => 'coblockscmz-colors',
-					'parent' => 'theme-creative-customize',
-					/* translators: Autofocus section in the Customizer */
-					'title'  => esc_attr__( 'Colors', 'toolbar-extras' ),
-					'href'   => ddw_tbex_customizer_focus( 'section', 'colors' ),
-					'meta'   => array(
-						'target' => ddw_tbex_meta_target(),
-						'title'  => ddw_tbex_string_customize_attr( __( 'Colors', 'toolbar-extras' ) )
-					)
-				)
-			);
+}  // end function
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
-				array(
-					'id'     => 'coblockscmz-background-image',
-					'parent' => 'theme-creative-customize',
-					/* translators: Autofocus section in the Customizer */
-					'title'  => esc_attr__( 'Background Image', 'toolbar-extras' ),
-					'href'   => ddw_tbex_customizer_focus( 'section', 'background_image' ),
-					'meta'   => array(
-						'target' => ddw_tbex_meta_target(),
-						'title'  => ddw_tbex_string_customize_attr( __( 'Background Image', 'toolbar-extras' ) )
-					)
-				)
-			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
-				array(
-					'id'     => 'coblockscmz-site-identity',
-					'parent' => 'theme-creative-customize',
-					/* translators: Autofocus section in the Customizer */
-					'title'  => esc_attr__( 'Site Identity', 'toolbar-extras' ),
-					'href'   => ddw_tbex_customizer_focus( 'section', 'title_tagline' ),
-					'meta'   => array(
-						'target' => ddw_tbex_meta_target(),
-						'title'  => ddw_tbex_string_customize_attr( __( 'Site Identity', 'toolbar-extras' ) )
-					)
-				)
-			);
+add_filter( 'tbex_filter_items_theme_customizer_deep', 'ddw_tbex_themeitems_coblocks_customize' );
+/**
+ * Customize items for CoBlocks Theme
+ *
+ * @since 1.4.0
+ * @since 1.4.2 Refactored using filter/array declaration.
+ *
+ * @param array $items Existing array of params for creating Toolbar nodes.
+ * @return array Tweaked array of params for creating Toolbar nodes.
+ */
+function ddw_tbex_themeitems_coblocks_customize( array $items ) {
+
+	/** Declare theme's items */
+	$coblocks_items = array(
+		'colors' => array(
+			'type'  => 'section',
+			'title' => __( 'Colors', 'toolbar-extras' ),
+			'id'    => 'coblockscmz-colors',
+		),
+		'background_image' => array(
+			'type'  => 'section',
+			'title' => __( 'Background Image', 'toolbar-extras' ),
+			'id'    => 'coblockscmz-background-image',
+		),
+	);
+
+	/** Merge and return with all items */
+	return array_merge( $items, $coblocks_items );
 
 }  // end function
 
@@ -114,7 +95,7 @@ function ddw_tbex_themeitems_coblocks_resources() {
 		return;
 	}
 
-	/** Group: Resources for Atomic Blocks */
+	/** Group: Resources for CoBlocks */
 	$GLOBALS[ 'wp_admin_bar' ]->add_group(
 		array(
 			'id'     => 'group-theme-resources',

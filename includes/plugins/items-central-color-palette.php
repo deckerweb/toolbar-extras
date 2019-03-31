@@ -17,6 +17,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_central_color_palette', 110 );
  * Items for Add-On: Central Color Palette (free, by Gáravo)
  *
  * @since 1.0.0
+ * @since 1.4.0 Added color wheel resources.
  *
  * @uses ddw_tbex_resources_color_wheel()
  * @uses ddw_tbex_resource_item()

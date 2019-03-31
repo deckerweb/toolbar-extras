@@ -14,9 +14,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_codetic_addons', 100 );
 /**
- * Items for Add-On: Essential Addons for Elementor Lite/Pro (by Codetic)
+ * Items for Add-On:
+ *   Essential Addons for Elementor Lite/Pro (free/Premium, by WPDeveloper)
  *
  * @since 1.0.0
+ * @since 1.4.2 Updated with new items.
  *
  * @uses ddw_tbex_resource_item()
  *
@@ -32,7 +34,7 @@ function ddw_tbex_aoitems_codetic_addons() {
 
 	$codetic_title_attr = sprintf(
 		/* translators: %1$s - Version "Lite" or "Pro" / %2$s - Type "free" or "Premium" */
-		esc_attr__( 'Essential Addons for Elementor %1$s by Codetic (%2$s Add-On)', 'toolbar-extras' ),
+		esc_attr__( 'Essential Addons for Elementor %1$s by WPDeveloper (%2$s Add-On)', 'toolbar-extras' ),
 		( $is_codetic_pro ) ? __( 'Pro', 'toolbar-extras' ) : __( 'Lite', 'toolbar-extras' ),
 		( $is_codetic_pro ) ? __( 'Premium', 'toolbar-extras' ) : __( 'free', 'toolbar-extras' )
 	);
@@ -42,7 +44,7 @@ function ddw_tbex_aoitems_codetic_addons() {
 		array(
 			'id'     => 'ao-codeticaddons',
 			'parent' => 'tbex-addons',
-			'title'  => esc_attr__( 'Codetic Addons', 'toolbar-extras' ),
+			'title'  => esc_attr__( 'Essential Addons', 'toolbar-extras' ),
 			'href'   => esc_url( admin_url( 'admin.php?page=eael-settings' ) ),
 			'meta'   => array(
 				'target' => '',
@@ -64,6 +66,19 @@ function ddw_tbex_aoitems_codetic_addons() {
 			)
 		);
 
+		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			array(
+				'id'     => 'ao-codeticaddons-extensions',
+				'parent' => 'ao-codeticaddons',
+				'title'  => esc_attr__( 'Activate Extensions', 'toolbar-extras' ),
+				'href'   => esc_url( admin_url( 'admin.php?page=eael-settings#extensions' ) ),
+				'meta'   => array(
+					'target' => '',
+					'title'  => esc_attr__( 'Activate Extensions', 'toolbar-extras' )
+				)
+			)
+		);
+		
 		$GLOBALS[ 'wp_admin_bar' ]->add_node(
 			array(
 				'id'     => 'ao-codeticaddons-general',

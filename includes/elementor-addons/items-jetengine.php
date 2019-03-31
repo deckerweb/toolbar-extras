@@ -12,6 +12,22 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 
+/**
+ * Check if JetEngine "Booking Forms" feature is active or not.
+ *
+ * @since 1.4.2
+ *
+ * @return bool TRUE if setting is enabled, FALSE otherwise.
+ */
+function ddw_tbex_is_jetengine_bookingforms_active() {
+
+	$jetengine_modules = get_option( 'jet_engine_modules' );
+
+	return 'true' === $jetengine_modules[ 'booking-forms' ];
+
+}  // end function
+
+
 add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_jetengine', 100 );
 /**
  * Items for Add-On: JetEngine (Premium, by Zemez Jet/ CrocoBlock)
@@ -19,7 +35,9 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_jetengine', 100 );
  * @since 1.3.2
  * @since 1.3.5 Added BTC plugin support.
  * @since 1.4.0 Added Meta Box and Posts Relations support.
+ * @since 1.4.2 Added Booking Forms module.
  *
+ * @uses ddw_tbex_is_jetengine_bookingforms_active()
  * @uses ddw_tbex_resource_item()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
@@ -250,11 +268,19 @@ function ddw_tbex_aoitems_jetengine() {
 					)
 				);
 
+		/** JetEngine More Modules hook place */
+		$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			array(
+				'id'     => 'group-jetengine-modules',
+				'parent' => 'ao-jetengine'
+			)
+		);
+
 			/** Add Posts Relations */
 			$GLOBALS[ 'wp_admin_bar' ]->add_node(
 				array(
 					'id'     => 'ao-jetengine-relations',
-					'parent' => 'group-jetengine-posttypes',
+					'parent' => 'group-jetengine-modules',
 					'title'  => esc_attr__( 'Posts Relations', 'toolbar-extras' ),
 					'href'   => esc_url( admin_url( 'admin.php?page=jet-engine-relations' ) ),
 					'meta'   => array(
@@ -289,6 +315,50 @@ function ddw_tbex_aoitems_jetengine() {
 						)
 					)
 				);
+
+			/** Add Booking Forms */
+			if ( ddw_tbex_is_jetengine_bookingforms_active() ) {
+
+				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					array(
+						'id'     => 'ao-jetengine-booking',
+						'parent' => 'group-jetengine-modules',
+						'title'  => esc_attr__( 'Booking Forms', 'toolbar-extras' ),
+						'href'   => esc_url( admin_url( 'edit.php?post_type=jet-engine-booking' ) ),
+						'meta'   => array(
+							'target' => '',
+							'title'  => esc_attr__( 'Booking Forms', 'toolbar-extras' )
+						)
+					)
+				);
+
+					$GLOBALS[ 'wp_admin_bar' ]->add_node(
+						array(
+							'id'     => 'ao-jetengine-booking-all',
+							'parent' => 'ao-jetengine-booking',
+							'title'  => esc_attr__( 'All Forms', 'toolbar-extras' ),
+							'href'   => esc_url( admin_url( 'edit.php?post_type=jet-engine-booking' ) ),
+							'meta'   => array(
+								'target' => '',
+								'title'  => esc_attr__( 'All Forms', 'toolbar-extras' )
+							)
+						)
+					);
+
+					$GLOBALS[ 'wp_admin_bar' ]->add_node(
+						array(
+							'id'     => 'ao-jetengine-booking-new',
+							'parent' => 'ao-jetengine-booking',
+							'title'  => esc_attr__( 'New Form', 'toolbar-extras' ),
+							'href'   => esc_url( admin_url( 'post-new.php?post_type=jet-engine-booking' ) ),
+							'meta'   => array(
+								'target' => '',
+								'title'  => esc_attr__( 'New Form', 'toolbar-extras' )
+							)
+						)
+					);
+
+			}  // end if
 
 		/** JetEngine Settings etc. */
 		$GLOBALS[ 'wp_admin_bar' ]->add_group(
@@ -365,6 +435,9 @@ add_action( 'tbex_new_content_before_nav_menu', 'ddw_tbex_aoitems_new_content_je
  *
  * @since 1.3.2
  * @since 1.4.0 Added Meta Box and Post Relation.
+ * @since 1.4.2 Added Booking Form.
+ *
+ * @uses ddw_tbex_is_jetengine_bookingforms_active()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -474,5 +547,58 @@ function ddw_tbex_aoitems_new_content_jetengine() {
 				)
 			)
 		);
+
+		/** Booking Form */
+		if ( ddw_tbex_is_jetengine_bookingforms_active() ) {
+
+			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				array(
+					'id'     => 'tbex-jetengine-content-booking-form-new',
+					'parent' => 'tbex-jetengine-content',
+					'title'  => esc_attr__( 'Booking Form', 'toolbar-extras' ),
+					'href'   => esc_url( admin_url( 'post-new.php?post_type=jet-engine-booking' ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => ddw_tbex_string_add_new_item( __( 'Booking Form', 'toolbar-extras' ) )
+					)
+				)
+			);
+
+		}  // end if
+
+}  // end function
+
+
+add_filter( 'admin_bar_menu', 'ddw_tbex_aoitems_new_content_jetengine_booking_form', 80 );
+/**
+ * Items for "New Content" section: New JetEngine Booking Form
+ *   Note: Filter the existing Toolbar node to tweak the item's title.
+ *
+ * @since 1.4.2
+ *
+ * @uses ddw_tbex_is_jetengine_bookingforms_active()
+ *
+ * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ *
+ * @param object $wp_admin_bar Holds all nodes of the Toolbar.
+ */
+function ddw_tbex_aoitems_new_content_jetengine_booking_form( $wp_admin_bar ) {
+
+	/** Bail early if items display is not wanted */
+	if ( ! ddw_tbex_display_items_new_content()
+		|| ! ddw_tbex_is_jetengine_bookingforms_active()
+	) {
+		return $wp_admin_bar;
+	}
+
+	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		array(
+			'id'     => 'new-jet-engine-booking',	// same as original!
+			'title' => esc_attr__( 'Booking Form', 'toolbar-extras' ),
+			'meta'   => array(
+				'title' => ddw_tbex_string_add_new_item( __( 'Booking Form', 'toolbar-extras' ) ),
+			)
+		)
+	);
 
 }  // end function

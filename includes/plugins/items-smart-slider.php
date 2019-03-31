@@ -31,7 +31,7 @@ function ddw_tbex_site_items_smartslider( $wp_admin_bar ) {
 
 	/** Bail early if Smart Slider 3 tweak should NOT be used */
 	if ( ! ddw_tbex_use_tweak_smartslider() ) {
-		return;
+		return $wp_admin_bar;
 	}
 
 	/** Re-hook for: Manage Content */

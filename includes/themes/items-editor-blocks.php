@@ -17,9 +17,11 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_editor_blocks', 100 );
  * Items for Theme: Editor Blocks (free, by Editor Blocks/ Danny Cooper)
  *
  * @since 1.4.0
+ * @since 1.4.2 Simplified functions.
  *
  * @uses ddw_tbex_string_theme_title()
  * @uses ddw_tbex_customizer_start()
+ * @uses ddw_tbex_item_theme_creative_customize()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -34,79 +36,50 @@ function ddw_tbex_themeitems_editor_blocks() {
 			'href'   => ddw_tbex_customizer_start(),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_theme_title( 'attr' )
+				'title'  => ddw_tbex_string_theme_title( 'attr', 'child' )
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
-			array(
-				'id'     => 'theme-creative-customize',
-				'parent' => 'theme-creative',
-				'title'  => esc_attr__( 'Customize Design', 'toolbar-extras' ),
-				'href'   => ddw_tbex_customizer_start(),
-				'meta'   => array(
-					'target' => ddw_tbex_meta_target(),
-					'title'  => esc_attr__( 'Customize Design', 'toolbar-extras' )
-				)
-			)
-		);
+	/** Editor Blocks customize */
+	ddw_tbex_item_theme_creative_customize();
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
-				array(
-					'id'     => 'editorblockscmz-colors',
-					'parent' => 'theme-creative-customize',
-					/* translators: Autofocus section in the Customizer */
-					'title'  => esc_attr__( 'Colors', 'toolbar-extras' ),
-					'href'   => ddw_tbex_customizer_focus( 'section', 'colors' ),
-					'meta'   => array(
-						'target' => ddw_tbex_meta_target(),
-						'title'  => ddw_tbex_string_customize_attr( __( 'Colors', 'toolbar-extras' ) )
-					)
-				)
-			);
+}  // end function
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
-				array(
-					'id'     => 'editorblockscmz-header-image',
-					'parent' => 'theme-creative-customize',
-					/* translators: Autofocus section in the Customizer */
-					'title'  => esc_attr__( 'Header Image', 'toolbar-extras' ),
-					'href'   => ddw_tbex_customizer_focus( 'section', 'header_image' ),
-					'meta'   => array(
-						'target' => ddw_tbex_meta_target(),
-						'title'  => ddw_tbex_string_customize_attr( __( 'Header Image', 'toolbar-extras' ) )
-					)
-				)
-			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
-				array(
-					'id'     => 'editorblockscmz-background-image',
-					'parent' => 'theme-creative-customize',
-					/* translators: Autofocus section in the Customizer */
-					'title'  => esc_attr__( 'Background Image', 'toolbar-extras' ),
-					'href'   => ddw_tbex_customizer_focus( 'section', 'background_image' ),
-					'meta'   => array(
-						'target' => ddw_tbex_meta_target(),
-						'title'  => ddw_tbex_string_customize_attr( __( 'Background Image', 'toolbar-extras' ) )
-					)
-				)
-			);
+add_filter( 'tbex_filter_items_theme_customizer_deep', 'ddw_tbex_themeitems_editor_blocks_customize' );
+/**
+ * Customize items for Editor Blocks Theme
+ *
+ * @since 1.4.0
+ * @since 1.4.2 Refactored using filter/array declaration.
+ *
+ * @param array $items Existing array of params for creating Toolbar nodes.
+ * @return array Tweaked array of params for creating Toolbar nodes.
+ */
+function ddw_tbex_themeitems_editor_blocks_customize( array $items ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
-				array(
-					'id'     => 'editorblockscmz-site-identity',
-					'parent' => 'theme-creative-customize',
-					/* translators: Autofocus section in the Customizer */
-					'title'  => esc_attr__( 'Site Identity', 'toolbar-extras' ),
-					'href'   => ddw_tbex_customizer_focus( 'section', 'title_tagline' ),
-					'meta'   => array(
-						'target' => ddw_tbex_meta_target(),
-						'title'  => ddw_tbex_string_customize_attr( __( 'Site Identity', 'toolbar-extras' ) )
-					)
-				)
-			);
+	/** Declare theme's items */
+	$editor_items = array(
+		'colors' => array(
+			'type'  => 'section',
+			'title' => __( 'Colors', 'toolbar-extras' ),
+			'id'    => 'editorblockscmz-colors',
+		),
+		'header_image' => array(
+			'type'  => 'section',
+			'title' => __( 'Header Image', 'toolbar-extras' ),
+			'id'    => 'editorblockscmz-header-image',
+		),
+		'background_image' => array(
+			'type'  => 'section',
+			'title' => __( 'Background Image', 'toolbar-extras' ),
+			'id'    => 'editorblockscmz-background-image',
+		),
+	);
+
+	/** Merge and return with all items */
+	return array_merge( $items, $editor_items );
 
 }  // end function
 
@@ -128,7 +101,7 @@ function ddw_tbex_themeitems_editor_blocks_resources() {
 		return;
 	}
 
-	/** Group: Resources for Atomic Blocks */
+	/** Group: Resources for Editor Blocks */
 	$GLOBALS[ 'wp_admin_bar' ]->add_group(
 		array(
 			'id'     => 'group-theme-resources',

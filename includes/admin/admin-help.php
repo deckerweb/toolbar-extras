@@ -76,7 +76,9 @@ add_action( 'load-settings_page_toolbar-extras', 'ddw_tbex_toolbar_extras_help_c
  *
  * @since 1.0.0
  * @since 1.4.0 Reworking the help tab organizing and content.
+ * @since 1.4.2 Added "Add-Ons" help tab.
  *
+ * @uses ddw_tbex_string_maybe_super_admin()
  * @uses WP_Screen::add_help_tab()
  *
  * @global mixed  $GLOBALS[ 'tbex_screen' ]
@@ -105,6 +107,7 @@ function ddw_tbex_toolbar_extras_help_content() {
 	$help_tabs[ 'tweaks' ][ 'label' ]      = esc_html_x( 'Smart Tweaks', 'Help tab label', 'toolbar-extras' );
 	$help_tabs[ 'development' ][ 'label' ] = esc_html_x( 'For Development', 'Help tab label', 'toolbar-extras' );
 	$help_tabs[ 'menus' ][ 'label' ]       = $menus_title;
+	$help_tabs[ 'addons' ][ 'label' ]      = esc_html_x( 'Add-Ons', 'Help tab label', 'toolbar-extras' );
 	$help_tabs[ 'about' ][ 'label' ]       = esc_html_x( 'About', 'Help tab label', 'toolbar-extras' );
 
 	foreach ( $help_tabs as $help_tab => $tab_data ) {
@@ -120,16 +123,17 @@ function ddw_tbex_toolbar_extras_help_content() {
 			)
 		);
 
-		require_once( TBEX_PLUGIN_DIR . 'includes/admin/views/help-content-header.php' );
-		require_once( TBEX_PLUGIN_DIR . 'includes/admin/views/help-content-' . $help_tab . '.php' );
-		require_once( TBEX_PLUGIN_DIR . 'includes/admin/views/help-content-footer.php' );
+		require_once TBEX_PLUGIN_DIR . 'includes/admin/views/help-content-' . $help_tab . '.php';
 
 	}  // end foreach
+
+	require_once TBEX_PLUGIN_DIR . 'includes/admin/views/help-content-header.php';
+	require_once TBEX_PLUGIN_DIR . 'includes/admin/views/help-content-footer.php';
 
 	/** Add additional help sidebar */
 	if ( 'nav-menus.php' !== $GLOBALS[ 'pagenow' ] ) {
 
-		require_once( TBEX_PLUGIN_DIR . 'includes/admin/views/help-content-sidebar.php' );
+		require_once TBEX_PLUGIN_DIR . 'includes/admin/views/help-content-sidebar.php';
 
 		$GLOBALS[ 'tbex_screen' ]->set_help_sidebar( ddw_tbex_content_help_sidebar() );
 
@@ -174,9 +178,9 @@ function ddw_tbex_help_content_admin_menu() {
 		)
 	);
 
-	require_once( TBEX_PLUGIN_DIR . 'includes/admin/views/help-content-header.php' );
-	require_once( TBEX_PLUGIN_DIR . 'includes/admin/views/help-content-menus.php' );
-	require_once( TBEX_PLUGIN_DIR . 'includes/admin/views/help-content-footer.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/admin/views/help-content-header.php';
+	require_once TBEX_PLUGIN_DIR . 'includes/admin/views/help-content-menus.php';
+	require_once TBEX_PLUGIN_DIR . 'includes/admin/views/help-content-footer.php';
 
 }  // end function
 

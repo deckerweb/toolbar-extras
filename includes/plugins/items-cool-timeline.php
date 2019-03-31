@@ -143,7 +143,7 @@ function ddw_tbex_aoitems_cool_timeline() {
 			)
 		);
 
-		/** Group: Resources for Vakka Addons */
+		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
 			$GLOBALS[ 'wp_admin_bar' ]->add_group(

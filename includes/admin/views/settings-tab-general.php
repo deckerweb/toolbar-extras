@@ -109,8 +109,10 @@ function ddw_tbex_settings_section_info_display() {
  */
 function ddw_tbex_settings_section_info_blockeditor_support() {
 
+	$status_blockeditor = ( ddw_tbex_is_block_editor_active() && ddw_tbex_is_block_editor_wanted() ) ? ' plugin-blockeditor-preface' : ' plugin-inactive';
+
 	?>
-		<p>
+		<p class="tbex-setting-conditional<?php echo $status_blockeditor; ?>">
 			<?php _e( 'Use special enhancements and tweaks for an improved Block Editor support?', 'toolbar-extras' ); ?>
 		</p>
 	<?php

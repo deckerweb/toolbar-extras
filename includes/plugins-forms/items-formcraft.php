@@ -17,6 +17,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_formcraft' );
  * Items for Plugin: FormCraft 3 (Premium, by nCrafts)
  *
  * @since 1.3.2
+ * @since 1.4.2 Security enhancements.
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -57,15 +58,16 @@ function ddw_tbex_site_items_formcraft() {
 
 			foreach ( $forms as $form => $form_value ) {
 
-				$form_title  = $form_value[ 'name' ];
+				$form_id     = absint( $form_value[ 'id' ] );
+				$form_title  = esc_attr( $form_value[ 'name' ] );
 
 				/** Add item per form */
 				$GLOBALS[ 'wp_admin_bar' ]->add_node(
 					array(
-						'id'     => 'forms-formcraft-form-' . $form_value[ 'id' ],
+						'id'     => 'forms-formcraft-form-' . $form_id,
 						'parent' => 'group-formcraft-edit-forms',
 						'title'  => $form_title,
-						'href'   => esc_url( admin_url( 'admin.php?page=formcraft-dashboard&id=' . $form_value[ 'id' ] ) ),
+						'href'   => esc_url( admin_url( 'admin.php?page=formcraft-dashboard&id=' . $form_id ) ),
 						'meta'   => array(
 							'target' => '',
 							'title'  => esc_attr__( 'Edit Form', 'toolbar-extras' ) . ': ' . $form_title
@@ -75,10 +77,10 @@ function ddw_tbex_site_items_formcraft() {
 
 					$GLOBALS[ 'wp_admin_bar' ]->add_node(
 						array(
-							'id'     => 'forms-formcraft-form-' . $form_value[ 'id' ] . '-builder',
-							'parent' => 'forms-formcraft-form-' . $form_value[ 'id' ],
+							'id'     => 'forms-formcraft-form-' . $form_id . '-builder',
+							'parent' => 'forms-formcraft-form-' . $form_id,
 							'title'  => esc_attr__( 'Form Builder', 'toolbar-extras' ),
-							'href'   => esc_url( admin_url( 'admin.php?page=formcraft-dashboard&id=' . $form_value[ 'id' ] ) ),
+							'href'   => esc_url( admin_url( 'admin.php?page=formcraft-dashboard&id=' . $form_id ) ),
 							'meta'   => array(
 								'target' => '',
 								'title'  => esc_attr__( 'Form Builder', 'toolbar-extras' )
@@ -88,10 +90,10 @@ function ddw_tbex_site_items_formcraft() {
 
 					$GLOBALS[ 'wp_admin_bar' ]->add_node(
 						array(
-							'id'     => 'forms-formcraft-form-' . $form_value[ 'id' ] . '-preview',
-							'parent' => 'forms-formcraft-form-' . $form_value[ 'id' ],
+							'id'     => 'forms-formcraft-form-' . $form_id . '-preview',
+							'parent' => 'forms-formcraft-form-' . $form_id,
 							'title'  => esc_attr__( 'Preview', 'toolbar-extras' ),
-							'href'   => esc_url( site_url( '/form-view/' . $form_value[ 'id' ] . '?preview=true' ) ),
+							'href'   => esc_url( site_url( '/form-view/' . $form_id . '?preview=true' ) ),
 							'meta'   => array(
 								'target' => ddw_tbex_meta_target(),
 								'title'  => esc_attr__( 'Preview', 'toolbar-extras' )

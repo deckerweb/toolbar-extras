@@ -132,7 +132,7 @@ function ddw_tbex_site_items_simple_links() {
 
 			ddw_tbex_resource_item(
 				'support-forum',
-				'wpmobilemenu-support',
+				'ml-simplelinks-support',
 				'group-simplelinks-resources',
 				'https://wordpress.org/support/plugin/simple-links'
 			);

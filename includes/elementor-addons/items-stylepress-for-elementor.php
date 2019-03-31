@@ -226,7 +226,7 @@ function ddw_tbex_rehook_items_stylepress_helper( $wp_admin_bar ) {
 	
 	/** Bail early if tweak should NOT be used */
 	if ( ! ddw_tbex_use_tweak_stylepress_elementor() || is_admin() ) {
-		return;
+		return $wp_admin_bar;
 	}
 
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(

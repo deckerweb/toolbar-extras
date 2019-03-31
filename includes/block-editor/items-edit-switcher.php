@@ -63,7 +63,7 @@ function ddw_tbex_blocks_edit_switcher( $wp_admin_bar ) {
 
 	/** Bail early if no post or post ID set/known */
 	if ( empty( $post ) || empty( $post->ID ) ) {
-		return;
+		return $wp_admin_bar;
 	}
 
 	/**

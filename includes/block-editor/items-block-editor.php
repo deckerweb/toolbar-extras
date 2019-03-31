@@ -39,6 +39,8 @@ function ddw_tbex_register_pagebuilder_block_editor( array $builders ) {
 		'title_attr'  => esc_attr_x( 'WordPress Block Editor (Gutenberg)', 'Block Editor title attribute name', 'toolbar-extras' ),
 
 		'admin_url'   => esc_url( apply_filters( 'tbex_filter_block_editor_admin_url', admin_url( 'edit.php?post_type=' . $post_type ) ) ),
+		'color'       => '#555d66',
+		'color_name'  => __( 'Block Editor Gray', 'toolbar-extras' ),
 		'plugins_tab' => 'yes',
 	);
 
@@ -47,24 +49,39 @@ function ddw_tbex_register_pagebuilder_block_editor( array $builders ) {
 }  // end function
 
 
-add_action( 'tbex_label_local_dev_color_picker', 'ddw_tbex_label_local_dev_color_picker_block_editor' );
+add_action( 'admin_bar_menu', 'ddw_tbex_items_block_editor_core', 150 );
 /**
- * Output additional label description for color and feature Block Editor
- *   (Gutenberg) gray color.
- *   Current value: #555d66
+ * Site items for Plugin:
+ *   Builder Template Categories (free, by David Decker - DECKERWEB)
  *
  * @since 1.4.0
  *
- * @see plugin file: /includes/admin/views/settings-tab-development.php
+ * @uses ddw_btc_string_template()
+ * @uses ddw_tbex_resource_item()
+ * @uses ddw_btc_get_info_url() To build resource URLs (from BTC plugin).
  *
- * @return string Echoing markup and content for additional label description.
+ * @global mixed $GLOBALS[ 'wp_admin_bar']
  */
-function ddw_tbex_label_local_dev_color_picker_block_editor() {
+function ddw_tbex_items_block_editor_core() {
 
-	echo sprintf(
-		/* translators: %s - a color code in HEX notation, #555d66 */
-		'<span class="description tbex-space-top">' . __( 'Block Editor Gray: %s', 'toolbar-extras' ) . '</span>',
-		'<div class="bg-local-base bg-local-blockeditor tbex-align-middle"></div><code class="tbex-align-middle">#555d66</code>'
+	/** Bail early if BTC plugin active (as it has these items already) */
+	if ( ddw_tbex_is_btcplugin_active() ) {
+		return;
+	}
+
+	$post_type = 'wp_block';
+
+	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		array(
+			'id'     => 'blockeditor-reusable-blocks',
+			'parent' => 'group-creative-content',
+			'title'  => esc_attr__( 'Reusable Blocks', 'toolbar-extras' ),
+			'href'   => esc_url( admin_url( 'edit.php?post_type=' . $post_type ) ),
+			'meta'   => array(
+				'target' => '',
+				'title'  => esc_attr__( 'Block Editor', 'toolbar-extras' ) . ': ' . esc_attr__( 'Reusable Blocks', 'toolbar-extras' ),
+			)
+		)
 	);
 
 }  // end function
@@ -86,25 +103,26 @@ function ddw_tbex_resources_block_editor() {
 	$block_editor_links = array(
 
 		/** Official */
-		'url_site'           => 'https//wordpress.org/gutenberg/',
-		'url_docs'           => 'https://wordpress.org/gutenberg/handbook/',
-		'url_videos'         => 'https://wordpress.tv/tag/gutenberg/',
+		'url_site'            => 'https//wordpress.org/gutenberg/',
+		'url_docs'            => 'https://wordpress.org/gutenberg/handbook/',
+		'url_videos'          => 'https://wordpress.tv/tag/gutenberg/',
 
 		/** Dev/Contribute */
-		'url_docs_design'    => 'https://wordpress.org/gutenberg/handbook/designers-developers/',
-		'url_docs_dev'       => 'https://wordpress.org/gutenberg/handbook/contributors/',
-		'url_dev_blog'       => 'https://make.wordpress.org/core/tag/gutenberg/',
-		'url_code_reference' => 'https://developer.wordpress.org/reference/',
+		'url_docs_design'     => 'https://wordpress.org/gutenberg/handbook/designers-developers/',
+		'url_docs_dev'        => 'https://wordpress.org/gutenberg/handbook/contributors/',
+		'url_dev_blog'        => 'https://make.wordpress.org/core/tag/gutenberg/',
+		'url_code_reference'  => 'https://developer.wordpress.org/reference/',
 
-		'url_github'         => 'https://github.com/WordPress/gutenberg',
-		'url_github_issues'  => 'https://github.com/WordPress/gutenberg/issues',
+		'url_github'          => 'https://github.com/WordPress/gutenberg',
+		'url_github_issues'   => 'https://github.com/WordPress/gutenberg/issues',
 
 		/** Community */
-		'url_fb_group'       => 'https://www.facebook.com/groups/161444577756897/',
-		'url_blog_gbtimes'   => 'https://gutenbergtimes.com/',
-		'url_blog_gbnews'    => 'https://gutenberg.news/',
-		'url_tweets'         => 'https://twitter.com/hashtag/gutenberg%20wordpress?f=tweets&vertical=default&src=hash',
-		'url_youtube_recent' => 'https://www.youtube.com/results?sp=CAI%253D&search_query=wordpress+gutenberg',
+		'url_fb_group'        => 'https://www.facebook.com/groups/161444577756897/',
+		'url_blog_gbtimes'    => 'https://gutenbergtimes.com/',
+		'url_blog_gbnews'     => 'https://gutenberg.news/',
+		'url_tweets'          => 'https://twitter.com/hashtag/gutenberg%20wordpress?f=tweets&vertical=default&src=hash',
+		'url_youtube_recent'  => 'https://www.youtube.com/results?sp=CAI%253D&search_query=wordpress+gutenberg',
+		'url_wpb_reusable'    => 'https://www.wpbeginner.com/beginners-guide/how-to-create-a-reusable-block-in-wordpress/',
 
 	);  // end of array
 
@@ -161,6 +179,20 @@ function ddw_tbex_items_block_editor_resources() {
 			'block-editor-resources-docs',
 			'block-editor-resources',
 			ddw_tbex_get_resource_url( 'block-editor', 'url_docs' )
+		);
+
+		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			array(
+				'id'     => 'block-editor-resources-reusable-blocks',
+				'parent' => 'block-editor-resources',
+				'title'  => esc_attr__( 'Reusable Blocks', 'toolbar-extras' ),
+				'href'   => ddw_tbex_get_resource_url( 'block-editor', 'url_wpb_reusable' ),
+				'meta'   => array(
+					'rel'    => ddw_tbex_meta_rel(),
+					'target' => ddw_tbex_meta_target(),
+					'title'  => esc_attr__( 'Reusable Blocks', 'toolbar-extras' )
+				)
+			)
 		);
 
 		ddw_tbex_resource_item(

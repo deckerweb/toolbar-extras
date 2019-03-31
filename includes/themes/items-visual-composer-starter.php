@@ -35,7 +35,7 @@ function ddw_tbex_themeitems_visual_composer_starter() {
 			'href'   => ddw_tbex_customizer_focus( 'section', 'vct_overall_site' ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_theme_title( 'attr' )
+				'title'  => ddw_tbex_string_theme_title( 'attr', 'child' )
 			)
 		)
 	);

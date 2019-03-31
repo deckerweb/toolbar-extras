@@ -18,13 +18,19 @@ add_action( 'plugins_loaded', 'ddw_tbex_plugin_check_version' );
  *
  * @since 1.1.0
  * @since 1.2.0 - 1.4.0 Subsequent additions for new settings.
+ * @since 1.4.2 Added additional permission check.
  *
  * @uses ddw_tbex_run_plugin_activation()
  */
 function ddw_tbex_plugin_check_version() {
 
-	/** Bail early if we already on plugin version 1.4.0 or higher */
-	if ( version_compare( get_option( 'tbex-plugin-version' ), '1.4.0', '>=' ) ) {
+	/**
+	 * Bail early if we already on plugin version 1.4.0 or higher,
+	 *   or, if current user has no permission.
+	 */
+	if ( ! current_user_can( 'manage_options' )
+		&& version_compare( get_option( 'tbex-plugin-version' ), '1.4.0', '>=' )
+	) {
 		return;
 	}
 

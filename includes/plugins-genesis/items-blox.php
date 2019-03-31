@@ -33,7 +33,6 @@ function ddw_tbex_aoitems_blox_lite() {
 		)
 	);
 
-
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(
 		array(
 			'id'     => 'global-' . $type . '-all',

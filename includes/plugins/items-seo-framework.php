@@ -19,11 +19,11 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_the_seo_framework', 100 );
  *
  * @since 1.4.0
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_the_seo_framework() {
+function ddw_tbex_site_items_the_seo_framework( $admin_bar ) {
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'theseoframework',
 			'parent' => 'tbex-sitegroup-tools',
@@ -31,12 +31,12 @@ function ddw_tbex_site_items_the_seo_framework() {
 			'href'   => esc_url( admin_url( 'admin.php?page=theseoframework-settings' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'The SEO Framework', 'toolbar-extras' )
+				'title'  => esc_attr__( 'The SEO Framework', 'toolbar-extras' ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'theseoframework-settings',
 				'parent' => 'theseoframework',
@@ -44,19 +44,52 @@ function ddw_tbex_site_items_the_seo_framework() {
 				'href'   => esc_url( admin_url( 'admin.php?page=theseoframework-settings' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
 				)
 			)
 		);
 
+		/** Extension Manager */
+		if ( defined( 'TSF_EXTENSION_MANAGER_VERSION' ) ) {
+
+			$admin_bar->add_node(
+				array(
+					'id'     => 'theseoframework-extensions',
+					'parent' => 'theseoframework',
+					'title'  => esc_attr__( 'Extension Manager', 'toolbar-extras' ),
+					'href'   => esc_url( admin_url( 'admin.php?page=theseoframework-extensions' ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => esc_attr__( 'Extension Manager', 'toolbar-extras' ),
+					)
+				)
+			);
+
+		} else {
+
+			$admin_bar->add_node(
+				array(
+					'id'     => 'theseoframework-get-manager',
+					'parent' => 'theseoframework',
+					'title'  => esc_attr__( 'Get free Extension Manager', 'toolbar-extras' ),
+					'href'   => 'https://theseoframework.com/extension-manager/',
+					'meta'   => array(
+						'target' => ddw_tbex_meta_target(),
+						'title'  => esc_attr__( 'Get the free Extension Manager for The SEO Framework', 'toolbar-extras' ),
+					)
+				)
+			);
+
+		}  // end if
+		
 		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-theseoframework-resources',
 					'parent' => 'theseoframework',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

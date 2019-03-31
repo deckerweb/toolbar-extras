@@ -36,6 +36,7 @@ function ddw_tbex_get_option( $type = '', $option_key = '' ) {
  *
  * @since 1.0.0
  * @since 1.4.0 Added additional values.
+ * @since 1.4.2 Added additional values.
  *
  * @return array $tbex_info Array of info values.
  */
@@ -62,7 +63,7 @@ function ddw_tbex_info_values() {
 		'url_fb_group'      => 'https://www.facebook.com/groups/ToolbarExtras/',
 		'url_ddw_series'    => 'https://wordpress.org/plugins/tags/ddwtoolbar',
 		'url_snippets'      => 'https://toolbarextras.com/docs-category/custom-code-snippets/',
-		
+
 		'author'            => __( 'David Decker - DECKERWEB', 'toolbar-extras' ),
 		'author_uri'        => 'https://deckerweb.de/',
 		'author_avatar'     => plugins_url( '/assets/images/plugin-author.jpg', dirname( __FILE__ ) ),
@@ -74,10 +75,13 @@ function ddw_tbex_info_values() {
 		'first_code'        => '2012',
 
 		'url_donate'        => 'https://www.paypal.me/deckerweb',
+		'url_patreon'       => 'https://www.patreon.com/deckerweb',
 		'url_newsletter'    => $url_nl,
 		'url_plugin'        => 'https://toolbarextras.com/',
 		'url_plugin_docs'   => 'https://toolbarextras.com/docs/',
 		'url_plugin_faq'    => 'https://toolbarextras.com/docs-category/faqs/',
+		'url_addons'        => 'https://toolbarextras.com/addons/',
+		'url_addons_docs'   => 'https://toolbarextras.com/docs-category/add-ons/',
 		'url_github'        => 'https://github.com/deckerweb/toolbar-extras',
 		'url_github_issues' => 'https://github.com/deckerweb/toolbar-extras/issues',
 		'url_github_follow' => 'https://github.com/deckerweb',
@@ -91,11 +95,14 @@ function ddw_tbex_info_values() {
 		'url_tb_admin'      => 'https://www.dropbox.com/s/vxypca8r5jnjj3c/toolbar-groups-admin.png?dl=0',
 		'url_tb_frontend'   => 'https://www.dropbox.com/s/juh4dzfmfrsm6v7/toolbar-groups-frontend.png?dl=0',
 
+		'url_instagram'     => 'https://www.instagram.com/toolbarextras',
 		'url_twitter'       => 'https://twitter.com/deckerweb',
+		'url_twitter_tbex'  => 'https://twitter.com/toolbarextras',
 		'url_tweet_en'      => 'https://twitter.com/home?status=Let%20the%20%23WordPress%20%23Toolbar%20work%20for%20you%20-%20with%20Toolbar%20Extras%20%23plugin%3A%20https%3A//toolbarextras.com%20%20Perfect%20for%20site-builders%20via%20%40deckerweb',
 		'url_tweet_de'      => 'https://twitter.com/home?status=Lass%20die%20%23WordPress%20%23Toolbar%20f%C3%BCr%20dich%20arbeiten%20-%20mit%20dem%20Toolbar%20Extras%20%23Plugin%3A%20https%3A//toolbarextras.com%20Perfekt%20f%C3%BCr%20Site-Builders%20%3A)%20via%20%40deckerweb',
 		'url_fb_share'      => 'https://www.facebook.com/sharer/sharer.php?u=https%3A//toolbarextras.com/',
 		'url_gplus_share'   => 'https://plus.google.com/share?url=https%3A//toolbarextras.com/',
+		'url_lin_share'     => 'https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Ftoolbarextras.com%2F',
 
 		'url_mstba'         => 'https://wordpress.org/plugins/multisite-toolbar-additions/',
 
@@ -107,24 +114,76 @@ function ddw_tbex_info_values() {
 
 
 /**
+ * Get an info source - array from Toolbar Extras itself or one of its Add-Ons.
+ *
+ * @since 1.4.2
+ *
+ * @see ddw_tbex_get_info_url()
+ * @see ddw_tbex_get_info_link()
+ */
+function ddw_tbex_get_info_source( $source ) {
+
+	switch ( sanitize_key( $source ) ) {
+
+		case 'tbex':
+			$function = ddw_tbex_info_values();
+			break;
+
+		case 'mainwp':
+			$function = ddw_tbexmwp_info_values();
+			break;
+
+		case 'multisite':
+			$function = ddw_tbexms_info_values();
+			break;
+
+		case 'beaver':
+			$function = ddw_tbexbv_info_values();
+			break;
+
+		case 'thrive':
+			$function = ddw_tbextt_info_values();
+			break;
+
+		case 'oxygen':
+			$function = ddw_tbexob_info_values();
+			break;
+
+		case 'brizy':
+			$function = ddw_tbexbzy_info_values();
+			break;
+
+		default:
+			$function = ddw_tbex_info_values();
+			break;
+	}
+
+	return $function;
+
+}  // end function
+
+
+/**
  * Get URL of specific TBEX info value.
  *
  * @since 1.0.0
+ * @since 1.4.2 Added $source parameter.
  *
  * @uses ddw_tbex_info_values()
+ * @uses ddw_tbex_get_info_source()
  *
  * @param string $url_key Value key string from ddw_tbex_info_values() array.
  * @param bool   $raw     If raw escaping or regular escaping of URL gets used.
  * @return string URL for info value.
  */
-function ddw_tbex_get_info_url( $url_key = '', $raw = FALSE ) {
+function ddw_tbex_get_info_url( $url_key = '', $source = 'tbex', $raw = FALSE ) {
 
-	$tbex_info = (array) ddw_tbex_info_values();
+	$source_values = (array) ddw_tbex_get_info_source( $source );
 
-	$output = esc_url( $tbex_info[ sanitize_key( $url_key ) ] );
+	$output = esc_url( $source_values[ sanitize_key( $url_key ) ] );
 
 	if ( TRUE === (bool) $raw ) {
-		$output = esc_url_raw( $tbex_info[ esc_attr( $url_key ) ] );
+		$output = esc_url_raw( $source_values[ esc_attr( $url_key ) ] );
 	}
 
 	return $output;
@@ -136,6 +195,7 @@ function ddw_tbex_get_info_url( $url_key = '', $raw = FALSE ) {
  * Get link with complete markup for a specific TBEX info value.
  *
  * @since 1.0.0
+ * @since 1.4.2 Added $source parameter.
  *
  * @uses ddw_tbex_get_info_url()
  *
@@ -144,12 +204,12 @@ function ddw_tbex_get_info_url( $url_key = '', $raw = FALSE ) {
  * @param string $class   String of CSS class.
  * @return string HTML markup for linked URL.
  */
-function ddw_tbex_get_info_link( $url_key = '', $text = '', $class = '' ) {
+function ddw_tbex_get_info_link( $url_key = '', $text = '', $class = '', $source = 'tbex' ) {
 
 	$link = sprintf(
 		'<a class="%1$s" href="%2$s" target="_blank" rel="nofollow noopener noreferrer" title="%3$s">%3$s</a>',
 		strtolower( esc_attr( $class ) ),	//sanitize_html_class( $class ),
-		ddw_tbex_get_info_url( $url_key ),
+		ddw_tbex_get_info_url( $url_key, $source ),
 		esc_html( $text )
 	);
 
@@ -163,17 +223,19 @@ function ddw_tbex_get_info_link( $url_key = '', $text = '', $class = '' ) {
  *
  * @since 1.0.0
  * @since 1.3.5 Improved first year logic.
+ * @since 1.4.2 Added $source parameter.
  *
  * @uses ddw_tbex_info_values()
+ * @uses ddw_tbex_get_info_source()
  *
  * @param int $first_year Integer number of first year.
  * @return string Current year or timespan of years.
  */
-function ddw_tbex_coding_years( $first_year = '' ) {
+function ddw_tbex_coding_years( $first_year = '', $source = 'tbex' ) {
 
-	$tbex_info = (array) ddw_tbex_info_values();
+	$source_values = (array) ddw_tbex_get_info_source( $source );
 
-	$first_year = ( empty( $first_year ) ) ? absint( $tbex_info[ 'first_code' ] ) : absint( $first_year );
+	$first_year = ( empty( $first_year ) ) ? absint( $source_values[ 'first_code' ] ) : absint( $first_year );
 
 	/** Set year of first released code */
 	$code_first_year = ( date( 'Y' ) == $first_year || 0 === $first_year ) ? '' : $first_year . '&#x02013;';
@@ -338,6 +400,7 @@ function ddw_tbex_shortcode_user_lastname( $atts ) {
  *   (for example: Elementor, >Block Editor etc.).
  *
  * @since 1.4.0
+ * @since 1.4.2 Added new switch cases.
  *
  * @uses ddw_tbex_resources_{resource_type}()
  *
@@ -363,6 +426,30 @@ function ddw_tbex_get_resource_url( $type = '', $url_key = '', $raw = FALSE ) {
 
 		case 'mainwp':
 			$function = ddw_tbex_resources_mainwp();
+			break;
+
+		case 'multisite':
+			$function = ddw_tbexms_resources_multisite();
+			break;
+
+		case 'beaver':
+			$function = ddw_tbexbv_resources_beaver();
+			break;
+
+		case 'thrive':
+			$function = ddw_tbextt_resources_thrive();
+			break;
+
+		case 'oxygen':
+			$function = ddw_tbexob_resources_oxygen();
+			break;
+
+		case 'brizy':
+			$function = ddw_tbexbzy_resources_brizy();
+			break;
+
+		case 'tbex':
+			$function = ddw_tbex_info_values();
 			break;
 
 		default:
@@ -401,6 +488,7 @@ function ddw_tbex_get_resource_url( $type = '', $url_key = '', $raw = FALSE ) {
  *   register their own builders.
  *
  * @since 1.0.0
+ * @since 1.4.2 Enhanced the array with more arguments.
  *
  * @return array Filterable array of registered Page Builders.
  */
@@ -413,6 +501,8 @@ function ddw_tbex_get_pagebuilders() {
 			'title'       => '',
 			'title_attr'  => '',
 			'admin_url'   => '',
+			'color'       => '',
+			'color_name'  => '',
 			'plugins_tab' => FALSE,
 		),
 	);
@@ -427,6 +517,8 @@ function ddw_tbex_get_pagebuilders() {
 		$pagebuilder[ 'title' ]       = esc_attr( $pagebuilder[ 'title' ] );
 		$pagebuilder[ 'title_attr' ]  = esc_html( $pagebuilder[ 'title_attr' ] );
 		$pagebuilder[ 'admin_url' ]   = esc_url( $pagebuilder[ 'admin_url' ] );
+		$pagebuilder[ 'color' ]       = sanitize_hex_color( $pagebuilder[ 'color' ] );
+		$pagebuilder[ 'color_name' ]  = esc_attr( $pagebuilder[ 'color_name' ] );
 		$pagebuilder[ 'plugins_tab' ] = (bool) $pagebuilder[ 'plugins_tab' ];
 
 	}  // end foreach
@@ -489,6 +581,103 @@ function ddw_tbex_get_default_pagebuilder() {
 	$builder = ddw_tbex_get_option( 'general', 'default_page_builder' );
 
 	return sanitize_key( apply_filters( 'tbex_filter_default_pagebuilder', $builder ) );
+
+}  // end function
+
+
+/**
+ * Get all registered color items with key, color and name (label).
+ *
+ * @since 1.4.2
+ *
+ * @uses ddw_tbex_get_pagebuilders()
+ *
+ * @return array Filterable array of color codes and labels.
+ */
+function ddw_tbex_get_color_items() {
+
+	$builders = (array) ddw_tbex_get_pagebuilders();
+
+	$default_colors = array(
+		'default-blue'   => array(
+			'color' => '#0073aa',
+			'name'  => __( 'Default Blue', 'toolbar-extras' ),
+		),
+		'default-orange' => array(
+			'color' => '#ff8c00',
+			'name'  => __( 'Default Orange', 'toolbar-extras' ),
+		),
+		'tbex-purple'    => array(
+			'color' => '#7e49c2',
+			'name'  => __( 'Toolbar Extras Purple', 'toolbar-extras' ),
+		),
+	);
+
+	$builder_colors = array();
+
+	foreach ( $builders as $builder => $builder_data ) {
+
+		if ( empty( $builder_data[ 'color' ] ) ) {
+			continue;
+		}
+
+		$builder_colors[ $builder ] = array(
+			'color' => $builder_data[ 'color' ],
+			'name'  => $builder_data[ 'color_name' ],
+		);
+
+	}  // end foreach
+
+	return apply_filters(
+		'tbex_filter_color_items',
+		array_merge( $default_colors, $builder_colors )
+	);
+
+}  // end function
+
+
+//ddw_tbex_local_dev_color_picker_items
+add_action( 'tbex_settings_color_picker_items', 'ddw_tbex_settings_color_picker_items' );
+/**
+ * Display color items on the settings tab "For Development" in the "Local
+ *   Development Environment" section.
+ *
+ *   This is completely dynamic, based on the registered default color items,
+ *   and any items from registered Page Builders, as well as additional items
+ *   via the included filter 'tbex_filter_color_items'.
+ *
+ * @since 1.4.2
+ *
+ * @uses ddw_tbex_get_color_items()
+ *
+ * @return string Markup and string for color code/ label display.
+ */
+function ddw_tbex_settings_color_picker_items() {
+
+	$color_items = (array) ddw_tbex_get_color_items();
+
+	$output = '';
+
+	foreach ( $color_items as $color => $color_data ) {
+
+		$color_code = sprintf(
+			'<div class="bg-local-base bg-local-%1$s tbex-align-middle"></div><code class="tbex-align-middle">%2$s</code>',
+			sanitize_key( $color ),
+			sanitize_hex_color( $color_data[ 'color' ] )
+		);
+
+		$output .= sprintf(
+			/* translators: %s - a color code in HEX notation, for example: #555d66 */
+			'<div class="tbex-color-item"><span class="description tbex-space-top" title="%1$s">%1$s: %2$s</span></div>',
+			esc_attr( $color_data[ 'name' ] ),
+			$color_code
+		);
+
+	}  // end foreach
+
+	$output .= '<div class="clear"></div>';
+
+	echo $output;
 
 }  // end function
 
@@ -666,6 +855,8 @@ function ddw_tbex_item_title_with_icon( $string = '' ) {
  *              added $option_key as param for the filter; added additional CSS
  *              class to the markup;
  *
+ * @uses ddw_tbex_get_option()
+ *
  * @param string $string        Title string
  * @param string $settings_type Type of settings section
  * @param string $option_key    Option key to check for
@@ -683,7 +874,8 @@ function ddw_tbex_item_title_with_settings_icon( $string = '', $settings_type = 
 	return apply_filters(
 		'tbex_filter_item_title_with_settings_icon',
 		$output,
-		$option_key		// additional param
+		$settings_type,		// additional param
+		$option_key			// additional param
 	);
 
 }  // end function
@@ -947,6 +1139,7 @@ function ddw_tbex_string_theme_title( $title_attr = '', $child = '', $custom_nam
  *   'support-forum'          - Support Forum
  *   'support-contact'        - Support Contact
  *   'documentation'          - Documtation
+ *   'documentation-dev'      - Developer Documentation
  *   'facebook-group'         - Facebook Group
  *   'official-support'       - Official Support
  *   'official-site'          - Official Site
@@ -974,6 +1167,7 @@ function ddw_tbex_string_theme_title( $title_attr = '', $child = '', $custom_nam
  *   'slack-channel'          - Slack Channel
  *
  * @since 1.0.0
+ * @since 1.4.1 Added type developer docs.
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  *
@@ -1000,6 +1194,9 @@ function ddw_tbex_resource_item( $type = '', $id = '', $parent = '', $url = '', 
 			break;
 		case 'documentation':
 			$title = esc_attr__( 'Documentation', 'toolbar-extras' );
+			break;
+		case 'documentation-dev':
+			$title = esc_attr__( 'Developer Documentation', 'toolbar-extras' );
 			break;
 		case 'facebook-group':
 			$title = esc_attr__( 'Facebook Group', 'toolbar-extras' );
@@ -1325,7 +1522,7 @@ function ddw_tbex_remove_tooltips_title_attr( $wp_admin_bar ) {
 
 	/** Bail early if Tooltip display is wanted */
 	if ( ddw_tbex_display_link_title_attributes() ) {
-		return;
+		return $wp_admin_bar;
 	}
 
 	/** Get all nodes */
@@ -1341,7 +1538,7 @@ function ddw_tbex_remove_tooltips_title_attr( $wp_admin_bar ) {
 				'title' => '',
 			)
 		);
-	  
+
 		/** Update all Toolbar nodes */
 		$wp_admin_bar->add_node( $node );
 
@@ -1651,6 +1848,7 @@ function ddw_tbex_items_theme_customizer_deep() {
  * Add additional color wheel resources to certain add-ons for color palettes.
  *
  * @since 1.4.0
+ * @since 1.4.2 Added Cloudflare Color Tools.
  *
  * @param string $suffix String for suffix for Toolbar node ID and group ID.
  * @param string $parent String for Toolbar parent node.
@@ -1700,6 +1898,21 @@ function ddw_tbex_resources_color_wheel( $suffix = '', $parent = '' ) {
 					'rel'    => ddw_tbex_meta_rel(),
 					'target' => ddw_tbex_meta_target(),
 					'title'  => esc_attr__( 'Color Scheme Designer', 'toolbar-extras' ) . ' - ' . 'paletton.com'
+				)
+			)
+		);
+
+		/** Cloudflare Design - Color */
+		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			array(
+				'id'     => 'cw-resource-cloudflare' . $suffix,
+				'parent' => 'group-resources-colorwheel' . $suffix,
+				'title'  => esc_attr__( 'Color Tools', 'toolbar-extras' ),
+				'href'   => 'https://cloudflare.design/color/',
+				'meta'   => array(
+					'rel'    => ddw_tbex_meta_rel(),
+					'target' => ddw_tbex_meta_target(),
+					'title'  => esc_attr__( 'Color Tools', 'toolbar-extras' ) . ' - ' . 'Cloudflare Design'
 				)
 			)
 		);

@@ -33,11 +33,11 @@ function ddw_tbex_themeitems_elementor_hello() {
 		array(
 			'id'     => 'theme-creative',
 			'parent' => 'group-active-theme',
-			'title'  => ddw_tbex_string_theme_title( 'title', 'child', 'Elementor Hello' ),		//esc_attr__( 'Theme: Elementor Hello', 'toolbar-extras' ),
+			'title'  => ddw_tbex_string_theme_title( 'title', 'child', 'Elementor Hello' ),
 			'href'   => ddw_tbex_customizer_start(),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_theme_title( 'attr', 'child', 'Elementor Hello' ),		//esc_attr__( 'Active Theme: Elementor Hello', 'toolbar-extras' )
+				'title'  => ddw_tbex_string_theme_title( 'attr', 'child', 'Elementor Hello' ),
 			)
 		)
 	);

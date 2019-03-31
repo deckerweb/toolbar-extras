@@ -353,7 +353,7 @@ function ddw_tbex_aoitems_epic_news_elements() {
 				'id'     => 'ao-epicnewsel-license',
 				'parent' => 'ao-epicnewsel',
 				'title'  => esc_attr__( 'License', 'toolbar-extras' ),
-				'href'   => esc_url( admin_url( 'admin.php?page=epic-ne' ) ),
+				'href'   => esc_url( admin_url( 'admin.php?page=epic' ) ),
 				'meta'   => array(
 					'target' => '',
 					'title'  => esc_attr__( 'License', 'toolbar-extras' )

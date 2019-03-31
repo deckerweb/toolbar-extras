@@ -47,6 +47,34 @@ function ddw_tbex_is_addon_mainwp_active() {
 
 
 /**
+ * Is the TBEX Oxygen Add-On plugin active or not?
+ *
+ * @since 1.4.2
+ *
+ * @return bool TRUE if plugin is active, FALSE otherwise.
+ */
+function ddw_tbex_is_addon_oxygen_active() {
+
+	return defined( 'TBEXOB_PLUGIN_VERSION' );
+
+}  // end function
+
+
+/**
+ * Is the TBEX Brizy Add-On plugin active or not?
+ *
+ * @since 1.4.2
+ *
+ * @return bool TRUE if plugin is active, FALSE otherwise.
+ */
+function ddw_tbex_is_addon_brizy_active() {
+
+	return defined( 'TBEXBZY_PLUGIN_VERSION' );
+
+}  // end function
+
+
+/**
  * Is the Multisite Toolbar Additions plugin active or not?
  *
  * @since 1.4.0
@@ -151,7 +179,7 @@ define( 'TBEX_ELEMENTOR_BEFORE_240', '2.3.999' );
  */
 function ddw_tbex_is_genesis_active() {
 
-	return ( 'genesis' === basename( get_template_directory() ) && function_exists( 'genesis_html5' ) );
+	return ( 'genesis' === wp_basename( get_template_directory() ) && function_exists( 'genesis_html5' ) );
 
 }  // end function
 
@@ -161,7 +189,7 @@ function ddw_tbex_is_genesis_active() {
  *   supported (third-party) child themes.
  *
  * @since 1.0.0
- * @since 1.4.0 Added Twenty Ninteteen theme.
+ * @since 1.4.0 Added Twenty Nineteen theme.
  *
  * @return bool TRUE if current active Theme/ Child Theme is in the array of
  *              supported themes, FALSE otherwise.
@@ -250,12 +278,12 @@ function ddw_tbex_is_cobalt_supported_theme( $plugin = '' ) {
 
 	/** For: Extender Pro Plugin */
 	if ( 'extender-pro' === sanitize_key( $plugin ) ) {
-		return in_array( basename( get_template_directory() ), $supported_frameworks );
+		return in_array( wp_basename( get_template_directory() ), $supported_frameworks );
 	}
 
 	/** For: Themer Pro Plugin */
 	if ( 'themer-pro' === sanitize_key( $plugin ) ) {
-		return in_array( basename( get_template_directory() ), array_merge( $supported_frameworks, $supported_twenty ) );
+		return in_array( wp_basename( get_template_directory() ), array_merge( $supported_frameworks, $supported_twenty ) );
 	}
 
 	/** Fallback "FALSE" if no supported theme active */
@@ -268,6 +296,7 @@ function ddw_tbex_is_cobalt_supported_theme( $plugin = '' ) {
  * To use the optional hook place for (general) gallery & slider plugins or not.
  *
  * @since 1.1.0
+ * @since 1.4.2 Added new plugin.
  *
  * @return bool TRUE if the conditions are met, FALSE otherwise.
  */
@@ -279,6 +308,7 @@ function ddw_tbex_use_hook_place_gallery_slider() {
 		|| ( class_exists( 'Soliloquy_Lite' ) || class_exists( 'Soliloquy' ) )
 		|| defined( 'FOOGALLERY_VERSION' )
 		|| class_exists( 'MaxGalleria' )
+		|| function_exists( 'display_instagram' )
 	) {
 
 		/** Use Gallery/ Slider hook place */
@@ -531,6 +561,20 @@ function ddw_tbex_is_nogutenberg_plugin_active() {
 
 
 /**
+ * Is the Gutenberg Manager plugin active or not?
+ *
+ * @since 1.4.2
+ *
+ * @return bool TRUE if plugin is active, FALSE otherwise.
+ */
+function ddw_tbex_is_gutenberg_manager_active() {
+
+	return function_exists( 'gm_check_gutenberg' );
+
+}  // end function
+
+
+/**
  * Is the Disable WordPress "Gutenberg" Update plugin active or not?
  *
  * @since 1.4.0
@@ -568,5 +612,61 @@ function ddw_tbex_is_custom_css_pro_active() {
 function ddw_tbex_is_easy_updates_manager_active() {
 
 	return class_exists( 'MPSUM_Updates_Manager' );
+
+}  // end function
+
+
+/**
+ * Is the Raven by Artbees plugin active or not?
+ *
+ * @since 1.4.2
+ *
+ * @return bool TRUE if plugin is active, FALSE otherwise.
+ */
+function ddw_tbex_is_artbees_raven_active() {
+
+	return defined( 'RAVEN__FILE__' );
+
+}  // end function
+
+
+/**
+ * Is the Jetpack plugin active or not?
+ *
+ * @since 1.4.2
+ *
+ * @return bool TRUE if plugin is active, FALSE otherwise.
+ */
+function ddw_tbex_is_jetpack_active() {
+
+	return class_exists( 'Jetpack' );
+
+}  // end function
+
+
+/**
+ * Is the Gravity Forms plugin active or not?
+ *
+ * @since 1.4.2
+ *
+ * @return bool TRUE if plugin is active, FALSE otherwise.
+ */
+function ddw_tbex_is_gravityforms_active() {
+
+	return defined( 'RG_CURRENT_VIEW' );
+
+}  // end function
+
+
+/**
+ * Is the Contact Form 7 (CF7) plugin active or not?
+ *
+ * @since 1.4.2
+ *
+ * @return bool TRUE if plugin is active, FALSE otherwise.
+ */
+function ddw_tbex_is_cf7_active() {
+
+	return defined( 'WPCF7_VERSION' );
 
 }  // end function

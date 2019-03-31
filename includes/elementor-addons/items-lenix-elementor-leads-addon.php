@@ -26,18 +26,22 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_lenix_leads', 100 );
  */
 function ddw_tbex_aoitems_lenix_leads() {
 
+	$title = sprintf(
+		/* translators: %s - Name of Elementor page builder */
+		esc_attr__( '%s Leads', 'toolbar-extras' ),
+		ddw_tbex_string_elementor()
+	);
+
 	/** For: Forms */
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(
 		array(
 			'id'     => 'ao-lenixleads',
 			'parent' => 'tbex-sitegroup-forms',
-			/* translators: %s - Name of Elementor page builder */
-			'title'  => sprintf( esc_attr__( '%s Leads', 'toolbar-extras' ), ddw_tbex_string_elementor() ),
+			'title'  => $title,
 			'href'   => esc_url( admin_url( 'admin.php?page=elementor-leads' ) ),
 			'meta'   => array(
 				'target' => '',
-				/* translators: %s - Name of Elementor page builder */
-				'title'  => sprintf( esc_attr__( '%s Leads', 'toolbar-extras' ), ddw_tbex_string_elementor() )
+				'title'  => $title,
 			)
 		)
 	);

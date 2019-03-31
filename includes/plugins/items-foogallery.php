@@ -94,7 +94,7 @@ function ddw_tbex_site_items_foogallery() {
 			array(
 				'id'     => 'foogallery-info',
 				'parent' => 'foogallery',
-				'title'  => esc_attr__( 'Sytem Info', 'toolbar-extras' ),
+				'title'  => esc_attr__( 'System Info', 'toolbar-extras' ),
 				'href'   => esc_url( admin_url( 'edit.php?post_type=foogallery&page=foogallery-systeminfo' ) ),
 				'meta'   => array(
 					'target' => '',

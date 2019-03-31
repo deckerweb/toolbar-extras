@@ -75,7 +75,7 @@ function ddw_tbex_is_localhost() {
  * @since 1.0.0
  * @since 1.4.0 Moved into own function for reusability.
  *
- * @return string Filterable cabability ID.
+ * @return string Filterable capability ID.
  */
 function ddw_tbex_capability_show_all() {
 
@@ -101,7 +101,7 @@ function ddw_tbex_capability_show_all() {
 function ddw_tbex_show_toolbar_items() {
 
 	/**
-	 * Required WordPress cabability to display new toolbar / admin bar entry
+	 * Required WordPress capability to display new toolbar / admin bar entry
 	 *   Only showing items if toolbar / admin bar is activated and user is
 	 *   logged in!
 	 * @since 1.0.0
@@ -161,12 +161,17 @@ function ddw_tbex_display_items_resources() {
  * Display Themes items at all or not?
  *
  * @since 1.0.0
+ * @since 1.4.2 Added filter shortcut for custom disabling.
  *
  * @uses ddw_tbex_get_option()
  *
  * @return bool TRUE if setting is on 'yes', FALSE otherwise.
  */
 function ddw_tbex_display_items_themes() {
+
+	if ( ! apply_filters( 'tbex_filter_display_items_themes', TRUE ) ) {
+		return FALSE;
+	}
 
 	return ( 'yes' === ddw_tbex_get_option( 'general', 'display_items_theme' ) ) ? TRUE : FALSE;
 
@@ -403,6 +408,7 @@ function ddw_tbex_display_items_wpcomments() {
  * Determine whether or not we are in a Local Dev Environment.
  *
  * @since 1.0.0
+ * @since 1.4.2 Added support for WP_LOCAL_DEV constant.
  *
  * @uses ddw_tbex_get_option()
  * @uses ddw_tbex_is_localhost()
@@ -427,7 +433,21 @@ function ddw_tbex_in_local_environment() {
 
 		return TRUE;
 
-	} elseif ( ! defined( 'TBEX_IS_LOCAL_ENVIRONMENT' ) ) {
+	} elseif ( defined( 'WP_LOCAL_DEV' )
+		&& ( FALSE === WP_LOCAL_DEV )
+	) {
+
+		return FALSE;
+
+	} elseif ( defined( 'WP_LOCAL_DEV' )
+		&& ( TRUE === WP_LOCAL_DEV )
+	) {
+
+		return TRUE;
+
+	} elseif ( ! defined( 'TBEX_IS_LOCAL_ENVIRONMENT' )
+		|| ! defined( 'WP_LOCAL_DEV' )
+	) {
 
 		if ( 'auto' === ddw_tbex_get_option( 'development', 'is_local_dev' ) ) {
 
@@ -535,6 +555,7 @@ function ddw_tbex_is_block_editor_active() {
  *   Block Editor.
  *
  * @since 1.4.0
+ * @since 1.4.2 Further enhancements and tweaks.
  *
  * @uses ddw_tbex_is_block_editor_active()
  * @uses ddw_tbex_is_classic_editor_plugin_active()
@@ -543,6 +564,7 @@ function ddw_tbex_is_block_editor_active() {
  * @uses ddw_tbex_is_gutenberg_ramp_active()
  * @uses ddw_tbex_is_nogutenberg_plugin_active()
  * @uses ddw_tbex_is_disable_wpgutenberg_update_active()
+ * @uses ddw_tbex_is_gutenberg_manager_active()
  *
  * @return bool TRUE if certain popular plugins are NOT globally disabling the
  *              Block Editor.
@@ -622,6 +644,22 @@ function ddw_tbex_is_block_editor_wanted() {
 		 * FALSE when no $criteria set & no post types in settings are set
 		 */
 		if ( FALSE === $gutenberg_ramp->active && empty( $gbramp_types ) ) {
+			return FALSE;
+		}
+
+	}  // end if
+
+	/**
+	 * For: "Gutenberg Manager" plugin.
+	 */
+	if ( ddw_tbex_is_gutenberg_manager_active() ) {
+
+		$gb_manager = get_option( 'gm-global-disable' );
+
+		/**
+		 * FALSE when option is set to global disable Gutenberg
+		 */
+		if ( 1 === absint( $gb_manager ) ) {
 			return FALSE;
 		}
 

@@ -44,7 +44,7 @@ function ddw_tbex_site_items_rehook_seopress( $wp_admin_bar ) {
 
 	/** Bail early if SEOPress Toolbar items are deactivated */
 	if ( function_exists( 'seopress_advanced_appearance_adminbar_option' ) && '' != seopress_advanced_appearance_adminbar_option() ) {
-		return;
+		return $wp_admin_bar;
 	}
 
 	/** Bail early if SEOPress tweak should NOT be used */

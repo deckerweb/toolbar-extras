@@ -90,7 +90,7 @@ function ddw_tbex_settings_section_info_translations() {
 				/* translators: %s - a capability, 'manage_options' */
 				__( 'Please note: this feature is limited to logged-in users which have the capability %s.', 'toolbar-extras' ),
 				'<code>manage_options</code>'
-			); ?> <?php _e( 'By default these are administrator user roles only. However, developers can use a filter and set a different cabability if needed.', 'toolbar-extras' ); ?> <?php echo sprintf(
+			); ?> <?php _e( 'By default these are administrator user roles only. However, developers can use a filter and set a different capability if needed.', 'toolbar-extras' ); ?> <?php echo sprintf(
 				/* translators: %s - word "documentation", linked to plugin's knowledge base */
 				__( 'Have a look in our %s for a code snippet.', 'toolbar-extras' ),
 				'<a href="https://toolbarextras.com/docs/custom-capability-for-unloading-translations/" target="_blank" rel="noopener noreferrer">' . __( 'documentation', 'toolbar-extras' ) . '</a>'

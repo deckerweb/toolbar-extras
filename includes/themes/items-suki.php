@@ -229,7 +229,7 @@ function ddw_tbex_themeitems_suki_resources() {
 
 add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_suki_pro', 100 );
 /**
- * Items for Theme: Suki Pro - Add-On Plugin (Premium, by PressMaximum)
+ * Items for Theme: Suki Pro - Add-On Plugin (Premium, by SukiWP/ David Rozando)
  *
  * @since 1.4.0
  *
@@ -358,24 +358,22 @@ function ddw_tbex_themeitems_suki_pro() {
 			}  // end if
 
 			/** Block categories, via BTC plugin */
-			/*
-				if ( ddw_tbex_is_btcplugin_active() ) {
+			if ( ddw_tbex_is_btcplugin_active() ) {
 
-					$GLOBALS[ 'wp_admin_bar' ]->add_node(
-						array(
-							'id'     => 'suki-custom-blocks-categories',
-							'parent' => 'group-suki-blocks',
-							'title'  => ddw_btc_string_template( 'block' ),
-							'href'   => esc_url( admin_url( 'edit-tags.php?taxonomy=builder-template-category&post_type=' . $type ) ),
-							'meta'   => array(
-								'target' => '',
-								'title'  => esc_html( ddw_btc_string_template( 'block' ) )
-							)
+				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					array(
+						'id'     => 'suki-custom-blocks-categories',
+						'parent' => 'group-suki-blocks',
+						'title'  => ddw_btc_string_template( 'block' ),
+						'href'   => esc_url( admin_url( 'edit-tags.php?taxonomy=builder-template-category&post_type=' . $type ) ),
+						'meta'   => array(
+							'target' => '',
+							'title'  => esc_html( ddw_btc_string_template( 'block' ) )
 						)
-					);
+					)
+				);
 
-				}  // end if
-			*/
+			}  // end if
 
 	}  // end if
 

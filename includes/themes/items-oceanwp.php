@@ -77,18 +77,8 @@ function ddw_tbex_themeitems_oceanwp() {
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
-			array(
-				'id'     => 'theme-creative-customize',
-				'parent' => 'theme-creative',
-				'title'  => ddw_tbex_string_customize_design(),
-				'href'   => ddw_tbex_customizer_start(),
-				'meta'   => array(
-					'target' => ddw_tbex_meta_target(),
-					'title'  => ddw_tbex_string_customize_design()
-				)
-			)
-		);
+		/** OceanWP customize */
+		ddw_tbex_item_theme_creative_customize();
 
 		/** OceanWP's own Template Library */
 		$GLOBALS[ 'wp_admin_bar' ]->add_group(
@@ -478,184 +468,159 @@ function ddw_tbex_themeitems_oceanwp() {
 			)
 		);
 
+		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			array(
+				'id'     => 'theme-settings-licenses',
+				'parent' => 'theme-settings',
+				'title'  => esc_attr__( 'Licenses', 'toolbar-extras' ),
+				'href'   => esc_url( admin_url( 'admin.php?page=oceanwp-panel-licenses' ) ),
+				'meta'   => array(
+					'target' => '',
+					'title'  => esc_attr__( 'Licenses', 'toolbar-extras' )
+				)
+			)
+		);
+
 }  // end function
 
 
-add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_oceanwp_customize', 100 );
+add_filter( 'tbex_filter_items_theme_customizer_deep', 'ddw_tbex_themeitems_oceanwp_customize' );
 /**
  * Customize items for OceanWP Theme
  *
  * @since 1.0.0
+ * @since 1.4.2 Refactored using filter/array declaration.
  *
- * @uses ddw_tbex_customizer_focus()
- * @uses ddw_tbex_string_customize_attr()
- *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param array $items Existing array of params for creating Toolbar nodes.
+ * @return array Tweaked array of params for creating Toolbar nodes.
  */
-function ddw_tbex_themeitems_oceanwp_customize() {
+function ddw_tbex_themeitems_oceanwp_customize( array $items ) {
 
 	/** Get OceanWP setting which panels are active */
 	$owp_cmz_panels = get_option( 'oe_panels_settings' );
 
+	$oceanwp_items = array();
+
+	/** General */
 	if ( $owp_cmz_panels[ 'oe_general_panel' ] ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
-			array(
-				'id'     => 'owpcmz-general',
-				'parent' => 'theme-creative-customize',
-				/* translators: Autofocus panel in the Customizer */
-				'title'  => esc_attr__( 'General Options', 'toolbar-extras' ),
-				'href'   => ddw_tbex_customizer_focus( 'panel', 'ocean_general_panel' ),
-				'meta'   => array(
-					'target' => ddw_tbex_meta_target(),
-					'title'  => ddw_tbex_string_customize_attr( __( 'General Options', 'toolbar-extras' ) )
-				)
-			)
+		$oceanwp_items[ 'ocean_general_panel' ] = array(
+			'type'  => 'panel',
+			'title' => __( 'General Options', 'toolbar-extras' ),
+			'id'    => 'owpcmz-general',
 		);
 
 	}  // end if
 
+	/** Typography */
 	if ( $owp_cmz_panels[ 'oe_typography_panel' ] ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
-			array(
-				'id'     => 'owpcmz-typography',
-				'parent' => 'theme-creative-customize',
-				/* translators: Autofocus panel in the Customizer */
-				'title'  => esc_attr__( 'Typography', 'toolbar-extras' ),
-				'href'   => ddw_tbex_customizer_focus( 'panel', 'ocean_typography_panel' ),
-				'meta'   => array(
-					'target' => ddw_tbex_meta_target(),
-					'title'  => ddw_tbex_string_customize_attr( __( 'Typography', 'toolbar-extras' ) )
-				)
-			)
+		$oceanwp_items[ 'ocean_typography_panel' ] = array(
+			'type'  => 'panel',
+			'title' => __( 'Typography', 'toolbar-extras' ),
+			'id'    => 'owpcmz-typography',
 		);
 
 	}  // end if
 
+	/** Top Bar */
 	if ( $owp_cmz_panels[ 'oe_topbar_panel' ] ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
-			array(
-				'id'     => 'owpcmz-topbar',
-				'parent' => 'theme-creative-customize',
-				/* translators: Autofocus panel in the Customizer */
-				'title'  => esc_attr__( 'Top Bar', 'toolbar-extras' ),
-				'href'   => ddw_tbex_customizer_focus( 'panel', 'ocean_topbar_panel' ),
-				'meta'   => array(
-					'target' => ddw_tbex_meta_target(),
-					'title'  => ddw_tbex_string_customize_attr( __( 'Top Bar', 'toolbar-extras' ) )
-				)
-			)
+		$oceanwp_items[ 'ocean_topbar_panel' ] = array(
+			'type'  => 'panel',
+			'title' => __( 'Top Bar', 'toolbar-extras' ),
+			'id'    => 'owpcmz-topbar',
 		);
 
 	}  // end if
 
+	/** Header */
 	if ( $owp_cmz_panels[ 'oe_header_panel' ] ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
-			array(
-				'id'     => 'owpcmz-header',
-				'parent' => 'theme-creative-customize',
-				/* translators: Autofocus panel in the Customizer */
-				'title'  => esc_attr__( 'Header', 'toolbar-extras' ),
-				'href'   => ddw_tbex_customizer_focus( 'panel', 'ocean_header_panel' ),
-				'meta'   => array(
-					'target' => ddw_tbex_meta_target(),
-					'title'  => ddw_tbex_string_customize_attr( __( 'Header', 'toolbar-extras' ) )
-				)
-			)
+		$oceanwp_items[ 'ocean_header_panel' ] = array(
+			'type'  => 'panel',
+			'title' => __( 'Header', 'toolbar-extras' ),
+			'id'    => 'owpcmz-header',
 		);
 
 	}  // end if
 
+	/** Blog */
 	if ( $owp_cmz_panels[ 'oe_blog_panel' ] ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
-			array(
-				'id'     => 'owpcmz-blog',
-				'parent' => 'theme-creative-customize',
-				/* translators: Autofocus panel in the Customizer */
-				'title'  => esc_attr__( 'Blog', 'toolbar-extras' ),
-				'href'   => ddw_tbex_customizer_focus( 'panel', 'ocean_blog', get_post_type_archive_link( 'post' ) ),
-				'meta'   => array(
-					'target' => ddw_tbex_meta_target(),
-					'title'  => ddw_tbex_string_customize_attr( __( 'Blog', 'toolbar-extras' ) )
-				)
-			)
+		$oceanwp_items[ 'ocean_blog' ] = array(
+			'type'  => 'panel',
+			'title' => __( 'Blog', 'toolbar-extras' ),
+			'id'    => 'owpcmz-blog',
+			'preview_url' => get_post_type_archive_link( 'post' ),
 		);
 
 	}  // end if
 
+	/** Sidebar */
 	if ( $owp_cmz_panels[ 'oe_sidebar_panel' ] ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
-			array(
-				'id'     => 'owpcmz-sidebar',
-				'parent' => 'theme-creative-customize',
-				/* translators: Autofocus section in the Customizer */
-				'title'  => esc_attr__( 'Sidebar', 'toolbar-extras' ),
-				'href'   => ddw_tbex_customizer_focus( 'section', 'ocean_sidebar_section' ),
-				'meta'   => array(
-					'target' => ddw_tbex_meta_target(),
-					'title'  => ddw_tbex_string_customize_attr( __( 'Sidebar', 'toolbar-extras' ) )
-				)
-			)
+		$oceanwp_items[ 'ocean_sidebar_section' ] = array(
+			'type'  => 'section',
+			'title' => __( 'Sidebar', 'toolbar-extras' ),
+			'id'    => 'owpcmz-sidebar',
 		);
 
 	}  // end if
 
+	/** Footer Widgets */
 	if ( $owp_cmz_panels[ 'oe_footer_widgets_panel' ] ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
-			array(
-				'id'     => 'owpcmz-footer-widgets',
-				'parent' => 'theme-creative-customize',
-				/* translators: Autofocus section in the Customizer */
-				'title'  => esc_attr__( 'Footer Widgets', 'toolbar-extras' ),
-				'href'   => ddw_tbex_customizer_focus( 'section', 'ocean_footer_widgets_section' ),
-				'meta'   => array(
-					'target' => ddw_tbex_meta_target(),
-					'title'  => ddw_tbex_string_customize_attr( __( 'Footer Widgets', 'toolbar-extras' ) )
-				)
-			)
+		$oceanwp_items[ 'ocean_footer_widgets_section' ] = array(
+			'type'  => 'section',
+			'title' => __( 'Footer Widgets', 'toolbar-extras' ),
+			'id'    => 'owpcmz-footer-widgets',
 		);
 
 	}  // end if
 
+	/** Footer Bottom */
 	if ( $owp_cmz_panels[ 'oe_footer_bottom_panel' ] ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
-			array(
-				'id'     => 'owpcmz-footer-bottom',
-				'parent' => 'theme-creative-customize',
-				/* translators: Autofocus section in the Customizer */
-				'title'  => esc_attr__( 'Footer Bottom', 'toolbar-extras' ),
-				'href'   => ddw_tbex_customizer_focus( 'section', 'ocean_footer_bottom_section' ),
-				'meta'   => array(
-					'target' => ddw_tbex_meta_target(),
-					'title'  => ddw_tbex_string_customize_attr( __( 'Footer Bottom', 'toolbar-extras' ) )
-				)
-			)
+		$oceanwp_items[ 'ocean_footer_bottom_section' ] = array(
+			'type'  => 'section',
+			'title' => __( 'Footer Bottom', 'toolbar-extras' ),
+			'id'    => 'owpcmz-footer-bottom',
 		);
+
+	}  // end if
+
+	/** WooCommerce Support */
+	if ( ddw_tbex_is_woocommerce_active() ) {
+
+		$oceanwp_items[ 'ocean_woocommerce_panel' ] = array(
+			'type'        => 'panel',
+			'title'       => __( 'WooCommerce', 'toolbar-extras' ),
+			'id'          => 'owpcmz-woocommerce',
+			'preview_url' => get_post_type_archive_link( 'product' ),
+		);
+
+		/** Add-On: Customize Woo Popup */
+		if ( function_exists( 'Ocean_Woo_Popup' ) ) {
+
+			$oceanwp_items[ 'owp_section' ] = array(
+				'type'        => 'section',
+				'title'       => __( 'Woo Popup', 'toolbar-extras' ),
+				'id'          => 'owpcmz-woo-popup',
+				'preview_url' => get_post_type_archive_link( 'product' ),
+			);
+
+		}  // end if
 
 	}  // end if
 
 	/** Add-On: Customize Portfolio */
 	if ( function_exists( 'Ocean_Portfolio' ) ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
-			array(
-				'id'     => 'owpcmz-portfolio',
-				'parent' => 'theme-creative-customize',
-				/* translators: Autofocus panel in the Customizer */
-				'title'  => esc_attr__( 'Portfolio', 'toolbar-extras' ),
-				'href'   => ddw_tbex_customizer_focus( 'panel', 'op_portfolio' ),
-				'meta'   => array(
-					'target' => ddw_tbex_meta_target(),
-					'title'  => ddw_tbex_string_customize_attr( __( 'Portfolio', 'toolbar-extras' ) )
-				)
-			)
+		$oceanwp_items[ 'op_portfolio' ] = array(
+			'type'  => 'panel',
+			'title' => __( 'Portfolio', 'toolbar-extras' ),
+			'id'    => 'owpcmz-portfolio',
 		);
 
 	}  // end if
@@ -663,18 +628,10 @@ function ddw_tbex_themeitems_oceanwp_customize() {
 	/** Add-On: Customize Side Panel */
 	if ( function_exists( 'Ocean_Side_Panel' ) ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
-			array(
-				'id'     => 'owpcmz-sidepanel',
-				'parent' => 'theme-creative-customize',
-				/* translators: Autofocus section in the Customizer */
-				'title'  => esc_attr__( 'Side Panel', 'toolbar-extras' ),
-				'href'   => ddw_tbex_customizer_focus( 'section', 'osp_side_panel_section' ),
-				'meta'   => array(
-					'target' => ddw_tbex_meta_target(),
-					'title'  => ddw_tbex_string_customize_attr( __( 'Side Panel', 'toolbar-extras' ) )
-				)
-			)
+		$oceanwp_items[ 'osp_side_panel_section' ] = array(
+			'type'  => 'section',
+			'title' => __( 'Side Panel', 'toolbar-extras' ),
+			'id'    => 'owpcmz-sidepanel',
 		);
 
 	}  // end if
@@ -682,18 +639,10 @@ function ddw_tbex_themeitems_oceanwp_customize() {
 	/** Add-On: Customize Modal Window */
 	if ( function_exists( 'Ocean_Modal_Window' ) ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
-			array(
-				'id'     => 'owpcmz-modal',
-				'parent' => 'theme-creative-customize',
-				/* translators: Autofocus panel in the Customizer */
-				'title'  => esc_attr__( 'Modal Window', 'toolbar-extras' ),
-				'href'   => ddw_tbex_customizer_focus( 'panel', 'ocean_modal_window_panel' ),
-				'meta'   => array(
-					'target' => ddw_tbex_meta_target(),
-					'title'  => ddw_tbex_string_customize_attr( __( 'Modal Window', 'toolbar-extras' ) )
-				)
-			)
+		$oceanwp_items[ 'ocean_modal_window_panel' ] = array(
+			'type'  => 'panel',
+			'title' => __( 'Modal Window', 'toolbar-extras' ),
+			'id'    => 'owpcmz-modal',
 		);
 
 	}  // end if
@@ -701,21 +650,84 @@ function ddw_tbex_themeitems_oceanwp_customize() {
 	/** Add-On: Customize Cookie Notice */
 	if ( function_exists( 'Ocean_Cookie_Notice' ) ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
-			array(
-				'id'     => 'owpcmz-cookie-notice',
-				'parent' => 'theme-creative-customize',
-				/* translators: Autofocus section in the Customizer */
-				'title'  => esc_attr__( 'Cookie Notice', 'toolbar-extras' ),
-				'href'   => ddw_tbex_customizer_focus( 'section', 'ocn_section' ),
-				'meta'   => array(
-					'target' => ddw_tbex_meta_target(),
-					'title'  => ddw_tbex_string_customize_attr( __( 'Cookie Notice', 'toolbar-extras' ) )
-				)
-			)
+		$oceanwp_items[ 'ocn_section' ] = array(
+			'type'  => 'section',
+			'title' => __( 'Cookie Notice', 'toolbar-extras' ),
+			'id'    => 'owpcmz-cookie-notice',
 		);
 
 	}  // end if
+
+	/** Add-On: Customize Sticky Header */
+	if ( function_exists( 'Ocean_Sticky_Header' ) ) {
+
+		$oceanwp_items[ 'osh_section' ] = array(
+			'type'  => 'section',
+			'title' => __( 'Sticky Header', 'toolbar-extras' ),
+			'id'    => 'owpcmz-sticky-header',
+		);
+
+	}  // end if
+
+	/** Add-On: Customize Sticky Footer */
+	if ( function_exists( 'Ocean_Sticky_Footer' ) ) {
+
+		$oceanwp_items[ 'osf_section' ] = array(
+			'type'  => 'section',
+			'title' => __( 'Sticky Footer', 'toolbar-extras' ),
+			'id'    => 'owpcmz-sticky-footer',
+		);
+
+	}  // end if
+
+	/** Add-On: Customize Footer Callout */
+	if ( function_exists( 'Ocean_Footer_Callout' ) ) {
+
+		$oceanwp_items[ 'ofc_section' ] = array(
+			'type'  => 'section',
+			'title' => __( 'Footer Callout', 'toolbar-extras' ),
+			'id'    => 'owpcmz-footer-callout',
+		);
+
+	}  // end if
+
+	/** Add-On: Customize Social Sharing */
+	if ( function_exists( 'Ocean_Social_Sharing' ) ) {
+
+		$oceanwp_items[ 'oss_sharing_section' ] = array(
+			'type'  => 'section',
+			'title' => __( 'Social Sharing', 'toolbar-extras' ),
+			'id'    => 'owpcmz-social-sharing',
+		);
+
+	}  // end if
+
+	/** Add-On: Customize Product Sharing */
+	if ( ( ddw_tbex_is_woocommerce_active() || ddw_tbex_is_edd_active() )
+		&& function_exists( 'Ocean_Product_Sharing' )
+	) {
+
+		$oceanwp_items[ 'ops_product_sharing_section' ] = array(
+			'type'  => 'section',
+			'title' => __( 'Product Sharing', 'toolbar-extras' ),
+			'id'    => 'owpcmz-product-sharing',
+		);
+
+	}  // end if
+
+	/** Custom CSS/JS */
+	if ( $owp_cmz_panels[ 'oe_custom_code_panel' ] ) {
+
+		$oceanwp_items[ 'ocean_custom_code_panel' ] = array(
+			'type'  => 'section',
+			'title' => __( 'Custom CSS/JS', 'toolbar-extras' ),
+			'id'    => 'owpcmz-custom-css-js',
+		);
+
+	}  // end if
+
+	/** Merge and return with all items */
+	return array_merge( $items, $oceanwp_items );
 
 }  // end function
 

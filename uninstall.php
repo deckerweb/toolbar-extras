@@ -60,9 +60,11 @@ if ( ! current_user_can( 'install_plugins' ) ) {
  * Delete all options and transients from the 'options' table in DB.
  *
  * @since 1.0.0
+ * @since 1.4.0 Added new option & transient.
  *
  * @uses delete_option()
  * @uses delete_site_transient()
+ * @uses delete_transient()
  */
 function ddw_tbex_delete_options_transients() {
 

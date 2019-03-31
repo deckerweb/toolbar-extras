@@ -21,13 +21,13 @@ add_action( 'admin_bar_menu', 'ddw_tbex_addons_hook_place', 200 );
  * @since 1.0.0
  * @since 1.4.0 Splitted function into own file to make it better reusable.
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_addons_hook_place() {
+function ddw_tbex_addons_hook_place( $admin_bar ) {
 
 	if ( has_filter( 'tbex_filter_is_addon' ) ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'tbex-addons',
 				'parent' => 'group-pagebuilder-options',

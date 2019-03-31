@@ -166,6 +166,24 @@ function ddw_tbex_toolbar_styles() {
 				bottom: 2px;
 			}
 
+			#wpadminbar .tbex-genesis-cpt-archive .ab-icon:before {
+				content: '\f464';
+				top: 2px;
+			}
+
+			#wpadminbar .tbex-view-content > a > .ab-icon:before,
+			#wpadminbar .tbex-genesis-cpt-archive-view > a > .ab-icon:before {
+				content: '\f177';
+				top: 2px;
+			}
+
+			#wpadminbar .tbex-view-content,
+			#wpadminbar .tbex-genesis-cpt-archive,
+			#wpadminbar .tbex-genesis-cpt-archive-view {
+				bottom: 2px;
+				margin-top: 2px;
+			}
+
 			/* Dev Mode */
 			#wpadminbar #wp-admin-bar-rapid-dev .ab-label {
 				margin-top: -3px;
@@ -182,9 +200,18 @@ function ddw_tbex_toolbar_styles() {
 			}
 
 			/* Sites Browser/ Demos */
+			#wp-admin-bar-group-demo-import > li > a {
+				margin-bottom: 5px !important;
+			}
+
 			#wpadminbar #wp-admin-bar-<?php echo ddw_tbex_id_sites_browser(); ?>,
 			#wpadminbar #wp-admin-bar-envato-elements-template-kits {
 				margin-top: -3px;
+			}
+
+			#wpadminbar .tbex-add-design-set .ab-icon:before {
+				content: '\f502';
+				top: 2px;
 			}
 
 			/* Web Group */
@@ -224,13 +251,13 @@ function ddw_tbex_toolbar_styles() {
 			/* Tweaks for groups */
 			#wp-admin-bar-group-devmode-resources,
 			#wp-admin-bar-group-churchcontent-resources,
-			#wp-admin-bar-group-envatoelements-resources {
+			.tbex-group-resources-divider {
 				border-top: 1px dotted rgba(235, 235, 235, 0.35);
 			}
 
 			.admin-color-light #wp-admin-bar-group-devmode-resources,
 			.admin-color-light #wp-admin-bar-group-churchcontent-resources,
-			.admin-color-light #wp-admin-bar-group-envatoelements-resources {
+			.admin-color-light .tbex-group-resources-divider {
 				border-top: 1px dotted rgba(7, 7, 7, 0.2);
 			}
 
@@ -264,14 +291,24 @@ function ddw_tbex_toolbar_styles() {
 			#wpadminbar #wp-admin-bar-customize-easyloginstyler-pro .ab-label,
 			#wpadminbar #wp-admin-bar-my-sub-item .ab-icon:before,
 			#wpadminbar #wp-admin-bar-my-sub-item .ab-label,
+			#wpadminbar .tbex-view-content .ab-icon:before,
+			#wpadminbar .tbex-view-content .ab-label,
 			#wpadminbar .tbex-customize-content .ab-icon:before,
 			#wpadminbar .tbex-customize-content .ab-label,
+			#wpadminbar .tbex-genesis-cpt-archive .ab-icon:before,
+			#wpadminbar .tbex-genesis-cpt-archive .ab-label,
+			#wpadminbar .tbex-genesis-cpt-archive-view .ab-icon:before,
+			#wpadminbar .tbex-genesis-cpt-archive-view .ab-label,
 			#wpadminbar .tbex-element-id .ab-icon:before,
 			#wpadminbar .tbex-element-id .ab-label,
 			#wpadminbar #wp-admin-bar-rapid-dev .ab-icon:before,
 			#wpadminbar #wp-admin-bar-rapid-dev .ab-label,
 			#wpadminbar #wp-admin-bar-<?php echo ddw_tbex_id_sites_browser(); ?> .ab-icon:before,
 			#wpadminbar #wp-admin-bar-<?php echo ddw_tbex_id_sites_browser(); ?> .ab-label,
+			#wpadminbar .tbex-import-templates .ab-icon:before,
+			#wpadminbar .tbex-import-templates .ab-label,
+			#wpadminbar .tbex-add-design-set .ab-icon:before,
+			#wpadminbar .tbex-add-design-set .ab-label,
 			#wpadminbar #wp-admin-bar-tbex-web-resources .ab-icon.tbex-globe:before,
 			#wp-admin-bar-root-default > .tbex-tbmenu .ab-icon:before,
 			#wp-admin-bar-root-default > .tbex-tbmenu .ab-label {
@@ -287,6 +324,8 @@ function ddw_tbex_toolbar_styles() {
 			}
 
 			#wpadminbar .tbex-customize-content .ab-label,
+			#wpadminbar .tbex-genesis-cpt-archive .ab-label,
+			#wpadminbar .tbex-genesis-cpt-archive-view .ab-label,
 			#wpadminbar .tbex-element-id .ab-label {
 				padding-right: 25px;
 			}

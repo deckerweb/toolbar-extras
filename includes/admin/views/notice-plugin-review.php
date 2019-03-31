@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Load the "Astra Notices" class.
  * @since 1.4.0
  */
-require_once( TBEX_PLUGIN_DIR . 'includes/admin/classes/astra-notices/class-astra-notices.php' );
+require_once TBEX_PLUGIN_DIR . 'includes/admin/classes/astra-notices/class-astra-notices.php';
 
 
 add_action( 'admin_enqueue_scripts', 'ddw_tbex_enqueue_notice_review_styles' );

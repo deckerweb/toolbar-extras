@@ -18,10 +18,12 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 1.0.0
  * @since 1.4.0 Splitted into individual files.
+ * @since 1.4.2 Added "Add-Ons" tab.
  */
-require_once( TBEX_PLUGIN_DIR . 'includes/admin/tbex-settings-general.php' );
-require_once( TBEX_PLUGIN_DIR . 'includes/admin/tbex-settings-smart-tweaks.php' );
-require_once( TBEX_PLUGIN_DIR . 'includes/admin/tbex-settings-development.php' );
+require_once TBEX_PLUGIN_DIR . 'includes/admin/tbex-settings-general.php';
+require_once TBEX_PLUGIN_DIR . 'includes/admin/tbex-settings-smart-tweaks.php';
+require_once TBEX_PLUGIN_DIR . 'includes/admin/tbex-settings-development.php';
+require_once TBEX_PLUGIN_DIR . 'includes/admin/tbex-addons.php';
 
 
 add_action( 'admin_menu', 'ddw_tbex_settings_add_admin_page' );
@@ -66,7 +68,7 @@ function ddw_tbex_settings_add_admin_page() {
 function ddw_tbex_settings_page_welcome() {
 
 	/** Welcome - New user onboarding */
-	require_once( TBEX_PLUGIN_DIR . 'includes/admin/views/notice-settings-welcome.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/admin/views/notice-settings-welcome.php';
 	add_action( 'admin_notices', 'ddw_tbex_notice_settings_welcome' );
 
 }  // end function
@@ -89,13 +91,74 @@ function ddw_tbex_load_admin_styles_scripts() {
 
 
 /**
+ * Get all registered colors for the Iris Color Picker configuration. These are
+ *   then passed to wp_localize_script().
+ *
+ * @see ddw_tbex_enqueue_admin_styles_scripts()
+ *
+ * @since 1.4.2
+ *
+ * @uses ddw_tbex_get_color_items()
+ */
+function ddw_tbex_get_iris_color_palette() {
+
+	$color_items = (array) ddw_tbex_get_color_items();
+
+	$iris_palette = [];
+
+	foreach ( $color_items as $color => $color_data ) {
+		$iris_palette[] = sanitize_hex_color( $color_data[ 'color' ] );
+	}
+
+	return $iris_palette;
+
+}  // end function
+
+
+add_action( 'admin_head', 'ddw_tbex_styles_color_items', 200 );
+/**
+ * Add the color styles for all registered color items as inline head styles.
+ *
+ * @since 1.4.2
+ *
+ * @uses ddw_tbex_get_color_items()
+ *
+ * @return string Echoing string with CSS style rules.
+ */
+function ddw_tbex_styles_color_items() {
+
+	$color_items = (array) ddw_tbex_get_color_items();
+
+	$output = '<style type="text/css">';
+
+	foreach ( $color_items as $color => $color_data ) {
+
+		$output .= sprintf(
+			'.bg-local-%1$s { background-color: %2$s; }',
+			sanitize_key( $color ),
+			sanitize_hex_color( $color_data[ 'color' ] )
+		);
+
+	}  // end foreach
+
+	$output .= '</style>';
+
+	echo $output;
+
+}  // end function
+
+
+/**
  * Enqueue various needed admin styles and scripts, including WordPress Color
  *   Picker Script (Iris) and Dashicons Picker.
  *
  * @since 1.0.0
  * @since 1.4.0 Added toggle script.
+ * @since 1.4.2 Added wp_localize_script to Iris Config.
  *
  * @see ddw_tbex_settings_add_admin_page()
+ *
+ * @uses ddw_tbex_get_iris_color_palette()
  */
 function ddw_tbex_enqueue_admin_styles_scripts() {
 
@@ -120,6 +183,16 @@ function ddw_tbex_enqueue_admin_styles_scripts() {
 		array( 'wp-color-picker' ),
 		TBEX_PLUGIN_VERSION,
 		TRUE
+	);
+
+	/** Prepare colors array & fallback */
+	$colors  = ddw_tbex_get_iris_color_palette();
+	$palette = ( ! empty( $colors ) && is_array( $colors ) ) ? $colors : [ '#0073aa', '#ff8c00', '#7e49c2', '#d30c5c', '#555d66', '#7fb100', '#000' ];
+
+	wp_localize_script(
+		'tbex-iris-config',
+		'palette',
+		$palette
 	);
 
 	wp_enqueue_script( 'tbex-iris-config' );
@@ -195,7 +268,7 @@ function ddw_tbex_admin_localize_script() {
 
 		/** Smart Tweaks settings */
 		'wplogo'                => array( '#tbex-options-tweaks-use_web_group', '.tbex-setting-remove-wp-logo', 'no' ),
-		
+
 		'myaccount_tweak_howdy' => array( '#tbex-options-tweaks-use_myaccount_tweak', '.tbex-setting-use-howdy-replace', 'yes' ),
 		'myaccount_url'         => array( '#tbex-options-tweaks-use_myaccount_tweak', '.tbex-setting-custom-myaccount-url', 'yes' ),
 		'myaccount_target'      => array( '#tbex-options-tweaks-use_myaccount_tweak', '.tbex-setting-custom-myaccount-target', 'yes' ),
@@ -231,6 +304,7 @@ function ddw_tbex_admin_localize_script() {
  * Callback function to create admin page after adding it.
  *
  * @since 1.0.0
+ * @since 1.4.2 Added "Add-Ons" tab.
  *
  * @see ddw_tbex_settings_add_admin_page()
  *
@@ -238,10 +312,13 @@ function ddw_tbex_admin_localize_script() {
  */
 function ddw_tbex_settings_create_admin_page() {
 
-	$url_general       = esc_url( add_query_arg( array( 'page' => 'toolbar-extras', 'tab'  => 'general' ), admin_url( 'options-general.php' ) ) );
-	$url_smart_tweaks  = esc_url( add_query_arg( array( 'page' => 'toolbar-extras', 'tab'  => 'smart-tweaks' ), admin_url( 'options-general.php' ) ) );
-	$url_development   = esc_url( add_query_arg( array( 'page' => 'toolbar-extras', 'tab'  => 'development' ), admin_url( 'options-general.php' ) ) );
-	$url_about_support = esc_url( add_query_arg( array( 'page' => 'toolbar-extras', 'tab'  => 'about-support' ), admin_url( 'options-general.php' ) ) );
+	$settings_base = admin_url( 'options-general.php' );
+
+	$url_general       = esc_url( add_query_arg( array( 'page' => 'toolbar-extras', 'tab'  => 'general' ), $settings_base ) );
+	$url_smart_tweaks  = esc_url( add_query_arg( array( 'page' => 'toolbar-extras', 'tab'  => 'smart-tweaks' ), $settings_base ) );
+	$url_development   = esc_url( add_query_arg( array( 'page' => 'toolbar-extras', 'tab'  => 'development' ), $settings_base ) );
+	$url_addons        = esc_url( add_query_arg( array( 'page' => 'toolbar-extras', 'tab'  => 'addons' ), $settings_base ) );
+	$url_about_support = esc_url( add_query_arg( array( 'page' => 'toolbar-extras', 'tab'  => 'about-support' ), $settings_base ) );
 
 	/** Render settings page */
 	?>
@@ -265,7 +342,7 @@ function ddw_tbex_settings_create_admin_page() {
 			</div>
 
 			<?php $active_tab = isset( $_GET[ 'tab' ] ) ? sanitize_key( wp_unslash( $_GET[ 'tab' ] ) ) : 'general'; ?>
-		 
+
 			<h2 class="nav-tab-wrapper">
 				<a href="<?php echo $url_general; ?>" class="dashicons-before dashicons-admin-generic nav-tab <?php echo ( 'general' === $active_tab ) ? 'nav-tab-active' : ''; ?>">
 					<?php
@@ -292,6 +369,12 @@ function ddw_tbex_settings_create_admin_page() {
 					 */
 					do_action( 'tbex_settings_tab_addons', $active_tab );
 				?>
+				<a href="<?php echo $url_addons; ?>" class="dashicons-before dashicons-plus-alt nav-tab <?php echo ( 'addons' === $active_tab ) ? 'nav-tab-active' : ''; ?>">
+					<?php
+						/* translators: Settings tab title in WP-Admin */
+						_ex( 'Add-Ons', 'Plugin settings tab title', 'toolbar-extras' );
+					?>
+				</a>
 				<a href="<?php echo $url_about_support; ?>" class="dashicons-before dashicons-info nav-tab <?php echo ( 'about-support' === $active_tab ) ? 'nav-tab-active' : ''; ?>">
 					<?php
 						/* translators: Settings tab title in WP-Admin */
@@ -307,7 +390,7 @@ function ddw_tbex_settings_create_admin_page() {
 						case 'general' :
 							do_action( 'tbex_before_settings_general_view' );
 
-							require_once( TBEX_PLUGIN_DIR . 'includes/admin/views/settings-tab-general.php' );
+							require_once TBEX_PLUGIN_DIR . 'includes/admin/views/settings-tab-general.php';
 
 							settings_fields( 'tbex_group_general' );
 							do_settings_sections( 'tbex_group_general' );
@@ -321,7 +404,7 @@ function ddw_tbex_settings_create_admin_page() {
 						case 'smart-tweaks' :
 							do_action( 'tbex_before_settings_tweaks_view' );
 
-							require_once( TBEX_PLUGIN_DIR . 'includes/admin/views/settings-tab-smart-tweaks.php' );
+							require_once TBEX_PLUGIN_DIR . 'includes/admin/views/settings-tab-smart-tweaks.php';
 
 							settings_fields( 'tbex_group_smart_tweaks' );
 							do_settings_sections( 'tbex_group_smart_tweaks' );
@@ -335,7 +418,7 @@ function ddw_tbex_settings_create_admin_page() {
 						case 'development' :
 							do_action( 'tbex_before_settings_development_view' );
 
-							require_once( TBEX_PLUGIN_DIR . 'includes/admin/views/settings-tab-development.php' );
+							require_once TBEX_PLUGIN_DIR . 'includes/admin/views/settings-tab-development.php';
 
 							settings_fields( 'tbex_group_development' );
 							do_settings_sections( 'tbex_group_development' );
@@ -346,24 +429,27 @@ function ddw_tbex_settings_create_admin_page() {
 						break;
 
 						/** 4) Tab Tools (upcoming) 'tools' */
+						// coming...
 
-						/** 5) Add-On: Toolbar Extras for Multisite */
-						case 'multisite' :
-							do_action( 'tbex_settings_tab_addon_multisite' );
+						/** 5) Tab "Add-Ons" 'addons' */
+						case 'addons' :
+							do_action( 'tbex_settings_tab_addons_list' );
+							require_once TBEX_PLUGIN_DIR . 'includes/admin/tbex-addons.php';
 						break;
 
-						/** 6) Add-On: Toolbar Extras for MainWP */
-						case 'mainwp' :
-							do_action( 'tbex_settings_tab_addon_mainwp' );
-						break;
+						/** 6) Tab Export & Import (upcoming) 'export-import' */
 
-						/** 7) Tab Export & Import (upcoming) 'export-import' */
-
-						/** 8) Tab About & Support - only text, no submit button! */
+						/** 7) Tab About & Support - only text, no submit button! */
 						case 'about-support' :
 							do_action( 'tbex_before_settings_about_support_view' );
-							require_once( TBEX_PLUGIN_DIR . 'includes/admin/views/settings-tab-about-support.php' );
+							require_once TBEX_PLUGIN_DIR . 'includes/admin/views/settings-tab-about-support.php';
 							do_action( 'tbex_after_settings_about_support_view' );
+						break;
+
+						/** 8) For Add-Ons */
+						case $active_tab :
+							do_action( 'tbex_settings_tab_addon_' . $active_tab );
+						break;
 
 					endswitch;
 				?>
@@ -380,8 +466,8 @@ add_action( 'personal_options', 'ddw_tbex_user_profile_settings_link' );
  *   profile settings page, at the end of "Personal Options" section.
  *
  * @since 1.4.0
+ * @since 1.4.2 Tweaked to make it Add-On friendly.
  *
- * @uses ddw_tbex_is_addon_mainwp_active()
  * @uses ddw_tbex_string_toolbar_extras()
  *
  * @param int $user_id The ID of the user profile being edited.
@@ -394,39 +480,46 @@ function ddw_tbex_user_profile_settings_link( $user_id ) {
 		return;
 	}
 
-	/** Button: Settings General */
-	$settings_general = sprintf(
-		'<a class="button dashicons-before dashicons-admin-generic tbex-user-profile" href="%1$s" title="%2$s">%3$s</a>',
-		esc_url( admin_url( 'options-general.php?page=toolbar-extras&tab=general' ) ),
-		esc_attr__( 'Go to the Toolbar Extras General settings tab', 'toolbar-extras' ),
-		_x( 'General Settings', 'Plugin settings tab title', 'toolbar-extras' )
+	$settings_buttons = apply_filters(
+		'tbex_filter_user_profile_buttons',
+		array(
+			'general'      => array(
+				'title_attr' => esc_attr__( 'Go to the Toolbar Extras General settings tab', 'toolbar-extras' ),
+				'label'      => _x( 'General Settings', 'Plugin settings tab title', 'toolbar-extras' ),
+				'dashicon'   => 'admin-generic',
+			),
+			'smart-tweaks' => array(
+				'title_attr' => esc_attr__( 'Go to the Toolbar Extras Smart Tweaks settings tab', 'toolbar-extras' ),
+				'label'      => _x( 'Smart Tweaks', 'Plugin settings tab title', 'toolbar-extras' ),
+				'dashicon'   => 'lightbulb',
+			),
+			'development'  => array(
+				'title_attr' => esc_attr__( 'Go to the Toolbar Extras Development settings tab', 'toolbar-extras' ),
+				'label'      => _x( 'For Development', 'Plugin settings tab title', 'toolbar-extras' ),
+				'dashicon'   => 'editor-code',
+			),
+		)
 	);
 
-	/** Button: Smart Tweaks */
-	$settings_smart_tweaks = sprintf(
-		'<a class="button dashicons-before dashicons-lightbulb tbex-user-profile" href="%1$s" title="%2$s">%3$s</a>',
-		esc_url( admin_url( 'options-general.php?page=toolbar-extras&tab=smart-tweaks' ) ),
-		esc_attr__( 'Go to the Toolbar Extras Smart Tweaks settings tab', 'toolbar-extras' ),
-		_x( 'Smart Tweaks', 'Plugin settings tab title', 'toolbar-extras' )
+	$settings_buttons[ 'addons' ] = array(
+		'title_attr' => esc_attr__( 'Go to the Toolbar Extras Add-Ons settings tab', 'toolbar-extras' ),
+		'label'      => _x( 'Add-Ons', 'Plugin settings tab title', 'toolbar-extras' ),
+		'dashicon'   => 'plus-alt',
 	);
 
-	/** Button: For Development */
-	$settings_development = sprintf(
-		'<a class="button dashicons-before dashicons-editor-code tbex-user-profile" href="%1$s" title="%2$s">%3$s</a>',
-		esc_url( admin_url( 'options-general.php?page=toolbar-extras&tab=development' ) ),
-		esc_attr__( 'Go to the Toolbar Extras Development settings tab', 'toolbar-extras' ),
-		_x( 'For Development', 'Plugin settings tab title', 'toolbar-extras' )
-	);
+	$settings_buttons_render = '';
 
-	/** Optional, button for Add-On: MainWP */
-	$settings_mainwp = sprintf(
-		'<a class="button dashicons-before dashicons-networking tbex-user-profile" href="%1$s" title="%2$s">%3$s</a>',
-		esc_url( admin_url( 'options-general.php?page=toolbar-extras&tab=mainwp' ) ),
-		esc_attr__( 'Go to the Toolbar Extras MainWP Add-On settings tab', 'toolbar-extras' ),
-		_x( 'MainWP', 'Plugin settings tab title', 'toolbar-extras' )
-	);
+	foreach ( $settings_buttons as $settings_key => $settings_data ) {
+		
+		$settings_buttons_render .= sprintf(
+			'<a class="button dashicons-before dashicons-%1$s tbex-user-profile" href="%2$s" title="%3$s">%4$s</a>',
+			sanitize_html_class( $settings_data[ 'dashicon' ] ),
+			esc_url( admin_url( 'options-general.php?page=toolbar-extras&tab=' . sanitize_key( $settings_key ) ) ),
+			$settings_data[ 'title_attr' ],
+			$settings_data[ 'label' ]
+		);
 
-	$settings_mainwp = ( ddw_tbex_is_addon_mainwp_active() ) ? ' &nbsp; ' . $settings_mainwp : '';
+	}  // end foreach
 
 	/** Toolbar explanation (abbr) */
 	$explanation = sprintf(
@@ -442,32 +535,42 @@ function ddw_tbex_user_profile_settings_link( $user_id ) {
 	/** Section description */
 	$description = sprintf(
 		'<p>%1$s</p>
-		<p>%2$s &nbsp; %3$s &nbsp; %4$s%5$s</p>',
-		$explanation,
-		$settings_general,
-		$settings_smart_tweaks,
-		$settings_development,
-		$settings_mainwp
+		<p>%2$s</p>',
+		$explanation,				// 1
+		$settings_buttons_render	// 2
 	);
 
 	/** Build the output in form of a settings form table */
 	$output = sprintf(
 		'<table class="form-table">
 			<tr>
-				<th><span class="dashicons-before dashicons-info"></span> %1$s</th>
+				<th class="tbex-user-profile-title"><span class="dashicons-before dashicons-info"></span> %1$s</th>
 				<td>%2$s</td>
 			</tr>
 		</table>',
 		ddw_tbex_string_toolbar_extras(),
 		$description
 	);
-  
+
 	/** Render the full output */
 	echo $output;
 
 	/** Add few subtle CSS inline styles */
 	?>
 		<style type='text/css'>
+			.form-table th.tbex-user-profile-title {
+				color: #7443c0;
+			}
+			.tbex-user-profile.button {
+				color: #A741BD;
+				/* opacity: .5; */
+			}
+			.tbex-user-profile.button:hover {
+				color: #7443c0;
+			}
+			.tbex-user-profile {
+				margin-right: 10px !important;
+			}
 			.tbex-user-profile.dashicons-before:before {
 				font-size: 18px;
 				opacity: .8;

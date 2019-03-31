@@ -12,19 +12,22 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 
-add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_block_layouts', 150 );
+add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_builder_template_categories', 150 );
 /**
- * Site items for Plugin: Builder Template Categories (free, by David Decker - DECKERWEB)
+ * Site items for Plugin:
+ *   Builder Template Categories (free, by David Decker - DECKERWEB)
  *
  * @since 1.4.0
+ * @since 1.4.2 Added resource; tweaks and enhancements.
  *
  * @uses ddw_btc_string_template()
  * @uses ddw_tbex_resource_item()
+ * @uses ddw_tbex_get_resource_url()
  * @uses ddw_btc_get_info_url() To build resource URLs (from BTC plugin).
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar']
  */
-function ddw_tbex_aoitems_block_layouts() {
+function ddw_tbex_aoitems_builder_template_categories() {
 
 	$post_type = 'wp_block';
 
@@ -78,6 +81,20 @@ function ddw_tbex_aoitems_block_layouts() {
 				)
 			);
 
+			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				array(
+					'id'     => 'btcplugin-reusable-blocks',
+					'parent' => 'group-btcplugin-resources',
+					'title'  => esc_attr__( 'Reusable Blocks', 'toolbar-extras' ),
+					'href'   => ddw_tbex_get_resource_url( 'block-editor', 'url_wpb_reusable' ),
+					'meta'   => array(
+						'rel'    => ddw_tbex_meta_rel(),
+						'target' => ddw_tbex_meta_target(),
+						'title'  => esc_attr__( 'Tutorial', 'toolbar-extras' ) . ': ' . esc_attr__( 'Reusable Blocks', 'toolbar-extras' )
+					)
+				)
+			);
+
 			ddw_tbex_resource_item(
 				'support-forum',
 				'btcplugin-support',
@@ -94,7 +111,7 @@ function ddw_tbex_aoitems_block_layouts() {
 
 			ddw_tbex_resource_item(
 				'github',
-				'btcplugin-translate',
+				'btcplugin-github',
 				'group-btcplugin-resources',
 				ddw_btc_get_info_url( 'url_github' )
 			);

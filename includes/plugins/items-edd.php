@@ -16,7 +16,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_edd', 15 );
 /**
  * Items for Plugin: Easy Digital Downloads (EDD) (free, by Easy Digital Downloads)
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -61,7 +61,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_user_items_edd_shopuser', 15 );
 /**
  * User items for Plugin: EDD
  *
- * @since  1.0.0
+ * @since 1.0.0
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */

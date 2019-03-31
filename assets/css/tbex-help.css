@@ -3,6 +3,7 @@
  * @package Toolbar Extras - Assets
  * @since 1.0.0
  * @since 1.4.0 Moved to own CSS file; enhanced styles.
+ * @since 1.4.2 Further tweaks and improvements.
  */
 
 /* Toolbar Extras Admin Page
@@ -42,11 +43,6 @@
 
 .tbex-help-version {
 	opacity: .77;
-}
-
-.tbex-help-sidebar-icons:before {
-	margin-right: 4px;
-	text-decoration: none !important;
 }
 
 .tbex-help-notice.dashicons-info:before {
@@ -113,6 +109,22 @@ body {
 	margin-left: 5px;
 }
 
+.tbex-help-info {
+	display: block;
+	margin-left: 25px !important;
+	margin-top: 3px;
+}
+
+.tbex-help-info.description {
+	margin-bottom: 1em;
+}
+
+.noitalic {
+	color: #000;
+	/* font-style: initial; */
+	font-weight: 450;
+}
+
 
 /** Help sidebar */
 
@@ -121,7 +133,9 @@ body {
 }
 
 .tbex-help-sidebar-icons:before {
+	font-size: 18px;
 	margin-right: 4px;
+	margin-top: 3px;
 	text-decoration: none !important;
 }
 

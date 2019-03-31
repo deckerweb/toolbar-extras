@@ -346,24 +346,22 @@ function ddw_tbex_themeitems_wpbf_premium() {
 			}  // end if
 
 			/** Section categories, via BTC plugin */
-			/*
-				if ( ddw_tbex_is_btcplugin_active() ) {
+			if ( ddw_tbex_is_btcplugin_active() ) {
 
-					$GLOBALS[ 'wp_admin_bar' ]->add_node(
-						array(
-							'id'     => 'wpbf-sections-categories',
-							'parent' => 'wpbf-sections',
-							'title'  => ddw_btc_string_template( 'section' ),
-							'href'   => esc_url( admin_url( 'edit-tags.php?taxonomy=builder-template-category&post_type=' . $type ) ),
-							'meta'   => array(
-								'target' => '',
-								'title'  => esc_html( ddw_btc_string_template( 'section' ) )
-							)
+				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					array(
+						'id'     => 'wpbf-sections-categories',
+						'parent' => 'wpbf-sections',
+						'title'  => ddw_btc_string_template( 'section' ),
+						'href'   => esc_url( admin_url( 'edit-tags.php?taxonomy=builder-template-category&post_type=' . $type ) ),
+						'meta'   => array(
+							'target' => '',
+							'title'  => esc_html( ddw_btc_string_template( 'section' ) )
 						)
-					);
+					)
+				);
 
-				}  // end if
-			*/
+			}  // end if
 
 	}  // end if Custom Sections
 

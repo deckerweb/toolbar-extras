@@ -32,6 +32,8 @@ function ddw_tbex_register_pagebuilder_elementor( array $builders ) {
 		/* translators: Title attribute for registered Page Builder */
 		'title_attr'  => esc_attr_x( 'Elementor Page Builder', 'Elementor title attribute name', 'toolbar-extras' ),
 		'admin_url'   => esc_url( apply_filters( 'tbex_filter_elementor_admin_url', admin_url( 'edit.php?post_type=elementor_library' ) ) ),
+		'color'       => '#d30c5c',
+		'color_name'  => __( 'Elementor Red', 'toolbar-extras' ),
 		'plugins_tab' => 'yes',
 	);
 
@@ -44,7 +46,7 @@ function ddw_tbex_register_pagebuilder_elementor( array $builders ) {
  * Inlude specific Elementor helper functions.
  * @since 1.4.0
  */
-require_once( TBEX_PLUGIN_DIR . 'includes/elementor-official/elementor-functions.php' );
+require_once TBEX_PLUGIN_DIR . 'includes/elementor-official/elementor-functions.php';
 
 
 add_action( 'admin_bar_menu', 'ddw_tbex_items_elementor_core', 99 );
@@ -518,7 +520,7 @@ function ddw_tbex_aoitems_new_content_elementor_core_main( $wp_admin_bar ) {
 
 	/** Bail early if items display is not wanted */
 	if ( ! ddw_tbex_display_items_new_content() || ddw_tbex_is_elementor_version( 'core', TBEX_ELEMENTOR_BEFORE_240, '<=' ) ) {
-		return;
+		return $wp_admin_bar;
 	}
 
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(
@@ -555,7 +557,7 @@ function ddw_tbex_aoitems_new_content_elementor_core_sub() {
 	}
 
 	if ( ddw_tbex_is_elementor_version( 'core', TBEX_ELEMENTOR_240_BETA, '>=' ) ) {
-		
+
 		/** Group: Pro Custom Fonts */
 		$GLOBALS[ 'wp_admin_bar' ]->add_group(
 			array(
@@ -669,7 +671,7 @@ function ddw_tbex_items_elementor_core_resources() {
 
 		ddw_tbex_resource_item(
 			'official-blog',
-			'elementor-resources-youtube',
+			'elementor-resources-blog',
 			'elementor-resources',
 			ddw_tbex_get_resource_url( 'elementor', 'url_blog' ),
 			esc_attr__( 'Official Elementor Blog', 'toolbar-extras' )
@@ -677,7 +679,7 @@ function ddw_tbex_items_elementor_core_resources() {
 
 		ddw_tbex_resource_item(
 			'youtube-channel',
-			'elementor-resources-blog',
+			'elementor-resources-youtube',
 			'elementor-resources',
 			ddw_tbex_get_resource_url( 'elementor', 'url_videos' ),
 			esc_attr__( 'Official Elementor YouTube Channel', 'toolbar-extras' )
@@ -802,29 +804,6 @@ function ddw_tbex_items_elementor_core_developers() {
 }  // end function
 
 
-add_action( 'tbex_label_local_dev_color_picker', 'ddw_tbex_label_local_dev_color_picker_elementor' );
-/**
- * Output additional label description for color and feature Elementor red color.
- *   Current value: #d30c5c
- *   Testing value: #bb2962
- *
- * @since 1.4.0
- *
- * @see plugin file: /includes/admin/views/settings-tab-development.php
- *
- * @return string Echoing markup and content for additional label description.
- */
-function ddw_tbex_label_local_dev_color_picker_elementor() {
-
-	echo sprintf(
-		/* translators: %s - a color code in HEX notation, #d30c5c */
-		'<span class="description tbex-space-top">' . __( 'Elementor Red: %s', 'toolbar-extras' ) . '</span>',
-		'<div class="bg-local-base bg-local-elementor tbex-align-middle"></div><code class="tbex-align-middle">#d30c5c</code>'
-	);
-
-}  // end function
-
-
 add_action( 'elementor/finder/categories/init', 'ddw_tbex_elementor_finder_add_items' );
 /**
  * Add "Toolbar Extras" category to the Elementor Finder (Elementor v2.3.0+).
@@ -838,8 +817,8 @@ add_action( 'elementor/finder/categories/init', 'ddw_tbex_elementor_finder_add_i
 function ddw_tbex_elementor_finder_add_items( $categories_manager ) {
 
 	/** Include the Finder Category class files */
-	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-official/items-finder-tbex.php' );
-	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-official/items-finder-elementor-resources.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-official/items-finder-tbex.php';
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-official/items-finder-elementor-resources.php';
 
 	/** Add the Toolbar Extras category */
 	$categories_manager->add_category( 'toolbar-extras', new DDW_Toolbar_Extras_Finder_Category() );

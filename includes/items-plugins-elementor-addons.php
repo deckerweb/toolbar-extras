@@ -28,7 +28,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 1.0.0
  */
 if ( class_exists( 'Header_Footer_Elementor' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-header-footer-builder.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-header-footer-builder.php';
 }
 
 
@@ -37,7 +37,7 @@ if ( class_exists( 'Header_Footer_Elementor' ) ) {
  * @since 1.0.0
  */
 if ( defined( 'MODAL_ELEMENTOR_VERSION' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-popboxes.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-popboxes.php';
 }
 
 
@@ -46,7 +46,7 @@ if ( defined( 'MODAL_ELEMENTOR_VERSION' ) ) {
  * @since 1.0.0
  */
 if ( function_exists( 'WTS_AE_load_plugin_textdomain' ) || function_exists( 'ae_pro_load_plugin_textdomain' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-anywhere-elementor.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-anywhere-elementor.php';
 }
 
 
@@ -55,7 +55,7 @@ if ( function_exists( 'WTS_AE_load_plugin_textdomain' ) || function_exists( 'ae_
  * @since 1.4.0
  */
 if ( ddw_tbex_is_stylepress_elementor_active() ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-stylepress-for-elementor.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-stylepress-for-elementor.php';
 }
 
 
@@ -64,7 +64,7 @@ if ( ddw_tbex_is_stylepress_elementor_active() ) {
  * @since 1.0.0
  */
 if ( function_exists( 'tpm_plugin_action_links' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-templementor.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-templementor.php';
 }
 
 
@@ -73,7 +73,7 @@ if ( function_exists( 'tpm_plugin_action_links' ) ) {
  * @since 1.0.0
  */
 if ( function_exists( 'elpt_setup_menu' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-portfolio-for-elementor.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-portfolio-for-elementor.php';
 }
 
 
@@ -84,7 +84,7 @@ if ( function_exists( 'elpt_setup_menu' ) ) {
 if ( ddw_tbex_is_elementor_pro_active()
 	&& function_exists( 'elecs_elementor_init' )
 ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-ele-custom-skin.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-ele-custom-skin.php';
 }
 
 
@@ -93,7 +93,7 @@ if ( ddw_tbex_is_elementor_pro_active()
  * @since 1.2.0
  */
 if ( class_exists( 'Eleslider' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-eleslider.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-eleslider.php';
 }
 
 
@@ -102,7 +102,7 @@ if ( class_exists( 'Eleslider' ) ) {
  * @since 1.4.0
  */
 if ( class_exists( '\GT3\GalleryElementor\Loader' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-gt3-elementor-photo-gallery.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-gt3-elementor-photo-gallery.php';
 }
 
 
@@ -111,7 +111,7 @@ if ( class_exists( '\GT3\GalleryElementor\Loader' ) ) {
  * @since 1.4.0
  */
 if ( class_exists( 'OSF_Elementor_Loader' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-opal-widgets-for-elementor.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-opal-widgets-for-elementor.php';
 }
 
 
@@ -120,7 +120,7 @@ if ( class_exists( 'OSF_Elementor_Loader' ) ) {
  * @since 1.4.0
  */
 if ( class_exists( 'OSF_Megamenu' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-opal-megamenu-for-elementor.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-opal-megamenu-for-elementor.php';
 }
 
 
@@ -129,7 +129,7 @@ if ( class_exists( 'OSF_Megamenu' ) ) {
  * @since 1.3.0
  */
 if ( ddw_tbex_is_addon_jetthemecore() ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-jetthemecore.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-jetthemecore.php';
 }
 
 
@@ -140,7 +140,18 @@ if ( ddw_tbex_is_addon_jetthemecore() ) {
 if ( ddw_tbex_is_woocommerce_active()	// as it extends WooCommerce!
 	&& class_exists( 'Jet_Woo_Builder' )
 ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-jetwoobuilder.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-jetwoobuilder.php';
+}
+
+
+/**
+ * Add-On: JetCompareWishlist (Premium, by Zemez Jet/ CrocoBlock)
+ * @since 1.4.2
+ */
+if ( ddw_tbex_is_woocommerce_active()	// as it extends WooCommerce!
+	&& class_exists( 'Jet_CW' )
+) {
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-jetcomparewishlist.php';
 }
 
 
@@ -151,7 +162,7 @@ if ( ddw_tbex_is_woocommerce_active()	// as it extends WooCommerce!
 if ( ddw_tbex_is_woocommerce_active()	// as it extends WooCommerce!
 	&& class_exists( 'Jet_Woo_Product_Gallery' )
 ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-jetwooproductgallery.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-jetwooproductgallery.php';
 }
 
 
@@ -162,7 +173,7 @@ if ( ddw_tbex_is_woocommerce_active()	// as it extends WooCommerce!
 if ( ddw_tbex_is_woocommerce_active()	// as it extends WooCommerce!
 	&& defined( 'DHWC_ELEMENTOR_VERSION' )
 ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-dhwc-elementor.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-dhwc-elementor.php';
 }
 
 
@@ -173,7 +184,7 @@ if ( ddw_tbex_is_woocommerce_active()	// as it extends WooCommerce!
 if ( ddw_tbex_is_woocommerce_active()	// as it extends WooCommerce!
 	&& class_exists( 'Kadence_Woocommerce_Elementor' )
 ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-kadence-woocommerce-elementor.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-kadence-woocommerce-elementor.php';
 }
 
 
@@ -184,7 +195,7 @@ if ( ddw_tbex_is_woocommerce_active()	// as it extends WooCommerce!
 if ( ddw_tbex_is_woocommerce_active()	// as it extends WooCommerce!
 	&& class_exists( 'Jet_Woo_Widgets' )
 ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-jetwoowidgets.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-jetwoowidgets.php';
 }
 
 
@@ -193,7 +204,7 @@ if ( ddw_tbex_is_woocommerce_active()	// as it extends WooCommerce!
  * @since 1.3.2
  */
 if ( defined( 'VAKKA_PLUGIN_PATH' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-vakka-addons.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-vakka-addons.php';
 }
 
 
@@ -202,7 +213,7 @@ if ( defined( 'VAKKA_PLUGIN_PATH' ) ) {
  * @since 1.4.0
  */
 if ( class_exists( 'Jet_Popup' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-jetpopup.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-jetpopup.php';
 }
 
 
@@ -211,7 +222,7 @@ if ( class_exists( 'Jet_Popup' ) ) {
  * @since 1.3.2
  */
 if ( class_exists( 'Jet_Engine' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-jetengine.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-jetengine.php';
 }
 
 
@@ -220,7 +231,7 @@ if ( class_exists( 'Jet_Engine' ) ) {
  * @since 1.4.0
  */
 if ( class_exists( 'Jet_Smart_Filters' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-jetsmartfilters.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-jetsmartfilters.php';
 }
 
 
@@ -229,7 +240,34 @@ if ( class_exists( 'Jet_Smart_Filters' ) ) {
  * @since 1.3.2
  */
 if ( defined( 'SPLIT_TEST_FOR_ELEMENTOR_VERSION' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-splittest-for-elementor.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-splittest-for-elementor.php';
+}
+
+
+/**
+ * Add-On: RabbitBuilder Global Central JS CSS (free, by RabbitBuilder)
+ * @since 1.4.2
+ */
+if ( defined( 'RBJSCSS_PLUGIN_VERSION' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-rabbitbuilder-js-css.php';
+}
+
+
+/**
+ * Add-On: AnalogWP Templates (free, by AnalogWP)
+ * @since 1.4.2
+ */
+if ( class_exists( '\Analog\Analog_Templates' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-analog-templates.php';
+}
+
+
+/**
+ * Add-On: Layouts for Elementor (free, by Giraphix Creative)
+ * @since 1.4.2
+ */
+if ( class_exists( 'Layout_For_Elementor' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-layouts-for-elementor.php';
 }
 
 
@@ -245,7 +283,7 @@ if ( defined( 'SPLIT_TEST_FOR_ELEMENTOR_VERSION' ) ) {
  * @since 1.4.0
  */
 if ( class_exists( 'ECIcons' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-custom-icons-for-elementor.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-custom-icons-for-elementor.php';
 }
 
 
@@ -254,7 +292,7 @@ if ( class_exists( 'ECIcons' ) ) {
  * @since 1.0.0
  */
 if ( defined( 'ELEMENTOR_CONTROLS_VERSION' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-granular-controls.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-granular-controls.php';
 }
 
 
@@ -263,7 +301,7 @@ if ( defined( 'ELEMENTOR_CONTROLS_VERSION' ) ) {
  * @since 1.0.0
  */
 if ( defined( 'ELEMENTOR_EXTRAS_VERSION' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-namogo-extras.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-namogo-extras.php';
 }
 
 
@@ -272,7 +310,7 @@ if ( defined( 'ELEMENTOR_EXTRAS_VERSION' ) ) {
  * @since 1.0.0
  */
 if ( defined( 'UAEL_FILE' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-ultimate-addons-for-elementor.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-ultimate-addons-for-elementor.php';
 }
 
 
@@ -281,7 +319,7 @@ if ( defined( 'UAEL_FILE' ) ) {
  * @since 1.0.0
  */
 if ( defined( 'BDTEP_VER' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-bdthemes-element-pack.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-bdthemes-element-pack.php';
 }
 
 
@@ -290,7 +328,7 @@ if ( defined( 'BDTEP_VER' ) ) {
  * @since 1.0.0
  */
 if ( defined( 'POWERPACK_ELEMENTS_VER' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-powerpack-elements.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-powerpack-elements.php';
 }
 
 
@@ -299,7 +337,7 @@ if ( defined( 'POWERPACK_ELEMENTS_VER' ) ) {
  * @since 1.4.0
  */
 if ( defined( 'POWERPACK_ELEMENTS_LITE_VER' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-powerpack-elements-lite.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-powerpack-elements-lite.php';
 }
 
 
@@ -308,7 +346,7 @@ if ( defined( 'POWERPACK_ELEMENTS_LITE_VER' ) ) {
  * @since 1.3.2
  */
 if ( defined( 'IBX_DWE_VER' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-powerpack-dwe.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-powerpack-dwe.php';
 }
 
 
@@ -317,7 +355,7 @@ if ( defined( 'IBX_DWE_VER' ) ) {
  * @since 1.3.2
  */
 if ( function_exists( 'elements_dce_load' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-dynamic-content-for-elementor.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-dynamic-content-for-elementor.php';
 }
 
 
@@ -326,7 +364,7 @@ if ( function_exists( 'elements_dce_load' ) ) {
  * @since 1.0.0
  */
 if ( class_exists( '\LivemeshAddons\Livemesh_Elementor_Addons' ) || class_exists( '\LivemeshAddons\Livemesh_Elementor_Addons_Pro' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-livemesh-addons.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-livemesh-addons.php';
 }
 
 
@@ -335,7 +373,7 @@ if ( class_exists( '\LivemeshAddons\Livemesh_Elementor_Addons' ) || class_exists
  * @since 1.0.0
  */
 if ( defined( 'ESSENTIAL_ADDONS_EL_PATH' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-codetic-addons.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-codetic-addons.php';
 }
 
 
@@ -344,7 +382,16 @@ if ( defined( 'ESSENTIAL_ADDONS_EL_PATH' ) ) {
  * @since 1.1.0
  */
 if ( function_exists( 'premium_addons_elementor_setup' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-leap13-premium-addons.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-leap13-premium-addons.php';
+}
+
+
+/**
+ * Add-On: HT Mega - Ultimate Addons for Elementor (free, by HT Plugins)
+ * @since 1.4.2
+ */
+if ( defined( 'HTMEGA_VERSION' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-ht-mega.php';
 }
 
 
@@ -353,7 +400,7 @@ if ( function_exists( 'premium_addons_elementor_setup' ) ) {
  * @since 1.2.0
  */
 if ( defined( 'REVOLUTION_FOR_ELEMENTOR_VERSION' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-revolution-for-elementor.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-revolution-for-elementor.php';
 }
 
 
@@ -362,7 +409,16 @@ if ( defined( 'REVOLUTION_FOR_ELEMENTOR_VERSION' ) ) {
  * @since 1.0.0
  */
 if ( function_exists( 'Extra_Privacy_for_Elementor' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-extra-privacy-for-elementor.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-extra-privacy-for-elementor.php';
+}
+
+
+/**
+ * Add-On: Smart Fonts for Elementor (free, by codevision)
+ * @since 1.4.2
+ */
+if ( defined( 'ESF_PLUGIN_VERSION' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-smart-fonts-for-elementor.php';
 }
 
 
@@ -371,7 +427,7 @@ if ( function_exists( 'Extra_Privacy_for_Elementor' ) ) {
  * @since 1.3.2
  */
 if ( class_exists( 'Massive_Elementor' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-massive-addons-for-elementor.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-massive-addons-for-elementor.php';
 }
 
 
@@ -380,7 +436,7 @@ if ( class_exists( 'Massive_Elementor' ) ) {
  * @since 1.1.0
  */
 if ( class_exists( 'Press_Elements' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-press-elements.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-press-elements.php';
 }
 
 
@@ -389,7 +445,7 @@ if ( class_exists( 'Press_Elements' ) ) {
  * @since 1.1.0
  */
 if ( function_exists( 'elpug_register_settings' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-power-ups-for-elementor.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-power-ups-for-elementor.php';
 }
 
 
@@ -398,7 +454,7 @@ if ( function_exists( 'elpug_register_settings' ) ) {
  * @since 1.1.0
  */
 if ( class_exists( 'Jet_Elements' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-jetelements.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-jetelements.php';
 }
 
 
@@ -407,7 +463,7 @@ if ( class_exists( 'Jet_Elements' ) ) {
  * @since 1.1.0
  */
 if ( class_exists( 'Jet_Menu' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-jetmenu.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-jetmenu.php';
 }
 
 
@@ -416,7 +472,7 @@ if ( class_exists( 'Jet_Menu' ) ) {
  * @since 1.1.0
  */
 if ( class_exists( 'Jet_Blog' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-jetblog.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-jetblog.php';
 }
 
 
@@ -425,7 +481,7 @@ if ( class_exists( 'Jet_Blog' ) ) {
  * @since 1.2.0
  */
 if ( class_exists( 'Jet_Blocks' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-jetblocks.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-jetblocks.php';
 }
 
 
@@ -434,7 +490,7 @@ if ( class_exists( 'Jet_Blocks' ) ) {
  * @since 1.1.0
  */
 if ( class_exists( 'Jet_Reviews' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-jetreviews.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-jetreviews.php';
 }
 
 
@@ -443,7 +499,7 @@ if ( class_exists( 'Jet_Reviews' ) ) {
  * @since 1.4.0
  */
 if ( class_exists( 'Jet_Widgets' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-jetwidgets.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-jetwidgets.php';
 }
 
 
@@ -452,7 +508,16 @@ if ( class_exists( 'Jet_Widgets' ) ) {
  * @since 1.3.9
  */
 if ( defined( 'PAFE_VERSION' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-piotnet-addons.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-piotnet-addons.php';
+}
+
+
+/**
+ * Add-On: Essentail Premium Addons for Elementor (free, by wpcodestar)
+ * @since 1.4.2
+ */
+if ( function_exists( 'epa_ccn_widgets_reg' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-essential-paofe.php';
 }
 
 
@@ -461,7 +526,16 @@ if ( defined( 'PAFE_VERSION' ) ) {
  * @since 1.1.0
  */
 if ( class_exists( 'Total_Recipe_Generator_El' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-total-recipe-generator.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-total-recipe-generator.php';
+}
+
+
+/**
+ * Add-On: PDF Generator for Elementor (free, by RedefiningTheWeb)
+ * @since 1.4.2
+ */
+if ( defined( 'RTW_PGAEPA_NAME_VERSION' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-pdf-generator-for-elementor.php';
 }
 
 
@@ -470,7 +544,7 @@ if ( class_exists( 'Total_Recipe_Generator_El' ) ) {
  * @since 1.1.0
  */
 if ( function_exists( 'elements_plus_dependency' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-elements-plus.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-elements-plus.php';
 }
 
 
@@ -479,7 +553,16 @@ if ( function_exists( 'elements_plus_dependency' ) ) {
  * @since 1.1.1
  */
 if ( class_exists( 'WidgetKit_For_Elementor' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-widgetkit-for-elementor.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-widgetkit-for-elementor.php';
+}
+
+
+/**
+ * Add-On: Exclusive Addons for Elementor (free, by DevsCred)
+ * @since 1.4.2
+ */
+if ( class_exists( 'Exclusive_Addons_Elementor' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-exclusive-addons.php';
 }
 
 
@@ -488,7 +571,7 @@ if ( class_exists( 'WidgetKit_For_Elementor' ) ) {
  * @since 1.4.0
  */
 if ( function_exists( 'wfe_ccn_widgets_reg' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-maxster-addons.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-maxster-addons.php';
 }
 
 
@@ -497,7 +580,25 @@ if ( function_exists( 'wfe_ccn_widgets_reg' ) ) {
  * @since 1.1.0
  */
 if ( defined( 'PT_ELEMENTOR_ADDONS_VERSION' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-pt-elementor.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-pt-elementor.php';
+}
+
+
+/**
+ * Add-On: Sina Extension for Elementor (free, by shaonsina)
+ * @since 1.4.2
+ */
+if ( defined( 'SINA_EXT_VERSION' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-sina-extension.php';
+}
+
+
+/**
+ * Add-On: WPB Elementor Addons (free, by wpbean)
+ * @since 1.4.2
+ */
+if ( class_exists( 'WPB_Elementor_Addons' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-wpb-elementor-addons.php';
 }
 
 
@@ -506,7 +607,7 @@ if ( defined( 'PT_ELEMENTOR_ADDONS_VERSION' ) ) {
  * @since 1.3.2
  */
 if ( function_exists( 'xld_bar_plugin_scripts' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-natalie.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-natalie.php';
 }
 
 
@@ -515,7 +616,7 @@ if ( function_exists( 'xld_bar_plugin_scripts' ) ) {
  * @since 1.3.2
  */
 if ( class_exists( '\Web_Disrupt_Funnelmentals\WDF_Core' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-funnelmentals.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-funnelmentals.php';
 }
 
 
@@ -526,7 +627,7 @@ if ( class_exists( '\Web_Disrupt_Funnelmentals\WDF_Core' ) ) {
 if ( function_exists( 'Briefcase_Elementor_Widgets' )
 	&& ( ddw_tbex_is_woocommerce_active() || ddw_tbex_is_edd_active() )	// depends on shopping plugins
 ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-briefcase-elementor-widgets.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-briefcase-elementor-widgets.php';
 }
 
 
@@ -535,7 +636,7 @@ if ( function_exists( 'Briefcase_Elementor_Widgets' )
  * @since 1.1.0
  */
 if ( defined( 'ELEMENTOR_ADDON_PATH' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-webtechstreet-addons.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-webtechstreet-addons.php';
 }
 
 
@@ -544,7 +645,7 @@ if ( defined( 'ELEMENTOR_ADDON_PATH' ) ) {
  * @since 1.1.0
  */
 if ( class_exists( 'Elementor_Addon_Widgets' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-sizzify-lite.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-sizzify-lite.php';
 }
 
 
@@ -553,7 +654,7 @@ if ( class_exists( 'Elementor_Addon_Widgets' ) ) {
  * @since 1.1.0
  */
 if ( function_exists( 'run_orbit_fox' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-orbit-fox.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-orbit-fox.php';
 }
 
 
@@ -562,7 +663,7 @@ if ( function_exists( 'run_orbit_fox' ) ) {
  * @since 1.2.0
  */
 if ( class_exists( 'Archivescode_for_Elementor' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-archivescode-addons.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-archivescode-addons.php';
 }
 
 
@@ -571,7 +672,7 @@ if ( class_exists( 'Archivescode_for_Elementor' ) ) {
  * @since 1.2.0
  */
 if ( class_exists( 'SJEaLoader' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-sj-elementor-addon.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-sj-elementor-addon.php';
 }
 
 
@@ -580,7 +681,7 @@ if ( class_exists( 'SJEaLoader' ) ) {
  * @since 1.1.0
  */
 if ( function_exists( 'eb_google_map_extended' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-internetcss-google-map-extended.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-internetcss-google-map-extended.php';
 }
 
 
@@ -589,7 +690,7 @@ if ( function_exists( 'eb_google_map_extended' ) ) {
  * @since 1.3.0
  */
 if ( defined( 'eb_google_map_pro_version' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-internetcss-google-map-extended-pro.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-internetcss-google-map-extended-pro.php';
 }
 
 
@@ -598,7 +699,7 @@ if ( defined( 'eb_google_map_pro_version' ) ) {
  * @since 1.3.2
  */
 if ( defined( 'A13REE_VERSION' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-rife-elementor-extensions-templates.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-rife-elementor-extensions-templates.php';
 }
 
 
@@ -606,10 +707,10 @@ if ( defined( 'A13REE_VERSION' ) ) {
  * Add-On: Formentor – Elementor Form Plus (free, by Tziki Trop)
  * @since 1.4.0
  */
-if ( ( ddw_tbex_is_elementor_pro_active() || defined( 'WPCF7_VERSION' ) )		// needs Elementor Pro and/or CF7!
+if ( ( ddw_tbex_is_elementor_pro_active() || ddw_tbex_is_cf7_active() )		// needs Elementor Pro and/or CF7!
 	&& class_exists( 'CTGS_client_to_google_sheet' )
 ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-formentor.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-formentor.php';
 }
 
 
@@ -621,7 +722,7 @@ if ( ( ddw_tbex_is_elementor_pro_active() || defined( 'WPCF7_VERSION' ) )		// ne
 if ( ddw_tbex_is_elementor_pro_active()
 	&& function_exists( 'sb_elem_cfd_init' )
 ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-elementor-contact-form-db.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-elementor-contact-form-db.php';
 }
 
 
@@ -633,7 +734,17 @@ if ( ddw_tbex_is_elementor_pro_active()
 if ( ddw_tbex_is_elementor_pro_active()
 	&& defined( 'ELEMENTOR_LEADS_VERSION' )
 ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-lenix-elementor-leads-addon.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-lenix-elementor-leads-addon.php';
+}
+
+
+/**
+ * Add-On: Elementor Forms (Premium, by Elementor Forms)
+ *   Note: Needs only Elementor (free) to be active!
+ * @since 1.4.2
+ */
+if ( function_exists( 'eforms_on_activate' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-elementor-forms.php';
 }
 
 
@@ -645,7 +756,7 @@ if ( ddw_tbex_is_elementor_pro_active()
 if ( ddw_tbex_is_elementor_pro_active()
 	&& function_exists( 'CF7DBPlugin_i18n_init' )
 ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-forms/items-cfdb.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins-forms/items-cfdb.php';
 }
 
 
@@ -654,7 +765,7 @@ if ( ddw_tbex_is_elementor_pro_active()
  * @since 1.2.0
  */
 if ( class_exists( 'Elementor_Whitelabel_Plugin' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-powerpack-wlbfe.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-powerpack-wlbfe.php';
 }
 
 
@@ -663,7 +774,7 @@ if ( class_exists( 'Elementor_Whitelabel_Plugin' ) ) {
  * @since 1.4.0
  */
 if ( defined( 'ELEMENTOR_WL_BRANDING_VER' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-elementor-white-label-branding.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-elementor-white-label-branding.php';
 }
 
 
@@ -673,7 +784,7 @@ if ( defined( 'ELEMENTOR_WL_BRANDING_VER' ) ) {
  * @since 1.4.0
  */
 if ( defined( 'ELEMENTOR_WHITE_LABEL_VER' ) || defined( 'ELEMENTOR_WHITE_LABEL_PRO_VER' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-elementor-white-label.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-elementor-white-label.php';
 }
 
 
@@ -682,7 +793,7 @@ if ( defined( 'ELEMENTOR_WHITE_LABEL_VER' ) || defined( 'ELEMENTOR_WHITE_LABEL_P
  * @since 1.4.0
  */
 if ( class_exists( 'Jet_Design_Kit' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-jetdesignkit.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-jetdesignkit.php';
 }
 
 
@@ -694,5 +805,5 @@ if ( class_exists( 'Jet_Design_Kit' ) ) {
  */
 
 if ( ! function_exists( 'ddw_tbex_addons_hook_place' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/hook-place-addons.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/hook-place-addons.php';
 }

@@ -87,6 +87,7 @@ function ddw_tbex_settings_cb_is_local_dev() {
  *
  * @since 1.0.0
  * @since 1.4.0 Added action to the label for color examples.
+ * @since 1.4.2 Made color items completely dynamic, including the default label.
  */
 function ddw_tbex_settings_cb_local_dev_bg_color() {
 
@@ -94,10 +95,10 @@ function ddw_tbex_settings_cb_local_dev_bg_color() {
 
 	?>
 		<input type="text" class="tbex-color-picker tbex-input" id="tbex-options-development-local_dev_bg_color" name="tbex-options-development[local_dev_bg_color]" value="<?php echo sanitize_hex_color( $tbex_options[ 'local_dev_bg_color' ] ); ?>" data-default-color="#0073aa" />
-		<label for="tbex-options-development[local_dev_bg_color]">
-			<span class="description"><?php echo sprintf( __( 'Default: %s', 'toolbar-extras' ), '<div class="bg-local-base bg-local-default tbex-align-middle"></div><code class="tbex-align-middle">#0073aa</code>' ); ?></span>
-		</label>
-		<?php do_action( 'tbex_label_local_dev_color_picker' ); ?>
+		<?php
+			do_action( 'tbex_settings_color_picker_items' );
+			do_action( 'tbex_label_local_dev_color_picker' );
+		?>
 	<?php
 
 }  // end function

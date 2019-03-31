@@ -113,7 +113,7 @@ function ddw_tbex_themeitems_default_twenty_resources() {
 	);
 
 	//$theme_slug = get_stylesheet();
-	$theme_slug = basename( get_template_directory() );
+	$theme_slug = wp_basename( get_template_directory() );
 	
 	ddw_tbex_resource_item(
 		'support-forum',

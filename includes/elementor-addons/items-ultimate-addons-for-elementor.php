@@ -14,17 +14,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_uael', 100 );
 /**
- * Items for Add-On: Ultimate Addons for Elementor (Premium, by Brainstorm Force)
+ * Items for Add-On:
+ *   Ultimate Addons for Elementor (Premium, by Brainstorm Force) (UAE)
  *
  * @since 1.0.0
+ * @since 1.4.2 Changed admin URL to newest version of UAE.
  *
  * @uses \UltimateElementor\Classes\UAEL_Helper::get_white_labels()
  * @uses ddw_tbex_display_uael_witelabel()
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_uael() {
+function ddw_tbex_aoitems_uael( $admin_bar ) {
 
 	/** Use Add-On hook place */
 	add_filter( 'tbex_filter_is_addon', '__return_empty_string' );
@@ -36,12 +38,12 @@ function ddw_tbex_aoitems_uael() {
 
 
 	/** Extras Settings */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'ao-uael',
 			'parent' => 'tbex-addons',
 			'title'  => $uael_plugin_name,
-			'href'   => esc_url( admin_url( 'options-general.php?page=uael' ) ),
+			'href'   => esc_url( admin_url( 'options-general.php?page=uae' ) ),
 			'meta'   => array(
 				'target' => '',
 				'title'  => $uael_title_attr
@@ -49,12 +51,12 @@ function ddw_tbex_aoitems_uael() {
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-uael-widgets',
 				'parent' => 'ao-uael',
 				'title'  => esc_attr__( 'Activate Widgets', 'toolbar-extras' ),
-				'href'   => esc_url( admin_url( 'options-general.php?page=uael' ) ),
+				'href'   => esc_url( admin_url( 'options-general.php?page=uae' ) ),
 				'meta'   => array(
 					'target' => '',
 					'title'  => esc_attr__( 'Activate Widgets', 'toolbar-extras' )
@@ -67,12 +69,12 @@ function ddw_tbex_aoitems_uael() {
 
 		if ( 'disabled' !== $module_gmap[ 'GoogleMap' ] ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ao-uael-googlemaps',
 					'parent' => 'ao-uael',
 					'title'  => esc_attr__( 'Google Map Settings', 'toolbar-extras' ),
-					'href'   => esc_url( admin_url( 'options-general.php?page=uael&action=integration' ) ),
+					'href'   => esc_url( admin_url( 'options-general.php?page=uae&action=integration' ) ),
 					'meta'   => array(
 						'target' => '',
 						'title'  => esc_attr__( 'Google Map Settings', 'toolbar-extras' )
@@ -87,12 +89,12 @@ function ddw_tbex_aoitems_uael() {
 
 			if ( '1' !== $uael_whitelabel[ 'agency' ][ 'hide_branding' ] ) {
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'ao-uael-whitelabel',
 						'parent' => 'ao-uael',
 						'title'  => esc_attr__( 'Whitelabel Settings', 'toolbar-extras' ),
-						'href'   => esc_url( admin_url( 'options-general.php?page=uael&action=branding' ) ),
+						'href'   => esc_url( admin_url( 'options-general.php?page=uae&action=branding' ) ),
 						'meta'   => array(
 							'target' => '',
 							'title'  => esc_attr__( 'Whitelabel Settings', 'toolbar-extras' )
@@ -107,7 +109,7 @@ function ddw_tbex_aoitems_uael() {
 		/** Group: Resources for Ultimate Addons */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-uael-resources',
 					'parent' => 'ao-uael',

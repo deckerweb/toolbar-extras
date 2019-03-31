@@ -378,38 +378,51 @@ function ddw_tbex_register_settings_general() {
 			);
 
 
+		/** Prepare conditional settings */
+		$plugin_inactive = ' plugin-inactive';
+
 		/**
 		 * General: 5th section - Block Editor (Gutenberg/ WP 5.0+) support
 		 *   Show only if Block Editor is active and not disabled (by plugins)
 		 */
-		if ( ddw_tbex_is_block_editor_active() && ddw_tbex_is_block_editor_wanted() ) {
+		//if ( ddw_tbex_is_block_editor_active() && ddw_tbex_is_block_editor_wanted() ) {
 
-			add_settings_section( 
+		$status_blockeditor         = ( ddw_tbex_is_block_editor_active() && ddw_tbex_is_block_editor_wanted() ) ? ' plugin-blockeditor' : $plugin_inactive;
+		$status_blockeditor_preface = ( ddw_tbex_is_block_editor_active() && ddw_tbex_is_block_editor_wanted() ) ? ' plugin-blockeditor-preface' : $plugin_inactive;
+
+		$title_blockeditor = sprintf(
+			'<h3 class="tbex-settings-section tbex-setting-conditional%1$s">%2$s</h3>',
+			$status_blockeditor_preface,
+			__( 'Block Editor Support (Gutenberg/ WP 5.0+)', 'toolbar-extras' )
+
+		);
+
+		add_settings_section( 
+			'tbex-section-blockeditor',
+			$title_blockeditor,
+			'ddw_tbex_settings_section_info_blockeditor_support',
+			'tbex_group_general'
+		);
+
+			add_settings_field(
+				'use_blockeditor_support',
+				__( 'Use Block Editor Support?', 'toolbar-extras' ),
+				'ddw_tbex_settings_cb_use_blockeditor_support',
+				'tbex_group_general',
 				'tbex-section-blockeditor',
-				'<h3 class="tbex-settings-section">' . __( 'Block Editor Support (Gutenberg/ WP 5.0+)', 'toolbar-extras' ) . '</h3>',
-				'ddw_tbex_settings_section_info_blockeditor_support',
-				'tbex_group_general'
+				array( 'class' => 'tbex-setting-use-block-editor-support tbex-setting-conditional' . $status_blockeditor )
 			);
 
-				add_settings_field(
-					'use_blockeditor_support',
-					__( 'Use Block Editor Support?', 'toolbar-extras' ),
-					'ddw_tbex_settings_cb_use_blockeditor_support',
-					'tbex_group_general',
-					'tbex-section-blockeditor',
-					array( 'class' => 'tbex-setting-use-block-editor-support' )
-				);
+			add_settings_field(
+				'display_blockeditor_addons',
+				__( 'Display Block Editor Add-Ons?', 'toolbar-extras' ),
+				'ddw_tbex_settings_cb_display_blockeditor_addons',
+				'tbex_group_general',
+				'tbex-section-blockeditor',
+				array( 'class' => 'tbex-setting-display-blockeditor-addons tbex-setting-conditional' . $status_blockeditor )
+			);
 
-				add_settings_field(
-					'display_blockeditor_addons',
-					__( 'Display Block Editor Add-Ons?', 'toolbar-extras' ),
-					'ddw_tbex_settings_cb_display_blockeditor_addons',
-					'tbex_group_general',
-					'tbex-section-blockeditor',
-					array( 'class' => 'tbex-setting-display-blockeditor-addons' )
-				);
-
-		}  // end if
+		//}  // end if
 
 
 		/** General: 6th section - Demo imports */
@@ -442,7 +455,7 @@ function ddw_tbex_register_settings_general() {
 		/** General: 7th section - Links behavior */
 		add_settings_section( 
 			'tbex-section-links',
-			'<h3 class="tbex-settings-section">' . __( 'Links Behavior', 'toolbar-extras' ) . '</h3>',
+			'<h3 id="tbex-settings-link-behavior" class="tbex-settings-section">' . __( 'Links Behavior', 'toolbar-extras' ) . '</h3>',
 			'ddw_tbex_settings_section_info_links',
 			'tbex_group_general'
 		);

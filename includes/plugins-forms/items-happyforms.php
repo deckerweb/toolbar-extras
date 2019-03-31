@@ -227,7 +227,7 @@ function ddw_tbex_aoitems_new_content_happyforms( $wp_admin_bar ) {
 
 	/** Bail early if items display is not wanted */
 	if ( ! ddw_tbex_display_items_new_content() || is_network_admin() ) {
-		return;
+		return $wp_admin_bar;
 	}
 
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(

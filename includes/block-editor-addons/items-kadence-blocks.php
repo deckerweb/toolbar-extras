@@ -20,14 +20,14 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_kadence_blocks', 10 );
  *
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar']
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_kadence_blocks() {
+function ddw_tbex_aoitems_kadence_blocks( $admin_bar ) {
 
 	/** Use Add-On hook place */
 	add_filter( 'tbex_filter_is_addon', '__return_empty_string' );
 	
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'tbex-kadenceblocks',
 			'parent' => 'group-tbex-addons-blockeditor',
@@ -40,7 +40,7 @@ function ddw_tbex_aoitems_kadence_blocks() {
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'kadenceblocks-options',
 				'parent' => 'tbex-kadenceblocks',
@@ -53,10 +53,28 @@ function ddw_tbex_aoitems_kadence_blocks() {
 			)
 		);
 
+		/** Optional: Pro License */
+		if ( function_exists( 'kadence_blocks_pro_updating' ) ) {
+
+			$admin_bar->add_node(
+				array(
+					'id'     => 'kadenceblocks-license',
+					'parent' => 'tbex-kadenceblocks',
+					'title'  => esc_attr__( 'License', 'toolbar-extras' ),
+					'href'   => esc_url( admin_url( 'options-general.php?page=kadence_plugin_activation' ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => esc_attr__( 'License', 'toolbar-extras' )
+					)
+				)
+			);
+
+		}  // end if
+
 		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-kadenceblocks-resources',
 					'parent' => 'tbex-kadenceblocks',
@@ -75,7 +93,7 @@ function ddw_tbex_aoitems_kadence_blocks() {
 				'documentation',
 				'kadenceblocks-docs',
 				'group-kadenceblocks-resources',
-				'http://docs.kadencethemes.com/kadence-blocks/'
+				'https://www.kadenceblocks.com/docs/'
 			);
 
 			ddw_tbex_resource_item(
@@ -90,6 +108,13 @@ function ddw_tbex_aoitems_kadence_blocks() {
 				'kadenceblocks-github',
 				'group-kadenceblocks-resources',
 				'https://github.com/kadencethemes/kadence-blocks'
+			);
+
+			ddw_tbex_resource_item(
+				'official-site',
+				'kadenceblocks-site',
+				'group-kadenceblocks-resources',
+				'https://www.kadenceblocks.com/'
 			);
 
 		}  // end if

@@ -129,13 +129,13 @@ function ddw_tbex_string_elementor_categories_via( $type = '' ) {
 
 		}  // end switch
 
-	}  // end if
+		$via_string = sprintf(
+			/* translators: %s - name of the plugin, "Elementor" or Builder Template Categories" */
+			' (' . __( 'via %s plugin', 'toolbar-extras' ) . ')',
+			$plugin_name
+		);
 
-	$via_string = sprintf(
-		/* translators: %s - name of the plugin, "Elementor" or Builder Template Categories" */
-		' (' . __( 'via %s plugin', 'toolbar-extras' ) . ')',
-		$plugin_name
-	);
+	}  // end if
 
 	return $via_string;
 

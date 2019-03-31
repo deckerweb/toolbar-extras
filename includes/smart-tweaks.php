@@ -220,7 +220,7 @@ function ddw_tbex_maybe_tweak_howdy_welcome( $wp_admin_bar ) {
 
 	/** Bail early if tweak shouldn't be used */
 	if ( ! ddw_tbex_use_tweak_myaccount_item() ) {
-		return;
+		return $wp_admin_bar;
 	}
 
 	/** Get current user */
@@ -330,7 +330,7 @@ function ddw_tbex_rehook_items_nextgen_gallery( $wp_admin_bar ) {
 	if ( ! ddw_tbex_use_tweak_nextgen()
 		|| ! class_exists( 'C_NextGEN_Bootstrap' )
 	) {
-		return;
+		return $wp_admin_bar;
 	}
 
 	/** Re-hook for: Manage Content */
@@ -525,7 +525,7 @@ function ddw_tbex_site_items_wprocket( $wp_admin_bar ) {
 	if ( ! ddw_tbex_use_tweak_wprocket()
 		|| ! defined( 'WP_ROCKET_VERSION' )
 	) {
-		return;
+		return $wp_admin_bar;
 	}
 
 	/** Re-hook for: Tools */
@@ -566,7 +566,7 @@ function ddw_tbex_site_items_autoptimize( $wp_admin_bar ) {
 	if ( ! ddw_tbex_use_tweak_autoptimize()
 		|| ! defined( 'AUTOPTIMIZE_PLUGIN_DIR' )
 	) {
-		return;
+		return $wp_admin_bar;
 	}
 
 	/** Re-hook for: Tools */
@@ -608,7 +608,7 @@ function ddw_tbex_site_items_swift_performance( $wp_admin_bar ) {
 	if ( ! ddw_tbex_use_tweak_swift_performance()
 		|| ! ( class_exists( 'Swift_Performance' ) || class_exists( 'Swift_Performance_Lite' ) )
 	) {
-		return;
+		return $wp_admin_bar;
 	}
 
 	$swift_version = ( class_exists( 'Swift_Performance' ) ) ? _x( 'Pro', 'Plugin type', 'toolbar-extras' ) : _x( 'Lite', 'Plugin type', 'toolbar-extras' );
@@ -696,43 +696,10 @@ function ddw_tbex_tweak_remove_items_cobaltapps() {
 /**
  * 4th GROUP: Tweak behavior of Page Builder
  * @since 1.2.0
+ * @since 1.4.1 Re-located WordPress Widgets tweak to plugin file
+ *              'includes/functions-conditionals-tweaks.php'.
  * -----------------------------------------------------------------------------
  */
-
-/**
- * Only execute tweak if Elementor is active and the Tweak setting is on 'yes'.
- *   Note: We choose this approach to not return an empty array to the filter if
- *         the conditions are not met. That way we will not "harm" other
- *         plugins or themes also using this - native Elementor - filter.
- */
-if ( ddw_tbex_is_elementor_active() && ddw_tbex_use_tweak_elementor_remove_wpwidgets() ) :
-
-	add_filter( 'elementor/widgets/black_list', 'ddw_tbex_tweak_elementor_remove_wp_widgets' );
-	/**
-	 * Optionally remove all WordPress widgets from the Elementor Live Editor.
-	 *   Note: A native Elementor filter is used.
-	 *
-	 * @since 1.2.0
-	 *
-	 * @return array Array of black listed WordPress widgets.
-	 */
-	function ddw_tbex_tweak_elementor_remove_wp_widgets() {
-
-		$black_list = array();
-
-		/**
-		 * Get all registered WordPress widgets, but only the classes
-		 *   (= the first-level array keys)
-		 */
-		$black_list = array_keys( $GLOBALS[ 'wp_widget_factory' ]->widgets );
-
-		/** Return black list array for filter */
-		return (array) $black_list;
-
-	}  // end function
-
-endif;
-
 
 add_filter( 'admin_bar_menu', 'ddw_tbex_rehook_items_elementor_inspector', 11 );
 /**
@@ -762,7 +729,7 @@ function ddw_tbex_rehook_items_elementor_inspector( $wp_admin_bar ) {
 		|| ! ddw_tbex_use_tweak_elementor_inspector()
 		|| ! ddw_tbex_is_elementor_active()
 	) {
-		return;
+		return $wp_admin_bar;
 	}
 
 	/** Re-hook for: Build Group -> Creative Content, on the top */

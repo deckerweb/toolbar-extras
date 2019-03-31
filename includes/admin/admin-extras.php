@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 1.0.0
  */
-require_once( TBEX_PLUGIN_DIR . 'includes/admin/views/notice-plugins-welcome.php' );
+require_once TBEX_PLUGIN_DIR . 'includes/admin/views/notice-plugins-welcome.php';
 add_action( 'admin_notices', 'ddw_tbex_notice_plugins_welcome' );
 add_action( 'network_admin_notices', 'ddw_tbex_notice_plugins_welcome' );	// also show message on Multisite
 
@@ -29,7 +29,7 @@ add_action( 'network_admin_notices', 'ddw_tbex_notice_plugins_welcome' );	// als
  *
  * @since 1.4.0
  */
-require_once( TBEX_PLUGIN_DIR . 'includes/admin/views/notice-plugin-review.php' );
+require_once TBEX_PLUGIN_DIR . 'includes/admin/views/notice-plugin-review.php';
 
 
 /**
@@ -168,10 +168,12 @@ function ddw_tbex_admin_footer_text( $footer_text ) {
 	$current_screen = get_current_screen();
 
 	/** Active settings tab logic */
-	$active_tab = isset( $_GET[ 'tab' ] ) ? sanitize_key( wp_unslash( $_GET[ 'tab' ] ) ) : '';
-	$tbex_tabs  = array( 'general', 'smart-tweaks', 'development', 'about-support' );
+	$active_tab = isset( $_GET[ 'tab' ] ) ? sanitize_key( wp_unslash( $_GET[ 'tab' ] ) ) : 'default';
+	$tbex_tabs  = array( 'general', 'smart-tweaks', 'development', 'addons', 'about-support', 'default' );
 
-	if ( 'settings_page_toolbar-extras' === $current_screen->id && in_array( $active_tab, $tbex_tabs ) ) {
+	if ( ( 'settings_page_toolbar-extras' === $current_screen->id && in_array( $active_tab, $tbex_tabs ) )
+		|| ( 'plugins_page_toolbar-extras-suggested-plugins' === $current_screen->id )
+	) {
 
 		$rating = sprintf(
 			/* translators: %s - 5 stars icons */
@@ -230,6 +232,7 @@ function ddw_tbex_dashboard_plugin_version_info( $content ) {
  * Inline CSS fix for Plugins page update messages.
  *
  * @since 1.3.4
+ * @since 1.4.2 Style tweaks.
  *
  * @see ddw_tbex_plugin_update_message()
  * @see ddw_tbex_multisite_subsite_plugin_update_message()
@@ -239,7 +242,10 @@ function ddw_tbex_plugin_update_message_style_tweak() {
 	?>
 		<style type="text/css">
 			.tbex-update-message p:before,
-			.update-message.notice p:empty {
+			.update-message.notice p:empty,
+			.update-message.updating-message > p,
+			.update-message.notice-success > p,
+			.update-message.notice-error > p {
 				display: none !important;
 			}
 		</style>
@@ -471,6 +477,7 @@ if ( ! function_exists( 'ddwlib_plir_strings_plugin_installer' ) ) :
 	 *    - "Version:" --> label in plugin installer plugin card
 	 *
 	 * @since 1.3.5
+	 * @since 1.4.2 Added new strings.
 	 *
 	 * @param array $strings Holds all filterable strings of the library.
 	 * @return array Array of tweaked translateable strings.
@@ -489,6 +496,29 @@ if ( ! function_exists( 'ddwlib_plir_strings_plugin_installer' ) ) :
 			'toolbar-extras'
 		);
 
+		$strings[ 'ddwplugins_tab' ] = _x(
+			'deckerweb Plugins',
+			'Plugin installer: Tab name in installer toolbar',
+			'toolbar-extras'
+		);
+
+		$strings[ 'tab_title' ] = _x(
+			'deckerweb Plugins',
+			'Plugin installer: Page title',
+			'toolbar-extras'
+		);
+
+		$strings[ 'tab_slogan' ] = __( 'Great helper tools for Site Builders to save time and get more productive', 'toolbar-extras' );
+
+		$strings[ 'tab_info' ] = sprintf(
+			__( 'You can use any of our free plugins or premium plugins from %s', 'toolbar-extras' ),
+			'<a href="https://deckerweb-plugins.com/" target="_blank" rel="nofollow noopener noreferrer">' . $strings[ 'tab_title' ] . '</a>'
+		);
+
+		$strings[ 'tab_newsletter' ] = __( 'Join our Newsletter', 'toolbar-extras' );
+
+		$strings[ 'tab_fbgroup' ] = __( 'Facebook User Group', 'toolbar-extras' );
+
 		return $strings;
 
 	}  // end function
@@ -496,4 +526,4 @@ if ( ! function_exists( 'ddwlib_plir_strings_plugin_installer' ) ) :
 endif;  // function check
 
 /** Include class DDWlib Plugin Installer Recommendations */
-require_once( TBEX_PLUGIN_DIR . 'includes/admin/classes/ddwlib-plugin-installer-recommendations.php' );
+require_once TBEX_PLUGIN_DIR . 'includes/admin/classes/ddwlib-plir/ddwlib-plugin-installer-recommendations.php';

@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 1.4.0
  */
 if ( class_exists( 'Geneis_Super_Customizer' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-genesis-super-customizer.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-genesis-super-customizer.php';
 }
 
 
@@ -26,7 +26,7 @@ if ( class_exists( 'Geneis_Super_Customizer' ) ) {
  * @since 1.0.0
  */
 if ( defined( 'GPP_VER' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-genesis-design-palette-pro.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-genesis-design-palette-pro.php';
 }
 
 
@@ -35,7 +35,7 @@ if ( defined( 'GPP_VER' ) ) {
  * @since 1.3.7
  */
 if ( class_exists( 'Genesis_Simple_Edits' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-genesis-simple-edits.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-genesis-simple-edits.php';
 }
 
 
@@ -44,7 +44,7 @@ if ( class_exists( 'Genesis_Simple_Edits' ) ) {
  * @since 1.3.7
  */
 if ( defined( 'GFB_SETTINGS_FIELD' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-genesis-footer-builder.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-genesis-footer-builder.php';
 }
 
 
@@ -53,7 +53,7 @@ if ( defined( 'GFB_SETTINGS_FIELD' ) ) {
  * @since 1.3.7
  */
 if ( class_exists( 'BE_Genesis_Grid' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-genesis-grid.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-genesis-grid.php';
 }
 
 
@@ -62,7 +62,7 @@ if ( class_exists( 'BE_Genesis_Grid' ) ) {
  * @since 1.0.0
  */
 if ( class_exists( 'Genesis_Simple_Hooks' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-genesis-simple-hooks.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-genesis-simple-hooks.php';
 }
 
 
@@ -71,7 +71,7 @@ if ( class_exists( 'Genesis_Simple_Hooks' ) ) {
  * @since 1.0.0
  */
 if ( class_exists( 'Genesis_Simple_Sidebars' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-genesis-simple-sidebars.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-genesis-simple-sidebars.php';
 }
 
 
@@ -80,7 +80,7 @@ if ( class_exists( 'Genesis_Simple_Sidebars' ) ) {
  * @since 1.0.0
  */
 if ( function_exists( 'genesis_portfolio_init' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-genesis-portfolio-pro.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-genesis-portfolio-pro.php';
 }
 
 
@@ -89,7 +89,7 @@ if ( function_exists( 'genesis_portfolio_init' ) ) {
  * @since 1.0.0
  */
 if ( function_exists( 'genesis_author_pro_init' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-genesis-author-pro.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-genesis-author-pro.php';
 }
 
 
@@ -98,7 +98,7 @@ if ( function_exists( 'genesis_author_pro_init' ) ) {
  * @since 1.0.0
  */
 if ( function_exists( 'wpstudio_gts_init' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-genesis-testimonial-slider.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-genesis-testimonial-slider.php';
 }
 
 
@@ -107,7 +107,7 @@ if ( function_exists( 'wpstudio_gts_init' ) ) {
  * @since 1.4.0
  */
 if ( class_exists( 'Genesis_Simple_FAQ' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-genesis-simple-faq.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-genesis-simple-faq.php';
 }
 
 
@@ -116,7 +116,16 @@ if ( class_exists( 'Genesis_Simple_FAQ' ) ) {
  * @since 1.3.5
  */
 if ( defined( 'GLE_SETTINGS_FIELD' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-genesis-layout-extras.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-genesis-layout-extras.php';
+}
+
+
+/**
+ * Plugin: Genesis Responsive Slider (free, by StudioPress)
+ * @since 1.4.2
+ */
+if ( defined( 'GENESIS_RESPONSIVE_SLIDER_VERSION' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-genesis-responsive-slider.php';
 }
 
 
@@ -125,7 +134,7 @@ if ( defined( 'GLE_SETTINGS_FIELD' ) ) {
  * @since 1.3.7
  */
 if ( defined( 'GENWPACC_VERSION' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-genesis-accessible.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-genesis-accessible.php';
 }
 
 
@@ -134,7 +143,7 @@ if ( defined( 'GENWPACC_VERSION' ) ) {
  * @since 1.3.0
  */
 if ( defined( 'DISPLAYFEATUREDIMAGEGENESIS_BASENAME' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-display-featured-image-genesis.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-display-featured-image-genesis.php';
 }
 
 
@@ -143,7 +152,7 @@ if ( defined( 'DISPLAYFEATUREDIMAGEGENESIS_BASENAME' ) ) {
  * @since 1.3.5
  */
 if ( defined( 'DISPLAY_RELATED_POSTS_FOR_GENESIS_VERSION' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-display-related-posts-genesis.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-display-related-posts-genesis.php';
 }
 
 
@@ -152,7 +161,7 @@ if ( defined( 'DISPLAY_RELATED_POSTS_FOR_GENESIS_VERSION' ) ) {
  * @since 1.4.0
  */
 if ( function_exists( 'genesis_simple_share_init' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-genesis-simple-share.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-genesis-simple-share.php';
 }
 
 
@@ -161,7 +170,7 @@ if ( function_exists( 'genesis_simple_share_init' ) ) {
  * @since 1.0.0
  */
 if ( function_exists( 'gcs_genesis_init' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-genesis-coming-soon-page.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-genesis-coming-soon-page.php';
 }
 
 
@@ -170,7 +179,7 @@ if ( function_exists( 'gcs_genesis_init' ) ) {
  * @since 1.3.5
  */
 if ( defined( 'GWNF_VERSION' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-genesis-widgetized-notfound.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-genesis-widgetized-notfound.php';
 }
 
 
@@ -179,7 +188,7 @@ if ( defined( 'GWNF_VERSION' ) ) {
  * @since 1.0.0
  */
 if ( function_exists( 'be_register_genesis_404_settings' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-genesis-404-page.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-genesis-404-page.php';
 }
 
 
@@ -188,7 +197,7 @@ if ( function_exists( 'be_register_genesis_404_settings' ) ) {
  * @since 1.3.9
  */
 if ( defined( 'GEST_PLUGIN_BASEDIR' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-genesis-extra-settings-transporter.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-genesis-extra-settings-transporter.php';
 }
 
 
@@ -197,7 +206,7 @@ if ( defined( 'GEST_PLUGIN_BASEDIR' ) ) {
  * @since 1.3.9
  */
 if ( function_exists( 'gch_activation_check' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-genesis-custom-headers.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-genesis-custom-headers.php';
 }
 
 
@@ -206,7 +215,7 @@ if ( function_exists( 'gch_activation_check' ) ) {
  * @since 1.4.0
  */
 if ( function_exists( 'egwp_activation' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-easy-genesis.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-easy-genesis.php';
 }
 
 
@@ -215,7 +224,7 @@ if ( function_exists( 'egwp_activation' ) ) {
  * @since 1.4.0
  */
 if ( function_exists( 'gfih_load_textdomain' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-genesis-featured-image-header.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-genesis-featured-image-header.php';
 }
 
 
@@ -224,7 +233,7 @@ if ( function_exists( 'gfih_load_textdomain' ) ) {
  * @since 1.0.0
  */
 if ( class_exists( 'Blox_Lite_Main' ) || class_exists( 'Blox_Main' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-blox.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-blox.php';
 }
 
 
@@ -234,7 +243,7 @@ if ( class_exists( 'Blox_Lite_Main' ) || class_exists( 'Blox_Main' ) ) {
  */
 if ( function_exists( 'genesis_devkit_compatible_theme_check' )
 ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-cobalt-genesis-devkit.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-cobalt-genesis-devkit.php';
 }
 
 
@@ -243,5 +252,5 @@ if ( function_exists( 'genesis_devkit_compatible_theme_check' )
  * @since 1.1.1
  */
 if ( defined( 'GENEXT_VERSION' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-cobalt-genesis-extender.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-cobalt-genesis-extender.php';
 }

@@ -20,18 +20,18 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_we_blocks', 10 );
  *
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar']
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_we_blocks() {
+function ddw_tbex_aoitems_we_blocks( $admin_bar ) {
 
 	/** Use Add-On hook place */
 	add_filter( 'tbex_filter_is_addon', '__return_empty_string' );
 	
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'tbex-weblocks',
 			'parent' => 'group-tbex-addons-blockeditor',
-			'title'  => esc_attr__( 'Plugin Info', 'toolbar-extras' ),
+			'title'  => esc_attr__( 'WE Blocks', 'toolbar-extras' ),
 			'href'   => esc_url( admin_url( 'admin.php?page=we-blocks' ) ),
 			'meta'   => array(
 				'target' => '',
@@ -40,7 +40,7 @@ function ddw_tbex_aoitems_we_blocks() {
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'weblocks-plugin-info',
 				'parent' => 'tbex-weblocks',
@@ -56,7 +56,7 @@ function ddw_tbex_aoitems_we_blocks() {
 		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-weblocks-resources',
 					'parent' => 'tbex-weblocks',

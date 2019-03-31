@@ -104,6 +104,10 @@ function ddw_tbex_register_settings_smart_tweaks() {
 		update_option( 'tbex-options-tweaks', ddw_tbex_default_options_smart_tweaks() );
 	}
 
+	/** Prepare conditional settings */
+	$plugin_inactive  = ' plugin-inactive';
+	$status_elementor = ddw_tbex_is_elementor_active() ? ' plugin-elementor' : $plugin_inactive;
+
 	/** Settings args */
 	$tbex_settings_args = array( 'sanitize_callback' => 'ddw_tbex_validate_settings_smart_tweaks' );
 
@@ -241,247 +245,247 @@ function ddw_tbex_register_settings_smart_tweaks() {
 			'tbex_group_smart_tweaks'
 		);
 
-			if ( ddw_tbex_is_elementor_inspector_enabled() ) {		// Elementor "Inspector" feature
+			/** Elementor "Inspector" feature */
+			$status_elementor_inspector = ddw_tbex_is_elementor_inspector_enabled() ? ' plugin-elementor-inspector' : $plugin_inactive;
 
-				add_settings_field(
-					'rehook_elementor_inspector',
-					/* translators: %s - label of our plugin's main group (default: "Build Group") */
-					sprintf( __( 'Re-hook Elementor Inspector from Top Level to %s Group', 'toolbar-extras' ), ddw_tbex_string_main_item() ),
-					'ddw_tbex_settings_cb_rehook_elementor_inspector',
-					'tbex_group_smart_tweaks',
-					'tbex-section-plugins'
-				);
+			add_settings_field(
+				'rehook_elementor_inspector',
+				/* translators: %s - label of our plugin's main group (default: "Build Group") */
+				sprintf( __( 'Re-hook Elementor Inspector from Top Level to %s Group', 'toolbar-extras' ), ddw_tbex_string_main_item() ),
+				'ddw_tbex_settings_cb_rehook_elementor_inspector',
+				'tbex_group_smart_tweaks',
+				'tbex-section-plugins',
+				array( 'class' => 'tbex-setting-conditional' . $status_elementor_inspector )
+			);
 
-			}  // end if
+			/** StylePress "Styles" feature */
+			$status_stylepress = ddw_tbex_is_stylepress_elementor_active() ? ' plugin-stylepress' : $plugin_inactive;
 
-			if ( ddw_tbex_is_stylepress_elementor_active() ) {		// StylePress "Styles" feature
+			add_settings_field(
+				'rehook_stylepress',
+				/* translators: %s - label of our plugin's main group (default: "Build Group") */
+				sprintf( __( 'Re-hook StylePress from Top Level to %s Group', 'toolbar-extras' ), ddw_tbex_string_main_item() ),
+				'ddw_tbex_settings_cb_rehook_stylepress',
+				'tbex_group_smart_tweaks',
+				'tbex-section-plugins',
+				array( 'class' => 'tbex-setting-conditional' . $status_stylepress )
+			);
 
-				add_settings_field(
-					'rehook_stylepress',
-					/* translators: %s - label of our plugin's main group (default: "Build Group") */
-					sprintf( __( 'Re-hook StylePress from Top Level to %s Group', 'toolbar-extras' ), ddw_tbex_string_main_item() ),
-					'ddw_tbex_settings_cb_rehook_stylepress',
-					'tbex_group_smart_tweaks',
-					'tbex-section-plugins'
-				);
+			/** Yoast SEO */
+			$status_yoastseo = ddw_tbex_is_yoastseo_active() ? ' plugin-yoastseo' : $plugin_inactive;
 
-			}  // end if
+			add_settings_field(
+				'rehook_yoastseo',
+				__( 'Re-hook Yoast SEO from Top Level to Site Group', 'toolbar-extras' ),
+				'ddw_tbex_settings_cb_rehook_yoastseo',
+				'tbex_group_smart_tweaks',
+				'tbex-section-plugins',
+				array( 'class' => 'tbex-setting-conditional' . $status_yoastseo )
+			);
 
-			if ( ddw_tbex_is_yoastseo_active() ) {		// Yoast SEO
+			/** SEOPress */
+			$status_seopress = ddw_tbex_is_seopress_active() ? ' plugin-seopress' : $plugin_inactive;
 
-				add_settings_field(
-					'rehook_yoastseo',
-					__( 'Re-hook Yoast SEO from Top Level to Site Group', 'toolbar-extras' ),
-					'ddw_tbex_settings_cb_rehook_yoastseo',
-					'tbex_group_smart_tweaks',
-					'tbex-section-plugins'
-				);
+			add_settings_field(
+				'rehook_seopress',
+				__( 'Re-hook SEOPress from Top Level to Site Group', 'toolbar-extras' ),
+				'ddw_tbex_settings_cb_rehook_seopress',
+				'tbex_group_smart_tweaks',
+				'tbex-section-plugins',
+				array( 'class' => 'tbex-setting-conditional' . $status_seopress )
+			);
 
-			}  // end if
+			/** Gravity Forms */
+			$status_gravityforms = ddw_tbex_is_gravityforms_active() ? ' plugin-gravityforms' : $plugin_inactive;
 
-			if ( ddw_tbex_is_seopress_active() ) {		// SEOPress
+			add_settings_field(
+				'rehook_gravityforms',
+				__( 'Re-hook Gravity Forms from Top Level to Site Group', 'toolbar-extras' ),
+				'ddw_tbex_settings_cb_rehook_gravityforms',
+				'tbex_group_smart_tweaks',
+				'tbex-section-plugins',
+				array( 'class' => 'tbex-setting-conditional' . $status_gravityforms )
+			);
 
-				add_settings_field(
-					'rehook_seopress',
-					__( 'Re-hook SEOPress from Top Level to Site Group', 'toolbar-extras' ),
-					'ddw_tbex_settings_cb_rehook_seopress',
-					'tbex_group_smart_tweaks',
-					'tbex-section-plugins'
-				);
+			/** Smart Slider 3 */
+			$status_smartslider3 = defined( 'NEXTEND_SMARTSLIDER_3_BASENAME' ) ? ' plugin-smartslider3' : $plugin_inactive;
 
-			}  // end if
+			add_settings_field(
+				'rehook_smartslider',
+				__( 'Re-hook Smart Slider 3 from Top Level to Site Group', 'toolbar-extras' ),
+				'ddw_tbex_settings_cb_rehook_smartslider',
+				'tbex_group_smart_tweaks',
+				'tbex-section-plugins',
+				array( 'class' => 'tbex-setting-conditional' . $status_smartslider3 )
+			);
 
-			if ( defined( 'RG_CURRENT_VIEW' ) ) {		// Gravity Forms
+			/** NextGen Gallery */
+			$status_nextgen = class_exists( 'C_NextGEN_Bootstrap' ) ? ' plugin-nextgen' : $plugin_inactive;
 
-				add_settings_field(
-					'rehook_gravityforms',
-					__( 'Re-hook Gravity Forms from Top Level to Site Group', 'toolbar-extras' ),
-					'ddw_tbex_settings_cb_rehook_gravityforms',
-					'tbex_group_smart_tweaks',
-					'tbex-section-plugins'
-				);
+			add_settings_field(
+				'rehook_nextgen',
+				__( 'Re-hook NextGen Gallery from Top Level to Site Group', 'toolbar-extras' ),
+				'ddw_tbex_settings_cb_rehook_nextgen',
+				'tbex_group_smart_tweaks',
+				'tbex-section-plugins',
+				array( 'class' => 'tbex-setting-conditional' . $status_nextgen )
+			);
 
-			}  // end if
+			/** iThemes Security */
+			$status_itsec = function_exists( 'itsec_load_textdomain' ) ? ' plugin-itsec' : $plugin_inactive;
 
-			if ( defined( 'NEXTEND_SMARTSLIDER_3_BASENAME' ) ) {		// Smart Slider 3
+			add_settings_field(
+				'rehook_ithsec',
+				__( 'Re-hook iThemes Security from Top Level to Site Group', 'toolbar-extras' ),
+				'ddw_tbex_settings_cb_rehook_ithsec',
+				'tbex_group_smart_tweaks',
+				'tbex-section-plugins',
+				array( 'class' => 'tbex-setting-conditional' . $status_itsec )
+			);
 
-				add_settings_field(
-					'rehook_smartslider',
-					__( 'Re-hook Smart Slider 3 from Top Level to Site Group', 'toolbar-extras' ),
-					'ddw_tbex_settings_cb_rehook_smartslider',
-					'tbex_group_smart_tweaks',
-					'tbex-section-plugins'
-				);
+			/** WP Rocket */
+			$status_wprocket = defined( 'WP_ROCKET_VERSION' ) ? ' plugin-wprocket' : $plugin_inactive;
 
-			}  // end if
+			add_settings_field(
+				'rehook_wprocket',
+				__( 'Re-hook WP Rocket Items', 'toolbar-extras' ),
+				'ddw_tbex_settings_cb_rehook_wprocket',
+				'tbex_group_smart_tweaks',
+				'tbex-section-plugins',
+				array( 'class' => 'tbex-setting-conditional' . $status_wprocket )
+			);
 
-			if ( class_exists( 'C_NextGEN_Bootstrap' ) ) {		// NextGen Gallery
+			/** Autoptimize */
+			$status_autoptimize = defined( 'AUTOPTIMIZE_PLUGIN_DIR' ) ? ' plugin-autoptimize' : $plugin_inactive;
 
-				add_settings_field(
-					'rehook_nextgen',
-					__( 'Re-hook NextGen Gallery from Top Level to Site Group', 'toolbar-extras' ),
-					'ddw_tbex_settings_cb_rehook_nextgen',
-					'tbex_group_smart_tweaks',
-					'tbex-section-plugins'
-				);
+			add_settings_field(
+				'rehook_autoptimize',
+				__( 'Re-hook Autoptimize Items', 'toolbar-extras' ),
+				'ddw_tbex_settings_cb_rehook_autoptimize',
+				'tbex_group_smart_tweaks',
+				'tbex-section-plugins',
+				array( 'class' => 'tbex-setting-conditional' . $status_autoptimize )
+			);
 
-			}  // end if
+			/** Swift Performance Lite/Pro */
+			$status_swift = ( class_exists( 'Swift_Performance_Lite' ) || class_exists( 'Swift_Performance' ) ) ? ' plugin-swift' : $plugin_inactive;
 
-			if ( function_exists( 'itsec_load_textdomain' ) ) {		// iThemes Security
+			add_settings_field(
+				'rehook_swiftperformance',
+				__( 'Re-hook Swift Performance Items', 'toolbar-extras' ),
+				'ddw_tbex_settings_cb_rehook_swiftperformance',
+				'tbex_group_smart_tweaks',
+				'tbex-section-plugins',
+				array( 'class' => 'tbex-setting-conditional' . $status_swift )
+			);
 
-				add_settings_field(
-					'rehook_ithsec',
-					__( 'Re-hook iThemes Security from Top Level to Site Group', 'toolbar-extras' ),
-					'ddw_tbex_settings_cb_rehook_ithsec',
-					'tbex_group_smart_tweaks',
-					'tbex-section-plugins'
-				);
+			/** WooCommerce */
+			$status_woocommerce = ddw_tbex_is_woocommerce_active() ? ' plugin-woocommerce' : $plugin_inactive;
 
-			}  // end if
+			add_settings_field(
+				'remove_woo_posttypes',
+				__( 'Remove some WooCommerce post types from New Content Group', 'toolbar-extras' ),
+				'ddw_tbex_settings_cb_remove_woo_posttypes',
+				'tbex_group_smart_tweaks',
+				'tbex-section-plugins',
+				array( 'class' => 'tbex-setting-conditional' . $status_woocommerce )
+			);
 
-			if ( defined( 'WP_ROCKET_VERSION' ) ) {		// WP Rocket
+			/** All In One SEO Pack (Pro) */
+			$status_aioseo = ( defined( 'AIOSEOP_VERSION' ) || defined( 'AIOSEOPPRO' ) ) ? ' plugin-aioseo' : $plugin_inactive;
 
-				add_settings_field(
-					'rehook_wprocket',
-					__( 'Re-hook WP Rocket Items', 'toolbar-extras' ),
-					'ddw_tbex_settings_cb_rehook_wprocket',
-					'tbex_group_smart_tweaks',
-					'tbex-section-plugins'
-				);
+			add_settings_field(
+				'remove_aioseo',
+				__( 'Remove All In One SEO Pack Items', 'toolbar-extras' ),
+				'ddw_tbex_settings_cb_remove_aioseo',
+				'tbex_group_smart_tweaks',
+				'tbex-section-plugins',
+				array( 'class' => 'tbex-setting-conditional' . $status_aioseo )
+			);
 
-			}  // end if
+			/** UpdraftPlus */
+			$status_updraftplus = defined( 'UPDRAFTPLUS_DIR' ) ? ' plugin-updraftplus' : $plugin_inactive;
 
-			if ( defined( 'AUTOPTIMIZE_PLUGIN_DIR' ) ) {		// Autoptimuze
+			add_settings_field(
+				'remove_updraftplus',
+				__( 'Remove UpdraftPlus Items', 'toolbar-extras' ),
+				'ddw_tbex_settings_cb_remove_updraftplus',
+				'tbex_group_smart_tweaks',
+				'tbex-section-plugins',
+				array( 'class' => 'tbex-setting-conditional' . $status_updraftplus )
+			);
 
-				add_settings_field(
-					'rehook_autoptimize',
-					__( 'Re-hook Autoptimize Items', 'toolbar-extras' ),
-					'ddw_tbex_settings_cb_rehook_autoptimize',
-					'tbex_group_smart_tweaks',
-					'tbex-section-plugins'
-				);
+			/** Members (by Justin Tadlock) */
+			$status_members = class_exists( 'Members_Plugin' ) ? ' plugin-members' : $plugin_inactive;
 
-			}  // end if
+			add_settings_field(
+				'remove_members',
+				__( 'Remove Members Items', 'toolbar-extras' ),
+				'ddw_tbex_settings_cb_remove_members',
+				'tbex_group_smart_tweaks',
+				'tbex-section-plugins',
+				array( 'class' => 'tbex-setting-conditional' . $status_members )
+			);
 
-			if ( class_exists( 'Swift_Performance_Lite' ) || class_exists( 'Swift_Performance' ) ) {		// Swift Performance Lite
+			/** Cobalt Apps Plugins/ Themes */
+			$status_cobaltapps = function_exists( 'cobalt_apps_admin_bar_menu' ) ? ' plugin-cobalt-apps' : $plugin_inactive;
 
-				add_settings_field(
-					'rehook_swiftperformance',
-					__( 'Re-hook Swift Performance Items', 'toolbar-extras' ),
-					'ddw_tbex_settings_cb_rehook_swiftperformance',
-					'tbex_group_smart_tweaks',
-					'tbex-section-plugins'
-				);
+			add_settings_field(
+				'remove_cobaltapps',
+				__( 'Remove Cobalt Apps Items', 'toolbar-extras' ),
+				'ddw_tbex_settings_cb_remove_cobaltapps',
+				'tbex_group_smart_tweaks',
+				'tbex-section-plugins',
+				array( 'class' => 'tbex-setting-conditional' . $status_cobaltapps )
+			);
 
-			}  // end if
+			/** Custom CSS Pro (by WaspThemes) */
+			$status_custom_css_pro = ddw_tbex_is_custom_css_pro_active() ? ' plugin-custom-css-pro' : $plugin_inactive;
 
-			if ( ddw_tbex_is_woocommerce_active() ) {		// WooCommerce
+			add_settings_field(
+				'remove_customcsspro',
+				__( 'Remove Custom CSS Pro Items', 'toolbar-extras' ),
+				'ddw_tbex_settings_cb_remove_customcsspro',
+				'tbex_group_smart_tweaks',
+				'tbex-section-plugins',
+				array( 'class' => 'tbex-setting-conditional' . $status_custom_css_pro )
+			);
 
-				add_settings_field(
-					'remove_woo_posttypes',
-					__( 'Remove some WooCommerce post types from New Content Group', 'toolbar-extras' ),
-					'ddw_tbex_settings_cb_remove_woo_posttypes',
-					'tbex_group_smart_tweaks',
-					'tbex-section-plugins'
-				);
+			/** Easy Updates Manager */
+			$status_easy_updates_manager = ddw_tbex_is_easy_updates_manager_active() ? ' plugin-easy-updates-manager' : $plugin_inactive;
 
-			}  // end if
+			add_settings_field(
+				'remove_easy_um',
+				__( 'Remove Easy Updates Manager Items', 'toolbar-extras' ),
+				'ddw_tbex_settings_cb_remove_easy_um',
+				'tbex_group_smart_tweaks',
+				'tbex-section-plugins',
+				array( 'class' => 'tbex-setting-conditional' . $status_easy_updates_manager )
+			);
 
-			if ( defined( 'AIOSEOP_VERSION' ) || defined( 'AIOSEOPPRO' ) ) {		// All In One SEO Pack (Pro)
+			/** Admin Page Spider (Pro) */
+			$status_admin_page_spider = ( function_exists( 'page_spider_init' ) || defined( 'EDD_APSPP_VERSION' ) ) ? ' plugin-admin-page-spider' : $plugin_inactive;
 
-				add_settings_field(
-					'remove_aioseo',
-					__( 'Remove All In One SEO Pack Items', 'toolbar-extras' ),
-					'ddw_tbex_settings_cb_remove_aioseo',
-					'tbex_group_smart_tweaks',
-					'tbex-section-plugins'
-				);
+			add_settings_field(
+				'remove_apspider',
+				__( 'Remove Admin Page Spider Items', 'toolbar-extras' ),
+				'ddw_tbex_settings_cb_remove_apspider',
+				'tbex_group_smart_tweaks',
+				'tbex-section-plugins',
+				array( 'class' => 'tbex-setting-conditional' . $status_admin_page_spider )
+			);
 
-			}  // end if
+			/** Multisite Toolbar Additions */
+			$status_mstba = ddw_tbex_is_mstba_active() ? ' plugin-mstba' : $plugin_inactive;
 
-			if ( defined( 'UPDRAFTPLUS_DIR' ) ) {		// UpdraftPlus
-
-				add_settings_field(
-					'remove_updraftplus',
-					__( 'Remove UpdraftPlus Items', 'toolbar-extras' ),
-					'ddw_tbex_settings_cb_remove_updraftplus',
-					'tbex_group_smart_tweaks',
-					'tbex-section-plugins'
-				);
-
-			}  // end if
-
-			if ( class_exists( 'Members_Plugin' ) ) {		// Members (by Justin Tadlock)
-
-				add_settings_field(
-					'remove_members',
-					__( 'Remove Members Items', 'toolbar-extras' ),
-					'ddw_tbex_settings_cb_remove_members',
-					'tbex_group_smart_tweaks',
-					'tbex-section-plugins'
-				);
-
-			}  // end if
-
-			if ( function_exists( 'cobalt_apps_admin_bar_menu' ) ) {		// Cobalt Apps Plugins/ Themes
-
-				add_settings_field(
-					'remove_cobaltapps',
-					__( 'Remove Cobalt Apps Items', 'toolbar-extras' ),
-					'ddw_tbex_settings_cb_remove_cobaltapps',
-					'tbex_group_smart_tweaks',
-					'tbex-section-plugins'
-				);
-
-			}  // end if
-
-			if ( ddw_tbex_is_custom_css_pro_active() ) {		// Custom CSS Pro (by WaspThemes)
-
-				add_settings_field(
-					'remove_customcsspro',
-					__( 'Remove Custom CSS Pro Items', 'toolbar-extras' ),
-					'ddw_tbex_settings_cb_remove_customcsspro',
-					'tbex_group_smart_tweaks',
-					'tbex-section-plugins'
-				);
-
-			}  // end if
-
-			if ( ddw_tbex_is_easy_updates_manager_active() ) {		// Easy Updates Manager
-
-				add_settings_field(
-					'remove_easy_um',
-					__( 'Remove Easy Updates Manager Items', 'toolbar-extras' ),
-					'ddw_tbex_settings_cb_remove_easy_um',
-					'tbex_group_smart_tweaks',
-					'tbex-section-plugins'
-				);
-
-			}  // end if
-
-			if ( function_exists( 'page_spider_init' ) || defined( 'EDD_APSPP_VERSION' ) ) {		// Admin Page Spider (Pro)
-
-				add_settings_field(
-					'remove_apspider',
-					__( 'Remove Admin Page Spider Items', 'toolbar-extras' ),
-					'ddw_tbex_settings_cb_remove_apspider',
-					'tbex_group_smart_tweaks',
-					'tbex-section-plugins'
-				);
-
-			}  // end if
-
-			if ( ddw_tbex_is_mstba_active() ) {		// Multisite Toolbar Additions
-
-				add_settings_field(
-					'remove_mstba_siteextgroup',
-					__( 'Remove Site Extend Group of Multisite Toolbar Additions Plugin', 'toolbar-extras' ),
-					'ddw_tbex_settings_cb_remove_mstba_siteextgroup',
-					'tbex_group_smart_tweaks',
-					'tbex-section-plugins'
-				);
-
-			}  // end if
+			add_settings_field(
+				'remove_mstba_siteextgroup',
+				__( 'Remove Site Extend Group of Multisite Toolbar Additions Plugin', 'toolbar-extras' ),
+				'ddw_tbex_settings_cb_remove_mstba_siteextgroup',
+				'tbex_group_smart_tweaks',
+				'tbex-section-plugins',
+				array( 'class' => 'tbex-setting-conditional' . $status_mstba )
+			);
 
 		/** Smart Tweaks: 4th section - translations behavior */
 		add_settings_section( 
@@ -491,17 +495,14 @@ function ddw_tbex_register_settings_smart_tweaks() {
 			'tbex_group_smart_tweaks'
 		);
 
-			if ( ddw_tbex_is_elementor_active() ) {
-
-				add_settings_field(
-					'unload_td_elementor',
-					__( 'Unload Elementor Translations', 'toolbar-extras' ),
-					'ddw_tbex_settings_cb_unload_td_elementor',
-					'tbex_group_smart_tweaks',
-					'tbex-section-translations'
-				);
-
-			}  // end if
+			add_settings_field(
+				'unload_td_elementor',
+				__( 'Unload Elementor Translations', 'toolbar-extras' ),
+				'ddw_tbex_settings_cb_unload_td_elementor',
+				'tbex_group_smart_tweaks',
+				'tbex-section-translations',
+				array( 'class' => 'tbex-setting-conditional' . $status_elementor )
+			);
 
 			add_settings_field(
 				'unload_td_toolbar_extras',
@@ -519,53 +520,54 @@ function ddw_tbex_register_settings_smart_tweaks() {
 			'tbex_group_smart_tweaks'
 		);
 
-			/** Only display setting fields if Elementor is really active */
-			if ( ddw_tbex_is_elementor_active() ) {
+			/**
+			 * Only display the following setting fields if Elementor is really
+			 *   active.
+			 */
 
-				/** Settings for Elementor Pro template types, v2.4.0+ */
-				if ( ddw_tbex_is_elementor_version( 'pro', TBEX_ELEMENTOR_240_BETA, '>=' ) ) {
+			/** Settings for Elementor Pro template types, v2.4.0+ */
+			$status_elementor_240 = ( ddw_tbex_is_elementor_active() && ddw_tbex_is_elementor_version( 'pro', TBEX_ELEMENTOR_240_BETA, '>=' ) ) ? ' plugin-elementor-240' : $plugin_inactive;
 
-					$string_build_group = __( 'Build Group', 'toolbar-extras' );
+			$string_build_group = __( 'Build Group', 'toolbar-extras' );
 
-					$title_elementor_tbuilder = sprintf(
-						/* translators: %s - label "Build Group" */
-						__( 'Display Theme Builder Item in %s?', 'toolbar-extras' ),
-						$string_build_group
-					);
+			$title_elementor_tbuilder = sprintf(
+				/* translators: %s - label "Build Group" */
+				__( 'Display Theme Builder Item in %s?', 'toolbar-extras' ),
+				$string_build_group
+			);
 
-					$title_elementor_popups = sprintf(
-						/* translators: %s - label "Build Group" */
-						__( 'Display Popups Item in %s?', 'toolbar-extras' ),
-						$string_build_group
-					);
+			$title_elementor_popups = sprintf(
+				/* translators: %s - label "Build Group" */
+				__( 'Display Popups Item in %s?', 'toolbar-extras' ),
+				$string_build_group
+			);
 
-					add_settings_field(
-						'display_elementor_tbuilder',
-						$title_elementor_tbuilder,
-						'ddw_tbex_settings_cb_display_elementor_tbuilder',
-						'tbex_group_smart_tweaks',
-						'tbex-section-pagebuilder'
-					);
+			add_settings_field(
+				'display_elementor_tbuilder',
+				$title_elementor_tbuilder,
+				'ddw_tbex_settings_cb_display_elementor_tbuilder',
+				'tbex_group_smart_tweaks',
+				'tbex-section-pagebuilder',
+				array( 'class' => 'tbex-setting-conditional' . $status_elementor_240 )
+			);
 
-					add_settings_field(
-						'display_elementor_popups',
-						$title_elementor_popups,
-						'ddw_tbex_settings_cb_display_elementor_popups',
-						'tbex_group_smart_tweaks',
-						'tbex-section-pagebuilder'
-					);
+			add_settings_field(
+				'display_elementor_popups',
+				$title_elementor_popups,
+				'ddw_tbex_settings_cb_display_elementor_popups',
+				'tbex_group_smart_tweaks',
+				'tbex-section-pagebuilder',
+				array( 'class' => 'tbex-setting-conditional' . $status_elementor_240 )
+			);
 
-				}  // end if
-
-				add_settings_field(
-					'remove_elementor_wpwidgets',
-					__( 'Remove WordPress Widgets from Elementor Live Editor', 'toolbar-extras' ),
-					'ddw_tbex_settings_cb_remove_elementor_wpwidgets',
-					'tbex_group_smart_tweaks',
-					'tbex-section-pagebuilder'
-				);
-
-			}  // end if
+			add_settings_field(
+				'remove_elementor_wpwidgets',
+				__( 'Remove WordPress Widgets from Elementor Live Editor', 'toolbar-extras' ),
+				'ddw_tbex_settings_cb_remove_elementor_wpwidgets',
+				'tbex_group_smart_tweaks',
+				'tbex-section-pagebuilder',
+				array( 'class' => 'tbex-setting-conditional' . $status_elementor )
+			);
 
 }  // end function
 

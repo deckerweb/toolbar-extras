@@ -1,6 +1,6 @@
 <?php
 
-// includes/block-editor-addons/items-ultimate-addons-for-gutenberg
+// includes/block-editor-addons/items-stackable
 
 /**
  * Prevent direct access to this file.
@@ -76,6 +76,13 @@ function ddw_tbex_aoitems_stackable() {
 				'stackable-translate',
 				'group-stackable-resources',
 				'https://translate.wordpress.org/projects/wp-plugins/stackable-ultimate-gutenberg-blocks'
+			);
+
+			ddw_tbex_resource_item(
+				'github',
+				'stackable-github',
+				'group-stackable-resources',
+				'https://github.com/gambitph/Stackable'
 			);
 
 			ddw_tbex_resource_item(

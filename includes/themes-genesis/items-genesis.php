@@ -13,6 +13,30 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 
 /**
+ * Onboarding demo content & layout(s). This requires Genesis v2.8.0 or higher,
+ *   and a Child Theme or plugin with the config sub folder, including an
+ *   "onboarding.php" file.
+ *
+ * @since 1.4.2
+ *
+ * @uses PARENT_THEME_VERSION (from Genesis Core)
+ *
+ * @return bool TRUE when the conditions are met, FALSE otherwise.
+ */
+function ddw_tbex_is_genesis_onboarding_active() {
+
+	$child_onboarding_path = get_stylesheet_directory() . '/config/onboarding.php';
+
+	if ( version_compare( PARENT_THEME_VERSION, '2.8.0', '>=' ) && file_exists( $child_onboarding_path ) ) {
+		return TRUE;
+	}
+
+	return FALSE;
+
+}  // end function
+
+
+/**
  * Check if current user has access to one of the possible Genesis Settings
  *   pages or not.
  *
@@ -26,7 +50,7 @@ function ddw_tbex_is_genesis_settings_active( $genesis_handle = '' ) {
 	$options   = '';
 	$user_meta = '';
 
-	switch ( strtolower( esc_attr( $genesis_handle ) ) ) {
+	switch ( sanitize_key( $genesis_handle ) ) {
 
 		case 'settings':
 			$options   = 'genesis-admin-menu';
@@ -58,6 +82,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_genesis', 100 );
  *
  * @since 1.0.0
  * @since 1.4.0 Various tweaks & optimizations.
+ * @since 1.4.2 Added optional onboarding item.
  *
  * @uses ddw_tbex_string_theme_title()
  * @uses ddw_tbex_is_genesis_settings_active()
@@ -92,6 +117,24 @@ function ddw_tbex_themeitems_genesis() {
 				'parent' => 'theme-creative',
 			)
 		);
+
+			/** Optional Onboarding item */
+			if ( ddw_tbex_is_genesis_onboarding_active() ) {
+
+				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					array(
+						'id'     => 'gen-child-onboarding',
+						'parent' => 'theme-creative',	//'group-genesischild-creative',
+						'title'  => esc_attr__( 'Getting Started', 'toolbar-extras' ),
+						'href'   => esc_url( admin_url( 'admin.php?page=genesis-getting-started' ) ),
+						'meta'   => array(
+							'target' => '',
+							'title'  => esc_attr__( 'Getting Started: Import Demo Content &amp; Layouts', 'toolbar-extras' )
+						)
+					)
+				);
+
+			}  // end if
 
 		/** Add optional plugins group */
 		$GLOBALS[ 'wp_admin_bar' ]->add_group(
@@ -221,10 +264,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_genesis_resources', 130 );
  *   Hook in later to have these items at the bottom.
  *
  * @since 1.0.0
+ * @since 1.4.2 Added developer docs.
  *
  * @uses ddw_tbex_display_items_resources()
  * @uses ddw_tbex_is_genesis_settings_active()
  * @uses ddw_tbex_resource_item()
+ * @uses ddw_tbex_display_items_dev_mode()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -267,7 +312,7 @@ function ddw_tbex_themeitems_genesis_resources() {
 		'community-forum',
 		'theme-community',
 		'group-theme-resources',
-		'http://www.studiopress.com/forums/'
+		'https://studiopress.community'
 	);
 
 	ddw_tbex_resource_item(
@@ -306,4 +351,200 @@ function ddw_tbex_themeitems_genesis_resources() {
 		)
 	);
 
+	/** Developer documentation */
+	if ( ddw_tbex_display_items_dev_mode() ) {
+
+		ddw_tbex_resource_item(
+			'documentation-dev',
+			'theme-developer-docs',
+			'group-theme-resources',
+			'https://studiopress.github.io/genesis/'
+		);
+
+		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			array(
+				'id'     => 'genesis-beblog-dev-resource',
+				'parent' => 'group-theme-resources',
+				'title'  => esc_attr__( 'Blog: Genesis Development', 'toolbar-extras' ),
+				'href'   => 'https://www.billerickson.net/category/genesis/',
+				'meta'   => array(
+					'rel'    => ddw_tbex_meta_rel(),
+					'target' => ddw_tbex_meta_target(),
+					'title'  => esc_attr__( 'Bill Erickson Blog: Development with Genesis Framework', 'toolbar-extras' )
+				)
+			)
+		);
+
+	}  // end if
+
 }  // end function
+
+
+add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_genesis_cpt_archives', 80 );
+/**
+ * Admin - Table: Genesis Archive Settings
+ * Admin - Archive Settings: Customizer + View
+ * Frontend Archiv: Customizer
+ *
+ * @since 1.4.2
+ *
+ * @uses ddw_tbex_item_title_with_icon()
+ * @uses ddw_tbex_string_customize_attr()
+ * @uses ddw_tbex_customizer_focus()
+ * @uses ddw_tbex_meta_target()
+ *
+ * @see plugin file /includes/items-edit-content.php
+ */
+function ddw_tbex_themeitems_genesis_cpt_archives() {
+	
+	/** Bail early if proper context is not met */
+	if ( ( is_admin() && 'edit.php' !== $GLOBALS[ 'pagenow' ] )		// admin && edit.php pagenow
+		|| ( ! is_admin() && ! is_post_type_archive() )				// frontend && post type archive
+	) {
+		return;
+	}
+
+	/** Get the current post type */
+	$post_type = ( is_admin() ) ? get_current_screen()->post_type : $GLOBALS[ 'wp_query' ]->query_vars[ 'post_type' ];
+
+	/** Bail early if Genesis CPT Archive Settings is not supported */
+	if ( ! post_type_supports( $post_type, 'genesis-cpt-archives-settings' ) ) {
+		return;
+	}
+
+	/** The Customizer link node arguments for reusage */
+	$customizer_node = array(
+		'id'     => 'genesis-cpt-archive-customize',
+		'parent' => 'cpt-archive-settings',		// Original item by Genesis
+		'title'  => ddw_tbex_item_title_with_icon( ddw_tbex_string_customize_attr( __( 'Appearance', 'toolbar-extras' ) ) ),
+		'href'   => ddw_tbex_customizer_focus( '', '', get_post_type_archive_link( $post_type ) ),
+		'meta'   => array(
+			'class'  => 'tbex-customize-content',
+			'target' => ddw_tbex_meta_target(),
+			'title'  => ddw_tbex_string_customize_attr( __( 'Appearance', 'toolbar-extras' ) ),
+		)
+	);
+
+	/**
+	 * In admin:
+	 *   - For post type list table add archive settings sub link
+	 *   - For CPT Archive Settings page add iew & Customizer links
+	 */
+	if ( is_admin() ) {
+
+		//$current_screen = get_current_screen();
+		//$post_type      = $current_screen->post_type;
+
+		/** For: Post type list table view */
+		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			array(
+				'id'     => 'tbex-genesis-cpt-archive-' . $post_type,
+				'parent' => 'archive',		// Original item by WordPress Core
+				'title'  => ddw_tbex_item_title_with_icon( __( 'Archive Settings', 'toolbar-extras' ) ),
+				'href'   => esc_url( admin_url( 'edit.php?post_type=' . $post_type . '&page=genesis-cpt-archive-' . $post_type ) ),
+				'meta'   => array(
+					'class'  => 'tbex-genesis-cpt-archive',
+					'target' => '',
+					'title'  => esc_attr__( 'Genesis', 'toolbar-extras' ) . ': ' . esc_attr__( 'Archive Settings', 'toolbar-extras' ),
+				)
+			)
+		);
+
+		/**
+		 * For: When on Genesis CPT Archive Settings page (completely new item)
+		 *   in this context.
+		 */
+		if ( genesis_is_menu_page( 'genesis-cpt-archive-' . $post_type ) ) {
+
+			$post_type_object = get_post_type_object( $post_type );
+
+			/** Title label */
+			$build_title = sprintf(
+				/* translators: %s - plural label of post type */
+				__( 'View %s', 'toolbar-extras' ),
+				$post_type_object->labels->name
+			);
+
+			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				array(
+					'id'     => 'cpt-archive-settings',		// same as Genesis original
+					'title'  => ddw_tbex_item_title_with_icon( $build_title ),
+					'href'   => esc_url( get_post_type_archive_link( $post_type ) ),
+					'meta'   => array(
+						'class'  => 'tbex-view-content',	//'tbex-genesis-cpt-archive-view',
+						'target' => ddw_tbex_meta_target(),
+						'title'  => esc_attr__( 'View Archive for', 'toolbar-extras' ) . ': ' . $post_type_object->labels->name,
+					)
+				)
+			);
+
+			$GLOBALS[ 'wp_admin_bar' ]->add_node( $customizer_node );
+
+		}  // end if
+
+	}
+
+	/** On frontend: For post type archive add Customizer link */
+	else {
+
+		// $post_type_object = get_post_type_object( $wp_query->query_vars[ 'post_type' ] );
+
+		$GLOBALS[ 'wp_admin_bar' ]->add_node( $customizer_node );
+
+	}  // end if
+
+}  // end function
+
+
+if ( ddw_tbex_is_genesis_onboarding_active() ) :
+
+	add_action( 'admin_menu', 'ddw_tbex_genesis_onboarding_submenu', 50 );
+	/**
+	 * Add optional Onboarding page as submenu to the Genesis left-hand admin
+	 *   menu.
+	 *
+	 * @since 1.4.2
+	 */
+	function ddw_tbex_genesis_onboarding_submenu() {
+
+		remove_submenu_page( null, 'genesis-getting-started' );
+
+		add_submenu_page(
+			'genesis',
+			__( 'Genesis Getting Started - Import Demo Content', 'toolbar-extras' ),
+			__( 'Import Demo Content', 'toolbar-extras' ),
+			'edit_theme_options',
+			esc_url( admin_url( 'admin.php?page=genesis-getting-started' ) )
+		);
+
+	}  // end function
+
+
+	add_filter( 'parent_file', 'ddw_tbex_parent_submenu_tweaks_genesis' );
+	/**
+	 * Highlight proper submenu and parent menu for the optional Genesis
+	 *   onboarding page.
+	 *
+	 * @since 1.4.2
+	 *
+	 * @uses get_current_screen()
+	 *
+	 * @global string $GLOBALS[ 'submenu_file' ]
+	 *
+	 * @param string $parent_file The filename of the parent menu.
+	 * @return string $parent_file The tweaked filename of the parent menu.
+	 */
+	function ddw_tbex_parent_submenu_tweaks_genesis( $parent_file ) {
+
+		if ( 'admin_page_genesis-getting-started' === get_current_screen()->id ) {
+
+			$GLOBALS[ 'submenu_file' ] = esc_url( admin_url( 'admin.php?page=genesis-getting-started' ) );
+			$parent_file = 'genesis';
+
+		}  // end if
+
+		return $parent_file;
+
+	}  // end function
+
+endif;

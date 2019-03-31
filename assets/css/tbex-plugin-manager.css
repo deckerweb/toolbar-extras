@@ -1,0 +1,165 @@
+/**
+ * // assets/css/tbex-plugin-manager
+ * @package Toolbar Extras - Assets
+ * @since 1.4.2
+ */
+
+/* Toolbar Extras Plugin Manager Page
+------------------------------------------------------------ */
+
+/** About */
+
+.tbex-pm-about {
+	display: block;
+    /* margin: 20px; */
+    padding: 20px;
+}
+
+.tbex-pm-about,
+.tbex-pm-icon,
+.tbex-pm-about-text {
+	vertical-align: middle;
+}
+
+.tbex-pm-icon,
+.tbex-pm-about-text {
+	display: inline-block;
+}
+
+.tbex-pm-icon {
+	padding: 15px 0 15px 15px;
+	width: 15%;
+}
+
+.tbex-pm-about-text {
+	font-size: 15px;
+	line-height: 1.625;
+	padding: 20px 20px 20px 0;
+	width: 79%;
+}
+
+
+/** Plugins table */
+
+.plugins_page_toolbar-extras-suggested-plugins .tablenav {
+	margin-bottom: 15px;
+}
+
+.plugins_page_toolbar-extras-suggested-plugins .tablenav:nth-of-type(2) {
+	margin-top: 15px;
+}
+
+.plugins_page_toolbar-extras-suggested-plugins .no-link {
+	color: #bbb;
+}
+
+.plugins_page_toolbar-extras-suggested-plugins td.plugin-update {
+	background-color: #f0ebe8;
+}
+
+.plugins_page_toolbar-extras-suggested-plugins .notice.info {
+	border-left: 0;
+	background-color: transparent;
+	padding: 0 15px 20px;
+}
+
+.plugins_page_toolbar-extras-suggested-plugins .notice.info p:before {
+	clear: left;
+	color: #7e49c2;
+	content: "\f106";
+	float: left;
+	margin-right: 10px;
+}
+
+.plugins_page_toolbar-extras-suggested-plugins .plugin-update-tr.active td,
+.plugins_page_toolbar-extras-suggested-plugins .plugins .active th.check-column {
+	border-left: 4px solid #0b0;  /* #7e49c2; */
+}
+
+.plugins_page_toolbar-extras-suggested-plugins td.plugin-title strong {
+	font-size: 15px;
+}
+
+.plugins_page_toolbar-extras-suggested-plugins .active .column-status {
+	color: #0b0;  /* #3db44c; */
+	font-weight: 600;
+}
+
+.plugins_page_toolbar-extras-suggested-plugins .active .column-status:before {
+	content: "\f147";
+	display: inline-block;
+	font: 400 20px/1 dashicons;
+	margin: 1px 0 0;
+	speak: none;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	vertical-align: top;
+}
+
+
+/** Badges */
+
+.tbex-pm-badge {
+	border-radius: 2px;
+	color: #fafafa;
+	display: inline-block;
+	font-size: 11px;
+	font-weight: 600;
+	padding: 2px 12px;
+	margin-right: 10px;
+}
+
+.tbex-pm-required {
+	background-color: #e1362e;
+}
+
+.tbex-pm-recommended {
+	background-color: #3db44c;
+}
+
+.tbex-pm-useful {
+	background-color: #c56cd7;
+}
+
+
+/** Info texts */
+
+.tbex-pm-for {
+	background-color: #ddd;
+	border-radius: 2px;
+	display: inline-block;
+	font-size: 11.7px;
+	padding: 1.7px 8px;
+}
+
+.tbex-pm-for-string {
+	font-weight: 600;
+}
+
+.tbex-pm-plugin-text {
+	display: block;
+	margin-top: 7px;
+}
+
+
+/* Media Queries
+------------------------------------------------------------ */
+
+@media only screen and (max-width: 782px) {
+
+	/* #wpbody-content .wp-list-table.plugins */
+	.plugins_page_toolbar-extras-suggested-plugins td.plugin-update {
+		display: table-cell !important;
+	}
+
+	.plugins_page_toolbar-extras-suggested-plugins td.column-installed-version,
+	.plugins_page_toolbar-extras-suggested-plugins td.column-suggested-version,
+	.plugins_page_toolbar-extras-suggested-plugins td.column-status {
+		display: inline-block !important;
+	}
+
+	.plugins_page_toolbar-extras-suggested-plugins .row-actions {
+		display: inline !important;
+	}
+	
+}

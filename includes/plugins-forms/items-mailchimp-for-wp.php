@@ -27,11 +27,11 @@ function ddw_tbex_site_items_mc4wp_forms() {
 		array(
 			'id'     => 'forms-mc4wp',
 			'parent' => 'tbex-sitegroup-forms',
-			'title'  => ddw_tbex_string_forms_system( 'MailChimp' ),		// esc_attr__( 'MailChimp Forms', 'toolbar-extras' ),
+			'title'  => ddw_tbex_string_forms_system( 'MailChimp' ),
 			'href'   => esc_url( admin_url( 'admin.php?page=mailchimp-for-wp-forms' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_forms_system( 'MailChimp' ),		// esc_attr__( 'MailChimp Forms', 'toolbar-extras' )
+				'title'  => ddw_tbex_string_forms_system( 'MailChimp' ),
 			)
 		)
 	);
@@ -61,26 +61,29 @@ function ddw_tbex_site_items_mc4wp_forms() {
 
 			foreach ( $forms as $form ) {
 
+				$form_id   = absint( $form->ID );
+				$form_name = esc_attr( $form->post_title );
+
 				/** Add item per form */
 				$GLOBALS[ 'wp_admin_bar' ]->add_node(
 					array(
-						'id'     => 'forms-mc4wp-form-' . $form->ID,
+						'id'     => 'forms-mc4wp-form-' . $form_id,
 						'parent' => 'group-mc4wp-edit-forms',
-						'title'  => $form->post_title,
-						'href'   => esc_url( admin_url( 'admin.php?page=mailchimp-for-wp-forms&view=edit-form&form_id=' . $form->ID ) ),
+						'title'  => $form_name,
+						'href'   => esc_url( admin_url( 'admin.php?page=mailchimp-for-wp-forms&view=edit-form&form_id=' . $form_id ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'Edit Form', 'toolbar-extras' ) . ': ' . $form->post_title
+							'title'  => esc_attr__( 'Edit Form', 'toolbar-extras' ) . ': ' . $form_name,
 						)
 					)
 				);
 
 				$GLOBALS[ 'wp_admin_bar' ]->add_node(
 					array(
-						'id'     => 'forms-mc4wp-form-' . $form->ID . '-fields',
-						'parent' => 'forms-mc4wp-form-' . $form->ID,
+						'id'     => 'forms-mc4wp-form-' . $form_id . '-fields',
+						'parent' => 'forms-mc4wp-form-' . $form_id,
 						'title'  => esc_attr__( 'Form Builder', 'toolbar-extras' ),
-						'href'   => esc_url( admin_url( 'admin.php?page=mailchimp-for-wp-forms&view=edit-form&form_id=' . $form->ID . '&tab=fields' ) ),
+						'href'   => esc_url( admin_url( 'admin.php?page=mailchimp-for-wp-forms&view=edit-form&form_id=' . $form_id . '&tab=fields' ) ),
 						'meta'   => array(
 							'target' => '',
 							'title'  => esc_attr__( 'Form Builder', 'toolbar-extras' )
@@ -90,10 +93,10 @@ function ddw_tbex_site_items_mc4wp_forms() {
 
 				$GLOBALS[ 'wp_admin_bar' ]->add_node(
 					array(
-						'id'     => 'forms-mc4wp-form-' . $form->ID . '-messages',
-						'parent' => 'forms-mc4wp-form-' . $form->ID,
+						'id'     => 'forms-mc4wp-form-' . $form_id . '-messages',
+						'parent' => 'forms-mc4wp-form-' . $form_id,
 						'title'  => esc_attr__( 'Messages', 'toolbar-extras' ),
-						'href'   => esc_url( admin_url( 'admin.php?page=mailchimp-for-wp-forms&view=edit-form&form_id=' . $form->ID . '&tab=messages' ) ),
+						'href'   => esc_url( admin_url( 'admin.php?page=mailchimp-for-wp-forms&view=edit-form&form_id=' . $form_id . '&tab=messages' ) ),
 						'meta'   => array(
 							'target' => '',
 							'title'  => esc_attr__( 'Messages', 'toolbar-extras' )
@@ -103,10 +106,10 @@ function ddw_tbex_site_items_mc4wp_forms() {
 
 				$GLOBALS[ 'wp_admin_bar' ]->add_node(
 					array(
-						'id'     => 'forms-mc4wp-form-' . $form->ID . '-settings',
-						'parent' => 'forms-mc4wp-form-' . $form->ID,
+						'id'     => 'forms-mc4wp-form-' . $form_id . '-settings',
+						'parent' => 'forms-mc4wp-form-' . $form_id,
 						'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
-						'href'   => esc_url( admin_url( 'admin.php?page=mailchimp-for-wp-forms&view=edit-form&form_id=' . $form->ID . '&tab=settings' ) ),
+						'href'   => esc_url( admin_url( 'admin.php?page=mailchimp-for-wp-forms&view=edit-form&form_id=' . $form_id . '&tab=settings' ) ),
 						'meta'   => array(
 							'target' => '',
 							'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
@@ -116,10 +119,10 @@ function ddw_tbex_site_items_mc4wp_forms() {
 
 				$GLOBALS[ 'wp_admin_bar' ]->add_node(
 					array(
-						'id'     => 'forms-mc4wp-form-' . $form->ID . '-appearance',
-						'parent' => 'forms-mc4wp-form-' . $form->ID,
+						'id'     => 'forms-mc4wp-form-' . $form_id . '-appearance',
+						'parent' => 'forms-mc4wp-form-' . $form_id,
 						'title'  => esc_attr__( 'Appearance', 'toolbar-extras' ),
-						'href'   => esc_url( admin_url( 'admin.php?page=mailchimp-for-wp-forms&view=edit-form&form_id=' . $form->ID . '&tab=appearance' ) ),
+						'href'   => esc_url( admin_url( 'admin.php?page=mailchimp-for-wp-forms&view=edit-form&form_id=' . $form_id . '&tab=appearance' ) ),
 						'meta'   => array(
 							'target' => '',
 							'title'  => esc_attr__( 'Appearance', 'toolbar-extras' )
@@ -221,7 +224,8 @@ function ddw_tbex_site_items_mc4wp_forms() {
 				)
 			);
 
-				if ( defined( 'RG_CURRENT_VIEW' ) ) {
+				/** Gravity Forms */
+				if ( ddw_tbex_is_gravityforms_active() ) {
 
 					$GLOBALS[ 'wp_admin_bar' ]->add_node(
 						array(
@@ -238,7 +242,8 @@ function ddw_tbex_site_items_mc4wp_forms() {
 
 				}  // end if
 
-				if ( defined( 'WPCF7_VERSION' ) ) {
+				/** Contact Form 7 (CF7) */
+				if ( ddw_tbex_is_cf7_active() ) {
 
 					$GLOBALS[ 'wp_admin_bar' ]->add_node(
 						array(
@@ -255,6 +260,7 @@ function ddw_tbex_site_items_mc4wp_forms() {
 
 				}  // end if
 
+				/** WooCommerce */
 				if ( ddw_tbex_is_woocommerce_active() ) {
 
 					$GLOBALS[ 'wp_admin_bar' ]->add_node(
@@ -272,6 +278,7 @@ function ddw_tbex_site_items_mc4wp_forms() {
 
 				}  // end if
 
+				/** Easy Digital Downloads (EDD) */
 				if ( ddw_tbex_is_edd_active() ) {
 
 					$GLOBALS[ 'wp_admin_bar' ]->add_node(
@@ -438,6 +445,13 @@ function ddw_tbex_site_items_mc4wp_forms() {
 				'mc4wp-translate',
 				'group-mc4wp-resources',
 				'https://translate.wordpress.org/projects/wp-plugins/mailchimp-for-wp'
+			);
+
+			ddw_tbex_resource_item(
+				'github',
+				'mc4wp-github',
+				'group-mc4wp-resources',
+				'https://github.com/ibericode/mailchimp-for-wordpress'
 			);
 
 			ddw_tbex_resource_item(

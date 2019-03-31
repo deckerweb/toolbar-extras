@@ -22,15 +22,17 @@ add_action( 'admin_bar_menu', 'ddw_tbex_cpt_items_portfolio', 115 );
  */
 function ddw_tbex_cpt_items_portfolio() {
 
+	$type = 'portfolio';
+
 	/** For: Manage Content */
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(
 		array(
-			'id'     => 'manage-content-cpt-portfolio',
+			'id'     => 'manage-content-cpt-' . $type,
 			'parent' => 'manage-content',
 			'title'  => esc_attr__( 'Edit Portfolio Items', 'toolbar-extras' ),
-			'href'   => esc_url( admin_url( 'edit.php?post_type=portfolio' ) ),
+			'href'   => esc_url( admin_url( 'edit.php?post_type=' . $type ) ),
 			'meta'   => array(
-				'class'  => 'tbex-mc-cpt-portfolio',
+				'class'  => 'tbex-mc-cpt-' . $type,
 				'target' => '',
 				'title'  => esc_attr__( 'Edit Portfolio Items', 'toolbar-extras' )
 			)
@@ -40,17 +42,17 @@ function ddw_tbex_cpt_items_portfolio() {
 	/** For: Theme Creative items */
 	$GLOBALS[ 'wp_admin_bar' ]->add_group(
 		array(
-			'id'     => 'posttype-portfolio',
+			'id'     => 'posttype-' . $type,
 			'parent' => 'theme-creative'
 		)
 	);
 
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(
 		array(
-			'id'     => 'cptportfolio-all',
-			'parent' => 'posttype-portfolio',
+			'id'     => 'cpt' . $type . '-all',
+			'parent' => 'posttype-' . $type,
 			'title'  => esc_attr__( 'All Portfolio Items', 'toolbar-extras' ),
-			'href'   => esc_url( admin_url( 'edit.php?post_type=portfolio' ) ),
+			'href'   => esc_url( admin_url( 'edit.php?post_type=' . $type ) ),
 			'meta'   => array(
 				'target' => '',
 				'title'  => esc_attr__( 'All Portfolio Items', 'toolbar-extras' )
@@ -60,10 +62,10 @@ function ddw_tbex_cpt_items_portfolio() {
 
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(
 		array(
-			'id'     => 'cptportfolio-new',
-			'parent' => 'posttype-portfolio',
+			'id'     => 'cpt' . $type . '-new',
+			'parent' => 'posttype-' . $type,
 			'title'  => esc_attr__( 'New Portfolio Item', 'toolbar-extras' ),
-			'href'   => esc_url( admin_url( 'post-new.php?post_type=portfolio' ) ),
+			'href'   => esc_url( admin_url( 'post-new.php?post_type=' . $type ) ),
 			'meta'   => array(
 				'target' => '',
 				'title'  => esc_attr__( 'New Portfolio Item', 'toolbar-extras' )
@@ -71,14 +73,14 @@ function ddw_tbex_cpt_items_portfolio() {
 		)
 	);
 
-	if ( ddw_tbex_is_elementor_active() && \Elementor\User::is_current_user_can_edit_post_type( 'portfolio' ) ) {
+	if ( ddw_tbex_is_elementor_active() && \Elementor\User::is_current_user_can_edit_post_type( $type ) ) {
 
 		$GLOBALS[ 'wp_admin_bar' ]->add_node(
 			array(
-				'id'     => 'cptportfolio-builder',
-				'parent' => 'posttype-portfolio',
+				'id'     => 'cpt' . $type . '-builder',
+				'parent' => 'posttype-' . $type,
 				'title'  => esc_attr__( 'New Portfolio Builder', 'toolbar-extras' ),
-				'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'portfolio' ) ),
+				'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( $type ) ),
 				'meta'   => array(
 					'target' => ddw_tbex_meta_target( 'builder' ),
 					'title'  => esc_attr__( 'New Portfolio Builder', 'toolbar-extras' )
@@ -91,10 +93,10 @@ function ddw_tbex_cpt_items_portfolio() {
 
 			$GLOBALS[ 'wp_admin_bar' ]->add_node(
 				array(
-					'id'     => 'new-cptportfolio-with-builder',
-					'parent' => 'new-portfolio',
+					'id'     => 'new-cpt' . $type . '-with-builder',
+					'parent' => 'new-' . $type,
 					'title'  => ddw_tbex_string_newcontent_with_builder(),
-					'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'portfolio' ) ),
+					'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( $type ) ),
 					'meta'   => array(
 						'target' => ddw_tbex_meta_target( 'builder' ),
 						'title'  => ddw_tbex_string_newcontent_create_with_builder()
@@ -107,14 +109,14 @@ function ddw_tbex_cpt_items_portfolio() {
 	}  // end if
 
 	/** Genesis specific */
-	if ( post_type_supports( 'portfolio', 'genesis-cpt-archives-settings' ) ) {
+	if ( post_type_supports( $type, 'genesis-cpt-archives-settings' ) ) {
 
 		$GLOBALS[ 'wp_admin_bar' ]->add_node(
 			array(
-				'id'     => 'cptportfolio-archive',
-				'parent' => 'posttype-portfolio',
+				'id'     => 'cpt' . $type . '-archive',
+				'parent' => 'posttype-' . $type,
 				'title'  => esc_attr__( 'Archive Settings', 'toolbar-extras' ),
-				'href'   => esc_url( admin_url( 'edit.php?post_type=portfolio&page=genesis-cpt-archive-portfolio' ) ),
+				'href'   => esc_url( admin_url( 'edit.php?post_type=' . $type . '&page=genesis-cpt-archive-' . $type ) ),
 				'meta'   => array(
 					'target' => '',
 					'title'  => esc_attr__( 'Archive Settings', 'toolbar-extras' )

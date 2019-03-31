@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 1.2.0
  */
 if ( function_exists( 'genesis_sample_theme_defaults' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-sample.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-sample.php';
 }
 
 
@@ -31,7 +31,7 @@ if ( function_exists( 'genesis_sample_theme_defaults' ) ) {
  * @since 1.1.0
  */
 if ( 'dynamik-gen' === get_stylesheet() ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-dynamik-website-builder.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-dynamik-website-builder.php';
 }
 
 
@@ -43,7 +43,16 @@ if ( 'dynamik-gen' === get_stylesheet() ) {
  *              specific child theme.
  */
 if ( class_exists( 'Mai_Theme_Engine' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-mai-theme-engine.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-mai-theme-engine.php';
+}
+
+
+/**
+ * Revolution Pro (Premium, by StudioPress)
+ * @since 1.4.2
+ */
+if ( function_exists( 'revolution_theme_defaults' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-revolution-pro.php';
 }
 
 
@@ -52,7 +61,7 @@ if ( class_exists( 'Mai_Theme_Engine' ) ) {
  * @since 1.2.0
  */
 if ( function_exists( 'essence_theme_defaults' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-essence-pro.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-essence-pro.php';
 }
 
 
@@ -61,7 +70,7 @@ if ( function_exists( 'essence_theme_defaults' ) ) {
  * @since 1.3.5
  */
 if ( function_exists( 'breakthrough_theme_defaults' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-breakthrough-pro.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-breakthrough-pro.php';
 }
 
 
@@ -70,7 +79,7 @@ if ( function_exists( 'breakthrough_theme_defaults' ) ) {
  * @since 1.2.0
  */
 if ( function_exists( 'business_theme_defaults' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-business-pro.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-business-pro.php';
 }
 
 
@@ -79,7 +88,7 @@ if ( function_exists( 'business_theme_defaults' ) ) {
  * @since 1.2.0
  */
 if ( function_exists( 'studio_theme_defaults' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-studio-pro.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-studio-pro.php';
 }
 
 
@@ -88,7 +97,7 @@ if ( function_exists( 'studio_theme_defaults' ) ) {
  * @since 1.2.0
  */
 if ( function_exists( 'corporate_theme_defaults' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-corporate-pro.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-corporate-pro.php';
 }
 
 
@@ -97,7 +106,7 @@ if ( function_exists( 'corporate_theme_defaults' ) ) {
  * @since 1.2.0
  */
 if ( function_exists( 'academy_theme_defaults' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-academy-pro.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-academy-pro.php';
 }
 
 
@@ -106,7 +115,7 @@ if ( function_exists( 'academy_theme_defaults' ) ) {
  * @since 1.2.0
  */
 if ( function_exists( 'authority_theme_defaults' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-authority-pro.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-authority-pro.php';
 }
 
 
@@ -115,7 +124,7 @@ if ( function_exists( 'authority_theme_defaults' ) ) {
  * @since 1.2.0
  */
 if ( function_exists( 'outfitter_theme_defaults' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-outfitter-pro.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-outfitter-pro.php';
 }
 
 
@@ -124,7 +133,7 @@ if ( function_exists( 'outfitter_theme_defaults' ) ) {
  * @since 1.3.2
  */
 if ( 'niche-pro' === get_stylesheet() ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-niche-pro.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-niche-pro.php';
 }
 
 
@@ -133,7 +142,7 @@ if ( 'niche-pro' === get_stylesheet() ) {
  * @since 1.2.0
  */
 if ( function_exists( 'boss_theme_defaults' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-boss-pro.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-boss-pro.php';
 }
 
 
@@ -142,7 +151,7 @@ if ( function_exists( 'boss_theme_defaults' ) ) {
  * @since 1.2.0
  */
 if ( function_exists( 'refined_enqueue_scripts' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-refined-pro.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-refined-pro.php';
 }
 
 
@@ -151,7 +160,7 @@ if ( function_exists( 'refined_enqueue_scripts' ) ) {
  * @since 1.2.0
  */
 if ( function_exists( 'monochrome_theme_defaults' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-monochrome-pro.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-monochrome-pro.php';
 }
 
 
@@ -160,7 +169,7 @@ if ( function_exists( 'monochrome_theme_defaults' ) ) {
  * @since 1.2.0
  */
 if ( 'slush-pro' === get_stylesheet() || function_exists( 'zp_secondary_nav_wrap_open' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-slush-pro.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-slush-pro.php';
 }
 
 
@@ -169,7 +178,7 @@ if ( 'slush-pro' === get_stylesheet() || function_exists( 'zp_secondary_nav_wrap
  * @since 1.2.0
  */
 if ( function_exists( 'foodie_pro_load_textdomain' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-foodie-pro.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-foodie-pro.php';
 }
 
 
@@ -178,7 +187,7 @@ if ( function_exists( 'foodie_pro_load_textdomain' ) ) {
  * @since 1.2.0
  */
 if ( function_exists( 'cookd_load_textdomain' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-cookd-pro.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-cookd-pro.php';
 }
 
 
@@ -187,7 +196,7 @@ if ( function_exists( 'cookd_load_textdomain' ) ) {
  * @since 1.2.0
  */
 if ( function_exists( 'brunch_pro_load_textdomain' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-brunch-pro.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-brunch-pro.php';
 }
 
 
@@ -196,7 +205,7 @@ if ( function_exists( 'brunch_pro_load_textdomain' ) ) {
  * @since 1.3.0
  */
 if ( function_exists( 'agentpress_theme_defaults' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-agentpress-pro.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-agentpress-pro.php';
 }
 
 
@@ -205,7 +214,7 @@ if ( function_exists( 'agentpress_theme_defaults' ) ) {
  * @since 1.3.0
  */
 if ( function_exists( 'altitude_theme_defaults' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-altitude-pro.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-altitude-pro.php';
 }
 
 
@@ -214,7 +223,7 @@ if ( function_exists( 'altitude_theme_defaults' ) ) {
  * @since 1.3.0
  */
 if ( function_exists( 'author_theme_defaults' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-author-pro.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-author-pro.php';
 }
 
 
@@ -223,7 +232,7 @@ if ( function_exists( 'author_theme_defaults' ) ) {
  * @since 1.3.0
  */
 if ( function_exists( 'daily_dish_theme_defaults' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-daily-dish-pro.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-daily-dish-pro.php';
 }
 
 
@@ -232,7 +241,7 @@ if ( function_exists( 'daily_dish_theme_defaults' ) ) {
  * @since 1.3.0
  */
 if ( function_exists( 'infinity_theme_defaults' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-infinity-pro.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-infinity-pro.php';
 }
 
 
@@ -241,7 +250,7 @@ if ( function_exists( 'infinity_theme_defaults' ) ) {
  * @since 1.3.2
  */
 if ( function_exists( 'lifestyle_theme_defaults' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-lifestyle-pro.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-lifestyle-pro.php';
 }
 
 
@@ -250,7 +259,7 @@ if ( function_exists( 'lifestyle_theme_defaults' ) ) {
  * @since 1.3.0
  */
 if ( function_exists( 'magazine_theme_defaults' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-magazine-pro.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-magazine-pro.php';
 }
 
 
@@ -259,7 +268,7 @@ if ( function_exists( 'magazine_theme_defaults' ) ) {
  * @since 1.3.0
  */
 if ( function_exists( 'parallax_theme_defaults' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-parallax-pro.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-parallax-pro.php';
 }
 
 
@@ -268,7 +277,7 @@ if ( function_exists( 'parallax_theme_defaults' ) ) {
  * @since 1.3.0
  */
 if ( function_exists( 'wellness_theme_defaults' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-wellness-pro.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-wellness-pro.php';
 }
 
 
@@ -277,7 +286,7 @@ if ( function_exists( 'wellness_theme_defaults' ) ) {
  * @since 1.3.2
  */
 if ( function_exists( 'aspire_theme_setting_defaults' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-aspire-pro.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-aspire-pro.php';
 }
 
 
@@ -286,7 +295,7 @@ if ( function_exists( 'aspire_theme_setting_defaults' ) ) {
  * @since 1.3.2
  */
 if ( function_exists( 'atmosphere_theme_defaults' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-atmosphere-pro.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-atmosphere-pro.php';
 }
 
 
@@ -295,7 +304,7 @@ if ( function_exists( 'atmosphere_theme_defaults' ) ) {
  * @since 1.3.2
  */
 if ( function_exists( 'digital_theme_defaults' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-digital-pro.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-digital-pro.php';
 }
 
 
@@ -304,7 +313,7 @@ if ( function_exists( 'digital_theme_defaults' ) ) {
  * @since 1.3.2
  */
 if ( function_exists( 'executive_theme_defaults' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-executive-pro.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-executive-pro.php';
 }
 
 
@@ -313,7 +322,7 @@ if ( function_exists( 'executive_theme_defaults' ) ) {
  * @since 1.3.2
  */
 if ( 'gallery-pro' === get_stylesheet() ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-gallery-pro.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-gallery-pro.php';
 }
 
 
@@ -322,7 +331,7 @@ if ( 'gallery-pro' === get_stylesheet() ) {
  * @since 1.3.2
  */
 if ( function_exists( 'maker_theme_setting_defaults' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-maker-pro.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-maker-pro.php';
 }
 
 
@@ -331,7 +340,7 @@ if ( function_exists( 'maker_theme_setting_defaults' ) ) {
  * @since 1.3.2
  */
 if ( function_exists( 'market_theme_defaults' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-market-theme.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-market-theme.php';
 }
 
 
@@ -340,7 +349,7 @@ if ( function_exists( 'market_theme_defaults' ) ) {
  * @since 1.3.2
  */
 if ( function_exists( 'metro_theme_defaults' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-metro-pro.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-metro-pro.php';
 }
 
 
@@ -349,7 +358,7 @@ if ( function_exists( 'metro_theme_defaults' ) ) {
  * @since 1.3.2
  */
 if ( 'showcase-pro' === get_stylesheet() ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-showcase-pro.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-showcase-pro.php';
 }
 
 
@@ -358,7 +367,7 @@ if ( 'showcase-pro' === get_stylesheet() ) {
  * @since 1.3.2
  */
 if ( function_exists( 'spi_theme_defaults' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-smart-passive-income-pro.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-smart-passive-income-pro.php';
 }
 
 
@@ -367,5 +376,50 @@ if ( function_exists( 'spi_theme_defaults' ) ) {
  * @since 1.1.0
  */
 if ( function_exists( 'gbeaver_initial_layouts' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-gbeaver.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-gbeaver.php';
+}
+
+
+/**
+ * Hello Pro 2 (Premium, by brandiD)
+ * @since 1.4.2
+ */
+if ( function_exists( 'bid_hello_pro_theme_defaults' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-hello-pro.php';
+}
+
+
+/**
+ * Kreativ Pro (Premium, by ThemeSquare)
+ * @since 1.4.2
+ */
+if ( function_exists( 'kreativ_theme_defaults' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-kreativ-pro.php';
+}
+
+
+/**
+ * Jessica (Premium, by 9seeds, LLC)
+ * @since 1.4.2
+ */
+if ( function_exists( 'jessica_load_scripts' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-jessica.php';
+}
+
+
+/**
+ * Divine (Premium, by Restored 316 Designs // Lauren Gaige)
+ * @since 1.4.2
+ */
+if ( function_exists( 'divine_theme_defaults' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-divine.php';
+}
+
+
+/**
+ * Pretty Chic (Premium, by Lindsey Riel)
+ * @since 1.4.2
+ */
+if ( function_exists( 'divine_theme_defaults' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-divine.php';
 }

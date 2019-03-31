@@ -80,13 +80,13 @@ $tbex_info = (array) ddw_tbex_info_values();
 				<strong><?php _e( 'Share at Social Media', 'toolbar-extras' ); ?></strong>
 				<br /><?php echo sprintf(
 					'<a class="tbex-share" href="%s" target="_blank" rel="noopener noreferrer"><span class="dashicons-before dashicons-twitter"></span> Twitter</a>',
-					ddw_tbex_is_german() ? ddw_tbex_get_info_url( 'url_tweet_de', TRUE ) : ddw_tbex_get_info_url( 'url_tweet_en', TRUE )
+					ddw_tbex_is_german() ? ddw_tbex_get_info_url( 'url_tweet_de', 'tbex', TRUE ) : ddw_tbex_get_info_url( 'url_tweet_en', 'tbex', TRUE )
 				); ?> <?php echo sprintf(
 					'<a class="tbex-share" href="%s" target="_blank" rel="noopener noreferrer"><span class="dashicons-before dashicons-facebook"></span> Facebook</a>',
-					ddw_tbex_get_info_url( 'url_fb_share', TRUE )
+					ddw_tbex_get_info_url( 'url_fb_share', 'tbex', TRUE )
 				); ?> <?php echo sprintf(
-					'<a class="tbex-share" href="%s" target="_blank" rel="noopener noreferrer"><span class="dashicons-before dashicons-googleplus"></span> Google+</a>',
-					ddw_tbex_get_info_url( 'url_gplus_share', TRUE )
+					'<a class="tbex-share" href="%s" target="_blank" rel="noopener noreferrer"><span class="dashicons-before dashicons-share"></span> LinkedIn</a>',
+					ddw_tbex_get_info_url( 'url_lin_share', 'tbex', TRUE )
 				); ?>
 			</p>
 		</div>

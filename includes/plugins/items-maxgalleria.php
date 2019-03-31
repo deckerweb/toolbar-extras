@@ -81,7 +81,7 @@ function ddw_tbex_site_items_maxgalleria() {
 			array(
 				'id'     => 'maxgalleria-info',
 				'parent' => 'maxgalleria',
-				'title'  => esc_attr__( 'Sytem Info', 'toolbar-extras' ),
+				'title'  => esc_attr__( 'System Info', 'toolbar-extras' ),
 				'href'   => esc_url( admin_url( 'edit.php?post_type=maxgallery&page=maxgalleria-support' ) ),
 				'meta'   => array(
 					'target' => '',

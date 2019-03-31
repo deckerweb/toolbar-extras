@@ -50,6 +50,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_ninja_forms' );
  * Items for Plugin: Ninja Forms (free, by The WP Ninjas)
  *
  * @since 1.3.1
+ * @since 1.4.2 Security enhancements.
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -90,15 +91,16 @@ function ddw_tbex_site_items_ninja_forms() {
 
 			foreach ( $forms as $form ) {
 
+				$form_id    = absint( $form->id );
 				$form_title = esc_attr( $form->title );
 
 				/** Add item per form */
 				$GLOBALS[ 'wp_admin_bar' ]->add_node(
 					array(
-						'id'     => 'forms-ninjaforms-form-' . $form->id,
+						'id'     => 'forms-ninjaforms-form-' . $form_id,
 						'parent' => 'group-ninjaforms-edit-forms',
 						'title'  => $form_title,
-						'href'   => esc_url( admin_url( 'admin.php?page=ninja-forms&form_id=' . $form->id ) ),
+						'href'   => esc_url( admin_url( 'admin.php?page=ninja-forms&form_id=' . $form_id ) ),
 						'meta'   => array(
 							'target' => ddw_tbex_meta_target( 'builder' ),
 							'title'  => esc_attr__( 'Edit Form', 'toolbar-extras' ) . ': ' . $form_title
@@ -108,10 +110,10 @@ function ddw_tbex_site_items_ninja_forms() {
 
 					$GLOBALS[ 'wp_admin_bar' ]->add_node(
 						array(
-							'id'     => 'forms-ninjaforms-form-' . $form->id . '-builder',
-							'parent' => 'forms-ninjaforms-form-' . $form->id,
+							'id'     => 'forms-ninjaforms-form-' . $form_id . '-builder',
+							'parent' => 'forms-ninjaforms-form-' . $form_id,
 							'title'  => esc_attr__( 'Form Builder', 'toolbar-extras' ),
-							'href'   => esc_url( admin_url( 'admin.php?page=ninja-forms&form_id=' . $form->id ) ),
+							'href'   => esc_url( admin_url( 'admin.php?page=ninja-forms&form_id=' . $form_id ) ),
 							'meta'   => array(
 								'target' => ddw_tbex_meta_target( 'builder' ),
 								'title'  => esc_attr__( 'Form Builder', 'toolbar-extras' )
@@ -121,10 +123,10 @@ function ddw_tbex_site_items_ninja_forms() {
 
 					$GLOBALS[ 'wp_admin_bar' ]->add_node(
 						array(
-							'id'     => 'forms-ninjaforms-form-' . $form->id . '-preview',
-							'parent' => 'forms-ninjaforms-form-' . $form->id,
+							'id'     => 'forms-ninjaforms-form-' . $form_id . '-preview',
+							'parent' => 'forms-ninjaforms-form-' . $form_id,
 							'title'  => esc_attr__( 'Preview', 'toolbar-extras' ),
-							'href'   => esc_url( site_url( '/?nf_preview_form=' . $form->id ) ),
+							'href'   => esc_url( site_url( '/?nf_preview_form=' . $form_id ) ),
 							'meta'   => array(
 								'target' => ddw_tbex_meta_target(),
 								'title'  => esc_attr__( 'Preview', 'toolbar-extras' )
@@ -134,10 +136,10 @@ function ddw_tbex_site_items_ninja_forms() {
 
 					$GLOBALS[ 'wp_admin_bar' ]->add_node(
 						array(
-							'id'     => 'forms-ninjaforms-form-' . $form->id . '-submissions',
-							'parent' => 'forms-ninjaforms-form-' . $form->id,
+							'id'     => 'forms-ninjaforms-form-' . $form_id . '-submissions',
+							'parent' => 'forms-ninjaforms-form-' . $form_id,
 							'title'  => esc_attr__( 'Submissions', 'toolbar-extras' ),
-							'href'   => esc_url( admin_url( 'edit.php?post_status=all&post_type=nf_sub&form_id=' . $form->id ) ),
+							'href'   => esc_url( admin_url( 'edit.php?post_status=all&post_type=nf_sub&form_id=' . $form_id ) ),
 							'meta'   => array(
 								'target' => '',
 								'title'  => esc_attr__( 'Submissions', 'toolbar-extras' )

@@ -20,15 +20,15 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_widgetkit_for_elementor', 100 );
  *
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_widgetkit_for_elementor() {
+function ddw_tbex_aoitems_widgetkit_for_elementor( $admin_bar ) {
 
 	/** Use Add-On hook place */
 	add_filter( 'tbex_filter_is_addon', '__return_empty_string' );
 
 	/** Plugin's Settings */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'ao-widgetkit',
 			'parent' => 'tbex-addons',
@@ -36,12 +36,12 @@ function ddw_tbex_aoitems_widgetkit_for_elementor() {
 			'href'   => esc_url( admin_url( 'admin.php?page=widgetkit-settings' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_addon_title_attr( __( 'WidgetKit for Elementor', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_addon_title_attr( __( 'WidgetKit for Elementor', 'toolbar-extras' ) ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-widgetkit-elements',
 				'parent' => 'ao-widgetkit',
@@ -49,12 +49,12 @@ function ddw_tbex_aoitems_widgetkit_for_elementor() {
 				'href'   => esc_url( admin_url( 'admin.php?page=widgetkit-settings#widgetkit-elements' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Activate Elements', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Activate Elements', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-widgetkit-systeminfo',
 				'parent' => 'ao-widgetkit',
@@ -62,7 +62,7 @@ function ddw_tbex_aoitems_widgetkit_for_elementor() {
 				'href'   => esc_url( admin_url( 'admin.php?page=widgetkit-settings#widgetkit-info' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'System Info', 'toolbar-extras' )
+					'title'  => esc_attr__( 'System Info', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -70,11 +70,11 @@ function ddw_tbex_aoitems_widgetkit_for_elementor() {
 		/** Group: Plugin's Resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-widgetkit-resources',
 					'parent' => 'ao-widgetkit',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

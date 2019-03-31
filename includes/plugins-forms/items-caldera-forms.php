@@ -17,8 +17,10 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_caldera_forms' );
  * Items for Plugin: Caldera Forms (free, by Caldera Labs)
  *
  * @since 1.3.1
+ * @since 1.4.2 Security enhancements.
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @global mixed  $GLOBALS[ 'wp_admin_bar' ]
+ * @global object global $wpdb
  */
 function ddw_tbex_site_items_caldera_forms() {
 
@@ -57,16 +59,17 @@ function ddw_tbex_site_items_caldera_forms() {
 
 			foreach ( $forms as $form ) {
 
-				$unserialize = unserialize( $form->config );
+				$unserialize = maybe_unserialize( $form->config );
 				$form_title  = esc_attr( $unserialize[ 'name' ] );
+				$form_id     = esc_attr( $form->form_id );
 
 				/** Add item per form */
 				$GLOBALS[ 'wp_admin_bar' ]->add_node(
 					array(
-						'id'     => 'forms-calderaforms-form-' . $form->form_id,
+						'id'     => 'forms-calderaforms-form-' . $form_id,
 						'parent' => 'group-calderaforms-edit-forms',
 						'title'  => $form_title,
-						'href'   => esc_url( admin_url( 'admin.php?edit=' . $form->form_id . '&page=caldera-forms' ) ),
+						'href'   => esc_url( admin_url( 'admin.php?edit=' . $form_id . '&page=caldera-forms' ) ),
 						'meta'   => array(
 							'target' => '',
 							'title'  => esc_attr__( 'Edit Form', 'toolbar-extras' ) . ': ' . $form_title
@@ -76,10 +79,10 @@ function ddw_tbex_site_items_caldera_forms() {
 
 					$GLOBALS[ 'wp_admin_bar' ]->add_node(
 						array(
-							'id'     => 'forms-calderaforms-form-' . $form->form_id . '-builder',
-							'parent' => 'forms-calderaforms-form-' . $form->form_id,
+							'id'     => 'forms-calderaforms-form-' . $form_id . '-builder',
+							'parent' => 'forms-calderaforms-form-' . $form_id,
 							'title'  => esc_attr__( 'Form Builder', 'toolbar-extras' ),
-							'href'   => esc_url( admin_url( 'admin.php?edit=' . $form->form_id . '&page=caldera-forms' ) ),
+							'href'   => esc_url( admin_url( 'admin.php?edit=' . $form_id . '&page=caldera-forms' ) ),
 							'meta'   => array(
 								'target' => '',
 								'title'  => esc_attr__( 'Form Builder', 'toolbar-extras' )
@@ -89,10 +92,10 @@ function ddw_tbex_site_items_caldera_forms() {
 
 					$GLOBALS[ 'wp_admin_bar' ]->add_node(
 						array(
-							'id'     => 'forms-calderaforms-form-' . $form->form_id . '-preview',
-							'parent' => 'forms-calderaforms-form-' . $form->form_id,
+							'id'     => 'forms-calderaforms-form-' . $form_id . '-preview',
+							'parent' => 'forms-calderaforms-form-' . $form_id,
 							'title'  => esc_attr__( 'Preview', 'toolbar-extras' ),
-							'href'   => esc_url( site_url( '/?cf_preview=' . $form->form_id ) ),
+							'href'   => esc_url( site_url( '/?cf_preview=' . $form_id ) ),
 							'meta'   => array(
 								'target' => ddw_tbex_meta_target(),
 								'title'  => esc_attr__( 'Preview', 'toolbar-extras' )

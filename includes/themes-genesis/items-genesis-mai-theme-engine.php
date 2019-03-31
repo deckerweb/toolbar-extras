@@ -49,7 +49,7 @@ function ddw_tbex_themeitems_mai_theme_engine_customize( array $items ) {
 			'title' => __( 'Mai Header &amp; Footer', 'toolbar-extras' ),
 			'id'    => 'mtecmz-header-footer',
 		),
-		'mai_site_layouts' => array(
+		'mai_site_layout' => array(
 			'type'  => 'section',
 			'title' => __( 'Mai Site Layouts', 'toolbar-extras' ),
 			'id'    => 'mtecmz-site-layouts',

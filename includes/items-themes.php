@@ -17,9 +17,9 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 1.0.0
  */
 if ( ( 'Astra' == wp_get_theme() && defined( 'ASTRA_THEME_VERSION' ) )	// Astra w/o child theme
-	|| ( 'astra' === basename( get_template_directory() ) && defined( 'ASTRA_THEME_VERSION' ) )		// Astra w/ child theme
+	|| ( 'astra' === wp_basename( get_template_directory() ) && defined( 'ASTRA_THEME_VERSION' ) )		// Astra w/ child theme
 ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/themes/items-astra.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/themes/items-astra.php';
 }
 
 
@@ -28,9 +28,9 @@ if ( ( 'Astra' == wp_get_theme() && defined( 'ASTRA_THEME_VERSION' ) )	// Astra 
  * @since 1.0.0
  */
 if ( ( 'GeneratePress' == wp_get_theme() && function_exists( 'generate_setup' ) )	// GeneratePress w/o child theme
-	|| ( 'generatepress' === basename( get_template_directory() ) && function_exists( 'generate_setup' ) )		// GeneratePress w/ child theme
+	|| ( 'generatepress' === wp_basename( get_template_directory() ) && function_exists( 'generate_setup' ) )		// GeneratePress w/ child theme
 ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/themes/items-generatepress.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/themes/items-generatepress.php';
 }
 
 
@@ -42,9 +42,9 @@ if ( ( 'GeneratePress' == wp_get_theme() && function_exists( 'generate_setup' ) 
  * @since 1.0.0
  */
 if ( ( 'OceanWP' == wp_get_theme() && function_exists( 'Ocean_Extra' ) )	// OceanWP w/o child theme
-	|| ( 'oceanwp' === basename( get_template_directory() ) && function_exists( 'Ocean_Extra' ) )		// OceanWP w/ child theme
+	|| ( 'oceanwp' === wp_basename( get_template_directory() ) && function_exists( 'Ocean_Extra' ) )		// OceanWP w/ child theme
 ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/themes/items-oceanwp.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/themes/items-oceanwp.php';
 }
 
 
@@ -58,10 +58,10 @@ if ( ( 'OceanWP' == wp_get_theme() && function_exists( 'Ocean_Extra' ) )	// Ocea
 if ( ddw_tbex_is_genesis_active() ) {
 
 	/** Genesis Framework items: */
-	require_once( TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis.php';
 
 	/** Load supported Genesis Child Themes */
-	require_once( TBEX_PLUGIN_DIR . 'includes/items-themes-genesis.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/items-themes-genesis.php';
 
 }  // end if Genesis Framework
 
@@ -71,9 +71,9 @@ if ( ddw_tbex_is_genesis_active() ) {
  * @since 1.1.0
  */
 if ( ( 'Hestia' == wp_get_theme() && defined( 'HESTIA_VERSION' ) )		// Hestia w/o child theme
-	|| ( 'hestia' === basename( get_template_directory() ) && defined( 'HESTIA_VERSION' ) )		// Hestia w/ child theme
+	|| ( 'hestia' === wp_basename( get_template_directory() ) && defined( 'HESTIA_VERSION' ) )		// Hestia w/ child theme
 ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/themes/items-hestia.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/themes/items-hestia.php';
 }
 
 
@@ -82,9 +82,9 @@ if ( ( 'Hestia' == wp_get_theme() && defined( 'HESTIA_VERSION' ) )		// Hestia w/
  * @since 1.1.0
  */
 if ( ( 'Page Builder Framework' == wp_get_theme() && function_exists( 'wpbf_theme_setup' ) )	// PBF w/o child theme
-	|| ( 'page-builder-framework' === basename( get_template_directory() ) && function_exists( 'wpbf_theme_setup' ) )		// PBF w/ child theme
+	|| ( 'page-builder-framework' === wp_basename( get_template_directory() ) && function_exists( 'wpbf_theme_setup' ) )		// PBF w/ child theme
 ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/themes/items-page-builder-framework.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/themes/items-page-builder-framework.php';
 }
 
 
@@ -93,9 +93,9 @@ if ( ( 'Page Builder Framework' == wp_get_theme() && function_exists( 'wpbf_them
  * @since 1.1.1
  */
 if ( ( 'Kava' == wp_get_theme() && class_exists( 'Kava_Theme_Setup' ) )		// Kava w/o child theme
-	|| ( ( 'kava' === basename( get_template_directory() ) || 'kavatheme' === basename( get_template_directory() ) ) && class_exists( 'Kava_Theme_Setup' ) )		// Kava w/ child theme
+	|| ( ( 'kava' === wp_basename( get_template_directory() ) || 'kavatheme' === wp_basename( get_template_directory() ) ) && class_exists( 'Kava_Theme_Setup' ) )		// Kava w/ child theme
 ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/themes/items-kava.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/themes/items-kava.php';
 }
 
 
@@ -104,9 +104,9 @@ if ( ( 'Kava' == wp_get_theme() && class_exists( 'Kava_Theme_Setup' ) )		// Kava
  * @since 1.3.0
  */
 if ( ( 'Buildwall' == wp_get_theme() && class_exists( 'Buildwall_Theme_Setup' ) )		// Buildwall w/o child theme
-	|| ( 'buildwall' === basename( get_template_directory() ) && class_exists( 'Buildwall_Theme_Setup' ) )		// Buildwall w/ child theme
+	|| ( 'buildwall' === wp_basename( get_template_directory() ) && class_exists( 'Buildwall_Theme_Setup' ) )		// Buildwall w/ child theme
 ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/themes/items-buildwall.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/themes/items-buildwall.php';
 }
 
 
@@ -115,9 +115,9 @@ if ( ( 'Buildwall' == wp_get_theme() && class_exists( 'Buildwall_Theme_Setup' ) 
  * @since 1.1.0
  */
 if ( ( 'Beaver Builder Theme' == wp_get_theme() && defined( 'FL_THEME_VERSION' ) )	// BB-Theme w/o child theme
-	|| ( 'bb-theme' === basename( get_template_directory() ) && defined( 'FL_THEME_VERSION' ) )		// BB-Theme w/ child theme
+	|| ( 'bb-theme' === wp_basename( get_template_directory() ) && defined( 'FL_THEME_VERSION' ) )		// BB-Theme w/ child theme
 ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/themes/items-beaver-builder-theme.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/themes/items-beaver-builder-theme.php';
 }
 
 
@@ -126,9 +126,9 @@ if ( ( 'Beaver Builder Theme' == wp_get_theme() && defined( 'FL_THEME_VERSION' )
  * @since 1.2.0
  */
 if ( ( 'Customify' == wp_get_theme() && class_exists( 'Customify' ) )	// Customify w/o child theme
-	|| ( 'customify' === basename( get_template_directory() ) && class_exists( 'Customify' ) )		// Customify w/ child theme
+	|| ( 'customify' === wp_basename( get_template_directory() ) && class_exists( 'Customify' ) )		// Customify w/ child theme
 ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/themes/items-customify.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/themes/items-customify.php';
 }
 
 
@@ -137,9 +137,9 @@ if ( ( 'Customify' == wp_get_theme() && class_exists( 'Customify' ) )	// Customi
  * @since 1.3.0
  */
 if ( ( 'Phlox' == wp_get_theme() && class_exists( 'Auxin' ) )	// Phlox w/o child theme
-	|| ( 'phlox' === basename( get_template_directory() ) && class_exists( 'Auxin' ) )		// Phlox w/ child theme
+	|| ( 'phlox' === wp_basename( get_template_directory() ) && class_exists( 'Auxin' ) )		// Phlox w/ child theme
 ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/themes/items-phlox.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/themes/items-phlox.php';
 }
 
 
@@ -151,9 +151,9 @@ if ( ( 'Phlox' == wp_get_theme() && class_exists( 'Auxin' ) )	// Phlox w/o child
  * @since 1.2.0
  */
 if ( ( 'Flexia' == wp_get_theme() && defined( 'FLEXIA_CORE_VERSION' ) )	// Flexia w/o child theme
-	|| ( 'flexia' === basename( get_template_directory() ) && defined( 'FLEXIA_CORE_VERSION' ) )		// Flexia w/ child theme
+	|| ( 'flexia' === wp_basename( get_template_directory() ) && defined( 'FLEXIA_CORE_VERSION' ) )		// Flexia w/ child theme
 ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/themes/items-flexia.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/themes/items-flexia.php';
 }
 
 
@@ -162,9 +162,9 @@ if ( ( 'Flexia' == wp_get_theme() && defined( 'FLEXIA_CORE_VERSION' ) )	// Flexi
  * @since 1.1.0
  */
 if ( ( 'Start' == wp_get_theme() && function_exists( 'start_setup' ) )	// StartWP w/o child theme
-	|| ( 'start' === basename( get_template_directory() ) && function_exists( 'start_setup' ) )		// StartWP w/ child theme
+	|| ( 'start' === wp_basename( get_template_directory() ) && function_exists( 'start_setup' ) )		// StartWP w/ child theme
 ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/themes/items-startwp.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/themes/items-startwp.php';
 }
 
 
@@ -173,56 +173,122 @@ if ( ( 'Start' == wp_get_theme() && function_exists( 'start_setup' ) )	// StartW
  * @since 1.1.0
  */
 if ( ( 'Freelancer' == wp_get_theme() && function_exists( 'freelancer_theme_setup' ) )	// Freelancer w/o child theme
-	|| ( 'freelancer' === basename( get_template_directory() ) && function_exists( 'freelancer_theme_setup' ) )		// Freelancer w/ child theme
+	|| ( 'freelancer' === wp_basename( get_template_directory() ) && function_exists( 'freelancer_theme_setup' ) )		// Freelancer w/ child theme
 ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/themes/items-freelancer.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/themes/items-freelancer.php';
 }
 
 
 /**
- * Themes: Suki (free, by SukiWP/ David Rozando)
+ * Theme: Suki (free, by SukiWP/ David Rozando)
  * @since 1.4.0
  */
 if ( ( 'Suki' == wp_get_theme() && class_exists( 'Suki' ) )	// Suki w/o child theme
-	|| ( 'suki' === basename( get_template_directory() ) && class_exists( 'Suki' ) )		// Suki w/ child theme
+	|| ( 'suki' === wp_basename( get_template_directory() ) && class_exists( 'Suki' ) )		// Suki w/ child theme
 ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/themes/items-suki.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/themes/items-suki.php';
 }
 
 
 /**
- * Themes: Sydney (free, by athemes)
+ * Theme: FuturioWP (free, by FuturioWP)
+ * @since 1.4.2
+ */
+if ( ( 'Futurio' == wp_get_theme() && defined( 'FUTURIO_EXTRA_CURRENT_VERSION' ) )	// Futurio w/o child theme
+	|| ( 'futurio' === wp_basename( get_template_directory() ) && defined( 'FUTURIO_EXTRA_CURRENT_VERSION' ) )		// Futurio w/ child theme
+) {
+	require_once TBEX_PLUGIN_DIR . 'includes/themes/items-futurio.php';
+}
+
+
+/**
+ * Theme: Rife (free, by Apollo13Themes)
+ * @since 1.4.2
+ */
+if ( ( 'Rife Free' == wp_get_theme() && class_exists( 'Apollo13Framework' ) )	// Rife Free w/o child theme
+	|| ( 'rife-free' === wp_basename( get_template_directory() ) && class_exists( 'Apollo13Framework' ) )		// Rife Free w/ child theme
+) {
+	require_once TBEX_PLUGIN_DIR . 'includes/themes/items-rife.php';
+}
+
+
+/**
+ * Theme: Zita (free, by WpZita team)
+ * @since 1.4.2
+ */
+if ( ( 'Zita' == wp_get_theme() && defined( 'ZITA_THEME_VERSION' ) )	// Zita w/o child theme
+	|| ( 'zita' === wp_basename( get_template_directory() ) && defined( 'ZITA_THEME_VERSION' ) )		// Zita w/ child theme
+) {
+	require_once TBEX_PLUGIN_DIR . 'includes/themes/items-zita.php';
+}
+
+
+/**
+ * Theme: Woostify (free, by BoostifyThemes)
+ * @since 1.4.2
+ */
+if ( ( 'Woostify' == wp_get_theme() && defined( 'WOOSTIFY_VERSION' ) )	// Woostify w/o child theme
+	|| ( 'woostify' === wp_basename( get_template_directory() ) && WOOSTIFY_VERSION )		// Woostify w/ child theme
+) {
+	require_once TBEX_PLUGIN_DIR . 'includes/themes/items-woostify.php';
+}
+
+
+/**
+ * Theme: Sydney (free, by athemes)
  * @since 1.4.0
  */
 if ( ( 'Sydney' == wp_get_theme() && function_exists( 'sydney_setup' ) )	// Sydney w/o child theme
-	|| ( 'sydney' === basename( get_template_directory() ) && function_exists( 'sydney_setup' ) )		// Sydney w/ child theme
+	|| ( 'sydney' === wp_basename( get_template_directory() ) && function_exists( 'sydney_setup' ) )		// Sydney w/ child theme
 ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/themes/items-sydney.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/themes/items-sydney.php';
 }
 
 
 /**
- * Themes: Visual Composer Starter (free, by The Visual Composer Team)
+ * Theme: Jupiter X (Premium, by Artbees)
+ * @since 1.4.2
+ */
+if ( ( 'JupiterX' == wp_get_theme() && ddw_tbex_is_artbees_raven_active() )	// Jupiter X w/o child theme
+	|| ( 'jupiterx' === wp_basename( get_template_directory() ) && ddw_tbex_is_artbees_raven_active() )		// Jupiter X w/ child theme
+) {
+	require_once TBEX_PLUGIN_DIR . 'includes/themes/items-jupiterx.php';
+}
+
+
+/**
+ * Theme: Visual Composer Starter (free, by The Visual Composer Team)
  * @since 1.4.0
  */
 if ( ( 'Visual Composer Starter' == wp_get_theme() && function_exists( 'visualcomposerstarter_setup' ) )	// Visual Composer Starter w/o child theme
-	|| ( 'visual-composer-starter' === basename( get_template_directory() ) && function_exists( 'visualcomposerstarter_setup' ) )		// Visual Composer Starter w/ child theme
+	|| ( 'visual-composer-starter' === wp_basename( get_template_directory() ) && function_exists( 'visualcomposerstarter_setup' ) )		// Visual Composer Starter w/ child theme
 ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/themes/items-visual-composer-starter.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/themes/items-visual-composer-starter.php';
 }
 
 
 /**
- * Themes: Default Twenty Themes (2010-2017), plus supported (third-party) Child Themes
+ * Theme: Default Twenty Themes (2010-2019), plus supported (third-party) Child Themes
  * @since 1.0.0
  */
 if ( ddw_tbex_is_default_twenty() ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/themes/items-default-twenty-themes.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/themes/items-default-twenty-themes.php';
 }
 
 
 /**
- * Themes: Elementor Hello Theme (free, by Elementor/ Pojo Me Digital)
+ * Theme: Storefront (free, by Automattic, Inc.)
+ * @since 1.4.2
+ */
+if (  ( 'Storefront' == wp_get_theme() && class_exists( 'Storefront' ) )	// Storefront w/o child theme
+	|| ( 'storefront' === wp_basename( get_template_directory() ) && class_exists( 'Storefront' ) )		// Storefront w/ child theme
+) {
+	require_once TBEX_PLUGIN_DIR . 'includes/themes/items-storefront.php';
+}
+
+
+/**
+ * Theme: Elementor Hello Theme (free, by Elementor Team/ Elementor Ltd.)
  *   Note: Only loaded if Elementor plugin is active!
  * @since 1.0.0
  * @since 1.4.0 Make dependent on Elementor (base) plugin.
@@ -232,105 +298,168 @@ if ( ddw_tbex_is_elementor_active() ) :
 		|| 'elementor-hello' == get_stylesheet()
 		|| 'elementor-hello-theme-master' == get_stylesheet()
 	) {
-		require_once( TBEX_PLUGIN_DIR . 'includes/elementor-official/items-elementor-hello-theme.php' );
+		require_once TBEX_PLUGIN_DIR . 'includes/elementor-official/items-elementor-hello-theme.php';
 	}
 endif;
 
 
 /**
- * Themes: Eletheme (free, by Liviu Duda)
+ * Theme: Layers for Elementor (free, by Elementor Team/ Elementor Ltd.)
+ * @since 1.4.2
+ */
+if ( 'layers-elementor' === wp_basename( get_template_directory() ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-official/items-layers-for-elementor.php';
+}
+
+
+/**
+ * Theme: Eletheme (free, by Liviu Duda)
  * @since 1.2.0
  */
 if ( function_exists( 'eletheme_setup' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/themes/items-eletheme.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/themes/items-eletheme.php';
 }
 
 
 /**
- * Themes: Saved (Premium, by churchthemes.com)
+ * Theme: Rooten (Premium, by BdThemes)
+ * @since 1.4.2
+ */
+if ( ( 'Rooten' == wp_get_theme() && function_exists( 'rooten_setup' ) )	// Rooten w/o child theme
+	|| ( 'rooten' === wp_basename( get_template_directory() ) && function_exists( 'rooten_setup' ) )		// Rooten w/ child theme
+) {
+	require_once TBEX_PLUGIN_DIR . 'includes/themes/items-rooten.php';
+}
+
+
+/**
+ * Theme: Saved (Premium, by churchthemes.com)
  * @since 1.3.0
  */
 if ( ( 'Saved' == wp_get_theme() && function_exists( 'saved_add_theme_support_framework' ) )	// Saved w/o child theme
-	|| ( 'saved' === basename( get_template_directory() ) && function_exists( 'saved_add_theme_support_framework' ) )		// Saved w/ child theme
+	|| ( 'saved' === wp_basename( get_template_directory() ) && function_exists( 'saved_add_theme_support_framework' ) )		// Saved w/ child theme
 ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/themes/items-ct-saved.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/themes/items-ct-saved.php';
 }
 
 
 /**
- * Themes: Maranatha (Premium, by churchthemes.com)
+ * Theme: Maranatha (Premium, by churchthemes.com)
  * @since 1.3.0
  */
 if ( ( 'Maranatha' == wp_get_theme() && function_exists( 'maranatha_add_theme_support_framework' ) )	// Maranatha w/o child theme
-	|| ( 'maranatha' === basename( get_template_directory() ) && function_exists( 'maranatha_add_theme_support_framework' ) )		// Maranatha w/ child theme
+	|| ( 'maranatha' === wp_basename( get_template_directory() ) && function_exists( 'maranatha_add_theme_support_framework' ) )		// Maranatha w/ child theme
 ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/themes/items-ct-maranatha.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/themes/items-ct-maranatha.php';
 }
 
 
 /**
- * Themes: Exodus (Premium, by churchthemes.com)
+ * Theme: Exodus (Premium, by churchthemes.com)
  * @since 1.3.0
  */
 if ( ( 'Exodus' == wp_get_theme() && function_exists( 'exodus_add_theme_support_framework' ) )	// Exodus w/o child theme
-	|| ( 'exodus' === basename( get_template_directory() ) && function_exists( 'exodus_add_theme_support_framework' ) )		// Exodus w/ child theme
+	|| ( 'exodus' === wp_basename( get_template_directory() ) && function_exists( 'exodus_add_theme_support_framework' ) )		// Exodus w/ child theme
 ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/themes/items-ct-exodus.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/themes/items-ct-exodus.php';
 }
 
 
 /**
- * Themes: Resurrect (Premium, by churchthemes.com)
+ * Theme: Resurrect (Premium, by churchthemes.com)
  * @since 1.3.0
  */
 if ( ( 'Resurrect' == wp_get_theme() && function_exists( 'resurrect_add_theme_support_framework' ) )	// Resurrect w/o child theme
-	|| ( 'resurrect' === basename( get_template_directory() ) && function_exists( 'resurrect_add_theme_support_framework' ) )		// Resurrect w/ child theme
+	|| ( 'resurrect' === wp_basename( get_template_directory() ) && function_exists( 'resurrect_add_theme_support_framework' ) )		// Resurrect w/ child theme
 ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/themes/items-ct-resurrect.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/themes/items-ct-resurrect.php';
 }
 
 
 /**
- * Themes: Risen (Premium, by Steven Gliebe)
+ * Theme: Risen (Premium, by Steven Gliebe)
  * @since 1.3.0
  */
 if ( ( 'Risen' == wp_get_theme() && function_exists( 'risen_setup' ) )	// Risen w/o child theme
-	|| ( 'risen' === basename( get_template_directory() ) && function_exists( 'risen_setup' ) )		// Risen w/ child theme
+	|| ( 'risen' === wp_basename( get_template_directory() ) && function_exists( 'risen_setup' ) )		// Risen w/ child theme
 ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/themes/items-ct-risen.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/themes/items-ct-risen.php';
 }
 
 
 /**
- * Themes: Atomic Blocks (free, by Atomic Blocks/ Array Themes)
+ * Theme: Atomic Blocks (free, by Atomic Blocks/ Array Themes)
  * @since 1.4.0
  */
 if ( ( 'Atomic Blocks' == wp_get_theme() && function_exists( 'atomic_blocks_setup' ) )	// Atomic Blocks w/o child theme
-	|| ( 'atomic-blocks' === basename( get_template_directory() ) && function_exists( 'atomic_blocks_setup' ) )		// Atomic Blocks w/ child theme
+	|| ( 'atomic-blocks' === wp_basename( get_template_directory() ) && function_exists( 'atomic_blocks_setup' ) )		// Atomic Blocks w/ child theme
 ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/themes/items-atomic-blocks.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/themes/items-atomic-blocks.php';
 }
 
 
 /**
- * Themes: Editor Blocks (free, by Editor Blocks/ Danny Cooper)
+ * Theme: Editor Blocks (free, by Editor Blocks/ Danny Cooper)
  * @since 1.4.0
  */
 if ( ( 'Editor Blocks' == wp_get_theme() && function_exists( 'editor_blocks_setup' ) )	// Editor Blocks w/o child theme
-	|| ( 'editor-blocks' === basename( get_template_directory() ) && function_exists( 'editor_blocks_setup' ) )		// Editor Blocks w/ child theme
+	|| ( 'editor-blocks' === wp_basename( get_template_directory() ) && function_exists( 'editor_blocks_setup' ) )		// Editor Blocks w/ child theme
 ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/themes/items-editor-blocks.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/themes/items-editor-blocks.php';
 }
 
 
 /**
- * Themes: CoBlocks (free, by Rich Tabor of CoBlocks)
+ * Theme: Stackable (free, by Gambit Technologies, Inc.)
+ * @since 1.4.2
+ */
+if ( ( 'Stackable' == wp_get_theme() && function_exists( 'stackable_setup' ) )	// Stackable w/o child theme
+	|| ( 'stackable' === wp_basename( get_template_directory() ) && function_exists( 'stackable_setup' ) )		// Stackable w/ child theme
+) {
+	require_once TBEX_PLUGIN_DIR . 'includes/themes/items-stackable.php';
+}
+
+
+/**
+ * Theme: CoBlocks (free, by Rich Tabor of CoBlocks)
  * @since 1.4.0
  */
 if ( ( 'CoBlocks' == wp_get_theme() && function_exists( 'coblocks_setup' ) )	// CoBlocks w/o child theme
-	|| ( 'coblocks' === basename( get_template_directory() ) && function_exists( 'coblocks_setup' ) )		// CoBlocks w/ child theme
+	|| ( 'coblocks' === wp_basename( get_template_directory() ) && function_exists( 'coblocks_setup' ) )		// CoBlocks w/ child theme
 ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/themes/items-coblocks.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/themes/items-coblocks.php';
+}
+
+
+/**
+ * Theme: Stag Blocks (free, by Codestag)
+ * @since 1.4.2
+ */
+if ( ( 'Stag Blocks' == wp_get_theme() && function_exists( 'stagblocks_setup' ) )	// Stag Blocks w/o child theme
+	|| ( 'stag-blocks' === wp_basename( get_template_directory() ) && function_exists( 'stagblocks_setup' ) )		// Stag Blocks w/ child theme
+) {
+	require_once TBEX_PLUGIN_DIR . 'includes/themes/items-stag-blocks.php';
+}
+
+
+/**
+ * Themes:
+ *   - Sane (free, by Elegant Marketplace)
+ *   - Sane Pro (Premium, by Elegant Marketplace)
+ * @since 1.4.2
+ */
+if (
+	(
+		( 'Sane' == wp_get_theme() || 'Sane Pro' == wp_get_theme() )		// Sane w/o child theme
+		&& function_exists( 'sane_setup' )
+	)	
+	||
+		(
+			( 'sane' === wp_basename( get_template_directory() ) || 'sane-pro' === wp_basename( get_template_directory() ) )		// Sane w/ child theme
+			&& function_exists( 'sane_setup' ) 
+		)		
+) {
+	require_once TBEX_PLUGIN_DIR . 'includes/themes/items-sane.php';
 }
 
 

@@ -28,7 +28,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 1.4.0
  */
 if ( ddw_tbex_is_btcplugin_active() ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-builder-template-categories.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-builder-template-categories.php';
 }
 
 
@@ -37,7 +37,7 @@ if ( ddw_tbex_is_btcplugin_active() ) {
  * @since 1.4.0
  */
 if ( class_exists( 'Meow_MBL_Core' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-block-layouts.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-block-layouts.php';
 }
 
 
@@ -46,7 +46,7 @@ if ( class_exists( 'Meow_MBL_Core' ) ) {
  * @since 1.4.0
  */
 if ( function_exists( 'block_lab' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-block-lab.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-block-lab.php';
 }
 
 
@@ -55,7 +55,7 @@ if ( function_exists( 'block_lab' ) ) {
  * @since 1.4.0
  */
 if ( function_exists( 'advanced_custom_blocks' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-advanced-custom-blocks.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-advanced-custom-blocks.php';
 }
 
 
@@ -64,7 +64,16 @@ if ( function_exists( 'advanced_custom_blocks' ) ) {
  * @since 1.4.0
  */
 if ( class_exists( 'LazyBlocks' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-lazy-blocks.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-lazy-blocks.php';
+}
+
+
+/**
+ * Plugin: Ghost Kit (free, by nK)
+ * @since 1.4.2
+ */
+if ( class_exists( 'GhostKit' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-ghostkit.php';
 }
 
 
@@ -73,7 +82,7 @@ if ( class_exists( 'LazyBlocks' ) ) {
  * @since 1.4.0
  */
 if ( class_exists( '\Gutenberg_Templates\Controllers\Gutenberg_Templates' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-block-templates.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-block-templates.php';
 }
 
 
@@ -82,7 +91,7 @@ if ( class_exists( '\Gutenberg_Templates\Controllers\Gutenberg_Templates' ) ) {
  * @since 1.4.0
  */
 if ( class_exists( 'SQHP_Placeholder_Init' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-placeholder-block.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-placeholder-block.php';
 }
 
 
@@ -91,7 +100,7 @@ if ( class_exists( 'SQHP_Placeholder_Init' ) ) {
  * @since 1.4.0
  */
 if ( class_exists( 'AdvancedGutenbergMain' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-advanced-gutenberg.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-advanced-gutenberg.php';
 }
 
 
@@ -100,7 +109,16 @@ if ( class_exists( 'AdvancedGutenbergMain' ) ) {
  * @since 1.4.0
  */
 if ( defined( 'ELEGANTBLOCKS_PLUGIN_URL' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-elegant-blocks.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-elegant-blocks.php';
+}
+
+
+/**
+ * Plugin: A/B Testing for WordPress (free, by CleverNode)
+ * @since 1.4.2
+ */
+if ( class_exists( '\ABTestingForWP\RegisterREST' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-ab-testing.php';
 }
 
 
@@ -109,7 +127,7 @@ if ( defined( 'ELEGANTBLOCKS_PLUGIN_URL' ) ) {
  * @since 1.4.0
  */
 if ( class_exists( 'ThemeZee_Custom_Color_Palette' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-custom-color-palette.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-custom-color-palette.php';
 }
 
 
@@ -118,7 +136,16 @@ if ( class_exists( 'ThemeZee_Custom_Color_Palette' ) ) {
  * @since 1.4.0
  */
 if ( function_exists( 'wp_block_ink_is_enabled' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-wp-block-ink.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-wp-block-ink.php';
+}
+
+
+/**
+ * Plugin: WooCommerce Custom Email Blocks (free, by VillaTheme)
+ * @since 1.4.2
+ */
+if ( ddw_tbex_is_woocommerce_active() && defined( 'VI_WCEB_VERSION' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-wc-email-blocks.php';
 }
 
 
@@ -134,7 +161,7 @@ if ( function_exists( 'wp_block_ink_is_enabled' ) ) {
  * @since 1.4.0
  */
 if ( class_exists( 'G7G_CFG_CustomFields' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-custom-fields-for-gutenberg.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-custom-fields-for-gutenberg.php';
 }
 
 
@@ -143,7 +170,7 @@ if ( class_exists( 'G7G_CFG_CustomFields' ) ) {
  * @since 1.4.0
  */
 if ( class_exists( '\AdvancedGutenbergBlocks\AdvancedGutenbergBlocks' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-advanced-gutenberg-blocks.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-advanced-gutenberg-blocks.php';
 }
 
 
@@ -152,7 +179,7 @@ if ( class_exists( '\AdvancedGutenbergBlocks\AdvancedGutenbergBlocks' ) ) {
  * @since 1.4.0
  */
 if ( function_exists( 'ugb_unregister_gutenberg_blocks_init' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-unregister-gutenberg-blocks.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-unregister-gutenberg-blocks.php';
 }
 
 
@@ -161,7 +188,7 @@ if ( function_exists( 'ugb_unregister_gutenberg_blocks_init' ) ) {
  * @since 1.4.0
  */
 if ( function_exists( 'gm_check_gutenberg' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-gutenberg-manager.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-gutenberg-manager.php';
 }
 
 
@@ -170,7 +197,7 @@ if ( function_exists( 'gm_check_gutenberg' ) ) {
  * @since 1.4.0
  */
 if ( class_exists( 'Disable_Gutenberg_Blocks' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-disable-gutenberg-blocks.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-disable-gutenberg-blocks.php';
 }
 
 
@@ -179,7 +206,7 @@ if ( class_exists( 'Disable_Gutenberg_Blocks' ) ) {
  * @since 1.4.0
  */
 if ( class_exists( 'UAGB_Loader' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-ultimate-addons-for-gutenberg.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-ultimate-addons-for-gutenberg.php';
 }
 
 
@@ -188,7 +215,7 @@ if ( class_exists( 'UAGB_Loader' ) ) {
  * @since 1.4.0
  */
 if ( defined( 'KT_BLOCKS_VERSION' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-kadence-blocks.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-kadence-blocks.php';
 }
 
 
@@ -197,7 +224,7 @@ if ( defined( 'KT_BLOCKS_VERSION' ) ) {
  * @since 1.4.0
  */
 if ( defined( 'STACKABLE_VERSION' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-stackable.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-stackable.php';
 }
 
 
@@ -206,7 +233,7 @@ if ( defined( 'STACKABLE_VERSION' ) ) {
  * @since 1.4.0
  */
 if ( defined( 'PREMIUM_BLOCKS_VERSION' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-premium-blocks-for-gutenberg.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-premium-blocks-for-gutenberg.php';
 }
 
 
@@ -215,7 +242,7 @@ if ( defined( 'PREMIUM_BLOCKS_VERSION' ) ) {
  * @since 1.4.0
  */
 if ( function_exists( 'sgb_compatibility_check' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-stag-blocks.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-stag-blocks.php';
 }
 
 
@@ -224,7 +251,24 @@ if ( function_exists( 'sgb_compatibility_check' ) ) {
  * @since 1.4.0
  */
 if ( defined( 'ULTIMATE_BLOCKS_VERSION' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-ultimate-blocks.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-ultimate-blocks.php';
+}
+
+
+/**
+ * Plugin: Cosmic Blocks (free, by Cosmic WP)
+ * @since 1.4.2
+ */
+if ( defined( 'COSMIC_BLOCKS_PLUGIN_VERSION' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-cosmic-blocks.php';
+}
+
+/**
+ * Plugin: Bootstrap Blocks for WP Editor (free, by Virgial Berveling)
+ * @since 1.4.2
+ */
+if ( defined( 'GUTENBERGBOOTSTRAP_VERSION' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-bootstrap-blocks.php';
 }
 
 
@@ -233,7 +277,25 @@ if ( defined( 'ULTIMATE_BLOCKS_VERSION' ) ) {
  * @since 1.4.0
  */
 if ( class_exists( 'WPBlocks' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-wpblocks.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-wpblocks.php';
+}
+
+
+/**
+ * Plugin: WP Block Pack (free, by Falcon Theme)
+ * @since 1.4.2
+ */
+if ( class_exists( 'WP_Block_Pack' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-wp-block-pack.php';
+}
+
+
+/**
+ * Plugin: Qubely Blocks (free, by Themeum)
+ * @since 1.4.2
+ */
+if ( defined( 'QUBELY_VERSION' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-qubely-blocks.php';
 }
 
 
@@ -242,7 +304,7 @@ if ( class_exists( 'WPBlocks' ) ) {
  * @since 1.4.0
  */
 if ( class_exists( 'BLOCKOPTS_Block_Options' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-block-options.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-block-options.php';
 }
 
 
@@ -251,7 +313,7 @@ if ( class_exists( 'BLOCKOPTS_Block_Options' ) ) {
  * @since 1.4.0
  */
 if ( function_exists( 'egts_load_plugin_textdomain' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-enable-gutenberg-theme-support.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-enable-gutenberg-theme-support.php';
 }
 
 
@@ -260,7 +322,16 @@ if ( function_exists( 'egts_load_plugin_textdomain' ) ) {
  * @since 1.4.0
  */
 if ( function_exists( 'tsg_plugins_loaded' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-theme-support-gutenberg.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-theme-support-gutenberg.php';
+}
+
+
+/**
+ * Plugin: Guten-bubble (free, by Chronoir.net)
+ * @since 1.4.2
+ */
+if ( class_exists( 'GutenBubble' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-guten-bubble.php';
 }
 
 
@@ -269,7 +340,7 @@ if ( function_exists( 'tsg_plugins_loaded' ) ) {
  * @since 1.4.0
  */
 if ( function_exists( 'GBG_block_settings_settings_init' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-gutenbegone.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-gutenbegone.php';
 }
 
 
@@ -278,7 +349,7 @@ if ( function_exists( 'GBG_block_settings_settings_init' ) ) {
  * @since 1.4.0
  */
 if ( function_exists( 'make_sure_amazon_block_is_loaded_after_gutenberg' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-amazon-block.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-amazon-block.php';
 }
 
 
@@ -287,7 +358,7 @@ if ( function_exists( 'make_sure_amazon_block_is_loaded_after_gutenberg' ) ) {
  * @since 1.4.0
  */
 if ( class_exists( 'Blocks_Google_Maps' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-blocks-google-map.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-blocks-google-map.php';
 }
 
 
@@ -296,7 +367,7 @@ if ( class_exists( 'Blocks_Google_Maps' ) ) {
  * @since 1.4.0
  */
 if ( function_exists( 'atomic_blocks_loader' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-atomic-blocks.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-atomic-blocks.php';
 }
 
 
@@ -305,7 +376,7 @@ if ( function_exists( 'atomic_blocks_loader' ) ) {
  * @since 1.4.0
  */
 if ( function_exists( 'editor_blocks_activate' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-editor-blocks.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-editor-blocks.php';
 }
 
 
@@ -314,7 +385,16 @@ if ( function_exists( 'editor_blocks_activate' ) ) {
  * @since 1.4.0
  */
 if ( class_exists( '\fest_ua_gutenberg\Gutenberg' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-ultrablocks.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-ultrablocks.php';
+}
+
+
+/**
+ * Plugin: Easy Blocks for Gutenberg (free, by Liton Arefin)
+ * @since 1.4.2
+ */
+if ( defined( 'UGB_PLUGIN_DIR_URL' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-easy-blocks.php';
 }
 
 
@@ -323,7 +403,16 @@ if ( class_exists( '\fest_ua_gutenberg\Gutenberg' ) ) {
  * @since 1.4.0
  */
 if ( function_exists( 'we_blocks_activate' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-we-blocks.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-we-blocks.php';
+}
+
+
+/**
+ * Plugin: Easy Blocks Pro (free, by Seerox)
+ * @since 1.4.2
+ */
+if ( function_exists( 'srxgb_register_block_category' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-easy-blocks-pro.php';
 }
 
 
@@ -332,7 +421,7 @@ if ( function_exists( 'we_blocks_activate' ) ) {
  * @since 1.4.0
  */
 if ( function_exists( 'caxton_init' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-caxton.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-caxton.php';
 }
 
 
@@ -341,7 +430,7 @@ if ( function_exists( 'caxton_init' ) ) {
  * @since 1.4.0
  */
 if ( class_exists( '\CloudBlocks\CloudBlocks' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-cloud-blocks.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-cloud-blocks.php';
 }
 
 
@@ -353,7 +442,7 @@ if ( class_exists( '\CloudBlocks\CloudBlocks' ) ) {
  */
 
 if ( ! function_exists( 'ddw_tbex_addons_hook_place' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/hook-place-addons.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/hook-place-addons.php';
 }
 
 add_action( 'admin_bar_menu', 'ddw_tbex_addons_hook_place_block_editor', 200 );

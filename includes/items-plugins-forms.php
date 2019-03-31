@@ -16,8 +16,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Plugin: Gravity Forms (Premium, by Rocketgenius, Inc.)
  * @since 1.0.0
  */
-if ( defined( 'RG_CURRENT_VIEW' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-forms/items-gravity-forms.php' );
+if ( ddw_tbex_is_gravityforms_active() ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins-forms/items-gravity-forms.php';
 }
 
 
@@ -26,7 +26,7 @@ if ( defined( 'RG_CURRENT_VIEW' ) ) {
  * @since 1.3.1
  */
 if ( class_exists( '\WPForms\WPForms' ) || class_exists( 'WPForms' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-forms/items-wpforms.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins-forms/items-wpforms.php';
 }
 
 
@@ -35,7 +35,7 @@ if ( class_exists( '\WPForms\WPForms' ) || class_exists( 'WPForms' ) ) {
  * @since 1.3.1
  */
 if ( function_exists( 'load_formidable_forms' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-forms/items-formidable-forms.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins-forms/items-formidable-forms.php';
 }
 
 
@@ -44,7 +44,7 @@ if ( function_exists( 'load_formidable_forms' ) ) {
  * @since 1.3.1
  */
 if ( class_exists( 'Ninja_Forms' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-forms/items-ninja-forms.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins-forms/items-ninja-forms.php';
 }
 
 
@@ -53,7 +53,7 @@ if ( class_exists( 'Ninja_Forms' ) ) {
  * @since 1.3.1
  */
 if ( defined( 'CFCORE_PATH' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-forms/items-caldera-forms.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins-forms/items-caldera-forms.php';
 }
 
 
@@ -61,8 +61,8 @@ if ( defined( 'CFCORE_PATH' ) ) {
  * Plugin: Contact Form 7 (free, by Takayuki Miyoshi)
  * @since 1.3.1
  */
-if ( defined( 'WPCF7_VERSION' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-forms/items-contact-form-7.php' );
+if ( ddw_tbex_is_cf7_active() ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins-forms/items-contact-form-7.php';
 }
 
 
@@ -71,7 +71,7 @@ if ( defined( 'WPCF7_VERSION' ) ) {
  * @since 1.3.1
  */
 if ( defined( 'QUFORM_VERSION' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-forms/items-quform.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins-forms/items-quform.php';
 }
 
 
@@ -80,7 +80,7 @@ if ( defined( 'QUFORM_VERSION' ) ) {
  * @since 1.3.2
  */
 if ( class_exists( 'EverestForms' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-forms/items-everest-forms.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins-forms/items-everest-forms.php';
 }
 
 
@@ -89,7 +89,7 @@ if ( class_exists( 'EverestForms' ) ) {
  * @since 1.3.2
  */
 if ( function_exists( 'formcraft3_activate' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-forms/items-formcraft.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins-forms/items-formcraft.php';
 }
 
 
@@ -98,7 +98,7 @@ if ( function_exists( 'formcraft3_activate' ) ) {
  * @since 1.3.2
  */
 if ( defined( 'ARFPLUGINTITLE' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-forms/items-arforms.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins-forms/items-arforms.php';
 }
 
 
@@ -107,7 +107,7 @@ if ( defined( 'ARFPLUGINTITLE' ) ) {
  * @since 1.3.2
  */
 if ( class_exists( 'MC4WP_Form_Manager' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-forms/items-mailchimp-for-wp.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins-forms/items-mailchimp-for-wp.php';
 }
 
 
@@ -116,7 +116,7 @@ if ( class_exists( 'MC4WP_Form_Manager' ) ) {
  * @since 1.4.0
  */
 if ( class_exists( 'Forminator_API' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-forms/items-forminator.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins-forms/items-forminator.php';
 }
 
 
@@ -125,7 +125,7 @@ if ( class_exists( 'Forminator_API' ) ) {
  * @since 1.3.2
  */
 if ( defined( 'HAPPYFORMS_VERSION' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-forms/items-happyforms.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins-forms/items-happyforms.php';
 }
 
 
@@ -134,7 +134,43 @@ if ( defined( 'HAPPYFORMS_VERSION' ) ) {
  * @since 1.4.0
  */
 if ( class_exists( 'WDFM' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-forms/items-form-maker.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins-forms/items-form-maker.php';
+}
+
+
+/**
+ * Plugin: BuddyForms (free, by ThemeKraft)
+ * @since 1.4.2
+ */
+if ( class_exists( 'BuddyForms' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins-forms/items-buddyforms.php';
+}
+
+
+/**
+ * Plugin: Torro Forms (free, by Awesome UG)
+ * @since 1.4.2
+ */
+if ( class_exists( 'Torro_Forms' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins-forms/items-torro-forms.php';
+}
+
+
+/**
+ * Plugin: HTML Forms (free, by ibericode)
+ * @since 1.4.2
+ */
+if ( defined( 'HTML_FORMS_VERSION' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins-forms/items-html-forms.php';
+}
+
+
+/**
+ * Plugin: Contact Form X (free, by Jeff Starr)
+ * @since 1.4.2
+ */
+if ( class_exists( 'ContactFormX' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins-forms/items-contactformx.php';
 }
 
 
@@ -143,7 +179,7 @@ if ( class_exists( 'WDFM' ) ) {
  * @since 1.4.0
  */
 if ( defined( 'MAILSTER_VERSION' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-forms/items-mailster.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins-forms/items-mailster.php';
 }
 
 
@@ -152,7 +188,7 @@ if ( defined( 'MAILSTER_VERSION' ) ) {
  * @since 1.4.0
  */
 if ( defined( 'MAILPOET_VERSION' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-forms/items-mailpoet.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins-forms/items-mailpoet.php';
 }
 
 
@@ -161,7 +197,7 @@ if ( defined( 'MAILPOET_VERSION' ) ) {
  * @since 1.4.0
  */
 if ( class_exists( 'WYSIJA' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-forms/items-mailpoet-legacy.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins-forms/items-mailpoet-legacy.php';
 }
 
 
@@ -170,7 +206,7 @@ if ( class_exists( 'WYSIJA' ) ) {
  * @since 1.2.0
  */
 if ( class_exists( 'OMAPI' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-forms/items-optinmonster.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins-forms/items-optinmonster.php';
 }
 
 
@@ -179,7 +215,7 @@ if ( class_exists( 'OMAPI' ) ) {
  * @since 1.2.0
  */
 if ( function_exists( 'cp_load_convertpro' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-forms/items-convertpro.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins-forms/items-convertpro.php';
 }
 
 
@@ -188,7 +224,7 @@ if ( function_exists( 'cp_load_convertpro' ) ) {
  * @since 1.2.0
  */
 if ( class_exists( 'Convert_Plug' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-forms/items-convertplus.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins-forms/items-convertplus.php';
 }
 
 
@@ -197,7 +233,7 @@ if ( class_exists( 'Convert_Plug' ) ) {
  * @since 1.3.1
  */
 if ( class_exists( 'Hustle_Init' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-forms/items-hustle.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins-forms/items-hustle.php';
 }
 
 
@@ -206,5 +242,23 @@ if ( class_exists( 'Hustle_Init' ) ) {
  * @since 1.3.1
  */
 if ( class_exists( 'ET_Bloom' ) ) {
-	require_once( TBEX_PLUGIN_DIR . 'includes/plugins-forms/items-bloom.php' );
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins-forms/items-bloom.php';
+}
+
+
+/**
+ * Plugin: Post SMTP (free, by Yehuda Hassine)
+ * @since 1.4.2
+ */
+if ( function_exists( 'post_start' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins-forms/items-post-smtp.php';
+}
+
+
+/**
+ * Plugin: WP Mail SMTP (free, by WPForms)
+ * @since 1.4.2
+ */
+if ( defined( 'WPMS_PLUGIN_VER' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins-forms/items-wp-mail-smtp.php';
 }

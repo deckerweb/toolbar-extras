@@ -69,6 +69,19 @@ function ddw_tbex_aoitems_elementor_extras() {
 
 		$GLOBALS[ 'wp_admin_bar' ]->add_node(
 			array(
+				'id'     => 'ao-namogoextras-apis',
+				'parent' => 'ao-namogoextras',
+				'title'  => esc_attr__( 'Activate APIs', 'toolbar-extras' ),
+				'href'   => esc_url( admin_url( 'admin.php?page=elementor-extras#elementor_extras_apis' ) ),
+				'meta'   => array(
+					'target' => '',
+					'title'  => esc_attr__( 'Activate APIs', 'toolbar-extras' )
+				)
+			)
+		);
+
+		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			array(
 				'id'     => 'ao-namogoextras-advanced',
 				'parent' => 'ao-namogoextras',
 				'title'  => esc_attr__( 'Advanced Settings', 'toolbar-extras' ),
@@ -102,6 +115,13 @@ function ddw_tbex_aoitems_elementor_extras() {
 					'parent' => 'ao-namogoextras',
 					'meta'   => array( 'class' => 'ab-sub-secondary' )
 				)
+			);
+
+			ddw_tbex_resource_item(
+				'documentation',
+				'namogoextras-docs',
+				'group-namogoextras-resources',
+				'https://shop.namogo.com/docs/'
 			);
 
 			ddw_tbex_resource_item(

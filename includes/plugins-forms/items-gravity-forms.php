@@ -49,7 +49,7 @@ function ddw_tbex_site_items_gravityforms( $wp_admin_bar ) {
 
 	/** Bail early if Gravity Forms tweak should NOT be used */
 	if ( ! ddw_tbex_use_tweak_gravityforms() ) {
-		return;
+		return $wp_admin_bar;
 	}
 
 	/** For: Forms */
@@ -335,7 +335,7 @@ function ddw_tbex_aoitems_new_content_gravityforms( $wp_admin_bar ) {
 
 	/** Bail early if items display is not wanted */
 	if ( ! ddw_tbex_display_items_new_content() ) {
-		return;
+		return $wp_admin_bar;
 	}
 
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(

@@ -62,7 +62,7 @@ function ddw_tbex_site_items_rehook_yoastseo( $wp_admin_bar ) {
 
 	/** Bail early if Yoast Toolbar deactivated */
 	if ( ! ddw_tbex_is_yoastseo_toolbar_active() ) {
-		return;
+		return $wp_admin_bar;
 	}
 
 	/** Re-hook for: Site Group (Yoast's main item!) */

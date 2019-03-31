@@ -12,89 +12,45 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 
-add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_foodie_pro_customize', 90 );
+add_filter( 'tbex_filter_items_theme_customizer_deep', 'ddw_tbex_themeitems_foodie_pro_customize', 90 );
 /**
  * Customize items for Genesis Child Theme:
  *   Foodie Pro (Premium, by Feast Design Co.)
  *
  * @since 1.2.0
+ * @since 1.4.2 Refactored using filter/array declaration.
  *
- * @uses ddw_tbex_customizer_focus()
- * @uses ddw_tbex_string_customize_attr()
- *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param array $items Existing array of params for creating Toolbar nodes.
+ * @return array Tweaked array of params for creating Toolbar nodes.
  */
-function ddw_tbex_themeitems_foodie_pro_customize() {
+function ddw_tbex_themeitems_foodie_pro_customize( array $items ) {
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
-		array(
-			'id'     => 'foodiepro-typography',
-			'parent' => 'theme-creative-customize',
-			/* translators: Autofocus panel in the Customizer */
-			'title'  => esc_attr__( 'Typography', 'toolbar-extras' ),
-			'href'   => ddw_tbex_customizer_focus( 'panel', 'fonts' ),
-			'meta'   => array(
-				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Typography', 'toolbar-extras' ) )
-			)
-		)
+	/** Declare child theme's items */
+	$foodiepro_items = array(
+		'fonts' => array(
+			'type'  => 'panel',
+			'title' => esc_attr__( 'Typography', 'toolbar-extras' ),
+			'id'    => 'foodiepro-typography',
+		),
+		'colors' => array(
+			'type'  => 'panel',
+			'title' => __( 'Colors', 'toolbar-extras' ),
+			'id'    => 'foodiepro-colors',
+		),
+		'header_image' => array(
+			'type'  => 'section',
+			'title' => __( 'Header Image', 'toolbar-extras' ),
+			'id'    => 'foodiepro-header-image',
+		),
+		'background_image' => array(
+			'type'  => 'section',
+			'title' => __( 'Background Image', 'toolbar-extras' ),
+			'id'    => 'foodiepro-background-image',
+		),
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
-		array(
-			'id'     => 'foodiepro-colors',
-			'parent' => 'theme-creative-customize',
-			/* translators: Autofocus panel in the Customizer */
-			'title'  => esc_attr__( 'Colors', 'toolbar-extras' ),
-			'href'   => ddw_tbex_customizer_focus( 'panel', 'colors' ),
-			'meta'   => array(
-				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Colors', 'toolbar-extras' ) )
-			)
-		)
-	);
-
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
-		array(
-			'id'     => 'foodiepro-header-image',
-			'parent' => 'theme-creative-customize',
-			/* translators: Autofocus section in the Customizer */
-			'title'  => esc_attr__( 'Header Image', 'toolbar-extras' ),
-			'href'   => ddw_tbex_customizer_focus( 'section', 'header_image' ),
-			'meta'   => array(
-				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Header Image', 'toolbar-extras' ) )
-			)
-		)
-	);
-
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
-		array(
-			'id'     => 'foodiepro-background-image',
-			'parent' => 'theme-creative-customize',
-			/* translators: Autofocus section in the Customizer */
-			'title'  => esc_attr__( 'Background Image', 'toolbar-extras' ),
-			'href'   => ddw_tbex_customizer_focus( 'section', 'background_image' ),
-			'meta'   => array(
-				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Background Image', 'toolbar-extras' ) )
-			)
-		)
-	);
-
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
-		array(
-			'id'     => 'foodiepro-site-identity',
-			'parent' => 'theme-creative-customize',
-			/* translators: Autofocus section in the Customizer */
-			'title'  => esc_attr__( 'Site Identity', 'toolbar-extras' ),
-			'href'   => ddw_tbex_customizer_focus( 'section', 'title_tagline' ),
-			'meta'   => array(
-				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Site Identity', 'toolbar-extras' ) )
-			)
-		)
-	);
+	/** Merge and return with all items */
+	return array_merge( $items, $foodiepro_items );
 
 }  // end function
 
@@ -118,7 +74,7 @@ function ddw_tbex_themeitems_foodie_pro() {
 			'href'   => esc_url( admin_url( 'admin.php?page=foodie-pro-dashboard' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Theme Info', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Theme Info', 'toolbar-extras' ),
 			)
 		)
 	);

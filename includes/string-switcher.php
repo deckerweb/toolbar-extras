@@ -630,7 +630,7 @@ function ddw_tbex_string_plugin_local_dev( $type = '' ) {
  *
  * @since 1.3.0
  *
- * @return string Echo string for settings sections descriptions. 
+ * @return string Echo string for settings sections descriptions.
  */
 function ddw_tbex_string_settings_show_only_for_active_plugins() {
 
@@ -971,5 +971,57 @@ function ddw_tbex_string_ensure_input_https() {
 		__( 'Note: Please make sure to enter the full URL, including %s.', 'toolbar-extras' ),
 		'<code>https://</code>'
 	);
+
+}  // end function
+
+
+/**
+ * String for reusage:
+ *   Explanation of the Toolbar structure for Admin and Frontend.
+ *
+ * @since 1.4.0
+ * @since 1.4.2 Splitted into string function for reusage.
+ *
+ * @uses ddw_tbex_get_info_link()
+ */
+function ddw_tbex_explanation_toolbar_structure() {
+
+	$output = sprintf(
+		/* translators: 1 - linked label, "Toolbar Groups within the Admin" / 2 - linked label, "Toolbar Groups on the Frontend" */
+		__( 'See the attached image links to get the whole thing visually: %1$s and %2$s.', 'toolbar-extras' ),
+		ddw_tbex_get_info_link(
+			'url_tb_admin',
+			esc_html__( 'Toolbar Groups within the Admin', 'toolbar-extras' ),
+			'dashicons-before dashicons-external tbex-inline'
+		),
+		ddw_tbex_get_info_link(
+			'url_tb_frontend',
+			esc_html__( 'Toolbar Groups on the Frontend', 'toolbar-extras' ),
+			'dashicons-before dashicons-external tbex-inline'
+		)
+	);
+
+	echo $output;
+
+}  // end function
+
+
+/**
+ * User info for coloring Toolbar.
+ *   This is a helper function specifically for Add-Ons.
+ *
+ * @since 1.4.2
+ */
+function ddw_tbex_addon_settings_cb_note_for_coloring() {
+
+	?>
+		<p class="description">
+			<?php echo sprintf(
+				/* translators: %1$s - linked label, "For Development" */
+				__( 'To adjust these settings just open the %1$s tab here. Don\'t let the "(local) development" wording confuse you: you can use this setting feature for whatever you want. Have fun! ;-)', 'toolbar-extras' ),
+				'<a href="' . esc_url( admin_url( 'options-general.php?page=toolbar-extras&tab=development' ) ) . '">"' . __( 'For Development', 'toolbar-extras' ) . '"</a>'
+			); ?>
+		</p>
+	<?php
 
 }  // end function

@@ -414,24 +414,22 @@ function ddw_tbex_themeitems_customify_pro() {
 			}  // end if
 
 			/** Hook categories, via BTC plugin */
-			/*
-				if ( ddw_tbex_is_btcplugin_active() ) {
+			if ( ddw_tbex_is_btcplugin_active() ) {
 
-					$GLOBALS[ 'wp_admin_bar' ]->add_node(
-						array(
-							'id'     => 'customify-hooks-categories',
-							'parent' => 'group-customify-hooks',
-							'title'  => ddw_btc_string_template( 'hook' ),
-							'href'   => esc_url( admin_url( 'edit-tags.php?taxonomy=builder-template-category&post_type=' . $type ) ),
-							'meta'   => array(
-								'target' => '',
-								'title'  => esc_html( ddw_btc_string_template( 'hook' ) )
-							)
+				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					array(
+						'id'     => 'customify-hooks-categories',
+						'parent' => 'group-customify-hooks',
+						'title'  => ddw_btc_string_template( 'hook' ),
+						'href'   => esc_url( admin_url( 'edit-tags.php?taxonomy=builder-template-category&post_type=' . $type ) ),
+						'meta'   => array(
+							'target' => '',
+							'title'  => esc_html( ddw_btc_string_template( 'hook' ) )
 						)
-					);
+					)
+				);
 
-				}  // end if
-			*/
+			}  // end if
 
 	}  // end if
 
@@ -520,8 +518,8 @@ if ( ddw_tbex_is_customify_pro_active() ) {
 
 	if ( Customify_Pro()->is_enabled_module( 'Customify_Pro_Module_Portfolio' ) ) {
 
-		require_once( TBEX_PLUGIN_DIR . 'includes/plugins/items-cpt-portfolio.php' );
+		require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-cpt-portfolio.php';
 
 	}  // end if
 
-}  // end function
+}  // end if

@@ -132,17 +132,10 @@ function ddw_tbex_aoitems_bdthemes_element_pack() {
 			);
 
 			ddw_tbex_resource_item(
-				'user-forum',
-				'bdepack-forum',
-				'group-bdepack-resources',
-				'https://bdthemes.com/support/forum/wordpress-plugins/element-pack-addon-elementor-page-builder-wordpress-plugin/'
-			);
-
-			ddw_tbex_resource_item(
 				'support-contact',
 				'bdepack-support',
 				'group-bdepack-resources',
-				'https://bdthemes.com/contact/'
+				'https://elementpack.pro/support/'
 			);
 
 			ddw_tbex_resource_item(
@@ -156,7 +149,7 @@ function ddw_tbex_aoitems_bdthemes_element_pack() {
 				'official-site',
 				'bdepack-site',
 				'group-bdepack-resources',
-				'https://bdthemes.com/portfolio-item/element-pack/'
+				'https://elementpack.pro'
 			);
 
 		}  // end if

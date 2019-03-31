@@ -3,9 +3,9 @@ Contributors: daveshine, deckerweb, wpautobahn, toolbarextras
 Donate link: https://www.paypal.me/deckerweb
 Tags: toolbar, adminbar, admin bar, elementor, page builder, themes, menu, links, settings, usability, deckerweb, ddwtoolbar
 Requires at least: 4.7
-Tested up to: 5.0
+Tested up to: 5.1
 Requires PHP: 5.6
-Stable tag: 1.4.0
+Stable tag: 1.4.1
 License: GPL-2.0-or-later
 License URI: https://opensource.org/licenses/GPL-2.0
 
@@ -13,14 +13,14 @@ Building sites with Elementor? Your work will get easier & faster with Toolbar E
 
 == Description ==
 
-Quick Access to Your Site Building Resources - Big Time Saver. Perfect for Non-Techies and Non-Coder Designers.
+🚀 Quick Access to Your Site Building Resources - Big Time Saver. Perfect for Non-Techies and Non-Coder Designers.
 This smart WordPress plugin just adds some missed and **very useful admin links** to your Toolbar / Admin Bar. Save scrolling and time. Access settings and content pages faster from one central area in the Admin Dashboard AND when on the frontend of your site.
 
 https://www.youtube.com/watch?v=VB4DcqfYqY4
 
 Out of the box the plugin includes support for dozens of awesome Plugins and Themes. Create Elementor templates right from the Toolbar, jump to Granular Controls settings or with one click you are on the Plugin Installer page to upload a new Elementor premium Add-On. Yes, it's so easy and fast. I released this plugin to the public to speed up your site building process even more - as the plugin already helps myself for a long time.
 
-= Features - What the Plugin Does =
+= ♥️ Features - What the Plugin Does =
 * Adds Page Builder links: Elementor & Elementor Pro - for example just add a new Elementor Template from the Toolbar, where Elementor builder loads right away and you begin building, yeah! :)
 * Adds links for Elementor Add-On Plugins
 * Adds links for Elementor-friendly Themes, that also Support Elementor Theme Builder (Pro Version 2.0+)
@@ -41,7 +41,7 @@ Out of the box the plugin includes support for dozens of awesome Plugins and The
 * Fully internationalized and translateable - also tested/optimized for RTL languages
 * **[Video feature tour throughout the plugin](https://www.youtube.com/watch?v=gu9Z5gW9vq0)**
 
-= Elementor & Elementor Pro Support =
+= 👍 Elementor & Elementor Pro Support =
 * Adds lots of Elementor **Quick Jump Links** to the Toolbar
 * Perfect for **all Elementor users**!
 * **Elementor** (free) version 2.x (and also former 1.x)
@@ -51,7 +51,7 @@ Out of the box the plugin includes support for dozens of awesome Plugins and The
 * **Elementor Debugger** supported - optionally re-hook from top-level into Build Group
 * **Elementor actions** - *regenerate CSS* (clear cache) and *re-synching the external library*
 
-= Supported Themes/ Frameworks =
+= 🎨 Supported Themes/ Frameworks =
 * [**Astra**](https://wordpress.org/themes/astra/), including **Astra Pro** (Add-On) (both by Brainstorm Force)
 * [**GeneratePress**](https://wordpress.org/themes/generatepress/), including **GeneratePress Premium** (Add-On) (both by Tom Usborne)
 * [**OceanWP**](https://wordpress.org/themes/oceanwp/), including Suite of Premium Extras (Add-Ons)
@@ -68,7 +68,7 @@ Out of the box the plugin includes support for dozens of awesome Plugins and The
 * **Beaver Builder Theme** (Premium, by FastLine Media LLC)
 * [**Hestia**](https://wordpress.org/themes/hestia/), including its Child Themes "Orfeo", "Tiny Hestia", "Christmas Hestia" (all by Themeisle)
 * [**Sydney** (free, by athemes)](https://wordpress.org/themes/sydney/)
-* [**Flexia** (free)](https://wordpress.org/themes/flexia/) - including Flexia Core (free) and Flexia Pro (Premium) plugins (all three by Codetic)
+* [**Flexia** (free)](https://wordpress.org/themes/flexia/) - including Flexia Core (free) and Flexia Pro (Premium) plugins (all three by WPDeveloper)
 * [**Phlox** (free, by averta)](https://wordpress.org/themes/phlox/) - including the free Add-Ons "Phlox Core Elements" and "Phlox Portfolio"
 * [**Buildwall** (Premium, by Zemez Jet)](https://toolbarextras.com/go/buildwall-tm/)
 * **All church-specific themes by churchthemes.com** (Premium)
@@ -77,7 +77,7 @@ Out of the box the plugin includes support for dozens of awesome Plugins and The
 
 [See full Theme support listing on plugin's website](https://toolbarextras.com/theme-support/)
 
-= Support for Elementor specific Add-On Plugins =
+= 👍 Support for Elementor specific Add-On Plugins =
 * [**Header Footer for Elementor** (free, by Brainstorm Force)](https://wordpress.org/plugins/header-footer-elementor/)
 * **Elementor Extras** (Premium, by Namogo)
 * **Ultimate Addons for Elementor** (Premium, by Brainstorm Force)
@@ -89,8 +89,8 @@ Out of the box the plugin includes support for dozens of awesome Plugins and The
 * [**Envato Elements – Template Kits** (free, by Envato)](https://wordpress.org/plugins/envato-elements/)
 * [**Livemesh Addons for Elementor** (free, by Livemesh)](https://wordpress.org/plugins/addons-for-elementor/)
 * **Livemesh Addons for Elementor Premium** (Premium, by Livemesh)
-* [**Essential Addons for Elementor Lite** (free, by Codetic)](https://wordpress.org/plugins/essential-addons-for-elementor-lite/)
-* **Essential Addons for Elementor Pro** (Premium, by Codetic)
+* [**Essential Addons for Elementor Lite** (free, by WPDeveloper)](https://wordpress.org/plugins/essential-addons-for-elementor-lite/)
+* **Essential Addons for Elementor Pro** (Premium, by WPDeveloper)
 * **Element Pack for Elementor** (Premium, by BdThemes)
 * [**Premium Addons for Elementor** (free, by Leap13)](https://wordpress.org/plugins/premium-addons-for-elementor/)
 * [**Elements Plus!** (free, by The CSSIgniter Team)](https://wordpress.org/plugins/elements-plus/)
@@ -116,7 +116,7 @@ Out of the box the plugin includes support for dozens of awesome Plugins and The
 
 [See full Elementor Add-On support listing on plugin's website](https://toolbarextras.com/elementor-addons-support/)
 
-= Support for more useful Plugins for Site-Builders =
+= 🔌 Support for more useful Plugins for Site-Builders =
 * [**Central Color Palette** (free, by Gáravo)](https://wordpress.org/plugins/kt-tinymce-color-grid/)
 * [**Simple CSS** (free, by Tom Usborne)](https://wordpress.org/plugins/simple-css/)
 * [**Code Snippets** (free, by Shea Bunge)](https://wordpress.org/plugins/code-snippets/)
@@ -147,19 +147,19 @@ Out of the box the plugin includes support for dozens of awesome Plugins and The
 
 [See full Plugins support listing on plugin's website](https://toolbarextras.com/plugin-support/)
 
-= Support & Compatibility for more plugins =
+= 🔌 Support & Compatibility for more plugins =
 Toolbar Extras supports even more plugins as listed here. Also, the plugin was tested with a lot of other plugins adding stuff to the Toolbar - and all works very well. We try to be not in the way of other plugins but rather work well together. This being said, Toolbar Extras even allows you to tweak the (Toolbar) behavior of a few selected plugins. This is really cool to save space in this bar and make the appearance overall a lot cleaner.
 
 For full list of [supported plugins](https://toolbarextras.com/plugin-support/) and [third-party plugin compatibility](https://toolbarextras.com/docs/plugin-compatibility/) just **[visit our website at https://toolbarextras.com/features/](https://toolbarextras.com/features/)**
 
-= Important: Required/ Recommended for plugin usage =
+= ℹ️ Important: Required/ Recommended for plugin usage =
 * Required: User has role `Administrator` (needed capabilities `manage_options` and `edit_theme_options`)
 * Required: Toolbar/ Admin Bar is enabled (user profile settings in WordPress)
 * Required: User is logged in (of course)
 * Recommended: Plugin's settings are enabled to show the wanted links (or any filter/ constant in code)
 * Recommended: Elementor Page Builder is installed & activated - Toolbar Extras plugin integrates fully with Elementor (Pro included) and is optimized for it
 
-= Translations =
+= 🌎 Translations =
 * English (United States) - `en_US` = default, always included
 * [German (informal, default)](https://translate.wordpress.org/locale/de/default/wp-plugins/toolbar-extras) - `de_DE`
 * [German (formal)](https://translate.wordpress.org/locale/de/formal/wp-plugins/toolbar-extras) - `de_DE_formal`
@@ -169,22 +169,25 @@ For full list of [supported plugins](https://toolbarextras.com/plugin-support/) 
 * [English (Australia)](https://translate.wordpress.org/locale/en-au/default/wp-plugins/toolbar-extras) - `en_AU`
 * `.pot` file (`toolbar-extras.pot`) for translators is always included in the plugin's 'languages' folder :)
 
-= Be a Contributor =
+= 😎 Be a Contributor =
 If you want to translate, [go to the Translation Portal at translate.wordpress.org](https://translate.wordpress.org/projects/wp-plugins/toolbar-extras).
 
 You can also contribute code-wise via our [Toolbar Extras GitHub Repository](https://github.com/deckerweb/toolbar-extras) - and see where you can help.
 
-= Documentation and Support =
+= 📝 Documentation and Support =
 * For more information about features, FAQs and documentation, check out our website at [Toolbar Extras Plugin](https://toolbarextras.com/).
 * If you have any more questions, visit our support on the [Plugin's Forum](https://wordpress.org/support/plugin/toolbar-extras).
 * An overview about the ongoing development you'll find on our [Trello Board for the Plugin's Roadmap](https://trello.com/b/JrpjwlX4/toolbar-extras-public-roadmap)
 
-= Liked Toolbar Extras Plugin? =
-* Join our [Facebook Community Group](https://www.facebook.com/groups/ToolbarExtras/)
-* **Rate us 5 stars** on [WordPress.org](https://wordpress.org/support/plugin/toolbar-extras/reviews/?filter=5/#new-post) :)
-* [**Subscribe to my Newsletter for insider info on this plugin**](https://eepurl.com/gbAUUn), plus tutorials and more stuff on deckerweb WordPress plugins - join a thriving community of site builders!
+= ⚡ Liked Toolbar Extras Plugin? =
+* Join our [Facebook Community Group 💬](https://www.facebook.com/groups/ToolbarExtras/)
+* **Rate us 5 ⭐ stars** on [WordPress.org](https://wordpress.org/support/plugin/toolbar-extras/reviews/?filter=5/#new-post) :)
+* [**Subscribe to my Newsletter for insider info on this plugin** 💯](https://eepurl.com/gbAUUn), plus tutorials and more stuff on deckerweb WordPress plugins - join a thriving community of site builders!
+* [**Become a Patron** 💜](https://www.patreon.com/deckerweb) and support ongoing development, maintenance and support of this plugin
+* [**Follow us on Instagram** 📷](https://www.instagram.com/toolbarextras) and like our content
+* Follow us on Twitter 🐦: [@ToolbarExtras](https://twitter.com/toolbarextras) and [@deckerweb](https://twitter.com/deckerweb)
 
-= This Plugin ... =
+= ☕ This Plugin ... =
 * ... scratches my own itch!
 * ... is *Quality Made in Germany*
 * ... was created with love (plus some coffee) :-) - [if you like it consider donating](https://www.paypal.me/deckerweb)
@@ -201,7 +204,7 @@ You can also contribute code-wise via our [Toolbar Extras GitHub Repository](htt
 
 = We Recommend Your Host Supports at least: =
 
-* PHP version 7.0 or higher
+* PHP version 7.2 or higher
 * MySQL version 5.6 or higher / or MariaDB 10 or higher
 
 = Installation =
@@ -230,7 +233,7 @@ This plugin only works and makes sense for Administrator users (and Super Admins
 
 Example: The Elementor settings page requires the capability `manage_options` - by default, only Administrators have this capability. So Toolbar Extras "inherits" those capabilities (permissions) as well.
 
-So, to see anything added to the Toolbar, it is required the user must have the cababilities of `manage_options` and `edit_theme_options`. As long as these are in place, Toolbar Extras is the perfect companion! :-)
+So, to see anything added to the Toolbar, it is required the user must have the capabilities of `manage_options` and `edit_theme_options`. As long as these are in place, Toolbar Extras is the perfect companion! :-)
 
 (Note: Implementing other roles/ capabilities is not planned, and it makes no sense, really. It would require the codebase to be bloated with all those additional permission conditions and would give only very very few (if any at all!) additional links for roles like "Editor" or lower. Again, offering all items only for Admins follows the supported integrations, prevents bloat and big footprint while also avoiding very high maintenance costs.)
 
@@ -379,7 +382,135 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 ([For the full changelog of this plugin visit its website at ToolbarExtras.com](https://toolbarextras.com/changelog/))
 
 
-= 1.4.0 - 2019-01-14 =
+= ⚡ 1.4.2 - 2019-03-31 =
+* New: Added "Add-Ons" tab to plugin's settings page, featuring official, supported and recommended Add-Ons -- preparing for first official Add-On release(s) ;-)
+* New: Lots of additions and refinements under the hood to make official Add-Ons work smarter (extends the groundwork from v1.4.0)
+* New: Tweaks and additions for (optional) post type archive items, plus new sub items, including special support for Genesis CPT Archive Settings
+* New: [The plugin now has its own Supporter page on Patreon.com](https://www.patreon.com/deckerweb) - become a patron and support ongoing development
+* New: [The plugin now hat its own Instagram channel](https://www.instagram.com/toolbarextras) - please follow us and like our content
+* New: [The plugin now hat its own Twitter account](https://twitter.com/toolbarextras) - please follow us and like & retweet our tweets
+* New: Added generic, reusable class to better support/integrate generic post types from plugins and themes
+* New: Added optional "My Plugin Manager" library by Theme Blvd for the upcoming Add-Ons for Toolbar Extras to manage plugin dependencies and suggestions
+* *New: Successfully tested with WordPress 5.1.1*
+* Tweak: Refined core support for Block Editor (Gutenberg) in some minor areas/ aspects
+* Tweak: Refined settings sections internally that only display conditionally for certain supported third-party plugins
+* Tweak: Further optimized admin settings pages, including the branding/ styling
+* Tweak: Enhanced plugin support for "JetEngine" - integrated new Booking Forms module
+* Tweak: Enhanced plugin support for "Essential Addons for Elementor" (by WPDeveloper/ Codetic)
+* Tweak: Enhanced plugin support for "Builder Template Categories"
+* Tweak: Enhanced plugin support for "MailChimp for WP"
+* Tweak: Implemented admin URL change for "Ultimate Addons for Elementor" plugin support
+* Tweak: Implemented admin URL change for "Ultimate Addons for Gutenberg" plugin support
+* Tweak: Greatly enhanced theme support for "OceanWP" (Customizer deep links)
+* Tweak: Added developer resources for "Genesis" theme support
+* Tweak: Changed item links for "Mai Theme" theme support (Genesis-specific)
+* Tweak: Changed item link for "Epic News Elements" plugin support
+* Tweak: Changed resource links for "Element Pack" plugin support where needed
+* Tweak: Re-enabled plugin support for "Code Snippets" plugin after latest Code Snippets update(s)
+* Tweak: Local Development Environment feature: now also supports the constant `WP_LOCAL_DEV` from WordPress Core
+* Tweak: Dev Mode: Added new resource for Child Themes
+* Tweak: Replaced "Google+" sharing with "LinkedIn" on the "About & Support" page (as Google+ gets shut down in April 2019)
+* Tweak: Small improvements and tweaks to the core plugin
+* Tweak: Updated bundled library DDWlib Plugin Installer Recommendations to latest version (v1.3.0) - feature updates
+* Tweak: Updated bundled library Persistant Admin notices Removal to latest version (v1.4.3)
+* Tweak: Updated bundled library Astra Notices to latest version (v1.1.2)
+* Tweak: Updated `.pot` file plus all German translations (formal, informal) and language packs
+* Fix: Notice for Element IDs (Dev Mode) on post type archive on frontend
+
+**New, 1.4.2:** *Extended the Theme support for:*
+
+* Layers for Elementor (free, by Elementor Team/ Elementor Ltd.)
+* Woostify (free, by BoostifyThemes), including plugins: *Woostify Sites Library (free)* and *Woostify Pro Add-On (Premium)* (both by BoostifyThemes)
+* Zita (free, by WpZita team), including plugins: *Zita Site Library (free)* and *Zita Pro Add-On (Premium)* (both by WpZita team)
+* Stackable (free, by Gambit Technologies, Inc.)
+* Futurio (free, by FuturioWP), including plugins: *Futurio Extra (free)* and *Futurio Pro (Premium)* (both by FuturioWP)
+* Jupiter X (Premium, by Artbees), including plugin: *Raven (Premium)*
+* Rife Free (free, by Apollo13Themes), including plugins *Apollo13 Framework Extensions (free)* and *Rife Elementor Extensions & Templates (free)* (both by Apollo13Themes)
+* Sane (free) and Sane Pro (Premium) (both by Elegant Marketplace)
+* Storefront (free, by Automattic, Inc.)
+* Revolution Pro (Premium, by StudioPress), a Child Theme for Genesis
+* Hello Pro 2 (Premium, by brandiD), a Child Theme for Genesis
+* Jessica (Premium, by 9seeds, LLC), a Child Theme for Genesis
+* Kreativ Pro (Premium, by ThemeSquare), a Child Theme for Genesis
+* Divine (Premium, by Restored 316 Designs // Lauren Gaige), a Child Theme for Genesis
+* Pretty Chic (Premium, by Lindsey Riel), a Child Theme for Genesis
+* Stag Blocks (free, by Codestag)
+* Rooten (Premium, by BdThemes)
+
+**New, 1.4.2:** *Extended the Plugin support for Elementor Add-Ons:*
+
+* JetCompareWishlist (Premium, by Zemez Jet/ CrocoBlock)
+* HT Mega - Ultimate Addons for Elementor (free, by HT Plugins)
+* Elementor Forms (Premium, by Elementor Forms)
+* RabbitBuilder Global Central JS CSS (free, by RabbitBuilder)
+* AnalogWP Templates (free, by AnalogWP)
+* Layouts for Elementor (free, by Giraphix Creative)
+* WPB Elementor Addons (free, by wpbean)
+* Exclusive Addons for Elementor (free, by DevsCred)
+* PDF Generator for Elementor (free, by RedefiningTheWeb)
+* Essentail Premium Addons for Elementor (free, by wpcodestar)
+* Sina Extension for Elementor (free, by shaonsina)
+* Smart Fonts for Elementor (free, by codevision)
+
+**New, 1.4.2:** *Extended the general Plugin support for:*
+
+* HTML Forms (free, by ibericode)
+* Torro Forms (free, by Awesome UG)
+* BuddyForms (free, by ThemeKraft)
+* Contact Form X (free, by Jeff Starr)
+* Jetpack (free/Premium, by Automattic, Inc./ WordPress.com) - *including additionally added submenu items (otherwise missing), and extensive resources*
+* Max Mega Menu (free, by Tom Hemsley)
+* QuadMenu (free, by QuadMenu)
+* [The SEO Framework - Extension Manager](https://theseoframework.com/extension-manager/) (free, by Sybre Waaijer)
+* Shariff Wrapper (free, by Jan-Peter Lambeck & 3UU)
+* Post SMTP (free, by Yehuda Hassine) - *Plugin formerly known as Postman*
+* WP Mail SMTP (free, by WPForms)
+* Instagram Feed (Pro) (free/Premium, by Smash Balloon)
+* Genesis Responsive Slider (free, by StudioPress), a plugin for Genesis
+* CartFlows (free, by CartFlows Inc) - *For Elementor, Beaver Builder, Divi, Gutenberg Block Editor*
+* Pithy Templates (free, by Pithy WP) - *For Elementor currently*
+
+**New, 1.4.2:** *Add-Ons for the Storefront Theme:*
+
+* Storefront Powerpack (Premium, by WooCommerce/ Automattic, Inc.)
+* Storefront Blog Customiser (Premium, by WooCommerce/ Automattic, Inc.)
+* Storefront Parallax Hero (Premium, by WooCommerce/ Automattic, Inc.)
+* Storefront Product Hero (Premium, by WooThemes/ Automattic, Inc.)
+* Storefront Pricing Tables (Premium, by WooCommerce/ Automattic, Inc.)
+* Storefront Homepage Contact Section (free, by WooThemes/ Automattic, Inc.)
+* Storefront Footer Bar (free, by WooThemes/ Automattic, Inc.)
+* Storefront Blog Excerpt (free, by Wooassist)
+* Storefront Top Bar (free, by Wooassist)
+* Storefront Site Logo (free, by Wooassist)
+* Storefront Footer Copyright Text (free, by QuadMenu)
+* Storefront Hooks Customizer (free, by mikeyarce)
+* Storefront Google Fonts (free, by Atlantis Themes)
+
+**New, 1.4.2:** *Extended Plugin support for Block Editor Add-Ons (Gutenberg):*
+
+* Ghost Kit (free, by nK)
+* Cosmic Blocks (free, by Cosmic WP)
+* WP Block Pack (free, by Falcon Theme)
+* Easy Blocks for Gutenberg (free, by Liton Arefin)
+* A/B Testing for WordPress (free, by CleverNode)
+* Easy Blocks PRO (free, by Seerox)
+* WooCommerce Custom Email Blocks (free, by VillaTheme)
+* Qubely Blocks (free, by Themeum)
+* Bootstrap Blocks for WP Editor (free, by Virgial Berveling)
+* Guten-bubble (free, by Chronoir.net)
+
+
+= ⚡ 1.4.1 - 2019-03-05 =
+* *New: Successfully tested with WordPress 5.1*
+* Tweak: Added new resource link for "Elementor Extras" (by Namogo) plugin support
+* Tweak: Added new developer resource link for "WPForms" plugin support
+* Tweak: Changed GitHub resource links for Elementor support to new the URLs
+* Tweak: Switched the Customizer and Admin link positions for "Nav Menus" in the Site Group
+* Tweak: Updated `.pot` file plus all German translations (formal, informal) and language packs
+* Fix: Removing of WordPress Widgets from Elementor Live Editor (panel) now works again, especially with Elementor 2.5.0 or higher - thanks to user feedback ([Topic](https://wordpress.org/support/topic/remove-wordpress-widgets-incompatible-with-elementor-2-5/))
+
+
+= 🎉 1.4.0 - 2019-01-14 =
 * New: Full support for WordPress 5.0+ new Block Editor (Gutenberg) - set as default "Page Builder" integration (for Toolbar); also supported are popular plugins "Classic Editor" and "Disable Gutenberg" plugins
 * New: Lots of additional resource links for Block Editor (Gutenberg) added (can be disabled like other resources)
 * New: Support for dozens of Block Editor specific Gutenberg Add-On plugins and themes now built-in - see appropriate changelog sections below -- the add-on support can be disabled via plugin's settings
@@ -556,13 +687,13 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 
 
 
-= 1.3.10 - 2018-12-30 =
+= ⚡ 1.3.10 - 2018-12-30 =
 * Tweak: Open plugin's newsletter link in new browser tab
 * Fix: Correct function names for plugin support of "Genesis Custom Headers" and "Genesis Extra Settings Transporter"
 * Fix: Correct admin URL for Piotnet Addons plugin support
 
 
-= 1.3.9 - 2018-12-23 =
+= ⚡ 1.3.9 - 2018-12-23 =
 * *New: Successfully tested with WordPress 5.0.2*
 * New: Added plugin support for my own plugin, Genesis Extra Settings Transporter (free, by David Decker - DECKERWEB)
 * New: Added plugin support for my own plugin, WP Document Revisions Simple Downloads (free, by David Decker - DECKERWEB)
@@ -578,7 +709,7 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 * Tweak: Enhanced, improved and corrected Readme.txt file here :)
 
 
-= 1.3.8 - 2018-12-11 =
+= ⚡ 1.3.8 - 2018-12-11 =
 * *New: Successfully tested with WordPress 5.0.0 major release version*
 * New: Added our plugin version to the "Right Now" text in the "At a Glance" Dashboard Widget
 * New: Added Plugin support for Transients Manager (free, by Pippin Williamson) - for Dev Mode
@@ -590,7 +721,7 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 * Tweak: Updated `.pot` file plus all German translations (formal, informal) and language packs
 
 
-= 1.3.7 - 2018-11-20 =
+= ⚡ 1.3.7 - 2018-11-20 =
 * *New: Successfully tested with WordPress 5.0 Beta 5*
 * New: Added Plugin support for Genesis Simple Edits (free, by StudioPress)
 * New: Added Plugin support for Genesis Footer Builder (free, by Shivanand Sharma)
@@ -607,17 +738,17 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 * Fix: Changed few `translators` comments in code to properly trigger the language pack creation on WordPress.org for some translateable strings
 
 
-= 1.3.6 - 2018-10-30 =
+= ⚡ 1.3.6 - 2018-10-30 =
 * *New: Successfully tested with WordPress 5.0 Beta 1*
 * Tweak: Updated bundled library DDWlib Plugin Installer Recommendations to latest version (v1.2.0) - which brings enhanced CSS styles, including for the "Dark Mode" plugin
 * Tweak: Few internal code tweaks and improvements
 * Tweak: Enhanced and improved Readme.txt file here - also added new FAQ entry
 
 
-= 1.3.5 - 2018-10-02 =
+= ⚡ 1.3.5 - 2018-10-02 =
 * New: Added plugin support for my very own plugin, [Builder Template Categories](https://wordpress.org/plugins/builder-template-categories/) (free, by David Decker - DECKERWEB) - for all integrations relevant for Toolbar Extras plugin
 * New: Added & verified plugin support for WPForms Pro versions (Premium, by WPForms)
-* New: Added theme support for Breakthrough (Premium, by StudioPress), a Child Theme for Genesis
+* New: Added theme support for Breakthrough Pro (Premium, by StudioPress), a Child Theme for Genesis
 * New: Added plugin support for my own plugin, Genesis Widgetized Not Found & 404 (free, by David Decker - DECKERWEB)
 * New: Added plugin support for my own plugin, Genesis Layout Extras (free, by David Decker - DECKERWEB)
 * New: Added Plugin support for Display Related Posts for Genesis (free, by SEO Themes)
@@ -628,7 +759,7 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 * Tweak: Updated `.pot` file plus all German translations (formal, informal) and language packs
 
 
-= 1.3.4 - 2018-08-30 =
+= ⚡ 1.3.4 - 2018-08-30 =
 * New: Added `composer.json` file to the plugin's root folder - this is great for developers using Composer
 * New: Added `README.md` file for plugin's GitHub.com repository to make it more readable there
 * New: Added plugin update message also to Plugins page (overview table)
@@ -641,13 +772,13 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 * Tweak: Updated `.pot` file plus all German translations (formal, informal) and language packs
 
 
-= 1.3.3 - 2018-08-08 =
+= ⚡ 1.3.3 - 2018-08-08 =
 * New: Verified support for Business accounts on WordPress.com platform which support installation of other plugins (like Toolbar Extras) - [check the full tutorial on our plugin website](https://toolbarextras.com/docs/how-to-use-toolbar-extras-plugin-on-wordpress-com/)
 * Tweak: Improved and corrected Readme.txt file here
 * Fix: Respect namespaced classes in "PowerPack Elements" plugin support for their v1.3.4+ release
 
 
-= 1.3.2 - 2018-07-29 =
+= ⚡ 1.3.2 - 2018-07-29 =
 * New: Added "Elements" to the "GeneratePress" Theme support for the Premium Add-On v1.7 or higher (including backwards compat for Page Headers and Hooks)
 * New: First few features & tweaks to support the Block Editor (known as "Gutenberg") which is planned for upcoming WordPress 5.0: if "Gutenberg" plugin is active offer an "Editor switch" between "Block Editor" (Gutenberg) and "Classic Editor" when editing any post type content (which in general needs to have post type support for the Editor) -- Please Note: these features are currently only available with `define( 'TBEX_USE_BLOCK_EDITOR_SUPPORT', TRUE );` - support in plugin's settings comes with next major version!
 * New: Finally, complete translation of the German plugin page on WordPress.org: [https://de.wordpress.org/plugins/toolbar-extras/](https://de.wordpress.org/plugins/toolbar-extras/) - this translation will also be maintained from now on (note: it can only be in informal German, which is the guideline set by the platform)
@@ -738,7 +869,7 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 * Cool Timeline (free, by Cool Plugins) - as a basis for the by the same author, "Cool Timeline Addon For Elementor" (native Elementor widget)
 
 
-= 1.3.1 - 2018-06-30 =
+= ⚡ 1.3.1 - 2018-06-30 =
 * New: Added two upcoming WooCommerce Template types for a future Elementor Pro version
 * Tweak: Added icons to the new Customizer link for "Edit" and "View" singular posts for any public post (feature from v1.3.0)
 * Tweak: Changed various admin links for "Phlox" Theme support - Note: [Toolbar Extras always only supports the latest versions of supported Themes & Plugins](https://toolbarextras.com/docs/update-policy-for-supported-themes-and-plugins/)
@@ -769,7 +900,7 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 * Content Aware Sidebars (free, by Joachim Jensen - DEV Institute)
 
 
-= 1.3.0 - 2018-06-25 =
+= 🎉 1.3.0 - 2018-06-25 =
 * New: General setting to set link target for "Create with Builder" links (add new templates...) - by default this is now set to "_blank" (means new browser tab/ window)
 * New: Added Customizer link for "Edit" and "View" singular posts for any public post - also a new General setting included to display those links or not (on by default)
 * New: Build own Theme upload "tab" that can be linked to on its own (uses WordPress Core render function for the upload feature itself!) - see Toolbar under: + New > Install Theme > Upload ZIP file
@@ -840,7 +971,7 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 * Display Featured Image for Genesis (free, by Robin Cornett)
 
 
-= 1.2.1 - 2018-06-09 =
+= ⚡ 1.2.1 - 2018-06-09 =
 * Tweak: Improved logic for some Smart Tweaks so any items are always hidden when the supported plugin is not active (important for the re-hook tweaks)
 * Tweak: Improved plugin support for "JetWooBuilder" with the adding of its WooCommerce settings page
 * Tweak: Improved plugin support for "DHWC Elementor" with the adding of its Template settings
@@ -853,7 +984,7 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 * Fix: Proper check for white label settings in "Ultimate Addons for Elementor" plugin support
 
 
-= 1.2.0 - 2018-05-31 =
+= 🎉 1.2.0 - 2018-05-31 =
 * New: General setting to remove all title attributes (Tooltips) from links in the Toolbar, including from all items added by Toolbar Extras (Toolbar Extras Settings > General)
 * New: Smart Tweak setting to re-hook "WP Rocket" items from the top-level to the Site Group > More Stuff (off by default) (Plugin: WP Rocket - Premium, by WP Rocket)
 * New: Smart Tweak setting to re-hook "Autoptimize" items from the top-level to the Site Group > More Stuff (off by default) (Plugin: Autoptimize - free, by Frank Goossens & Optimizing Matters)
@@ -923,7 +1054,7 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 * Widget Options (free/Premium, by Phpbits Creative Studio)
 
 
-= 1.1.3 - 2018-04-30 =
+= ⚡ 1.1.3 - 2018-04-30 =
 * New: [Launched plugin's own website at toolbarextras.com](https://toolbarextras.com/) with full listing of theme and plugin support, features, blog as well as documentation, knowledge base and changelogs
 * New: Added plugin support for "Genesis DevKit" (Premium, by Cobalt Apps)
 * Tweak: Added appropriate EDD Customizer deep links for the "StartWP Extended" plugin support 
@@ -937,13 +1068,13 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 * Fix: Proper filter name for 'tbex_filter_meta_target'
 
 
-= 1.1.2 - 2018-04-23 =
+= ⚡ 1.1.2 - 2018-04-23 =
 * Tweak: Made support for "Genesis Extender" plugin compatible with their newest version 1.9.0 or higher (versions below v1.9.0 are still supported, though)
 * Fix: Proper dismissal parameter for admin notices
 * Fix: Re-added /assets/ folder within plugin - really sorry for that mistake in v1.1.1!
 
 
-= 1.1.1 - 2018-04-20 =
+= ⚡ 1.1.1 - 2018-04-20 =
 * New: Added theme support for "Kava Theme" (free, by Zemez Jet & CrocoBlock)
 * New: Added plugin support for "WidgetKit for Elementor" (free, by Themesgrove)
 * New: Added plugin support for "Genesis Extender" (Premium, by Cobalt Apps)
@@ -956,7 +1087,7 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 * Fix: Add Thickbox JS & CSS on settings page if needed (for video tour)
 
 
-= 1.1.0 - 2018-04-18 =
+= 🎉 1.1.0 - 2018-04-18 =
 * New: Successfully tested with Elementor Pro 2.0 final release (and many Beta versions before)
 * New: Successfully tested with "Laragon" app on Windows 10 - automatic detection of local sites with `.test` domain worked great
 * New: Added button to Video feature introduction tour on settings page welcome message
@@ -1026,7 +1157,7 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 * MaxGalleria (free, by Max Foundry)
 
 
-= 1.0.2 - 2018-04-05 =
+= ⚡ 1.0.2 - 2018-04-05 =
 * New: Added first language packs via WordPress.org translations platform - for German (de_DE - informal) and German Formal (de_DE_formal) - thanks to Team WordPress DE! ;-)
 * New: Added plugin support for "Cleaner Plugin Installer"
 * Tweak: Improved localization on plugin activation
@@ -1034,12 +1165,12 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 * Fix: Fatal error related to "Dev Mode" in Multisite context
 
 
-= 1.0.1 - 2018-04-04 =
+= ⚡ 1.0.1 - 2018-04-04 =
 * Tweak: Improved localization functions.
 * Tweak: Improved Readme.txt
 
 
-= 1.0.0 - 2018-04-03 =
+= 🎉 1.0.0 - 2018-04-03 =
 * *Plugin launch. Everything's new!*
 * New: Including support for 17 Themes/ Frameworks (which all work well with Elementor, including the Theme Builder since Pro v2.0+)
 * New: Including support for 19 Add-On plugins (free + Premium) for Elementor
@@ -1050,6 +1181,12 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 
 
 == Upgrade Notice =
+
+= 1.4.2 =
+50 additional Plugins and 17 additional Themes supported! Lots of refinements and improvements, plus preparing for the first official Add-Ons. - **Update highly recommended.**
+
+= 1.4.1 =
+Important maintenance release: Fixes and tweaks for Elementor 2.5 compatibility. - **Update highly recommended.**
 
 = 1.4.0 =
 Major feature release: Lots of new settings options. Over 90 new plugin & theme integrations supported. Enhancements and updates on all fronts. - **Update highly recommended.**
@@ -1115,16 +1252,18 @@ Maintenance release. Small fixes.
 Plugin launch. Everything's new!
 
 
-== Donate ==
+== ☺️ Donate ==
 Enjoy using *Toolbar Extras*? **[Please consider making a donation](https://www.paypal.me/deckerweb)** - every donation helps to support the project's continued development, maintenance and support.
 **Thank you very much in advance for your support!**
 
 
-== Credits ==
+== 👏 Credits ==
 Credit where credit is due. The following code, classes and libraries were used for this plugin, all licensed under the GPL. Note: Credit is also referenced in the code doc block inline where used.
 
+* Class "DDWlib Plugin Installer Recommendations" (PLIR) by David Decker - DECKERWEB (GPLv2 or later)
 * Class "Persist Admin notices Dismissal" (PAnD) by Agbonghama Collins and Andy Fragen (GPLv2 or later)
 * Class "Astra Notices" by Brainstorm Force (GPLv2 or later)
+* Class "My Plugin Manager" by Theme Blvd and Jason Bobich (GPLv2 or later)
 * jQuery Plugin, JavaScript "Dashicons Picker" by Brad Vincent (GPLv2 or later)
 * Admin Settings JavaScript by StudioPress (GPLv2 or later)
 * Code for frontend Toolbar color by Daniel James (GPLv3)
@@ -1137,7 +1276,7 @@ Credit where credit is due. The following code, classes and libraries were used 
 **Special Thanks go out to my family for allowing me to do such spare time projects (aka free plugins) and supporting me in every possible way!**
 
 
-== My Other Plugins ==
+== 🔆 My Other Plugins ==
 * [**Builder Template Categories - for WordPress Page Builders**](https://wordpress.org/plugins/builder-template-categories/)
 * [**Polylang Connect for Elementor – Language Switcher & Template Tweaks**](https://wordpress.org/plugins/connect-polylang-elementor/)
 * [**Simple Download Manager for WP Document Revisions**](https://wordpress.org/plugins/wpdr-simple-downloads/)

@@ -74,9 +74,9 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_envato_elements_template_kits', 
  * @uses ddw_tbex_envatoelements_type()
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_envato_elements_template_kits() {
+function ddw_tbex_aoitems_envato_elements_template_kits( $admin_bar ) {
 
 	/** Get types logic for default builder & labels */
 	$types = ddw_tbex_envatoelements_type();
@@ -87,13 +87,14 @@ function ddw_tbex_aoitems_envato_elements_template_kits() {
 	}
 
 	/** Template import */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'envato-elements-start',
 			'parent' => 'group-demo-import',
 			'title'  => ddw_tbex_item_title_with_settings_icon( esc_attr__( 'Envato Elements', 'toolbar-extras' ), 'general', 'demo_import_icon' ),
 			'href'   => esc_url( admin_url( 'admin.php?page=envato-elements' ) ),
 			'meta'   => array(
+				'class'  => 'tbex-import-templates',
 				'target' => '',
 				'title'  => esc_attr__( 'Template Kits via Envato Elements', 'toolbar-extras' )
 			)
@@ -111,7 +112,7 @@ function ddw_tbex_aoitems_envato_elements_template_kits() {
 			$types[ 'label' ]
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'envato-elements-template-kits-' . $types[ 'builder' ],
 				'parent' => 'envato-elements-start',
@@ -136,7 +137,7 @@ function ddw_tbex_aoitems_envato_elements_template_kits() {
 			$types[ 'label' ]
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'envato-elements-blocks-' . $types[ 'builder' ],
 				'parent' => 'envato-elements-start',
@@ -152,11 +153,11 @@ function ddw_tbex_aoitems_envato_elements_template_kits() {
 		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-envatoelements-resources',
 					'parent' => 'envato-elements-start',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary tbex-group-resources-divider' ),
 				)
 			);
 
@@ -188,9 +189,9 @@ add_action( 'admin_bar_menu', 'ddw_tbex_items_new_content_installer_envato_eleme
  *
  * @uses ddw_tbex_envatoelements_type()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_items_new_content_installer_envato_elements() {
+function ddw_tbex_items_new_content_installer_envato_elements( $admin_bar ) {
 
 	/** Get types logic for default builder & labels */
 	$types = ddw_tbex_envatoelements_type();
@@ -200,8 +201,8 @@ function ddw_tbex_items_new_content_installer_envato_elements() {
 		return;
 	}
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
-			array(
+	$admin_bar->add_node(
+		array(
 			'id'     => 'envatoelements-installer',
 			'parent' => 'tbex-installer',
 			'title'  => esc_attr__( 'Install Envato Elements', 'toolbar-extras' ),
@@ -213,7 +214,7 @@ function ddw_tbex_items_new_content_installer_envato_elements() {
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 				array(
 				'id'     => 'envatoelements-installer-kits-' . $types[ 'builder' ],
 				'parent' => 'envatoelements-installer',
@@ -226,7 +227,7 @@ function ddw_tbex_items_new_content_installer_envato_elements() {
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 				array(
 				'id'     => 'envatoelements-installer-blocks-' . $types[ 'builder' ],
 				'parent' => 'envatoelements-installer',

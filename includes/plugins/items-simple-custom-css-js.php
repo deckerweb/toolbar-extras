@@ -23,11 +23,11 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_simple_custom_css_js', 15 );
  * @uses ddw_tbex_display_items_resources()
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_simple_custom_css_js() {
+function ddw_tbex_site_items_simple_custom_css_js( $admin_bar ) {
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'elements-sccssjs',
 			'parent' => 'tbex-sitegroup-elements',
@@ -35,12 +35,12 @@ function ddw_tbex_site_items_simple_custom_css_js() {
 			'href'   => esc_url( admin_url( 'edit.php?post_type=custom-css-js' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Custom Code', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Custom Code', 'toolbar-extras' ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'elements-sccssjs-all',
 				'parent' => 'elements-sccssjs',
@@ -48,13 +48,13 @@ function ddw_tbex_site_items_simple_custom_css_js() {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=custom-css-js' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'All Code', 'toolbar-extras' )
+					'title'  => esc_attr__( 'All Code', 'toolbar-extras' ),
 				)
 			)
 		);
 
 		/** CSS */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'elements-sccssjs-css',
 				'parent' => 'elements-sccssjs',
@@ -62,12 +62,12 @@ function ddw_tbex_site_items_simple_custom_css_js() {
 				'href'   => esc_url( admin_url( 'edit.php?s&post_status=all&post_type=custom-css-js&action=-1&m=0&language_filter=css' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'CSS Code', 'toolbar-extras' )
+					'title'  => esc_attr__( 'CSS Code', 'toolbar-extras' ),
 				)
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'elements-sccssjs-css-all',
 					'parent' => 'elements-sccssjs-css',
@@ -75,12 +75,12 @@ function ddw_tbex_site_items_simple_custom_css_js() {
 					'href'   => esc_url( admin_url( 'edit.php?s&post_status=all&post_type=custom-css-js&action=-1&m=0&language_filter=css' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => ddw_tbex_string_cpt( 'all', __( 'CSS', 'toolbar-extras' ) )
+						'title'  => ddw_tbex_string_cpt( 'all', __( 'CSS', 'toolbar-extras' ) ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'elements-sccssjs-css-new',
 					'parent' => 'elements-sccssjs-css',
@@ -88,13 +88,13 @@ function ddw_tbex_site_items_simple_custom_css_js() {
 					'href'   => esc_url( admin_url( 'post-new.php?post_type=custom-css-js&language=css' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => ddw_tbex_string_cpt( 'new', __( 'CSS', 'toolbar-extras' ) )
+						'title'  => ddw_tbex_string_cpt( 'new', __( 'CSS', 'toolbar-extras' ) ),
 					)
 				)
 			);
 
 		/** JS */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'elements-sccssjs-js',
 				'parent' => 'elements-sccssjs',
@@ -102,12 +102,12 @@ function ddw_tbex_site_items_simple_custom_css_js() {
 				'href'   => esc_url( admin_url( 'edit.php?s&post_status=all&post_type=custom-css-js&action=-1&m=0&language_filter=js' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'JS Code', 'toolbar-extras' )
+					'title'  => esc_attr__( 'JS Code', 'toolbar-extras' ),
 				)
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'elements-sccssjs-js-all',
 					'parent' => 'elements-sccssjs-js',
@@ -115,12 +115,12 @@ function ddw_tbex_site_items_simple_custom_css_js() {
 					'href'   => esc_url( admin_url( 'edit.php?s&post_status=all&post_type=custom-css-js&action=-1&m=0&language_filter=js' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => ddw_tbex_string_cpt( 'all', __( 'JS', 'toolbar-extras' ) )
+						'title'  => ddw_tbex_string_cpt( 'all', __( 'JS', 'toolbar-extras' ) ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'elements-sccssjs-js-new',
 					'parent' => 'elements-sccssjs-js',
@@ -128,13 +128,13 @@ function ddw_tbex_site_items_simple_custom_css_js() {
 					'href'   => esc_url( admin_url( 'post-new.php?post_type=custom-css-js&language=js' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => ddw_tbex_string_cpt( 'new', __( 'JS', 'toolbar-extras' ) )
+						'title'  => ddw_tbex_string_cpt( 'new', __( 'JS', 'toolbar-extras' ) ),
 					)
 				)
 			);
 
 		/** HTML */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'elements-sccssjs-html',
 				'parent' => 'elements-sccssjs',
@@ -142,12 +142,12 @@ function ddw_tbex_site_items_simple_custom_css_js() {
 				'href'   => esc_url( admin_url( 'edit.php?s&post_status=all&post_type=custom-css-js&action=-1&m=0&language_filter=html' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'HTML Code', 'toolbar-extras' )
+					'title'  => esc_attr__( 'HTML Code', 'toolbar-extras' ),
 				)
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'elements-sccssjs-html-all',
 					'parent' => 'elements-sccssjs-html',
@@ -155,12 +155,12 @@ function ddw_tbex_site_items_simple_custom_css_js() {
 					'href'   => esc_url( admin_url( 'edit.php?s&post_status=all&post_type=custom-css-js&action=-1&m=0&language_filter=html' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => ddw_tbex_string_cpt( 'all', __( 'HTML', 'toolbar-extras' ) )
+						'title'  => ddw_tbex_string_cpt( 'all', __( 'HTML', 'toolbar-extras' ) ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'elements-sccssjs-html-new',
 					'parent' => 'elements-sccssjs-html',
@@ -168,13 +168,13 @@ function ddw_tbex_site_items_simple_custom_css_js() {
 					'href'   => esc_url( admin_url( 'post-new.php?post_type=custom-css-js&language=html' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => ddw_tbex_string_cpt( 'new', __( 'HTML', 'toolbar-extras' ) )
+						'title'  => ddw_tbex_string_cpt( 'new', __( 'HTML', 'toolbar-extras' ) ),
 					)
 				)
 			);
 
 		/** Settings */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'elements-sccssjs-settings',
 				'parent' => 'elements-sccssjs',
@@ -182,7 +182,7 @@ function ddw_tbex_site_items_simple_custom_css_js() {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=custom-css-js&page=custom-css-js-config' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -190,11 +190,11 @@ function ddw_tbex_site_items_simple_custom_css_js() {
 	/** Group: Resources for Custom Code */
 	if ( ddw_tbex_display_items_resources() ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_group(
+		$admin_bar->add_group(
 			array(
 				'id'     => 'group-sccssjs-resources',
 				'parent' => 'elements-sccssjs',
-				'meta'   => array( 'class' => 'ab-sub-secondary' )
+				'meta'   => array( 'class' => 'ab-sub-secondary' ),
 			)
 		);
 
@@ -244,11 +244,11 @@ add_action( 'admin_bar_menu', 'ddw_tbex_new_content_simple_custom_css_js' );
  *
  * @uses ddw_tbex_string_cpt()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_new_content_simple_custom_css_js() {
+function ddw_tbex_new_content_simple_custom_css_js( $admin_bar ) {
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'new-sccssjs-css',
 			'parent' => 'new-custom-css-js',
@@ -256,12 +256,12 @@ function ddw_tbex_new_content_simple_custom_css_js() {
 			'href'   => esc_url( admin_url( 'post-new.php?post_type=custom-css-js&language=css' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_cpt( 'new', __( 'CSS', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_cpt( 'new', __( 'CSS', 'toolbar-extras' ) ),
 			)
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'new-sccssjs-js',
 			'parent' => 'new-custom-css-js',
@@ -269,12 +269,12 @@ function ddw_tbex_new_content_simple_custom_css_js() {
 			'href'   => esc_url( admin_url( 'post-new.php?post_type=custom-css-js&language=js' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_cpt( 'new', __( 'JS', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_cpt( 'new', __( 'JS', 'toolbar-extras' ) ),
 			)
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'new-sccssjs-html',
 			'parent' => 'new-custom-css-js',
@@ -282,7 +282,7 @@ function ddw_tbex_new_content_simple_custom_css_js() {
 			'href'   => esc_url( admin_url( 'post-new.php?post_type=custom-css-js&language=html' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_cpt( 'new', __( 'HTML', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_cpt( 'new', __( 'HTML', 'toolbar-extras' ) ),
 			)
 		)
 	);
@@ -296,16 +296,16 @@ add_action( 'admin_bar_menu', 'ddw_tbex_user_items_sccssjs_designer', 15 );
  *
  * @since 1.0.0
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_user_items_sccssjs_designer() {
+function ddw_tbex_user_items_sccssjs_designer( $admin_bar ) {
 
 	/** Optional: Web Desiger Users (SCCSSJS) */
 	$sccssjs_designer = get_users( array( 'role' => 'css_js_designer' ) );
 
 	if ( ! empty( $sccssjs_designer ) ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'user-sccssjs-designer',
 				'parent' => 'group-tbex-users',
@@ -314,7 +314,7 @@ function ddw_tbex_user_items_sccssjs_designer() {
 				'meta'   => array(
 					'class'  => 'tbex-users',
 					'target' => '',
-					'title'  => esc_attr__( 'Web Designers', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Web Designers', 'toolbar-extras' ),
 				)
 			)
 		);
