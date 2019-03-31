@@ -14,6 +14,125 @@
 
 ## Changelog of the Plugin
 
+### ⚡ 1.4.2 - 2019-03-31
+
+* New: Added "Add-Ons" tab to plugin's settings page, featuring official, supported and recommended Add-Ons -- preparing for first official Add-On release(s) ;-)
+* New: Lots of additions and refinements under the hood to make official Add-Ons work smarter (extends the groundwork from v1.4.0)
+* New: Tweaks and additions for (optional) post type archive items, plus new sub items, including special support for Genesis CPT Archive Settings
+* New: [The plugin now has its own Supporter page on Patreon.com](https://www.patreon.com/deckerweb) - become a patron and support ongoing development
+* New: [The plugin now hat its own Instagram channel](https://www.instagram.com/toolbarextras) - please follow us and like our content
+* New: [The plugin now hat its own Twitter account](https://twitter.com/toolbarextras) - please follow us and like & retweet our tweets
+* New: Added generic, reusable class to better support/integrate generic post types from plugins and themes
+* New: Added optional "My Plugin Manager" library by Theme Blvd for the upcoming Add-Ons for Toolbar Extras to manage plugin dependencies and suggestions
+* *New: Successfully tested with WordPress 5.1.1*
+* Tweak: Refined core support for Block Editor (Gutenberg) in some minor areas/ aspects
+* Tweak: Refined settings sections internally that only display conditionally for certain supported third-party plugins
+* Tweak: Further optimized admin settings pages, including the branding/ styling
+* Tweak: Enhanced plugin support for "JetEngine" - integrated new Booking Forms module
+* Tweak: Enhanced plugin support for "Essential Addons for Elementor" (by WPDeveloper/ Codetic)
+* Tweak: Enhanced plugin support for "Builder Template Categories"
+* Tweak: Enhanced plugin support for "MailChimp for WP"
+* Tweak: Implemented admin URL change for "Ultimate Addons for Elementor" plugin support
+* Tweak: Implemented admin URL change for "Ultimate Addons for Gutenberg" plugin support
+* Tweak: Greatly enhanced theme support for "OceanWP" (Customizer deep links)
+* Tweak: Added developer resources for "Genesis" theme support
+* Tweak: Changed item links for "Mai Theme" theme support (Genesis-specific)
+* Tweak: Changed item link for "Epic News Elements" plugin support
+* Tweak: Changed resource links for "Element Pack" plugin support where needed
+* Tweak: Re-enabled plugin support for "Code Snippets" plugin after latest Code Snippets update(s)
+* Tweak: Local Development Environment feature: now also supports the constant `WP_LOCAL_DEV` from WordPress Core
+* Tweak: Dev Mode: Added new resource for Child Themes
+* Tweak: Replaced "Google+" sharing with "LinkedIn" on the "About & Support" page (as Google+ gets shut down in April 2019)
+* Tweak: Small improvements and tweaks to the core plugin
+* Tweak: Updated bundled library DDWlib Plugin Installer Recommendations to latest version (v1.3.0) - feature updates
+* Tweak: Updated bundled library Persistant Admin notices Removal to latest version (v1.4.3)
+* Tweak: Updated bundled library Astra Notices to latest version (v1.1.2)
+* Tweak: Updated `.pot` file plus all German translations (formal, informal) and language packs
+* Fix: Notice for Element IDs (Dev Mode) on post type archive on frontend
+
+**New, 1.4.2:** *Extended the Theme support for:*
+
+* Layers for Elementor (free, by Elementor Team/ Elementor Ltd.)
+* Woostify (free, by BoostifyThemes), including plugins: *Woostify Sites Library (free)* and *Woostify Pro Add-On (Premium)* (both by BoostifyThemes)
+* Zita (free, by WpZita team), including plugins: *Zita Site Library (free)* and *Zita Pro Add-On (Premium)* (both by WpZita team)
+* Stackable (free, by Gambit Technologies, Inc.)
+* Futurio (free, by FuturioWP), including plugins: *Futurio Extra (free)* and *Futurio Pro (Premium)* (both by FuturioWP)
+* Jupiter X (Premium, by Artbees), including plugin: *Raven (Premium)*
+* Rife Free & Rife Pro (free/Premium, by Apollo13Themes), including plugins *Apollo13 Framework Extensions (free)* and *Rife Elementor Extensions & Templates (free)* (both by Apollo13Themes)
+* Sane (free) and Sane Pro (Premium) (both by Elegant Marketplace)
+* Storefront (free, by Automattic, Inc.)
+* Revolution Pro (Premium, by StudioPress), a Child Theme for Genesis
+* Hello Pro 2 (Premium, by brandiD), a Child Theme for Genesis
+* Jessica (Premium, by 9seeds, LLC), a Child Theme for Genesis
+* Kreativ Pro (Premium, by ThemeSquare), a Child Theme for Genesis
+* Divine (Premium, by Restored 316 Designs // Lauren Gaige), a Child Theme for Genesis
+* Pretty Chic (Premium, by Lindsey Riel), a Child Theme for Genesis
+* Stag Blocks (free, by Codestag)
+* Rooten (Premium, by BdThemes)
+
+**New, 1.4.2:** *Extended the Plugin support for Elementor Add-Ons:*
+
+* JetCompareWishlist (Premium, by Zemez Jet/ CrocoBlock)
+* HT Mega - Ultimate Addons for Elementor (free, by HT Plugins)
+* Elementor Forms (Premium, by Elementor Forms)
+* RabbitBuilder Global Central JS CSS (free, by RabbitBuilder)
+* AnalogWP Templates (free, by AnalogWP)
+* Layouts for Elementor (free, by Giraphix Creative)
+* WPB Elementor Addons (free, by wpbean)
+* Exclusive Addons for Elementor (free, by DevsCred)
+* PDF Generator for Elementor (free, by RedefiningTheWeb)
+* Essentail Premium Addons for Elementor (free, by wpcodestar)
+* Sina Extension for Elementor (free, by shaonsina)
+* Smart Fonts for Elementor (free, by codevision)
+
+**New, 1.4.2:** *Extended the general Plugin support for:*
+
+* HTML Forms (free, by ibericode)
+* Torro Forms (free, by Awesome UG)
+* BuddyForms (free, by ThemeKraft)
+* Contact Form X (free, by Jeff Starr)
+* Jetpack (free/Premium, by Automattic, Inc./ WordPress.com) - *including additionally added submenu items (otherwise missing), and extensive resources*
+* Max Mega Menu (free, by Tom Hemsley)
+* QuadMenu (free, by QuadMenu)
+* [The SEO Framework - Extension Manager](https://theseoframework.com/extension-manager/) (free, by Sybre Waaijer)
+* Shariff Wrapper (free, by Jan-Peter Lambeck & 3UU)
+* Post SMTP (free, by Yehuda Hassine) - *Plugin formerly known as Postman*
+* WP Mail SMTP (free, by WPForms)
+* Instagram Feed (Pro) (free/Premium, by Smash Balloon)
+* Genesis Responsive Slider (free, by StudioPress), a plugin for Genesis
+* CartFlows (free, by CartFlows Inc) - *For Elementor, Beaver Builder, Divi, Gutenberg Block Editor*
+* Pithy Templates (free, by Pithy WP) - *For Elementor currently*
+
+**New, 1.4.2:** *Add-Ons for the Storefront Theme:*
+
+* Storefront Powerpack (Premium, by WooCommerce/ Automattic, Inc.)
+* Storefront Blog Customiser (Premium, by WooCommerce/ Automattic, Inc.)
+* Storefront Parallax Hero (Premium, by WooCommerce/ Automattic, Inc.)
+* Storefront Product Hero (Premium, by WooThemes/ Automattic, Inc.)
+* Storefront Pricing Tables (Premium, by WooCommerce/ Automattic, Inc.)
+* Storefront Homepage Contact Section (free, by WooThemes/ Automattic, Inc.)
+* Storefront Footer Bar (free, by WooThemes/ Automattic, Inc.)
+* Storefront Blog Excerpt (free, by Wooassist)
+* Storefront Top Bar (free, by Wooassist)
+* Storefront Site Logo (free, by Wooassist)
+* Storefront Footer Copyright Text (free, by QuadMenu)
+* Storefront Hooks Customizer (free, by mikeyarce)
+* Storefront Google Fonts (free, by Atlantis Themes)
+
+**New, 1.4.2:** *Extended Plugin support for Block Editor Add-Ons (Gutenberg):*
+
+* Ghost Kit (free, by nK)
+* Cosmic Blocks (free, by Cosmic WP)
+* WP Block Pack (free, by Falcon Theme)
+* Easy Blocks for Gutenberg (free, by Liton Arefin)
+* A/B Testing for WordPress (free, by CleverNode)
+* Easy Blocks PRO (free, by Seerox)
+* WooCommerce Custom Email Blocks (free, by VillaTheme)
+* Qubely Blocks (free, by Themeum)
+* Bootstrap Blocks for WP Editor (free, by Virgial Berveling)
+* Guten-bubble (free, by Chronoir.net)
+
+
 ### ⚡ 1.4.1 - 2019-03-05
 
 * *New: Successfully tested with WordPress 5.1*

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Toolbar Extras\n"
-"POT-Creation-Date: 2019-03-31 17:20+0200\n"
-"PO-Revision-Date: 2019-03-31 17:20+0200\n"
+"POT-Creation-Date: 2019-03-31 22:50+0200\n"
+"PO-Revision-Date: 2019-03-31 22:50+0200\n"
 "Last-Translator: David Decker DECKERWEB.de -- https://deckerweb.de/\n"
 "Language-Team: David Decker DECKERWEB.de -- https://deckerweb.de/\n"
 "Language: de_DE@formal\n"
@@ -1430,7 +1430,7 @@ msgstr "Newsletter jetzt!"
 #: includes/plugins/items-smart-slider.php:73
 #: includes/plugins/items-wp-schema-pro.php:128
 #: includes/plugins/items-wp-schema-pro.php:132
-#: includes/themes/items-flexia.php:94 includes/themes/items-rife.php:80
+#: includes/themes/items-flexia.php:94 includes/themes/items-rife.php:100
 #: includes/themes/items-suki.php:129
 msgid "General Settings"
 msgstr "Allgemeine Einstellungen"
@@ -4222,7 +4222,7 @@ msgid "New %s Item"
 msgstr "Neue %s Element"
 
 #. translators: %s - singular name of a post type (singular label)
-#: includes/class-items-cpt-generic.php:103 includes/themes/items-rife.php:218
+#: includes/class-items-cpt-generic.php:103 includes/themes/items-rife.php:238
 #, php-format
 msgid "New %s Builder"
 msgstr "Neuen/s %s bauen"
@@ -6303,7 +6303,7 @@ msgstr "Fortgeschrittene Benutzer &amp; Entwickler-Communitry-Gruppe"
 #: includes/plugins-forms/items-formidable-forms.php:338
 #: includes/themes-genesis/items-genesis-sample.php:37
 #: includes/themes/items-default-twenty-themes.php:76
-#: includes/themes/items-freelancer.php:91 includes/themes/items-rife.php:146
+#: includes/themes/items-freelancer.php:91 includes/themes/items-rife.php:166
 msgid "Custom CSS"
 msgstr "Eigenes CSS"
 
@@ -6834,13 +6834,13 @@ msgid "Customize %s"
 msgstr "Anpassen: %s"
 
 #. translators: %s - name of a post type (plural label)
-#: includes/functions-global.php:1063 includes/themes/items-rife.php:200
+#: includes/functions-global.php:1063 includes/themes/items-rife.php:220
 #, php-format
 msgid "All %s"
 msgstr "Alles %s"
 
 #. translators: %s - singular name of a post type (singular label)
-#: includes/functions-global.php:1070 includes/themes/items-rife.php:212
+#: includes/functions-global.php:1070 includes/themes/items-rife.php:232
 #, php-format
 msgid "New %s"
 msgstr "Neues %s"
@@ -9201,7 +9201,7 @@ msgstr "Benachrichtigungen"
 #: includes/plugins/items-seo-redirection.php:82
 #: includes/plugins/items-seo-redirection.php:86
 #: includes/themes/items-beaver-builder-theme.php:108
-#: includes/themes/items-rife.php:329 includes/themes/items-rife.php:333
+#: includes/themes/items-rife.php:349 includes/themes/items-rife.php:353
 msgid "Export &amp; Import"
 msgstr "Export &amp; Import"
 
@@ -9279,7 +9279,7 @@ msgstr "E-Mail-Test"
 
 #: includes/plugins-forms/items-wp-mail-smtp.php:69
 #: includes/plugins-forms/items-wp-mail-smtp.php:73
-#: includes/themes/items-rife.php:140
+#: includes/themes/items-rife.php:160
 msgid "Miscellaneous"
 msgstr "Verschiedenes"
 
@@ -11660,7 +11660,7 @@ msgstr "Dokumente"
 #. translators: %s - post type label, "Documents" OR "Downloads"
 #. translators: %s - name of a post type (plural label)
 #: includes/plugins/items-wp-document-revisions.php:66
-#: includes/themes/items-rife.php:206
+#: includes/themes/items-rife.php:226
 #, php-format
 msgid "Edit %s"
 msgstr "%s bearbeiten"
@@ -12283,7 +12283,7 @@ msgstr "Typografie"
 #: includes/themes/items-buildwall.php:331
 #: includes/themes/items-futurio.php:275 includes/themes/items-futurio.php:279
 #: includes/themes/items-kava.php:332 includes/themes/items-kava.php:336
-#: includes/themes/items-rife.php:342 includes/themes/items-rife.php:346
+#: includes/themes/items-rife.php:362 includes/themes/items-rife.php:366
 msgid "Theme Info"
 msgstr "Theme-Infos"
 
@@ -12385,7 +12385,7 @@ msgstr "Footer-Einstellungen"
 #: includes/themes/items-buildwall.php:172
 #: includes/themes/items-buildwall.php:176 includes/themes/items-hestia.php:108
 #: includes/themes/items-hestia.php:112 includes/themes/items-kava.php:172
-#: includes/themes/items-kava.php:176 includes/themes/items-rife.php:90
+#: includes/themes/items-kava.php:176 includes/themes/items-rife.php:110
 msgid "Blog Settings"
 msgstr "Blog-Einstellungen"
 
@@ -12916,11 +12916,11 @@ msgstr "Sektionen für Startseite"
 
 #. translators: Autofocus section in the Customizer
 #: includes/themes/items-hestia.php:124 includes/themes/items-hestia.php:128
-#: includes/themes/items-rife.php:85
+#: includes/themes/items-rife.php:105
 msgid "Header Settings"
 msgstr "Header-Einstellungen"
 
-#: includes/themes/items-jupiterx.php:104 includes/themes/items-rife.php:131
+#: includes/themes/items-jupiterx.php:104 includes/themes/items-rife.php:151
 msgid "Shop Settings"
 msgstr "Shop-Einstellungen"
 
@@ -13163,27 +13163,27 @@ msgstr "Plugin-Installer"
 msgid "Import Phlox Demos"
 msgstr "Phlox-Demos importieren"
 
-#: includes/themes/items-rife.php:96 includes/themes/items-suki.php:114
+#: includes/themes/items-rife.php:116 includes/themes/items-suki.php:114
 msgid "Page Settings"
 msgstr "Seiten-Einstellungen"
 
-#: includes/themes/items-rife.php:106
+#: includes/themes/items-rife.php:126
 msgid "Works Settings"
 msgstr "Werk-Einstellungen"
 
-#: includes/themes/items-rife.php:113
+#: includes/themes/items-rife.php:133
 msgid "Albums Settings"
 msgstr "Alben-Einstellungen"
 
-#: includes/themes/items-rife.php:120
+#: includes/themes/items-rife.php:140
 msgid "Add Custom Sidebars"
 msgstr "Individuelle Seitenleisten hinzufügen"
 
-#: includes/themes/items-rife.php:316 includes/themes/items-rife.php:320
+#: includes/themes/items-rife.php:336 includes/themes/items-rife.php:340
 msgid "Rife Settings"
 msgstr "Rife-Einstellungen"
 
-#: includes/themes/items-rife.php:360 includes/themes/items-rife.php:367
+#: includes/themes/items-rife.php:380 includes/themes/items-rife.php:387
 msgid "Rife Design Importer"
 msgstr "Rife Design-Importer"
 

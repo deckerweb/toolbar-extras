@@ -26,9 +26,29 @@ function ddw_tbex_is_a13fe_active() {
 }  // end function
 
 
+/**
+ * Check if Rife Pro theme version is active or not.
+ *
+ * @since 1.4.2
+ *
+ * @return bool TRUE if conditions are met, FALSE otherwise.
+ */
+function ddw_tbex_is_rife_pro_active() {
+
+	if ( 'Rife Pro' === wp_get_theme()
+		|| 'rife' === wp_basename( get_template_directory() )
+	) {
+		return TRUE;
+	}
+
+	return FALSE;
+
+}  // end function
+
+
 add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_rife', 100 );
 /**
- * Items for Theme: Rife (free, by Apollo13Themes)
+ * Items for Theme: Rife Free & Rife Pro (free/Premium, by Apollo13Themes)
  *
  * @since 1.4.2
  *
@@ -155,8 +175,8 @@ function ddw_tbex_themeitems_rife_customize( array $items ) {
 
 add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_apollo13_framework', 120 );
 /**
- * Add additional items for Rife Free Theme that are powered via the free Add-On
- *   plugin "Apollo13 Framework Extensions".
+ * Add additional items for Rife Free/Pro Theme that are powered via the free
+ *   Add-On plugin "Apollo13 Framework Extensions".
  *
  * @since 1.4.2
  *
@@ -401,12 +421,32 @@ function ddw_tbex_themeitems_rife_resources() {
 		)
 	);
 
-	ddw_tbex_resource_item(
-		'support-forum',
-		'theme-support',
-		'group-theme-resources',
-		'https://wordpress.org/support/theme/rife-free'
-	);
+	if ( ddw_tbex_is_rife_pro_active() ) {
+
+		ddw_tbex_resource_item(
+			'support-forum',
+			'theme-pro-support-forum',
+			'group-theme-resources',
+			'https://support.apollo13.eu/'
+		);
+
+		ddw_tbex_resource_item(
+			'support-contact',
+			'theme-contact',
+			'group-theme-resources',
+			'https://apollo13themes.com/contact/'
+		);
+
+	} else {
+
+		ddw_tbex_resource_item(
+			'support-forum',
+			'theme-support',
+			'group-theme-resources',
+			'https://wordpress.org/support/theme/rife-free'
+		);
+
+	}  // end if
 
 	ddw_tbex_resource_item(
 		'documentation',
@@ -422,12 +462,16 @@ function ddw_tbex_themeitems_rife_resources() {
 		'https://apollo13themes.com/rife/tutorials/'
 	);
 
-	ddw_tbex_resource_item(
-		'translations-community',
-		'theme-translate',
-		'group-theme-resources',
-		'https://translate.wordpress.org/projects/wp-themes/rife-free'
-	);
+	if ( ! ddw_tbex_is_rife_pro_active() ) {
+
+		ddw_tbex_resource_item(
+			'translations-community',
+			'theme-translate',
+			'group-theme-resources',
+			'https://translate.wordpress.org/projects/wp-themes/rife-free'
+		);
+
+	}  // end if
 
 	ddw_tbex_resource_item(
 		'official-site',

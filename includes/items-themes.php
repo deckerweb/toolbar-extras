@@ -202,11 +202,14 @@ if ( ( 'Futurio' == wp_get_theme() && defined( 'FUTURIO_EXTRA_CURRENT_VERSION' )
 
 
 /**
- * Theme: Rife (free, by Apollo13Themes)
+ * Theme: Rife Free & Rife Pro (free/Premium, by Apollo13Themes)
  * @since 1.4.2
  */
-if ( ( 'Rife Free' == wp_get_theme() && class_exists( 'Apollo13Framework' ) )	// Rife Free w/o child theme
-	|| ( 'rife-free' === wp_basename( get_template_directory() ) && class_exists( 'Apollo13Framework' ) )		// Rife Free w/ child theme
+if ( ( ( 'Rife Free' == wp_get_theme() || 'Rife Pro' == wp_get_theme() )		// Rife Free/Pro w/o child theme
+		&& class_exists( 'Apollo13Framework' )
+	)
+	|| ( ( 'rife-free' === wp_basename( get_template_directory() ) || 'rife' === wp_basename( get_template_directory() ) )		// Rife Free/Pro w/ child theme
+		&& class_exists( 'Apollo13Framework' ) )
 ) {
 	require_once TBEX_PLUGIN_DIR . 'includes/themes/items-rife.php';
 }

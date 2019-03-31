@@ -5,7 +5,7 @@ Tags: toolbar, adminbar, admin bar, elementor, page builder, themes, menu, links
 Requires at least: 4.7
 Tested up to: 5.1
 Requires PHP: 5.6
-Stable tag: 1.4.1
+Stable tag: 1.4.2
 License: GPL-2.0-or-later
 License URI: https://opensource.org/licenses/GPL-2.0
 
@@ -425,7 +425,7 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 * Stackable (free, by Gambit Technologies, Inc.)
 * Futurio (free, by FuturioWP), including plugins: *Futurio Extra (free)* and *Futurio Pro (Premium)* (both by FuturioWP)
 * Jupiter X (Premium, by Artbees), including plugin: *Raven (Premium)*
-* Rife Free (free, by Apollo13Themes), including plugins *Apollo13 Framework Extensions (free)* and *Rife Elementor Extensions & Templates (free)* (both by Apollo13Themes)
+* Rife Free & Rife Pro (free/Premium, by Apollo13Themes), including plugins *Apollo13 Framework Extensions (free)* and *Rife Elementor Extensions & Templates (free)* (both by Apollo13Themes)
 * Sane (free) and Sane Pro (Premium) (both by Elegant Marketplace)
 * Storefront (free, by Automattic, Inc.)
 * Revolution Pro (Premium, by StudioPress), a Child Theme for Genesis
@@ -1183,7 +1183,7 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 == Upgrade Notice =
 
 = 1.4.2 =
-50 additional Plugins and 17 additional Themes supported! Lots of refinements and improvements, plus preparing for the first official Add-Ons. - **Update highly recommended.**
+55 additional Plugins and 18 additional Themes supported! Lots of refinements and improvements, plus preparing for the first official Add-Ons. - **Update highly recommended.**
 
 = 1.4.1 =
 Important maintenance release: Fixes and tweaks for Elementor 2.5 compatibility. - **Update highly recommended.**
