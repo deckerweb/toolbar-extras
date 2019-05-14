@@ -476,6 +476,10 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 ![Toolbar Extras - help tab for Admin Toolbar Menu](https://ps.w.org/toolbar-extras/assets/screenshot-27.png)
 
 
+### 28. Toolbar Extras - Site Health Debug Info screen with additional info (WP 5.2+)
+![Toolbar Extras - Site Health Debug Info screen with additional info (WP 5.2+)](https://ps.w.org/toolbar-extras/assets/screenshot-28.png)
+
+
 
 ## Changelog 
 

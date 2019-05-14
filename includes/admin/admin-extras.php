@@ -389,7 +389,7 @@ if ( ! function_exists( 'ddw_wp_site_health_remove_percentage' ) ) :
 	function ddw_wp_site_health_remove_percentage() {
 
 		/** Bail early if not on WP 5.2+ */
-		if ( ! ddw_tbex_is_wp52_install()	/* version_compare( $GLOBALS[ 'wp_version' ], '5.2-beta', '<' ) */ ) {
+		if ( ! ddw_tbex_is_wp52_install() ) {
 			return;
 		}
 
