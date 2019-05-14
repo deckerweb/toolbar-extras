@@ -26,6 +26,48 @@ function ddw_tbex_is_gdpp_customizer_active() {
 }  // end function
 
 
+/**
+ * Check if GDPPro eNews Widget Add-On is active or not.
+ *
+ * @since 1.4.3
+ *
+ * @return bool TRUE if class exists, FALSE otherwise.
+ */
+function ddw_tbex_is_gdpp_enews_addon() {
+
+	return class_exists( 'GP_Pro_Widget_Enews' );
+
+}  // end function
+
+
+/**
+ * Check if GDPPro Entry Content Add-On is active or not.
+ *
+ * @since 1.4.3
+ *
+ * @return bool TRUE if class exists, FALSE otherwise.
+ */
+function ddw_tbex_is_gdpp_entry_content_addon() {
+
+	return class_exists( 'GP_Pro_Entry_Content' );
+
+}  // end function
+
+
+/**
+ * Check if GDPPro Freeform Style Add-On is active or not.
+ *
+ * @since 1.4.3
+ *
+ * @return bool TRUE if class exists, FALSE otherwise.
+ */
+function ddw_tbex_is_gdpp_freeform_style_addon() {
+
+	return class_exists( 'GP_Pro_Freeform_CSS' );
+
+}  // end function
+
+
 add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_genesis_design_palette_pro', 105 );
 /**
  * Items for Add-On: Genesis Design Palette Pro (Premium, by Reaktiv Studios)
@@ -34,20 +76,21 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_genesis_design_palette_pro', 105
  * @since 1.3.2 Fully enhanced plugin support.
  * @since 1.4.0 Added Design Builder sub sections; integrated Customizer support
  *              (currently in beta in GDPP).
+ * @since 1.4.3 Added "Fonts" item, plus Add-On support.
  *
  * @uses ddw_tbex_is_gdpp_customizer_active()
  * @uses ddw_tbex_customizer_focus()
  * @uses ddw_tbex_meta_target()
  * @uses ddw_tbex_string_customize_attr()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_genesis_design_palette_pro() {
+function ddw_tbex_aoitems_genesis_design_palette_pro( $admin_bar ) {
 
 	$string_style = esc_attr__( 'Style with Genesis Design Palette Pro', 'toolbar-extras' );
 
 	/** For: Genesis Creative items */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'genesis-design-palette-pro',
 			'parent' => 'theme-creative',
@@ -61,7 +104,7 @@ function ddw_tbex_aoitems_genesis_design_palette_pro() {
 	);
 
 		/** Group: Design Builder */
-		$GLOBALS[ 'wp_admin_bar' ]->add_group(
+		$admin_bar->add_group(
 			array(
 				'id'     => 'group-gdppro-designer',
 				'parent' => 'genesis-design-palette-pro'
@@ -72,7 +115,7 @@ function ddw_tbex_aoitems_genesis_design_palette_pro() {
 			$url_designer = ddw_tbex_is_gdpp_customizer_active() ? ddw_tbex_customizer_focus( 'panel', 'dpp_panel' ) : esc_url( admin_url( 'admin.php?page=genesis-palette-pro&current-tab=genesis-palette-pro-default' ) );
 
 			/** Designer main item */
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'genesis-design-palette-pro-design',
 					'parent' => 'group-gdppro-designer',
@@ -88,7 +131,7 @@ function ddw_tbex_aoitems_genesis_design_palette_pro() {
 				/** Sub sections (only, if Customizer feature is disabled) */
 				if ( ! ddw_tbex_is_gdpp_customizer_active() ) {
 
-					$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					$admin_bar->add_node(
 						array(
 							'id'     => 'genesis-design-palette-pro-design-general-body',
 							'parent' => 'genesis-design-palette-pro-design',
@@ -101,7 +144,7 @@ function ddw_tbex_aoitems_genesis_design_palette_pro() {
 						)
 					);
 
-					$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					$admin_bar->add_node(
 						array(
 							'id'     => 'genesis-design-palette-pro-design-header-area',
 							'parent' => 'genesis-design-palette-pro-design',
@@ -114,7 +157,7 @@ function ddw_tbex_aoitems_genesis_design_palette_pro() {
 						)
 					);
 
-					$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					$admin_bar->add_node(
 						array(
 							'id'     => 'genesis-design-palette-pro-design-navigation',
 							'parent' => 'genesis-design-palette-pro-design',
@@ -127,7 +170,7 @@ function ddw_tbex_aoitems_genesis_design_palette_pro() {
 						)
 					);
 
-					$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					$admin_bar->add_node(
 						array(
 							'id'     => 'genesis-design-palette-pro-design-content-area',
 							'parent' => 'genesis-design-palette-pro-design',
@@ -140,7 +183,25 @@ function ddw_tbex_aoitems_genesis_design_palette_pro() {
 						)
 					);
 
-					$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					/** Add-On: Entry Content */
+					if ( ddw_tbex_is_gdpp_entry_content_addon() ) {
+
+						$admin_bar->add_node(
+							array(
+								'id'     => 'genesis-design-palette-pro-design-entry-content',
+								'parent' => 'genesis-design-palette-pro-design',
+								'title'  => esc_attr__( 'Entry Content', 'toolbar-extras' ),
+								'href'   => esc_url( admin_url( 'admin.php?page=genesis-palette-pro&section=entry_content' ) ),
+								'meta'   => array(
+									'target' => ddw_tbex_meta_target( 'builder' ),
+									'title'  => ddw_tbex_string_customize_attr( __( 'Entry Content', 'toolbar-extras' ) )
+								)
+							)
+						);
+
+					}  // end if
+
+					$admin_bar->add_node(
 						array(
 							'id'     => 'genesis-design-palette-pro-design-content-extras',
 							'parent' => 'genesis-design-palette-pro-design',
@@ -153,7 +214,7 @@ function ddw_tbex_aoitems_genesis_design_palette_pro() {
 						)
 					);
 
-					$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					$admin_bar->add_node(
 						array(
 							'id'     => 'genesis-design-palette-pro-design-comments',
 							'parent' => 'genesis-design-palette-pro-design',
@@ -166,7 +227,7 @@ function ddw_tbex_aoitems_genesis_design_palette_pro() {
 						)
 					);
 
-					$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					$admin_bar->add_node(
 						array(
 							'id'     => 'genesis-design-palette-pro-design-sidebar-main',
 							'parent' => 'genesis-design-palette-pro-design',
@@ -179,7 +240,25 @@ function ddw_tbex_aoitems_genesis_design_palette_pro() {
 						)
 					);
 
-					$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					/** Add-On: Genesis Widgets > eNews Widget */
+					if ( ddw_tbex_is_gdpp_enews_addon() ) {
+
+						$admin_bar->add_node(
+							array(
+								'id'     => 'genesis-design-palette-pro-design-enews-widget',
+								'parent' => 'genesis-design-palette-pro-design',
+								'title'  => esc_attr__( 'Genesis Widgets', 'toolbar-extras' ),
+								'href'   => esc_url( admin_url( 'admin.php?page=genesis-palette-pro&section=genesis_widgets' ) ),
+								'meta'   => array(
+									'target' => ddw_tbex_meta_target( 'builder' ),
+									'title'  => ddw_tbex_string_customize_attr( __( 'Genesis Widgets', 'toolbar-extras' ) )
+								)
+							)
+						);
+
+					}  // end if
+
+					$admin_bar->add_node(
 						array(
 							'id'     => 'genesis-design-palette-pro-design-footer-widgets',
 							'parent' => 'genesis-design-palette-pro-design',
@@ -192,7 +271,7 @@ function ddw_tbex_aoitems_genesis_design_palette_pro() {
 						)
 					);
 
-					$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					$admin_bar->add_node(
 						array(
 							'id'     => 'genesis-design-palette-pro-design-footer-area',
 							'parent' => 'genesis-design-palette-pro-design',
@@ -205,7 +284,7 @@ function ddw_tbex_aoitems_genesis_design_palette_pro() {
 						)
 					);
 
-					$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					$admin_bar->add_node(
 						array(
 							'id'     => 'genesis-design-palette-pro-design-tools',
 							'parent' => 'genesis-design-palette-pro-design',
@@ -218,10 +297,28 @@ function ddw_tbex_aoitems_genesis_design_palette_pro() {
 						)
 					);
 
+					/** Add-On: Freeform Style */
+					if ( ddw_tbex_is_gdpp_freeform_style_addon() ) {
+
+						$admin_bar->add_node(
+							array(
+								'id'     => 'genesis-design-palette-pro-design-freeform-css',
+								'parent' => 'genesis-design-palette-pro-design',
+								'title'  => esc_attr__( 'Freeform CSS', 'toolbar-extras' ),
+								'href'   => esc_url( admin_url( 'admin.php?page=genesis-palette-pro&section=freeform_css' ) ),
+								'meta'   => array(
+									'target' => ddw_tbex_meta_target( 'builder' ),
+									'title'  => ddw_tbex_string_customize_attr( __( 'Freeform CSS', 'toolbar-extras' ) )
+								)
+							)
+						);
+
+					}  // end if
+
 				}  // end if Designer sub sections check
 
 		/** Settings etc. */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'genesis-design-palette-pro-settings',
 				'parent' => 'genesis-design-palette-pro',
@@ -234,7 +331,7 @@ function ddw_tbex_aoitems_genesis_design_palette_pro() {
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'genesis-design-palette-pro-utilities',
 				'parent' => 'genesis-design-palette-pro',
@@ -247,7 +344,20 @@ function ddw_tbex_aoitems_genesis_design_palette_pro() {
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
+			array(
+				'id'     => 'genesis-design-palette-pro-fonts',
+				'parent' => 'genesis-design-palette-pro',
+				'title'  => esc_attr__( 'Fonts', 'toolbar-extras' ),
+				'href'   => esc_url( admin_url( 'admin.php?page=genesis-palette-pro&current-tab=genesis-palette-pro-fonts' ) ),
+				'meta'   => array(
+					'target' => '',
+					'title'  => esc_attr__( 'Fonts', 'toolbar-extras' )
+				)
+			)
+		);
+
+		$admin_bar->add_node(
 			array(
 				'id'     => 'genesis-design-palette-pro-license',
 				'parent' => 'genesis-design-palette-pro',
@@ -260,7 +370,7 @@ function ddw_tbex_aoitems_genesis_design_palette_pro() {
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'genesis-design-palette-pro-support',
 				'parent' => 'genesis-design-palette-pro',
@@ -276,11 +386,11 @@ function ddw_tbex_aoitems_genesis_design_palette_pro() {
 		/** Group: Resources for Genesis Design Palette Pro */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-gdppro-resources',
 					'parent' => 'genesis-design-palette-pro',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 
@@ -308,6 +418,7 @@ add_filter( 'tbex_filter_items_theme_customizer_deep', 'ddw_tbex_themeitems_gene
  * Customize items for Genesis Design Palatte Pro Customizer support feature.
  *
  * @since 1.4.0
+ * @since 1.4.3 Added Add-On support.
  *
  * @see ddw_tbex_aoitems_genesis_design_palette_pro()
  *
@@ -380,6 +491,39 @@ function ddw_tbex_themeitems_genesis_dppro_customizer( array $items ) {
 			'parent' => $parent,
 		),
 	);
+
+	/** Add-On: Entry Content */
+	if ( ddw_tbex_is_gdpp_entry_content_addon() ) {
+
+		$gdpp_items[ 'entry_content' ] = array(
+			'type'  => 'section',
+			'title' => __( 'Entry Content', 'toolbar-extras' ),
+			'id'    => 'gdpprocmz-entry-content',
+		);
+
+	}  // end if
+
+	/** Add-On: Genesis Widgets > eNews Widget */
+	if ( ddw_tbex_is_gdpp_enews_addon() ) {
+
+		$gdpp_items[ 'genesis_widgets' ] = array(
+			'type'  => 'section',
+			'title' => __( 'Genesis Widgets', 'toolbar-extras' ),
+			'id'    => 'gdpprocmz-genesis-widgets',
+		);
+
+	}  // end if
+
+	/** Add-On: Freeform Style */
+	if ( ddw_tbex_is_gdpp_freeform_style_addon() ) {
+
+		$gdpp_items[ 'freeform_css' ] = array(
+			'type'  => 'section',
+			'title' => __( 'Freeform CSS', 'toolbar-extras' ),
+			'id'    => 'gdpprocmz-freeform-css',
+		);
+
+	}  // end if
 
 	/** Merge and return with all items */
 	return array_merge( $items, $gdpp_items );

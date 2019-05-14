@@ -320,6 +320,7 @@ add_filter( 'admin_bar_menu', 'ddw_tbex_rehook_items_nextgen_gallery' );
  * @since 1.1.0
  *
  * @uses ddw_tbex_use_tweak_nextgen()
+ * @uses ddw_tbex_is_nextgen_gallery_active()
  *
  * @global mixed  $GLOBALS[ 'wp_admin_bar' ]
  * @param object $wp_admin_bar Holds all nodes of the Toolbar.
@@ -328,7 +329,7 @@ function ddw_tbex_rehook_items_nextgen_gallery( $wp_admin_bar ) {
 
 	/** Bail early if NextGen Gallery tweak should NOT be used */
 	if ( ! ddw_tbex_use_tweak_nextgen()
-		|| ! class_exists( 'C_NextGEN_Bootstrap' )
+		|| ! ddw_tbex_is_nextgen_gallery_active()
 	) {
 		return $wp_admin_bar;
 	}

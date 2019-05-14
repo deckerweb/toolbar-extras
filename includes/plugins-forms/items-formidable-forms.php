@@ -75,6 +75,7 @@ function ddw_tbex_site_items_formidable_forms() {
 			foreach ( $forms as $form ) {
 
 				$form_title = esc_html( '' === $form->name ? __( '(no title)', 'toolbar-extras' ) : FrmAppHelper::truncate( $form->name, 50 ) );
+				$form_id    = absint( $form->id );
 
 				/** Add item per form */
 				$GLOBALS[ 'wp_admin_bar' ]->add_node(

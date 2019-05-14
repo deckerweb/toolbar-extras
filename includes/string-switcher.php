@@ -1017,11 +1017,146 @@ function ddw_tbex_addon_settings_cb_note_for_coloring() {
 	?>
 		<p class="description">
 			<?php echo sprintf(
-				/* translators: %1$s - linked label, "For Development" */
+				/* translators: 1 - linked label, "For Development" */
 				__( 'To adjust these settings just open the %1$s tab here. Don\'t let the "(local) development" wording confuse you: you can use this setting feature for whatever you want. Have fun! ;-)', 'toolbar-extras' ),
 				'<a href="' . esc_url( admin_url( 'options-general.php?page=toolbar-extras&tab=development' ) ) . '">"' . __( 'For Development', 'toolbar-extras' ) . '"</a>'
 			); ?>
 		</p>
 	<?php
+
+}  // end function
+
+
+/**
+ * Build string for Site Health Debug info page view: "Undefined"
+ *
+ * @since 1.4.3
+ *
+ * @return string Translateable string.
+ */
+function ddw_tbex_string_undefined() {
+
+	return esc_html_x( 'Undefined', 'Site Health Debug info', 'toolbar-extras' );
+
+}  // end function
+
+
+/**
+ * Build string for Site Health Debug info page view: "Enabled"
+ *
+ * @since 1.4.3
+ *
+ * @return string Translateable string.
+ */
+function ddw_tbex_string_enabled() {
+
+	return esc_html_x( 'Enabled', 'Site Health Debug info', 'toolbar-extras' );
+
+}  // end function
+
+
+/**
+ * Build string for Site Health Debug info page view: "Disabled"
+ *
+ * @since 1.4.3
+ *
+ * @return string Translateable string.
+ */
+function ddw_tbex_string_disabled() {
+
+	return esc_html_x( 'Disabled', 'Site Health Debug info', 'toolbar-extras' );
+
+}  // end function
+
+
+/**
+ * Build string for Site Health Debug info page view:
+ *   "Plugin not installed or active"
+ *
+ * @since 1.4.3
+ *
+ * @return string Translateable string.
+ */
+function ddw_tbex_string_uninstalled() {
+
+	return esc_html_x( 'Plugin not installed or active', 'Site Health Debug info', 'toolbar-extras' );
+
+}  // end function
+
+
+/**
+ * Build screen reader specific string: "(opens in a new tab)".
+ *
+ * @since 1.4.3
+ *
+ * @return string Translateable string.
+ */
+function ddw_tbex_string_screen_reader_new_tab() {
+
+	return sprintf(
+		'<span class="screen-reader-text">(%s)</span>',
+		__( 'opens in a new tab', 'toolbar-extras' )
+	);
+
+}  // end function
+
+
+/**
+ * Build Debug Info screen specific string for linked resource.
+ *
+ * @since 1.4.3
+ *
+ * @uses ddw_tbex_string_screen_reader_new_tab()
+ *
+ * @param string $type   Type of link.
+ * @param string $source Source from which to get the URL key value.
+ * @return string HTML link markup and translateable string.
+ */
+function ddw_tbex_string_debug_info_link( $type = '', $source = 'tbex' ) {
+
+	switch ( sanitize_key( $type) ) {
+
+		case 'support':
+			$url   = ddw_tbex_get_info_url( 'url_wporg_forum', sanitize_key( $source ) );
+			$label = __( 'Support', 'toolbar-extras' );
+			break;
+		
+		case 'usergroup':
+			$url   = ddw_tbex_get_info_url( 'url_fb_group' );
+			$label = __( 'User Group', 'toolbar-extras' );
+			break;
+
+	}  // end switch
+
+	$output = sprintf(
+		'<a href="%s" target="_blank" rel="nofollow noopener noreferrer">%s</a>%s',
+		$url,
+		$label,
+		ddw_tbex_string_screen_reader_new_tab()
+	);
+
+	return $output;
+
+}  // end function
+
+
+/**
+ * Build Debug Info screen string: "Diagnostic information for this plugin ...".
+ *
+ * @since 1.4.3
+ *
+ * @uses ddw_tbex_string_debug_info_link()
+ *
+ * @param string $source Source from which to get the URL key value.
+ * @return string HTML link markup and translateable string.
+ */
+function ddw_tbex_string_debug_diagnostic( $source = 'tbex' ) {
+
+	return sprintf(
+		/* translators: 1 - label, "Support" / 2 - label, "User Group" */
+		__( 'Diagnostic information for this plugin, helpful for %s and %s', 'toolbar-extras' ),
+		ddw_tbex_string_debug_info_link( 'support', sanitize_key( $source ) ),
+		ddw_tbex_string_debug_info_link( 'usergroup' )
+	);
 
 }  // end function

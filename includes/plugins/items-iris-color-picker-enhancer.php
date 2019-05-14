@@ -21,12 +21,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_iris_color_picker_enhancer', 110
  * @uses ddw_tbex_resources_color_wheel()
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_iris_color_picker_enhancer() {
+function ddw_tbex_aoitems_iris_color_picker_enhancer( $admin_bar ) {
 
 	/** Plugin's items */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'ao-irisenhancer',
 			'parent' => 'group-active-theme',
@@ -39,7 +39,7 @@ function ddw_tbex_aoitems_iris_color_picker_enhancer() {
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-irisenhancer-edit',
 				'parent' => 'ao-irisenhancer',
@@ -58,7 +58,7 @@ function ddw_tbex_aoitems_iris_color_picker_enhancer() {
 		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-irisenhancer-resources',
 					'parent' => 'ao-irisenhancer',

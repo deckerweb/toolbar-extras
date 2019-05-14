@@ -18,15 +18,15 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_wpmail_smtp', 50 );
  *
  * @since 1.4.2
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_wpmail_smtp() {
+function ddw_tbex_site_items_wpmail_smtp( $admin_bar ) {
 
 	/** For: Forms */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'forms-wpmailsmtp',
-			'parent' => 'tbex-sitegroup-forms',
+			'parent' => 'tbex-sitegroup-tools',		//'tbex-sitegroup-forms',
 			'title'  => esc_attr__( 'WP Mail SMTP', 'toolbar-extras' ),
 			'href'   => esc_url( admin_url( 'options-general.php?page=wp-mail-smtp' ) ),
 			'meta'   => array(
@@ -36,7 +36,7 @@ function ddw_tbex_site_items_wpmail_smtp() {
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-wpmailsmtp-settings',
 				'parent' => 'forms-wpmailsmtp',
@@ -49,7 +49,7 @@ function ddw_tbex_site_items_wpmail_smtp() {
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-wpmailsmtp-test',
 				'parent' => 'forms-wpmailsmtp',
@@ -62,7 +62,7 @@ function ddw_tbex_site_items_wpmail_smtp() {
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-wpmailsmtp-misc',
 				'parent' => 'forms-wpmailsmtp',
@@ -78,7 +78,7 @@ function ddw_tbex_site_items_wpmail_smtp() {
 		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-wpmailsmtp-resources',
 					'parent' => 'forms-wpmailsmtp',

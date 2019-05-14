@@ -185,7 +185,7 @@ function ddw_tbex_themeitems_astra_customize( array $items ) {
 }  // end function
 
 
-add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_astra_resources', 120 );
+add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_astra_resources', 200 );
 /**
  * General resources items for Astra Theme.
  *   Hook in later to have these items at the bottom.
@@ -577,7 +577,7 @@ function ddw_tbex_themeitems_astra_sites_import() {
 }  // end function
 
 
-add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_astra_custom_fonts', 200 );
+add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_astra_custom_fonts', 120 );
 /**
  * Items for "Custom Fonts" & "Custom Typekit Fonts" - add-ond for Astra Theme
  *   (both by Brainstorm Force)

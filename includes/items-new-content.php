@@ -264,6 +264,7 @@ function ddw_tbex_theme_installer_upload_tab_content( $paged ) {
 
 
 add_action( 'admin_menu', 'ddw_tbex_add_installer_upload_pages', 999 );
+add_action( 'network_admin_menu', 'ddw_tbex_add_installer_upload_pages', 999 );
 /**
  * Optionally add admin sub menu item on "Appearance" for Theme ZIP Upload and
  *   on "Plugins" for Plugin ZIP Upload - but only when in Dev Mode (by Toolbar
@@ -315,12 +316,63 @@ function ddw_tbex_add_installer_upload_pages() {
 }  // end function
 
 
+add_filter( 'parent_file', 'ddw_tbex_parent_submenu_tweaks_tbex_uploaders' );
+/**
+ * When adding the additional Jetpack submenu items set the proper $parent_file
+ *   and $submenu_file relationship for those items.
+ *
+ * @since 1.4.3
+ *
+ * @uses get_current_screen()
+ *
+ * @global string $GLOBALS[ 'submenu_file' ]
+ *
+ * @param string $parent_file The filename of the parent menu.
+ * @return string $parent_file The tweaked filename of the parent menu.
+ */
+function ddw_tbex_parent_submenu_tweaks_tbex_uploaders( $parent_file ) {
+
+	/** Bail early if not in Dev Mode */
+	if ( ! ddw_tbex_display_items_dev_mode()
+		|| ! ddw_tbex_use_devmode_uploader_menus()
+	) {
+		return $parent_file;
+	}
+
+	/** For: Plugin Uploader */
+	if ( ( 'plugin-install' === get_current_screen()->id || 'plugin-install-network' === get_current_screen()->id )
+		&& ( isset( $_GET[ 'tab' ] ) && 'upload' === sanitize_key( wp_unslash( $_GET[ 'tab' ] ) ) )
+	) {
+
+		$GLOBALS[ 'submenu_file' ] = esc_url( network_admin_url( 'plugin-install.php?tab=upload' ) );
+		$parent_file = 'plugins.php';
+
+	}  // end if
+
+	/** For: Theme Uploader */
+	if ( ( 'theme-install' === get_current_screen()->id || 'theme-install-network' === get_current_screen()->id )
+		&& ( isset( $_GET[ 'tab' ] ) && 'tbex-upload' === sanitize_key( wp_unslash( $_GET[ 'tab' ] ) ) )
+	) {
+
+		$GLOBALS[ 'submenu_file' ] = esc_url( network_admin_url( 'theme-install.php?tab=tbex-upload' ) );
+		$parent_file = 'themes.php';
+
+	}  // end if
+
+	return $parent_file;
+
+}  // end function
+
+
 add_action( 'admin_bar_menu', 'ddw_tbex_items_new_content_installer', 99 );
 /**
  * Add Install Plugin & Themes items to WordPress "New Content" section in Toolbar.
  *
  * @since 1.0.0
  * @since 1.4.0 Added "Newest" plugins & themes items.
+ * @since 1.4.3 Added ClassicPress integration.
+ *
+ * @uses ddw_tbex_is_classicpress_install()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -336,13 +388,16 @@ function ddw_tbex_items_new_content_installer() {
 		)
 	);
 
+	$tab_start  = ddw_tbex_is_classicpress_install() ? 'popular' : 'featured';
+	$tab_search = ddw_tbex_is_classicpress_install() ? 'popular' : 'recommended';
+
 	/** Install Plugins */
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(
 			array(
 			'parent' => $addnewgroup,
 			'id'     => 'install-plugin',
 			'title'  => esc_attr__( 'Install Plugin', 'toolbar-extras' ),
-			'href'   => esc_url( network_admin_url( 'plugin-install.php?tab=featured' ) ),
+			'href'   => esc_url( network_admin_url( 'plugin-install.php?tab=' . $tab_start ) ),
 			'meta'   => array(
 				'target' => '',
 				'title'  => esc_attr__( 'Install Plugin - Search via WordPress.org', 'toolbar-extras' )
@@ -355,7 +410,7 @@ function ddw_tbex_items_new_content_installer() {
 				'id'     => 'search-plugin-repo',
 				'parent' => 'install-plugin',
 				'title'  => esc_attr__( 'Search Plugin Directory', 'toolbar-extras' ),
-				'href'   => esc_url( network_admin_url( 'plugin-install.php?tab=recommended' ) ),
+				'href'   => esc_url( network_admin_url( 'plugin-install.php?tab=' . $tab_search ) ),
 				'meta'   => array(
 					'target' => '',
 					'title'  => esc_attr__( 'Search WordPress.org Plugin Directory', 'toolbar-extras' )
@@ -363,6 +418,23 @@ function ddw_tbex_items_new_content_installer() {
 			)
 		);
 
+		if ( ddw_tbex_is_classicpress_install() ) {
+
+			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				array(
+					'id'     => 'install-plugin-categories',
+					'parent' => 'install-plugin',
+					'title'  => esc_attr__( 'Search Categories', 'toolbar-extras' ),
+					'href'   => esc_url( network_admin_url( 'plugin-install.php?tab=categories' ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => esc_attr__( 'Search Categories (Plugin Tags)', 'toolbar-extras' )
+					)
+				)
+			);
+
+		}  // end if
+		
 		$GLOBALS[ 'wp_admin_bar' ]->add_node(
 			array(
 				'id'     => 'upload-plugin-zip',
@@ -377,7 +449,7 @@ function ddw_tbex_items_new_content_installer() {
 		);
 
 		/** For Dev Mode: Newest Plugins on WordPress.org */
-		if ( ddw_tbex_display_items_dev_mode() ) {
+		if ( ddw_tbex_display_items_dev_mode() && ! ddw_tbex_is_classicpress_install() ) {
 
 			$GLOBALS[ 'wp_admin_bar' ]->add_node(
 				array(
@@ -412,18 +484,22 @@ function ddw_tbex_items_new_content_installer() {
 
 		}  // end if
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
-			array(
-				'id'     => 'install-plugin-favorites',
-				'parent' => 'install-plugin',
-				'title'  => esc_attr__( 'Install Favorites', 'toolbar-extras' ),
-				'href'   => esc_url( network_admin_url( 'plugin-install.php?tab=favorites' ) ),
-				'meta'   => array(
-					'target' => '',
-					'title'  => esc_attr__( 'Install Plugins - Favorites (via WordPress.org)', 'toolbar-extras' )
+		if ( ! ddw_tbex_is_classicpress_install() ) {
+
+			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				array(
+					'id'     => 'install-plugin-favorites',
+					'parent' => 'install-plugin',
+					'title'  => esc_attr__( 'Install Favorites', 'toolbar-extras' ),
+					'href'   => esc_url( network_admin_url( 'plugin-install.php?tab=favorites' ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => esc_attr__( 'Install Plugins - Favorites (via WordPress.org)', 'toolbar-extras' )
+					)
 				)
-			)
-		);
+			);
+
+		}  // end if
 
 	/** Install Themes */
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(
@@ -483,17 +559,21 @@ function ddw_tbex_items_new_content_installer() {
 
 		}  // end if
 		
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
-			array(
-				'id'     => 'install-theme-favorites',
-				'parent' => 'install-theme',
-				'title'  => esc_attr__( 'Install Favorites', 'toolbar-extras' ),
-				'href'   => esc_url( network_admin_url( 'theme-install.php?browse=favorites' ) ),
-				'meta'   => array(
-					'target' => '',
-					'title'  => esc_attr__( 'Install Theme - Favorites (via WordPress.org)', 'toolbar-extras' )
+		if ( ! ddw_tbex_is_classicpress_install() ) {
+
+			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				array(
+					'id'     => 'install-theme-favorites',
+					'parent' => 'install-theme',
+					'title'  => esc_attr__( 'Install Favorites', 'toolbar-extras' ),
+					'href'   => esc_url( network_admin_url( 'theme-install.php?browse=favorites' ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => esc_attr__( 'Install Theme - Favorites (via WordPress.org)', 'toolbar-extras' )
+					)
 				)
-			)
-		);
+			);
+
+		}  // end if
 
 }  // end function

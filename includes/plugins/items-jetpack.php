@@ -12,6 +12,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 
+/**
+ * Remove unethical Jetpack search results Ads as no one needs these anyway.
+ *   Additionally remove other promotions and Ads from Jetpack.
+ *
+ * @link https://wptavern.com/jetpack-7-1-adds-feature-suggestions-to-plugin-search-results#comment-284531
+ *
+ * @since 1.4.3
+ */
+add_filter( 'jetpack_show_promotions', '__return_false', 20 );
+add_filter( 'can_display_jetpack_manage_notice', '__return_false', 20 );
+add_filter( 'jetpack_just_in_time_msgs', '__return_false', 20 );
+
+
 add_action( 'admin_bar_menu', 'ddw_tbex_site_items_jetpack', 10 );
 /**
  * Items for Plugin: Jetpack (free/Premium, by Automattic, Inc./ WordPress.com)

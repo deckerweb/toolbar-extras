@@ -295,11 +295,13 @@ if (  ( 'Storefront' == wp_get_theme() && class_exists( 'Storefront' ) )	// Stor
  *   Note: Only loaded if Elementor plugin is active!
  * @since 1.0.0
  * @since 1.4.0 Make dependent on Elementor (base) plugin.
+ * @since 1.4.3 Integrate wordpress.org theme version also.
  */
 if ( ddw_tbex_is_elementor_active() ) :
 	if ( 'elementor-hello-theme' == get_stylesheet()
 		|| 'elementor-hello' == get_stylesheet()
 		|| 'elementor-hello-theme-master' == get_stylesheet()
+		|| ( 'hello-elementor' === wp_basename( get_template_directory() ) || 'Hello Elementor' == wp_get_theme() )
 	) {
 		require_once TBEX_PLUGIN_DIR . 'includes/elementor-official/items-elementor-hello-theme.php';
 	}

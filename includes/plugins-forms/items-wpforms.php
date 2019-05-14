@@ -32,6 +32,34 @@ function ddw_tbex_is_wpforms_pro_active() {
 }  // end function
 
 
+/**
+ * Check if Entries for WPForms plugin is active or not.
+ *
+ * @since 1.4.3
+ *
+ * @return bool TRUE if conditions are met, FALSE otherwise.
+ */
+function ddw_tbex_is_entries_for_wpforms_active() {
+
+	return defined( 'WPFORMS_ENTRIES_PLUGIN_FILE' );
+
+}  // end function
+
+
+/**
+ * Check if Database for WPforms plugin is active or not.
+ *
+ * @since 1.4.3
+ *
+ * @return bool TRUE if conditions are met, FALSE otherwise.
+ */
+function ddw_tbex_is_database_for_wpforms_active() {
+
+	return function_exists( 'wpforms_db_init' );
+
+}  // end function
+
+
 add_action( 'admin_bar_menu', 'ddw_tbex_site_items_wpforms' );
 /**
  * Items for Plugin: WPForms Lite/Pro (free/Premium, by WPForms)
@@ -81,15 +109,16 @@ function ddw_tbex_site_items_wpforms() {
 
 			foreach ( $forms as $form ) {
 
-				$form_title = $form->post_title;
+				$form_title = esc_attr( $form->post_title );
+				$form_id    = absint( $form->ID );
 
 				/** Add item per form */
 				$GLOBALS[ 'wp_admin_bar' ]->add_node(
 					array(
-						'id'     => 'forms-wpforms-form-' . $form->ID,
+						'id'     => 'forms-wpforms-form-' . $form_id,
 						'parent' => 'group-wpforms-edit-forms',
 						'title'  => $form_title,
-						'href'   => esc_url( admin_url( 'admin.php?page=wpforms-builder&view=fields&form_id=' . $form->ID ) ),
+						'href'   => esc_url( admin_url( 'admin.php?page=wpforms-builder&view=fields&form_id=' . $form_id ) ),
 						'meta'   => array(
 							'target' => ddw_tbex_meta_target( 'builder' ),
 							'title'  => esc_attr__( 'Edit Form', 'toolbar-extras' ) . ': ' . $form_title
@@ -99,10 +128,10 @@ function ddw_tbex_site_items_wpforms() {
 
 					$GLOBALS[ 'wp_admin_bar' ]->add_node(
 						array(
-							'id'     => 'forms-wpforms-form-' . $form->ID . '-builder',
-							'parent' => 'forms-wpforms-form-' . $form->ID,
+							'id'     => 'forms-wpforms-form-' . $form_id . '-builder',
+							'parent' => 'forms-wpforms-form-' . $form_id,
 							'title'  => esc_attr__( 'Form Builder', 'toolbar-extras' ),
-							'href'   => esc_url( admin_url( 'admin.php?page=wpforms-builder&view=fields&form_id=' . $form->ID ) ),
+							'href'   => esc_url( admin_url( 'admin.php?page=wpforms-builder&view=fields&form_id=' . $form_id ) ),
 							'meta'   => array(
 								'target' => ddw_tbex_meta_target( 'builder' ),
 								'title'  => esc_attr__( 'Form Builder', 'toolbar-extras' )
@@ -112,10 +141,10 @@ function ddw_tbex_site_items_wpforms() {
 
 					$GLOBALS[ 'wp_admin_bar' ]->add_node(
 						array(
-							'id'     => 'forms-wpforms-form-' . $form->ID . '-preview',
-							'parent' => 'forms-wpforms-form-' . $form->ID,
+							'id'     => 'forms-wpforms-form-' . $form_id . '-preview',
+							'parent' => 'forms-wpforms-form-' . $form_id,
 							'title'  => esc_attr__( 'Preview', 'toolbar-extras' ),
-							'href'   => esc_url( site_url( '/wpforms-preview/?wpforms_preview=form&form_id=' . $form->ID ) ),
+							'href'   => esc_url( site_url( '/wpforms-preview/?wpforms_preview=form&form_id=' . $form_id ) ),
 							'meta'   => array(
 								'target' => ddw_tbex_meta_target(),
 								'title'  => esc_attr__( 'Preview', 'toolbar-extras' )
@@ -128,10 +157,10 @@ function ddw_tbex_site_items_wpforms() {
 
 						$GLOBALS[ 'wp_admin_bar' ]->add_node(
 							array(
-								'id'     => 'forms-wpforms-form-' . $form->ID . '-entries',
-								'parent' => 'forms-wpforms-form-' . $form->ID,
+								'id'     => 'forms-wpforms-form-' . $form_id . '-entries',
+								'parent' => 'forms-wpforms-form-' . $form_id,
 								'title'  => esc_attr__( 'Entries', 'toolbar-extras' ),
-								'href'   => esc_url( admin_url( 'admin.php?page=wpforms-entries&view=list&form_id=' . $form->ID ) ),
+								'href'   => esc_url( admin_url( 'admin.php?page=wpforms-entries&view=list&form_id=' . $form_id ) ),
 								'meta'   => array(
 									'target' => '',
 									'title'  => esc_attr__( 'Entries', 'toolbar-extras' )
@@ -145,14 +174,35 @@ function ddw_tbex_site_items_wpforms() {
 					 * Third-party Add-On:
 					 *   Entries For WPForms (free, by Sanjeev Aryal)
 					 */
-					if ( defined( 'WPFORMS_ENTRIES_PLUGIN_FILE' ) ) {
+					if ( ddw_tbex_is_entries_for_wpforms_active() ) {
 
 						$GLOBALS[ 'wp_admin_bar' ]->add_node(
 							array(
-								'id'     => 'forms-wpforms-form-' . $form->ID . '-entries-efwpf',
-								'parent' => 'forms-wpforms-form-' . $form->ID,
+								'id'     => 'forms-wpforms-form-' . $form_id . '-entries-efwpf',
+								'parent' => 'forms-wpforms-form-' . $form_id,
 								'title'  => esc_attr__( 'Entries', 'toolbar-extras' ),
-								'href'   => esc_url( admin_url( 'admin.php?page=wpforms-entires-list-table&form_id=' . $form->ID ) ),
+								'href'   => esc_url( admin_url( 'admin.php?page=wpforms-entires-list-table&form_id=' . $form_id ) ),
+								'meta'   => array(
+									'target' => '',
+									'title'  => esc_attr__( 'Entries', 'toolbar-extras' )
+								)
+							)
+						);
+
+					}  // end if
+
+					/**
+					 * Third-party Add-On:
+					 *   Database for WPforms (free, by Arshid)
+					 */
+					if ( ddw_tbex_is_database_for_wpforms_active() ) {
+
+						$GLOBALS[ 'wp_admin_bar' ]->add_node(
+							array(
+								'id'     => 'forms-wpforms-form-' . $form_id . '-entries-efwpf',
+								'parent' => 'forms-wpforms-form-' . $form_id,
+								'title'  => esc_attr__( 'Entries', 'toolbar-extras' ),
+								'href'   => esc_url( admin_url( 'admin.php?page=wp-forms-db-list.php&fid=' . $form_id ) ),
 								'meta'   => array(
 									'target' => '',
 									'title'  => esc_attr__( 'Entries', 'toolbar-extras' )
@@ -193,18 +243,46 @@ function ddw_tbex_site_items_wpforms() {
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
-			array(
-				'id'     => 'forms-wpforms-all-entries',
-				'parent' => 'forms-wpforms',
-				'title'  => esc_attr__( 'All Entries', 'toolbar-extras' ),
-				'href'   => esc_url( admin_url( 'admin.php?page=wpforms-entries' ) ),
-				'meta'   => array(
-					'target' => '',
-					'title'  => esc_attr__( 'All Entries', 'toolbar-extras' )
+		/** Optional: All Entries */
+		if ( ddw_tbex_is_wpforms_pro_active() || ddw_tbex_is_entries_for_wpforms_active() || ddw_tbex_is_database_for_wpforms_active() ) {
+
+			$entries_url = FALSE;
+
+			/** 1) only WPForms Pro */
+			if ( ddw_tbex_is_wpforms_pro_active()
+				&& ! ( ddw_tbex_is_entries_for_wpforms_active() || ddw_tbex_is_database_for_wpforms_active() )
+			) {
+				$entries_url = 'admin.php?page=wpforms-entries';
+			}
+
+			/** 2) only Entries for WPForms */
+			if ( ddw_tbex_is_entries_for_wpforms_active()
+				&& ! ( ddw_tbex_is_wpforms_pro_active() || ddw_tbex_is_database_for_wpforms_active() )
+			) {
+				$entries_url = 'admin.php?page=wpforms-entires-list-table';
+			}
+
+			/** 3) only Database for WPForms */
+			if ( ddw_tbex_is_database_for_wpforms_active()
+				&& ! ( ddw_tbex_is_wpforms_pro_active() || ddw_tbex_is_entries_for_wpforms_active() )
+			) {
+				$entries_url = 'admin.php?page=wp-forms-db-list.php';
+			}
+
+			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				array(
+					'id'     => 'forms-wpforms-all-entries',
+					'parent' => 'forms-wpforms',
+					'title'  => esc_attr__( 'All Entries', 'toolbar-extras' ),
+					'href'   => esc_url( admin_url( $entries_url ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => esc_attr__( 'All Entries', 'toolbar-extras' )
+					)
 				)
-			)
-		);
+			);
+
+		}  // end if
 
 		/** Settings */
 		$GLOBALS[ 'wp_admin_bar' ]->add_node(

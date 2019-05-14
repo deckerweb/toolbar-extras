@@ -20,14 +20,14 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_jetsmartfilters', 100 );
  *
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_jetsmartfilters() {
+function ddw_tbex_aoitems_jetsmartfilters( $admin_bar ) {
 
 	$post_type = 'jet-smart-filters';
 
 	/** Plugin's settings */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'ao-jetsmartfilters',
 			'parent' => 'group-creative-content',
@@ -40,7 +40,7 @@ function ddw_tbex_aoitems_jetsmartfilters() {
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-jetsmartfilters-all',
 				'parent' => 'ao-jetsmartfilters',
@@ -53,7 +53,7 @@ function ddw_tbex_aoitems_jetsmartfilters() {
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-jetsmartfilters-new',
 				'parent' => 'ao-jetsmartfilters',
@@ -69,7 +69,7 @@ function ddw_tbex_aoitems_jetsmartfilters() {
 		/** Filter categories, via BTC plugin */
 		if ( ddw_tbex_is_btcplugin_active() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ao-jetsmartfilters-categories',
 					'parent' => 'ao-jetsmartfilters',
@@ -87,7 +87,7 @@ function ddw_tbex_aoitems_jetsmartfilters() {
 		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-jetsmartfilters-resources',
 					'parent' => 'ao-jetsmartfilters',
@@ -107,6 +107,13 @@ function ddw_tbex_aoitems_jetsmartfilters() {
 				'jetsmartfilters-facebook',
 				'group-jetsmartfilters-resources',
 				'https://www.facebook.com/groups/CrocoblockCommunity/'
+			);
+
+			ddw_tbex_resource_item(
+				'changelog',
+				'jetsmartfilters-changelog',
+				'group-jetsmartfilters-resources',
+				'http://documentation.zemez.io/wordpress/index.php?project=jetsmartfilters&lang=en&section=jetsmartfilters-changelog'
 			);
 
 			ddw_tbex_resource_item(

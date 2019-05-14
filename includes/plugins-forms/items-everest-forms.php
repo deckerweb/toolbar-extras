@@ -63,26 +63,29 @@ function ddw_tbex_site_items_everest_forms() {
 
 			foreach ( $forms as $form ) {
 
+				$form_id    = absint( $form->ID );
+				$form_title = esc_attr( $form->post_title );
+				
 				/** Add item per form */
 				$GLOBALS[ 'wp_admin_bar' ]->add_node(
 					array(
-						'id'     => 'forms-everestforms-form-' . $form->ID,
+						'id'     => 'forms-everestforms-form-' . $form_id,
 						'parent' => 'group-everestforms-edit-forms',
-						'title'  => $form->post_title,
-						'href'   => esc_url( admin_url( 'admin.php?page=evf-builder&tab=fields&form_id=' . $form->ID ) ),
+						'title'  => $form_title,
+						'href'   => esc_url( admin_url( 'admin.php?page=evf-builder&tab=fields&form_id=' . $form_id ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'Edit Form', 'toolbar-extras' ) . ': ' . $form->post_title
+							'title'  => esc_attr__( 'Edit Form', 'toolbar-extras' ) . ': ' . $form_title
 						)
 					)
 				);
 
 					$GLOBALS[ 'wp_admin_bar' ]->add_node(
 						array(
-							'id'     => 'forms-everestforms-form-' . $form->ID . '-builder',
-							'parent' => 'forms-everestforms-form-' . $form->ID,
+							'id'     => 'forms-everestforms-form-' . $form_id . '-builder',
+							'parent' => 'forms-everestforms-form-' . $form_id,
 							'title'  => esc_attr__( 'Form Builder', 'toolbar-extras' ),
-							'href'   => esc_url( admin_url( 'admin.php?page=evf-builder&tab=fields&form_id=' . $form->ID ) ),
+							'href'   => esc_url( admin_url( 'admin.php?page=evf-builder&tab=fields&form_id=' . $form_id ) ),
 							'meta'   => array(
 								'target' => '',
 								'title'  => esc_attr__( 'Form Builder', 'toolbar-extras' )
@@ -92,10 +95,10 @@ function ddw_tbex_site_items_everest_forms() {
 
 					$GLOBALS[ 'wp_admin_bar' ]->add_node(
 						array(
-							'id'     => 'forms-everestforms-form-' . $form->ID . '-preview',
-							'parent' => 'forms-everestforms-form-' . $form->ID,
+							'id'     => 'forms-everestforms-form-' . $form_id . '-preview',
+							'parent' => 'forms-everestforms-form-' . $form_id,
 							'title'  => esc_attr__( 'Preview', 'toolbar-extras' ),
-							'href'   => esc_url( site_url( '/?form_id=' . $form->ID . '&evf_preview=true' ) ),
+							'href'   => esc_url( site_url( '/?form_id=' . $form_id . '&evf_preview=true' ) ),
 							'meta'   => array(
 								'target' => ddw_tbex_meta_target(),
 								'title'  => esc_attr__( 'Preview', 'toolbar-extras' )
@@ -105,10 +108,10 @@ function ddw_tbex_site_items_everest_forms() {
 
 					$GLOBALS[ 'wp_admin_bar' ]->add_node(
 						array(
-							'id'     => 'forms-everestforms-form-' . $form->ID . '-entries',
-							'parent' => 'forms-everestforms-form-' . $form->ID,
+							'id'     => 'forms-everestforms-form-' . $form_id . '-entries',
+							'parent' => 'forms-everestforms-form-' . $form_id,
 							'title'  => esc_attr__( 'Entries', 'toolbar-extras' ),
-							'href'   => esc_url( admin_url( 'admin.php?page=evf-entries&form_id=' . $form->ID ) ),
+							'href'   => esc_url( admin_url( 'admin.php?page=evf-entries&form_id=' . $form_id ) ),
 							'meta'   => array(
 								'target' => '',
 								'title'  => esc_attr__( 'Entries', 'toolbar-extras' )

@@ -153,3 +153,33 @@ function ddw_tbex_aoitems_ghostkit( $admin_bar ) {
 		}  // end if
 
 }  // end function
+
+
+add_filter( 'admin_bar_menu', 'ddw_tbex_aoitems_new_content_ghostkit_template', 80 );
+/**
+ * Items for "New Content" section: New Ghost Kit Template
+ *   Note: Filter the existing Toolbar node.
+ *
+ * @since 1.4.3
+ *
+ * @param object $wp_admin_bar Holds all nodes of the Toolbar.
+ */
+function ddw_tbex_aoitems_new_content_ghostkit_template( $wp_admin_bar ) {
+
+	/** Bail early if items display is not wanted */
+	if ( ! ddw_tbex_display_items_new_content() || is_network_admin() ) {
+		return $wp_admin_bar;
+	}
+
+	$wp_admin_bar->add_node(
+		array(
+			'id'     => 'new-ghostkit_template',	// same as original!
+			'parent' => 'new-content',
+			'title'  => esc_attr__( 'Ghost Kit Template', 'toolbar-extras' ),
+			'meta'   => array(
+				'title' => ddw_tbex_string_add_new_item( esc_attr__( 'Ghost Kit Template', 'toolbar-extras' ) ),
+			)
+		)
+	);
+
+}  // end function

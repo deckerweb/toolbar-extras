@@ -173,6 +173,7 @@ function ddw_tbex_get_info_source( $source ) {
  * @uses ddw_tbex_get_info_source()
  *
  * @param string $url_key Value key string from ddw_tbex_info_values() array.
+ * @param string $source  Source from which to get the URL key value.
  * @param bool   $raw     If raw escaping or regular escaping of URL gets used.
  * @return string URL for info value.
  */
@@ -202,6 +203,7 @@ function ddw_tbex_get_info_url( $url_key = '', $source = 'tbex', $raw = FALSE ) 
  * @param string $url_key String of value key.
  * @param string $text    String of text and link attribute.
  * @param string $class   String of CSS class.
+ * @param string $source  Source from which to get the URL key value.
  * @return string HTML markup for linked URL.
  */
 function ddw_tbex_get_info_link( $url_key = '', $text = '', $class = '', $source = 'tbex' ) {
@@ -1165,9 +1167,11 @@ function ddw_tbex_string_theme_title( $title_attr = '', $child = '', $custom_nam
  *   'pro-official-site'      - Pro: Official Site
  *   'pro-apis'               - Pro: APIs
  *   'slack-channel'          - Slack Channel
+ *   'changelog'              - Change Log (Version History)
  *
  * @since 1.0.0
  * @since 1.4.1 Added type developer docs.
+ * @since 1.4.3 Added type changelog.
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  *
@@ -1280,6 +1284,10 @@ function ddw_tbex_resource_item( $type = '', $id = '', $parent = '', $url = '', 
 			break;
 		case 'slack-channel':
 			$title = esc_attr__( 'Slack Channel', 'toolbar-extras' );
+			break;
+		case 'changelog':
+			$title      = esc_attr__( 'Change Logs', 'toolbar-extras' );
+			$title_attr = ( ! empty( $title_attr ) ) ? esc_attr( $title_attr ) : esc_attr__( 'Version History', 'toolbar-extras' );
 			break;
 		default:
 			$title = esc_attr__( 'External Resource', 'toolbar-extras' );

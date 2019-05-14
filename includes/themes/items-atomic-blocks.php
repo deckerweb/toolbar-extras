@@ -14,7 +14,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_atomic_blocks', 100 );
 /**
- * Items for Theme: Atomic Blocks (free, by Atomic Blocks/ Array Themes)
+ * Items for Theme: Atomic Blocks (free, by StudioPress)
+ *   (formerly by: Atomic Blocks/ Array Themes)
  *
  * @since 1.4.0
  * @since 1.4.2 Simplified functions.
@@ -23,12 +24,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_atomic_blocks', 100 );
  * @uses ddw_tbex_customizer_start()
  * @uses ddw_tbex_item_theme_creative_customize()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_atomic_blocks() {
+function ddw_tbex_themeitems_atomic_blocks( $admin_bar ) {
 
 	/** Theme creative */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'theme-creative',
 			'parent' => 'group-active-theme',
@@ -93,8 +94,10 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_atomic_blocks_resources', 120
  *
  * @uses ddw_tbex_display_items_resources()
  * @uses ddw_tbex_resource_item()
+ *
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_atomic_blocks_resources() {
+function ddw_tbex_themeitems_atomic_blocks_resources( $admin_bar ) {
 
 	/** Bail early if no resources display active */
 	if ( ! ddw_tbex_display_items_resources() ) {
@@ -102,7 +105,7 @@ function ddw_tbex_themeitems_atomic_blocks_resources() {
 	}
 
 	/** Group: Resources for Atomic Blocks */
-	$GLOBALS[ 'wp_admin_bar' ]->add_group(
+	$admin_bar->add_group(
 		array(
 			'id'     => 'group-theme-resources',
 			'parent' => 'theme-creative',

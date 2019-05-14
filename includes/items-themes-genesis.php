@@ -48,6 +48,15 @@ if ( class_exists( 'Mai_Theme_Engine' ) ) {
 
 
 /**
+ * Genesis Customizer (free/Premium, by SEO Themes)
+ * @since 1.4.3
+ */
+if ( 'genesis-customizer' === get_stylesheet() || 'genesis-customizer-theme' === get_stylesheet() /* && function_exists( 'genesis_customizer_not_a_theme' ) */ ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-customizer.php';
+}
+
+
+/**
  * Revolution Pro (Premium, by StudioPress)
  * @since 1.4.2
  */

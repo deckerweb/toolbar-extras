@@ -34,6 +34,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_generatepress', 100 );
  * Items for Theme: GeneratePress (by Tom Usborne)
  *
  * @since 1.0.0
+ * @since 1.4.3 Simplified functions.
  *
  * @uses ddw_tbex_string_theme_title()
  * @uses ddw_tbex_customizer_start()
@@ -47,121 +48,124 @@ function ddw_tbex_themeitems_generatepress() {
 		array(
 			'id'     => 'theme-creative',
 			'parent' => 'group-active-theme',
-			'title'  => ddw_tbex_string_theme_title(),
+			'title'  => ddw_tbex_string_theme_title( 'title', 'child' ),
 			'href'   => esc_url( admin_url( 'themes.php?page=generate-options' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_theme_title( 'attr' )
+				'title'  => ddw_tbex_string_theme_title( 'attr', 'child' )
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
-			array(
-				'id'     => 'theme-creative-customize',
-				'parent' => 'theme-creative',
-				'title'  => esc_attr__( 'Customize Design', 'toolbar-extras' ),
-				'href'   => ddw_tbex_customizer_start(),
-				'meta'   => array(
-					'target' => ddw_tbex_meta_target(),
-					'title'  => esc_attr__( 'Customize Design', 'toolbar-extras' )
-				)
-			)
-		);
+	/** GeneratePress customize */
+	ddw_tbex_item_theme_creative_customize();
 
 }  // end function
 
 
-add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_generatepress_customize', 100 );
+add_filter( 'tbex_filter_items_theme_customizer_deep', 'ddw_tbex_themeitems_generatepress_customize' );
 /**
  * Customize items for GeneratePress Theme
  *
  * @since 1.0.0
+ * @since 1.4.3 Refactored using filter/array declaration.
  *
- * @uses ddw_tbex_customizer_focus()
- * @uses ddw_tbex_string_customize_attr()
+ * @uses ddw_tbex_is_woocommerce_active()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param array $items Existing array of params for creating Toolbar nodes.
+ * @return array Tweaked array of params for creating Toolbar nodes.
  */
-function ddw_tbex_themeitems_generatepress_customize() {
+function ddw_tbex_themeitems_generatepress_customize( array $items ) {
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
-		array(
-			'id'     => 'gpcmz-layout',
-			'parent' => 'theme-creative-customize',
-			/* translators: Autofocus panel in the Customizer */
-			'title'  => esc_attr__( 'Layout', 'toolbar-extras' ),
-			'href'   => ddw_tbex_customizer_focus( 'panel', 'generate_layout_panel' ),
-			'meta'   => array(
-				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Layout', 'toolbar-extras' ) )
-			)
-		)
+	/** Layout */
+	$gp_items[ 'generate_layout_panel' ] = array(
+		'type'  => 'panel',
+		'title' => __( 'Layout', 'toolbar-extras' ),
+		'id'    => 'gpcmz-layout',
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
-		array(
-			'id'     => 'gpcmz-colors',
-			'parent' => 'theme-creative-customize',
-			/* translators: Autofocus section/ panel in the Customizer */
-			'title'  => esc_attr__( 'Colors', 'toolbar-extras' ),
-			'href'   => defined( 'GENERATE_COLORS_VERSION' ) ? ddw_tbex_customizer_focus( 'panel', 'generate_colors_panel' ) : ddw_tbex_customizer_focus( 'section', 'body_section' ),
-			'meta'   => array(
-				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Colors', 'toolbar-extras' ) )
-			)
-		)
-	);
+	/** Colors */
+	if ( defined( 'GENERATE_COLORS_VERSION' ) ) {
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
-		array(
-			'id'     => 'gpcmz-typography',
-			'parent' => 'theme-creative-customize',
-			/* translators: Autofocus section/ panel in the Customizer */
-			'title'  => esc_attr__( 'Typography', 'toolbar-extras' ),
-			'href'   => defined( 'GENERATE_FONT_VERSION' ) ? ddw_tbex_customizer_focus( 'panel', 'generate_typography_panel' ) : ddw_tbex_customizer_focus( 'section', 'font_section' ),
-			'meta'   => array(
-				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Typography', 'toolbar-extras' ) )
-			)
-		)
-	);
+		$gp_items[ 'generate_colors_panel' ] = array(
+			'type'  => 'panel',
+			'title' => __( 'Colors', 'toolbar-extras' ),
+			'id'    => 'gpcmz-colors',
+		);
 
+	} else {
+
+		$gp_items[ 'body_section' ] = array(
+			'type'  => 'section',
+			'title' => __( 'Colors', 'toolbar-extras' ),
+			'id'    => 'gpcmz-colors',
+		);
+
+	}  // end if
+
+	/** Typography */
+	if ( defined( 'GENERATE_FONT_VERSION' ) ) {
+
+		$gp_items[ 'generate_typography_panel' ] = array(
+			'type'  => 'panel',
+			'title' => __( 'Typography', 'toolbar-extras' ),
+			'id'    => 'gpcmz-typography',
+		);
+
+	} else {
+
+		$gp_items[ 'font_section' ] = array(
+			'type'  => 'section',
+			'title' => __( 'Typography', 'toolbar-extras' ),
+			'id'    => 'gpcmz-typography',
+		);
+
+	}  // end if
+
+	/** Backgrounds */
 	if ( defined( 'GENERATE_BACKGROUNDS_VERSION' ) ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
-			array(
-				'id'     => 'gpcmz-backgrounds',
-				'parent' => 'theme-creative-customize',
-				/* translators: Autofocus panel in the Customizer */
-				'title'  => esc_attr__( 'Background Images', 'toolbar-extras' ),
-				'href'   => ddw_tbex_customizer_focus( 'panel', 'generate_backgrounds_panel' ),
-				'meta'   => array(
-					'target' => ddw_tbex_meta_target(),
-					'title'  => ddw_tbex_string_customize_attr( __( 'Background Images', 'toolbar-extras' ) )
-				)
-			)
+		$gp_items[ 'generate_backgrounds_panel' ] = array(
+			'type'  => 'panel',
+			'title' => __( 'Background Images', 'toolbar-extras' ),
+			'id'    => 'gpcmz-backgrounds',
 		);
 
 	}  // end if
 
+	/** Blog */
 	if ( defined( 'GENERATE_BLOG_VERSION' ) ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
-			array(
-				'id'     => 'gpcmz-blog',
-				'parent' => 'theme-creative-customize',
-				/* translators: Autofocus section in the Customizer */
-				'title'  => esc_attr__( 'Blog', 'toolbar-extras' ),
-				'href'   => ddw_tbex_customizer_focus( 'section', 'generate_blog_section', get_post_type_archive_link( 'post' ) ),
-				'meta'   => array(
-					'target' => ddw_tbex_meta_target(),
-					'title'  => ddw_tbex_string_customize_attr( __( 'Blog', 'toolbar-extras' ) )
-				)
-			)
+		$gp_items[ 'generate_blog_section' ] = array(
+			'type'        => 'section',
+			'title'       => __( 'Blog', 'toolbar-extras' ),
+			'id'          => 'gpcmz-blog',
+			'preview_url' => get_post_type_archive_link( 'post' ),
 		);
 
 	}  // end if
+
+	/** General */
+	$gp_items[ 'generate_general_section' ] = array(
+		'type'  => 'section',
+		'title' => __( 'General', 'toolbar-extras' ),
+		'id'    => 'gpcmz-general',
+	);
+
+	/** WooCommerce integration */
+	if ( ddw_tbex_is_woocommerce_active() && defined( 'GENERATE_WOOCOMMERCE_VERSION' ) ) {
+
+		$gp_items[ 'generate_woocommerce_layout' ] = array(
+			'type'        => 'section',
+			'title'       => __( 'WooCommerce Integration', 'toolbar-extras' ),
+			'id'          => 'gpcmz-woocommerce',
+			'preview_url' => get_post_type_archive_link( 'product' ),
+		);
+
+	}  // end if
+
+	/** Merge and return with all items */
+	return array_merge( $items, $gp_items );
 
 }  // end function
 
@@ -428,6 +432,7 @@ add_action( 'tbex_after_theme_free_docs', 'ddw_tbex_themeitems_generatepress_pre
  * Additional Resource Items for GeneratePress Premium
  *
  * @since 1.0.0
+ * @since 1.4.3 Added translations platform for GP Premium.
  *
  * @uses ddw_tbex_is_generatepress_premium_active()
  * @uses ddw_tbex_resource_item()
@@ -444,6 +449,13 @@ function ddw_tbex_themeitems_generatepress_premium_resources() {
 		'theme-docs-pro',
 		'group-theme-resources',
 		'https://docs.generatepress.com/collection/add-ons/'
+	);
+
+	ddw_tbex_resource_item(
+		'translations-pro',
+		'theme-translations-premium',
+		'group-theme-resources',
+		'https://translate.generatepress.com'
 	);
 
 }  // end function

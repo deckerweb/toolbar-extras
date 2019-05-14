@@ -125,6 +125,15 @@ if ( class_exists( 'OSF_Megamenu' ) ) {
 
 
 /**
+ * Add-On: Clever Mega Menu for Elementor (free, by CleverSoft)
+ * @since 1.4.3
+ */
+if ( class_exists( '\CleverSoft\WpPlugin\Cmm4E\Plugin' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-clever-mega-menu.php';
+}
+
+
+/**
  * Add-On: JetThemeCore (Premium, by Zemez Jet/ CrocoBlock)
  * @since 1.3.0
  */
@@ -185,6 +194,17 @@ if ( ddw_tbex_is_woocommerce_active()	// as it extends WooCommerce!
 	&& class_exists( 'Kadence_Woocommerce_Elementor' )
 ) {
 	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-kadence-woocommerce-elementor.php';
+}
+
+
+/**
+ * Add-On: DT WooCommerce Page Builder for Elementor (Premium, by DawnThemes)
+ * @since 1.4.3
+ */
+if ( ddw_tbex_is_woocommerce_active()	// as it extends WooCommerce!
+	&& defined( 'DTWCBE_VERSION' )
+) {
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-woocommerce-pbfe.php';
 }
 
 
@@ -288,6 +308,15 @@ if ( class_exists( 'ECIcons' ) ) {
 
 
 /**
+ * Add-On: Bestfreebie Elementor Icons (free, by Bestfreebie)
+ * @since 1.4.3
+ */
+if ( class_exists( 'Bestfreebie_elementor_icons' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-bestfreebie-elementor-icons.php';
+}
+
+
+/**
  * Add-On: Granular Controls for Elementor (free, by Zulfikar Nore)
  * @since 1.0.0
  */
@@ -381,7 +410,7 @@ if ( defined( 'ESSENTIAL_ADDONS_EL_PATH' ) ) {
  * Add-On: Premium Addons for Elementor (free, by Leap13)
  * @since 1.1.0
  */
-if ( function_exists( 'premium_addons_elementor_setup' ) ) {
+if ( defined( 'PREMIUM_ADDONS_VERSION' ) || function_exists( 'premium_addons_elementor_setup' ) ) {
 	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-leap13-premium-addons.php';
 }
 
@@ -392,6 +421,24 @@ if ( function_exists( 'premium_addons_elementor_setup' ) ) {
  */
 if ( defined( 'HTMEGA_VERSION' ) ) {
 	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-ht-mega.php';
+}
+
+
+/**
+ * Add-On: The Plus Addons for Elementor Lite/Pro (free/Premium, by POSIMYTH Themes)
+ * @since 1.4.3
+ */
+if ( defined( 'THEPLUS_VERSION' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-theplus-addons.php';
+}
+
+
+/**
+ * Add-On: Unlimited Elements for Elementor Lite/Pro (free/Premium, by Blox Themes)
+ * @since 1.4.3
+ */
+if ( defined( 'BLOXBUILDER_INC' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-unlimited-elements.php';
 }
 
 
@@ -507,7 +554,7 @@ if ( class_exists( 'Jet_Widgets' ) ) {
  * Add-On: Piotnet Addons For Elementor (PAFE) (Pro) (free/Premium, by Luong Huu Phuoc (Louis Hufer))
  * @since 1.3.9
  */
-if ( defined( 'PAFE_VERSION' ) ) {
+if ( defined( 'PAFE_VERSION' ) || defined( 'PAFE_PRO_VERSION' ) ) {
 	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-piotnet-addons.php';
 }
 
@@ -632,6 +679,17 @@ if ( function_exists( 'Briefcase_Elementor_Widgets' )
 
 
 /**
+ * Add-On: WooLentor (free, by HT Plugins)
+ * @since 1.4.3
+ */
+if ( function_exists( 'WOOLENTOR_VERSION' )
+	&& ddw_tbex_is_woocommerce_active()		// depends on WooCommerce
+) {
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-woolentor.php';
+}
+
+
+/**
  * Add-On: Elementor Addon Elements (free, by WebTechStreet)
  * @since 1.1.0
  */
@@ -700,6 +758,24 @@ if ( defined( 'eb_google_map_pro_version' ) ) {
  */
 if ( defined( 'A13REE_VERSION' ) ) {
 	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-rife-elementor-extensions-templates.php';
+}
+
+
+/**
+ * Add-On: Flexible Elementor Panel (free, by Alex Shram/ Flexible-Elementor-Panel.com)
+ * @since 1.4.3
+ */
+if ( function_exists( 'flexible_elementor_panel_load' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-flexible-elementor-panel.php';
+}
+
+
+/**
+ * Add-On: Multidomain Support for Elementor (free, by Alex Zappa)
+ * @since 1.4.3
+ */
+if ( defined( 'MULTIDOMAIN_SUPPORT_FOR_ELEMENTOR_VERSION' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-multidomain-support-elementor.php';
 }
 
 
@@ -794,6 +870,14 @@ if ( defined( 'ELEMENTOR_WHITE_LABEL_VER' ) || defined( 'ELEMENTOR_WHITE_LABEL_P
  */
 if ( class_exists( 'Jet_Design_Kit' ) ) {
 	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-jetdesignkit.php';
+}
+
+/**
+ * Add-On: Advamentor (free, by Themexa)
+ * @since 1.4.3
+ */
+if ( function_exists( 'advamentor_init' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-advamentor.php';
 }
 
 

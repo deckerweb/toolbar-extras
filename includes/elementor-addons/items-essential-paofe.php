@@ -83,6 +83,19 @@ function ddw_tbex_aoitems_essential_paofe( $admin_bar ) {
 
 		$admin_bar->add_node(
 			array(
+				'id'     => 'essential-paofe-api-settings',
+				'parent' => 'essential-paofe',
+				'title'  => esc_attr__( 'API Settings', 'toolbar-extras' ),
+				'href'   => esc_url( admin_url( 'admin.php?page=epa_api' ) ),
+				'meta'   => array(
+					'target' => '',
+					'title'  => esc_attr__( 'API Settings', 'toolbar-extras' ),
+				)
+			)
+		);
+
+		$admin_bar->add_node(
+			array(
 				'id'     => 'essential-paofe-about',
 				'parent' => 'essential-paofe',
 				'title'  => esc_attr__( 'Plugin Info', 'toolbar-extras' ),

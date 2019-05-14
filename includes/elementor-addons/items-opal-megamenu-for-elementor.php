@@ -20,14 +20,11 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_opal_megamenu_for_elementor', 15
  *
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_opal_megamenu_for_elementor() {
+function ddw_tbex_aoitems_opal_megamenu_for_elementor( $admin_bar ) {
 
-	$type_header = 'header';
-	$type_footer = 'footer';
-
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'ao-opalmegamenu',
 			'parent' => 'group-creative-content',
@@ -40,7 +37,7 @@ function ddw_tbex_aoitems_opal_megamenu_for_elementor() {
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-opalmegamenu-mega-items',
 				'parent' => 'ao-opalmegamenu',
@@ -53,7 +50,7 @@ function ddw_tbex_aoitems_opal_megamenu_for_elementor() {
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-opalmegamenu-edit-menus',
 				'parent' => 'ao-opalmegamenu',
@@ -66,7 +63,7 @@ function ddw_tbex_aoitems_opal_megamenu_for_elementor() {
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-opalmegamenu-templates',
 				'parent' => 'ao-opalmegamenu',
@@ -82,7 +79,7 @@ function ddw_tbex_aoitems_opal_megamenu_for_elementor() {
 		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-opalmegamenu-resources',
 					'parent' => 'ao-opalmegamenu',

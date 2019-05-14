@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_coblocks', 100 );
 /**
- * Items for Theme: CoBlocks (free, by Rich Tabor of CoBlocks)
+ * Items for Theme: CoBlocks (free, by CoBlocks)
  *
  * @since 1.4.0
  * @since 1.4.2 Simplified functions.
@@ -122,7 +122,7 @@ function ddw_tbex_themeitems_coblocks_resources() {
 		'github',
 		'theme-github',
 		'group-theme-resources',
-		'https://github.com/thatplugincompany/coblocks-theme'
+		'https://github.com/godaddy/coblocks-theme'
 	);
 
 	ddw_tbex_resource_item(

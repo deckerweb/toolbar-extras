@@ -190,15 +190,15 @@ function ddw_tbex_is_genesis_active() {
  *
  * @since 1.0.0
  * @since 1.4.0 Added Twenty Nineteen theme.
+ * @since 1.4.3 Improved general compatibility for parent/child themes.
  *
  * @return bool TRUE if current active Theme/ Child Theme is in the array of
  *              supported themes, FALSE otherwise.
  */
 function ddw_tbex_is_default_twenty() {
 
+	/** Supported official default themes */
 	$supported_twenty = array(
-
-		/** Supported official default themes */
 		'twentynineteen',
 		'twentyseventeen',
 		'twentysixteen',
@@ -208,14 +208,16 @@ function ddw_tbex_is_default_twenty() {
 		'twentytwelve',
 		'twentyeleven',
 		'twentyten',
+	);
 
-		/** Supported (third-party) child themes */
+	/** Supported (third-party) child themes */
+	$children = array(
 		'minimal-2017',
 		'2016-vcready',
 		'2012-vcready'
 	);
 
-	return in_array( get_stylesheet(), $supported_twenty );
+	return in_array( wp_basename( get_template_directory() ), $supported_twenty );
 
 }  // end function
 
@@ -252,6 +254,7 @@ function ddw_tbex_is_theme_hestia() {
  *   Cobalt Apps plugins.
  *
  * @since 1.1.0
+ * @since 1.4.3 Added Twenty Nineteen support to Themer Pro supported themes.
  *
  * @see Extender Pro: https://cobaltapps.com/extender-pro-supported-themes/
  * @see Themer Pro: https://cobaltapps.com/themer-pro-supported-themes/
@@ -272,6 +275,7 @@ function ddw_tbex_is_cobalt_supported_theme( $plugin = '' ) {
 	);
 
 	$supported_twenty = array(
+		'twentynineteen',
 		'twentyseventeen',
 		'twentysixteen',
 	);
@@ -302,13 +306,13 @@ function ddw_tbex_is_cobalt_supported_theme( $plugin = '' ) {
  */
 function ddw_tbex_use_hook_place_gallery_slider() {
 
-	if ( ddw_tbex_use_tweak_nextgen()
-		|| ddw_tbex_use_tweak_smartslider()
-		|| ( class_exists( 'Envira_Gallery_Lite' ) || class_exists( 'Envira_Gallery' ) )
-		|| ( class_exists( 'Soliloquy_Lite' ) || class_exists( 'Soliloquy' ) )
-		|| defined( 'FOOGALLERY_VERSION' )
-		|| class_exists( 'MaxGalleria' )
-		|| function_exists( 'display_instagram' )
+	if ( ( ddw_tbex_is_nextgen_gallery_active() && ddw_tbex_use_tweak_nextgen() )
+		|| ( ddw_tbex_is_smartslider3_active() && ddw_tbex_use_tweak_smartslider() )
+		|| ddw_tbex_is_envira_gallery_active()
+		|| ddw_tbex_is_soliloquy_active()
+		|| ddw_tbex_is_foogallery_active()
+		|| ddw_tbex_is_maxgalleria_active()
+		|| ddw_tbex_is_instagram_feed_active()
 	) {
 
 		/** Use Gallery/ Slider hook place */
@@ -668,5 +672,263 @@ function ddw_tbex_is_gravityforms_active() {
 function ddw_tbex_is_cf7_active() {
 
 	return defined( 'WPCF7_VERSION' );
+
+}  // end function
+
+
+/**
+ * Is the WPForms plugin active or not?
+ *
+ * @since 1.4.3
+ *
+ * @return bool TRUE if plugin is active, FALSE otherwise.
+ */
+function ddw_tbex_is_wpforms_active() {
+
+	return ( class_exists( '\WPForms\WPForms' ) || class_exists( 'WPForms' ) );
+
+}  // end function
+
+
+/**
+ * Is the Ninja Forms 3 plugin active or not?
+ *
+ * @since 1.4.3
+ *
+ * @return bool TRUE if plugin is active, FALSE otherwise.
+ */
+function ddw_tbex_is_ninjaforms_active() {
+
+	return class_exists( 'Ninja_Forms' );
+
+}  // end function
+
+
+/**
+ * Is the Give (Donations) plugin active or not?
+ *
+ * @since 1.4.3
+ *
+ * @return bool TRUE if plugin is active, FALSE otherwise.
+ */
+function ddw_tbex_is_give_active() {
+
+	return defined('GIVE_VERSION');
+
+}  // end function
+
+
+/**
+ * Is the MemberPress plugin active or not?
+ *
+ * @since 1.4.3
+ *
+ * @return bool TRUE if plugin is active, FALSE otherwise.
+ */
+function ddw_tbex_is_memberpress_active() {
+
+	return defined( 'MEPR_VERSION' );
+
+}  // end function
+
+
+/**
+ * Is the AffiliateWP plugin active or not?
+ *
+ * @since 1.4.3
+ *
+ * @return bool TRUE if plugin is active, FALSE otherwise.
+ */
+function ddw_tbex_is_affiliatewp_active() {
+
+	return class_exists( 'Affiliate_WP' );
+
+}  // end function
+
+
+/**
+ * Is the BuddyPress plugin active or not?
+ *
+ * @since 1.4.3
+ *
+ * @return bool TRUE if plugin is active, FALSE otherwise.
+ */
+function ddw_tbex_is_buddypress_active() {
+
+	return class_exists( 'BuddyPress' );
+
+}  // end function
+
+
+/**
+ * Is the Events Manager plugin active or not?
+ *
+ * @since 1.4.3
+ *
+ * @return bool TRUE if plugin is active, FALSE otherwise.
+ */
+function ddw_tbex_is_events_manager_active() {
+
+	return defined( 'EM_VERSION' );
+
+}  // end function
+
+
+/**
+ * Is the NextGen Gallery plugin active or not?
+ *
+ * @since 1.4.3
+ *
+ * @return bool TRUE if plugin is active, FALSE otherwise.
+ */
+function ddw_tbex_is_nextgen_gallery_active() {
+
+	return class_exists( 'C_NextGEN_Bootstrap' );
+
+}  // end function
+
+
+/**
+ * Is the Smart Slider 3 plugin active or not?
+ *
+ * @since 1.4.3
+ *
+ * @return bool TRUE if plugin is active, FALSE otherwise.
+ */
+function ddw_tbex_is_smartslider3_active() {
+
+	return defined( 'NEXTEND_SMARTSLIDER_3_BASENAME' );
+
+}  // end function
+
+
+/**
+ * Is the Envira Gallery Lite/Pro plugin active or not?
+ *
+ * @since 1.4.3
+ *
+ * @return bool TRUE if plugin is active, FALSE otherwise.
+ */
+function ddw_tbex_is_envira_gallery_active() {
+
+	return ( class_exists( 'Envira_Gallery_Lite' ) || class_exists( 'Envira_Gallery' ) );
+
+}  // end function
+
+
+/**
+ * Is the Soliloquy Lite/Pro plugin active or not?
+ *
+ * @since 1.4.3
+ *
+ * @return bool TRUE if plugin is active, FALSE otherwise.
+ */
+function ddw_tbex_is_soliloquy_active() {
+
+	return ( class_exists( 'Soliloquy_Lite' ) || class_exists( 'Soliloquy' ) );
+
+}  // end function
+
+
+/**
+ * Is the Instagram Feed (Pro) plugin active or not?
+ *
+ * @since 1.4.3
+ *
+ * @return bool TRUE if plugin is active, FALSE otherwise.
+ */
+function ddw_tbex_is_instagram_feed_active() {
+
+	return ( function_exists( 'display_instagram' ) || function_exists( 'sb_instagram_activate_pro' ) );
+
+}  // end function
+
+
+/**
+ * Is the FooGallery plugin active or not?
+ *
+ * @since 1.4.3
+ *
+ * @return bool TRUE if plugin is active, FALSE otherwise.
+ */
+function ddw_tbex_is_foogallery_active() {
+
+	return defined( 'FOOGALLERY_VERSION' );
+
+}  // end function
+
+
+/**
+ * Is the MaxGalleria plugin active or not?
+ *
+ * @since 1.4.3
+ *
+ * @return bool TRUE if plugin is active, FALSE otherwise.
+ */
+function ddw_tbex_is_maxgalleria_active() {
+
+	return class_exists( 'MaxGalleria' );
+
+}  // end function
+
+
+/**
+ * Is the current install WordPress 5.2+ or not?
+ *
+ * @since 1.4.3
+ *
+ * @return bool TRUE if WordPress 5.2+ is active, FALSE otherwise.
+ */
+function ddw_tbex_is_wp52_install() {
+
+	return version_compare( $GLOBALS[ 'wp_version' ], '5.2-beta', '>' );
+
+}  // end function
+
+
+/**
+ * Is the current install ClassicPress or not?
+ *
+ * @since 1.4.3
+ *
+ * @return bool TRUE if ClassicPress is active, FALSE otherwise.
+ */
+function ddw_tbex_is_classicpress_install() {
+
+	return function_exists( 'classicpress_version' );
+
+}  // end function
+
+
+/**
+ * Check if Advanced Custom Fields PRO version plugin is active or not.
+ *
+ *   Note: We want only ACF Pro v5.7.10 or higher!
+ *
+ * @since 1.4.3
+ *
+ * @return bool TRUE if class exists, FALSE otherwise.
+ */
+function ddw_tbex_is_acf_pro_active() {
+
+	return ( defined( 'ACF_PRO' ) && defined( 'ACF_VERSION' ) && version_compare( ACF_VERSION, '5.7.10', '>=' ) );
+
+}  // end function
+
+
+/**
+ * Check if Advanced Custom Fields: Extended plugin is active or not.
+ *
+ *   Note: This depends on ACF Pro v5.7.10 or higher!
+ *
+ * @since 1.4.3
+ *
+ * @uses ddw_tbex_is_acf_pro_active()
+ *
+ * @return bool TRUE if class exists, FALSE otherwise.
+ */
+function ddw_tbex_is_acf_extended_active() {
+
+	return ddw_tbex_is_acf_pro_active() && function_exists( 'acfe_load' );
 
 }  // end function

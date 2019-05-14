@@ -18,18 +18,18 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_gp_social_share', 200 );
  *
  * @since 1.3.0
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_gp_social_share() {
+function ddw_tbex_aoitems_gp_social_share( $admin_bar ) {
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_group(
+	$admin_bar->add_group(
 		array(
 			'id'     => 'group-ao-gpss',
-			'parent' => 'theme-creative'
+			'parent' => 'theme-creative',
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'ao-gp-social-share',
 			'parent' => 'group-ao-gpss',
@@ -37,7 +37,7 @@ function ddw_tbex_aoitems_gp_social_share() {
 			'href'   => esc_url( admin_url( 'themes.php?page=gp_social_settings' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_free_addon_title_attr( __( 'GP Social Share', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_free_addon_title_attr( __( 'GP Social Share', 'toolbar-extras' ) ),
 			)
 		)
 	);

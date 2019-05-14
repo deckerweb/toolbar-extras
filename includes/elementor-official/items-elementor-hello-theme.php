@@ -12,6 +12,22 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 
+/**
+ * Is "Hello Elementor" theme at least v2.0.2 or higher?
+ *
+ * @since 1.4.3
+ *
+ * @return bool TRUE if theme version is at least 2.0.2, FALSE otherwise.
+ */
+function ddw_tbex_is_ehello_v2() {
+
+	$theme = wp_get_theme();
+
+	return version_compare( $theme->get( 'Version' ), '2.0.2', '>=' );
+
+}  // end function
+
+
 add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_elementor_hello', 100 );
 /**
  * Items for Theme:
@@ -19,25 +35,29 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_elementor_hello', 100 );
  *
  * @since 1.0.0
  * @since 1.4.0 Simplified functions.
+ * @since 1.4.3 Integration of wordpress.org version of the theme.
  *
+ * @uses ddw_tbex_is_ehello_v2()
  * @uses ddw_tbex_string_theme_title()
  * @uses ddw_tbex_customizer_start()
  * @uses ddw_tbex_item_theme_creative_customize()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_elementor_hello() {
+function ddw_tbex_themeitems_elementor_hello( $admin_bar ) {
+
+	$title = ddw_tbex_is_ehello_v2() ? 'Hello Elementor' : 'Elementor Hello';
 
 	/** Theme creative */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'theme-creative',
 			'parent' => 'group-active-theme',
-			'title'  => ddw_tbex_string_theme_title( 'title', 'child', 'Elementor Hello' ),
+			'title'  => ddw_tbex_string_theme_title( 'title', 'child', $title ),
 			'href'   => ddw_tbex_customizer_start(),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_theme_title( 'attr', 'child', 'Elementor Hello' ),
+				'title'  => ddw_tbex_string_theme_title( 'attr', 'child', $title ),
 			)
 		)
 	);
@@ -80,14 +100,16 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_elementor_hello_resources', 9
  *   Hook in later to have these items at the bottom.
  *
  * @since 1.0.0
+ * @since 1.4.3 Added new resources.
  *
  * @uses ddw_tbex_display_items_resources()
+ * @uses ddw_tbex_is_ehello_v2()
  * @uses ddw_tbex_resource_item()
  * @uses ddw_tbex_get_resource_url()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_elementor_hello_resources() {
+function ddw_tbex_themeitems_elementor_hello_resources( $admin_bar ) {
 
 	/** Bail early if no resources display active */
 	if ( ! ddw_tbex_display_items_resources() ) {
@@ -95,13 +117,31 @@ function ddw_tbex_themeitems_elementor_hello_resources() {
 	}
 
 	/** Group: Resources for Elementor Hello Theme */
-	$GLOBALS[ 'wp_admin_bar' ]->add_group(
+	$admin_bar->add_group(
 		array(
 			'id'     => 'group-theme-resources',
 			'parent' => 'theme-creative',
-			'meta'   => array( 'class' => 'ab-sub-secondary' )
+			'meta'   => array( 'class' => 'ab-sub-secondary' ),
 		)
 	);
+
+	if ( ddw_tbex_is_ehello_v2() ) {
+
+		ddw_tbex_resource_item(
+			'support-forum',
+			'ehello-support',
+			'group-theme-resources',
+			ddw_tbex_get_resource_url( 'elementor', 'url_ehello_support' )
+		);
+
+		ddw_tbex_resource_item(
+			'translations-community',
+			'ehello-translate',
+			'group-theme-resources',
+			ddw_tbex_get_resource_url( 'elementor', 'url_ehello_translate' )
+		);
+
+	}  // end if
 
 	ddw_tbex_resource_item(
 		'github-issues',

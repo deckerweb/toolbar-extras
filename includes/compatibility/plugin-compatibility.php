@@ -1,6 +1,6 @@
 <?php
 
-// includes/plugin-combatibility
+// includes/compatibility/plugin-compatibility
 
 /**
  * Prevent direct access to this file.
@@ -12,16 +12,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 
-add_action( 'plugins_loaded', 'ddw_tbex_plugin_combatibility', -1 );
+add_action( 'plugins_loaded', 'ddw_tbex_plugin_compatibility', -1 );
 /**
- * Plugin combat.
- *   More combat tweaks may come up in the future here.
+ * Plugin compat.
+ *   More compat tweaks may come up in the future here.
  *
  * @since 1.0.0
  *
  * @uses ddw_tbex_is_mstba_active()
  */
-function ddw_tbex_plugin_combatibility() {
+function ddw_tbex_plugin_compatibility() {
 
 	/** Plugin compatibility with "Multisite Toolbar Additions" */
 	if ( ddw_tbex_is_mstba_active() ) {

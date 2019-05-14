@@ -21,12 +21,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_jetwoobuilder', 100 );
  *
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_jetwoobuilder() {
+function ddw_tbex_aoitems_jetwoobuilder( $admin_bar ) {
 
 	/** Plugin's Templates Content */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'ao-jetwoobuilder',
 			'parent' => 'group-creative-content',
@@ -39,7 +39,7 @@ function ddw_tbex_aoitems_jetwoobuilder() {
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-jetwoobuilder-all',
 				'parent' => 'ao-jetwoobuilder',
@@ -52,7 +52,7 @@ function ddw_tbex_aoitems_jetwoobuilder() {
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-jetwoobuilder-new',
 				'parent' => 'ao-jetwoobuilder',
@@ -68,7 +68,7 @@ function ddw_tbex_aoitems_jetwoobuilder() {
 
 		if ( ddw_tbex_is_elementor_active() && \Elementor\User::is_current_user_can_edit_post_type( 'jet-woo-builder' ) ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ao-jetwoobuilder-builder',
 					'parent' => 'ao-jetwoobuilder',
@@ -86,7 +86,7 @@ function ddw_tbex_aoitems_jetwoobuilder() {
 		/** Template categories, via BTC plugin */
 		if ( ddw_tbex_is_btcplugin_active() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ao-jetwoobuilder-categories',
 					'parent' => 'ao-jetwoobuilder',
@@ -101,7 +101,7 @@ function ddw_tbex_aoitems_jetwoobuilder() {
 
 		}  // end if
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-jetwoobuilder-settings-elementor',
 				'parent' => 'ao-jetwoobuilder',
@@ -116,7 +116,7 @@ function ddw_tbex_aoitems_jetwoobuilder() {
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-jetwoobuilder-settings-woocommerce',
 				'parent' => 'ao-jetwoobuilder',
@@ -134,7 +134,7 @@ function ddw_tbex_aoitems_jetwoobuilder() {
 		/** Group: Resources for JetWooBuilder */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-jetwoobuilder-resources',
 					'parent' => 'ao-jetwoobuilder',
@@ -174,16 +174,16 @@ add_action( 'admin_bar_menu', 'ddw_tbex_new_content_jetwoobuilder' );
  *
  * @since 1.2.0
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @global mixed $admin_bar
  */
-function ddw_tbex_new_content_jetwoobuilder() {
+function ddw_tbex_new_content_jetwoobuilder( $admin_bar ) {
 
 	/** Bail early if items display is not wanted */
 	if ( ! ddw_tbex_display_items_new_content() || ! \Elementor\User::is_current_user_can_edit_post_type( 'jet-woo-builder' ) ) {
 		return;
 	}
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'jetwoobuilder-with-builder',
 			'parent' => 'new-jet-woo-builder',

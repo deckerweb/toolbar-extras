@@ -20,14 +20,14 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_stag_blocks', 10 );
  *
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar']
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_stag_blocks() {
+function ddw_tbex_aoitems_stag_blocks( $admin_bar ) {
 
 	/** Use Add-On hook place */
 	add_filter( 'tbex_filter_is_addon', '__return_empty_string' );
 	
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'tbex-stagblocks',
 			'parent' => 'group-tbex-addons-blockeditor',
@@ -40,7 +40,7 @@ function ddw_tbex_aoitems_stag_blocks() {
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'stagblocks-options',
 				'parent' => 'tbex-stagblocks',
@@ -56,7 +56,7 @@ function ddw_tbex_aoitems_stag_blocks() {
 		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-stagblocks-resources',
 					'parent' => 'tbex-stagblocks',

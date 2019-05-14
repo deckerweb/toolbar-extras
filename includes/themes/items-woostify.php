@@ -244,7 +244,6 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_woostify_pro', 100 );
  * @since 1.4.2
  *
  * @uses ddw_tbex_is_woostify_pro_active()
- * @uses Customify_Pro()
  *
  * @param object $admin_bar Object of Toolbar nodes.
  */

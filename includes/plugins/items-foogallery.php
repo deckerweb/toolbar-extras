@@ -22,8 +22,6 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_foogallery', 15 );
  */
 function ddw_tbex_site_items_foogallery() {
 
-	add_filter( 'tbex_filter_is_gallery_slider', '__return_emptry_string' );
-
 	/** For: Manage Content */
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(
 		array(

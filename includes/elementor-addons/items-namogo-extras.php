@@ -20,15 +20,15 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_elementor_extras', 100 );
  *
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_elementor_extras() {
+function ddw_tbex_aoitems_elementor_extras( $admin_bar ) {
 
 	/** Use Add-On hook place */
 	add_filter( 'tbex_filter_is_addon', '__return_empty_string' );
 
-	/** Extras Settings */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	/** Plugin's items */
+	$admin_bar->add_node(
 		array(
 			'id'     => 'ao-namogoextras',
 			'parent' => 'tbex-addons',
@@ -41,7 +41,7 @@ function ddw_tbex_aoitems_elementor_extras() {
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-namogoextras-widgets',
 				'parent' => 'ao-namogoextras',
@@ -54,7 +54,7 @@ function ddw_tbex_aoitems_elementor_extras() {
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-namogoextras-extensions',
 				'parent' => 'ao-namogoextras',
@@ -67,7 +67,7 @@ function ddw_tbex_aoitems_elementor_extras() {
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-namogoextras-apis',
 				'parent' => 'ao-namogoextras',
@@ -80,7 +80,7 @@ function ddw_tbex_aoitems_elementor_extras() {
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-namogoextras-advanced',
 				'parent' => 'ao-namogoextras',
@@ -93,7 +93,7 @@ function ddw_tbex_aoitems_elementor_extras() {
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-namogoextras-license',
 				'parent' => 'ao-namogoextras',
@@ -106,10 +106,10 @@ function ddw_tbex_aoitems_elementor_extras() {
 			)
 		);
 
-		/** Group: Resources for Elementor Extras */
+		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-namogoextras-resources',
 					'parent' => 'ao-namogoextras',
@@ -136,6 +136,14 @@ function ddw_tbex_aoitems_elementor_extras() {
 				'namogoextras-support',
 				'group-namogoextras-resources',
 				'https://shop.namogo.com/account/my-tickets/submit-ticket/'
+			);
+
+			ddw_tbex_resource_item(
+				'changelog',
+				'namogoextras-changelogs',
+				'group-namogoextras-resources',
+				'https://shop.namogo.com/elementor-extras/changelog/',
+				esc_attr__( 'Plugin Version History', 'toolbar-extras' )
 			);
 
 			ddw_tbex_resource_item(

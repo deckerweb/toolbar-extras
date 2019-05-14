@@ -135,6 +135,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_manage_content' );
  */
 function ddw_tbex_site_items_manage_content() {
 
+	/** Manage Content */
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(
 		array(
 			'id'     => 'manage-content',
@@ -192,6 +193,7 @@ function ddw_tbex_site_items_manage_content() {
 
 	}  // end if
 
+	/** Media */
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(
 		array(
 			'id'     => 'manage-content-media',
@@ -205,10 +207,17 @@ function ddw_tbex_site_items_manage_content() {
 		)
 	);
 
+		$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			array(
+				'id'     => 'group-managecontent-media',
+				'parent' => 'manage-content-media',
+			)
+		);
+
 		$GLOBALS[ 'wp_admin_bar' ]->add_node(
 			array(
 				'id'     => 'manage-content-media-grid',
-				'parent' => 'manage-content-media',
+				'parent' => 'group-managecontent-media',
 				'title'  => esc_attr__( 'Grid View', 'toolbar-extras' ),
 				'href'   => esc_url( admin_url( 'upload.php?mode=grid' ) ),
 				'meta'   => array(
@@ -221,7 +230,7 @@ function ddw_tbex_site_items_manage_content() {
 		$GLOBALS[ 'wp_admin_bar' ]->add_node(
 			array(
 				'id'     => 'manage-content-media-list',
-				'parent' => 'manage-content-media',
+				'parent' => 'group-managecontent-media',
 				'title'  => esc_attr__( 'List View', 'toolbar-extras' ),
 				'href'   => esc_url( admin_url( 'upload.php?mode=list' ) ),
 				'meta'   => array(
@@ -463,6 +472,68 @@ function ddw_tbex_site_items_more_stuff() {
 			);
 
 		}  // end if
+
+}  // end function
+
+
+add_action( 'admin_bar_menu', 'ddw_tbex_site_items_health_debug', 100 );
+/**
+ * More Items: Site Health status, Debug info
+ *   Note: Can be disabled via filter 'tbex_filter_site_health_items'.
+ *
+ * @since 1.4.3
+ *
+ * @param object $admin_bar Object of Toolbar nodes.
+ */
+function ddw_tbex_site_items_health_debug( $admin_bar ) {
+
+	/** Bail early if not on WP 5.2+ */
+	if ( ! ddw_tbex_is_wp52_install()
+		|| ! current_user_can( 'manage_options' )
+		|| ! apply_filters( 'tbex_filter_site_health_items', TRUE )
+	) {
+		return;
+	}
+
+	/** Site Health */
+	$admin_bar->add_node(
+		array(
+			'id'     => 'wp-sitehealth',
+			'parent' => 'tbex-sitegroup-stuff',
+			'title'  => esc_attr__( 'Site Health', 'toolbar-extras' ),
+			'href'   => esc_url( admin_url( 'site-health.php' ) ),
+			'meta'   => array(
+				'target' => '',
+				'title'  => esc_attr__( 'Site Health Status &amp; Debug Info', 'toolbar-extras' )
+			)
+		)
+	);
+
+		$admin_bar->add_node(
+			array(
+				'id'     => 'wp-sitehealth-status',
+				'parent' => 'wp-sitehealth',
+				'title'  => esc_attr__( 'Health Status', 'toolbar-extras' ),
+				'href'   => esc_url( admin_url( 'site-health.php' ) ),
+				'meta'   => array(
+					'target' => '',
+					'title'  => esc_attr__( 'Site Health Status', 'toolbar-extras' )
+				)
+			)
+		);
+
+		$admin_bar->add_node(
+			array(
+				'id'     => 'wp-sitehealth-debug',
+				'parent' => 'wp-sitehealth',
+				'title'  => esc_attr__( 'Debug Info', 'toolbar-extras' ),
+				'href'   => esc_url( admin_url( 'site-health.php?tab=debug' ) ),
+				'meta'   => array(
+					'target' => '',
+					'title'  => esc_attr__( 'Debug Info &amp; Error Reporting', 'toolbar-extras' )
+				)
+			)
+		);
 
 }  // end function
 

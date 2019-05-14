@@ -12,6 +12,48 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 
+/**
+ * 1) WooCommerce, we look at you!
+ * -------------------------------------------------------------------------- */
+
+/**
+ * Remove unethical WooCommerce Ads injections & tracking.
+ *
+ * @since 1.4.3
+ */
+add_filter( 'woocommerce_allow_marketplace_suggestions', '__return_false' );
+
+if ( class_exists( 'WC_Tracker' ) ) :
+
+	/**
+	 * Nope out of Woo Tracking - Clear the tracker hook we know about.
+	 *
+	 * @since 1.4.3
+	 */
+	remove_action( 'woocommerce_tracker_send_event', array( 'WC_Tracker', 'send_tracking_data' ) );
+
+	/**
+	 * And clear the entire cron job.
+	 *
+	 * @since 1.4.3
+	 */
+	wp_clear_scheduled_hook( 'woocommerce_tracker_send_event' );
+
+	/**
+	 * Just in case, filter the Woo tracking data and just return an empty
+	 *   array any time Woo tries to track anything.
+	 *
+	 * @since 1.4.3
+	 */
+	add_filter( 'woocommerce_tracker_data', '__return_empty_array', 100 );
+
+endif;
+
+
+/**
+ * 2) Now, back to our normal work:
+ * -------------------------------------------------------------------------- */
+
 add_action( 'admin_bar_menu', 'ddw_tbex_site_items_woocommerce', 31 );
 /**
  * Site items for Plugin: WooCommerce (free, by Automattic)

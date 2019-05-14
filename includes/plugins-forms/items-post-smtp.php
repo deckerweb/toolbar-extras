@@ -18,15 +18,15 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_post_smtp', 50 );
  *
  * @since 1.4.2
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_post_smtp() {
+function ddw_tbex_site_items_post_smtp( $admin_bar ) {
 
 	/** For: Forms */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'forms-postsmtp',
-			'parent' => 'tbex-sitegroup-forms',
+			'parent' => 'tbex-sitegroup-tools',		//'tbex-sitegroup-forms',
 			'title'  => esc_attr__( 'Post SMTP', 'toolbar-extras' ),
 			'href'   => esc_url( admin_url( 'admin.php?page=postman' ) ),
 			'meta'   => array(
@@ -36,7 +36,7 @@ function ddw_tbex_site_items_post_smtp() {
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-postsmtp-overview',
 				'parent' => 'forms-postsmtp',
@@ -50,7 +50,7 @@ function ddw_tbex_site_items_post_smtp() {
 		);
 
 		/** Email logs */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-postsmtp-logs',
 				'parent' => 'forms-postsmtp',
@@ -64,7 +64,7 @@ function ddw_tbex_site_items_post_smtp() {
 		);
 
 		/** Setup wizard */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-postsmtp-wizard',
 				'parent' => 'forms-postsmtp',
@@ -78,7 +78,7 @@ function ddw_tbex_site_items_post_smtp() {
 		);
 
 		/** Settings */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-postsmtp-settings',
 				'parent' => 'forms-postsmtp',
@@ -91,7 +91,7 @@ function ddw_tbex_site_items_post_smtp() {
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-postsmtp-settings-account',
 					'parent' => 'forms-postsmtp-settings',
@@ -104,7 +104,7 @@ function ddw_tbex_site_items_post_smtp() {
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-postsmtp-settings-fallback',
 					'parent' => 'forms-postsmtp-settings',
@@ -117,7 +117,7 @@ function ddw_tbex_site_items_post_smtp() {
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-postsmtp-settings-message',
 					'parent' => 'forms-postsmtp-settings',
@@ -130,7 +130,7 @@ function ddw_tbex_site_items_post_smtp() {
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-postsmtp-settings-logging',
 					'parent' => 'forms-postsmtp-settings',
@@ -143,7 +143,7 @@ function ddw_tbex_site_items_post_smtp() {
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-postsmtp-settings-advanced',
 					'parent' => 'forms-postsmtp-settings',
@@ -156,7 +156,7 @@ function ddw_tbex_site_items_post_smtp() {
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-postsmtp-settings-notifications',
 					'parent' => 'forms-postsmtp-settings',
@@ -169,7 +169,7 @@ function ddw_tbex_site_items_post_smtp() {
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-postsmtp-settings-exportimport',
 					'parent' => 'forms-postsmtp-settings',
@@ -183,7 +183,7 @@ function ddw_tbex_site_items_post_smtp() {
 			);
 
 		/** Testing */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-postsmtp-testing',
 				'parent' => 'forms-postsmtp',
@@ -196,7 +196,7 @@ function ddw_tbex_site_items_post_smtp() {
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-postsmtp-testing-email',
 					'parent' => 'forms-postsmtp-testing',
@@ -209,7 +209,7 @@ function ddw_tbex_site_items_post_smtp() {
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-postsmtp-testing-connectivity',
 					'parent' => 'forms-postsmtp-testing',
@@ -222,7 +222,7 @@ function ddw_tbex_site_items_post_smtp() {
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-postsmtp-testing-diagnostic',
 					'parent' => 'forms-postsmtp-testing',
@@ -236,7 +236,7 @@ function ddw_tbex_site_items_post_smtp() {
 			);
 
 		/** About */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-postsmtp-about',
 				'parent' => 'forms-postsmtp',
@@ -249,7 +249,7 @@ function ddw_tbex_site_items_post_smtp() {
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-postsmtp-about-new',
 					'parent' => 'forms-postsmtp-about',
@@ -262,7 +262,7 @@ function ddw_tbex_site_items_post_smtp() {
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-postsmtp-about-credits',
 					'parent' => 'forms-postsmtp-about',
@@ -281,7 +281,7 @@ function ddw_tbex_site_items_post_smtp() {
 		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-postsmtp-resources',
 					'parent' => 'forms-postsmtp',

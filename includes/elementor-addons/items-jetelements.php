@@ -20,15 +20,15 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_jetelements', 100 );
  *
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_jetelements() {
+function ddw_tbex_aoitems_jetelements( $admin_bar ) {
 
 	/** Use Add-On hook place */
 	add_filter( 'tbex_filter_is_addon', '__return_empty_string' );
 
 	/** JetElements Settings */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'ao-jetelements',
 			'parent' => 'tbex-addons',
@@ -41,7 +41,7 @@ function ddw_tbex_aoitems_jetelements() {
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-jetelements-settings',
 				'parent' => 'ao-jetelements',
@@ -57,7 +57,7 @@ function ddw_tbex_aoitems_jetelements() {
 		/** Group: Resources for JetElements */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-jetelements-resources',
 					'parent' => 'ao-jetelements',
@@ -77,6 +77,13 @@ function ddw_tbex_aoitems_jetelements() {
 				'jetelements-facebook',
 				'group-jetelements-resources',
 				'https://www.facebook.com/groups/CrocoblockCommunity/'
+			);
+
+			ddw_tbex_resource_item(
+				'changelog',
+				'jetelements-changelog',
+				'group-jetelements-resources',
+				'https://documentation.zemez.io/wordpress/index.php?project=jetelements&lang=en&section=jetelements-changelog'
 			);
 
 			ddw_tbex_resource_item(

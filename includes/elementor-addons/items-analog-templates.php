@@ -66,6 +66,32 @@ function ddw_tbex_aoitems_analog_templates( $admin_bar ) {
 			)
 		);
 
+		$admin_bar->add_node(
+			array(
+				'id'     => 'analogwp-templates-stylekits-all',
+				'parent' => 'analogwp-templates',
+				'title'  => esc_attr__( 'All Style Kits', 'toolbar-extras' ),
+				'href'   => esc_url( admin_url( 'edit.php?post_type=ang_tokens' ) ),
+				'meta'   => array(
+					'target' => '',
+					'title'  => esc_attr__( 'All Elementor Global Style Kits', 'toolbar-extras' ),
+				)
+			)
+		);
+
+		$admin_bar->add_node(
+			array(
+				'id'     => 'analogwp-templates-stylekits-new',
+				'parent' => 'analogwp-templates',
+				'title'  => esc_attr__( 'New Style Kit', 'toolbar-extras' ),
+				'href'   => esc_url( admin_url( 'post-new.php?post_type=ang_tokens' ) ),
+				'meta'   => array(
+					'target' => '',
+					'title'  => esc_attr__( 'Add New Elementor Global Style Kit', 'toolbar-extras' ),
+				)
+			)
+		);
+
 	/** Group: Plugin's resources */
 	if ( ddw_tbex_display_items_resources() ) {
 

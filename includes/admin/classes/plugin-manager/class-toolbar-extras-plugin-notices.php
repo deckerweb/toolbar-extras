@@ -268,6 +268,13 @@ if ( ! class_exists( 'DDW_Toolbar_Extras_Plugin_Notices' ) ) {
 		 */
 		public function display( $key, $value, $message ) {
 
+			/** Check if message should be displayed */
+			if ( ! PAnD::is_admin_notice_active( 'tbex-notice-plugin-manager-forever' )
+				|| ! is_plugin_active( 'toolbar-extras/toolbar-extras.php' )
+			) {
+				return;
+			}
+
 			$class = 'plugin-manager-notice notice is-dismissible';
 
 			if ( 'update' === $key ) {
@@ -291,7 +298,7 @@ if ( ! class_exists( 'DDW_Toolbar_Extras_Plugin_Notices' ) ) {
 			);
 
 			?>
-			<div id="tbex-plugin-<?php echo esc_attr( $key ); ?>-notice" class="<?php echo $class; ?>" data-notice-key="<?php echo esc_attr( $key ); ?>" data-notice-value="<?php echo esc_attr( $value ); ?>" data-security="<?php echo esc_attr( $nonce ); ?>" data-namespace="tbex" data-dismiss="<?php echo esc_attr( $this->args['nag_dismiss'] ); ?>">
+			<div id="tbex-plugin-<?php echo esc_attr( $key ); ?>-notice" class="<?php echo $class; ?>" data-notice-key="<?php echo esc_attr( $key ); ?>" data-notice-value="<?php echo esc_attr( $value ); ?>" data-security="<?php echo esc_attr( $nonce ); ?>" data-namespace="tbex" data-dismiss="<?php echo esc_attr( $this->args['nag_dismiss'] ); ?>" data-dismissible="tbex-notice-plugin-manager-forever">
 
 				<p><?php echo esc_html( $message ); ?></p>
 
@@ -322,7 +329,9 @@ if ( ! class_exists( 'DDW_Toolbar_Extras_Plugin_Notices' ) ) {
 			 * we'll double check the namespace to make sure the right
 			 * message gets dismissed.
 			 */
-			if ( empty( $_POST['namespace'] ) || 'tbex' !== $_POST['namespace'] ) {
+			if ( empty( $_POST['namespace'] ) || 'tbex' !== $_POST['namespace']
+				|| ! PAnD::is_admin_notice_active( 'tbex-notice-plugin-manager-forever' )
+			) {
 				return;
 			}
 

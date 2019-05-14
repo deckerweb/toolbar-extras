@@ -123,6 +123,15 @@ if ( class_exists( '\ABTestingForWP\RegisterREST' ) ) {
 
 
 /**
+ * Plugin: Add RichText Toolbar Button (free, by Technote)
+ * @since 1.4.3
+ */
+if ( defined( 'ADD_RICHTEXT_TOOLBAR_BUTTON' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-richtext-toolbar-buttons.php';
+}
+
+
+/**
  * Plugin: Custom Color Palette for Gutenberg (free, by ThemeZee)
  * @since 1.4.0
  */
@@ -155,6 +164,15 @@ if ( ddw_tbex_is_woocommerce_active() && defined( 'VI_WCEB_VERSION' ) ) {
  * @since 1.4.0
  * -----------------------------------------------------------------------------
  */
+
+/**
+ * Plugin: Block Style Guides for Gutenberg (free, by Robert Gillmer)
+ * @since 1.4.3
+ */
+if ( defined( 'BSG_BASENAME' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-block-style-guides.php';
+}
+
 
 /**
  * Plugin: Custom Fields for Gutenberg (free, by Jeff Starr)
@@ -300,6 +318,15 @@ if ( defined( 'QUBELY_VERSION' ) ) {
 
 
 /**
+ * Plugin: Otter Blocks (free, by ThemeIsle)
+ * @since 1.4.3
+ */
+if ( defined( 'OTTER_BLOCKS_VERSION' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-otter-blocks.php';
+}
+
+
+/**
  * Plugin: Block Options (free, by Phpbits Creative Studio)
  * @since 1.4.0
  */
@@ -422,6 +449,15 @@ if ( function_exists( 'srxgb_register_block_category' ) ) {
  */
 if ( function_exists( 'caxton_init' ) ) {
 	require_once TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-caxton.php';
+}
+
+
+/**
+ * Plugin: CoBlocks (free, by CoBlocks)
+ * @since 1.4.3
+ */
+if ( class_exists( 'CoBlocks' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-coblocks.php';
 }
 
 

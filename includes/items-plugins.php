@@ -51,6 +51,15 @@ if ( function_exists( 'add_iceberg_iris_menu' ) ) {
 
 
 /**
+ * Plugin: WordPress Color Picker Enhancement (free, by P. Roy)
+ * @since 1.4.3
+ */
+if ( function_exists( 'd2l_wcp_plugin_menu' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-wp-color-picker-enhancement.php';
+}
+
+
+/**
  * Plugin: Simple CSS (free, by Tom Usborne)
  * @since 1.0.0
  */
@@ -205,10 +214,48 @@ if ( defined( 'CODE_SNIPPETS_VERSION' ) || defined( 'CODE_SNIPPETS_FILE' ) ) {
 
 /**
  * Plugin: PHP code snippets (Insert PHP) (free, by Webcraftic)
- * @since 1.0.0
+ * @since 1.3.2
  */
 if ( defined( 'WINP_SNIPPETS_POST_TYPE' ) ) {
 	require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-php-code-snippets.php';
+}
+
+
+/**
+ * Plugin: Shortcoder (free, by Aakash Chakravarthy)
+ * @since 1.4.3
+ */
+if ( class_exists( 'Shortcoder' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-shortcoder.php';
+}
+
+
+/**
+ * Plugin: Advanced Custom Fields (free, by Elliot Condon)
+ * Plugin: Advanced Custom Fields PRO (Premium, by Elliot Condon)
+ * @since 1.4.3
+ */
+if ( class_exists( 'ACF' ) && defined( 'ACF' ) && defined( 'ACF_VERSION' ) && version_compare( ACF_VERSION, '5.7.10', '>=' ) ) {
+
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-acf.php';
+
+	/**
+	 * ACF PRO Add-On: Advanced Custom Fields: Extended (free, by ACF Extended)
+	 * @since 1.4.3
+	 */
+	if ( ddw_tbex_is_acf_extended_active() ) {
+		require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-acf-extended.php';
+	}
+	
+}  // end if
+
+
+/**
+ * Plugin: Custom Field Suite (free, by Matt Gibbs)
+ * @since 1.4.3
+ */
+if ( class_exists( 'Custom_Field_Suite' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-custom-field-suite.php';
 }
 
 
@@ -341,6 +388,24 @@ if ( class_exists( 'GP_Back_To_Top' ) ) {
 
 
 /**
+ * Plugin: GP Related Posts (free, by Jon Mather)
+ * @since 1.4.3
+ */
+if ( function_exists( 'gp_related_settings_init' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-gp-related-posts.php';
+}
+
+
+/**
+ * Plugin: GP Elements Disable (free, by Jon Mather)
+ * @since 1.4.3
+ */
+if ( function_exists( 'wcd_checkbox_body_bg_render' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-gp-elements-disable.php';
+}
+
+
+/**
  * Plugin: Church Content (free, by churchthemes.com)
  * @since 1.3.0
  */
@@ -377,10 +442,10 @@ if ( ( ddw_tbex_is_elementor_active() || ddw_tbex_is_wpbakery_active() || ddw_tb
 
 
 /**
- * Add-On: Pithy Templates (free, by Pithy WP)
+ * Add-On: PithyWP Templates (free, by PithyWP)
  * @since 1.4.2
  */
-if ( class_exists( 'Pithy_Templates' ) ) {		// Elementor, Gutenberg
+if ( class_exists( 'PithyWP_Templates' ) ) {		// Elementor, Gutenberg
 	require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-pithy-templates.php';
 }
 
@@ -396,7 +461,9 @@ if ( class_exists( 'Pithy_Templates' ) ) {		// Elementor, Gutenberg
  * Plugin: Health Check & Troubleshooting (free, by The WordPress.org community)
  * @since 1.0.0
  */
-if ( class_exists( 'Health_Check' ) || defined( 'HEALTH_CHECK_PLUGIN_VERSION' ) ) {
+if ( ddw_tbex_is_wp52_install()
+	&& ( class_exists( 'Health_Check' ) || defined( 'HEALTH_CHECK_PLUGIN_VERSION' ) )
+) {
 	require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-health-check.php';
 }
 
@@ -456,6 +523,15 @@ if ( ddw_tbex_is_woocommerce_active()		// as it extends WooCommerce!
  */
 if ( class_exists( 'Popup_Maker' ) ) {
 	require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-popup-maker.php';
+}
+
+
+/**
+ * Plugin: Design Sidebar Using Page Builder (free, by WebEmpire)
+ * @since 1.4.3
+ */
+if ( defined( 'WE_SIDEBAR_PLUGIN_VERSION' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-sidebar-builder.php';
 }
 
 
@@ -536,7 +612,7 @@ if ( function_exists( 'portfolio_post_type_init' ) ) {
  * Plugin: Smart Slider 3 (free/Premium, by Nextend)
  * @since 1.0.0
  */
-if ( defined( 'NEXTEND_SMARTSLIDER_3_BASENAME' ) ) {
+if ( ddw_tbex_is_smartslider3_active() ) {
 	require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-smart-slider.php';
 }
 
@@ -554,7 +630,7 @@ if ( class_exists( 'TablePress' ) ) {
  * Plugin: Envira Gallery Lite/Pro (free/Premium, by Envira Gallery Team)
  * @since 1.1.0
  */
-if ( class_exists( 'Envira_Gallery_Lite' ) || class_exists( 'Envira_Gallery' ) ) {
+if ( ddw_tbex_is_envira_gallery_active() ) {
 	require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-envira-gallery.php';
 }
 
@@ -563,7 +639,7 @@ if ( class_exists( 'Envira_Gallery_Lite' ) || class_exists( 'Envira_Gallery' ) )
  * Plugin: Soliloquy Sliders Lite/Pro (free/Premium, by Soliloquy Team)
  * @since 1.1.0
  */
-if ( class_exists( 'Soliloquy_Lite' ) || class_exists( 'Soliloquy' ) ) {
+if ( ddw_tbex_is_soliloquy_active() ) {
 	require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-soliloquy-sliders.php';
 }
 
@@ -572,7 +648,7 @@ if ( class_exists( 'Soliloquy_Lite' ) || class_exists( 'Soliloquy' ) ) {
  * Plugin: FooGallery (free, by FooPlugins)
  * @since 1.1.0
  */
-if ( defined( 'FOOGALLERY_VERSION' ) ) {
+if ( ddw_tbex_is_foogallery_active() ) {
 	require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-foogallery.php';
 }
 
@@ -581,7 +657,7 @@ if ( defined( 'FOOGALLERY_VERSION' ) ) {
  * Plugin: MaxGalleria (free, by Max Foundry)
  * @since 1.1.0
  */
-if ( class_exists( 'MaxGalleria' ) ) {
+if ( ddw_tbex_is_maxgalleria_active() ) {
 	require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-maxgalleria.php';
 }
 
@@ -590,7 +666,7 @@ if ( class_exists( 'MaxGalleria' ) ) {
  * Plugin: Instagram Feed (Pro) (free/Premium, by Smash Balloon)
  * @since 1.4.2
  */
-if ( function_exists( 'display_instagram' ) || function_exists( 'sb_instagram_activate_pro' ) ) {
+if ( ddw_tbex_is_instagram_feed_active() ) {
 	require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-instagram-feed.php';
 }
 
@@ -656,6 +732,51 @@ if ( defined( 'COOL_TIMELINE_VERSION_CURRENT' ) ) {
  */
 if ( class_exists( 'RegenerateThumbnails' ) ) {
 	require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-regenerate-thumbnails.php';
+}
+
+
+/**
+ * Plugin: ShortPixel Image Optimizer (free, by ShortPixel)
+ * @since 1.4.3
+ */
+if ( defined( 'SHORTPIXEL_IMAGE_OPTIMISER_VERSION' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-shortpixel-image-optimizer.php';
+}
+
+
+/**
+ * Plugin: Imagify Image Optimizer (free, by WP Media)
+ * @since 1.4.3
+ */
+if ( defined( 'IMAGIFY_VERSION' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-imagify.php';
+}
+
+
+/**
+ * Plugin: Smush Image Compression and Optimization (free, by WPMU DEV)
+ * @since 1.4.3
+ */
+if ( defined( 'WP_SMUSH_VERSION' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-smush.php';
+}
+
+
+/**
+ * Plugin: EWWW Image Optimizer (free, by Exactly WWW)
+ * @since 1.4.3
+ */
+if ( defined( 'EWWW_IMAGE_OPTIMIZER_TOOL_PATH' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-ewww-image-optimizer.php';
+}
+
+
+/**
+ * Plugin: Compress JPEG & PNG Images (free, by TinyPNG)
+ * @since 1.4.3
+ */
+if ( class_exists( 'Tiny_Plugin' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-compress-images.php';
 }
 
 

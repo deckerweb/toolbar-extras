@@ -18,6 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *   then managed for displaying and using via ddw_tbex_get_resource_url().
  *
  * @since 1.4.0
+ * @since 1.4.3 Added more "Elementor Hello" theme URLs.
  *
  * @see ddw_tbex_get_resource_url() in /includes/functions-global.php
  *
@@ -49,6 +50,8 @@ function ddw_tbex_resources_elementor() {
 		'url_fbdev_group'      => 'https://www.facebook.com/groups/1388158027894331/',
 
 		/** Hello Theme */
+		'url_ehello_support'   => 'https://wordpress.org/support/theme/hello-elementor',
+		'url_ehello_translate' => 'https://translate.wordpress.org/projects/wp-themes/hello-elementor',
 		'url_ehello_github'    => 'https://github.com/elementor/elementor-hello-theme',
 
 		/** Layers Theme */

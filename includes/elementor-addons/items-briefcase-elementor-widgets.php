@@ -20,15 +20,15 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_briefcase_elementor_widgets', 10
  *
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_briefcase_elementor_widgets() {
+function ddw_tbex_aoitems_briefcase_elementor_widgets( $admin_bar ) {
 
 	/** Use Add-On hook place */
 	add_filter( 'tbex_filter_is_addon', '__return_empty_string' );
 
 	/** Plugin's Settings */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'ao-briefcasewp',
 			'parent' => 'tbex-addons',
@@ -41,7 +41,7 @@ function ddw_tbex_aoitems_briefcase_elementor_widgets() {
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-briefcasewp-templates',
 				'parent' => 'ao-briefcasewp',
@@ -62,7 +62,7 @@ function ddw_tbex_aoitems_briefcase_elementor_widgets() {
 				__( 'WooCommerce', 'toolbar-extras' )
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ao-briefcasewp-woo-products',
 					'parent' => 'ao-briefcasewp',
@@ -85,7 +85,7 @@ function ddw_tbex_aoitems_briefcase_elementor_widgets() {
 				__( 'Downloads', 'toolbar-extras' )
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ao-briefcasewp-edd-products',
 					'parent' => 'ao-briefcasewp',
@@ -103,7 +103,7 @@ function ddw_tbex_aoitems_briefcase_elementor_widgets() {
 		/** Group: Plugin's Resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-briefcasewp-resources',
 					'parent' => 'ao-briefcasewp',

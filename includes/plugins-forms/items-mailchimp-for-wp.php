@@ -17,13 +17,14 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_mc4wp_forms' );
  * Items for Plugin: MailChimp for WordPress (free, by ibericode)
  *
  * @since 1.3.2
+ * @since 1.4.3 Added more integrations.
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_mc4wp_forms() {
+function ddw_tbex_site_items_mc4wp_forms( $admin_bar ) {
 
 	/** For: Forms */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'forms-mc4wp',
 			'parent' => 'tbex-sitegroup-forms',
@@ -52,7 +53,7 @@ function ddw_tbex_site_items_mc4wp_forms() {
 		if ( $forms ) {
 
 			/** Add group */
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-mc4wp-edit-forms',
 					'parent' => 'forms-mc4wp'
@@ -65,7 +66,7 @@ function ddw_tbex_site_items_mc4wp_forms() {
 				$form_name = esc_attr( $form->post_title );
 
 				/** Add item per form */
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'forms-mc4wp-form-' . $form_id,
 						'parent' => 'group-mc4wp-edit-forms',
@@ -78,7 +79,7 @@ function ddw_tbex_site_items_mc4wp_forms() {
 					)
 				);
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'forms-mc4wp-form-' . $form_id . '-fields',
 						'parent' => 'forms-mc4wp-form-' . $form_id,
@@ -91,7 +92,7 @@ function ddw_tbex_site_items_mc4wp_forms() {
 					)
 				);
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'forms-mc4wp-form-' . $form_id . '-messages',
 						'parent' => 'forms-mc4wp-form-' . $form_id,
@@ -104,7 +105,7 @@ function ddw_tbex_site_items_mc4wp_forms() {
 					)
 				);
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'forms-mc4wp-form-' . $form_id . '-settings',
 						'parent' => 'forms-mc4wp-form-' . $form_id,
@@ -117,7 +118,7 @@ function ddw_tbex_site_items_mc4wp_forms() {
 					)
 				);
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'forms-mc4wp-form-' . $form_id . '-appearance',
 						'parent' => 'forms-mc4wp-form-' . $form_id,
@@ -135,7 +136,7 @@ function ddw_tbex_site_items_mc4wp_forms() {
 		}  // end if
 
 		/** Integrations */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-mc4wp-integrations',
 				'parent' => 'forms-mc4wp',
@@ -148,7 +149,7 @@ function ddw_tbex_site_items_mc4wp_forms() {
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-mc4wp-integrations-overview',
 					'parent' => 'forms-mc4wp-integrations',
@@ -162,14 +163,14 @@ function ddw_tbex_site_items_mc4wp_forms() {
 			);
 
 			/** Custom */
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-mc4wp-integrations-custom',
 					'parent' => 'forms-mc4wp-integrations'
 				)
 			);
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'forms-mc4wp-integrations-custom',
 						'parent' => 'group-mc4wp-integrations-custom',
@@ -183,14 +184,14 @@ function ddw_tbex_site_items_mc4wp_forms() {
 				);
 
 			/** WordPress Defaults: Comments & Registration */
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-mc4wp-integrations-wpdefaults',
 					'parent' => 'forms-mc4wp-integrations'
 				)
 			);
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'forms-mc4wp-integrations-wpcomments',
 						'parent' => 'group-mc4wp-integrations-wpdefaults',
@@ -203,7 +204,7 @@ function ddw_tbex_site_items_mc4wp_forms() {
 					)
 				);
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'forms-mc4wp-integrations-wpregistration',
 						'parent' => 'group-mc4wp-integrations-wpdefaults',
@@ -217,7 +218,7 @@ function ddw_tbex_site_items_mc4wp_forms() {
 				);
 
 			/** Third-Party plugins */
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-mc4wp-integrations-thirdparty',
 					'parent' => 'forms-mc4wp-integrations'
@@ -227,15 +228,51 @@ function ddw_tbex_site_items_mc4wp_forms() {
 				/** Gravity Forms */
 				if ( ddw_tbex_is_gravityforms_active() ) {
 
-					$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					$admin_bar->add_node(
 						array(
 							'id'     => 'forms-mc4wp-integrations-gravityforms',
 							'parent' => 'group-mc4wp-integrations-thirdparty',
-							'title'  => esc_attr__( 'Gravity Forms', 'toolbar-extras' ),
+							'title'  => 'Gravity Forms',
 							'href'   => esc_url( admin_url( 'admin.php?page=mailchimp-for-wp-integrations&integration=gravity-forms' ) ),
 							'meta'   => array(
 								'target' => '',
-								'title'  => esc_attr__( 'Gravity Forms', 'toolbar-extras' )
+								'title'  => 'Gravity Forms',
+							)
+						)
+					);
+
+				}  // end if
+
+				/** WPForms */
+				if ( ddw_tbex_is_wpforms_active() ) {
+
+					$admin_bar->add_node(
+						array(
+							'id'     => 'forms-mc4wp-integrations-wpforms',
+							'parent' => 'group-mc4wp-integrations-thirdparty',
+							'title'  => 'WPForms',
+							'href'   => esc_url( admin_url( 'admin.php?page=mailchimp-for-wp-integrations&integration=wpforms' ) ),
+							'meta'   => array(
+								'target' => '',
+								'title'  => 'WPForms',
+							)
+						)
+					);
+
+				}  // end if
+
+				/** Ninja Forms 3 */
+				if ( ddw_tbex_is_ninjaforms_active() ) {
+
+					$admin_bar->add_node(
+						array(
+							'id'     => 'forms-mc4wp-integrations-ninjaforms',
+							'parent' => 'group-mc4wp-integrations-thirdparty',
+							'title'  => 'Ninja Forms',
+							'href'   => esc_url( admin_url( 'admin.php?page=mailchimp-for-wp-integrations&integration=ninja-forms' ) ),
+							'meta'   => array(
+								'target' => '',
+								'title'  => 'Ninja Forms',
 							)
 						)
 					);
@@ -245,15 +282,15 @@ function ddw_tbex_site_items_mc4wp_forms() {
 				/** Contact Form 7 (CF7) */
 				if ( ddw_tbex_is_cf7_active() ) {
 
-					$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					$admin_bar->add_node(
 						array(
 							'id'     => 'forms-mc4wp-integrations-cf7',
 							'parent' => 'group-mc4wp-integrations-thirdparty',
-							'title'  => esc_attr__( 'Contact Form 7', 'toolbar-extras' ),
+							'title'  => 'Contact Form 7',
 							'href'   => esc_url( admin_url( 'admin.php?page=mailchimp-for-wp-integrations&integration=contact-form-7' ) ),
 							'meta'   => array(
 								'target' => '',
-								'title'  => esc_attr__( 'Contact Form 7', 'toolbar-extras' )
+								'title'  => 'Contact Form 7',
 							)
 						)
 					);
@@ -263,15 +300,15 @@ function ddw_tbex_site_items_mc4wp_forms() {
 				/** WooCommerce */
 				if ( ddw_tbex_is_woocommerce_active() ) {
 
-					$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					$admin_bar->add_node(
 						array(
 							'id'     => 'forms-mc4wp-integrations-woocommerce',
 							'parent' => 'group-mc4wp-integrations-thirdparty',
-							'title'  => esc_attr__( 'WooCommerce', 'toolbar-extras' ),
+							'title'  => 'WooCommerce',
 							'href'   => esc_url( admin_url( 'admin.php?page=mailchimp-for-wp-integrations&integration=woocommerce' ) ),
 							'meta'   => array(
 								'target' => '',
-								'title'  => esc_attr__( 'WooCommerce', 'toolbar-extras' )
+								'title'  => 'WooCommerce',
 							)
 						)
 					);
@@ -281,15 +318,105 @@ function ddw_tbex_site_items_mc4wp_forms() {
 				/** Easy Digital Downloads (EDD) */
 				if ( ddw_tbex_is_edd_active() ) {
 
-					$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					$admin_bar->add_node(
 						array(
 							'id'     => 'forms-mc4wp-integrations-edd',
 							'parent' => 'group-mc4wp-integrations-thirdparty',
-							'title'  => esc_attr__( 'Easy Digital Downloads', 'toolbar-extras' ),
+							'title'  => 'Easy Digital Downloads',
 							'href'   => esc_url( admin_url( 'admin.php?page=mailchimp-for-wp-integrations&integration=easy-digital-downloads' ) ),
 							'meta'   => array(
 								'target' => '',
-								'title'  => esc_attr__( 'Easy Digital Downloads', 'toolbar-extras' )
+								'title'  => 'Easy Digital Downloads',
+							)
+						)
+					);
+
+				}  // end if
+
+				/** Give Donations */
+				if ( ddw_tbex_is_give_active() ) {
+
+					$admin_bar->add_node(
+						array(
+							'id'     => 'forms-mc4wp-integrations-give',
+							'parent' => 'group-mc4wp-integrations-thirdparty',
+							'title'  => esc_attr__( 'Give Donations', 'toolbar-extras' ),
+							'href'   => esc_url( admin_url( 'admin.php?page=mailchimp-for-wp-integrations&integration=give' ) ),
+							'meta'   => array(
+								'target' => '',
+								'title'  => esc_attr__( 'Give Donations', 'toolbar-extras' )
+							)
+						)
+					);
+
+				}  // end if
+
+				/** MemberPress */
+				if ( ddw_tbex_is_memberpress_active() ) {
+
+					$admin_bar->add_node(
+						array(
+							'id'     => 'forms-mc4wp-integrations-memberpress',
+							'parent' => 'group-mc4wp-integrations-thirdparty',
+							'title'  => 'MemberPress',
+							'href'   => esc_url( admin_url( 'admin.php?page=mailchimp-for-wp-integrations&integration=memberpress' ) ),
+							'meta'   => array(
+								'target' => '',
+								'title'  => 'MemberPress',
+							)
+						)
+					);
+
+				}  // end if
+
+				/** AffiliateWP */
+				if ( ddw_tbex_is_affiliatewp_active() ) {
+
+					$admin_bar->add_node(
+						array(
+							'id'     => 'forms-mc4wp-integrations-affiliatewp',
+							'parent' => 'group-mc4wp-integrations-thirdparty',
+							'title'  => 'AffiliateWP',
+							'href'   => esc_url( admin_url( 'admin.php?page=mailchimp-for-wp-integrations&integration=affiliatewp' ) ),
+							'meta'   => array(
+								'target' => '',
+								'title'  => 'AffiliateWP',
+							)
+						)
+					);
+
+				}  // end if
+
+				/** Events Manager */
+				if ( ddw_tbex_is_events_manager_active() ) {
+
+					$admin_bar->add_node(
+						array(
+							'id'     => 'forms-mc4wp-integrations-eventsmanager',
+							'parent' => 'group-mc4wp-integrations-thirdparty',
+							'title'  => esc_attr__( 'Events Manager', 'toolbar-extras' ),
+							'href'   => esc_url( admin_url( 'admin.php?page=mailchimp-for-wp-integrations&integration=events-manager' ) ),
+							'meta'   => array(
+								'target' => '',
+								'title'  => esc_attr__( 'Events Manager', 'toolbar-extras' )
+							)
+						)
+					);
+
+				}  // end if
+
+				/** BuddyPresss */
+				if ( ddw_tbex_is_buddypress_active() ) {
+
+					$admin_bar->add_node(
+						array(
+							'id'     => 'forms-mc4wp-integrations-buddypress',
+							'parent' => 'group-mc4wp-integrations-thirdparty',
+							'title'  => 'BuddyPresss',
+							'href'   => esc_url( admin_url( 'admin.php?page=mailchimp-for-wp-integrations&integration=buddypress' ) ),
+							'meta'   => array(
+								'target' => '',
+								'title'  => 'BuddyPresss',
 							)
 						)
 					);
@@ -299,7 +426,7 @@ function ddw_tbex_site_items_mc4wp_forms() {
 		/** Add-On: Top Bar */
 		if ( defined( 'MAILCHIMP_SYNC_VERSION' ) ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-mc4wp-topbar',
 					'parent' => 'forms-mc4wp',
@@ -312,7 +439,7 @@ function ddw_tbex_site_items_mc4wp_forms() {
 				)
 			);
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'forms-mc4wp-topbar-bar-setting',
 						'parent' => 'forms-mc4wp-topbar',
@@ -325,7 +452,7 @@ function ddw_tbex_site_items_mc4wp_forms() {
 					)
 				);
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'forms-mc4wp-topbar-appearance',
 						'parent' => 'forms-mc4wp-topbar',
@@ -338,7 +465,7 @@ function ddw_tbex_site_items_mc4wp_forms() {
 					)
 				);
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'forms-mc4wp-topbar-messages',
 						'parent' => 'forms-mc4wp-topbar',
@@ -351,7 +478,7 @@ function ddw_tbex_site_items_mc4wp_forms() {
 					)
 				);
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'forms-mc4wp-topbar-advanced',
 						'parent' => 'forms-mc4wp-topbar',
@@ -369,7 +496,7 @@ function ddw_tbex_site_items_mc4wp_forms() {
 		/** Add-On: User Sync */
 		if ( defined( 'MAILCHIMP_SYNC_VERSION' ) ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-mc4wp-usersync',
 					'parent' => 'forms-mc4wp',
@@ -385,7 +512,7 @@ function ddw_tbex_site_items_mc4wp_forms() {
 		}  // end if
 
 		/** Settings */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-mc4wp-settings',
 				'parent' => 'forms-mc4wp',
@@ -399,7 +526,7 @@ function ddw_tbex_site_items_mc4wp_forms() {
 		);
 
 		/** MailChimp Setup */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-mc4wp-flamingo',
 				'parent' => 'forms-mc4wp',
@@ -418,7 +545,7 @@ function ddw_tbex_site_items_mc4wp_forms() {
 		/** Group: Resources for MC4WP */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-mc4wp-resources',
 					'parent' => 'forms-mc4wp',

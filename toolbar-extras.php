@@ -12,7 +12,7 @@
  * Plugin Name:       Toolbar Extras
  * Plugin URI:        https://toolbarextras.com/
  * Description:       This plugins adds a lot of quick jump links to the WordPress Toolbar helpful for Site Builders who use Elementor and its ecosystem of add-ons and from the theme space.
- * Version:           1.4.2
+ * Version:           1.4.3
  * Author:            David Decker - DECKERWEB
  * Author URI:        https://toolbarextras.com/
  * License:           GPL-2.0-or-later
@@ -39,7 +39,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 1.0.0
  */
 /** Plugin version */
-define( 'TBEX_PLUGIN_VERSION', '1.4.2' );
+define( 'TBEX_PLUGIN_VERSION', '1.4.3' );
 
 /** Plugin directory */
 define( 'TBEX_PLUGIN_DIR', trailingslashit( dirname( __FILE__ ) ) );
@@ -139,8 +139,8 @@ require_once TBEX_PLUGIN_DIR . 'includes/functions-conditionals.php';
 require_once TBEX_PLUGIN_DIR . 'includes/functions-conditionals-external.php';
 require_once TBEX_PLUGIN_DIR . 'includes/functions-conditionals-tweaks.php';
 
-/** Load plugin combat early */
-require_once TBEX_PLUGIN_DIR . 'includes/plugin-combatibility.php';
+/** Load compat layer early */
+require_once TBEX_PLUGIN_DIR . 'includes/compatibility/compatibility-manager.php';
 
 /** Include string functions */
 require_once TBEX_PLUGIN_DIR . 'includes/string-switcher.php';
@@ -154,11 +154,11 @@ add_action( 'init', 'ddw_tbex_setup_plugin', 1 );
  */
 function ddw_tbex_setup_plugin() {
 
-	/** Load "Persist Admin notice Dismissals" helper class */
+	/** Load "Persist Admin notice Dismissal" helper class */
 	if ( is_admin() ) {
-		require_once TBEX_PLUGIN_DIR . 'includes/admin/classes/pand/persist-admin-notices-dismissal.php';
+		include_once TBEX_PLUGIN_DIR . 'includes/admin/classes/pand/persist-admin-notices-dismissal.php';
+		add_action( 'admin_init', array( 'PAnD', 'init' ) );
 	}
-	add_action( 'admin_init', array( 'PAnD', 'init' ) );
 
 	/** Plugin's admin settings page */
 	require_once TBEX_PLUGIN_DIR . 'includes/admin/tbex-settings.php';
@@ -391,11 +391,13 @@ function ddw_tbex_creative_items_base_groups() {
 	do_action( 'tbex_after_group_options' );
 
 	/** Group: Page Builder Resources (Docs, Support, Community, etc.) */
+	$pb_resources_top = has_filter( 'tbex_filter_is_addon' ) ? '' : ' tbex-no-addons-border';
+
 	$GLOBALS[ 'wp_admin_bar' ]->add_group(
 		array(
 			'id'     => 'group-pagebuilder-resources',
 			'parent' => ddw_tbex_id_main_item(),
-			'meta'   => array( 'class' => 'ab-sub-secondary' )
+			'meta'   => array( 'class' => 'ab-sub-secondary' . $pb_resources_top )
 		)
 	);
 

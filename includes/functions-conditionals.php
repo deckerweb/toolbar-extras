@@ -87,6 +87,8 @@ function ddw_tbex_capability_show_all() {
 	);
 
 }  // end function
+
+
 /**
  * Does the current user have the permission to show Toolbar items at all?
  *

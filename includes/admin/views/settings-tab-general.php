@@ -167,6 +167,7 @@ function ddw_tbex_settings_section_info_links() {
  * @since 1.0.0
  *
  * @uses ddw_tbex_customizer_focus()
+ * @uses ddw_tbex_meta_target()
  */
 function ddw_tbex_settings_section_info_tbexmenu() {
 
@@ -178,8 +179,17 @@ function ddw_tbex_settings_section_info_tbexmenu() {
 			<?php echo sprintf(
 				/* translators: %1$s - String "Menus admin page" / %2$s - String "via the Customizer" */
 				__( 'The menu itself can be build and edited on the %1$s or also %2$s.', 'toolbar-extras'),
-				sprintf( '<a href="%1$s">%2$s</a>', esc_url( admin_url( 'nav-menus.php' ) ), __( 'Menus admin page', 'toolbar-extras' ) ),
-				sprintf( '<a href="%1$s">%2$s</a>', ddw_tbex_customizer_focus( 'panel', 'nav_menus' ), __( 'via the Customizer', 'toolbar-extras' ) )
+				sprintf(
+					'<a href="%1$s">%2$s</a>',
+					esc_url( admin_url( 'nav-menus.php' ) ),
+					__( 'Menus admin page', 'toolbar-extras' )
+				),
+				sprintf(
+					'<a href="%1$s" target="%3$s" rel="noopener noreferrer">%2$s</a>',
+					ddw_tbex_customizer_focus( 'panel', 'nav_menus' ),
+					__( 'via the Customizer', 'toolbar-extras' ),
+					ddw_tbex_meta_target()
+				)
 			); ?>
 		</p>
 	<?php

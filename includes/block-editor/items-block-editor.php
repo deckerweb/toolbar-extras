@@ -40,7 +40,7 @@ function ddw_tbex_register_pagebuilder_block_editor( array $builders ) {
 
 		'admin_url'   => esc_url( apply_filters( 'tbex_filter_block_editor_admin_url', admin_url( 'edit.php?post_type=' . $post_type ) ) ),
 		'color'       => '#555d66',
-		'color_name'  => __( 'Block Editor Gray', 'toolbar-extras' ),
+		'color_name'  => __( 'Block Editor Grey', 'toolbar-extras' ),
 		'plugins_tab' => 'yes',
 	);
 
@@ -49,29 +49,62 @@ function ddw_tbex_register_pagebuilder_block_editor( array $builders ) {
 }  // end function
 
 
+add_action( 'admin_menu', 'ddw_tbex_wpblock_posttype_add_menu' );
+/**
+ * Add the appropriate admin menu - using the post type list table page as
+ *   the callback.
+ *
+ * @since 1.4.3
+ *
+ * @see WP Core /wp-includes/post.php for 'wp_block' capabilities
+ *
+ * @uses add_menu_page()
+ * @uses add_submenu_page()
+ */
+function ddw_tbex_wpblock_posttype_add_menu() {
+	
+	/** Add "Blocks" top-level Admin menu, below "Comments" */
+    add_menu_page(
+        _x( 'Reusable Blocks', 'Admin page title', 'toolbar-extras' ),
+        _x( 'Blocks', 'Admin menu label', 'toolbar-extras' ),
+        'publish_posts',
+        'edit.php?post_type=wp_block',
+        '',
+        'dashicons-screenoptions',
+        '25.1'	// directly after comments
+    );
+
+    /** "Blocks" submenu: "Add New" (Reusable Block) */
+    add_submenu_page(
+    	'edit.php?post_type=wp_block',
+        _x( 'Add New Reusable Block', 'Admin page title', 'toolbar-extras' ),
+        _x( 'Add New', 'Admin menu label', 'toolbar-extras' ),
+        'publish_posts',
+        'post-new.php?post_type=wp_block'
+    );
+
+}  // end function
+
+
 add_action( 'admin_bar_menu', 'ddw_tbex_items_block_editor_core', 150 );
 /**
- * Site items for Plugin:
- *   Builder Template Categories (free, by David Decker - DECKERWEB)
+ * Items for Block Editor (WordPress default Editor since WP 5.0+).
  *
  * @since 1.4.0
+ * @since 1.4.3 More items and refinements.
  *
- * @uses ddw_btc_string_template()
- * @uses ddw_tbex_resource_item()
- * @uses ddw_btc_get_info_url() To build resource URLs (from BTC plugin).
+ * @see plugin file, /includes/block-editor-addons/items-builder-template-categories.php
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar']
+ * @uses ddw_tbex_string_block_editor()
+ * @uses ddw_tbex_display_items_new_content()
+ *
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_items_block_editor_core() {
-
-	/** Bail early if BTC plugin active (as it has these items already) */
-	if ( ddw_tbex_is_btcplugin_active() ) {
-		return;
-	}
+function ddw_tbex_items_block_editor_core( $admin_bar ) {
 
 	$post_type = 'wp_block';
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'blockeditor-reusable-blocks',
 			'parent' => 'group-creative-content',
@@ -79,10 +112,58 @@ function ddw_tbex_items_block_editor_core() {
 			'href'   => esc_url( admin_url( 'edit.php?post_type=' . $post_type ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Block Editor', 'toolbar-extras' ) . ': ' . esc_attr__( 'Reusable Blocks', 'toolbar-extras' ),
+				'title'  => ddw_tbex_string_block_editor() . ': ' . esc_attr__( 'Reusable Blocks', 'toolbar-extras' ),
 			)
 		)
 	);
+
+		$admin_bar->add_node(
+			array(
+				'id'     => 'blockeditor-reusable-blocks-all',
+				'parent' => 'blockeditor-reusable-blocks',
+				'title'  => esc_attr__( 'All Blocks', 'toolbar-extras' ),
+				'href'   => esc_url( admin_url( 'edit.php?post_type=' . $post_type ) ),
+				'meta'   => array(
+					'target' => '',
+					'title'  => ddw_tbex_string_block_editor() . ': ' . esc_attr__( 'All Reusable Blocks', 'toolbar-extras' ),
+				)
+			)
+		);
+
+		$admin_bar->add_node(
+			array(
+				'id'     => 'blockeditor-reusable-blocks-new',
+				'parent' => 'blockeditor-reusable-blocks',
+				'title'  => esc_attr__( 'New Block', 'toolbar-extras' ),
+				'href'   => esc_url( admin_url( 'post-new.php?post_type=' . $post_type ) ),
+				'meta'   => array(
+					'target' => '',
+					'title'  => ddw_tbex_string_block_editor() . ': ' . esc_attr__( 'Add New Reusable Block', 'toolbar-extras' ),
+				)
+			)
+		);
+
+	/**
+	 * For: New Content group
+	 *   Note: This optionally filters the existing item (via "Gutenberg" plugin
+	 *         for example).
+	 */
+	if ( ddw_tbex_display_items_new_content() ) {
+
+		$admin_bar->add_node(
+			array(
+				'id'     => 'new-' . $post_type,
+				'parent' => 'new-content',
+				'title'  => esc_attr__( 'Reusable Block', 'toolbar-extras' ),
+				'href'   => esc_url( admin_url( 'post-new.php?post_type=' . $post_type ) ),
+				'meta'   => array(
+					'target' => '',
+					'title'  => ddw_tbex_string_block_editor() . ': ' . esc_attr__( 'Add New Reusable Block', 'toolbar-extras' ),
+				)
+			)
+		);
+
+	}  // end function
 
 }  // end function
 
@@ -146,9 +227,9 @@ add_action( 'admin_bar_menu', 'ddw_tbex_items_block_editor_resources', 99 );
  * @uses ddw_tbex_meta_target()
  * @uses ddw_tbex_string_block_editor_community()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_items_block_editor_resources() {
+function ddw_tbex_items_block_editor_resources( $admin_bar ) {
 
 	/**
 	 * Bail early if resources display is disabled or Block Editor is not the
@@ -160,7 +241,7 @@ function ddw_tbex_items_block_editor_resources() {
 		return;
 	}
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'block-editor-resources',
 			'parent' => 'group-pagebuilder-resources',
@@ -181,7 +262,7 @@ function ddw_tbex_items_block_editor_resources() {
 			ddw_tbex_get_resource_url( 'block-editor', 'url_docs' )
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'block-editor-resources-reusable-blocks',
 				'parent' => 'block-editor-resources',
@@ -220,7 +301,7 @@ function ddw_tbex_items_block_editor_resources() {
 	do_action( 'tbex_after_block_editor_resources' );
 
 	/** Block Editor Community */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'block-editor-community',
 			'parent' => 'group-pagebuilder-resources',
@@ -241,7 +322,7 @@ function ddw_tbex_items_block_editor_resources() {
 			ddw_tbex_get_resource_url( 'block-editor', 'url_fb_group' )
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'block-editor-community-gutenberg-news',
 				'parent' => 'block-editor-community',
@@ -255,7 +336,7 @@ function ddw_tbex_items_block_editor_resources() {
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'block-editor-community-gutenberg-times',
 				'parent' => 'block-editor-community',
@@ -269,7 +350,7 @@ function ddw_tbex_items_block_editor_resources() {
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'block-editor-community-tweets-hashtag',
 				'parent' => 'block-editor-community',
@@ -283,7 +364,7 @@ function ddw_tbex_items_block_editor_resources() {
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'block-editor-community-youtube-recent',
 				'parent' => 'block-editor-community',
@@ -322,9 +403,9 @@ add_action( 'admin_bar_menu', 'ddw_tbex_items_block_editor_developers', 99 );
  * @uses ddw_tbex_meta_rel()
  * @uses ddw_tbex_meta_target()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_items_block_editor_developers() {
+function ddw_tbex_items_block_editor_developers( $admin_bar ) {
 
 	/** Bail early if Dev Mode & Resources display are disabled */
 	if ( ( ! ddw_tbex_display_items_dev_mode() || ! ddw_tbex_display_items_resources() )
@@ -334,7 +415,7 @@ function ddw_tbex_items_block_editor_developers() {
 	}
 
 	/** Block Editor Developers */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'block-editor-developers',
 			'parent' => 'group-pagebuilder-resources',
@@ -348,7 +429,7 @@ function ddw_tbex_items_block_editor_developers() {
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'block-editor-developers-docs-design',
 				'parent' => 'block-editor-developers',
@@ -362,7 +443,7 @@ function ddw_tbex_items_block_editor_developers() {
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'block-editor-developers-docs-dev',
 				'parent' => 'block-editor-developers',
@@ -376,7 +457,7 @@ function ddw_tbex_items_block_editor_developers() {
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'block-editor-developers-dev-blog',
 				'parent' => 'block-editor-developers',

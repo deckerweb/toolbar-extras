@@ -18,18 +18,18 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_gp_back_to_top', 200 );
  *
  * @since 1.3.0
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_gp_back_to_top() {
+function ddw_tbex_aoitems_gp_back_to_top( $admin_bar ) {
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_group(
+	$admin_bar->add_group(
 		array(
 			'id'     => 'group-ao-gpbtt',
-			'parent' => 'theme-creative'
+			'parent' => 'theme-creative',
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'ao-gp-back-to-top',
 			'parent' => 'group-ao-gpbtt',
@@ -37,7 +37,7 @@ function ddw_tbex_aoitems_gp_back_to_top() {
 			'href'   => esc_url( admin_url( 'options-general.php?page=gp-back-to-top' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_free_addon_title_attr( __( 'GP Back to Top', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_free_addon_title_attr( __( 'GP Back to Top', 'toolbar-extras' ) ),
 			)
 		)
 	);

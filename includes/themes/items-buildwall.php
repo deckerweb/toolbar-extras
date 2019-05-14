@@ -12,21 +12,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 
-/**
- * Check if Kava Pro Theme is active or not.
- *
- * @since 1.3.0
- *
- * @return bool TRUE if class 'Kava_Module_Base' exists (only available in Kava
- *              Pro), FALSE otherwise.
- */
-function ddw_tbex_is_theme_kava_pro() {
-
-	return ( class_exists( 'Kava_Module_Base' ) ) ? TRUE : FALSE;
-
-}  // end function
-
-
 add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_buildwall', 100 );
 /**
  * Items for Theme: Buildwall (Premium, by Zemez)

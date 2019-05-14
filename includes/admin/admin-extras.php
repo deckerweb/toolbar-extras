@@ -228,6 +228,184 @@ function ddw_tbex_dashboard_plugin_version_info( $content ) {
 }  // end function
 
 
+add_filter( 'debug_information', 'ddw_tbex_site_health_add_debug_info', 5 );
+/**
+ * Add additional plugin related info to the Site Health Debug Info section.
+ *   (Only relevant for WordPress 5.2 or higher)
+ *
+ * @link https://make.wordpress.org/core/2019/04/25/site-health-check-in-5-2/
+ *
+ * @since 1.4.3
+ *
+ * @uses ddw_tbex_string_debug_diagnostic()
+ * @uses ddw_tbex_string_undefined()
+ * @uses ddw_tbex_string_enabled()
+ * @uses ddw_tbex_string_disabled()
+ * @uses ddw_tbex_string_uninstalled()
+ *
+ * @param array $debug_info Array holding all Debug Info items.
+ * @return array Modified array of Debug Info.
+ */
+function ddw_tbex_site_health_add_debug_info( $debug_info ) {
+
+	/** Get all registered Page Builders */
+	$all_builders = ddw_tbex_get_pagebuilders();
+
+	/** Default setting -> label */
+	$default = $all_builders[ 'default-none' ][ 'label' ];
+
+	if ( ddw_tbex_is_elementor_active() ) {
+
+		$default = $all_builders[ 'elementor' ][ 'label' ];
+
+	} elseif ( ddw_tbex_is_block_editor_wanted() && ddw_tbex_use_block_editor_support() ) {
+
+		$default = $all_builders[ 'block-editor' ][ 'label' ];
+
+	}  // end if
+
+	/** Get potentially unloaded textdomains (ony by this plugin) */
+	$unloaded_textdomains = apply_filters( 'tbex_filter_unloading_textdomains', array() );
+
+	/** Add our Debug info */
+	$debug_info[ 'toolbar-extras' ] = array(
+		'label'       => ddw_tbex_string_toolbar_extras() . ' (' . esc_html__( 'Plugin', 'toolbar-extras' ) . ')',
+		'description' => ddw_tbex_string_debug_diagnostic(),
+		'fields'      => array(
+
+			/** Various values, including important plugin options */
+			'tbex_plugin_version' => array(
+				'label' => __( 'Plugin version', 'toolbar-extras' ),
+				'value' => TBEX_PLUGIN_VERSION,
+			),
+			'tbex_install_type' => array(
+				'label' => __( 'WordPress Install Type', 'toolbar-extras' ),
+				'value' => ( is_multisite() ? esc_html__( 'Multisite install', 'toolbar-extras' ) : esc_html__( 'Single Site install', 'toolbar-extras' ) ),
+			),
+			'tbex_capability_show_toolbar_items' => array(
+				'label' => __( 'Capability for showing Toolbar items', 'toolbar-extras' ),
+				'value' => ddw_tbex_capability_show_all(),
+			),
+			'tbex_default_page_builder' => array(
+				'label' => __( 'Default Page Builder', 'toolbar-extras' ),
+				'value' => get_option( 'tbex-options-general', $default )[ 'default_page_builder' ],
+			),
+			'tbex_local_development_environment' => array(
+				'label' => __( 'Local Development Environment', 'toolbar-extras' ),
+				'value' => get_option( 'tbex-options-development', esc_html__( 'Auto', 'toolbar-extras' ) )[ 'is_local_dev' ],
+			),
+			'tbex_local_development_environment_server_name' => array(
+				'label'   => __( 'Server Name', 'toolbar-extras' ),
+				'value'   => $_SERVER[ 'REMOTE_ADDR' ],
+				'private' => TRUE,
+			),
+			'tbex_use_dev_mode' => array(
+				'label' => __( 'Dev Mode enabled', 'toolbar-extras' ),
+				'value' => get_option( 'tbex-options-development', ddw_tbex_string_no( 'return' ) )[ 'use_dev_mode' ],
+			),
+			'tbex_use_block_editor_support' => array(
+				'label' => __( 'Block Editor support enabled (option)', 'toolbar-extras' ),
+				'value' => get_option( 'tbex-options-general', ddw_tbex_string_yes( 'return' ) )[ 'use_blockeditor_support' ],
+			),
+			'tbex_unload_td_elementor' => array(
+				'label' => __( 'Unload Elementor translations', 'toolbar-extras' ),
+				'value' => get_option( 'tbex-options-tweaks', ddw_tbex_string_no( 'return' ) )[ 'unload_td_elementor' ],
+			),
+			'tbex_unload_td_toolbar_extras' => array(
+				'label' => __( 'Unload Toolbar Extras translations', 'toolbar-extras' ),
+				'value' => get_option( 'tbex-options-tweaks', ddw_tbex_string_no( 'return' ) )[ 'unload_td_toolbar_extras' ],
+			),
+			'tbex_capability_unload_translations' => array(
+				'label' => __( 'Capability for unloading translations', 'toolbar-extras' ),
+				'value' => ddw_tbex_capability_unloading_translations(),
+			),
+			'tbex_unloaded_textdomains' => array(
+				'label' => __( 'Unloaded textdomains', 'toolbar-extras' ),
+				'value' => ( empty( $unloaded_textdomains ) ? esc_html__( 'No unloaded textdomains', 'toolbar-extras' ) : implode( ', ', $unloaded_textdomains ) ),
+			),
+
+			/** Toolbar Extras constants */
+			'TBEX_DISPLAY' => array(
+				'label' => 'TBEX_DISPLAY',
+				'value' => ( ! defined( 'TBEX_DISPLAY' ) ? ddw_tbex_string_undefined() : ( TBEX_DISPLAY ? ddw_tbex_string_enabled() : ddw_tbex_string_disabled() ) ),
+			),
+			'TBEX_IS_LOCAL_ENVIRONMENT' => array(
+				'label' => 'TBEX_IS_LOCAL_ENVIRONMENT',
+				'value' => ( ! defined( 'TBEX_IS_LOCAL_ENVIRONMENT' ) ? ddw_tbex_string_undefined() : ( TBEX_IS_LOCAL_ENVIRONMENT ? ddw_tbex_string_enabled() : ddw_tbex_string_disabled() ) ),
+			),
+			'TBEX_LOCAL_DEV_VIEWPORT' => array(
+				'label' => 'TBEX_LOCAL_DEV_VIEWPORT',
+				'value' => ( ! defined( 'TBEX_LOCAL_DEV_VIEWPORT' ) ? ddw_tbex_string_undefined() : TBEX_LOCAL_DEV_VIEWPORT ),
+			),
+			'TBEX_DISPLAY_DEV_MODE' => array(
+				'label' => 'TBEX_DISPLAY_DEV_MODE',
+				'value' => ( ! defined( 'TBEX_DISPLAY_DEV_MODE' ) ? ddw_tbex_string_undefined() : ( TBEX_DISPLAY_DEV_MODE ? ddw_tbex_string_enabled() : ddw_tbex_string_disabled() ) ),
+			),
+			'TBEX_DISPLAY_SUPER_ADMIN_NAV_MENU' => array(
+				'label' => 'TBEX_DISPLAY_SUPER_ADMIN_NAV_MENU',
+				'value' => ( ! defined( 'TBEX_DISPLAY_SUPER_ADMIN_NAV_MENU' ) ? ddw_tbex_string_undefined() : ( TBEX_DISPLAY_SUPER_ADMIN_NAV_MENU ? ddw_tbex_string_enabled() : ddw_tbex_string_disabled() ) ),
+			),
+			'TBEX_USE_SMART_TWEAKS' => array(
+				'label' => 'TBEX_USE_SMART_TWEAKS',
+				'value' => ( ! defined( 'TBEX_USE_SMART_TWEAKS' ) ? ddw_tbex_string_undefined() : ( TBEX_USE_SMART_TWEAKS ? ddw_tbex_string_enabled() : ddw_tbex_string_disabled() ) ),
+			),
+			'TBEX_USE_BLOCK_EDITOR_SUPPORT' => array(
+				'label' => 'TBEX_USE_BLOCK_EDITOR_SUPPORT',
+				'value' => ( ! defined( 'TBEX_USE_BLOCK_EDITOR_SUPPORT' ) ? ddw_tbex_string_undefined() : ( TBEX_USE_BLOCK_EDITOR_SUPPORT ? ddw_tbex_string_enabled() : ddw_tbex_string_disabled() ) ),
+			),
+
+			/** Elementor constants */
+			'ELEMENTOR_VERSION' => array(
+				'label' => 'Elementor: ELEMENTOR_VERSION',
+				'value' => ( ! defined( 'ELEMENTOR_VERSION' ) ? ddw_tbex_string_uninstalled() : ELEMENTOR_VERSION ),
+			),
+			'ELEMENTOR_PRO_VERSION' => array(
+				'label' => 'Elementor Pro: ELEMENTOR_PRO_VERSION',
+				'value' => ( ! defined( 'ELEMENTOR_PRO_VERSION' ) ? ddw_tbex_string_uninstalled() : ELEMENTOR_PRO_VERSION ),
+			),
+
+		),  // end array
+	);
+
+	/** Return modified Debug Info array */
+	return $debug_info;
+
+}  // end function
+
+
+if ( ! function_exists( 'ddw_wp_site_health_remove_percentage' ) ) :
+
+	add_action( 'admin_head', 'ddw_wp_site_health_remove_percentage', 100 );
+	/**
+	 * Remove the "Percentage Progress" display in Site Health feature as this will
+	 *   get users obsessed with fullfilling a 100% where there are non-problems!
+	 *
+	 * @link https://make.wordpress.org/core/2019/04/25/site-health-check-in-5-2/
+	 *
+	 * @uses ddw_tbex_is_wp52_install()
+	 *
+	 * @since 1.4.3
+	 */
+	function ddw_wp_site_health_remove_percentage() {
+
+		/** Bail early if not on WP 5.2+ */
+		if ( ! ddw_tbex_is_wp52_install()	/* version_compare( $GLOBALS[ 'wp_version' ], '5.2-beta', '<' ) */ ) {
+			return;
+		}
+
+		?>
+			<style type="text/css">
+				.site-health-progress {
+					display: none;
+				}
+			</style>
+		<?php
+
+	}  // end function
+
+endif;
+
+
 /**
  * Inline CSS fix for Plugins page update messages.
  *
@@ -396,12 +574,12 @@ function ddw_tbex_register_extra_plugin_recommendations( array $plugins ) {
   	if ( ddw_tbex_is_block_editor_active() && ddw_tbex_is_block_editor_wanted() ) {
 
 		$plugins_block_editor = array(
-			'classic-editor' => array(
+			'ultimate-addons-for-gutenberg' => array(
 				'featured'    => 'yes',
 				'recommended' => 'yes',
 				'popular'     => 'yes',
 			),
-			'classic-editor-addon' => array(
+			'kadence-blocks' => array(
 				'featured'    => 'yes',
 				'recommended' => 'yes',
 				'popular'     => 'yes',
@@ -410,11 +588,6 @@ function ddw_tbex_register_extra_plugin_recommendations( array $plugins ) {
 				'featured'    => 'yes',
 				'recommended' => 'yes',
 				'popular'     => 'yes',
-			),
-			'custom-fields-gutenberg' => array(
-				'featured'    => 'yes',
-				'recommended' => 'yes',
-				'popular'     => 'no',
 			),
 			'lazy-blocks' => array(
 				'featured'    => 'yes',
@@ -430,6 +603,11 @@ function ddw_tbex_register_extra_plugin_recommendations( array $plugins ) {
 				'featured'    => 'no',
 				'recommended' => 'yes',
 				'popular'     => 'no',
+			),
+			'classic-editor' => array(
+				'featured'    => 'no',
+				'recommended' => 'yes',
+				'popular'     => 'yes',
 			),
 		);
 

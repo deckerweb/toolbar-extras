@@ -20,52 +20,29 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_builder_template_categories', 15
  * @since 1.4.0
  * @since 1.4.2 Added resource; tweaks and enhancements.
  *
+ * @see plugin file, /includes/block-editor/items-block-editor.php
+ *
  * @uses ddw_btc_string_template()
+ * @uses ddw_tbex_string_block_editor()
  * @uses ddw_tbex_resource_item()
  * @uses ddw_tbex_get_resource_url()
  * @uses ddw_btc_get_info_url() To build resource URLs (from BTC plugin).
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar']
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_builder_template_categories() {
+function ddw_tbex_aoitems_builder_template_categories( $admin_bar ) {
 
 	$post_type = 'wp_block';
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
-		array(
-			'id'     => 'btc-reusable-blocks',
-			'parent' => 'group-creative-content',
-			'title'  => esc_attr__( 'Reusable Blocks', 'toolbar-extras' ),
-			'href'   => esc_url( admin_url( 'edit.php?post_type=' . $post_type ) ),
-			'meta'   => array(
-				'target' => '',
-				'title'  => ddw_tbex_string_free_addon_title_attr( __( 'Reusable Blocks', 'toolbar-extras' ) )
-			)
-		)
-	);
-
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
-			array(
-				'id'     => 'btc-reusable-blocks-all',
-				'parent' => 'btc-reusable-blocks',
-				'title'  => esc_attr__( 'All Reusable Blocks', 'toolbar-extras' ),
-				'href'   => esc_url( admin_url( 'edit.php?post_type=' . $post_type ) ),
-				'meta'   => array(
-					'target' => '',
-					'title'  => esc_attr__( 'All Reusable Blocks', 'toolbar-extras' )
-				)
-			)
-		);
-
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'btc-reusable-blocks-categories',
-				'parent' => 'btc-reusable-blocks',
+				'parent' => 'blockeditor-reusable-blocks',
 				'title'  => ddw_btc_string_template( 'block' ),
 				'href'   => esc_url( admin_url( 'edit-tags.php?taxonomy=builder-template-category&post_type=' . $post_type ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_html( ddw_btc_string_template( 'block' ) )
+					'title'  => ddw_tbex_string_block_editor() . ': ' . esc_html( ddw_btc_string_template( 'block' ) )
 				)
 			)
 		);
@@ -73,15 +50,15 @@ function ddw_tbex_aoitems_builder_template_categories() {
 		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-btcplugin-resources',
-					'parent' => 'btc-reusable-blocks',
+					'parent' => 'blockeditor-reusable-blocks',
 					'meta'   => array( 'class' => 'ab-sub-secondary' )
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'btcplugin-reusable-blocks',
 					'parent' => 'group-btcplugin-resources',

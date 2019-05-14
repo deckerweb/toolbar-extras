@@ -35,13 +35,13 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_wpstaging', 10 );
  *
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar']
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_wpstaging() {
+function ddw_tbex_site_items_wpstaging( $admin_bar ) {
 
 	$wpstaging_title = ( ddw_tbex_is_wpstaging_pro_active() ) ? esc_attr__( 'WP-Staging Pro', 'toolbar-extras' ) : esc_attr__( 'WP-Staging', 'toolbar-extras' );
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'wpstaging',
 			'parent' => 'tbex-sitegroup-tools',
@@ -64,7 +64,7 @@ function ddw_tbex_site_items_wpstaging() {
 		if ( isset( $available_clones ) && ! empty( $available_clones ) ) {
 
 			/** Add group */
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-wpstaging-clones',
 					'parent' => 'wpstaging'
@@ -77,7 +77,7 @@ function ddw_tbex_site_items_wpstaging() {
 				$clone_id     = $clone_data[ 'directoryName' ];
 
 				/** Add item per install */
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'wpstaging-clone-' . $clone_id,
 						'parent' => 'group-wpstaging-clones',
@@ -90,7 +90,7 @@ function ddw_tbex_site_items_wpstaging() {
 					)
 				);
 
-					$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					$admin_bar->add_node(
 						array(
 							'id'     => 'wpstaging-clone-' . $clone_id . '-open',
 							'parent' => 'wpstaging-clone-' . $clone_id,
@@ -103,7 +103,7 @@ function ddw_tbex_site_items_wpstaging() {
 						)
 					);
 
-					$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					$admin_bar->add_node(
 						array(
 							'id'     => 'wpstaging-clone-' . $clone_id . '-login',
 							'parent' => 'wpstaging-clone-' . $clone_id,
@@ -120,7 +120,7 @@ function ddw_tbex_site_items_wpstaging() {
 
 		}  // end if
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'wpstaging-create-clone',
 				'parent' => 'wpstaging',
@@ -133,7 +133,7 @@ function ddw_tbex_site_items_wpstaging() {
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'wpstaging-settings',
 				'parent' => 'wpstaging',
@@ -146,7 +146,7 @@ function ddw_tbex_site_items_wpstaging() {
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'wpstaging-tools',
 				'parent' => 'wpstaging',
@@ -161,7 +161,7 @@ function ddw_tbex_site_items_wpstaging() {
 
 		if ( ddw_tbex_is_wpstaging_pro_active() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'wpstaging-license',
 					'parent' => 'wpstaging',
@@ -179,7 +179,7 @@ function ddw_tbex_site_items_wpstaging() {
 		/** Group: Resources for WP-Staging */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-wpstaging-resources',
 					'parent' => 'wpstaging',

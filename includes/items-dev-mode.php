@@ -172,7 +172,7 @@ function ddw_tbex_site_items_devmode_plugin_status() {
 		|| ( is_network_admin() && current_user_can( 'manage_network_plugins' ) )
 	) {
 
-		if ( apply_filters( 'show_advanced_plugins', TRUE, 'mustuse' ) ) {
+		//if ( apply_filters( 'show_advanced_plugins', TRUE, 'mustuse' ) ) {
 
 			$GLOBALS[ 'wp_admin_bar' ]->add_node(
 				array(
@@ -187,9 +187,9 @@ function ddw_tbex_site_items_devmode_plugin_status() {
 				)
 			);
 
-		}  // end if
+		//}  // end if
 
-		if ( apply_filters( 'show_advanced_plugins', TRUE, 'dropins' ) ) {
+		//if ( apply_filters( 'show_advanced_plugins', TRUE, 'dropins' ) ) {
 
 			$GLOBALS[ 'wp_admin_bar' ]->add_node(
 				array(
@@ -204,7 +204,7 @@ function ddw_tbex_site_items_devmode_plugin_status() {
 				)
 			);
 
-		}  // end if
+		//}  // end if
 
 	}  // end if
 

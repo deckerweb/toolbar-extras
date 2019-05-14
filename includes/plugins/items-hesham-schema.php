@@ -50,7 +50,7 @@ function ddw_tbex_site_items_hesham_schema() {
 
 		/** Proceed only if there are any Schemas */
 		if ( $schemas ) {
-
+			
 			/** Add group */
 			$GLOBALS[ 'wp_admin_bar' ]->add_group(
 				array(
@@ -61,16 +61,19 @@ function ddw_tbex_site_items_hesham_schema() {
 
 			foreach ( $schemas as $schema ) {
 
+				$schema_id    = absint( $schema->ID );
+				$schema_title = esc_attr( $schema->post_title );
+
 				/** Add item per form */
 				$GLOBALS[ 'wp_admin_bar' ]->add_node(
 					array(
-						'id'     => 'heshamschema-edit-schema-' . $schema->ID,
+						'id'     => 'heshamschema-edit-schema-' . $schema_id,
 						'parent' => 'group-heshamschema-edit-schema',
-						'title'  => $schema->post_title,
-						'href'   => esc_url( admin_url( 'post.php?post=' . $schema->ID . '&action=edit' ) ),
+						'title'  => $schema_title,
+						'href'   => esc_url( admin_url( 'post.php?post=' . $schema_id . '&action=edit' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'Edit Schema', 'toolbar-extras' ) . ': ' . $schema->post_title
+							'title'  => esc_attr__( 'Edit Schema', 'toolbar-extras' ) . ': ' . $schema_title
 						)
 					)
 				);

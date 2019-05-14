@@ -42,6 +42,7 @@ class DDW_Toolbar_Extras_Finder_Category extends \Elementor\Core\Common\Modules\
 	 * Get category items.
 	 *
 	 * @since 1.4.0
+	 * @since 1.4.3 Added "Add-Ons" tab support.
 	 *
 	 * @access public
 	 *
@@ -81,6 +82,13 @@ class DDW_Toolbar_Extras_Finder_Category extends \Elementor\Core\Common\Modules\
 				'icon'        => 'editor-code',
 				'keywords'    => [ 'toolbar', 'admin bar', 'development', 'settings', 'local', 'enviroment' ],
 				'description' => __( 'Setup Local Development Environment &amp; Dev Mode', 'toolbar-extras' ),
+			],
+			'addons' => [
+				'title'       => $string_toolbar . _x( 'Add-Ons', 'Title in Elementor Finder', 'toolbar-extras' ),
+				'url'         => admin_url( 'options-general.php?page=toolbar-extras&tab=addons' ),
+				'icon'        => 'plus',
+				'keywords'    => [ 'toolbar', 'admin bar', 'addons', 'add-ons', 'plugins', 'extensions' ],
+				'description' => __( 'Install Add-On extensions for Toolbar Extras', 'toolbar-extras' ),
 			],
 			'about-support' => [
 				'title'       => $string_toolbar . _x( 'About &amp; Support', 'Title in Elementor Finder', 'toolbar-extras' ),

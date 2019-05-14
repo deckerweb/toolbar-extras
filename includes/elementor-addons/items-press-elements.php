@@ -14,7 +14,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_press_elements', 100 );
 /**
- * Items for Add-On: Press Elements – Widgets for Elementor (free/Premium, by Press Elements & Rami Yushuvaev)
+ * Items for Add-On:
+ *   Press Elements – Widgets for Elementor (free/Premium, by Press Elements & Rami Yushuvaev)
  *
  * @since 1.1.0
  *

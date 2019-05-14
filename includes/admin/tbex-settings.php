@@ -617,3 +617,31 @@ function ddw_tbex_add_tools_submenu() {
 	);
 
 }  // end function
+
+
+add_filter( 'tbex_filter_color_items', 'ddw_tbex_add_color_item_wordpress', 100 );
+/**
+ * Add additional color item to any instance of a Toolbar Extras color picker
+ *   on its setting page.
+ *
+ * @since 1.4.3
+ *
+ * @uses ddw_tbex_is_classicpress_install()
+ *
+ * @param array $color_items Array holding all color items.
+ * @return array Modified array of color items.
+ */
+function ddw_tbex_add_color_item_wordpress( $color_items ) {
+
+	$color_items[ 'wp-dark-grey' ] = array(
+		'color' => '#555',
+		'name'  => sprintf(
+			/* translators: %s - name of CMS, "WordPress" or "ClassicPress" */
+			__( '%s Dark Grey', 'toolbar-extras' ),
+			ddw_tbex_is_classicpress_install() ? 'ClassicPress' : 'WordPress'
+		),
+	);
+
+	return $color_items;
+
+}  // end function

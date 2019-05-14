@@ -17,17 +17,18 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_ultimate_blocks', 10 );
  * Site items for Plugin: Ultimate Blocks (free, by Imtiaz Rayhan)
  *
  * @since 1.4.0
+ * @since 1.4.3 Added new item & resource.
  *
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar']
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_ultimate_blocks() {
+function ddw_tbex_aoitems_ultimate_blocks( $admin_bar ) {
 
 	/** Use Add-On hook place */
 	add_filter( 'tbex_filter_is_addon', '__return_empty_string' );
 	
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'tbex-ultimateblocks',
 			'parent' => 'group-tbex-addons-blockeditor',
@@ -40,15 +41,28 @@ function ddw_tbex_aoitems_ultimate_blocks() {
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
-				'id'     => 'ultimateblocks-options',
+				'id'     => 'ultimateblocks-manage',
 				'parent' => 'tbex-ultimateblocks',
-				'title'  => esc_attr__( 'Activate Blocks', 'toolbar-extras' ),
+				'title'  => esc_attr__( 'Manage Blocks', 'toolbar-extras' ),
 				'href'   => esc_url( admin_url( 'admin.php?page=ultimate-blocks-settings' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Activate Blocks', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Manage Blocks', 'toolbar-extras' )
+				)
+			)
+		);
+
+		$admin_bar->add_node(
+			array(
+				'id'     => 'ultimateblocks-info',
+				'parent' => 'tbex-ultimateblocks',
+				'title'  => esc_attr__( 'Plugin Info', 'toolbar-extras' ),
+				'href'   => esc_url( admin_url( 'admin.php?page=ultimate-blocks-help' ) ),
+				'meta'   => array(
+					'target' => '',
+					'title'  => esc_attr__( 'Plugin Info', 'toolbar-extras' )
 				)
 			)
 		);
@@ -56,7 +70,7 @@ function ddw_tbex_aoitems_ultimate_blocks() {
 		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-ultimateblocks-resources',
 					'parent' => 'tbex-ultimateblocks',
@@ -69,6 +83,13 @@ function ddw_tbex_aoitems_ultimate_blocks() {
 				'ultimateblocks-support',
 				'group-ultimateblocks-resources',
 				'https://wordpress.org/support/plugin/ultimate-blocks'
+			);
+
+			ddw_tbex_resource_item(
+				'facebook-group',
+				'ultimateblocks-fbgroup',
+				'group-ultimateblocks-resources',
+				'https://www.facebook.com/groups/ultimateblocks/'
 			);
 
 			ddw_tbex_resource_item(
@@ -89,7 +110,7 @@ function ddw_tbex_aoitems_ultimate_blocks() {
 				'official-site',
 				'ultimateblocks-site',
 				'group-ultimateblocks-resources',
-				'https://ultimateblocks.io/'
+				'https://ultimateblocks.com/'
 			);
 
 		}  // end if

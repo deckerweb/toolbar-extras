@@ -40,12 +40,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_jetengine', 100 );
  * @uses ddw_tbex_is_jetengine_bookingforms_active()
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_jetengine() {
+function ddw_tbex_aoitems_jetengine( $admin_bar ) {
 
 	/** JetEngine Settings */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'ao-jetengine',
 			'parent' => 'group-creative-content',
@@ -53,20 +53,20 @@ function ddw_tbex_aoitems_jetengine() {
 			'href'   => esc_url( admin_url( 'admin.php?page=jet-engine' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_premium_addon_title_attr( __( 'JetEngine Content', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_premium_addon_title_attr( __( 'JetEngine Content', 'toolbar-extras' ) ),
 			)
 		)
 	);
 
 		/** JetEngine Listings */
-		$GLOBALS[ 'wp_admin_bar' ]->add_group(
+		$admin_bar->add_group(
 			array(
 				'id'     => 'group-jetengine-listings',
-				'parent' => 'ao-jetengine'
+				'parent' => 'ao-jetengine',
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ao-jetengine-listings',
 					'parent' => 'group-jetengine-listings',
@@ -74,12 +74,12 @@ function ddw_tbex_aoitems_jetengine() {
 					'href'   => esc_url( admin_url( 'edit.php?post_type=jet-engine' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Listings', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Listings', 'toolbar-extras' ),
 					)
 				)
 			);
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'ao-jetengine-listings-all',
 						'parent' => 'ao-jetengine-listings',
@@ -87,12 +87,12 @@ function ddw_tbex_aoitems_jetengine() {
 						'href'   => esc_url( admin_url( 'edit.php?post_type=jet-engine' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'All Listings', 'toolbar-extras' )
+							'title'  => esc_attr__( 'All Listings', 'toolbar-extras' ),
 						)
 					)
 				);
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'ao-jetengine-listings-new',
 						'parent' => 'ao-jetengine-listings',
@@ -100,14 +100,14 @@ function ddw_tbex_aoitems_jetengine() {
 						'href'   => esc_url( admin_url( 'post-new.php?post_type=jet-engine' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'New Listing', 'toolbar-extras' )
+							'title'  => esc_attr__( 'New Listing', 'toolbar-extras' ),
 						)
 					)
 				);
 
 				if ( ddw_tbex_is_elementor_active() && \Elementor\User::is_current_user_can_edit_post_type( 'jet-engine' ) ) {
 
-					$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					$admin_bar->add_node(
 						array(
 							'id'     => 'ao-jetengine-listings-builder',
 							'parent' => 'ao-jetengine-listings',
@@ -115,7 +115,7 @@ function ddw_tbex_aoitems_jetengine() {
 							'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'jet-engine' ) ),
 							'meta'   => array(
 								'target' => ddw_tbex_meta_target( 'builder' ),
-								'title'  => esc_attr__( 'New Listing Builder', 'toolbar-extras' )
+								'title'  => esc_attr__( 'New Listing Builder', 'toolbar-extras' ),
 							)
 						)
 					);
@@ -125,7 +125,7 @@ function ddw_tbex_aoitems_jetengine() {
 				/** Listing categories, via BTC plugin */
 				if ( ddw_tbex_is_btcplugin_active() ) {
 
-					$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					$admin_bar->add_node(
 						array(
 							'id'     => 'ao-jetengine-listings-categories',
 							'parent' => 'ao-jetengine-listings',
@@ -133,7 +133,7 @@ function ddw_tbex_aoitems_jetengine() {
 							'href'   => esc_url( admin_url( 'edit-tags.php?taxonomy=builder-template-category&post_type=jet-engine' ) ),
 							'meta'   => array(
 								'target' => '',
-								'title'  => esc_html( ddw_btc_string_template( 'listing' ) )
+								'title'  => esc_html( ddw_btc_string_template( 'listing' ) ),
 							)
 						)
 					);
@@ -141,15 +141,15 @@ function ddw_tbex_aoitems_jetengine() {
 				}  // end if
 
 		/** JetEngine Custom Post Types & Taxonomies */
-		$GLOBALS[ 'wp_admin_bar' ]->add_group(
+		$admin_bar->add_group(
 			array(
 				'id'     => 'group-jetengine-posttypes',
-				'parent' => 'ao-jetengine'
+				'parent' => 'ao-jetengine',
 			)
 		);
 
 			/** Register Post Types */
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ao-jetengine-cpts',
 					'parent' => 'group-jetengine-posttypes',
@@ -157,12 +157,12 @@ function ddw_tbex_aoitems_jetengine() {
 					'href'   => esc_url( admin_url( 'admin.php?page=jet-engine-cpt' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Custom Post Types', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Custom Post Types', 'toolbar-extras' ),
 					)
 				)
 			);
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'ao-jetengine-cpts-all',
 						'parent' => 'ao-jetengine-cpts',
@@ -170,12 +170,12 @@ function ddw_tbex_aoitems_jetengine() {
 						'href'   => esc_url( admin_url( 'admin.php?page=jet-engine-cpt' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'All Post Types', 'toolbar-extras' )
+							'title'  => esc_attr__( 'All Post Types', 'toolbar-extras' ),
 						)
 					)
 				);
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'ao-jetengine-cpts-new',
 						'parent' => 'ao-jetengine-cpts',
@@ -183,13 +183,13 @@ function ddw_tbex_aoitems_jetengine() {
 						'href'   => esc_url( admin_url( 'admin.php?page=jet-engine-cpt&cpt_action=add' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'New Post Type', 'toolbar-extras' )
+							'title'  => esc_attr__( 'New Post Type', 'toolbar-extras' ),
 						)
 					)
 				);
 
 			/** Register Taxonomies */
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ao-jetengine-tax',
 					'parent' => 'group-jetengine-posttypes',
@@ -197,12 +197,12 @@ function ddw_tbex_aoitems_jetengine() {
 					'href'   => esc_url( admin_url( 'admin.php?page=jet-engine-cpt-tax' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Custom Taxonomies', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Custom Taxonomies', 'toolbar-extras' ),
 					)
 				)
 			);
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'ao-jetengine-tax-all',
 						'parent' => 'ao-jetengine-tax',
@@ -210,12 +210,12 @@ function ddw_tbex_aoitems_jetengine() {
 						'href'   => esc_url( admin_url( 'admin.php?page=jet-engine-cpt-tax' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'All Taxonomies', 'toolbar-extras' )
+							'title'  => esc_attr__( 'All Taxonomies', 'toolbar-extras' ),
 						)
 					)
 				);
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'ao-jetengine-tax-new',
 						'parent' => 'ao-jetengine-tax',
@@ -223,13 +223,13 @@ function ddw_tbex_aoitems_jetengine() {
 						'href'   => esc_url( admin_url( 'admin.php?page=jet-engine-cpt-tax&cpt_tax_action=add-tax' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'New Taxonomy', 'toolbar-extras' )
+							'title'  => esc_attr__( 'New Taxonomy', 'toolbar-extras' ),
 						)
 					)
 				);
 
 			/** Register Metaboxes & Fields */
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ao-jetengine-metabox',
 					'parent' => 'group-jetengine-posttypes',
@@ -237,12 +237,12 @@ function ddw_tbex_aoitems_jetengine() {
 					'href'   => esc_url( admin_url( 'admin.php?page=jet-engine-meta' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Custom Meta Boxes', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Custom Meta Boxes', 'toolbar-extras' ),
 					)
 				)
 			);
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'ao-jetengine-metabox-all',
 						'parent' => 'ao-jetengine-metabox',
@@ -250,12 +250,12 @@ function ddw_tbex_aoitems_jetengine() {
 						'href'   => esc_url( admin_url( 'admin.php?page=jet-engine-meta' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'All Meta Boxes', 'toolbar-extras' )
+							'title'  => esc_attr__( 'All Meta Boxes', 'toolbar-extras' ),
 						)
 					)
 				);
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'ao-jetengine-metabox-new',
 						'parent' => 'ao-jetengine-metabox',
@@ -263,21 +263,21 @@ function ddw_tbex_aoitems_jetengine() {
 						'href'   => esc_url( admin_url( 'admin.php?page=jet-engine-meta&cpt_meta_action=add-meta' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'New Meta Box', 'toolbar-extras' )
+							'title'  => esc_attr__( 'New Meta Box', 'toolbar-extras' ),
 						)
 					)
 				);
 
 		/** JetEngine More Modules hook place */
-		$GLOBALS[ 'wp_admin_bar' ]->add_group(
+		$admin_bar->add_group(
 			array(
 				'id'     => 'group-jetengine-modules',
-				'parent' => 'ao-jetengine'
+				'parent' => 'ao-jetengine',
 			)
 		);
 
 			/** Add Posts Relations */
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ao-jetengine-relations',
 					'parent' => 'group-jetengine-modules',
@@ -285,12 +285,12 @@ function ddw_tbex_aoitems_jetengine() {
 					'href'   => esc_url( admin_url( 'admin.php?page=jet-engine-relations' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Posts Relations', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Posts Relations', 'toolbar-extras' ),
 					)
 				)
 			);
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'ao-jetengine-relations-all',
 						'parent' => 'ao-jetengine-relations',
@@ -298,12 +298,12 @@ function ddw_tbex_aoitems_jetengine() {
 						'href'   => esc_url( admin_url( 'admin.php?page=jet-engine-relations' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'All Relations', 'toolbar-extras' )
+							'title'  => esc_attr__( 'All Relations', 'toolbar-extras' ),
 						)
 					)
 				);
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'ao-jetengine-relations-new',
 						'parent' => 'ao-jetengine-relations',
@@ -311,7 +311,7 @@ function ddw_tbex_aoitems_jetengine() {
 						'href'   => esc_url( admin_url( 'admin.php?page=jet-engine-relations&cpt_relation_action=add-relation' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'New Relation', 'toolbar-extras' )
+							'title'  => esc_attr__( 'New Relation', 'toolbar-extras' ),
 						)
 					)
 				);
@@ -319,7 +319,7 @@ function ddw_tbex_aoitems_jetengine() {
 			/** Add Booking Forms */
 			if ( ddw_tbex_is_jetengine_bookingforms_active() ) {
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'ao-jetengine-booking',
 						'parent' => 'group-jetengine-modules',
@@ -327,12 +327,12 @@ function ddw_tbex_aoitems_jetengine() {
 						'href'   => esc_url( admin_url( 'edit.php?post_type=jet-engine-booking' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'Booking Forms', 'toolbar-extras' )
+							'title'  => esc_attr__( 'Booking Forms', 'toolbar-extras' ),
 						)
 					)
 				);
 
-					$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					$admin_bar->add_node(
 						array(
 							'id'     => 'ao-jetengine-booking-all',
 							'parent' => 'ao-jetengine-booking',
@@ -340,12 +340,12 @@ function ddw_tbex_aoitems_jetengine() {
 							'href'   => esc_url( admin_url( 'edit.php?post_type=jet-engine-booking' ) ),
 							'meta'   => array(
 								'target' => '',
-								'title'  => esc_attr__( 'All Forms', 'toolbar-extras' )
+								'title'  => esc_attr__( 'All Forms', 'toolbar-extras' ),
 							)
 						)
 					);
 
-					$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					$admin_bar->add_node(
 						array(
 							'id'     => 'ao-jetengine-booking-new',
 							'parent' => 'ao-jetengine-booking',
@@ -353,7 +353,7 @@ function ddw_tbex_aoitems_jetengine() {
 							'href'   => esc_url( admin_url( 'post-new.php?post_type=jet-engine-booking' ) ),
 							'meta'   => array(
 								'target' => '',
-								'title'  => esc_attr__( 'New Form', 'toolbar-extras' )
+								'title'  => esc_attr__( 'New Form', 'toolbar-extras' ),
 							)
 						)
 					);
@@ -361,14 +361,14 @@ function ddw_tbex_aoitems_jetengine() {
 			}  // end if
 
 		/** JetEngine Settings etc. */
-		$GLOBALS[ 'wp_admin_bar' ]->add_group(
+		$admin_bar->add_group(
 			array(
 				'id'     => 'group-jetengine-settings',
-				'parent' => 'ao-jetengine'
+				'parent' => 'ao-jetengine',
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ao-jetengine-skins-manager',
 					'parent' => 'group-jetengine-settings',
@@ -380,7 +380,7 @@ function ddw_tbex_aoitems_jetengine() {
 							/* translators: %s - the words "Import & Export" */
 							esc_attr__( 'Skins Manager: %s', 'toolbar-extras' ),
 							__( 'Import &amp; Export', 'toolbar-extras' )
-						)
+						),
 					)
 				)
 			);
@@ -388,11 +388,11 @@ function ddw_tbex_aoitems_jetengine() {
 		/** Group: Resources for JetEngine */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-jetengine-resources',
 					'parent' => 'ao-jetengine',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 
@@ -415,6 +415,13 @@ function ddw_tbex_aoitems_jetengine() {
 				'jetengine-facebook',
 				'group-jetengine-resources',
 				'https://www.facebook.com/groups/CrocoblockCommunity/'
+			);
+
+			ddw_tbex_resource_item(
+				'changelog',
+				'jetengine-changelog',
+				'group-jetengine-resources',
+				'https://documentation.zemez.io/wordpress/index.php?project=jetengine&lang=en&section=jetengine-changelog'
 			);
 
 			ddw_tbex_resource_item(
@@ -578,8 +585,6 @@ add_filter( 'admin_bar_menu', 'ddw_tbex_aoitems_new_content_jetengine_booking_fo
  *
  * @uses ddw_tbex_is_jetengine_bookingforms_active()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
- *
  * @param object $wp_admin_bar Holds all nodes of the Toolbar.
  */
 function ddw_tbex_aoitems_new_content_jetengine_booking_form( $wp_admin_bar ) {
@@ -591,7 +596,7 @@ function ddw_tbex_aoitems_new_content_jetengine_booking_form( $wp_admin_bar ) {
 		return $wp_admin_bar;
 	}
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$wp_admin_bar->add_node(
 		array(
 			'id'     => 'new-jet-engine-booking',	// same as original!
 			'title' => esc_attr__( 'Booking Form', 'toolbar-extras' ),

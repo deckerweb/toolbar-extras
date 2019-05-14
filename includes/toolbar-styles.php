@@ -251,12 +251,14 @@ function ddw_tbex_toolbar_styles() {
 			/* Tweaks for groups */
 			#wp-admin-bar-group-devmode-resources,
 			#wp-admin-bar-group-churchcontent-resources,
+			.tbex-no-addons-border,
 			.tbex-group-resources-divider {
 				border-top: 1px dotted rgba(235, 235, 235, 0.35);
 			}
 
 			.admin-color-light #wp-admin-bar-group-devmode-resources,
 			.admin-color-light #wp-admin-bar-group-churchcontent-resources,
+			.admin-color-light .tbex-no-addons-border,
 			.admin-color-light .tbex-group-resources-divider {
 				border-top: 1px dotted rgba(7, 7, 7, 0.2);
 			}

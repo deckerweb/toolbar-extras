@@ -93,6 +93,17 @@ function ddw_tbex_themeitems_mai_theme_engine_customize( array $items ) {
 			'preview_url' => get_post_type_archive_link( $post_type ),
 		);
 
+	}  // end foreach
+
+	/** Extension: Mai Styles */
+	if ( class_exists( 'Mai_Styles' ) ) {
+
+		$mte_items[ 'mai_styles' ] = array(
+			'type'  => 'panel',
+			'title' => __( 'Mai Styles', 'toolbar-extras' ),
+			'id'    => 'mtecmz-styles',
+		);
+
 	}  // end if
 
 	/** Re-add here */
@@ -136,5 +147,191 @@ function ddw_tbex_aoitems_mai_demo_importer() {
 			)
 		)
 	);
+
+}  // end function
+
+
+add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_mai_extensions', 100 );
+/**
+ * Optionally add items for various Mai Theme Extensions (plugins).
+ *   (all Premium, by Mike Hemberger, BizBudding Inc.)
+ *
+ * @since 1.4.3
+ *
+ * @param object $admin_bar Object of Toolbar nodes.
+ */
+function ddw_tbex_aoitems_mai_extensions( $admin_bar ) {
+
+	/** Setup group */
+	$admin_bar->add_group(
+		array(
+			'id'     => 'group-maiextensions',
+			'parent' => 'group-genesischild-creative',
+		)
+	);
+
+	/** Extension: Mai Favorites */
+	if ( class_exists( 'Mai_Favorites_Setup' ) ) {
+
+		$type_favorites = 'favorite';
+
+		$admin_bar->add_node(
+			array(
+				'id'     => 'mai-favorites',
+				'parent' => 'group-maiextensions',
+				'title'  => esc_attr__( 'Favorites', 'toolbar-extras' ),
+				'href'   => esc_url( admin_url( 'edit.php?post_type=' . $type_favorites ) ),
+				'meta'   => array(
+					'target' => '',
+					'title'  => esc_attr__( 'Manage Mai Favorites', 'toolbar-extras' )
+				)
+			)
+		);
+
+			$admin_bar->add_node(
+				array(
+					'id'     => 'mai-favorites-all',
+					'parent' => 'mai-favorites',
+					'title'  => esc_attr__( 'All Favorites', 'toolbar-extras' ),
+					'href'   => esc_url( admin_url( 'edit.php?post_type=' . $type_favorites ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => esc_attr__( 'All Favorites', 'toolbar-extras' )
+					)
+				)
+			);
+
+			$admin_bar->add_node(
+				array(
+					'id'     => 'mai-favorites-new',
+					'parent' => 'mai-favorites',
+					'title'  => esc_attr__( 'New Favorite', 'toolbar-extras' ),
+					'href'   => esc_url( admin_url( 'post-new.php?post_type=' . $type_favorites ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => esc_attr__( 'New Favorite', 'toolbar-extras' )
+					)
+				)
+			);
+
+			$admin_bar->add_node(
+				array(
+					'id'     => 'mai-favorites-categories',
+					'parent' => 'mai-favorites',
+					'title'  => esc_attr__( 'Favorite Categories', 'toolbar-extras' ),
+					'href'   => esc_url( admin_url( 'edit-tags.php?taxonomy=favorite_cat&post_type=' . $type_favorites ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => esc_attr__( 'Favorite Categories', 'toolbar-extras' )
+					)
+				)
+			);
+
+			/** Manage content */
+			$admin_bar->add_node(
+				array(
+					'id'     => 'manage-content-mai-favorites',
+					'parent' => 'manage-content',
+					'title'  => esc_attr__( 'Edit Favorites', 'toolbar-extras' ),
+					'href'   => esc_url( admin_url( 'edit.php?post_type=' . $type_favorites ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => esc_attr__( 'Edit Favorites', 'toolbar-extras' )
+					)
+				)
+			);
+
+	}  // end if
+
+	/** Extension: Mai Testimonials */
+	if ( class_exists( 'Mai_Testimonials' ) ) {
+
+		$type_testimonials = 'testimonial';
+
+		$admin_bar->add_node(
+			array(
+				'id'     => 'mai-testimonials',
+				'parent' => 'group-maiextensions',
+				'title'  => esc_attr__( 'Testimonials', 'toolbar-extras' ),
+				'href'   => esc_url( admin_url( 'edit.php?post_type=' . $type_testimonials ) ),
+				'meta'   => array(
+					'target' => '',
+					'title'  => esc_attr__( 'Manage Mai Testimonials', 'toolbar-extras' )
+				)
+			)
+		);
+
+			$admin_bar->add_node(
+				array(
+					'id'     => 'mai-testimonials-all',
+					'parent' => 'mai-testimonials',
+					'title'  => esc_attr__( 'All Testimonials', 'toolbar-extras' ),
+					'href'   => esc_url( admin_url( 'edit.php?post_type=' . $type_testimonials ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => esc_attr__( 'All Testimonials', 'toolbar-extras' )
+					)
+				)
+			);
+
+			$admin_bar->add_node(
+				array(
+					'id'     => 'mai-testimonials-new',
+					'parent' => 'mai-testimonials',
+					'title'  => esc_attr__( 'New Testimonial', 'toolbar-extras' ),
+					'href'   => esc_url( admin_url( 'post-new.php?post_type=' . $type_testimonials ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => esc_attr__( 'New Testimonial', 'toolbar-extras' )
+					)
+				)
+			);
+
+			$admin_bar->add_node(
+				array(
+					'id'     => 'mai-testimonials-categories',
+					'parent' => 'mai-testimonials',
+					'title'  => esc_attr__( 'Testimonial Categories', 'toolbar-extras' ),
+					'href'   => esc_url( admin_url( 'edit-tags.php?taxonomy=testimonial_cat&post_type=' . $type_testimonials ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => esc_attr__( 'Testimonial Categories', 'toolbar-extras' )
+					)
+				)
+			);
+
+			/** Manage content */
+			$admin_bar->add_node(
+				array(
+					'id'     => 'manage-content-mai-testimonials',
+					'parent' => 'manage-content',
+					'title'  => esc_attr__( 'Edit Testimonials', 'toolbar-extras' ),
+					'href'   => esc_url( admin_url( 'edit.php?post_type=' . $type_testimonials ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => esc_attr__( 'Edit Testimonials', 'toolbar-extras' )
+					)
+				)
+			);
+
+	}  // end if
+
+	/** Extension: Mai Ads & Extra Content */
+	if ( class_exists( 'Mai_AEC' ) ) {
+
+		$admin_bar->add_node(
+			array(
+				'id'     => 'mai-adsextra-content',
+				'parent' => 'group-maiextensions',
+				'title'  => esc_attr__( 'Ads &amp; Extra Content', 'toolbar-extras' ),
+				'href'   => esc_url( admin_url( 'admin.php?page=mai_aec' ) ),
+				'meta'   => array(
+					'target' => '',
+					'title'  => esc_attr__( 'Manage Mai Ads &amp; Extra Content', 'toolbar-extras' )
+				)
+			)
+		);
+
+	}  // end if
 
 }  // end function

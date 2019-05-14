@@ -61,11 +61,14 @@ function ddw_tbex_site_items_happyforms() {
 
 			foreach ( $forms as $form ) {
 
+				$form_id    = absint( $form->ID );
+				$form_title = esc_attr( $form->post_title );
+
 				$hf_url_edit_form = add_query_arg(
 					array(
 						'return'     => admin_url( 'edit.php?post_type=happyform' ),
 						'happyforms' => 1,
-						'form_id'    => $form->ID . '#build'
+						'form_id'    => $form_id . '#build'
 					),
 					admin_url( 'customize.php' )
 				);
@@ -73,39 +76,39 @@ function ddw_tbex_site_items_happyforms() {
 				/** Add item per form */
 				$GLOBALS[ 'wp_admin_bar' ]->add_node(
 					array(
-						'id'     => 'forms-happyforms-form-' . $form->ID,
+						'id'     => 'forms-happyforms-form-' . $form_id,
 						'parent' => 'group-happyforms-edit-forms',
-						'title'  => $form->post_title,
+						'title'  => $form_title,
 						'href'   => esc_url( $hf_url_edit_form ),
 						'meta'   => array(
 							'target' => ddw_tbex_meta_target( 'builder' ),
-							'title'  => esc_attr__( 'Edit Form', 'toolbar-extras' ) . ': ' . $form->post_title
+							'title'  => esc_attr__( 'Edit Form', 'toolbar-extras' ) . ': ' . $form_title,
 						)
 					)
 				);
 
 					$GLOBALS[ 'wp_admin_bar' ]->add_node(
 						array(
-							'id'     => 'forms-happyforms-form-' . $form->ID . '-builder',
-							'parent' => 'forms-happyforms-form-' . $form->ID,
+							'id'     => 'forms-happyforms-form-' . $form_id . '-builder',
+							'parent' => 'forms-happyforms-form-' . $form_id,
 							'title'  => esc_attr__( 'Form Builder', 'toolbar-extras' ),
 							'href'   => esc_url( $hf_url_edit_form ),
 							'meta'   => array(
 								'target' => ddw_tbex_meta_target( 'builder' ),
-								'title'  => esc_attr__( 'Form Builder', 'toolbar-extras' )
+								'title'  => esc_attr__( 'Form Builder', 'toolbar-extras' ),
 							)
 						)
 					);
 
 					$GLOBALS[ 'wp_admin_bar' ]->add_node(
 						array(
-							'id'     => 'forms-happyforms-form-' . $form->ID . '-entries',
-							'parent' => 'forms-happyforms-form-' . $form->ID,
+							'id'     => 'forms-happyforms-form-' . $form_id . '-entries',
+							'parent' => 'forms-happyforms-form-' . $form_id,
 							'title'  => esc_attr__( 'Entries', 'toolbar-extras' ),
-							'href'   => esc_url( admin_url( 'edit.php?post_status=all&post_type=happyforms-message&form_id=' . $form->ID ) ),
+							'href'   => esc_url( admin_url( 'edit.php?post_status=all&post_type=happyforms-message&form_id=' . $form_id ) ),
 							'meta'   => array(
 								'target' => '',
-								'title'  => esc_attr__( 'Entries', 'toolbar-extras' )
+								'title'  => esc_attr__( 'Entries', 'toolbar-extras' ),
 							)
 						)
 					);
@@ -123,7 +126,7 @@ function ddw_tbex_site_items_happyforms() {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=happyform' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'All Forms', 'toolbar-extras' )
+					'title'  => esc_attr__( 'All Forms', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -145,7 +148,7 @@ function ddw_tbex_site_items_happyforms() {
 				'href'   => esc_url( $hf_url_new_form ),
 				'meta'   => array(
 					'target' => ddw_tbex_meta_target( 'builder' ),
-					'title'  => esc_attr__( 'New Form', 'toolbar-extras' )
+					'title'  => esc_attr__( 'New Form', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -158,7 +161,7 @@ function ddw_tbex_site_items_happyforms() {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=happyforms-message' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Entries', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Entries', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -173,7 +176,7 @@ function ddw_tbex_site_items_happyforms() {
 				array(
 					'id'     => 'group-happyforms-resources',
 					'parent' => 'forms-happyforms',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 			
@@ -230,12 +233,12 @@ function ddw_tbex_aoitems_new_content_happyforms( $wp_admin_bar ) {
 		return $wp_admin_bar;
 	}
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$wp_admin_bar->add_node(
 		array(
 			'id'     => 'new-content-happyforms',	// same as original!
 			'parent' => 'new-content',
 			'meta'   => array(
-				'target' => ddw_tbex_meta_target( 'builder' )
+				'target' => ddw_tbex_meta_target( 'builder' ),
 			)
 		)
 	);

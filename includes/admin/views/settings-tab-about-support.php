@@ -16,12 +16,14 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 1.0.0
  * @since 1.4.0 Optimizations.
+ * @since 1.4.3 Integrate with Site Healt feature (WP 5.2+).
  *
  * @uses ddw_tbex_get_info_url()
  * @uses ddw_tbex_get_info_link()
  * @uses ddw_tbex_is_elementor_active()
  * @uses ddw_tbex_coding_years()
  * @uses ddw_tbex_string_toolbar_extras()
+ * @uses ddw_tbex_is_wp52_install()
  */
 
 $tbex_info = (array) ddw_tbex_info_values();
@@ -130,10 +132,6 @@ $tbex_info = (array) ddw_tbex_info_values();
 				<?php _e( 'Thank you for using my plugin! I am happy to help and assist with any question or feedback you have for this plugin.', 'toolbar-extras' ); ?>
 			</p>
 			<p>
-				<strong><span class="dashicons-before dashicons-editor-help"></span> <?php _e( 'Free product support @ WordPress.org plugin forum', 'toolbar-extras' ); ?></strong>
-				<br /><?php echo ddw_tbex_get_info_link( 'url_wporg_forum', __( 'Support Forum', 'toolbar-extras' ), 'button tbex-button' ); ?>
-			</p>
-			<p>
 				<strong><span class="dashicons-before dashicons-admin-page"></span> <?php _e( 'Plugin documentation &amp; Knowledge Base articles', 'toolbar-extras' ); ?></strong>
 				<br /><?php echo ddw_tbex_get_info_link( 'url_plugin_docs', __( 'Documentation', 'toolbar-extras' ), 'button tbex-button' ); ?>
 			</p>
@@ -141,13 +139,29 @@ $tbex_info = (array) ddw_tbex_info_values();
 				<strong><span class="dashicons-before dashicons-groups"></span> <?php _e( 'Facebook Community Group for Toolbar Extras plugin', 'toolbar-extras' ); ?></strong>
 				<br /><?php echo ddw_tbex_get_info_link( 'url_fb_group', __( 'Facebook Group', 'toolbar-extras' ), 'button tbex-button' ); ?>
 			</p>
+			 <p>
+				<strong><span class="dashicons-before dashicons-editor-help"></span> <?php _e( 'Free product support @ WordPress.org plugin forum', 'toolbar-extras' ); ?></strong>
+				<br /><?php echo ddw_tbex_get_info_link( 'url_wporg_forum', __( 'Support Forum', 'toolbar-extras' ), 'button tbex-button' ); ?>
+			</p>
+			<?php if ( ddw_tbex_is_wp52_install() ) : ?>
+				<p>
+					<strong><span class="dashicons-before dashicons-info"></span> <?php _e( 'Site Health System Debug information - for Support purposes', 'toolbar-extras' ); ?></strong>
+					<br /><?php echo sprintf(
+						'<a class="button tbex-button" href="%1$s" target="_blank" rel="noopener noreferrer" title="%2$s (%3$s)">%2$s <small>(%3$s)</small></a>',
+						esc_url( admin_url( 'site-health.php?tab=debug' ) ),
+						esc_html__( 'Show Debug Info', 'toolbar-extras' ),
+						esc_html__( 'by WordPress', 'toolbar-extras' )
+					); ?>
+				</p>
+			<?php endif; ?>
 			<?php if ( ddw_tbex_is_elementor_active() ) : ?>
 				<p>
 					<strong><span class="dashicons-before dashicons-info"></span> <?php _e( 'Inspect system information - or use for Support purposes', 'toolbar-extras' ); ?></strong>
 					<br /><?php echo sprintf(
-						'<a class="button tbex-button" href="%1$s" target="_blank" rel="noopener noreferrer" title="%2$s">%2$s</a>',
+						'<a class="button tbex-button" href="%1$s" target="_blank" rel="noopener noreferrer" title="%2$s (%3$s)">%2$s <small>(%3$s)</small></a>',
 						esc_url( admin_url( 'admin.php?page=elementor-system-info' ) ),
-						esc_html__( 'Show System Info', 'toolbar-extras' )
+						esc_html__( 'Show System Info', 'toolbar-extras' ),
+						esc_html__( 'by Elementor', 'toolbar-extras' )
 					); ?> <?php echo sprintf(
 						'<a class="button tbex-button" href="%1$s" title="%2$s" download>%2$s</a>',
 						esc_url( admin_url( 'admin-ajax.php?action=elementor_system_info_download_file' ) ),

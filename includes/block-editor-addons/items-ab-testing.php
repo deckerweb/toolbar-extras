@@ -17,6 +17,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_ab_testing_forwp', 150 );
  * Add-On items for Plugin: A/B Testing for WordPress (free, by CleverNode)
  *
  * @since 1.4.2
+ * @since 1.4.3 Added new item.
  *
  * @uses ddw_tbex_resource_item()
  *
@@ -46,6 +47,19 @@ function ddw_tbex_aoitems_ab_testing_forwp( $admin_bar ) {
 				'meta'   => array(
 					'target' => '',
 					'title'  => esc_attr__( 'All A/B Tests', 'toolbar-extras' ),
+				)
+			)
+		);
+
+		$admin_bar->add_node(
+			array(
+				'id'     => 'abtesting-forwp-new',
+				'parent' => 'abtesting-forwp',
+				'title'  => esc_attr__( 'New A/B Test', 'toolbar-extras' ),
+				'href'   => esc_url( admin_url( 'post-new.php?post_type=abt4wp-test' ) ),
+				'meta'   => array(
+					'target' => '',
+					'title'  => esc_attr__( 'New A/B Test', 'toolbar-extras' ),
 				)
 			)
 		);

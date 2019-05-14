@@ -548,3 +548,38 @@ if ( ddw_tbex_is_genesis_onboarding_active() ) :
 	}  // end function
 
 endif;
+
+
+if ( ! function_exists( 'ddw_genesis_tweak_plugins_submenu' ) ) :
+
+	add_action( 'admin_menu', 'ddw_genesis_tweak_plugins_submenu', 11 );
+	/**
+	 * Add Genesis submenu redirecting to "genesis" plugin search within the
+	 *   WordPress.org Plugin Directory. For Genesis 2.10.0 or higher this
+	 *   replaces the "Genesis Plugins" submenu which only lists plugins from
+	 *   StudioPress - but there are many more from the community.
+	 *
+	 * @since 1.4.3
+	 *
+	 * @uses remove_submenu_page()
+	 * @uses add_submenu_page()
+	 */
+	function ddw_genesis_tweak_plugins_submenu() {
+
+		/** Remove the StudioPress plugins submenu */
+		if ( class_exists( 'Genesis_Admin_Plugins' ) ) {
+			remove_submenu_page( 'genesis', 'genesis-plugins' );
+		}
+
+		/** Add a Genesis community plugins submenu */
+		add_submenu_page(
+			'genesis',
+			esc_html__( 'Genesis Plugins from the Plugin Directory', 'toolbar-extras' ),
+			esc_html__( 'Genesis Plugins', 'toolbar-extras' ),
+			'install_plugins',
+			esc_url( network_admin_url( 'plugin-install.php?s=genesis&tab=search&type=term' ) )
+		);
+
+	}  // end function
+
+endif;

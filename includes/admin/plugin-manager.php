@@ -150,7 +150,7 @@ function ddw_tbex_plugin_manager() {
 			array(
 				'name'    => _x( 'Toolbar Extras', 'Plugin Name', 'toolbar-extras' ),
 				'slug'    => 'toolbar-extras',
-				'version' => '1.4.1+',
+				'version' => TBEX_PLUGIN_VERSION . '+',
 				'notice' => array(
 					'message' => ddw_tbex_pm_badge( 'required' ) . sprintf(
 						__( 'Required base plugin for all official Add-Ons to work', 'toolbar-extras' ) . ' &rarr; <a href="%s" target="_blank" rel="nofollow noopener noreferrer">%s</a>',
@@ -168,7 +168,7 @@ function ddw_tbex_plugin_manager() {
 		array(
 			'name'    => _x( 'Builder Template Categories', 'Plugin Name', 'toolbar-extras' ),
 			'slug'    => 'builder-template-categories',
-			'version' => '1.4.3+',
+			'version' => '1.5.1+',
 			'notice' => array(
 				'message' => ddw_tbex_pm_badge( 'recommended' ) .
 					ddw_tbex_pmstring_for(
@@ -185,7 +185,7 @@ function ddw_tbex_plugin_manager() {
 		array(
 			'name'    => _x( 'Asset CleanUp: Page Speed Booster', 'Plugin Name', 'toolbar-extras' ),
 			'slug'    => 'wp-asset-clean-up',
-			'version' => '1.3.2.5+',
+			'version' => '1.3.2.8+',
 			'notice' => array(
 				'message' => ddw_tbex_pm_badge( 'useful' ) .
 					ddw_tbex_pmstring_for( ddw_tbex_pmstring_for_general() ) .

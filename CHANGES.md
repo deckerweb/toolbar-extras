@@ -14,6 +14,90 @@
 
 ## Changelog of the Plugin
 
+### ⚡ 1.4.3 - 2019-05-14
+
+* *New: Successfully tested with WordPress 5.2*
+* *New: Successfully tested with ClassicPress 1.0.1*
+* New: Theme support for "Genesis Customizer" (free, by SEO Themes), including plugins: *Genesis Customizer Core (free)* and *Genesis Customizer Pro (Premium)* (both by SEO Themes) -- *Note: This is an awesome special Child Theme for the Genesis Framework perfectly suited for Non-Coder Designers, Non-Techies and Site Builders! ;-)*
+* New: Added plugin support for additional 4 extensions of "Mai Themes for Genesis" - *Mai Favorites*, *Mai Testimonials*, *Mai Styles*, *Mai Ads & Extra Content* (all Premium, by Mike Hemberger, BizBudding Inc.)
+* New: Added plugin support for Suki Sites Import (free, by SukiWP/ David Rozando)
+* New: For Code Snippets plugin: optionally add all Code Snippets as submenu items, via filter ([see code snippet](https://toolbarextras.com/docs/code-snippets-listing-toolbar/))
+* New: Completely refined plugin website supported [Themes](https://toolbarextras.com/theme-support/), [Plugins](https://toolbarextras.com/plugin-support/), [Elementor Add-Ons](https://toolbarextras.com/elementor-addons-support/) and [Gutenberg Block Editor Add-Ons](https://toolbarextras.com/gutenberg-block-editor-support/) listings - all are now powered by dynamic data, are fully updated, and got search filters (for title)
+* New: Created [listing of abandoned plugins](https://toolbarextras.com/docs/support-policy-for-abandoned-plugins/) where the integration in Toolbar Extras is set for deprecation and therefore future removal - [see Support Article on plugin's website](https://toolbarextras.com/docs/support-policy-for-abandoned-plugins/)
+* New: Integrated with WordPress 5.2+ new Site Health feature: Toolbar Extras now has an extra section on the Debug Info tab - this is especially helpful for support requests
+* New: Above mentioned Debug Info also appears on "Debug Info" in "Health Check" plugin for WordPress versions below 5.2 -- *Note: Health Check items won't appear in WP 5.2, though!*
+* New: Added Site Health & Debug items to Site Group as well (WP 5.2+ required)
+* New: Added few subtle tweaks for even better support for ClassicPress, color item, some labels, Plugin Installer etc.
+* New: Added formal German translation for Readme on WordPress.org (this will optionally be shown in plugin installer in Admin)
+* Tweak: Set proper parent menu and submenu highlighting relationship for our additional Plugin and Theme uploader menus (via Dev Mode)
+* Tweak: Further refined Gutenberg Block Editor support, additional Admin menu item, plus submenu
+* Tweak: Enhanced "GeneratePress" theme support - more Customizer deep links, more resources
+* Tweak: Refined "Hello Elementor" theme support - to also integrate with new [theme version from wordpress.org](https://wordpress.org/themes/hello-elementor/)
+* Tweak: For "AnalogWP Templates" plugin support added their new Style Kits feature as items
+* Tweak: For "Envato Elements" plugin support updated their admin URLs, added new resources for the service
+* Tweak: For "WPForms" plugin support added another third-party integration; plus other minor enhancements
+* Tweak: For "Schema Pro" plugin support added new optional Breadcrumb item
+* Tweak: For "Atomic Blocks" plugin support added new Settings item
+* Tweak: For "Essentail Premium Addons for Elementor" (by wpcodestar) plugin support added new API Settings item
+* Tweak: For "Ultimate Blocks" plugin support added new item and resource
+* Tweak: For "A/B Testing for WordPress" plugin support added new item
+* Tweak: For "Piotnet Addons for Elementor (PAFE)" added optional "Forms Database" item - optionally also add items to Forms hook place in Site Group
+* Tweak: For "Elementor Contact Form DB" plugin support added new items and resources - *Note: [The plugin is finally available on wordpress.org!](https://wordpress.org/plugins/sb-elementor-contact-form-db/)*
+* Tweak: Refined plugin support for "Premium Addons for Elementor" (by Leap13) to make it work better (and again)
+* Tweak: Enhanced "Genesis Design Palette Pro" plugin support - new "Fonts" item, plus 3 free Add-Ons integrated
+* Tweak: Enhanced plugin support for "Mailchimp for WP" - added support for 7 more of their integrations
+* Tweak: Enhanced theme & (pro) plugin support for "Suki" theme
+* Tweak: Added Twenty Nineteen support to supported themes of "Themer Pro" plugin (since v1.1.0+ of Themer Pro!)
+* Tweak: Changed wording for "PithyWP Templates" plugin support after their subtle renaming
+* Tweak: Added our "Add-Ons" settings tab to our Elementor Finder feature support
+* Tweak: On our "About & Support" admin page, integrated with *Site Health Debug Info* for support purposes
+* Tweak: Improved Multisite support for Plugin & Theme Uploader pages
+* Tweak: Reorganized compatibility functions/ layer behind the scenes, for plugins etc.
+* Tweak: Correct logic behind optional Gallery/Slider plugin hook place so it doesn't appear as empty item any longer
+* Tweak: Refined recommended Gutenberg-specific plugins for "Plugin Installer Recommendations" library
+* Tweak: Remove "Jetpack Ads" as far as possible (since Jetpack 7.1+)
+* Tweak: Remove "WooCommerce Ads/ Suggestions" as far as possible (since WooCommerce 3.6+)
+* Tweak: Updated bundled library DDWlib Plugin Installer Recommendations to latest version (v1.4.1) - feature updates
+* Tweak: Updated `.pot` file plus all German translations (formal, informal) and language packs
+
+**New, 1.4.3:** *Extended the Plugin support for Elementor Add-Ons:*
+
+* Flexible Elementor Panel (free, by Alex Shram/ Flexible-Elementor-Panel.com)
+* Multidomain Support for Elementor (free, by Alex Zappa)
+* Bestfreebie Elementor Icons (free, by Bestfreebie)
+* The Plus Addons for Elementor Lite/Pro (free/Premium, by POSIMYTH Themes)
+* Unlimited Elements for Elementor Lite/Pro (free/Premium, by Blox Themes)
+* WooLentor - WooCommerce Elementor Addons + Builder (free, by HT Plugins)
+* Advamentor (free, by Themexa)
+* DT WooCommerce Page Builder for Elementor (Premium, by DawnThemes)
+* Clever Mega Menu for Elementor (free, by CleverSoft)
+
+**New, 1.4.3:** *Extended the general Plugin support for:*
+
+* GP Related Posts (free, by Jon Mather)
+* [GP Elements Disable (free, by Jon Mather)](https://github.com/WestCoastDigital/gp-elements-disable)
+* WordPress Color Picker Enhancement (free, by P. Roy)
+* Advanced Custom Fields (free, by Elliot Condon) - *Note: only ACF version 5.x or higher! (v4.x not supported!)*
+* Advanced Custom Fields Pro (Premium, by Elliot Condon)
+* Advanced Custom Fields: Extended (free, by ACF Extended) - *Note: a third-party ACF Pro Add-On*
+* Advanced Forms (free, by Fabian Lindfors/ Hookturn Digital Pty Ltd) - *Note: a third-party ACF Pro Add-On*
+* Custom Field Suite (free, by Matt Gibbs)
+* Shortcoder (free, by Aakash Chakravarthy)
+* Imagify Image Optimizer (free, by WP Media)
+* ShortPixel Image Optimizer (free, by ShortPixel)
+* Smush Image Compression and Optimization (free, by WPMU DEV)
+* EWWW Image Optimizer (free, by Exactly WWW)
+* Compress JPEG & PNG Images (free, by TinyPNG)
+* Design Sidebar Using Page Builder (free, by WebEmpire) - *for Elementor, Beaver Builder, Classic Editor*
+
+**New, 1.4.3:** *Extended Plugin support for Block Editor Add-Ons (Gutenberg):*
+
+* CoBlocks (Page Builder Gutenberg Blocks) (free, by CoBlocks)
+* Otter Blocks (Gutenberg Blocks and Template Library) (free, by ThemeIsle)
+* Block Style Guides for Gutenberg (free, by Robert Gillmer)
+* Add RichText Toolbar Button (free, by Technote)
+
+
 ### ⚡ 1.4.2 - 2019-03-31
 
 * New: Added "Add-Ons" tab to plugin's settings page, featuring official, supported and recommended Add-Ons -- preparing for first official Add-On release(s) ;-)

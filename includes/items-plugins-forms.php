@@ -25,7 +25,7 @@ if ( ddw_tbex_is_gravityforms_active() ) {
  * Plugin: WPForms Lite/Pro (free/Premium, by WPForms)
  * @since 1.3.1
  */
-if ( class_exists( '\WPForms\WPForms' ) || class_exists( 'WPForms' ) ) {
+if ( ddw_tbex_is_wpforms_active() ) {
 	require_once TBEX_PLUGIN_DIR . 'includes/plugins-forms/items-wpforms.php';
 }
 
@@ -43,7 +43,7 @@ if ( function_exists( 'load_formidable_forms' ) ) {
  * Plugin: Ninja Forms (free, by The WP Ninjas)
  * @since 1.3.1
  */
-if ( class_exists( 'Ninja_Forms' ) ) {
+if ( ddw_tbex_is_ninjaforms_active() ) {
 	require_once TBEX_PLUGIN_DIR . 'includes/plugins-forms/items-ninja-forms.php';
 }
 
@@ -135,6 +135,15 @@ if ( defined( 'HAPPYFORMS_VERSION' ) ) {
  */
 if ( class_exists( 'WDFM' ) ) {
 	require_once TBEX_PLUGIN_DIR . 'includes/plugins-forms/items-form-maker.php';
+}
+
+
+/**
+ * Plugin: Advanced Forms (free, by Fabian Lindfors/ Hookturn Digital Pty Ltd)
+ * @since 1.4.3
+ */
+if ( ddw_tbex_is_acf_pro_active() && class_exists( 'AF' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins-forms/items-advanced-forms.php';
 }
 
 

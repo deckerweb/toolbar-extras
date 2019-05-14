@@ -34,9 +34,9 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_leap13_premium_addons', 100 );
  *
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_leap13_premium_addons() {
+function ddw_tbex_aoitems_leap13_premium_addons( $admin_bar ) {
 
 	/** Use Add-On hook place */
 	add_filter( 'tbex_filter_is_addon', '__return_empty_string' );
@@ -46,7 +46,7 @@ function ddw_tbex_aoitems_leap13_premium_addons() {
 	$l13pa_title_attr = ddw_tbex_string_addon_title_attr( __( 'Premium Addons for Elementor', 'toolbar-extras' ) );
 
 	/** Get white label settings from Pro version */
-	$l13pa_whitelabel = get_option( 'pa_wht_lbl_save_settings' );
+	$l13pa_whitelabel = is_network_admin() ? get_site_option( 'pa_wht_lbl_save_settings' ) : get_option( 'pa_wht_lbl_save_settings' );		//get_option( 'pa_save_settings' );	//get_option( 'pa_wht_lbl_save_settings' );
 
 	/** Respect white label if set */
 	if ( $l13pa_whitelabel && ! empty( $l13pa_whitelabel[ 'premium-wht-lbl-plugin-name' ] ) ) {
@@ -57,7 +57,7 @@ function ddw_tbex_aoitems_leap13_premium_addons() {
 	}  // end if
 
 	/** Premium Addons Settings */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'ao-l13pa',
 			'parent' => 'tbex-addons',
@@ -65,12 +65,12 @@ function ddw_tbex_aoitems_leap13_premium_addons() {
 			'href'   => esc_url( admin_url( 'admin.php?page=premium-addons' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => $l13pa_title_attr
+				'title'  => $l13pa_title_attr,
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-l13pa-elements',
 				'parent' => 'ao-l13pa',
@@ -78,14 +78,14 @@ function ddw_tbex_aoitems_leap13_premium_addons() {
 				'href'   => esc_url( admin_url( 'admin.php?page=premium-addons' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Activate Elements', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Activate Elements', 'toolbar-extras' ),
 				)
 			)
 		);
 
 		if ( ddw_tbex_is_l13pa_pro_active() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ao-l13pa-pro-elements',
 					'parent' => 'ao-l13pa',
@@ -93,14 +93,16 @@ function ddw_tbex_aoitems_leap13_premium_addons() {
 					'href'   => esc_url( admin_url( 'admin.php?page=premium-addons-pro-elems' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Activate Pro Elements', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Activate Pro Elements', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			if ( $l13pa_whitelabel && 0 == $l13pa_whitelabel[ 'premium-wht-lbl-option' ] ) {
+			if ( ! $l13pa_whitelabel
+				|| $l13pa_whitelabel && 0 == $l13pa_whitelabel[ 'premium-wht-lbl-option' ]
+			) {
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'ao-l13pa-pro-whitelabel',
 						'parent' => 'ao-l13pa',
@@ -108,7 +110,7 @@ function ddw_tbex_aoitems_leap13_premium_addons() {
 						'href'   => esc_url( admin_url( 'admin.php?page=premium-addons-pro-white-label' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'White Labeling', 'toolbar-extras' )
+							'title'  => esc_attr__( 'White Labeling', 'toolbar-extras' ),
 						)
 					)
 				);
@@ -117,7 +119,7 @@ function ddw_tbex_aoitems_leap13_premium_addons() {
 
 		}  // end if
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-l13pa-gmaps',
 				'parent' => 'ao-l13pa',
@@ -125,12 +127,12 @@ function ddw_tbex_aoitems_leap13_premium_addons() {
 				'href'   => esc_url( admin_url( 'admin.php?page=premium-addons-maps' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Google Maps API', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Google Maps API', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-l13pa-versioncontrol',
 				'parent' => 'ao-l13pa',
@@ -138,12 +140,12 @@ function ddw_tbex_aoitems_leap13_premium_addons() {
 				'href'   => esc_url( admin_url( 'admin.php?page=premium-addons-version' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Version Control', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Version Control', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-l13pa-systeminfo',
 				'parent' => 'ao-l13pa',
@@ -151,16 +153,18 @@ function ddw_tbex_aoitems_leap13_premium_addons() {
 				'href'   => esc_url( admin_url( 'admin.php?page=premium-addons-sys' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'System Info', 'toolbar-extras' )
+					'title'  => esc_attr__( 'System Info', 'toolbar-extras' ),
 				)
 			)
 		);
 
 		if ( ddw_tbex_is_l13pa_pro_active() ) {
 
-			if ( $l13pa_whitelabel && 0 == $l13pa_whitelabel[ 'premium-wht-lbl-license' ] ) {
+			if ( ! $l13pa_whitelabel
+				|| $l13pa_whitelabel && 0 == $l13pa_whitelabel[ 'premium-wht-lbl-license' ]
+			) {
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'ao-l13pa-pro-license',
 						'parent' => 'ao-l13pa',
@@ -168,7 +172,7 @@ function ddw_tbex_aoitems_leap13_premium_addons() {
 						'href'   => esc_url( admin_url( 'admin.php?page=premium-addons-pro-license' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'License', 'toolbar-extras' )
+							'title'  => esc_attr__( 'License', 'toolbar-extras' ),
 						)
 					)
 				);
@@ -180,11 +184,11 @@ function ddw_tbex_aoitems_leap13_premium_addons() {
 		/** Group: Resources for Premium Addons */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-l13pa-resources',
 					'parent' => 'ao-l13pa',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 
