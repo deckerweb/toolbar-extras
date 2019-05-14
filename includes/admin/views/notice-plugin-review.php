@@ -72,7 +72,7 @@ function ddw_tbex_register_notice_plugin_review() {
 	}
 
 	/**
-	 * The repeat after value: 3 weeks plus X
+	 * The repeat after value: 2 weeks plus X
 	 *   'X' will be a value between 1 and 10 days
 	 *
 	 *   Determines before:
