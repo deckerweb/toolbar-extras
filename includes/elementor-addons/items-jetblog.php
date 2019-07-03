@@ -93,6 +93,13 @@ function ddw_tbex_aoitems_jetblog() {
 			);
 
 			ddw_tbex_resource_item(
+				'changelog',
+				'jetblog-changelog',
+				'group-jetblog-resources',
+				'http://documentation.zemez.io/wordpress/index.php?project=jetblog&lang=en&section=jetblog-changelog'
+			);
+			
+			ddw_tbex_resource_item(
 				'official-site',
 				'jetblog-site',
 				'group-jetblog-resources',

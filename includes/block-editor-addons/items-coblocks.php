@@ -12,9 +12,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 
-add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_colocks', 10 );
+add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_coblocks', 10 );
 /**
- * Site items for Plugin: CoBlocks (free, by CoBlocks)
+ * Site items for Plugin: CoBlocks (free, by GoDaddy/ CoBlocks)
  *
  * @since 1.4.3
  *

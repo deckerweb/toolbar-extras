@@ -93,6 +93,8 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_genesis', 100 );
  */
 function ddw_tbex_themeitems_genesis() {
 
+	$genesis_customizer = version_compare( PARENT_THEME_VERSION, '2.10.0', '>=' ) ? TRUE : FALSE;
+
 	/** Genesis creative */
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(
 		array(
@@ -101,7 +103,7 @@ function ddw_tbex_themeitems_genesis() {
 			'title'  => ddw_tbex_string_theme_title( 'title', 'child' ),
 			'href'   => ddw_tbex_is_genesis_settings_active( 'settings' ) ? esc_url( admin_url( 'admin.php?page=genesis' ) ) : ddw_tbex_customizer_start(),
 			'meta'   => array(
-				'target' => '',
+				'target' => $genesis_customizer ? ddw_tbex_meta_target() : '',
 				'title'  => ddw_tbex_string_theme_title( 'attr', 'child' )
 			)
 		)
@@ -583,3 +585,27 @@ if ( ! function_exists( 'ddw_genesis_tweak_plugins_submenu' ) ) :
 	}  // end function
 
 endif;
+
+
+add_filter( 'tbex_filter_color_items', 'ddw_tbex_add_color_item_studiopress_genesis' );
+/**
+ * Add additional color item to any instance of a Toolbar Extras color picker
+ *   on its setting page.
+ *
+ * @link https://www.studiopress.com/brand-assets/
+ *
+ * @since 1.4.4
+ *
+ * @param array $color_items Array holding all color items.
+ * @return array Modified array of color items.
+ */
+function ddw_tbex_add_color_item_studiopress_genesis( $color_items ) {
+
+	$color_items[ 'sp-genesis-blue' ] = array(
+		'color' => '#0066cc',
+		'name'  => __( 'Genesis Blue', 'toolbar-extras' ),
+	);
+
+	return $color_items;
+
+}  // end function

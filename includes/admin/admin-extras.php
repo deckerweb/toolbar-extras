@@ -37,20 +37,18 @@ require_once TBEX_PLUGIN_DIR . 'includes/admin/views/notice-plugin-review.php';
  *
  * @since 1.0.0
  * @since 1.4.0 Optimizations.
+ * @since 1.4.4 Overall code improvements.
  *
- * @param array    $tbex_links (Default) Array of plugin action links.
- * @return strings $tbex_links Settings & Menu Admin links.
+ * @param array $action_links (Default) Array of plugin action links.
+ * @return array Modified array of plugin action links.
  */
-function ddw_tbex_custom_settings_links( $tbex_links ) {
-
-	$tbex_settings_link = '';
-	$tbex_menu_link     = '';
+function ddw_tbex_custom_settings_links( $action_links = [] ) {
 
 	/** Add settings link only if user can 'manage_options' */
 	if ( current_user_can( 'edit_theme_options' ) ) {
 
 		/** Settings Page link */
-		$tbex_settings_link = sprintf(
+		$tbex_links[ 'settings' ] = sprintf(
 			'<a href="%s" title="%s"><span class="dashicons-before dashicons-admin-generic"></span> %s</a>',
 			esc_url( admin_url( 'options-general.php?page=toolbar-extras' ) ),
 			/* translators: Title attribute for Toolbar Extras "Plugin settings" link */
@@ -64,7 +62,7 @@ function ddw_tbex_custom_settings_links( $tbex_links ) {
 	if ( current_user_can( 'edit_theme_options' ) ) {
 
 		/** Menus Page link */
-		$tbex_menu_link = sprintf(
+		$tbex_links[ 'menu' ] = sprintf(
 			'<a href="%s" title="%s"><span class="dashicons-before dashicons-menu"></span> %s</a>',
 			esc_url( admin_url( 'nav-menus.php' ) ),
 			esc_html__( 'Setup a custom toolbar menu', 'toolbar-extras' ),
@@ -73,15 +71,11 @@ function ddw_tbex_custom_settings_links( $tbex_links ) {
 
 	}  // end if
 
-	/** Set the order of the links */
-	array_unshift( $tbex_links, $tbex_settings_link, $tbex_menu_link );
-
 	/** Display plugin settings links */
 	return apply_filters(
 		'tbex/filter/plugins_page/settings_links',
-		$tbex_links,
-		$tbex_settings_link,	// additional param
-		$tbex_menu_link			// additional param
+		array_merge( $tbex_links, $action_links ),
+		$tbex_links		// additional param
 	);
 
 }  // end function
@@ -224,6 +218,36 @@ function ddw_tbex_dashboard_plugin_version_info( $content ) {
 	);
 
 	return $content . $tbex_info;
+
+}  // end function
+
+
+add_action( 'rightnow_end', 'ddw_tbex_dashboard_plugin_update_check' );
+add_action( 'mu_rightnow_end', 'ddw_tbex_dashboard_plugin_update_check' );
+/**
+ * @since 1.4.4
+ */
+function ddw_tbex_dashboard_plugin_update_check() {
+
+	/** Bail early if not enough permissions */
+	if ( ( ! is_multisite() && ! current_user_can( 'activate_plugins' ) )
+		|| ( is_multisite() && ! current_user_can( 'manage_network' ) )
+	) {
+		return;
+	}
+
+	/** Create button markup */
+	$output = sprintf(
+		'<div class="tbex-dashboard-updates">
+			<a class="button" href="%1$s" title="%2$s">%3$s</a>
+		</div>',
+		is_multisite() ? esc_url( network_admin_url( 'update-core.php?force-check=1' ) ) : esc_url( admin_url( 'update-core.php?force-check=1' ) ),
+		esc_html__( 'Check for Updates - Core, Plugins, Themes, Translations', 'toolbar-extras' ),
+		esc_attr__( 'Force Check Updates', 'toolbar-extras' )
+	);
+
+	/** Render button */
+	echo $output;
 
 }  // end function
 
@@ -584,6 +608,11 @@ function ddw_tbex_register_extra_plugin_recommendations( array $plugins ) {
 				'recommended' => 'yes',
 				'popular'     => 'yes',
 			),
+			'block-options' => array(
+				'featured'    => 'yes',
+				'recommended' => 'yes',
+				'popular'     => 'no',
+			),
 			'block-builder' => array(
 				'featured'    => 'yes',
 				'recommended' => 'yes',
@@ -630,6 +659,11 @@ function ddw_tbex_register_extra_plugin_recommendations( array $plugins ) {
 				'popular'     => 'no',
 			),
 			'theme-switcha' => array(
+				'featured'    => 'yes',
+				'recommended' => 'yes',
+				'popular'     => 'no',
+			),
+			'site-health-manager' => array(
 				'featured'    => 'yes',
 				'recommended' => 'yes',
 				'popular'     => 'no',

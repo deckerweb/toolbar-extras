@@ -489,8 +489,10 @@ function ddw_tbex_site_items_health_debug( $admin_bar ) {
 
 	/** Bail early if not on WP 5.2+ */
 	if ( ! ddw_tbex_is_wp52_install()
-		|| ! current_user_can( 'manage_options' )
+		/* || ! current_user_can( 'manage_options' ) */
 		|| ! apply_filters( 'tbex_filter_site_health_items', TRUE )
+		|| ( ! is_multisite() && ! current_user_can( 'install_plugins' ) )
+		|| ( is_multisite() && ! current_user_can( 'setup_network' ) )
 	) {
 		return;
 	}

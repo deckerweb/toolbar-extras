@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_coblocks', 100 );
 /**
- * Items for Theme: CoBlocks (free, by CoBlocks)
+ * Items for Theme: CoBlocks (free, by GoDaddy/ CoBlocks)
  *
  * @since 1.4.0
  * @since 1.4.2 Simplified functions.
@@ -22,12 +22,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_coblocks', 100 );
  * @uses ddw_tbex_string_theme_title()
  * @uses ddw_tbex_customizer_start()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_coblocks() {
+function ddw_tbex_themeitems_coblocks( $admin_bar ) {
 
 	/** Theme creative */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'theme-creative',
 			'parent' => 'group-active-theme',
@@ -35,7 +35,7 @@ function ddw_tbex_themeitems_coblocks() {
 			'href'   => ddw_tbex_customizer_start(),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_theme_title( 'attr', 'child' )
+				'title'  => ddw_tbex_string_theme_title( 'attr', 'child' ),
 			)
 		)
 	);
@@ -87,8 +87,10 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_coblocks_resources', 120 );
  *
  * @uses ddw_tbex_display_items_resources()
  * @uses ddw_tbex_resource_item()
+ *
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_coblocks_resources() {
+function ddw_tbex_themeitems_coblocks_resources( $admin_bar ) {
 
 	/** Bail early if no resources display active */
 	if ( ! ddw_tbex_display_items_resources() ) {
@@ -96,11 +98,11 @@ function ddw_tbex_themeitems_coblocks_resources() {
 	}
 
 	/** Group: Resources for CoBlocks */
-	$GLOBALS[ 'wp_admin_bar' ]->add_group(
+	$admin_bar->add_group(
 		array(
 			'id'     => 'group-theme-resources',
 			'parent' => 'theme-creative',
-			'meta'   => array( 'class' => 'ab-sub-secondary' )
+			'meta'   => array( 'class' => 'ab-sub-secondary' ),
 		)
 	);
 

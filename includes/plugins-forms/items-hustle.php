@@ -17,13 +17,14 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_hustle', 20 );
  * Items for Plugin: Hustle (free, by WPMU DEV)
  *
  * @since 1.3.1
+ * @since 1.4.4 Added new items.
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_hustle() {
+function ddw_tbex_site_items_hustle( $admin_bar ) {
 
 	/** For: Forms */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'forms-hustle',
 			'parent' => 'tbex-sitegroup-forms',
@@ -31,13 +32,13 @@ function ddw_tbex_site_items_hustle() {
 			'href'   => esc_url( admin_url( 'admin.php?page=hustle' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Hustle', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Hustle', 'toolbar-extras' ),
 			)
 		)
 	);
 
 		/** Overview */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-hustle-overview',
 				'parent' => 'forms-hustle',
@@ -45,13 +46,13 @@ function ddw_tbex_site_items_hustle() {
 				'href'   => esc_url( admin_url( 'admin.php?page=hustle' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Overview', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Overview', 'toolbar-extras' ),
 				)
 			)
 		);
 
 		/** Popups */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-hustle-popups',
 				'parent' => 'forms-hustle',
@@ -59,12 +60,12 @@ function ddw_tbex_site_items_hustle() {
 				'href'   => esc_url( admin_url( 'admin.php?page=hustle_popup_listing' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Popups', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Popups', 'toolbar-extras' ),
 				)
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-hustle-popups-all',
 					'parent' => 'forms-hustle-popups',
@@ -72,12 +73,12 @@ function ddw_tbex_site_items_hustle() {
 					'href'   => esc_url( admin_url( 'admin.php?page=hustle_popup_listing' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'All', 'toolbar-extras' )
+						'title'  => esc_attr__( 'All', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-hustle-popups-new',
 					'parent' => 'forms-hustle-popups',
@@ -85,13 +86,13 @@ function ddw_tbex_site_items_hustle() {
 					'href'   => esc_url( admin_url( 'admin.php?page=hustle_popup' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'New', 'toolbar-extras' )
+						'title'  => esc_attr__( 'New', 'toolbar-extras' ),
 					)
 				)
 			);
 
 		/** Slide-ins */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-hustle-slideins',
 				'parent' => 'forms-hustle',
@@ -99,12 +100,12 @@ function ddw_tbex_site_items_hustle() {
 				'href'   => esc_url( admin_url( 'admin.php?page=hustle_slidein_listing' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Slide-ins', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Slide-ins', 'toolbar-extras' ),
 				)
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-hustle-slideins-all',
 					'parent' => 'forms-hustle-slideins',
@@ -112,12 +113,12 @@ function ddw_tbex_site_items_hustle() {
 					'href'   => esc_url( admin_url( 'admin.php?page=hustle_slidein_listing' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'All', 'toolbar-extras' )
+						'title'  => esc_attr__( 'All', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-hustle-slideins-new',
 					'parent' => 'forms-hustle-slideins',
@@ -125,13 +126,13 @@ function ddw_tbex_site_items_hustle() {
 					'href'   => esc_url( admin_url( 'admin.php?page=hustle_slidein' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'New', 'toolbar-extras' )
+						'title'  => esc_attr__( 'New', 'toolbar-extras' ),
 					)
 				)
 			);
 
 		/** Embeds */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-hustle-embeds',
 				'parent' => 'forms-hustle',
@@ -139,12 +140,12 @@ function ddw_tbex_site_items_hustle() {
 				'href'   => esc_url( admin_url( 'admin.php?page=hustle_embedded_listing' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Embeds', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Embeds', 'toolbar-extras' ),
 				)
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-hustle-embeds-all',
 					'parent' => 'forms-hustle-embeds',
@@ -152,12 +153,12 @@ function ddw_tbex_site_items_hustle() {
 					'href'   => esc_url( admin_url( 'admin.php?page=hustle_embedded_listing' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'All', 'toolbar-extras' )
+						'title'  => esc_attr__( 'All', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-hustle-embeds-new',
 					'parent' => 'forms-hustle-embeds',
@@ -165,13 +166,13 @@ function ddw_tbex_site_items_hustle() {
 					'href'   => esc_url( admin_url( 'admin.php?page=hustle_embedded' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'New', 'toolbar-extras' )
+						'title'  => esc_attr__( 'New', 'toolbar-extras' ),
 					)
 				)
 			);
 
 		/** Social Sharing */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-hustle-socialsharing',
 				'parent' => 'forms-hustle',
@@ -179,12 +180,12 @@ function ddw_tbex_site_items_hustle() {
 				'href'   => esc_url( admin_url( 'admin.php?page=hustle_sshare_listing' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Social Sharing', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Social Sharing', 'toolbar-extras' ),
 				)
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-hustle-socialsharing-all',
 					'parent' => 'forms-hustle-socialsharing',
@@ -192,12 +193,12 @@ function ddw_tbex_site_items_hustle() {
 					'href'   => esc_url( admin_url( 'admin.php?page=hustle_sshare_listing' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'All', 'toolbar-extras' )
+						'title'  => esc_attr__( 'All', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-hustle-socialsharing-new',
 					'parent' => 'forms-hustle-socialsharing',
@@ -205,13 +206,41 @@ function ddw_tbex_site_items_hustle() {
 					'href'   => esc_url( admin_url( 'admin.php?page=hustle_sshare' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'New', 'toolbar-extras' )
+						'title'  => esc_attr__( 'New', 'toolbar-extras' ),
 					)
 				)
 			);
 
+		/** Integrations */
+		$admin_bar->add_node(
+			array(
+				'id'     => 'forms-hustle-integrations',
+				'parent' => 'forms-hustle',
+				'title'  => esc_attr__( 'Integrations', 'toolbar-extras' ),
+				'href'   => esc_url( admin_url( 'admin.php?page=hustle_integrations' ) ),
+				'meta'   => array(
+					'target' => '',
+					'title'  => esc_attr__( 'Integrations - Manage Connected Apps', 'toolbar-extras' ),
+				)
+			)
+		);
+
+		/** Email Lists */
+		$admin_bar->add_node(
+			array(
+				'id'     => 'forms-hustle-email-lists',
+				'parent' => 'forms-hustle',
+				'title'  => esc_attr__( 'Email Lists', 'toolbar-extras' ),
+				'href'   => esc_url( admin_url( 'admin.php?page=hustle_entries' ) ),
+				'meta'   => array(
+					'target' => '',
+					'title'  => esc_attr__( 'Email Lists - Collected Entries', 'toolbar-extras' ),
+				)
+			)
+		);
+
 		/** Settings */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-hustle-settings',
 				'parent' => 'forms-hustle',
@@ -219,7 +248,7 @@ function ddw_tbex_site_items_hustle() {
 				'href'   => esc_url( admin_url( 'admin.php?page=hustle_settings' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -227,11 +256,11 @@ function ddw_tbex_site_items_hustle() {
 		/** Group: Resources for Hustle */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-hustle-resources',
 					'parent' => 'forms-hustle',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 			

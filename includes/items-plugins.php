@@ -251,6 +251,24 @@ if ( class_exists( 'ACF' ) && defined( 'ACF' ) && defined( 'ACF_VERSION' ) && ve
 
 
 /**
+ * Plugin: Meta Box (free, by MetaBox.io)
+ * @since 1.4.4
+ */
+if ( class_exists( 'RWMB_Loader' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-meta-box.php';
+}
+
+
+/**
+ * Plugin: Pods (free, by Pods Framework Team)
+ * @since 1.4.4
+ */
+if ( defined( 'PODS_VERSION' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-pods.php';
+}
+
+
+/**
  * Plugin: Custom Field Suite (free, by Matt Gibbs)
  * @since 1.4.3
  */
@@ -366,6 +384,15 @@ if ( ( 'freelancer' === wp_basename( get_template_directory() ) )			// check for
  */
 if ( class_exists( 'sticky_header_oceanwp' ) ) {
 	require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-oceanwp-sticky-header.php';
+}
+
+
+/**
+ * Plugin: Tweaks for GeneratePress (free, by John Chapman)
+ * @since 1.4.4
+ */
+if ( function_exists( 'gptweaks_back_to_top' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-gp-tweaks.php';
 }
 
 
@@ -907,6 +934,15 @@ if ( class_exists( 'BackWPup' ) ) {
 
 
 /**
+ * Plugin: WPvivid Backup Plugin (free, by WPvivid Team)
+ * @since 1.4.4
+ */
+if ( defined( 'WPVIVID_PLUGIN_VERSION' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-wpvivid.php';
+}
+
+
+/**
  * Plugin: WP-Staging (free, by WP-Staging & Rene Hermenau)
  *   Plugin: WP-Stagig Pro (Premium, by WP-Staging & Rene Hermenau)
  * @since 1.0.0
@@ -917,11 +953,47 @@ if ( defined( 'WPSTG_PLUGIN_DIR' ) || defined( 'WPSTGPRO_VERSION' ) ) {
 
 
 /**
+ * Plugin: Activity Log (free, by Activity Log Team)
+ * @since 1.4.4
+ */
+if ( class_exists( 'AAL_Main' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-activity-log.php';
+}
+
+
+/**
  * Plugin: WP Security Audit Log (free, by WP White Security)
  * @since 1.4.0
  */
 if ( class_exists( 'WpSecurityAuditLog' ) ) {
 	require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-wp-security-audit-log.php';
+}
+
+
+/**
+ * Plugin: User Activity Log (free, by Solwin Infotech)
+ * @since 1.4.4
+ */
+if ( function_exists( 'load_text_domain_user_activity_log' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-user-activity-log.php';
+}
+
+
+/**
+ * Plugin: Simple History (free, by Pär Thernström)
+ * @since 1.4.4
+ */
+if ( defined( 'SIMPLE_HISTORY_VERSION' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-simple-history.php';
+}
+
+
+/**
+ * Plugin: Stream (free, by XWP)
+ * @since 1.4.4
+ */
+if ( function_exists( 'wp_stream_get_instance' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-stream.php';
 }
 
 
@@ -1039,4 +1111,22 @@ if ( class_exists( 'Thrive_Comments' ) ) {
  */
 if ( ddw_tbex_is_easy_updates_manager_active() ) {
 	require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-easy-updates-manager.php';
+}
+
+
+/**
+ * Plugin: Site Health Manager (free, by Rami Yushuvaev)
+ * @since 1.4.4
+ */
+if ( class_exists( 'Site_Health_Manager' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-site-health-manager.php';
+}
+
+
+/**
+ * Plugin: Site Health Tool Manager (free, by William Earnhardt)
+ * @since 1.4.4
+ */
+if ( function_exists( 'shtm_add_settings_page' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-site-health-tool-manager.php';
 }

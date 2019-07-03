@@ -246,6 +246,14 @@ function ddw_tbex_themeitems_astra_resources() {
 	);
 
 	ddw_tbex_resource_item(
+		'changelog',
+		'theme-changelog',
+		'group-theme-resources',
+		'https://wpastra.com/changelog/astra-theme/',
+		ddw_tbex_string_version_history( 'theme' )
+	);
+
+	ddw_tbex_resource_item(
 		'github',
 		'theme-github',
 		'group-theme-resources',
@@ -499,6 +507,14 @@ function ddw_tbex_themeitems_astra_pro_resources() {
 		'theme-translations-pro',
 		'group-theme-resources',
 		'https://translate.brainstormforce.com/'
+	);
+
+	ddw_tbex_resource_item(
+		'changelog',
+		'theme-changelog-pro',
+		'group-theme-resources',
+		'https://wpastra.com/changelog/astra-pro-addon/',
+		ddw_tbex_string_version_history( 'addon' )
 	);
 
 }  // end function

@@ -160,6 +160,13 @@ function ddw_tbex_aoitems_jetpopup() {
 			);
 
 			ddw_tbex_resource_item(
+				'changelog',
+				'jetpopup-changelog',
+				'group-jetpopup-resources',
+				'http://documentation.zemez.io/wordpress/index.php?project=jetpopup&lang=en&section=jetpopup-changelog'
+			);
+			
+			ddw_tbex_resource_item(
 				'official-site',
 				'jetpopup-site',
 				'group-jetpopup-resources',

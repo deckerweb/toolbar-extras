@@ -81,44 +81,44 @@ function ddw_tbex_site_items_torro_forms() {
 					)
 				);
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
-					array(
-						'id'     => 'forms-torroforms-form-' . $form_id . '-builder',
-						'parent' => 'forms-torroforms-form-' . $form_id,
-						'title'  => esc_attr__( 'Form Builder', 'toolbar-extras' ),
-						'href'   => esc_url( admin_url( 'post.php?post=' . $form_id . '&action=edit&classic-editor' ) ),
-						'meta'   => array(
-							'target' => '',
-							'title'  => esc_attr__( 'Form Builder', 'toolbar-extras' )
+					$GLOBALS[ 'wp_admin_bar' ]->add_node(
+						array(
+							'id'     => 'forms-torroforms-form-' . $form_id . '-builder',
+							'parent' => 'forms-torroforms-form-' . $form_id,
+							'title'  => esc_attr__( 'Form Builder', 'toolbar-extras' ),
+							'href'   => esc_url( admin_url( 'post.php?post=' . $form_id . '&action=edit&classic-editor' ) ),
+							'meta'   => array(
+								'target' => '',
+								'title'  => esc_attr__( 'Form Builder', 'toolbar-extras' )
+							)
 						)
-					)
-				);
+					);
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
-					array(
-						'id'     => 'forms-torroforms-form-' . $form_id . '-preview',
-						'parent' => 'forms-torroforms-form-' . $form_id,
-						'title'  => esc_attr__( 'Preview', 'toolbar-extras' ),
-						'href'   => esc_url( site_url( '/forms/' . $form_slug . '/' ) ),
-						'meta'   => array(
-							'target' => ddw_tbex_meta_target(),
-							'title'  => esc_attr__( 'Preview', 'toolbar-extras' )
+					$GLOBALS[ 'wp_admin_bar' ]->add_node(
+						array(
+							'id'     => 'forms-torroforms-form-' . $form_id . '-preview',
+							'parent' => 'forms-torroforms-form-' . $form_id,
+							'title'  => esc_attr__( 'Preview', 'toolbar-extras' ),
+							'href'   => esc_url( site_url( '/forms/' . $form_slug . '/' ) ),
+							'meta'   => array(
+								'target' => ddw_tbex_meta_target(),
+								'title'  => esc_attr__( 'Preview', 'toolbar-extras' )
+							)
 						)
-					)
-				);
+					);
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
-					array(
-						'id'     => 'forms-torroforms-form-' . $form_id . '-entries',
-						'parent' => 'forms-torroforms-form-' . $form_id,
-						'title'  => esc_attr__( 'Entries', 'toolbar-extras' ),
-						'href'   => esc_url( admin_url( 'edit.php?post_type=' . $type . '&page=torro_list_submissions&form_id=' . $form_id ) ),
-						'meta'   => array(
-							'target' => '',
-							'title'  => esc_attr__( 'Entries', 'toolbar-extras' )
+					$GLOBALS[ 'wp_admin_bar' ]->add_node(
+						array(
+							'id'     => 'forms-torroforms-form-' . $form_id . '-entries',
+							'parent' => 'forms-torroforms-form-' . $form_id,
+							'title'  => esc_attr__( 'Entries', 'toolbar-extras' ),
+							'href'   => esc_url( admin_url( 'edit.php?post_type=' . $type . '&page=torro_list_submissions&form_id=' . $form_id ) ),
+							'meta'   => array(
+								'target' => '',
+								'title'  => esc_attr__( 'Entries', 'toolbar-extras' )
+							)
 						)
-					)
-				);
+					);
 
 			}  // end foreach
 

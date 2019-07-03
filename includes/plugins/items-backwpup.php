@@ -54,7 +54,7 @@ function ddw_tbex_site_items_backwpup() {
 
 			foreach ( $jobs as $job_id ) {
 
-				$job_title  = BackWPup_Option::get( $job_id, 'name' );
+				$job_title = esc_attr( BackWPup_Option::get( $job_id, 'name' ) );
 
 				/** Add item per install */
 				$GLOBALS[ 'wp_admin_bar' ]->add_node(

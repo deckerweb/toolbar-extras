@@ -1160,3 +1160,44 @@ function ddw_tbex_string_debug_diagnostic( $source = 'tbex' ) {
 	);
 
 }  // end function
+
+
+/**
+ * Build string: "{Item} Version History"
+ *
+ * @since 1.4.4
+ *
+ * @param string $type Type of item.
+ * @return string Translateable string based on given type string.
+ */
+function ddw_tbex_string_version_history( $type = '' ) {
+
+	$item = '';
+
+	switch ( sanitize_key( $type ) ) {
+
+		case 'plugin':
+			$item = __( 'Plugin', 'toolbar-extras' );
+			break;
+
+		case 'addon':
+			$item = __( 'Add-On', 'toolbar-extras' );
+			break;
+
+		case 'theme':
+			$item = __( 'Theme', 'toolbar-extras' );
+			break;
+
+		case 'child-theme':
+			$item = __( 'Child Theme', 'toolbar-extras' );
+			break;
+
+	}  // end switch
+
+	return sprintf(
+		/* translators: %s - label for item, for example "Plugin" */
+		esc_attr__( '%s Version History', 'toolbar-extras' ),
+		esc_attr( $item )
+	);
+
+}  // end function

@@ -143,7 +143,7 @@ function ddw_tbex_aoitems_elementor_extras( $admin_bar ) {
 				'namogoextras-changelogs',
 				'group-namogoextras-resources',
 				'https://shop.namogo.com/elementor-extras/changelog/',
-				esc_attr__( 'Plugin Version History', 'toolbar-extras' )
+				ddw_tbex_string_version_history( 'addon' )
 			);
 
 			ddw_tbex_resource_item(

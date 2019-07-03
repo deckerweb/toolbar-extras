@@ -157,6 +157,13 @@ function ddw_tbex_aoitems_jetwoobuilder( $admin_bar ) {
 			);
 
 			ddw_tbex_resource_item(
+				'changelog',
+				'jetwoobuilder-changelog',
+				'group-jetwoobuilder-resources',
+				'http://documentation.zemez.io/wordpress/index.php?project=jetwoobuilder&lang=en&section=jetwoobuilder-changelog'
+			);
+			
+			ddw_tbex_resource_item(
 				'official-site',
 				'jetwoobuilder-site',
 				'group-jetwoobuilder-resources',

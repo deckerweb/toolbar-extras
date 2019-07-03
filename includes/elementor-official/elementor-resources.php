@@ -52,7 +52,7 @@ function ddw_tbex_resources_elementor() {
 		/** Hello Theme */
 		'url_ehello_support'   => 'https://wordpress.org/support/theme/hello-elementor',
 		'url_ehello_translate' => 'https://translate.wordpress.org/projects/wp-themes/hello-elementor',
-		'url_ehello_github'    => 'https://github.com/elementor/elementor-hello-theme',
+		'url_ehello_github'    => 'https://github.com/elementor/hello-elementor-theme',
 
 		/** Layers Theme */
 		'url_layers_docs'      => 'https://docs.elementor.com/search?query=layers',

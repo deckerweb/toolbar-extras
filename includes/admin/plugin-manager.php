@@ -185,7 +185,7 @@ function ddw_tbex_plugin_manager() {
 		array(
 			'name'    => _x( 'Asset CleanUp: Page Speed Booster', 'Plugin Name', 'toolbar-extras' ),
 			'slug'    => 'wp-asset-clean-up',
-			'version' => '1.3.2.8+',
+			'version' => '1.3.3.1+',
 			'notice' => array(
 				'message' => ddw_tbex_pm_badge( 'useful' ) .
 					ddw_tbex_pmstring_for( ddw_tbex_pmstring_for_general() ) .

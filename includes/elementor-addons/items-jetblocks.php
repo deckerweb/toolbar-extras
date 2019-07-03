@@ -80,6 +80,13 @@ function ddw_tbex_aoitems_jetblocks() {
 			);
 
 			ddw_tbex_resource_item(
+				'changelog',
+				'jetblocks-changelog',
+				'group-jetblocks-resources',
+				'http://documentation.zemez.io/wordpress/index.php?project=jetblocks&lang=en&section=jetblocks-changelog'
+			);
+			
+			ddw_tbex_resource_item(
 				'official-site',
 				'jetblocks-site',
 				'group-jetblocks-resources',

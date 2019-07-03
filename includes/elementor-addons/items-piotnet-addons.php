@@ -78,6 +78,14 @@ function ddw_tbex_aoitems_piotnet_addons_resources( $suffix = '', $parent = '' )
 	);
 
 	ddw_tbex_resource_item(
+		'changelog',
+		'piotnet-addons-changelogs' . $suffix,
+		'group-piotnet-addons-resources' . $suffix,
+		'https://pafe.piotnet.com/change-log/',
+		ddw_tbex_string_version_history( 'plugin' )
+	);
+
+	ddw_tbex_resource_item(
 		'official-site',
 		'piotnet-addons-site' . $suffix,
 		'group-piotnet-addons-resources' . $suffix,

@@ -401,7 +401,7 @@ if ( class_exists( '\LivemeshAddons\Livemesh_Elementor_Addons' ) || class_exists
  * Add-On: Essential Elementor Addons Lite/Pro (free/Premium, by Codetic)
  * @since 1.0.0
  */
-if ( defined( 'ESSENTIAL_ADDONS_EL_PATH' ) ) {
+if ( defined( 'EAEL_PLUGIN_VERSION' ) || defined( 'EAEL_PRO_PLUGIN_VERSION' ) || defined( 'ESSENTIAL_ADDONS_EL_PATH' ) ) {
 	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-codetic-addons.php';
 }
 

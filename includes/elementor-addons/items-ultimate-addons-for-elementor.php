@@ -139,6 +139,14 @@ function ddw_tbex_aoitems_uael( $admin_bar ) {
 			);
 
 			ddw_tbex_resource_item(
+				'changelog',
+				'uael-changelogs',
+				'group-uael-resources',
+				'https://uaelementor.com/changelog/',
+				ddw_tbex_string_version_history( 'addon' )
+			);
+
+			ddw_tbex_resource_item(
 				'official-site',
 				'uael-site',
 				'group-uael-resources',

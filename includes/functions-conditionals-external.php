@@ -96,6 +96,63 @@ function ddw_tbex_is_mstba_active() {
  */
 
 /**
+ * Detect active plugin by constant, class or function existence.
+ *
+ * @since 1.4.4
+ *
+ * @param array $plugins Array of array for constants, classes and / or
+ *                       functions to check for plugin existence.
+ * @return bool TRUE if plugin exists or FALSE if plugin constant, class or
+ *              function not detected.
+ */
+function ddw_tbex_detect_plugin( array $plugins ) {
+
+	/** Check for classes */
+	if ( isset( $plugins[ 'classes' ] ) ) {
+
+		foreach ( $plugins[ 'classes' ] as $name ) {
+
+			if ( class_exists( $name ) ) {
+				return TRUE;
+			}
+
+		}  // end foreach
+
+	}  // end if
+
+	/** Check for functions */
+	if ( isset( $plugins[ 'functions' ] ) ) {
+
+		foreach ( $plugins[ 'functions' ] as $name ) {
+
+			if ( function_exists( $name ) ) {
+				return TRUE;
+			}
+
+		}  // end foreach
+
+	}  // end if
+
+	/** Check for constants */
+	if ( isset( $plugins[ 'constants' ] ) ) {
+
+		foreach ( $plugins[ 'constants' ] as $name ) {
+
+			if ( defined( $name ) ) {
+				return TRUE;
+			}
+
+		}  // end foreach
+
+	}  // end if
+
+	/** No class, function or constant found to exist */
+	return FALSE;
+
+}  // end function
+
+
+/**
  * Is Elementor (free) plugin active or not?
  *
  * @since 1.0.0
@@ -705,6 +762,20 @@ function ddw_tbex_is_ninjaforms_active() {
 
 
 /**
+ * Is the Caldera Forms plugin active or not?
+ *
+ * @since 1.4.4
+ *
+ * @return bool TRUE if plugin is active, FALSE otherwise.
+ */
+function ddw_tbex_is_calderaforms_active() {
+
+	return defined( 'CFCORE_PATH' );
+
+}  // end function
+
+
+/**
  * Is the Give (Donations) plugin active or not?
  *
  * @since 1.4.3
@@ -713,7 +784,7 @@ function ddw_tbex_is_ninjaforms_active() {
  */
 function ddw_tbex_is_give_active() {
 
-	return defined('GIVE_VERSION');
+	return defined( 'GIVE_VERSION' );
 
 }  // end function
 

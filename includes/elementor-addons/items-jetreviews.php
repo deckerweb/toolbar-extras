@@ -80,6 +80,13 @@ function ddw_tbex_aoitems_jetreviews() {
 			);
 
 			ddw_tbex_resource_item(
+				'changelog',
+				'jetreviews-changelog',
+				'group-jetreviews-resources',
+				'http://documentation.zemez.io/wordpress/index.php?project=jetreviews&lang=en&section=jetreviews-changelog'
+			);
+			
+			ddw_tbex_resource_item(
 				'official-site',
 				'jetreviews-site',
 				'group-jetreviews-resources',

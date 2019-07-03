@@ -17,13 +17,14 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_forminator' );
  * Items for Plugin: Forminator (Pro) (free/Premium, by WPMU DEV)
  *
  * @since 1.4.0
+ * @since 1.4.4 Added settings sub items.
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_forminator() {
+function ddw_tbex_site_items_forminator( $admin_bar ) {
 
 	/** For: Forms */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'forms-forminator',
 			'parent' => 'tbex-sitegroup-forms',
@@ -46,7 +47,7 @@ function ddw_tbex_site_items_forminator() {
 		if ( is_array( $forms )	) {
 
 			/** Add group */
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-forminator-edit-forms',
 					'parent' => 'forms-forminator'
@@ -63,7 +64,7 @@ function ddw_tbex_site_items_forminator() {
 				}
 
 				/** Add item per form */
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'forms-forminator-form-' . $form_id,
 						'parent' => 'group-forminator-edit-forms',
@@ -76,7 +77,7 @@ function ddw_tbex_site_items_forminator() {
 					)
 				);
 
-					$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					$admin_bar->add_node(
 						array(
 							'id'     => 'forms-forminator-form-' . $form_id . '-builder',
 							'parent' => 'forms-forminator-form-' . $form_id,
@@ -89,7 +90,7 @@ function ddw_tbex_site_items_forminator() {
 						)
 					);
 
-					$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					$admin_bar->add_node(
 						array(
 							'id'     => 'forms-forminator-form-' . $form_id . '-entries',
 							'parent' => 'forms-forminator-form-' . $form_id,
@@ -116,7 +117,7 @@ function ddw_tbex_site_items_forminator() {
 		if ( is_array( $polls ) ) {
 
 			/** Add group */
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-forminator-edit-polls',
 					'parent' => 'forms-forminator'
@@ -133,7 +134,7 @@ function ddw_tbex_site_items_forminator() {
 				}
 
 				/** Add item per poll */
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'forms-forminator-poll-' . $poll_id,
 						'parent' => 'group-forminator-edit-polls',
@@ -146,7 +147,7 @@ function ddw_tbex_site_items_forminator() {
 					)
 				);
 
-					$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					$admin_bar->add_node(
 						array(
 							'id'     => 'forms-forminator-poll-' . $poll_id . '-builder',
 							'parent' => 'forms-forminator-poll-' . $poll_id,
@@ -159,7 +160,7 @@ function ddw_tbex_site_items_forminator() {
 						)
 					);
 
-					$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					$admin_bar->add_node(
 						array(
 							'id'     => 'forms-forminator-poll-' . $poll_id . '-entries',
 							'parent' => 'forms-forminator-poll-' . $poll_id,
@@ -186,7 +187,7 @@ function ddw_tbex_site_items_forminator() {
 		if ( is_array( $quizzes ) ) {
 
 			/** Add group */
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-forminator-edit-quizzes',
 					'parent' => 'forms-forminator'
@@ -204,7 +205,7 @@ function ddw_tbex_site_items_forminator() {
 				}
 
 				/** Add item per quiz */
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'forms-forminator-quiz-' . $quiz_id,
 						'parent' => 'group-forminator-edit-quizzes',
@@ -217,7 +218,7 @@ function ddw_tbex_site_items_forminator() {
 					)
 				);
 
-					$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					$admin_bar->add_node(
 						array(
 							'id'     => 'forms-forminator-quiz-' . $quiz_id . '-builder',
 							'parent' => 'forms-forminator-quiz-' . $quiz_id,
@@ -230,7 +231,7 @@ function ddw_tbex_site_items_forminator() {
 						)
 					);
 
-					$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					$admin_bar->add_node(
 						array(
 							'id'     => 'forms-forminator-quiz-' . $quiz_id . '-entries',
 							'parent' => 'forms-forminator-quiz-' . $quiz_id,
@@ -248,7 +249,7 @@ function ddw_tbex_site_items_forminator() {
 		}  // end if quizzes
 
 		/** Dashboard */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-forminator-dashboard',
 				'parent' => 'forms-forminator',
@@ -262,7 +263,7 @@ function ddw_tbex_site_items_forminator() {
 		);
 
 		/** Type: Forms */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-forminator-forms',
 				'parent' => 'forms-forminator',
@@ -275,7 +276,7 @@ function ddw_tbex_site_items_forminator() {
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-forminator-forms-all',
 					'parent' => 'forms-forminator-forms',
@@ -288,7 +289,7 @@ function ddw_tbex_site_items_forminator() {
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-forminator-forms-new',
 					'parent' => 'forms-forminator-forms',
@@ -302,7 +303,7 @@ function ddw_tbex_site_items_forminator() {
 			);
 
 		/** Type: Polls */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-forminator-polls',
 				'parent' => 'forms-forminator',
@@ -315,7 +316,7 @@ function ddw_tbex_site_items_forminator() {
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-forminator-polls-all',
 					'parent' => 'forms-forminator-polls',
@@ -328,7 +329,7 @@ function ddw_tbex_site_items_forminator() {
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-forminator-polls-new',
 					'parent' => 'forms-forminator-polls',
@@ -342,7 +343,7 @@ function ddw_tbex_site_items_forminator() {
 			);
 
 		/** Type: Quizzes */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-forminator-quizzes',
 				'parent' => 'forms-forminator',
@@ -355,7 +356,7 @@ function ddw_tbex_site_items_forminator() {
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-forminator-quizzes-all',
 					'parent' => 'forms-forminator-quizzes',
@@ -368,7 +369,7 @@ function ddw_tbex_site_items_forminator() {
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-forminator-quizzes-new-nowrong',
 					'parent' => 'forms-forminator-quizzes',
@@ -381,7 +382,7 @@ function ddw_tbex_site_items_forminator() {
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-forminator-quizzes-new-knowledge',
 					'parent' => 'forms-forminator-quizzes',
@@ -395,7 +396,7 @@ function ddw_tbex_site_items_forminator() {
 			);
 
 		/** All Submissions (Entries) */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-forminator-all-entries',
 				'parent' => 'forms-forminator',
@@ -409,7 +410,7 @@ function ddw_tbex_site_items_forminator() {
 		);
 
 		/** Integrations */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-forminator-integrations',
 				'parent' => 'forms-forminator',
@@ -423,7 +424,7 @@ function ddw_tbex_site_items_forminator() {
 		);
 
 		/** Settings */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-forminator-settings',
 				'parent' => 'forms-forminator',
@@ -436,13 +437,117 @@ function ddw_tbex_site_items_forminator() {
 			)
 		);
 
+			$admin_bar->add_node(
+				array(
+					'id'     => 'forms-forminator-settings-dashboard',
+					'parent' => 'forms-forminator-settings',
+					'title'  => esc_attr__( 'Dashboard', 'toolbar-extras' ),
+					'href'   => esc_url( admin_url( 'admin.php?page=forminator-settings&section=dashboard' ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => esc_attr__( 'Dashboard', 'toolbar-extras' )
+					)
+				)
+			);
+
+			$admin_bar->add_node(
+				array(
+					'id'     => 'forms-forminator-settings-emails',
+					'parent' => 'forms-forminator-settings',
+					'title'  => esc_attr__( 'Emails', 'toolbar-extras' ),
+					'href'   => esc_url( admin_url( 'admin.php?page=forminator-settings&section=emails' ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => esc_attr__( 'Emails', 'toolbar-extras' )
+					)
+				)
+			);
+
+			$admin_bar->add_node(
+				array(
+					'id'     => 'forms-forminator-settings-google-recaptcha',
+					'parent' => 'forms-forminator-settings',
+					'title'  => esc_attr__( 'Google reCAPTCHA', 'toolbar-extras' ),
+					'href'   => esc_url( admin_url( 'admin.php?page=forminator-settings&section=recaptcha' ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => esc_attr__( 'Google reCAPTCHA', 'toolbar-extras' )
+					)
+				)
+			);
+
+			$admin_bar->add_node(
+				array(
+					'id'     => 'forms-forminator-settings-data',
+					'parent' => 'forms-forminator-settings',
+					'title'  => esc_attr__( 'Data', 'toolbar-extras' ),
+					'href'   => esc_url( admin_url( 'admin.php?page=forminator-settings&section=data' ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => esc_attr__( 'Data', 'toolbar-extras' )
+					)
+				)
+			);
+
+			$admin_bar->add_node(
+				array(
+					'id'     => 'forms-forminator-settings-submissions',
+					'parent' => 'forms-forminator-settings',
+					'title'  => esc_attr__( 'Submissions', 'toolbar-extras' ),
+					'href'   => esc_url( admin_url( 'admin.php?page=forminator-settings&section=submissions' ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => esc_attr__( 'Submissions', 'toolbar-extras' )
+					)
+				)
+			);
+
+			$admin_bar->add_node(
+				array(
+					'id'     => 'forms-forminator-settings-payments',
+					'parent' => 'forms-forminator-settings',
+					'title'  => esc_attr__( 'Payments', 'toolbar-extras' ),
+					'href'   => esc_url( admin_url( 'admin.php?page=forminator-settings&section=payments' ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => esc_attr__( 'Payments', 'toolbar-extras' )
+					)
+				)
+			);
+
+			$admin_bar->add_node(
+				array(
+					'id'     => 'forms-forminator-settings-accessibility',
+					'parent' => 'forms-forminator-settings',
+					'title'  => esc_attr__( 'Accessibility', 'toolbar-extras' ),
+					'href'   => esc_url( admin_url( 'admin.php?page=forminator-settings&section=accessibility' ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => esc_attr__( 'Accessibility', 'toolbar-extras' )
+					)
+				)
+			);
+
+			$admin_bar->add_node(
+				array(
+					'id'     => 'forms-forminator-settings-pagination',
+					'parent' => 'forms-forminator-settings',
+					'title'  => esc_attr__( 'Pagination', 'toolbar-extras' ),
+					'href'   => esc_url( admin_url( 'admin.php?page=forminator-settings&section=pagination' ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => esc_attr__( 'Pagination', 'toolbar-extras' )
+					)
+				)
+			);
+
 		/** Optionally, let other WPForms Add-Ons hook in */
 		do_action( 'tbex_after_forminator_settings' );
 
 		/** Group: Resources for WPForms */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-forminator-resources',
 					'parent' => 'forms-forminator',
@@ -489,16 +594,16 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_new_content_forminator', 80 );
  *
  * @since 1.4.0
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_new_content_forminator() {
+function ddw_tbex_aoitems_new_content_forminator( $admin_bar ) {
 
 	/** Bail early if items display is not wanted */
 	if ( ! ddw_tbex_display_items_new_content() || is_network_admin() ) {
 		return;
 	}
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'tbex-forminator-forms',
 			'parent' => 'new-content',
@@ -511,7 +616,7 @@ function ddw_tbex_aoitems_new_content_forminator() {
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forminator-new-form',
 				'parent' => 'tbex-forminator-forms',
@@ -524,7 +629,7 @@ function ddw_tbex_aoitems_new_content_forminator() {
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forminator-new-poll',
 				'parent' => 'tbex-forminator-forms',
@@ -537,7 +642,7 @@ function ddw_tbex_aoitems_new_content_forminator() {
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forminator-new-quiz-nowrong',
 				'parent' => 'tbex-forminator-forms',
@@ -550,7 +655,7 @@ function ddw_tbex_aoitems_new_content_forminator() {
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forminator-new-quiz-knowledge',
 				'parent' => 'tbex-forminator-forms',

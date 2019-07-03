@@ -93,6 +93,13 @@ function ddw_tbex_aoitems_jetmenu() {
 			);
 
 			ddw_tbex_resource_item(
+				'changelog',
+				'jetmenu-changelog',
+				'group-jetmenu-resources',
+				'http://documentation.zemez.io/wordpress/index.php?project=jetmenu&lang=en&section=jetmenu-changelog'
+			);
+			
+			ddw_tbex_resource_item(
 				'official-site',
 				'jetmenu-site',
 				'group-jetmenu-resources',

@@ -19,12 +19,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_wpsynchro' );
  * @since 1.3.2
  * @since 1.4.0 Added new sub items.
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_wpsynchro() {
+function ddw_tbex_site_items_wpsynchro( $admin_bar ) {
 
 	/** For: Dev Mode */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'wpsynchro',
 			'parent' => 'tbex-sitegroup-tools',
@@ -48,7 +48,7 @@ function ddw_tbex_site_items_wpsynchro() {
 		if ( $installs ) {
 
 			/** Add group */
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-wpsynchro-installs',
 					'parent' => 'wpsynchro'
@@ -60,7 +60,7 @@ function ddw_tbex_site_items_wpsynchro() {
 				$install_title  = esc_attr( $install->name );
 
 				/** Add item per install */
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'wpsynchro-install-' . $install->id,
 						'parent' => 'group-wpsynchro-installs',
@@ -73,7 +73,7 @@ function ddw_tbex_site_items_wpsynchro() {
 					)
 				);
 
-					$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					$admin_bar->add_node(
 						array(
 							'id'     => 'wpsynchro-install-' . $install->id . '-edit',
 							'parent' => 'wpsynchro-install-' . $install->id,
@@ -86,7 +86,7 @@ function ddw_tbex_site_items_wpsynchro() {
 						)
 					);
 
-					$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					$admin_bar->add_node(
 						array(
 							'id'     => 'wpsynchro-install-' . $install->id . '-run',
 							'parent' => 'wpsynchro-install-' . $install->id,
@@ -104,7 +104,7 @@ function ddw_tbex_site_items_wpsynchro() {
 		}  // end if
 
 		/** General WPSynchro items */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'wpsynchro-installs',
 				'parent' => 'wpsynchro',
@@ -117,7 +117,7 @@ function ddw_tbex_site_items_wpsynchro() {
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'wpsynchro-installs-all',
 					'parent' => 'wpsynchro-installs',
@@ -130,7 +130,7 @@ function ddw_tbex_site_items_wpsynchro() {
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'wpsynchro-installs-pull',
 					'parent' => 'wpsynchro-installs',
@@ -143,7 +143,7 @@ function ddw_tbex_site_items_wpsynchro() {
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'wpsynchro-installs-push',
 					'parent' => 'wpsynchro-installs',
@@ -156,7 +156,7 @@ function ddw_tbex_site_items_wpsynchro() {
 				)
 			);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'wpsynchro-installs-new',
 				'parent' => 'wpsynchro',
@@ -169,7 +169,7 @@ function ddw_tbex_site_items_wpsynchro() {
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'wpsynchro-logs',
 				'parent' => 'wpsynchro',
@@ -182,7 +182,7 @@ function ddw_tbex_site_items_wpsynchro() {
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'wpsynchro-setup',
 				'parent' => 'wpsynchro',
@@ -195,7 +195,7 @@ function ddw_tbex_site_items_wpsynchro() {
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'wpsynchro-system-info',
 				'parent' => 'wpsynchro',
@@ -214,7 +214,7 @@ function ddw_tbex_site_items_wpsynchro() {
 		/** Group: Resources for WPSynchro */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-wpsynchro-resources',
 					'parent' => 'wpsynchro',
@@ -254,16 +254,16 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_new_content_wpsynchro', 100 );
  *
  * @since 1.3.2
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_new_content_wpsynchro() {
+function ddw_tbex_aoitems_new_content_wpsynchro( $admin_bar ) {
 
 	/** Bail early if items display is not wanted */
 	if ( ! ddw_tbex_display_items_new_content() ) {
 		return;
 	}
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'tbex-wpsynchro-install',
 			'parent' => 'new-content',

@@ -69,7 +69,7 @@ function ddw_tbex_site_items_custom_field_suite( $admin_bar ) {
 		/** Field categories, via BTC plugin */
 		if ( ddw_tbex_is_btcplugin_active() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'custom-field-suite-categories',
 					'parent' => 'custom-field-suite',

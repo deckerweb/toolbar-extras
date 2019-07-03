@@ -206,3 +206,27 @@ function ddw_tbex_user_items_wc_shopmanager() {
 	}  // end if
 
 }  // end function
+
+
+add_filter( 'tbex_filter_color_items', 'ddw_tbex_add_color_item_woocommerce' );
+/**
+ * Add additional color item to any instance of a Toolbar Extras color picker
+ *   on its setting page.
+ *
+ * @link https://woocommerce.com/style-guide/
+ *
+ * @since 1.4.4
+ *
+ * @param array $color_items Array holding all color items.
+ * @return array Modified array of color items.
+ */
+function ddw_tbex_add_color_item_woocommerce( $color_items ) {
+
+	$color_items[ 'woocommerce-violet' ] = array(
+		'color' => '#96588a',
+		'name'  => __( 'WooCommerce Violet', 'toolbar-extras' ),
+	);
+
+	return $color_items;
+
+}  // end function

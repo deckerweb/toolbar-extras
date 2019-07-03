@@ -11,7 +11,7 @@
 **Requires at least:** 4.7  
 **Tested up to:** 5.2  
 **Requires PHP:** 5.6  
-**Stable tag:** 1.4.3  
+**Stable tag:** 1.4.4  
 **License:** GPL-2.0-or-later  
 **License URI:** https://opensource.org/licenses/GPL-2.0  
 
@@ -176,6 +176,16 @@ Out of the box the plugin includes support for dozens of awesome Plugins and The
 Toolbar Extras supports even more plugins as listed here. Also, the plugin was tested with a lot of other plugins adding stuff to the Toolbar - and all works very well. We try to be not in the way of other plugins but rather work well together. This being said, Toolbar Extras even allows you to tweak the (Toolbar) behavior of a few selected plugins. This is really cool to save space in this bar and make the appearance overall a lot cleaner.
 
 For full list of [supported plugins](https://toolbarextras.com/plugin-support/) and [third-party plugin compatibility](https://toolbarextras.com/docs/plugin-compatibility/) just **[visit our website at https://toolbarextras.com/features/](https://toolbarextras.com/features/)**
+
+
+## ▶️ Official Add-Ons for Toolbar Extras 
+*These Add-Ons are also developed and built by myself (David Decker) and bring the awesomeness of Toolbar Extras to other page builders and other great plugins & areas in WordPress. Check them out for yourself:*
+
+[👉 **Toolbar Extras for Oxygen Builder**](https://wordpress.org/plugins/toolbar-extras-oxygen/)  
+Integrates the awesome Oxygen Builder into the Toolbar - for faster access to templates, settings and resources. Build Oxygen sites even faster. - [Get this Add-On now](https://wordpress.org/plugins/toolbar-extras-oxygen/)
+
+[👉 **Toolbar Extras for MainWP Dashboard**](https://wordpress.org/plugins/toolbar-extras-mainwp/)  
+Manage your websites faster with MainWP Dashboard and your Toolbar. Get more productive and benefit from a better user experience. - [Get this Add-On now](https://wordpress.org/plugins/toolbar-extras-mainwp/)
 
 
 ### ℹ️ Important: Required/ Recommended for plugin usage 
@@ -486,7 +496,41 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 ([For the full changelog of this plugin visit its website at ToolbarExtras.com](https://toolbarextras.com/changelog/))
 
 
-### ⚡ 1.4.3 - 2019-05-14 =
+### ⚡ 1.4.4 - 2019-07-04
+* New: Added 31 new Dashicons from WordPress 5.2+ to our list of Dashicons icon picker (on our settings page) - only if your install runs WordPress 5.2 or higher
+* New: New resource for "Genesis Customizer" theme - Facebook Group
+* New: Added optional "StudioPress/ Genesis Blue" color item for settings color picker palettes (optional, if Genesis is active)
+* New: Added optional "WooCommerce Violet" color item for settings color picker palettes (optional, if WooCommerce is active)
+* New: Added optional "EDD Cello" and "EDD Blue" color items for settings color picker palettes (optional, if Easy Digital Downloads (EDD) is active)
+* Tweak: For "Genesis Customizer Pro" plugin support made the module logic work again to display the additional Customizer deep links
+* Tweak: For Genesis theme support, special tweaks for the Customizer redirection of official Genesis theme settings
+* Tweak: For "Essential Addons for Elementor" added support for version 3.x, plus new item "Tools"
+* Tweak: For "WP Security Audit Log" plugin support added new item "Export/Import"
+* Tweak: For "Forminator" plugin support added new settings sub items
+* Tweak: For "Hustle" plugin support added new items
+* Tweak: Refined resource links for Gutenberg Block Editor
+* Tweak: Refined resource links for "Hello Elementor" theme support
+* Tweak: Various smaller improvements on code base
+* Tweak: Updated `.pot` file plus all German translations (formal, informal) and language packs
+* Fix: Various smaller fixes
+
+**New, 1.4.4:** *Extended the general Plugin support for:*
+
+* Form Vibes (free, by WPVibes)
+* Tweaks for GeneratePress (free, by John Chapman)
+* Activity Log (free, by Activity Log Team)
+* User Activity Log (free, by Solwin Infotech)
+* Stream (free, by XWP)
+* Simple History (free, by Pär Thernström)
+* EditorsKit (free, by Jeffrey Carandang/ Phpbits Creative Studio)
+* Site Health Manager (free, by Rami Yushuvaev)
+* Site Health Tool Manager (free, by William Earnhardt)
+* Pods - Custom Content Types and Fields (free, by Pods Framework Team)
+* Meta Box (free, by MetaBox.io) + these Add-Ons: MB Custom Post Type, MB Custom Taxonomy, Meta Box Template, Meta Box Builder (2.x & 3.x)
+* WPvivid Backup Plugin (free, by WPvivid Team)
+
+
+### ⚡ 1.4.3 - 2019-05-14
 * *New: Successfully tested with WordPress 5.2*
 * *New: Successfully tested with ClassicPress 1.0.1*
 * New: Theme support for "Genesis Customizer" (free, by SEO Themes), including plugins: *Genesis Customizer Core (free)* and *Genesis Customizer Pro (Premium)* (both by SEO Themes) -- *Note: This is an awesome special Child Theme for the Genesis Framework perfectly suited for Non-Coder Designers, Non-Techies and Site Builders! ;-)*
@@ -563,7 +607,7 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 
 **New, 1.4.3:** *Extended Plugin support for Block Editor Add-Ons (Gutenberg):*
 
-* CoBlocks (Page Builder Gutenberg Blocks) (free, by CoBlocks)
+* CoBlocks (Page Builder Gutenberg Blocks) (free, by GoDaddy/ CoBlocks)
 * Otter Blocks (Gutenberg Blocks and Template Library) (free, by ThemeIsle)
 * Block Style Guides for Gutenberg (free, by Robert Gillmer)
 * Add RichText Toolbar Button (free, by Technote)
@@ -762,7 +806,7 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 * Editor Blocks (free, by Editor Blocks/ Danny Cooper)
 * Twenty Nineteen (free, by the WordPress.org team) - *Note: the new default theme since WordPress 5.0+*
 * Mai Law Pro (Child Theme for Genesis) (Premium, by Mike Hemberger, BizBudding Inc.)
-* CoBlocks (free, by Rich Tabor of CoBlocks)
+* CoBlocks (free, by GoDaddy/ CoBlocks)
 * Sydney (free, by athemes)
 * Suki (free, by SukiWP/ David Rozando) - including Suki Pro Add-On plugin (Premium, by SukiWP/ David Rozando)
 * Visual Composer Starter (free, by The Visual Composer Team)
@@ -1409,6 +1453,11 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 ## Upgrade Notice 
 
 
+
+### 1.4.4
+16 additional Plugins supported! 31 new Dashicons for customization available (since WP 5.2+). Lots of refinements and improvements. - **Update highly recommended.**
+
+
 ### 1.4.3
 35 additional Plugins and 1 additional Theme supported! Lots of refinements and improvements. - **Update highly recommended.**
 
@@ -1528,6 +1577,7 @@ Credit where credit is due. The following code, classes and libraries were used 
 
 
 ## 🔆 My Other Plugins 
+* [**Toolbar Extras for MainWP Dashboard - Add-On plugin**](https://wordpress.org/plugins/toolbar-extras-mainwp/)
 * [**Toolbar Extras for Oxygen Builder - Add-On plugin**](https://wordpress.org/plugins/toolbar-extras-oxygen/)
 * [**Builder Template Categories - for WordPress Page Builders**](https://wordpress.org/plugins/builder-template-categories/)
 * [**Polylang Connect for Elementor – Language Switcher & Template Tweaks**](https://wordpress.org/plugins/connect-polylang-elementor/)

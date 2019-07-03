@@ -52,7 +52,7 @@ if ( ddw_tbex_is_ninjaforms_active() ) {
  * Plugin: Caldera Forms (Premium, by Caldera Labs)
  * @since 1.3.1
  */
-if ( defined( 'CFCORE_PATH' ) ) {
+if ( ddw_tbex_is_calderaforms_active() ) {
 	require_once TBEX_PLUGIN_DIR . 'includes/plugins-forms/items-caldera-forms.php';
 }
 
@@ -180,6 +180,17 @@ if ( defined( 'HTML_FORMS_VERSION' ) ) {
  */
 if ( class_exists( 'ContactFormX' ) ) {
 	require_once TBEX_PLUGIN_DIR . 'includes/plugins-forms/items-contactformx.php';
+}
+
+
+/**
+ * Plugin: Form Vibes (free, by WPVibes)
+ * @since 1.4.4
+ */
+if ( ( ddw_tbex_is_cf7_active() || ddw_tbex_is_elementor_pro_active() || ddw_tbex_is_calderaforms_active() )		// depends on CF7 Forms OR Caldera Forms OR Elementor Pro Forms
+	&& defined( 'WPV_FV_VERSION' )
+) {
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins-forms/items-form-vibes.php';
 }
 
 

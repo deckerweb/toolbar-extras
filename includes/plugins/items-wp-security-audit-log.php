@@ -17,15 +17,16 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_wp_security_audit_log', 100 )
  * Items for Plugin: WP Security Audit Log (free, by WP White Security)
  *
  * @since 1.4.0
+ * @since 1.4.4 Added new item.
  *
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar']
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_wp_security_audit_log() {
+function ddw_tbex_site_items_wp_security_audit_log( $admin_bar ) {
 
 	/** Plugin's items */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'wp-security-auditlog',
 			'parent' => 'tbex-sitegroup-tools',
@@ -39,7 +40,7 @@ function ddw_tbex_site_items_wp_security_audit_log() {
 	);
 
 		/** Logs */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'wp-security-auditlog-logs',
 				'parent' => 'wp-security-auditlog',
@@ -53,7 +54,7 @@ function ddw_tbex_site_items_wp_security_audit_log() {
 		);
 
 		/** Enable/ Disable Events */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'wp-security-auditlog-events',
 				'parent' => 'wp-security-auditlog',
@@ -66,7 +67,7 @@ function ddw_tbex_site_items_wp_security_audit_log() {
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'wp-security-auditlog-events-user',
 					'parent' => 'wp-security-auditlog-events',
@@ -79,7 +80,7 @@ function ddw_tbex_site_items_wp_security_audit_log() {
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'wp-security-auditlog-events-content',
 					'parent' => 'wp-security-auditlog-events',
@@ -92,7 +93,7 @@ function ddw_tbex_site_items_wp_security_audit_log() {
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'wp-security-auditlog-events-wpinstall',
 					'parent' => 'wp-security-auditlog-events',
@@ -107,7 +108,7 @@ function ddw_tbex_site_items_wp_security_audit_log() {
 
 			if ( is_multisite() ) {
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'wp-security-auditlog-events-multisite',
 						'parent' => 'wp-security-auditlog-events',
@@ -122,7 +123,7 @@ function ddw_tbex_site_items_wp_security_audit_log() {
 
 			}  // end if
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'wp-security-auditlog-events-plugins',
 					'parent' => 'wp-security-auditlog-events',
@@ -136,7 +137,7 @@ function ddw_tbex_site_items_wp_security_audit_log() {
 			);
 
 		/** Settings */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'wp-security-auditlog-settings',
 				'parent' => 'wp-security-auditlog',
@@ -149,7 +150,7 @@ function ddw_tbex_site_items_wp_security_audit_log() {
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'wp-security-auditlog-settings-general',
 					'parent' => 'wp-security-auditlog-settings',
@@ -162,7 +163,7 @@ function ddw_tbex_site_items_wp_security_audit_log() {
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'wp-security-auditlog-settings-activity-log',
 					'parent' => 'wp-security-auditlog-settings',
@@ -175,7 +176,7 @@ function ddw_tbex_site_items_wp_security_audit_log() {
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'wp-security-auditlog-settings-file-changes',
 					'parent' => 'wp-security-auditlog-settings',
@@ -188,7 +189,7 @@ function ddw_tbex_site_items_wp_security_audit_log() {
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'wp-security-auditlog-settings-exclude-objects',
 					'parent' => 'wp-security-auditlog-settings',
@@ -201,7 +202,20 @@ function ddw_tbex_site_items_wp_security_audit_log() {
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
+				array(
+					'id'     => 'wp-security-auditlog-settings-export-import',
+					'parent' => 'wp-security-auditlog-settings',
+					'title'  => esc_attr__( 'Export &amp; Import', 'toolbar-extras' ),
+					'href'   => esc_url( admin_url( 'admin.php?page=wsal-settings&tab=import-settings' ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => esc_attr__( 'Export &amp; Import', 'toolbar-extras' )
+					)
+				)
+			);
+
+			$admin_bar->add_node(
 				array(
 					'id'     => 'wp-security-auditlog-settings-advanced',
 					'parent' => 'wp-security-auditlog-settings',
@@ -215,7 +229,7 @@ function ddw_tbex_site_items_wp_security_audit_log() {
 			);
 
 		/** System Info */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'wp-security-auditlog-system-info',
 				'parent' => 'wp-security-auditlog',
@@ -231,7 +245,7 @@ function ddw_tbex_site_items_wp_security_audit_log() {
 		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-wpsecurityauditlog-resources',
 					'parent' => 'wp-security-auditlog',

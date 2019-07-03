@@ -89,10 +89,10 @@ function ddw_tbex_themeitems_genesis_customizer_child_customize( array $items ) 
 	);
 
 	/** Pro Add-On: Additionally selected Customizer panels */
-	if ( ddw_tbex_is_genesis_customizer_pro_active() ) {
+	if ( ddw_tbex_is_genesis_customizer_pro_active() && function_exists( '\GenesisCustomizer\_is_module_enabled' ) ) {
 
 		/** Hero Section */
-		if ( genesis_get_option( 'hero-section', 'genesis-customizer-settings' ) ) {
+		if ( \GenesisCustomizer\_is_module_enabled( 'hero-section' ) ) {
 
 			$gencustmzr_items[ 'genesis-customizer_hero' ] = array(
 				'type'  => 'panel',
@@ -103,7 +103,7 @@ function ddw_tbex_themeitems_genesis_customizer_child_customize( array $items ) 
 		}  // end if
 
 		/** Mega Menu */
-		if ( genesis_get_option( 'mega-menu', 'genesis-customizer-settings' ) ) {
+		if ( \GenesisCustomizer\_is_module_enabled( 'mega-menu' ) ) {
 
 			$gencustmzr_items[ 'genesis-customizer_menus_mega' ] = array(
 				'type'  => 'section',
@@ -114,7 +114,7 @@ function ddw_tbex_themeitems_genesis_customizer_child_customize( array $items ) 
 		}  // end if
 
 		/** Scroll To Top */
-		if ( genesis_get_option( 'scroll-to-top', 'genesis-customizer-settings' ) ) {
+		if ( \GenesisCustomizer\_is_module_enabled( 'scroll-to-top' ) ) {
 
 			$gencustmzr_items[ 'genesis-customizer_footer_scroll-to-top' ] = array(
 				'type'  => 'section',
@@ -125,7 +125,7 @@ function ddw_tbex_themeitems_genesis_customizer_child_customize( array $items ) 
 		}  // end if
 
 		/** Custom Code */
-		if ( genesis_get_option( 'custom-code', 'genesis-customizer-settings' ) ) {
+		if ( \GenesisCustomizer\_is_module_enabled( 'custom-code' ) ) {
 
 			$gencustmzr_items[ 'genesis-customizer_code' ] = array(
 				'type'  => 'panel',
@@ -263,6 +263,13 @@ function ddw_tbex_themeitems_genesis_customizer_child( $admin_bar ) {
 			'childtheme-docs',
 			'group-childtheme-resources',
 			'https://docs.seothemes.com/category/189-getting-started'
+		);
+
+		ddw_tbex_resource_item(
+			'facebook-group',
+			'childtheme-fbgroup',
+			'group-childtheme-resources',
+			'https://www.facebook.com/groups/genesiscustomizer'
 		);
 
 		/** Optional hook for Genesis Customizer Pro resources */

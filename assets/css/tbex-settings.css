@@ -115,6 +115,13 @@
 	opacity: .5;
 }
 
+.tbex-settingsfields-block {
+	border-top: 1px dotted #999;
+}
+.dark-mode .tbex-settingsfields-block {
+	border-top: 1px dotted #666;
+}
+
 .tbexmwp-component-block {
 	color: #c56cd7;  /* #aaa; */
 	display: block;
@@ -521,7 +528,8 @@
 .tbex-setting-conditional.plugin-mstba,
 .tbex-setting-conditional.plugin-blockeditor
 .tbex-setting-conditional.oxygen-display-customizer,
-.tbex-setting-conditional.plugin-oxygen-theme-enabler {
+.tbex-setting-conditional.plugin-oxygen-theme-enabler,
+.tbex-setting-conditional.blocks-admin-menu {
 	display: table-row;
 }
 

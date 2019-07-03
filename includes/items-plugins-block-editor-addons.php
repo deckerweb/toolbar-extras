@@ -327,11 +327,12 @@ if ( defined( 'OTTER_BLOCKS_VERSION' ) ) {
 
 
 /**
- * Plugin: Block Options (free, by Phpbits Creative Studio)
+ * Plugin: EditorsKit (free, by Jeffrey Carandang/ Phpbits Creative Studio)
  * @since 1.4.0
+ * @since 1.4.4 Transferred from "Block Options" to rebranded "EditorsKit".
  */
-if ( class_exists( 'BLOCKOPTS_Block_Options' ) ) {
-	require_once TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-block-options.php';
+if ( class_exists( 'EditorsKit' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-editorskit.php';
 }
 
 

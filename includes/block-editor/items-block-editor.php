@@ -185,12 +185,13 @@ function ddw_tbex_resources_block_editor() {
 
 		/** Official */
 		'url_site'            => 'https//wordpress.org/gutenberg/',
-		'url_docs'            => 'https://wordpress.org/gutenberg/handbook/',
+		'url_docs'            => 'https://developer.wordpress.org/block-editor/',
 		'url_videos'          => 'https://wordpress.tv/tag/gutenberg/',
 
 		/** Dev/Contribute */
-		'url_docs_design'     => 'https://wordpress.org/gutenberg/handbook/designers-developers/',
-		'url_docs_dev'        => 'https://wordpress.org/gutenberg/handbook/contributors/',
+		'url_docs_design'     => 'https://developer.wordpress.org/block-editor/designers/',
+		'url_docs_dev'        => 'https://developer.wordpress.org/block-editor/developers/',
+		'url_docs_contribute' => 'https://developer.wordpress.org/block-editor/contributors/',
 		'url_dev_blog'        => 'https://make.wordpress.org/core/tag/gutenberg/',
 		'url_code_reference'  => 'https://developer.wordpress.org/reference/',
 
@@ -433,12 +434,26 @@ function ddw_tbex_items_block_editor_developers( $admin_bar ) {
 			array(
 				'id'     => 'block-editor-developers-docs-design',
 				'parent' => 'block-editor-developers',
-				'title'  => esc_attr__( 'Designers &amp; Developers Handbook', 'toolbar-extras' ),
+				'title'  => esc_attr__( 'Developers Handbook', 'toolbar-extras' ),
+				'href'   => ddw_tbex_get_resource_url( 'block-editor', 'url_docs_dev' ),
+				'meta'   => array(
+					'rel'    => ddw_tbex_meta_rel(),
+					'target' => ddw_tbex_meta_target(),
+					'title'  => esc_attr__( 'Developers Handbook', 'toolbar-extras' )
+				)
+			)
+		);
+
+		$admin_bar->add_node(
+			array(
+				'id'     => 'block-editor-developers-docs-design',
+				'parent' => 'block-editor-developers',
+				'title'  => esc_attr__( 'Designers Handbook', 'toolbar-extras' ),
 				'href'   => ddw_tbex_get_resource_url( 'block-editor', 'url_docs_design' ),
 				'meta'   => array(
 					'rel'    => ddw_tbex_meta_rel(),
 					'target' => ddw_tbex_meta_target(),
-					'title'  => esc_attr__( 'Designers &amp; Developers Handbook', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Designers Handbook', 'toolbar-extras' )
 				)
 			)
 		);
@@ -448,7 +463,7 @@ function ddw_tbex_items_block_editor_developers( $admin_bar ) {
 				'id'     => 'block-editor-developers-docs-dev',
 				'parent' => 'block-editor-developers',
 				'title'  => esc_attr__( 'Contributors Handbook', 'toolbar-extras' ),
-				'href'   => ddw_tbex_get_resource_url( 'block-editor', 'url_docs_dev' ),
+				'href'   => ddw_tbex_get_resource_url( 'block-editor', 'url_docs_contribute' ),
 				'meta'   => array(
 					'rel'    => ddw_tbex_meta_rel(),
 					'target' => ddw_tbex_meta_target(),

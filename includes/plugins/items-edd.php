@@ -131,3 +131,32 @@ function ddw_tbex_user_items_edd_shopuser() {
 	}  // end if
 
 }  // end function
+
+
+add_filter( 'tbex_filter_color_items', 'ddw_tbex_add_color_items_edd' );
+/**
+ * Add additional color item to any instance of a Toolbar Extras color picker
+ *   on its setting page.
+ *
+ * @link https://easydigitaldownloads.com/brand-assets/
+ *
+ * @since 1.4.4
+ *
+ * @param array $color_items Array holding all color items.
+ * @return array Modified array of color items.
+ */
+function ddw_tbex_add_color_items_edd( $color_items ) {
+
+	$color_items[ 'edd-cello' ] = array(
+		'color' => '#35495c',
+		'name'  => __( 'EDD Cello', 'toolbar-extras' ),
+	);
+
+	$color_items[ 'edd-blue' ] = array(
+		'color' => '#2794da',
+		'name'  => __( 'EDD Blue', 'toolbar-extras' ),
+	);
+
+	return $color_items;
+
+}  // end function

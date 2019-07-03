@@ -37,7 +37,7 @@ function ddw_tbex_aoitems_uagb( $admin_bar ) {
 			'href'   => esc_url( admin_url( 'options-general.php?page=uag' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_free_addon_title_attr( esc_attr__( 'Ultimate Addons for Gutenberg', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_free_addon_title_attr( esc_attr__( 'Ultimate Addons for Gutenberg', 'toolbar-extras' ) ),
 			)
 		)
 	);
@@ -50,7 +50,7 @@ function ddw_tbex_aoitems_uagb( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'options-general.php?page=uag' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Activate Blocks', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Activate Blocks', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -62,7 +62,7 @@ function ddw_tbex_aoitems_uagb( $admin_bar ) {
 				array(
 					'id'     => 'group-uagutenberg-resources',
 					'parent' => 'tbex-uagutenberg',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 
@@ -85,6 +85,14 @@ function ddw_tbex_aoitems_uagb( $admin_bar ) {
 				'uagutenberg-translate',
 				'group-uagutenberg-resources',
 				'https://translate.wordpress.org/projects/wp-plugins/ultimate-addons-for-gutenberg'
+			);
+
+			ddw_tbex_resource_item(
+				'changelog',
+				'uagutenberg-changelog',
+				'group-uagutenberg-resources',
+				'https://www.ultimategutenberg.com/changelog/',
+				ddw_tbex_string_version_history( 'plugin' )
 			);
 
 			ddw_tbex_resource_item(

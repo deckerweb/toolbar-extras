@@ -14,6 +14,41 @@
 
 ## Changelog of the Plugin
 
+### ⚡ 1.4.4 - 2019-07-04
+
+* New: Added 31 new Dashicons from WordPress 5.2+ to our list of Dashicons icon picker (on our settings page) - only if your install runs WordPress 5.2 or higher
+* New: New resource for "Genesis Customizer" theme - Facebook Group
+* New: Added optional "StudioPress/ Genesis Blue" color item for settings color picker palettes (optional, if Genesis is active)
+* New: Added optional "WooCommerce Violet" color item for settings color picker palettes (optional, if WooCommerce is active)
+* New: Added optional "EDD Cello" and "EDD Blue" color items for settings color picker palettes (optional, if Easy Digital Downloads (EDD) is active)
+* Tweak: For "Genesis Customizer Pro" plugin support made the module logic work again to display the additional Customizer deep links
+* Tweak: For Genesis theme support, special tweaks for the Customizer redirection of official Genesis theme settings
+* Tweak: For "Essential Addons for Elementor" added support for version 3.x, plus new item "Tools"
+* Tweak: For "WP Security Audit Log" plugin support added new item "Export/Import"
+* Tweak: For "Forminator" plugin support added new settings sub items
+* Tweak: For "Hustle" plugin support added new items
+* Tweak: Refined resource links for Gutenberg Block Editor
+* Tweak: Refined resource links for "Hello Elementor" theme support
+* Tweak: Various smaller improvements on code base
+* Tweak: Updated `.pot` file plus all German translations (formal, informal) and language packs
+* Fix: Various smaller fixes
+
+**New, 1.4.4:** *Extended the general Plugin support for:*
+
+* Form Vibes (free, by WPVibes)
+* Tweaks for GeneratePress (free, by John Chapman)
+* Activity Log (free, by Activity Log Team)
+* User Activity Log (free, by Solwin Infotech)
+* Stream (free, by XWP)
+* Simple History (free, by Pär Thernström)
+* EditorsKit (free, by Jeffrey Carandang/ Phpbits Creative Studio)
+* Site Health Manager (free, by Rami Yushuvaev)
+* Site Health Tool Manager (free, by William Earnhardt)
+* Pods - Custom Content Types and Fields (free, by Pods Framework Team)
+* Meta Box (free, by MetaBox.io) + these Add-Ons: MB Custom Post Type, MB Custom Taxonomy, Meta Box Template, Meta Box Builder (2.x & 3.x)
+* WPvivid Backup Plugin (free, by WPvivid Team)
+
+
 ### ⚡ 1.4.3 - 2019-05-14
 
 * *New: Successfully tested with WordPress 5.2*
