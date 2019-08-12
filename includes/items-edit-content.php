@@ -125,7 +125,7 @@ function ddw_tbex_items_view_archives( $wp_admin_bar ) {
 	);
 
 	/** Tweak Toolbar node */
-	$wp_admin_bar->add_node(
+	$GLOBALS[ 'wp_admin_bar' ]->add_node(
 		array(
 			'id'     => 'archive',	// same as original!
 			'title'  => ddw_tbex_item_title_with_icon( $build_title ),
