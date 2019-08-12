@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @uses ddw_tbex_string_toolbar_extras()
  *
  * @param string $render Flag string to optionally echo string (not returning).
- * @return string Returning or echoing the translateable strings and markup.
+ * @return string Returning or echoing the translatable strings and markup.
  */
 function ddw_tbex_help_tab_content_header( $render = '' ) {
 

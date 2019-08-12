@@ -79,7 +79,7 @@ class Items_CPT_Generic {
 		$type_name   = str_ireplace( ' items', '', $type_name );
 		$type_single = str_ireplace( ' item', '', $type_single );
 
-		/** Set the titles, translateable */
+		/** Set the titles, translatable */
 		$title_edit = sprintf(
 			/* translators: %s - name of a post type (plural label) */
 			esc_attr__( 'Edit %s Items', 'toolbar-extras' ),

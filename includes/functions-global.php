@@ -1121,7 +1121,7 @@ function ddw_tbex_string_cpt( $type = '', $element = '' ) {
  * @param string $title_attr  Helper, to enable output for title attribute.
  * @param string $child       Helper, to optionally get Name of Child Theme.
  * @param string $custom_name Optionally use a custom theme name.
- * @return string Translateable, escaped string for use as link title or link
+ * @return string Translatable, escaped string for use as link title or link
  *                title attribute.
  */
 function ddw_tbex_string_theme_title( $title_attr = '', $child = '', $custom_name = '' ) {

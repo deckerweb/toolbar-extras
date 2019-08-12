@@ -106,7 +106,7 @@ function ddw_tbex_string_elementor_template_new() {
  * @uses ddw_tbex_is_btcplugin_active()
  *
  * @param string $type Type of plugin to build string for.
- * @return string Markup and translateable string based on plugin context.
+ * @return string Markup and translatable string based on plugin context.
  */
 function ddw_tbex_string_elementor_categories_via( $type = '' ) {
 

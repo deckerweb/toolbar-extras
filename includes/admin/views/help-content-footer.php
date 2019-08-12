@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @uses ddw_tbex_coding_years()
  *
  * @param string $render Flag string to optionally echo string (not returning).
- * @return string Returning or echoing the translateable strings and markup.
+ * @return string Returning or echoing the translatable strings and markup.
  */
 function ddw_tbex_help_tab_content_footer( $render = '' ) {
 

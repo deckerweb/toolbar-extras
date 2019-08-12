@@ -29,7 +29,7 @@ class DDW_Toolbar_Extras_Finder_Category extends \Elementor\Core\Common\Modules\
 	 *
 	 * @access public
 	 *
-	 * @return string Translateable category title.
+	 * @return string Translatable category title.
 	 */
 	public function get_title() {
 

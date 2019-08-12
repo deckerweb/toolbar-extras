@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 1.4.0
  *
- * @return string Translateable string for reusage.
+ * @return string Translatable string for reusage.
  */
 function ddw_tbex_string_toolbar_extras() {
 
@@ -833,7 +833,7 @@ function ddw_tbex_string_add_new_item( $item = '' ) {
  *
  * @since 1.3.8
  *
- * @return string Translateable string.
+ * @return string Translatable string.
  */
 function ddw_tbex_string_save_changes() {
 
@@ -854,7 +854,7 @@ function ddw_tbex_string_save_changes() {
  * @param string $render  Flag string to optionally echo string (not returning).
  * @param string $in_code Flag string to optionally embed string in HTML <code>
  *                        tags.
- * @return string Returning or echoing the translateable string and markup.
+ * @return string Returning or echoing the translatable string and markup.
  */
 function ddw_tbex_string_yes( $render = '', $in_code = '' ) {
 
@@ -878,7 +878,7 @@ function ddw_tbex_string_yes( $render = '', $in_code = '' ) {
  * @param string $render  Flag string to optionally echo string (not returning).
  * @param string $in_code Flag string to optionally embed string in HTML <code>
  *                        tags.
- * @return string Returning or echoing the translateable string and markup.
+ * @return string Returning or echoing the translatable string and markup.
  */
 function ddw_tbex_string_no( $render = '', $in_code = '' ) {
 
@@ -900,7 +900,7 @@ function ddw_tbex_string_no( $render = '', $in_code = '' ) {
  * @since 1.4.0
  *
  * @param string $render Flag string to optionally echo string (not returning).
- * @return string Returning or echoing the translateable string and markup.
+ * @return string Returning or echoing the translatable string and markup.
  */
 function ddw_tbex_string_choose_icon( $render = '' ) {
 
@@ -921,7 +921,7 @@ function ddw_tbex_string_choose_icon( $render = '' ) {
  * @since 1.4.0
  *
  * @param string $render Flag string to optionally echo string (not returning).
- * @return string Returning or echoing the translateable string and markup.
+ * @return string Returning or echoing the translatable string and markup.
  */
 function ddw_tbex_string_none_empty( $render = '' ) {
 
@@ -942,7 +942,7 @@ function ddw_tbex_string_none_empty( $render = '' ) {
  * @since 1.4.0
  *
  * @param string $render Flag string to optionally echo string (not returning).
- * @return string Returning or echoing the translateable string and markup.
+ * @return string Returning or echoing the translatable string and markup.
  */
 function ddw_tbex_string_no_custom_url( $render = '' ) {
 
@@ -962,7 +962,7 @@ function ddw_tbex_string_no_custom_url( $render = '' ) {
  *
  * @since 1.4.0
  *
- * @return string Translateable string.
+ * @return string Translatable string.
  */
 function ddw_tbex_string_ensure_input_https() {
 
@@ -1032,7 +1032,7 @@ function ddw_tbex_addon_settings_cb_note_for_coloring() {
  *
  * @since 1.4.3
  *
- * @return string Translateable string.
+ * @return string Translatable string.
  */
 function ddw_tbex_string_undefined() {
 
@@ -1046,7 +1046,7 @@ function ddw_tbex_string_undefined() {
  *
  * @since 1.4.3
  *
- * @return string Translateable string.
+ * @return string Translatable string.
  */
 function ddw_tbex_string_enabled() {
 
@@ -1060,7 +1060,7 @@ function ddw_tbex_string_enabled() {
  *
  * @since 1.4.3
  *
- * @return string Translateable string.
+ * @return string Translatable string.
  */
 function ddw_tbex_string_disabled() {
 
@@ -1075,7 +1075,7 @@ function ddw_tbex_string_disabled() {
  *
  * @since 1.4.3
  *
- * @return string Translateable string.
+ * @return string Translatable string.
  */
 function ddw_tbex_string_uninstalled() {
 
@@ -1089,7 +1089,7 @@ function ddw_tbex_string_uninstalled() {
  *
  * @since 1.4.3
  *
- * @return string Translateable string.
+ * @return string Translatable string.
  */
 function ddw_tbex_string_screen_reader_new_tab() {
 
@@ -1110,7 +1110,7 @@ function ddw_tbex_string_screen_reader_new_tab() {
  *
  * @param string $type   Type of link.
  * @param string $source Source from which to get the URL key value.
- * @return string HTML link markup and translateable string.
+ * @return string HTML link markup and translatable string.
  */
 function ddw_tbex_string_debug_info_link( $type = '', $source = 'tbex' ) {
 
@@ -1151,7 +1151,7 @@ function ddw_tbex_string_debug_info_link( $type = '', $source = 'tbex' ) {
  * @uses ddw_tbex_string_debug_info_link()
  *
  * @param string $source Source from which to get the URL key value.
- * @return string HTML link markup and translateable string.
+ * @return string HTML link markup and translatable string.
  */
 function ddw_tbex_string_debug_diagnostic( $source = 'tbex' ) {
 
@@ -1171,7 +1171,7 @@ function ddw_tbex_string_debug_diagnostic( $source = 'tbex' ) {
  * @since 1.4.4
  *
  * @param string $type Type of item.
- * @return string Translateable string based on given type string.
+ * @return string Translatable string based on given type string.
  */
 function ddw_tbex_string_version_history( $type = '' ) {
 
@@ -1211,7 +1211,7 @@ function ddw_tbex_string_version_history( $type = '' ) {
  *
  * @since 1.4.5
  *
- * @return string Translateable string.
+ * @return string Translatable string.
  */
 function ddw_tbex_string_test_current_page_url() {
 
@@ -1224,7 +1224,7 @@ function ddw_tbex_string_test_current_page_url() {
  *
  * @since 1.4.5
  *
- * @return string Translateable string.
+ * @return string Translatable string.
  */
 function ddw_tbex_string_test_home_url() {
 

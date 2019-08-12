@@ -28,7 +28,7 @@ class DDW_Elementor_Resources_Finder_Category extends \Elementor\Core\Common\Mod
 	 *
 	 * @access public
 	 *
-	 * @return string Translateable category title.
+	 * @return string Translatable category title.
 	 */
 	public function get_title() {
 

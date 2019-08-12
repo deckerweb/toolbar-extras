@@ -75,7 +75,7 @@ function ddw_tbex_pmstring_for( $plugins_string = '' ) {
  *
  * @since 1.4.2
  *
- * @return string Translateable string.
+ * @return string Translatable string.
  */
 function ddw_tbex_pmstring_for_general() {
 

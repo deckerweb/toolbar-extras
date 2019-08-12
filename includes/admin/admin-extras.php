@@ -704,7 +704,7 @@ if ( ! function_exists( 'ddwlib_plir_strings_plugin_installer' ) ) :
 
 	add_filter( 'ddwlib_plir/filter/strings/plugin_installer', 'ddwlib_plir_strings_plugin_installer' );
 	/**
-	 * Optionally, make strings translateable for included library "DDWlib Plugin
+	 * Optionally, make strings translatable for included library "DDWlib Plugin
 	 *   Installer Recommendations".
 	 *   Strings:
 	 *    - "Newest" --> tab in plugin installer toolbar
@@ -714,7 +714,7 @@ if ( ! function_exists( 'ddwlib_plir_strings_plugin_installer' ) ) :
 	 * @since 1.4.2 Added new strings.
 	 *
 	 * @param array $strings Holds all filterable strings of the library.
-	 * @return array Array of tweaked translateable strings.
+	 * @return array Array of tweaked translatable strings.
 	 */
 	function ddwlib_plir_strings_plugin_installer( $strings ) {
 

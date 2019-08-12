@@ -48,7 +48,7 @@ Out of the box the plugin includes support for dozens of awesome Plugins and The
 * Non-Techie and Non-Coder Designer friendly :)
 * Clean and efficient code
 * Developer friendly - offering quite a few action hooks and filters for customization if needed
-* Fully internationalized and translateable - also tested/optimized for RTL languages
+* Fully internationalized and translatable - also tested/optimized for RTL languages
 * [▶️ **Video feature tour throughout the plugin**](https://www.youtube.com/watch?v=gu9Z5gW9vq0)
 * [▶️ **Video live demos, tutorials, Add-Ons and more**](https://toolbarextras.com/videos/)
 
@@ -378,7 +378,7 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 
 **Easy WordPress.org plugin translation platform with GlotPress platform:** [**Translate "Toolbar Extras"...**](https://translate.wordpress.org/projects/wp-plugins/toolbar-extras)
 
-*Note:* All my plugins are internationalized/ translateable by default. This is very important for all users worldwide. So please contribute your language to the plugin to make it even more useful. For translating and validating I recommend the awesome ["Poedit Editor"](https://www.poedit.net/), which works fine on Windows, macOS and Linux.
+*Note:* All my plugins are internationalized/ translatable by default. This is very important for all users worldwide. So please contribute your language to the plugin to make it even more useful. For translating and validating I recommend the awesome ["Poedit Editor"](https://www.poedit.net/), which works fine on Windows, macOS and Linux.
 
 
 ## Screenshots 
@@ -1018,7 +1018,7 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 * Fix: Proper `$media` param for wp_register_style() occurrences
 * Fix: Proper file including for some supported Genesis child themes
 * Fix: Added forgotten setting from v1.3.0 to the settings updater routine to avoid PHP notice
-* Fix: Changed few `translators` comments in code to properly trigger the language pack creation on WordPress.org for some translateable strings
+* Fix: Changed few `translators` comments in code to properly trigger the language pack creation on WordPress.org for some translatable strings
 
 
 
