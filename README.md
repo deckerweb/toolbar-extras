@@ -11,7 +11,7 @@
 **Requires at least:** 4.7  
 **Tested up to:** 5.2  
 **Requires PHP:** 5.6  
-**Stable tag:** 1.4.5  
+**Stable tag:** 1.4.6  
 **License:** GPL-2.0-or-later  
 **License URI:** https://opensource.org/licenses/GPL-2.0  
 
@@ -499,6 +499,11 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 ## Changelog 
 
 ([For the full changelog of this plugin visit its website at ToolbarExtras.com](https://toolbarextras.com/changelog/))
+
+
+### ⚡ 1.4.6 - 2019-08-12
+* New: For all changes see version 1.4.5 below 😁
+* Tweak: Hot fix for update issue
 
 
 ### ⚡ 1.4.5 - 2019-08-12
@@ -1492,6 +1497,10 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 
 ## Upgrade Notice 
 
+
+
+### 1.4.6
+9 additional Plugins and 1 new Theme supported! New items for optional Web Group. Elementor 2.6+ support. Lots of refinements and improvements. - **Update highly recommended.**
 
 
 ### 1.4.5

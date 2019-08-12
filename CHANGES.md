@@ -14,6 +14,12 @@
 
 ## Changelog of the Plugin
 
+### ⚡ 1.4.6 - 2019-08-12
+
+* New: For all changes see version 1.4.5 below 😁
+* Tweak: Hot fix for update issue
+
+
 ### ⚡ 1.4.5 - 2019-08-12
 
 * New: Added support for Elementor Pro v2.6+ where needed ("Custom Icons" for example)
