@@ -124,7 +124,7 @@ function ddw_tbex_items_view_archives( $wp_admin_bar ) {
 		$post_type_object->labels->name
 	);
 
-	/** Tweak Toolbar node */
+	/** Tweak Toolbar node --> needs GLOBAL here! */
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(
 		array(
 			'id'     => 'archive',	// same as original!

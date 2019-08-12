@@ -24,6 +24,8 @@ add_filter( 'wp_before_admin_bar_render', 'ddw_tbex_site_items_login_designer', 
  * @uses ddw_tbex_item_title_with_icon()
  * @uses ddw_tbex_customizer_focus()
  *
+ * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ *
  * @param object $admin_bar Object of Toolbar nodes.
  */
 function ddw_tbex_site_items_login_designer( $admin_bar ) {
@@ -37,7 +39,7 @@ function ddw_tbex_site_items_login_designer( $admin_bar ) {
 	$title = esc_attr__( 'Login Designer', 'toolbar-extras' );
 
 	/** For: Active Theme Group */
-	$admin_bar->add_node(
+	$GLOBALS[ 'wp_admin_bar' ]->add_node(
 		array(
 			'id'     => 'rtabor-logindesigner',
 			'parent' => 'group-active-theme',
@@ -51,7 +53,7 @@ function ddw_tbex_site_items_login_designer( $admin_bar ) {
 	);
 
 	/** For: Front Customizer */
-	$admin_bar->add_node(
+	$GLOBALS[ 'wp_admin_bar' ]->add_node(
 		array(
 			'id'     => 'my-sub-item',	// same as original
 			'parent' => 'customize',

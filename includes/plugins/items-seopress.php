@@ -49,7 +49,7 @@ function ddw_tbex_site_items_rehook_seopress( $wp_admin_bar ) {
 
 	/** Bail early if SEOPress tweak should NOT be used */
 	if ( ! ddw_tbex_use_tweak_seopress() ) {
-		return;
+		return $wp_admin_bar;
 	}
 
 	/** Re-hook for: Site Group */
