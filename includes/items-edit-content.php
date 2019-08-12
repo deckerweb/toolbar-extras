@@ -30,29 +30,29 @@ add_action( 'admin_bar_menu', 'ddw_tbex_items_edit_content_customize' );
  * @uses ddw_tbex_customizer_focus()
  * @uses ddw_tbex_meta_target()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_items_edit_content_customize() {
+function ddw_tbex_items_edit_content_customize( $admin_bar ) {
 
 	/** Bail early if items should not be displayed */
 	if ( is_admin()
 		&& ! in_array( get_current_screen()->base, array( 'edit', 'post' ) )
 	) {
-		return;
+		return $admin_bar;
 	}
 
 	$parent = ( 'draft' === get_post_status( get_the_ID() ) ) ? 'preview' : 'view';
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'tbex-customize-content-' . get_the_ID(),
 			'parent' => is_blog_admin() ? $parent : 'edit',
-			'title'  => ddw_tbex_item_title_with_icon( ddw_tbex_string_customize_attr( __( 'Appearance', 'toolbar-extras' ) ) ),	//ddw_tbex_string_customize_attr( __( 'Appearance', 'toolbar-extras' ) ),
+			'title'  => ddw_tbex_item_title_with_icon( ddw_tbex_string_customize_attr( __( 'Appearance', 'toolbar-extras' ) ) ),
 			'href'   => ddw_tbex_customizer_focus( '', '', get_permalink( get_the_ID() ) ),
 			'meta'   => array(
 				'class'  => 'tbex-customize-content',
 				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Appearance', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_customize_attr( __( 'Appearance', 'toolbar-extras' ) ),
 			)
 		)
 	);
@@ -125,7 +125,7 @@ function ddw_tbex_items_view_archives( $wp_admin_bar ) {
 	);
 
 	/** Tweak Toolbar node */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$wp_admin_bar->add_node(
 		array(
 			'id'     => 'archive',	// same as original!
 			'title'  => ddw_tbex_item_title_with_icon( $build_title ),
@@ -153,19 +153,19 @@ add_action( 'admin_bar_menu', 'ddw_tbex_items_view_archives_additions' );
  * @uses ddw_tbex_customizer_focus()
  * @uses ddw_tbex_meta_target()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_items_view_archives_additions() {
+function ddw_tbex_items_view_archives_additions( $admin_bar ) {
 
 	/** Bail early if not in admin context */
 	if ( ! is_admin() ) {
-		return;
+		return $admin_bar;
 	}
 
 	$current_screen = get_current_screen();
 	$post_type      = $current_screen->post_type;
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'tbex-customize-archive-' . $post_type,
 			'parent' => 'archive',
@@ -174,7 +174,7 @@ function ddw_tbex_items_view_archives_additions() {
 			'meta'   => array(
 				'class'  => 'tbex-customize-content',
 				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Appearance', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_customize_attr( __( 'Appearance', 'toolbar-extras' ) ),
 			)
 		)
 	);

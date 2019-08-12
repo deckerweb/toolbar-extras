@@ -404,6 +404,14 @@ function ddw_tbex_site_items_meta_box_suite( $admin_bar ) {
 			);
 
 			ddw_tbex_resource_item(
+				'changelog',
+				'metaboxsuite-changelog',
+				'group-metaboxsuite-resources',
+				'https://metabox.io/changelog/',
+				ddw_tbex_string_version_history( 'plugin' )
+			);
+
+			ddw_tbex_resource_item(
 				'github',
 				'metaboxsuite-github',
 				'group-metaboxsuite-resources',

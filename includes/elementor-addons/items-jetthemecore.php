@@ -56,6 +56,8 @@ function ddw_tbex_get_jetthemecore_template_add_new_url( $type = '', $name = '' 
 		$type = 'jet_page';
 	}
 
+	$jet_label = '';
+	
 	/** Set the proper template type label based on template type */
 	switch ( sanitize_key( $type ) ) {
 

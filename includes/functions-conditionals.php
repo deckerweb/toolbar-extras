@@ -467,6 +467,8 @@ function ddw_tbex_in_local_environment() {
 
 	}  // end if
 
+    return FALSE;
+
 }  // end function
 
 

@@ -355,7 +355,7 @@ if ( ! class_exists( 'DDWlib_Plugin_Installer_Recommendations' ) ) :
 		 * @param object|WP_Error $result Response object or WP_Error.
 		 * @param string          $action The type of information being requested from the Plugin Install API.
 		 * @param object          $args   Plugin API arguments.
-		 * @return array Updated array of results.
+		 * @return object|WP_Error Updated object (array) of results.
 		 */
 		static function plugins_api_result( $result, $action, $args ) {
 
@@ -473,7 +473,7 @@ if ( ! class_exists( 'DDWlib_Plugin_Installer_Recommendations' ) ) :
 
 			/** Bail early if plugin "Cleaner Plugin Installer" is active */
 			if ( defined( 'CLPINST_PLUGIN_VERSION' ) ) {
-				return;
+				return $action_links;
 			}
 
 			/** Get array of label strings */

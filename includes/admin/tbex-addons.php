@@ -322,7 +322,7 @@ function ddw_tbex_addons_list( $type = '' ) {
 						</div>
 						<div class="desc column-description">
 							<p>%3$s</p>
-							<p class="authors"> <cite>By <a href="%6$s" target="_blank" rel="noopener noreferrer">%5$s</a> / <a href="%18$s" target="_blank" rel="nofollow noopener noreferrer">%17$s</a></cite></p>
+							<p class="authors"> <cite>%16$s <a href="%6$s" target="_blank" rel="noopener noreferrer">%5$s</a> / <a href="%18$s" target="_blank" rel="nofollow noopener noreferrer">%17$s</a></cite></p>
 						</div>
 					</div>
 					<div class="plugin-card-bottom">

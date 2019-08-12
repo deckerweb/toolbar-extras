@@ -332,6 +332,9 @@ function ddw_tbex_toolbar_styles() {
 				padding-right: 25px;
 			}
 
+			.tbex-elementor-inspector {
+				margin-bottom: 2px !important;
+			}
 			/* .tbex-elementor-inspector > .ab-empty-item {
 				display: none !important;
 			} */
@@ -381,6 +384,7 @@ add_action( 'admin_enqueue_scripts', 'ddw_tbex_toolbar_overflow_fix_styles' );
  * Note: Code inspired by "Admin Bar Wrap Fix" plugin (GPLv2 or later).
  *
  * @since 1.4.0
+ * @since 1.4.5 Set 'admin-bar' dependency (WP Core).
  *
  * @see plugin file: /assets/css/toolbar-overflow-fix.css
  */
@@ -389,7 +393,7 @@ function ddw_tbex_toolbar_overflow_fix_styles() {
 	wp_register_style(
 		'tbex-toolbar-overflow-fix',
 		plugins_url( '/assets/css/toolbar-overflow-fix.css', dirname( __FILE__ ) ),
-		array(),
+		array( 'admin-bar' ),
 		TBEX_PLUGIN_VERSION,
 		'screen'
 	);

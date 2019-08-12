@@ -273,6 +273,14 @@ function ddw_tbex_themeitems_jupiterx_resources() {
 	);
 
 	ddw_tbex_resource_item(
+		'changelog',
+		'theme-changelog',
+		'group-theme-resources',
+		'https://themes.artbees.net/support/jupiterx/release-notes/',
+		ddw_tbex_string_version_history( 'theme' )
+	);
+
+	ddw_tbex_resource_item(
 		'official-site',
 		'theme-site',
 		'group-theme-resources',

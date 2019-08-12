@@ -291,6 +291,15 @@ if ( class_exists( 'Layout_For_Elementor' ) ) {
 }
 
 
+/**
+ * Add-On: ToolKit for Elementor (Premium, by ToolKit for Elementor)
+ * @since 1.4.5
+ */
+if ( defined( 'TOOLKIT_FOR_ELEMENTOR_VERSION' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-toolkit-for-elementor.php';
+}
+
+
 
 /**
  * 2nd GROUP: Settings, Extras, Elements etc.
@@ -679,10 +688,12 @@ if ( function_exists( 'Briefcase_Elementor_Widgets' )
 
 
 /**
- * Add-On: WooLentor (free, by HT Plugins)
+ * Add-On: WooLentor (free, by HasThemes/ HT Plugins)
+ * Add-On: WooLentor Pro (Premium, by HasThemes/ HT Plugins)
  * @since 1.4.3
+ * @since 1.4.5 Added WooLentor Pro version.
  */
-if ( function_exists( 'WOOLENTOR_VERSION' )
+if ( ( defined( 'WOOLENTOR_VERSION' ) || defined( 'WOOLENTOR_VERSION_PRO' ) )
 	&& ddw_tbex_is_woocommerce_active()		// depends on WooCommerce
 ) {
 	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-woolentor.php';
@@ -871,6 +882,16 @@ if ( defined( 'ELEMENTOR_WHITE_LABEL_VER' ) || defined( 'ELEMENTOR_WHITE_LABEL_P
 if ( class_exists( 'Jet_Design_Kit' ) ) {
 	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-jetdesignkit.php';
 }
+
+
+/**
+ * Add-On: Social Addons for Elementor (Lite) (free, by WebEmpire)
+ * @since 1.4.5
+ */
+if ( class_exists( 'Social_Elementor_Loader' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-social-addons-for-elementor.php';
+}
+
 
 /**
  * Add-On: Advamentor (free, by Themexa)

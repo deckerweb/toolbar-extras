@@ -44,6 +44,8 @@ function ddw_tbex_resources_elementor() {
 		'url_fb_translators'   => 'https://www.facebook.com/groups/elementortranslators/',
 		'url_free_support'     => 'https://wordpress.org/support/plugin/elementor',
 		'url_apis_pro'         => 'https://developers.elementor.com/elementor-pro-apis/',
+		'url_changes'          => 'https://github.com/elementor/elementor#changelog',
+		'url_changes_pro'      => 'https://elementor.com/pro/changelog/',
 
 		/** Community */
 		'url_el_forums'        => 'https://elementorforums.com/community/',

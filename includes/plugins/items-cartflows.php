@@ -182,6 +182,85 @@ function ddw_tbex_aoitems_cartflows( $admin_bar ) {
 				)
 			);
 
+		/** Setup Wizard */
+		$admin_bar->add_node(
+			array(
+				'id'     => 'ao-cartflows-wizard',
+				'parent' => 'ao-cartflows',
+				'title'  => esc_attr__( 'Setup Wizard', 'toolbar-extras' ),
+				'href'   => esc_url( admin_url( 'index.php?page=cartflow-setup' ) ),
+				'meta'   => array(
+					'target' => '',
+					'title'  => esc_attr__( 'Setup Wizard', 'toolbar-extras' )
+				)
+			)
+		);
+
+			$admin_bar->add_node(
+				array(
+					'id'     => 'ao-cartflows-wizard-basic',
+					'parent' => 'ao-cartflows-wizard',
+					'title'  => esc_attr__( 'Step 1: Basic', 'toolbar-extras' ),
+					'href'   => esc_url( admin_url( 'index.php?page=cartflow-setup&step=basic-config' ) ),
+					'meta'   => array(
+						'target' => ddw_tbex_meta_target(),
+						'title'  => esc_attr__( 'Step 1: Basic', 'toolbar-extras' )
+					)
+				)
+			);
+
+			$admin_bar->add_node(
+				array(
+					'id'     => 'ao-cartflows-wizard-page-builder',
+					'parent' => 'ao-cartflows-wizard',
+					'title'  => esc_attr__( 'Step 2: Page Builder', 'toolbar-extras' ),
+					'href'   => esc_url( admin_url( 'index.php?page=cartflow-setup&step=basic-config' ) ),
+					'meta'   => array(
+						'target' => ddw_tbex_meta_target(),
+						'title'  => esc_attr__( 'Step 2: Page Builder', 'toolbar-extras' )
+					)
+				)
+			);
+
+			$admin_bar->add_node(
+				array(
+					'id'     => 'ao-cartflows-wizard-checkout',
+					'parent' => 'ao-cartflows-wizard',
+					'title'  => esc_attr__( 'Step 3: Checkout', 'toolbar-extras' ),
+					'href'   => esc_url( admin_url( 'index.php?page=cartflow-setup&step=checkout' ) ),
+					'meta'   => array(
+						'target' => ddw_tbex_meta_target(),
+						'title'  => esc_attr__( 'Step 3: Checkout', 'toolbar-extras' )
+					)
+				)
+			);
+
+			$admin_bar->add_node(
+				array(
+					'id'     => 'ao-cartflows-wizard-training',
+					'parent' => 'ao-cartflows-wizard',
+					'title'  => esc_attr__( 'Step 4: Training', 'toolbar-extras' ),
+					'href'   => esc_url( admin_url( 'index.php?page=cartflow-setup&step=training' ) ),
+					'meta'   => array(
+						'target' => ddw_tbex_meta_target(),
+						'title'  => esc_attr__( 'Step 4: Training', 'toolbar-extras' )
+					)
+				)
+			);
+
+			$admin_bar->add_node(
+				array(
+					'id'     => 'ao-cartflows-wizard-ready',
+					'parent' => 'ao-cartflows-wizard',
+					'title'  => esc_attr__( 'Step 5: Ready', 'toolbar-extras' ),
+					'href'   => esc_url( admin_url( 'index.php?page=cartflow-setup&step=setup-ready' ) ),
+					'meta'   => array(
+						'target' => ddw_tbex_meta_target(),
+						'title'  => esc_attr__( 'Step 5: Ready', 'toolbar-extras' )
+					)
+				)
+			);
+
 		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
@@ -214,6 +293,14 @@ function ddw_tbex_aoitems_cartflows( $admin_bar ) {
 				'https://www.facebook.com/groups/cartflows/'
 			);
 
+			ddw_tbex_resource_item(
+				'changelog',
+				'cartflows-changelog',
+				'group-cartflows-resources',
+				'https://cartflows.com/product/cartflows/',
+				ddw_tbex_string_version_history( 'plugin' )
+			);
+			
 			ddw_tbex_resource_item(
 				'translations-community',
 				'cartflows-translate',

@@ -67,7 +67,7 @@ function ddw_tbex_aoitems_advamentor( $admin_bar ) {
 
 		ddw_tbex_resource_item(
 			'support-forum',
-			'analogwp-support',
+			'advamentor-support',
 			'group-advamentor-resources',
 			'https://wordpress.org/support/plugin/advamentor/'
 		);

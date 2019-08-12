@@ -38,14 +38,14 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_kadence_woocommerce_elementor', 
  * @uses ddw_tbex_display_items_resources()
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_kadence_woocommerce_elementor() {
+function ddw_tbex_aoitems_kadence_woocommerce_elementor( $admin_bar ) {
 
 	$main_label = ddw_tbex_is_kwce_pro_active() ? __( 'WooCommerce Templates', 'toolbar-extras' ) : __( 'Product Templates', 'toolbar-extras' );
 
 	/** Plugin's Templates Content */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'ao-kdcwcel',
 			'parent' => 'group-creative-content',
@@ -53,14 +53,14 @@ function ddw_tbex_aoitems_kadence_woocommerce_elementor() {
 			'href'   => ddw_tbex_is_kwce_pro_active() ? esc_url( admin_url( 'edit.php?post_type=product&page=kadence_woo_ele_templates' ) ) : esc_url( admin_url( 'edit.php?post_type=ele-product-template' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_is_kwce_pro_active() ? ddw_tbex_string_premium_addon_title_attr( $main_label ) : ddw_tbex_string_free_addon_title_attr( $main_label )
+				'title'  => ddw_tbex_is_kwce_pro_active() ? ddw_tbex_string_premium_addon_title_attr( $main_label ) : ddw_tbex_string_free_addon_title_attr( $main_label ),
 			)
 		)
 	);
 
 		if ( ddw_tbex_is_kwce_pro_active() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ao-kdcwcel-products',
 					'parent' => 'ao-kdcwcel',
@@ -68,7 +68,7 @@ function ddw_tbex_aoitems_kadence_woocommerce_elementor() {
 					'href'   => esc_url( admin_url( 'edit.php?post_type=ele-product-template' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Product Templates', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Product Templates', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -76,7 +76,7 @@ function ddw_tbex_aoitems_kadence_woocommerce_elementor() {
 		}  // end if
 
 			/** Product Templates */
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ao-kdcwcel-products-all',
 					'parent' => ddw_tbex_is_kwce_pro_active() ? 'ao-kdcwcel-products' : 'ao-kdcwcel',
@@ -84,12 +84,12 @@ function ddw_tbex_aoitems_kadence_woocommerce_elementor() {
 					'href'   => esc_url( admin_url( 'edit.php?post_type=ele-product-template' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'All Product Templates', 'toolbar-extras' )
+						'title'  => esc_attr__( 'All Product Templates', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ao-kdcwcel-products-new',
 					'parent' => ddw_tbex_is_kwce_pro_active() ? 'ao-kdcwcel-products' : 'ao-kdcwcel',
@@ -97,14 +97,14 @@ function ddw_tbex_aoitems_kadence_woocommerce_elementor() {
 					'href'   => esc_url( admin_url( 'post-new.php?post_type=ele-product-template' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'New Product Template', 'toolbar-extras' )
+						'title'  => esc_attr__( 'New Product Template', 'toolbar-extras' ),
 					)
 				)
 			);
 
 			if ( ddw_tbex_is_elementor_active() && \Elementor\User::is_current_user_can_edit_post_type( 'ele-product-template' ) ) {
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'ao-kdcwcel-products-builder',
 						'parent' => ddw_tbex_is_kwce_pro_active() ? 'ao-kdcwcel-products' : 'ao-kdcwcel',
@@ -112,7 +112,7 @@ function ddw_tbex_aoitems_kadence_woocommerce_elementor() {
 						'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'ele-product-template' ) ),
 						'meta'   => array(
 							'target' => ddw_tbex_meta_target( 'builder' ),
-							'title'  => esc_attr__( 'New Product Template Builder', 'toolbar-extras' )
+							'title'  => esc_attr__( 'New Product Template Builder', 'toolbar-extras' ),
 						)
 					)
 				);
@@ -123,7 +123,7 @@ function ddw_tbex_aoitems_kadence_woocommerce_elementor() {
 		if ( ddw_tbex_is_kwce_pro_active() ) {
 
 			/** Pro: Product Archives/ Categories etc. Templates */
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ao-kdcwcel-archives',
 					'parent' => 'ao-kdcwcel',
@@ -131,12 +131,12 @@ function ddw_tbex_aoitems_kadence_woocommerce_elementor() {
 					'href'   => esc_url( admin_url( 'edit.php?post_type=ele-p-arch-template' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Archive Templates', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Archive Templates', 'toolbar-extras' ),
 					)
 				)
 			);
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'ao-kdcwcel-archives-all',
 						'parent' => 'ao-kdcwcel-archives',
@@ -144,12 +144,12 @@ function ddw_tbex_aoitems_kadence_woocommerce_elementor() {
 						'href'   => esc_url( admin_url( 'edit.php?post_type=ele-p-arch-template' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'All Archive Templates', 'toolbar-extras' )
+							'title'  => esc_attr__( 'All Archive Templates', 'toolbar-extras' ),
 						)
 					)
 				);
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'ao-kdcwcel-archives-new',
 						'parent' => 'ao-kdcwcel-archives',
@@ -157,14 +157,14 @@ function ddw_tbex_aoitems_kadence_woocommerce_elementor() {
 						'href'   => esc_url( admin_url( 'post-new.php?post_type=ele-p-arch-template' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'New Archive Template', 'toolbar-extras' )
+							'title'  => esc_attr__( 'New Archive Template', 'toolbar-extras' ),
 						)
 					)
 				);
 
 				if ( ddw_tbex_is_elementor_active() && \Elementor\User::is_current_user_can_edit_post_type( 'ele-p-arch-template' ) ) {
 
-					$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					$admin_bar->add_node(
 						array(
 							'id'     => 'ao-kdcwcel-archives-builder',
 							'parent' => 'ao-kdcwcel-archives',
@@ -172,7 +172,7 @@ function ddw_tbex_aoitems_kadence_woocommerce_elementor() {
 							'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'ele-p-arch-template' ) ),
 							'meta'   => array(
 								'target' => ddw_tbex_meta_target( 'builder' ),
-								'title'  => esc_attr__( 'New Archive Builder', 'toolbar-extras' )
+								'title'  => esc_attr__( 'New Archive Builder', 'toolbar-extras' ),
 							)
 						)
 					);
@@ -180,7 +180,7 @@ function ddw_tbex_aoitems_kadence_woocommerce_elementor() {
 				}  // end if
 
 			/** Pro: Shop Checkout Templates */
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ao-kdcwcel-checkout',
 					'parent' => 'ao-kdcwcel',
@@ -188,12 +188,12 @@ function ddw_tbex_aoitems_kadence_woocommerce_elementor() {
 					'href'   => esc_url( admin_url( 'edit.php?post_type=ele-check-template' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Checkout Templates', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Checkout Templates', 'toolbar-extras' ),
 					)
 				)
 			);
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'ao-kdcwcel-checkout-all',
 						'parent' => 'ao-kdcwcel-checkout',
@@ -201,12 +201,12 @@ function ddw_tbex_aoitems_kadence_woocommerce_elementor() {
 						'href'   => esc_url( admin_url( 'edit.php?post_type=ele-check-template' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'All Checkout Templates', 'toolbar-extras' )
+							'title'  => esc_attr__( 'All Checkout Templates', 'toolbar-extras' ),
 						)
 					)
 				);
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'ao-kdcwcel-checkout-new',
 						'parent' => 'ao-kdcwcel-checkout',
@@ -214,14 +214,14 @@ function ddw_tbex_aoitems_kadence_woocommerce_elementor() {
 						'href'   => esc_url( admin_url( 'post-new.php?post_type=ele-check-template' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'New Checkout Template', 'toolbar-extras' )
+							'title'  => esc_attr__( 'New Checkout Template', 'toolbar-extras' ),
 						)
 					)
 				);
 
 				if ( ddw_tbex_is_elementor_active() && \Elementor\User::is_current_user_can_edit_post_type( 'ele-check-template' ) ) {
 
-					$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					$admin_bar->add_node(
 						array(
 							'id'     => 'ao-kdcwcel-checkout-builder',
 							'parent' => 'ao-kdcwcel-checkout',
@@ -229,7 +229,7 @@ function ddw_tbex_aoitems_kadence_woocommerce_elementor() {
 							'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'ele-check-template' ) ),
 							'meta'   => array(
 								'target' => ddw_tbex_meta_target( 'builder' ),
-								'title'  => esc_attr__( 'New Checkout Builder', 'toolbar-extras' )
+								'title'  => esc_attr__( 'New Checkout Builder', 'toolbar-extras' ),
 							)
 						)
 					);
@@ -241,7 +241,7 @@ function ddw_tbex_aoitems_kadence_woocommerce_elementor() {
 		/** Template categories, via BTC plugin */
 		if ( ddw_tbex_is_btcplugin_active() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ao-kdcwcel-categories',
 					'parent' => 'ao-kdcwcel',
@@ -249,7 +249,7 @@ function ddw_tbex_aoitems_kadence_woocommerce_elementor() {
 					'href'   => esc_url( admin_url( 'edit-tags.php?taxonomy=builder-template-category&post_type=ele-product-template' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_html( ddw_btc_string_template( 'template' ) )
+						'title'  => esc_html( ddw_btc_string_template( 'template' ) ),
 					)
 				)
 			);
@@ -257,7 +257,7 @@ function ddw_tbex_aoitems_kadence_woocommerce_elementor() {
 		}  // end if
 
 		/** Template Settings (WooCommerce) */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-kdcwcel-settings',
 				'parent' => 'ao-kdcwcel',
@@ -265,7 +265,7 @@ function ddw_tbex_aoitems_kadence_woocommerce_elementor() {
 				'href'   => esc_url( admin_url( 'admin.php?page=wc-settings&tab=kadence_template_builder' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Template Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Template Settings', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -273,11 +273,11 @@ function ddw_tbex_aoitems_kadence_woocommerce_elementor() {
 		/** Group: Plugin's Resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-kdcwcel-resources',
 					'parent' => 'ao-kdcwcel',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 
@@ -331,7 +331,7 @@ function ddw_tbex_new_content_kadence_woocommerce_elementor() {
 			'href'   => esc_url( admin_url( 'post-new.php?post_type=ele-product-template' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr_x( 'Add new WooCommerce Product Template', 'Toolbar New Content section', 'toolbar-extras' )
+				'title'  => esc_attr_x( 'Add new WooCommerce Product Template', 'Toolbar New Content section', 'toolbar-extras' ),
 			)
 		)
 	);
@@ -346,7 +346,7 @@ function ddw_tbex_new_content_kadence_woocommerce_elementor() {
 					'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'ele-product-template' ) ),
 					'meta'   => array(
 						'target' => ddw_tbex_meta_target( 'builder' ),
-						'title'  => ddw_tbex_string_newcontent_create_with_builder()
+						'title'  => ddw_tbex_string_newcontent_create_with_builder(),
 					)
 				)
 			);
@@ -365,7 +365,7 @@ function ddw_tbex_new_content_kadence_woocommerce_elementor() {
 				'href'   => esc_url( admin_url( 'post-new.php?post_type=ele-p-arch-template' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr_x( 'Add new WooCommerce Product Archive Template', 'Toolbar New Content section', 'toolbar-extras' )
+					'title'  => esc_attr_x( 'Add new WooCommerce Product Archive Template', 'Toolbar New Content section', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -380,7 +380,7 @@ function ddw_tbex_new_content_kadence_woocommerce_elementor() {
 						'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'ele-p-arch-template' ) ),
 						'meta'   => array(
 							'target' => ddw_tbex_meta_target( 'builder' ),
-							'title'  => ddw_tbex_string_newcontent_create_with_builder()
+							'title'  => ddw_tbex_string_newcontent_create_with_builder(),
 						)
 					)
 				);
@@ -396,7 +396,7 @@ function ddw_tbex_new_content_kadence_woocommerce_elementor() {
 				'href'   => esc_url( admin_url( 'post-new.php?post_type=ele-check-template' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr_x( 'Add new WooCommerce Shop Checkout Template', 'Toolbar New Content section', 'toolbar-extras' )
+					'title'  => esc_attr_x( 'Add new WooCommerce Shop Checkout Template', 'Toolbar New Content section', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -411,7 +411,7 @@ function ddw_tbex_new_content_kadence_woocommerce_elementor() {
 						'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'ele-check-template' ) ),
 						'meta'   => array(
 							'target' => ddw_tbex_meta_target( 'builder' ),
-							'title'  => ddw_tbex_string_newcontent_create_with_builder()
+							'title'  => ddw_tbex_string_newcontent_create_with_builder(),
 						)
 					)
 				);

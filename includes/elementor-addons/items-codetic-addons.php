@@ -158,6 +158,13 @@ function ddw_tbex_aoitems_codetic_addons( $admin_bar ) {
 				'https://essential-addons.com/elementor/docs/'
 			);
 
+			ddw_tbex_resource_item(
+				'youtube-tutorials',
+				'codeticaddons-videos',
+				'group-codeticaddons-resources',
+				'https://www.youtube.com/channel/UCOjzLEdsnpnFVkm1JKFurPA/videos'
+			);
+
 			if ( ! $is_codetic_pro ) {
 
 				ddw_tbex_resource_item(
@@ -179,6 +186,14 @@ function ddw_tbex_aoitems_codetic_addons( $admin_bar ) {
 				);
 
 			}  // end if
+
+			ddw_tbex_resource_item(
+				'changelog',
+				'codeticaddons-changelog',
+				'group-codeticaddons-resources',
+				'https://essential-addons.com/elementor/changelog/',
+				ddw_tbex_string_version_history( 'addon' )
+			);
 
 			ddw_tbex_resource_item(
 				'github',

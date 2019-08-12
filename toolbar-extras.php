@@ -12,7 +12,7 @@
  * Plugin Name:       Toolbar Extras
  * Plugin URI:        https://toolbarextras.com/
  * Description:       This plugins adds a lot of quick jump links to the WordPress Toolbar helpful for Site Builders who use Elementor and its ecosystem of add-ons and from the theme space.
- * Version:           1.4.4
+ * Version:           1.4.5
  * Author:            David Decker - DECKERWEB
  * Author URI:        https://toolbarextras.com/
  * License:           GPL-2.0-or-later
@@ -39,7 +39,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 1.0.0
  */
 /** Plugin version */
-define( 'TBEX_PLUGIN_VERSION', '1.4.4' );
+define( 'TBEX_PLUGIN_VERSION', '1.4.5' );
 
 /** Plugin directory */
 define( 'TBEX_PLUGIN_DIR', trailingslashit( dirname( __FILE__ ) ) );
@@ -455,6 +455,8 @@ register_activation_hook( __FILE__, 'ddw_tbex_run_plugin_activation', 10, 1 );
  * @link https://leaves-and-love.net/blog/making-plugin-multisite-compatible/
  *
  * @uses ddw_tbex_plugin_activation_routine()
+ *
+ * @param bool $network_wide
  */
 function ddw_tbex_run_plugin_activation( $network_wide ) {
 
@@ -495,6 +497,13 @@ add_action( 'wpmu_new_blog', 'ddw_tbex_network_new_site_run_plugin_activation', 
  * @since 1.3.2
  *
  * @uses ddw_tbex_plugin_activation_routine()
+ *
+ * @param int    $blog_id
+ * @param int    $user_id
+ * @param string $domain
+ * @param string $path
+ * @param int    $site_id
+ * @param string $meta
  */
 function ddw_tbex_network_new_site_run_plugin_activation( $blog_id, $user_id, $domain, $path, $site_id, $meta ) {
 

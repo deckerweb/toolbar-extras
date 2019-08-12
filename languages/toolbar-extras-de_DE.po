@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Toolbar Extras\n"
-"POT-Creation-Date: 2019-07-04 01:19+0200\n"
-"PO-Revision-Date: 2019-07-04 01:20+0200\n"
+"POT-Creation-Date: 2019-08-12 16:24+0200\n"
+"PO-Revision-Date: 2019-08-12 16:24+0200\n"
 "Last-Translator: David Decker DECKERWEB.de -- https://deckerweb.de/\n"
 "Language-Team: David Decker DECKERWEB.de -- https://deckerweb.de/\n"
 "Language: de_DE\n"
@@ -24,63 +24,58 @@ msgstr ""
 #. translators: Title attribute for Toolbar Extras "Plugin settings" link
 #. translators: Settings page title in browser
 #. translators: Title attribute for Toolbar Extras "Plugin settings" link
-#: includes/admin/admin-extras.php:55 includes/admin/tbex-settings.php:44
+#: includes/admin/admin-extras.php:57 includes/admin/tbex-settings.php:44
 #: includes/items-tbex-plugin.php:46
 msgid "Toolbar Extras Settings"
 msgstr "Toolbar Extras Einstellungen"
 
-#: includes/admin/admin-extras.php:56
+#: includes/admin/admin-extras.php:58
 msgctxt "For Toolbar Extras Plugin"
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: includes/admin/admin-extras.php:68
+#: includes/admin/admin-extras.php:70
 msgid "Setup a custom toolbar menu"
 msgstr ""
 "Ein benutzerdefiniertes Menü für die Werkzeugleiste (Toolbar) einrichten"
 
-#: includes/admin/admin-extras.php:69
+#: includes/admin/admin-extras.php:71
 msgid "Custom Menu"
 msgstr "Eigenes Menü"
 
-#. translators: Plugins page listing
-#: includes/admin/admin-extras.php:120
+#: includes/admin/admin-extras.php:124
 msgctxt "Plugins page listing"
 msgid "Support"
 msgstr "Support"
 
-#. translators: Plugins page listing
-#: includes/admin/admin-extras.php:123
+#: includes/admin/admin-extras.php:131
 msgctxt "Plugins page listing"
 msgid "Facebook Group"
 msgstr "Facebook-Gruppe"
 
-#. translators: Plugins page listing
-#: includes/admin/admin-extras.php:126
+#: includes/admin/admin-extras.php:138
 msgctxt "Plugins page listing"
 msgid "Translations"
 msgstr "Übersetzungen"
 
-#. translators: Plugins page listing
-#: includes/admin/admin-extras.php:129
+#: includes/admin/admin-extras.php:145
 msgctxt "Plugins page listing"
 msgid "Donate"
 msgstr "Spenden"
 
-#. translators: Plugins page listing
-#: includes/admin/admin-extras.php:132
+#: includes/admin/admin-extras.php:152
 msgctxt "Plugins page listing"
 msgid "Join our Newsletter"
 msgstr "Newsletter jetzt!"
 
 #. translators: %s - 5 stars icons
-#: includes/admin/admin-extras.php:174
+#: includes/admin/admin-extras.php:196
 #, php-format
 msgid "%s rating"
 msgstr "%s Bewertung"
 
 #. translators: 1 - Plugin name "Toolbar Extras" / 2 - label "5 star rating"
-#: includes/admin/admin-extras.php:180
+#: includes/admin/admin-extras.php:202
 #, php-format
 msgid ""
 "Enjoyed %1$s? Please leave us a %2$s. We really appreciate your support!"
@@ -89,135 +84,135 @@ msgstr ""
 "Unterstützung!"
 
 #. translators: %s - Toolbar Extras plugin version
-#: includes/admin/admin-extras.php:216
+#: includes/admin/admin-extras.php:238
 #, php-format
 msgid "Using Toolbar Extras %s"
 msgstr "Toolbar Extras %s im Einsatz"
 
-#: includes/admin/admin-extras.php:245 includes/items-site-group.php:392
+#: includes/admin/admin-extras.php:267 includes/items-site-group.php:396
 msgid "Check for Updates - Core, Plugins, Themes, Translations"
 msgstr ""
 "Auf Aktualisierungen prüfen - WordPress-Core, Plugins, Themes, Übersetzungen"
 
-#: includes/admin/admin-extras.php:246 includes/items-site-group.php:388
+#: includes/admin/admin-extras.php:268 includes/items-site-group.php:392
 msgid "Force Check Updates"
 msgstr "Update-Check"
 
-#: includes/admin/admin-extras.php:296
+#: includes/admin/admin-extras.php:318
 #: includes/admin/classes/plugin-manager/class-toolbar-extras-plugin-manager.php:556
 #: includes/admin/views/help-content-header.php:34
-#: includes/functions-global.php:1398 includes/string-switcher.php:1180
+#: includes/functions-global.php:1421 includes/string-switcher.php:1183
 msgid "Plugin"
 msgstr "Plugin"
 
-#: includes/admin/admin-extras.php:302
+#: includes/admin/admin-extras.php:324
 msgid "Plugin version"
 msgstr "Plugin-Version"
 
-#: includes/admin/admin-extras.php:306
+#: includes/admin/admin-extras.php:328
 msgid "WordPress Install Type"
 msgstr "WordPress-Installationstyp"
 
-#: includes/admin/admin-extras.php:307
+#: includes/admin/admin-extras.php:329
 msgid "Multisite install"
 msgstr "Multisite-Installation"
 
-#: includes/admin/admin-extras.php:307
+#: includes/admin/admin-extras.php:329
 msgid "Single Site install"
 msgstr "Einzelinstallation"
 
-#: includes/admin/admin-extras.php:310
+#: includes/admin/admin-extras.php:332
 msgid "Capability for showing Toolbar items"
 msgstr "Berechtigung zum Anzeigen der Toolbar-Links"
 
-#: includes/admin/admin-extras.php:314
+#: includes/admin/admin-extras.php:336
 msgid "Default Page Builder"
 msgstr "Standard Page Builder"
 
-#: includes/admin/admin-extras.php:318
+#: includes/admin/admin-extras.php:340
 #: includes/admin/tbex-settings-development.php:89
 #: includes/admin/views/help-content-development.php:39
 msgid "Local Development Environment"
 msgstr "Lokale Entwicklungsumgebung"
 
-#: includes/admin/admin-extras.php:319
+#: includes/admin/admin-extras.php:341
 #: includes/admin/views/settings-tab-development.php:70
 #: includes/admin/views/settings-tab-development.php:75
 #: includes/admin/views/settings-tab-development.php:77
 msgid "Auto"
 msgstr "Automatisch"
 
-#: includes/admin/admin-extras.php:322
+#: includes/admin/admin-extras.php:344
 msgid "Server Name"
 msgstr "Server-Name"
 
-#: includes/admin/admin-extras.php:327
+#: includes/admin/admin-extras.php:349
 msgid "Dev Mode enabled"
 msgstr "Entwicklungsmodus aktiviert"
 
-#: includes/admin/admin-extras.php:331
+#: includes/admin/admin-extras.php:353
 msgid "Block Editor support enabled (option)"
 msgstr "Unterstützung des Block-Editors aktiviert (Option)"
 
-#: includes/admin/admin-extras.php:335
+#: includes/admin/admin-extras.php:357
 msgid "Unload Elementor translations"
 msgstr "Elementor-Übersetzungen nicht laden"
 
-#: includes/admin/admin-extras.php:339
+#: includes/admin/admin-extras.php:361
 msgid "Unload Toolbar Extras translations"
 msgstr "Toolbar Extras-Übersetzungen nicht laden"
 
-#: includes/admin/admin-extras.php:343
+#: includes/admin/admin-extras.php:365
 msgid "Capability for unloading translations"
 msgstr "Berechtigung zum Nicht-laden von Übersetzungen"
 
-#: includes/admin/admin-extras.php:347
+#: includes/admin/admin-extras.php:369
 msgid "Unloaded textdomains"
 msgstr "Ungeladene Textdomains"
 
-#: includes/admin/admin-extras.php:348
+#: includes/admin/admin-extras.php:370
 msgid "No unloaded textdomains"
 msgstr "Keine ungeladenen Textdomains"
 
-#: includes/admin/admin-extras.php:700
+#: includes/admin/admin-extras.php:722
 msgctxt "Plugin installer: Tab name in installer toolbar"
 msgid "Newest"
 msgstr "Neueste"
 
-#: includes/admin/admin-extras.php:706
+#: includes/admin/admin-extras.php:728
 msgctxt "Plugin card: plugin version"
 msgid "Version:"
 msgstr "Version:"
 
-#: includes/admin/admin-extras.php:712
+#: includes/admin/admin-extras.php:734
 msgctxt "Plugin installer: Tab name in installer toolbar"
 msgid "deckerweb Plugins"
 msgstr "deckerweb Plugins"
 
-#: includes/admin/admin-extras.php:718
+#: includes/admin/admin-extras.php:740
 msgctxt "Plugin installer: Page title"
 msgid "deckerweb Plugins"
 msgstr "deckerweb Plugins"
 
-#: includes/admin/admin-extras.php:723
+#: includes/admin/admin-extras.php:745
 msgid ""
 "Great helper tools for Site Builders to save time and get more productive"
 msgstr ""
 "Großartige Helferlein-Plugins für Site-Builder, um wertvolle Zeit zu sparen "
 "und noch produktiver zu werden"
 
-#: includes/admin/admin-extras.php:726
+#: includes/admin/admin-extras.php:748
 #, php-format
 msgid "You can use any of our free plugins or premium plugins from %s"
 msgstr ""
 "Du kannst jedes unserer kostenlosen Plugins oder Premium-Plugins von %s "
 "verwenden."
 
-#: includes/admin/admin-extras.php:730
+#: includes/admin/admin-extras.php:752
 msgid "Join our Newsletter"
 msgstr "Newsletter jetzt!"
 
-#: includes/admin/admin-extras.php:732
+#: includes/admin/admin-extras.php:754
 msgid "Facebook User Group"
 msgstr "Facebook Nutzer-Gruppe"
 
@@ -316,7 +311,7 @@ msgstr "Nicht alle deine aktiven, empfohlenen Plugins sind mit %s kompatibel."
 #. translators: 1: name of theme, 2: number of suggested plugins
 #. translators: 1: name of plugin, 2: number of suggested plugins
 #: includes/admin/classes/plugin-manager/class-toolbar-extras-plugin-manager.php:312
-#: includes/admin/plugin-manager.php:227
+#: includes/admin/plugin-manager.php:240
 #, php-format
 msgid "%1$s suggests installing %2$s plugin."
 msgstr "%1$s empfiehlt, %2$s Plugin zu installieren."
@@ -324,7 +319,7 @@ msgstr "%1$s empfiehlt, %2$s Plugin zu installieren."
 #. translators: 1: name of theme, 2: number of suggested plugins
 #. translators: 1: name of plugin, 2: number of suggested plugins
 #: includes/admin/classes/plugin-manager/class-toolbar-extras-plugin-manager.php:314
-#: includes/admin/plugin-manager.php:229
+#: includes/admin/plugin-manager.php:242
 #, php-format
 msgid "%1$s suggests installing %2$s plugins."
 msgstr "%1$s empfiehlt, %2$s Plugins zu installieren."
@@ -538,72 +533,72 @@ msgstr ""
 "Keines der ausgewählten Plugins konnte aktiviert werden. Stelle sicher, dass "
 "die Plugins auch installiert sind."
 
-#: includes/admin/plugin-manager.php:29
+#: includes/admin/plugin-manager.php:31
 msgctxt "Plugin Manager badge label"
 msgid "Required"
 msgstr "Erforderlich"
 
-#: includes/admin/plugin-manager.php:33
+#: includes/admin/plugin-manager.php:35
 msgctxt "Plugin Manager badge label"
 msgid "Recommended"
 msgstr "Empfohlen"
 
-#: includes/admin/plugin-manager.php:37
+#: includes/admin/plugin-manager.php:39
 msgctxt "Plugin Manager badge label"
 msgid "Useful"
 msgstr "Nützlich"
 
-#: includes/admin/plugin-manager.php:64
+#: includes/admin/plugin-manager.php:66
 msgctxt "On Plugin Manager page"
 msgid "For"
 msgstr "Für"
 
-#: includes/admin/plugin-manager.php:80
+#: includes/admin/plugin-manager.php:82
 msgid "All Add-Ons installs - great helper tool"
 msgstr "Alle Add-On-Installationen - großartiges Werkzeug"
 
-#: includes/admin/plugin-manager.php:151
+#: includes/admin/plugin-manager.php:153
 msgctxt "Plugin Name"
 msgid "Toolbar Extras"
 msgstr "Toolbar Extras"
 
-#: includes/admin/plugin-manager.php:156
+#: includes/admin/plugin-manager.php:158
 msgid "Required base plugin for all official Add-Ons to work"
 msgstr ""
 "Erforderliches Basis-Plugin für alle offiziellen Add-Ons, damit diese "
 "überhaupt funktionieren"
 
-#: includes/admin/plugin-manager.php:158
+#: includes/admin/plugin-manager.php:160
 #: includes/admin/views/help-content-footer.php:35
 msgid "Plugin website"
 msgstr "Plugin-Webseite"
 
-#: includes/admin/plugin-manager.php:169
+#: includes/admin/plugin-manager.php:171
 msgctxt "Plugin Name"
 msgid "Builder Template Categories"
 msgstr "Builder Template-Kategorien"
 
-#: includes/admin/plugin-manager.php:175
+#: includes/admin/plugin-manager.php:177
 msgid "Add-On for Oxygen Builder"
 msgstr "Add-On für Oxygen Builder"
 
-#: includes/admin/plugin-manager.php:176
+#: includes/admin/plugin-manager.php:178
 msgid "Add-On for Beaver Builder"
 msgstr "Add-On für Beaver Builder"
 
-#: includes/admin/plugin-manager.php:177
+#: includes/admin/plugin-manager.php:179
 msgid "Add-On for Brizy"
 msgstr "Add-On für Brizy"
 
-#: includes/admin/plugin-manager.php:178
+#: includes/admin/plugin-manager.php:180
 msgid "Add-On for Divi"
 msgstr "Add-On für Divi"
 
-#: includes/admin/plugin-manager.php:179
+#: includes/admin/plugin-manager.php:181
 msgid "Add-On for Visual Composer Website Builder"
 msgstr "Add-On für Visual Composer Website Builder"
 
-#: includes/admin/plugin-manager.php:181
+#: includes/admin/plugin-manager.php:183
 msgid ""
 "Highly recommended free extension to categorize and organize your templates "
 "and other content types for building your site"
@@ -611,12 +606,12 @@ msgstr ""
 "Sehr empfohlene Erweiterung zur Kategorisierung und Organisation deiner "
 "Templates und anderer Inhaltstypen, um deine Website zu bauen"
 
-#: includes/admin/plugin-manager.php:186
+#: includes/admin/plugin-manager.php:188
 msgctxt "Plugin Name"
 msgid "Asset CleanUp: Page Speed Booster"
 msgstr "Asset CleanUp: Page Speed Booster"
 
-#: includes/admin/plugin-manager.php:192
+#: includes/admin/plugin-manager.php:194
 msgid ""
 "Highly recommended free extension to remove bloat for your website and its "
 "pages"
@@ -624,12 +619,12 @@ msgstr ""
 "Sehr empfohlene kostenlose Erweiterung zum Entfernen von unnötigem Ballast "
 "von deiner Website und deren Unterseiten"
 
-#: includes/admin/plugin-manager.php:197
+#: includes/admin/plugin-manager.php:199
 msgctxt "Plugin Name"
 msgid "Code Snippets"
 msgstr "Code-Snippets"
 
-#: includes/admin/plugin-manager.php:203
+#: includes/admin/plugin-manager.php:205
 msgid ""
 "Highly recommended free extension to add custom code snippets to your "
 "project. Perfect and better replacement of former \"functions.php\" of a "
@@ -639,20 +634,33 @@ msgstr ""
 "Snippets hinzuzufügen. Perfekter und besserer Ersatz der früheren "
 "\"functions.php\" eines Themas...."
 
-#: includes/admin/plugin-manager.php:219
+#: includes/admin/plugin-manager.php:210
+msgctxt "Plugin Name"
+msgid "Members"
+msgstr "Members"
+
+#: includes/admin/plugin-manager.php:216
+msgid ""
+"Recommended - allows you to make your Dashboard Site only accessable via "
+"login"
+msgstr ""
+"Empfohlen - ermöglicht es dir, deine Dashboard-Website nur per Anmeldung "
+"zugänglich zu machen"
+
+#: includes/admin/plugin-manager.php:232
 msgid "Suggested Plugins for Toolbar Extras Add-Ons"
 msgstr "Empfohlene Plugins für Toolbar Extras Add-Ons"
 
-#: includes/admin/plugin-manager.php:220
+#: includes/admin/plugin-manager.php:233
 msgid "Please install these plugins, thank you."
 msgstr "Bitte installiere diese Plugins, danke."
 
-#: includes/admin/plugin-manager.php:221
+#: includes/admin/plugin-manager.php:234
 msgctxt "Admin menu title"
 msgid "Suggested"
 msgstr "Empfohlen"
 
-#: includes/admin/plugin-manager.php:277
+#: includes/admin/plugin-manager.php:290
 msgid ""
 "The plugins listed below are required and/or recommended so official Add-Ons "
 "of Toolbar Extras can work at all, so that their additions will have the "
@@ -1499,7 +1507,7 @@ msgstr "Newsletter jetzt!"
 #: includes/plugins-forms/items-gravity-forms.php:147
 #: includes/plugins-forms/items-ninja-forms.php:392
 #: includes/plugins-forms/items-ninja-forms.php:396
-#: includes/plugins-genesis/items-blox.php:120
+#: includes/plugins-genesis/items-blox.php:124
 #: includes/plugins-genesis/items-cobalt-genesis-extender.php:86
 #: includes/plugins-genesis/items-cobalt-genesis-extender.php:90
 #: includes/plugins/items-activity-log.php:77
@@ -1513,6 +1521,10 @@ msgstr "Newsletter jetzt!"
 #: includes/plugins/items-hesham-schema.php:135
 #: includes/plugins/items-max-mega-menu.php:58
 #: includes/plugins/items-max-mega-menu.php:62
+#: includes/plugins/items-rankmath-singles.php:65
+#: includes/plugins/items-rankmath-singles.php:69
+#: includes/plugins/items-rankmath.php:180
+#: includes/plugins/items-rankmath.php:184
 #: includes/plugins/items-shortpixel-image-optimizer.php:72
 #: includes/plugins/items-shortpixel-image-optimizer.php:76
 #: includes/plugins/items-smart-slider.php:69
@@ -1764,7 +1776,7 @@ msgstr "Verbinden"
 
 #: includes/admin/views/help-content-sidebar.php:42
 #: includes/admin/views/settings-tab-about-support.php:140
-#: includes/functions-global.php:1206
+#: includes/functions-global.php:1229
 msgid "Facebook Group"
 msgstr "Facebook-Gruppe"
 
@@ -1945,16 +1957,20 @@ msgstr "Habe ich schon erledigt"
 #: includes/elementor-addons/items-jetpopup.php:125
 #: includes/elementor-addons/items-jetreviews.php:48
 #: includes/elementor-addons/items-jetreviews.php:52
+#: includes/elementor-addons/items-jetsmartfilters.php:91
+#: includes/elementor-addons/items-jetsmartfilters.php:95
+#: includes/elementor-addons/items-jettabs.php:48
+#: includes/elementor-addons/items-jettabs.php:52
 #: includes/elementor-addons/items-jetwidgets.php:48
 #: includes/elementor-addons/items-jetwidgets.php:52
 #: includes/elementor-addons/items-jetwooproductgallery.php:48
 #: includes/elementor-addons/items-jetwooproductgallery.php:52
 #: includes/elementor-addons/items-jetwoowidgets.php:48
 #: includes/elementor-addons/items-jetwoowidgets.php:52
-#: includes/elementor-addons/items-piotnet-addons.php:152
-#: includes/elementor-addons/items-piotnet-addons.php:156
-#: includes/elementor-addons/items-piotnet-addons.php:222
-#: includes/elementor-addons/items-piotnet-addons.php:226
+#: includes/elementor-addons/items-piotnet-addons.php:151
+#: includes/elementor-addons/items-piotnet-addons.php:155
+#: includes/elementor-addons/items-piotnet-addons.php:221
+#: includes/elementor-addons/items-piotnet-addons.php:225
 #: includes/elementor-addons/items-portfolio-for-elementor.php:89
 #: includes/elementor-addons/items-portfolio-for-elementor.php:93
 #: includes/elementor-addons/items-power-ups-for-elementor.php:48
@@ -2090,6 +2106,8 @@ msgstr "Habe ich schon erledigt"
 #: includes/plugins/items-php-code-snippets.php:85
 #: includes/plugins/items-php-code-snippets.php:89
 #: includes/plugins/items-pods.php:343 includes/plugins/items-pods.php:347
+#: includes/plugins/items-rankmath-singles.php:323
+#: includes/plugins/items-rankmath.php:647
 #: includes/plugins/items-seo-framework.php:43
 #: includes/plugins/items-seo-framework.php:47
 #: includes/plugins/items-simple-custom-css-js.php:181
@@ -2384,7 +2402,7 @@ msgid "Plugin documentation &amp; Knowledge Base articles"
 msgstr "Plugin-Dokumentation &amp; Knowledge Base-Artikel"
 
 #: includes/admin/views/settings-tab-about-support.php:136
-#: includes/functions-global.php:1200
+#: includes/functions-global.php:1223
 msgid "Documentation"
 msgstr "Dokumentation"
 
@@ -2397,7 +2415,7 @@ msgid "Free product support @ WordPress.org plugin forum"
 msgstr "Kostenloser Produkt-Support @ WordPress.org Plugin-Forum"
 
 #: includes/admin/views/settings-tab-about-support.php:144
-#: includes/functions-global.php:1194
+#: includes/functions-global.php:1217
 msgid "Support Forum"
 msgstr "Support-Forum"
 
@@ -3441,7 +3459,6 @@ msgstr "Atomic Blöcke"
 #: includes/elementor-addons/items-flexible-elementor-panel.php:78
 #: includes/elementor-addons/items-sj-elementor-addon.php:61
 #: includes/elementor-addons/items-sj-elementor-addon.php:65
-#: includes/elementor-addons/items-theplus-addons.php:162
 #: includes/plugins-forms/items-buddyforms.php:281
 #: includes/plugins-forms/items-buddyforms.php:285
 #: includes/plugins/items-backwpup.php:268
@@ -3559,7 +3576,7 @@ msgstr "Blöcke installieren"
 
 #: includes/block-editor-addons/items-cloud-blocks.php:60
 #: includes/block-editor-addons/items-cloud-blocks.php:64
-#: includes/elementor-addons/items-jetengine.php:382
+#: includes/elementor-addons/items-jetengine.php:415
 #: includes/plugins-forms/items-arforms.php:167
 #: includes/plugins-forms/items-arforms.php:171
 #: includes/plugins-forms/items-bloom.php:82
@@ -3579,6 +3596,10 @@ msgstr "Blöcke installieren"
 #: includes/plugins/items-cobalt-extender-pro.php:88
 #: includes/plugins/items-php-code-snippets.php:72
 #: includes/plugins/items-php-code-snippets.php:76
+#: includes/plugins/items-rankmath-singles.php:370
+#: includes/plugins/items-rankmath-singles.php:374
+#: includes/plugins/items-rankmath.php:764
+#: includes/plugins/items-rankmath.php:768
 #: includes/plugins/items-redirection.php:144
 #: includes/plugins/items-redirection.php:148
 #: includes/plugins/items-widget-importer-exporter.php:30
@@ -3877,17 +3898,19 @@ msgstr "Ghost Kit Templates"
 #: includes/elementor-addons/items-dhwc-elementor.php:51
 #: includes/elementor-addons/items-header-footer-builder.php:46
 #: includes/elementor-addons/items-header-footer-builder.php:50
-#: includes/elementor-addons/items-jetthemecore.php:145
-#: includes/elementor-addons/items-jetthemecore.php:149
+#: includes/elementor-addons/items-jetthemecore.php:147
+#: includes/elementor-addons/items-jetthemecore.php:151
 #: includes/elementor-addons/items-jetwoobuilder.php:46
 #: includes/elementor-addons/items-jetwoobuilder.php:50
 #: includes/elementor-addons/items-templementor.php:47
 #: includes/elementor-addons/items-templementor.php:51
+#: includes/elementor-addons/items-toolkit-for-elementor.php:63
 #: includes/elementor-official/items-elementor-core.php:96
 #: includes/elementor-official/items-elementor-core.php:100
 #: includes/plugins/items-duplicator-pro.php:228
 #: includes/plugins/items-duplicator-pro.php:232
 #: includes/plugins/items-pods.php:110
+#: includes/plugins/items-we-sidebar-builder.php:51
 msgid "All Templates"
 msgstr "Alle Templates"
 
@@ -3899,12 +3922,13 @@ msgstr "Alle Templates"
 #: includes/elementor-addons/items-dhwc-elementor.php:64
 #: includes/elementor-addons/items-header-footer-builder.php:59
 #: includes/elementor-addons/items-header-footer-builder.php:63
-#: includes/elementor-addons/items-jetthemecore.php:255
-#: includes/elementor-addons/items-jetthemecore.php:259
+#: includes/elementor-addons/items-jetthemecore.php:257
+#: includes/elementor-addons/items-jetthemecore.php:261
 #: includes/elementor-addons/items-jetwoobuilder.php:59
 #: includes/elementor-addons/items-jetwoobuilder.php:64
 #: includes/elementor-addons/items-templementor.php:60
 #: includes/elementor-addons/items-templementor.php:64
+#: includes/elementor-addons/items-toolkit-for-elementor.php:76
 #: includes/elementor-official/items-elementor-core.php:159
 #: includes/elementor-official/items-elementor-core.php:163
 #: includes/plugins/items-duplicator-pro.php:241
@@ -3947,7 +3971,7 @@ msgstr "Layout-Elemente"
 
 #: includes/block-editor-addons/items-gutenbegone.php:86
 #: includes/block-editor-addons/items-gutenbegone.php:90
-#: includes/items-site-group.php:329 includes/items-site-group.php:564
+#: includes/items-site-group.php:331 includes/items-site-group.php:568
 msgid "Widgets"
 msgstr "Widgets"
 
@@ -4001,6 +4025,8 @@ msgstr "Kadence Blöcke"
 #: includes/elementor-addons/items-smart-fonts-for-elementor.php:65
 #: includes/elementor-addons/items-theplus-addons.php:147
 #: includes/elementor-addons/items-theplus-addons.php:151
+#: includes/elementor-addons/items-toolkit-for-elementor.php:178
+#: includes/elementor-addons/items-toolkit-for-elementor.php:182
 #: includes/elementor-addons/items-unlimited-elements.php:75
 #: includes/elementor-addons/items-unlimited-elements.php:79
 #: includes/plugins-forms/items-arforms.php:193
@@ -4009,8 +4035,8 @@ msgstr "Kadence Blöcke"
 #: includes/plugins-forms/items-formcraft.php:169
 #: includes/plugins-forms/items-mailpoet.php:475
 #: includes/plugins-forms/items-mailpoet.php:479
-#: includes/plugins-genesis/items-blox.php:231
-#: includes/plugins-genesis/items-blox.php:235
+#: includes/plugins-genesis/items-blox.php:237
+#: includes/plugins-genesis/items-blox.php:241
 #: includes/plugins-genesis/items-genesis-design-palette-pro.php:364
 #: includes/plugins-genesis/items-genesis-design-palette-pro.php:368
 #: includes/plugins/items-duplicator-pro.php:360
@@ -4059,8 +4085,8 @@ msgstr "Neuer Lazy-Block"
 #: includes/plugins-forms/items-quform.php:178
 #: includes/plugins-forms/items-wpforms.php:402
 #: includes/plugins-forms/items-wpforms.php:406
-#: includes/plugins-genesis/items-blox.php:218
-#: includes/plugins-genesis/items-blox.php:222
+#: includes/plugins-genesis/items-blox.php:224
+#: includes/plugins-genesis/items-blox.php:228
 #: includes/plugins-genesis/items-genesis-design-palette-pro.php:291
 #: includes/plugins-genesis/items-genesis-design-palette-pro.php:295
 #: includes/plugins/items-custom-field-suite.php:91
@@ -4122,6 +4148,7 @@ msgstr "Versionskontrolle"
 #: includes/elementor-addons/items-widgetkit-for-elementor.php:65
 #: includes/elementor-official/items-elementor-core.php:394
 #: includes/elementor-official/items-elementor-core.php:398
+#: includes/items-site-group.php:660
 #: includes/plugins-forms/items-gravity-forms.php:241
 #: includes/plugins-forms/items-gravity-forms.php:245
 #: includes/plugins-forms/items-mailpoet.php:515
@@ -4147,7 +4174,6 @@ msgstr "Systeminformationen"
 
 #: includes/block-editor-addons/items-premium-blocks-for-gutenberg.php:99
 #: includes/block-editor-addons/items-premium-blocks-for-gutenberg.php:103
-#: includes/elementor-addons/items-theplus-addons.php:166
 #: includes/plugins-forms/items-post-smtp.php:243
 #: includes/plugins-forms/items-post-smtp.php:247
 #: includes/plugins-forms/items-wpforms.php:455
@@ -4267,7 +4293,7 @@ msgstr "UltraBlocks"
 
 #: includes/block-editor-addons/items-ultrablocks.php:73
 #: includes/block-editor-addons/items-ultrablocks.php:77
-#: includes/functions-global.php:1197
+#: includes/functions-global.php:1220
 msgid "Support Contact"
 msgstr "Support-Kontakt"
 
@@ -4429,19 +4455,19 @@ msgstr "Handbuch für Mitwirkende"
 msgid "Development Blog"
 msgstr "Entwicklungs-Blog"
 
-#: includes/block-editor/items-edit-switcher.php:91
+#: includes/block-editor/items-edit-switcher.php:93
 msgid "Edit (Blocks)"
 msgstr "Bearbeiten (Blöcke)"
 
-#: includes/block-editor/items-edit-switcher.php:96
+#: includes/block-editor/items-edit-switcher.php:98
 msgid "Edit in Block Editor (Gutenberg)"
 msgstr "In Block-Editor bearbeiten (Gutenberg)"
 
-#: includes/block-editor/items-edit-switcher.php:107
+#: includes/block-editor/items-edit-switcher.php:109
 msgid "Edit (Classic)"
 msgstr "Bearbeiten (Klassisch)"
 
-#: includes/block-editor/items-edit-switcher.php:112
+#: includes/block-editor/items-edit-switcher.php:114
 msgid "Edit in Classic Editor"
 msgstr "Im klassischen Editor bearbeiten"
 
@@ -4512,8 +4538,12 @@ msgstr "ClassicPress Grün"
 #: includes/elementor-addons/items-powerpack-elements.php:71
 #: includes/elementor-addons/items-pt-elementor.php:48
 #: includes/elementor-addons/items-pt-elementor.php:52
+#: includes/elementor-addons/items-social-addons-for-elementor.php:50
+#: includes/elementor-addons/items-social-addons-for-elementor.php:54
 #: includes/elementor-addons/items-widgetkit-for-elementor.php:48
 #: includes/elementor-addons/items-widgetkit-for-elementor.php:52
+#: includes/elementor-addons/items-woolentor.php:51
+#: includes/elementor-addons/items-woolentor.php:55
 #: includes/elementor-addons/items-wpb-elementor-addons.php:48
 #: includes/elementor-addons/items-wpb-elementor-addons.php:52
 msgid "Activate Elements"
@@ -4530,8 +4560,8 @@ msgstr "Analog Templates"
 #: includes/elementor-addons/items-rife-elementor-extensions-templates.php:52
 #: includes/plugins/items-pithy-templates.php:54
 #: includes/plugins/items-pithy-templates.php:58
-#: includes/themes/items-jupiterx.php:324
-#: includes/themes/items-jupiterx.php:331
+#: includes/themes/items-jupiterx.php:332
+#: includes/themes/items-jupiterx.php:339
 msgid "Import Templates"
 msgstr "Templates importieren"
 
@@ -4565,16 +4595,20 @@ msgstr "AnyWhere Elementor Globale Templates"
 #: includes/elementor-addons/items-dhwc-elementor.php:79
 #: includes/elementor-addons/items-header-footer-builder.php:74
 #: includes/elementor-addons/items-header-footer-builder.php:78
-#: includes/elementor-addons/items-jetthemecore.php:270
-#: includes/elementor-addons/items-jetthemecore.php:274
+#: includes/elementor-addons/items-jetthemecore.php:272
+#: includes/elementor-addons/items-jetthemecore.php:276
 #: includes/elementor-addons/items-jetwoobuilder.php:75
 #: includes/elementor-addons/items-jetwoobuilder.php:79
 #: includes/elementor-addons/items-stylepress-for-elementor.php:87
 #: includes/elementor-addons/items-stylepress-for-elementor.php:91
 #: includes/elementor-addons/items-templementor.php:75
 #: includes/elementor-addons/items-templementor.php:79
+#: includes/elementor-addons/items-toolkit-for-elementor.php:91
+#: includes/elementor-addons/items-toolkit-for-elementor.php:95
 #: includes/elementor-official/items-elementor-core.php:174
 #: includes/elementor-official/items-elementor-core.php:178
+#: includes/plugins/items-we-sidebar-builder.php:79
+#: includes/plugins/items-we-sidebar-builder.php:83
 #: includes/themes/items-oceanwp.php:125 includes/themes/items-oceanwp.php:129
 msgid "New Template Builder"
 msgstr "Neues Template bauen"
@@ -4642,6 +4676,7 @@ msgstr "API-Einstellungen"
 
 #: includes/elementor-addons/items-bdthemes-element-pack.php:100
 #: includes/elementor-addons/items-bdthemes-element-pack.php:104
+#: includes/plugins/items-rankmath.php:314
 msgid "Other Settings"
 msgstr "Sonstige Einstellungen"
 
@@ -4807,19 +4842,19 @@ msgid "Dynamic Content for Elementor"
 msgstr "Dynamische Inhalte für Elementor"
 
 #. translators: Elementor Template type
-#: includes/elementor-addons/items-ele-custom-skin.php:55
+#: includes/elementor-addons/items-ele-custom-skin.php:56
 msgctxt "Elementor Template type"
 msgid "Loops"
 msgstr "Loops"
 
-#: includes/elementor-addons/items-ele-custom-skin.php:59
+#: includes/elementor-addons/items-ele-custom-skin.php:60
 msgid "Template Type: Loop Sections"
 msgstr "Template-Typ: Loop-Skins"
 
-#: includes/elementor-addons/items-ele-custom-skin.php:68
-#: includes/elementor-addons/items-ele-custom-skin.php:72
-#: includes/elementor-addons/items-ele-custom-skin.php:105
-#: includes/elementor-addons/items-ele-custom-skin.php:109
+#: includes/elementor-addons/items-ele-custom-skin.php:69
+#: includes/elementor-addons/items-ele-custom-skin.php:73
+#: includes/elementor-addons/items-ele-custom-skin.php:106
+#: includes/elementor-addons/items-ele-custom-skin.php:110
 msgctxt "Elementor Template type"
 msgid "Loop"
 msgstr "Loop"
@@ -4980,6 +5015,8 @@ msgstr "Flexibles Elementor-Panel"
 #: includes/plugins-forms/items-post-smtp.php:47
 #: includes/plugins/items-jetpack.php:296
 #: includes/plugins/items-jetpack.php:300
+#: includes/plugins/items-rankmath.php:691
+#: includes/plugins/items-rankmath.php:695
 msgid "Overview"
 msgstr "Übersicht"
 
@@ -5057,7 +5094,7 @@ msgstr "HT Mega"
 #: includes/plugins-forms/items-torro-forms.php:191
 #: includes/plugins-forms/items-wpforms.php:305
 #: includes/plugins-forms/items-wpforms.php:309
-#: includes/plugins-genesis/items-blox.php:116
+#: includes/plugins-genesis/items-blox.php:120
 #: includes/plugins/items-activity-log.php:73
 #: includes/plugins/items-backwpup.php:189
 #: includes/plugins/items-backwpup.php:193
@@ -5067,6 +5104,8 @@ msgstr "HT Mega"
 #: includes/plugins/items-duplicator-pro.php:312
 #: includes/plugins/items-hummingbird.php:264
 #: includes/plugins/items-hummingbird.php:268
+#: includes/plugins/items-rankmath.php:512
+#: includes/plugins/items-rankmath.php:516
 #: includes/plugins/items-stream.php:113
 #: includes/plugins/items-wp-security-audit-log.php:157
 #: includes/plugins/items-wp-security-audit-log.php:161
@@ -5170,110 +5209,110 @@ msgstr "JetDesignKit Template-Bibliothek synchronisieren"
 msgid "JetElements"
 msgstr "JetElements"
 
-#: includes/elementor-addons/items-jetengine.php:52
-#: includes/elementor-addons/items-jetengine.php:56
+#: includes/elementor-addons/items-jetengine.php:67
+#: includes/elementor-addons/items-jetengine.php:71
 msgid "JetEngine Content"
 msgstr "JetEngine Inhalt"
 
-#: includes/elementor-addons/items-jetengine.php:73
-#: includes/elementor-addons/items-jetengine.php:77
+#: includes/elementor-addons/items-jetengine.php:88
+#: includes/elementor-addons/items-jetengine.php:92
 msgid "Listings"
 msgstr "Auflistungen"
 
-#: includes/elementor-addons/items-jetengine.php:86
-#: includes/elementor-addons/items-jetengine.php:90
+#: includes/elementor-addons/items-jetengine.php:101
+#: includes/elementor-addons/items-jetengine.php:105
 msgid "All Listings"
 msgstr "Alle Auflistungen"
 
-#: includes/elementor-addons/items-jetengine.php:99
-#: includes/elementor-addons/items-jetengine.php:103
+#: includes/elementor-addons/items-jetengine.php:114
+#: includes/elementor-addons/items-jetengine.php:118
 msgid "New Listing"
 msgstr "Neue Auflistung"
 
-#: includes/elementor-addons/items-jetengine.php:114
-#: includes/elementor-addons/items-jetengine.php:118
+#: includes/elementor-addons/items-jetengine.php:129
+#: includes/elementor-addons/items-jetengine.php:133
 msgid "New Listing Builder"
 msgstr "Neue Auflistung bauen"
 
-#: includes/elementor-addons/items-jetengine.php:156
-#: includes/elementor-addons/items-jetengine.php:160
+#: includes/elementor-addons/items-jetengine.php:171
+#: includes/elementor-addons/items-jetengine.php:175
 msgid "Custom Post Types"
 msgstr "Eigene Inhaltstypen"
 
-#: includes/elementor-addons/items-jetengine.php:169
-#: includes/elementor-addons/items-jetengine.php:173
+#: includes/elementor-addons/items-jetengine.php:184
+#: includes/elementor-addons/items-jetengine.php:188
 #: includes/plugins/items-acf-extended.php:145
 #: includes/plugins/items-acf-extended.php:149
 #: includes/plugins/items-meta-box.php:216
 msgid "All Post Types"
 msgstr "Alle Inhaltstypen"
 
-#: includes/elementor-addons/items-jetengine.php:182
-#: includes/elementor-addons/items-jetengine.php:186
+#: includes/elementor-addons/items-jetengine.php:197
+#: includes/elementor-addons/items-jetengine.php:201
 #: includes/plugins/items-acf-extended.php:158
 #: includes/plugins/items-acf-extended.php:162
 #: includes/plugins/items-meta-box.php:229
 msgid "New Post Type"
 msgstr "Neuer Inhaltstyp"
 
-#: includes/elementor-addons/items-jetengine.php:196
-#: includes/elementor-addons/items-jetengine.php:200
+#: includes/elementor-addons/items-jetengine.php:211
+#: includes/elementor-addons/items-jetengine.php:215
 msgid "Custom Taxonomies"
 msgstr "Eigene Taxonomien"
 
-#: includes/elementor-addons/items-jetengine.php:209
-#: includes/elementor-addons/items-jetengine.php:213
+#: includes/elementor-addons/items-jetengine.php:224
+#: includes/elementor-addons/items-jetengine.php:228
 #: includes/plugins/items-acf-extended.php:185
 #: includes/plugins/items-acf-extended.php:189
 #: includes/plugins/items-meta-box.php:278
 msgid "All Taxonomies"
 msgstr "Alle Taxonomien"
 
-#: includes/elementor-addons/items-jetengine.php:222
-#: includes/elementor-addons/items-jetengine.php:226
+#: includes/elementor-addons/items-jetengine.php:237
+#: includes/elementor-addons/items-jetengine.php:241
 #: includes/plugins/items-acf-extended.php:198
 #: includes/plugins/items-acf-extended.php:202
 #: includes/plugins/items-meta-box.php:291
 msgid "New Taxonomy"
 msgstr "Neue Taxonomie"
 
-#: includes/elementor-addons/items-jetengine.php:236
-#: includes/elementor-addons/items-jetengine.php:240
+#: includes/elementor-addons/items-jetengine.php:251
+#: includes/elementor-addons/items-jetengine.php:255
 msgid "Custom Meta Boxes"
 msgstr "Eigene Meta-Boxen"
 
-#: includes/elementor-addons/items-jetengine.php:249
-#: includes/elementor-addons/items-jetengine.php:253
+#: includes/elementor-addons/items-jetengine.php:264
+#: includes/elementor-addons/items-jetengine.php:268
 msgid "All Meta Boxes"
 msgstr "Alle Meta-Boxen"
 
-#: includes/elementor-addons/items-jetengine.php:262
-#: includes/elementor-addons/items-jetengine.php:266
+#: includes/elementor-addons/items-jetengine.php:277
+#: includes/elementor-addons/items-jetengine.php:281
 msgid "New Meta Box"
 msgstr "Neue Meta-Box"
 
-#: includes/elementor-addons/items-jetengine.php:284
-#: includes/elementor-addons/items-jetengine.php:288
+#: includes/elementor-addons/items-jetengine.php:299
+#: includes/elementor-addons/items-jetengine.php:303
 msgid "Posts Relations"
 msgstr "Beitrags-Beziehungen"
 
-#: includes/elementor-addons/items-jetengine.php:297
-#: includes/elementor-addons/items-jetengine.php:301
+#: includes/elementor-addons/items-jetengine.php:312
+#: includes/elementor-addons/items-jetengine.php:316
 msgid "All Relations"
 msgstr "Alle Beziehungen"
 
-#: includes/elementor-addons/items-jetengine.php:310
-#: includes/elementor-addons/items-jetengine.php:314
+#: includes/elementor-addons/items-jetengine.php:325
+#: includes/elementor-addons/items-jetengine.php:329
 msgid "New Relation"
 msgstr "Neue Beziehung"
 
-#: includes/elementor-addons/items-jetengine.php:326
-#: includes/elementor-addons/items-jetengine.php:330
+#: includes/elementor-addons/items-jetengine.php:341
+#: includes/elementor-addons/items-jetengine.php:345
 msgid "Booking Forms"
 msgstr "Buchungsformulare"
 
-#: includes/elementor-addons/items-jetengine.php:339
-#: includes/elementor-addons/items-jetengine.php:343
+#: includes/elementor-addons/items-jetengine.php:354
+#: includes/elementor-addons/items-jetengine.php:358
 #: includes/plugins-forms/items-advanced-forms.php:142
 #: includes/plugins-forms/items-advanced-forms.php:146
 #: includes/plugins-forms/items-arforms.php:110
@@ -5315,8 +5354,8 @@ msgstr "Buchungsformulare"
 msgid "All Forms"
 msgstr "Alle Formulare"
 
-#: includes/elementor-addons/items-jetengine.php:352
-#: includes/elementor-addons/items-jetengine.php:356
+#: includes/elementor-addons/items-jetengine.php:367
+#: includes/elementor-addons/items-jetengine.php:371
 #: includes/plugins-forms/items-advanced-forms.php:156
 #: includes/plugins-forms/items-advanced-forms.php:160
 #: includes/plugins-forms/items-arforms.php:123
@@ -5352,60 +5391,68 @@ msgstr "Alle Formulare"
 msgid "New Form"
 msgstr "Neues Formular"
 
-#: includes/elementor-addons/items-jetengine.php:375
+#: includes/elementor-addons/items-jetengine.php:385
+msgid "Apartment Booking"
+msgstr "Appartementbuchung"
+
+#: includes/elementor-addons/items-jetengine.php:389
+msgid "Apartment Booking Settings"
+msgstr "Apartmentbuchung-Einstellungen"
+
+#: includes/elementor-addons/items-jetengine.php:408
 msgid "Skins Manager"
 msgstr "Skins verwalten"
 
 #. translators: %s - the words "Import & Export"
-#: includes/elementor-addons/items-jetengine.php:381
+#: includes/elementor-addons/items-jetengine.php:414
 #, php-format
 msgid "Skins Manager: %s"
 msgstr "Skins verwalten: %s"
 
-#: includes/elementor-addons/items-jetengine.php:462
+#: includes/elementor-addons/items-jetengine.php:495
 msgctxt "Toolbar New Content section"
 msgid "JetEngine Content"
 msgstr "JetEngine Inhalt"
 
-#: includes/elementor-addons/items-jetengine.php:466
+#: includes/elementor-addons/items-jetengine.php:499
 msgctxt "Toolbar New Content section"
 msgid "New JetEngine Content"
 msgstr "Neuer JetEngine-Inhalt"
 
-#: includes/elementor-addons/items-jetengine.php:476
-#: includes/elementor-addons/items-jetengine.php:480
+#: includes/elementor-addons/items-jetengine.php:509
+#: includes/elementor-addons/items-jetengine.php:513
 msgid "Listing"
 msgstr "Auflistung"
 
-#: includes/elementor-addons/items-jetengine.php:491
-#: includes/elementor-addons/items-jetengine.php:495
+#: includes/elementor-addons/items-jetengine.php:524
+#: includes/elementor-addons/items-jetengine.php:528
 msgid "Listing Builder"
 msgstr "Auflistung bauen"
 
-#: includes/elementor-addons/items-jetengine.php:507
-#: includes/elementor-addons/items-jetengine.php:511
+#: includes/elementor-addons/items-jetengine.php:540
+#: includes/elementor-addons/items-jetengine.php:544
 msgid "Post Type"
 msgstr "Inhaltstyp"
 
-#: includes/elementor-addons/items-jetengine.php:521
-#: includes/elementor-addons/items-jetengine.php:525
+#: includes/elementor-addons/items-jetengine.php:554
+#: includes/elementor-addons/items-jetengine.php:558
 msgid "Taxonomy"
 msgstr "Taxonomie"
 
-#: includes/elementor-addons/items-jetengine.php:535
-#: includes/elementor-addons/items-jetengine.php:539
+#: includes/elementor-addons/items-jetengine.php:568
+#: includes/elementor-addons/items-jetengine.php:572
 msgid "Meta Box"
 msgstr "Meta-Box"
 
-#: includes/elementor-addons/items-jetengine.php:549
-#: includes/elementor-addons/items-jetengine.php:553
+#: includes/elementor-addons/items-jetengine.php:582
+#: includes/elementor-addons/items-jetengine.php:586
 msgid "Post Relation"
 msgstr "Beitrags-Beziehung"
 
-#: includes/elementor-addons/items-jetengine.php:565
-#: includes/elementor-addons/items-jetengine.php:569
+#: includes/elementor-addons/items-jetengine.php:598
 #: includes/elementor-addons/items-jetengine.php:602
-#: includes/elementor-addons/items-jetengine.php:604
+#: includes/elementor-addons/items-jetengine.php:635
+#: includes/elementor-addons/items-jetengine.php:637
 msgid "Booking Form"
 msgstr "Buchungsformular"
 
@@ -5479,148 +5526,153 @@ msgstr "Alle Filter"
 msgid "New Filter"
 msgstr "Neuer Filter"
 
-#: includes/elementor-addons/items-jetthemecore.php:63
-#: includes/elementor-addons/items-jetthemecore.php:283
-#: includes/elementor-addons/items-jetthemecore.php:287
-#: includes/elementor-addons/items-jetthemecore.php:451
-#: includes/elementor-addons/items-jetthemecore.php:455
+#: includes/elementor-addons/items-jettabs.php:35
+#: includes/elementor-addons/items-jettabs.php:39
+msgid "JetTabs"
+msgstr "JetTabs"
+
+#: includes/elementor-addons/items-jetthemecore.php:65
+#: includes/elementor-addons/items-jetthemecore.php:285
+#: includes/elementor-addons/items-jetthemecore.php:289
+#: includes/elementor-addons/items-jetthemecore.php:453
+#: includes/elementor-addons/items-jetthemecore.php:457
 msgctxt "JetThemeCore Template type"
 msgid "Page"
 msgstr "Seite"
 
-#: includes/elementor-addons/items-jetthemecore.php:66
-#: includes/elementor-addons/items-jetthemecore.php:296
-#: includes/elementor-addons/items-jetthemecore.php:300
-#: includes/elementor-addons/items-jetthemecore.php:464
-#: includes/elementor-addons/items-jetthemecore.php:468
+#: includes/elementor-addons/items-jetthemecore.php:68
+#: includes/elementor-addons/items-jetthemecore.php:298
+#: includes/elementor-addons/items-jetthemecore.php:302
+#: includes/elementor-addons/items-jetthemecore.php:466
+#: includes/elementor-addons/items-jetthemecore.php:470
 msgctxt "JetThemeCore Template type"
 msgid "Section"
 msgstr "Section"
 
-#: includes/elementor-addons/items-jetthemecore.php:69
-#: includes/elementor-addons/items-jetthemecore.php:309
-#: includes/elementor-addons/items-jetthemecore.php:313
-#: includes/elementor-addons/items-jetthemecore.php:477
-#: includes/elementor-addons/items-jetthemecore.php:481
+#: includes/elementor-addons/items-jetthemecore.php:71
+#: includes/elementor-addons/items-jetthemecore.php:311
+#: includes/elementor-addons/items-jetthemecore.php:315
+#: includes/elementor-addons/items-jetthemecore.php:479
+#: includes/elementor-addons/items-jetthemecore.php:483
 msgctxt "JetThemeCore Template type"
 msgid "Header"
 msgstr "Header"
 
-#: includes/elementor-addons/items-jetthemecore.php:72
-#: includes/elementor-addons/items-jetthemecore.php:322
-#: includes/elementor-addons/items-jetthemecore.php:326
-#: includes/elementor-addons/items-jetthemecore.php:490
-#: includes/elementor-addons/items-jetthemecore.php:494
+#: includes/elementor-addons/items-jetthemecore.php:74
+#: includes/elementor-addons/items-jetthemecore.php:324
+#: includes/elementor-addons/items-jetthemecore.php:328
+#: includes/elementor-addons/items-jetthemecore.php:492
+#: includes/elementor-addons/items-jetthemecore.php:496
 msgctxt "JetThemeCore Template type"
 msgid "Footer"
 msgstr "Footer"
 
 #. translators: JetThemeCore Template type
-#: includes/elementor-addons/items-jetthemecore.php:75
-#: includes/elementor-addons/items-jetthemecore.php:228
-#: includes/elementor-addons/items-jetthemecore.php:335
-#: includes/elementor-addons/items-jetthemecore.php:339
-#: includes/elementor-addons/items-jetthemecore.php:503
-#: includes/elementor-addons/items-jetthemecore.php:507
+#: includes/elementor-addons/items-jetthemecore.php:77
+#: includes/elementor-addons/items-jetthemecore.php:230
+#: includes/elementor-addons/items-jetthemecore.php:337
+#: includes/elementor-addons/items-jetthemecore.php:341
+#: includes/elementor-addons/items-jetthemecore.php:505
+#: includes/elementor-addons/items-jetthemecore.php:509
 msgctxt "JetThemeCore Template type"
 msgid "Single"
 msgstr "Einzel-Inhalt"
 
-#: includes/elementor-addons/items-jetthemecore.php:78
-#: includes/elementor-addons/items-jetthemecore.php:348
-#: includes/elementor-addons/items-jetthemecore.php:352
-#: includes/elementor-addons/items-jetthemecore.php:516
-#: includes/elementor-addons/items-jetthemecore.php:520
+#: includes/elementor-addons/items-jetthemecore.php:80
+#: includes/elementor-addons/items-jetthemecore.php:350
+#: includes/elementor-addons/items-jetthemecore.php:354
+#: includes/elementor-addons/items-jetthemecore.php:518
+#: includes/elementor-addons/items-jetthemecore.php:522
 msgctxt "JetThemeCore Template type"
 msgid "Archive"
 msgstr "Archiv"
 
 #. translators: %1$s - Name of the template type / %2$s - Current Date + Time
-#: includes/elementor-addons/items-jetthemecore.php:92
+#: includes/elementor-addons/items-jetthemecore.php:94
 #, php-format
 msgid "Jet Theme Part - %1$s %2$s"
 msgstr "Jet Theme-Bereich - %1$s %2$s"
 
-#: includes/elementor-addons/items-jetthemecore.php:132
-#: includes/elementor-addons/items-jetthemecore.php:136
+#: includes/elementor-addons/items-jetthemecore.php:134
+#: includes/elementor-addons/items-jetthemecore.php:138
 msgid "Jet Theme Parts"
 msgstr "Jet Theme-Bereiche"
 
-#: includes/elementor-addons/items-jetthemecore.php:158
+#: includes/elementor-addons/items-jetthemecore.php:160
 #: includes/elementor-addons/items-woocommerce-pbfe.php:63
 #: includes/elementor-official/items-elementor-core.php:112
 msgid "Template Types"
 msgstr "Template-Typen"
 
-#: includes/elementor-addons/items-jetthemecore.php:162
+#: includes/elementor-addons/items-jetthemecore.php:164
 msgid "JetThemeCore Template Types"
 msgstr "JetThemeCore Template-Typen"
 
 #. translators: JetThemeCore Template type
-#: includes/elementor-addons/items-jetthemecore.php:172
+#: includes/elementor-addons/items-jetthemecore.php:174
 msgctxt "JetThemeCore Template type"
 msgid "Pages"
 msgstr "Seiten"
 
-#: includes/elementor-addons/items-jetthemecore.php:176
+#: includes/elementor-addons/items-jetthemecore.php:178
 msgid "Template Type: Pages"
 msgstr "Template-Typ: Seiten"
 
 #. translators: JetThemeCore Template type
-#: includes/elementor-addons/items-jetthemecore.php:186
+#: includes/elementor-addons/items-jetthemecore.php:188
 msgctxt "JetThemeCore Template type"
 msgid "Sections"
 msgstr "Sections"
 
-#: includes/elementor-addons/items-jetthemecore.php:190
+#: includes/elementor-addons/items-jetthemecore.php:192
 #: includes/elementor-official/items-elementor-core.php:145
 msgid "Template Type: Section Blocks"
 msgstr "Template-Typ: Section-Blöcke"
 
 #. translators: JetThemeCore Template type
-#: includes/elementor-addons/items-jetthemecore.php:200
+#: includes/elementor-addons/items-jetthemecore.php:202
 msgctxt "JetThemeCore Template type"
 msgid "Headers"
 msgstr "Header"
 
-#: includes/elementor-addons/items-jetthemecore.php:204
+#: includes/elementor-addons/items-jetthemecore.php:206
 msgid "Template Type: Headers"
 msgstr "Template-Typ: Header-Blöcke"
 
 #. translators: JetThemeCore Template type
-#: includes/elementor-addons/items-jetthemecore.php:214
+#: includes/elementor-addons/items-jetthemecore.php:216
 msgctxt "JetThemeCore Template type"
 msgid "Footers"
 msgstr "Footer"
 
-#: includes/elementor-addons/items-jetthemecore.php:218
+#: includes/elementor-addons/items-jetthemecore.php:220
 msgid "Template Type: Footers"
 msgstr "Template-Typ: Footer-Blöcke"
 
-#: includes/elementor-addons/items-jetthemecore.php:232
+#: includes/elementor-addons/items-jetthemecore.php:234
 #: includes/elementor-official/items-elementor-pro.php:130
 #: includes/elementor-official/items-elementor-pro.php:353
 msgid "Template Type: Single Content Blocks"
 msgstr "Template-Typ: Einzel-Inhalte-Blöcke"
 
 #. translators: JetThemeCore Template type
-#: includes/elementor-addons/items-jetthemecore.php:242
+#: includes/elementor-addons/items-jetthemecore.php:244
 msgctxt "JetThemeCore Template type"
 msgid "Archives"
 msgstr "Archive"
 
-#: includes/elementor-addons/items-jetthemecore.php:246
+#: includes/elementor-addons/items-jetthemecore.php:248
 #: includes/elementor-official/items-elementor-pro.php:143
 #: includes/elementor-official/items-elementor-pro.php:367
 msgid "Template Type: Archive Content Blocks"
 msgstr "Template-Typ: Inhaltsarchive-Blöcke"
 
-#: includes/elementor-addons/items-jetthemecore.php:438
+#: includes/elementor-addons/items-jetthemecore.php:440
 msgctxt "Toolbar New Content section"
 msgid "Jet Theme Part"
 msgstr "Jet Theme-Bereiche"
 
-#: includes/elementor-addons/items-jetthemecore.php:442
+#: includes/elementor-addons/items-jetthemecore.php:444
 msgctxt "Toolbar New Content section"
 msgid "New Jet Theme Part Template (JetThemeCore)"
 msgstr "Neues Jet Theme-Bereich Template (JetThemeCore)"
@@ -5839,47 +5891,6 @@ msgstr "Massive Addons"
 msgid "Massive Addons for Elementor"
 msgstr "Massive Addons für Elementor"
 
-#: includes/elementor-addons/items-massive-addons-for-elementor.php:122
-#: includes/elementor-addons/items-massive-addons-for-elementor.php:126
-#: includes/elementor-addons/items-portfolio-for-elementor.php:33
-#: includes/elementor-addons/items-power-ups-for-elementor.php:116
-#: includes/elementor-addons/items-power-ups-for-elementor.php:120
-msgid "Portfolio Items"
-msgstr "Portolio-Beiträge"
-
-#: includes/elementor-addons/items-massive-addons-for-elementor.php:135
-#: includes/elementor-addons/items-massive-addons-for-elementor.php:139
-#: includes/elementor-addons/items-portfolio-for-elementor.php:46
-#: includes/elementor-addons/items-portfolio-for-elementor.php:50
-#: includes/elementor-addons/items-power-ups-for-elementor.php:129
-#: includes/elementor-addons/items-power-ups-for-elementor.php:133
-msgid "All Items"
-msgstr "Alle Elemente"
-
-#: includes/elementor-addons/items-massive-addons-for-elementor.php:148
-#: includes/elementor-addons/items-massive-addons-for-elementor.php:152
-#: includes/elementor-addons/items-portfolio-for-elementor.php:59
-#: includes/elementor-addons/items-portfolio-for-elementor.php:63
-#: includes/elementor-addons/items-power-ups-for-elementor.php:142
-#: includes/elementor-addons/items-power-ups-for-elementor.php:146
-msgid "New Portfolio"
-msgstr "Neuer Portfolio-Beitrag"
-
-#: includes/elementor-addons/items-massive-addons-for-elementor.php:163
-#: includes/elementor-addons/items-massive-addons-for-elementor.php:167
-#: includes/elementor-addons/items-portfolio-for-elementor.php:74
-#: includes/elementor-addons/items-portfolio-for-elementor.php:78
-#: includes/elementor-addons/items-power-ups-for-elementor.php:157
-#: includes/elementor-addons/items-power-ups-for-elementor.php:161
-#: includes/plugins-genesis/items-genesis-portfolio-pro.php:67
-#: includes/plugins-genesis/items-genesis-portfolio-pro.php:71
-#: includes/plugins/items-cpt-portfolio.php:82
-#: includes/plugins/items-cpt-portfolio.php:86
-#: includes/themes/items-flexia.php:335 includes/themes/items-flexia.php:339
-#: includes/themes/items-oceanwp.php:198 includes/themes/items-oceanwp.php:202
-msgid "New Portfolio Builder"
-msgstr "Neues Portfolio bauen"
-
 #: includes/elementor-addons/items-maxster-addons.php:35
 #: includes/elementor-addons/items-maxster-addons.php:39
 msgid "Maxster Addons"
@@ -6045,28 +6056,28 @@ msgstr "PDF CSS"
 msgid "PDF WaterMark"
 msgstr "PDF Wasserzeichen"
 
-#: includes/elementor-addons/items-piotnet-addons.php:122
-#: includes/elementor-addons/items-piotnet-addons.php:126
+#: includes/elementor-addons/items-piotnet-addons.php:121
+#: includes/elementor-addons/items-piotnet-addons.php:125
 msgid "Piotnet Addons Pro"
 msgstr "Piotnet Add-Ons Pro"
 
-#: includes/elementor-addons/items-piotnet-addons.php:122
-#: includes/elementor-addons/items-piotnet-addons.php:126
+#: includes/elementor-addons/items-piotnet-addons.php:121
+#: includes/elementor-addons/items-piotnet-addons.php:125
 msgid "Piotnet Addons"
 msgstr "Piotnet Add-Ons"
 
-#: includes/elementor-addons/items-piotnet-addons.php:137
-#: includes/elementor-addons/items-piotnet-addons.php:141
-#: includes/elementor-addons/items-piotnet-addons.php:209
-#: includes/elementor-addons/items-piotnet-addons.php:213
+#: includes/elementor-addons/items-piotnet-addons.php:136
+#: includes/elementor-addons/items-piotnet-addons.php:140
+#: includes/elementor-addons/items-piotnet-addons.php:208
+#: includes/elementor-addons/items-piotnet-addons.php:212
 msgid "Form Database"
 msgstr "Formular-Datenbank"
 
-#: includes/elementor-addons/items-piotnet-addons.php:196
+#: includes/elementor-addons/items-piotnet-addons.php:195
 msgid "PAFE Forms"
 msgstr "PAFE Formulare"
 
-#: includes/elementor-addons/items-piotnet-addons.php:200
+#: includes/elementor-addons/items-piotnet-addons.php:199
 msgid "PAFE Forms Builder (Piotnet Addons Pro)"
 msgstr "PAFE Formular Builder (Piotnet Add-Ons Pro)"
 
@@ -6078,9 +6089,42 @@ msgstr "PopBoxes"
 msgid "PopBoxes for Elementor"
 msgstr "PopBoxes für Elementor"
 
+#: includes/elementor-addons/items-portfolio-for-elementor.php:33
+#: includes/elementor-addons/items-power-ups-for-elementor.php:116
+#: includes/elementor-addons/items-power-ups-for-elementor.php:120
+msgid "Portfolio Items"
+msgstr "Portolio-Beiträge"
+
 #: includes/elementor-addons/items-portfolio-for-elementor.php:37
 msgid "Portfolio for Elementor"
 msgstr "Portfolio für Elementor"
+
+#: includes/elementor-addons/items-portfolio-for-elementor.php:46
+#: includes/elementor-addons/items-portfolio-for-elementor.php:50
+#: includes/elementor-addons/items-power-ups-for-elementor.php:129
+#: includes/elementor-addons/items-power-ups-for-elementor.php:133
+msgid "All Items"
+msgstr "Alle Elemente"
+
+#: includes/elementor-addons/items-portfolio-for-elementor.php:59
+#: includes/elementor-addons/items-portfolio-for-elementor.php:63
+#: includes/elementor-addons/items-power-ups-for-elementor.php:142
+#: includes/elementor-addons/items-power-ups-for-elementor.php:146
+msgid "New Portfolio"
+msgstr "Neuer Portfolio-Beitrag"
+
+#: includes/elementor-addons/items-portfolio-for-elementor.php:74
+#: includes/elementor-addons/items-portfolio-for-elementor.php:78
+#: includes/elementor-addons/items-power-ups-for-elementor.php:157
+#: includes/elementor-addons/items-power-ups-for-elementor.php:161
+#: includes/plugins-genesis/items-genesis-portfolio-pro.php:67
+#: includes/plugins-genesis/items-genesis-portfolio-pro.php:71
+#: includes/plugins/items-cpt-portfolio.php:82
+#: includes/plugins/items-cpt-portfolio.php:86
+#: includes/themes/items-flexia.php:335 includes/themes/items-flexia.php:339
+#: includes/themes/items-oceanwp.php:198 includes/themes/items-oceanwp.php:202
+msgid "New Portfolio Builder"
+msgstr "Neues Portfolio bauen"
 
 #: includes/elementor-addons/items-power-ups-for-elementor.php:35
 #: includes/elementor-addons/items-power-ups-for-elementor.php:39
@@ -6316,7 +6360,7 @@ msgstr "Erweitert"
 
 #: includes/elementor-addons/items-revolution-for-elementor.php:221
 #: includes/elementor-addons/items-revolution-for-elementor.php:225
-#: includes/functions-global.php:1259 includes/plugins/items-meta-box.php:358
+#: includes/functions-global.php:1282 includes/plugins/items-meta-box.php:358
 msgid "My Account"
 msgstr "Mein Benutzerkonto"
 
@@ -6360,6 +6404,14 @@ msgstr "Smarte Schriften"
 #: includes/elementor-addons/items-smart-fonts-for-elementor.php:39
 msgid "Smart Fonts for Elementor"
 msgstr "Smarte Schriften für Elementor"
+
+#: includes/elementor-addons/items-social-addons-for-elementor.php:37
+msgid "Social Addons Lite"
+msgstr "Soziale Addons Lite"
+
+#: includes/elementor-addons/items-social-addons-for-elementor.php:41
+msgid "Social Addons for Elementor (Lite)"
+msgstr "Soziale Addons für Elementor (Lite)"
 
 #: includes/elementor-addons/items-splittest-for-elementor.php:33
 msgid "Split Tests"
@@ -6493,13 +6545,13 @@ msgstr "Leistungseinstellungen"
 msgid "Custom CSS &amp; JS"
 msgstr "Eigenes CSS &amp; JS"
 
-#: includes/elementor-addons/items-theplus-addons.php:245
-#: includes/elementor-addons/items-theplus-addons.php:249
+#: includes/elementor-addons/items-theplus-addons.php:247
+#: includes/elementor-addons/items-theplus-addons.php:251
 msgid "Edit Clients"
 msgstr "Mandanten bearbeiten"
 
-#: includes/elementor-addons/items-theplus-addons.php:262
-#: includes/elementor-addons/items-theplus-addons.php:266
+#: includes/elementor-addons/items-theplus-addons.php:264
+#: includes/elementor-addons/items-theplus-addons.php:268
 #: includes/plugins-genesis/items-genesis-testimonial-slider.php:110
 #: includes/plugins-genesis/items-genesis-testimonial-slider.php:114
 #: includes/plugins/items-cherry-testimonials.php:37
@@ -6513,12 +6565,72 @@ msgstr "Mandanten bearbeiten"
 msgid "Edit Testimonials"
 msgstr "Testimonials bearbeiten"
 
-#: includes/elementor-addons/items-theplus-addons.php:279
-#: includes/elementor-addons/items-theplus-addons.php:283
+#: includes/elementor-addons/items-theplus-addons.php:281
+#: includes/elementor-addons/items-theplus-addons.php:285
 #: includes/plugins/items-cherry-team-members.php:37
 #: includes/plugins/items-cherry-team-members.php:41
 msgid "Edit Team Members"
 msgstr "Teammitglieder bearbeiten"
+
+#. translators: %s - label, "Elementor"
+#: includes/elementor-addons/items-toolkit-for-elementor.php:39
+#, php-format
+msgid "%s Toolkit"
+msgstr "%s Toolkit"
+
+#: includes/elementor-addons/items-toolkit-for-elementor.php:45
+msgid "ToolKit for Elementor"
+msgstr "ToolKit für Elementor"
+
+#: includes/elementor-addons/items-toolkit-for-elementor.php:67
+msgid "All Templates via ToolKit for Elementor"
+msgstr "Alle Templates via ToolKit für Elementor"
+
+#: includes/elementor-addons/items-toolkit-for-elementor.php:80
+msgid "New Template via ToolKit for Elementor"
+msgstr "Neues Template via ToolKit für Elementor"
+
+#: includes/elementor-addons/items-toolkit-for-elementor.php:126
+msgid "Booster"
+msgstr "Booster"
+
+#: includes/elementor-addons/items-toolkit-for-elementor.php:130
+msgid "Booster - Various Optimizations"
+msgstr "Booster - Verschiedene Optimierungen"
+
+#: includes/elementor-addons/items-toolkit-for-elementor.php:139
+msgid "Syncer"
+msgstr "Synchronisierung"
+
+#: includes/elementor-addons/items-toolkit-for-elementor.php:143
+msgid "Sync Elementor Templates between Sites"
+msgstr "Elementor-Templates zwischen Websites synchronisieren"
+
+#: includes/elementor-addons/items-toolkit-for-elementor.php:152
+msgid "Themeless"
+msgstr "Theme-los"
+
+#: includes/elementor-addons/items-toolkit-for-elementor.php:156
+msgid "Themeless - use only Elementor Templates, no Theme"
+msgstr "Theme-los - nur Elementar-Templates verwenden, kein Theme"
+
+#: includes/elementor-addons/items-toolkit-for-elementor.php:165
+msgid "Toolbox"
+msgstr "Toolbox"
+
+#: includes/elementor-addons/items-toolkit-for-elementor.php:169
+msgid "Toolbox - Custom Code"
+msgstr "Toolbox - Individueller Code"
+
+#: includes/elementor-addons/items-toolkit-for-elementor.php:248
+msgctxt "Toolbar New Content section"
+msgid "ToolKit Template"
+msgstr "ToolKit Template"
+
+#: includes/elementor-addons/items-toolkit-for-elementor.php:252
+msgctxt "Toolbar New Content section"
+msgid "Add new ToolKit for Elementor Template"
+msgstr "Neues ToolKit für Elementor Template hinzufügen"
 
 #: includes/elementor-addons/items-total-recipe-generator.php:35
 #: includes/elementor-addons/items-total-recipe-generator.php:39
@@ -6662,18 +6774,18 @@ msgstr "Neues Shop-Template"
 msgid "Shop Template"
 msgstr "Shop-Template"
 
-#: includes/elementor-addons/items-woolentor.php:48
-#: includes/elementor-addons/items-woolentor.php:52
+#: includes/elementor-addons/items-woolentor.php:64
+#: includes/elementor-addons/items-woolentor.php:68
 msgid "WooCommerce Template"
 msgstr "WooCommerce-Templates"
 
-#: includes/elementor-addons/items-woolentor.php:61
-#: includes/elementor-addons/items-woolentor.php:65
+#: includes/elementor-addons/items-woolentor.php:77
+#: includes/elementor-addons/items-woolentor.php:81
 msgid "Theme Library"
 msgstr "Theme-Bibliothek"
 
-#: includes/elementor-addons/items-woolentor.php:74
-#: includes/elementor-addons/items-woolentor.php:78
+#: includes/elementor-addons/items-woolentor.php:90
+#: includes/elementor-addons/items-woolentor.php:94
 #: includes/themes/items-oceanwp.php:97
 msgid "Template Library"
 msgstr "Template-Bibliothek"
@@ -6771,7 +6883,9 @@ msgid "Section"
 msgstr "Section"
 
 #: includes/elementor-official/items-elementor-core.php:221
-#: includes/plugins/items-acf.php:109
+#: includes/plugins/items-acf.php:103
+#: includes/plugins/items-rankmath-singles.php:211
+#: includes/plugins/items-rankmath.php:470
 msgid "Categories"
 msgstr "Kategorien"
 
@@ -6783,6 +6897,10 @@ msgstr "Stile"
 #: includes/elementor-official/items-elementor-core.php:313
 #: includes/elementor-official/items-elementor-core.php:317
 #: includes/elementor-official/items-elementor-core.php:494
+#: includes/plugins/items-rankmath.php:530
+#: includes/plugins/items-rankmath.php:534
+#: includes/plugins/items-rankmath.php:869
+#: includes/plugins/items-rankmath.php:873
 msgid "Role Manager"
 msgstr "Benutzerzugänge verwalten"
 
@@ -6835,13 +6953,13 @@ msgstr "Offizieller Elementor-Blog"
 msgid "Official Elementor YouTube Channel"
 msgstr "Offizieller Elementor-YouTube-Kanal"
 
-#: includes/elementor-official/items-elementor-core.php:801
+#: includes/elementor-official/items-elementor-core.php:809
 msgid "Advanced User &amp; Developer Community Group"
 msgstr "Fortgeschrittene Benutzer &amp; Entwickler-Community-Gruppe"
 
 #: includes/elementor-official/items-elementor-hello-theme.php:86
 #: includes/elementor-official/items-layers-for-elementor.php:99
-#: includes/items-site-group.php:590
+#: includes/items-site-group.php:594
 #: includes/plugins-forms/items-formidable-forms.php:335
 #: includes/plugins-forms/items-formidable-forms.php:339
 #: includes/themes-genesis/items-genesis-sample.php:37
@@ -6880,8 +6998,8 @@ msgstr "Neuer Theme-Bereich-Typ"
 #: includes/elementor-official/items-elementor-pro.php:321
 #: includes/elementor-official/items-elementor-pro.php:443
 #: includes/elementor-official/items-elementor-pro.php:447
-#: includes/elementor-official/items-elementor-pro.php:764
-#: includes/elementor-official/items-elementor-pro.php:768
+#: includes/elementor-official/items-elementor-pro.php:828
+#: includes/elementor-official/items-elementor-pro.php:832
 msgctxt "Elementor Template type"
 msgid "Header"
 msgstr "Header"
@@ -6896,8 +7014,8 @@ msgstr "Template-Typ: Header-Blöcke"
 #: includes/elementor-official/items-elementor-pro.php:335
 #: includes/elementor-official/items-elementor-pro.php:456
 #: includes/elementor-official/items-elementor-pro.php:460
-#: includes/elementor-official/items-elementor-pro.php:777
-#: includes/elementor-official/items-elementor-pro.php:781
+#: includes/elementor-official/items-elementor-pro.php:841
+#: includes/elementor-official/items-elementor-pro.php:845
 msgctxt "Elementor Template type"
 msgid "Footer"
 msgstr "Footer"
@@ -6912,8 +7030,8 @@ msgstr "Template-Typ: Footer-Blöcke"
 #: includes/elementor-official/items-elementor-pro.php:349
 #: includes/elementor-official/items-elementor-pro.php:469
 #: includes/elementor-official/items-elementor-pro.php:473
-#: includes/elementor-official/items-elementor-pro.php:790
-#: includes/elementor-official/items-elementor-pro.php:794
+#: includes/elementor-official/items-elementor-pro.php:854
+#: includes/elementor-official/items-elementor-pro.php:858
 msgctxt "Elementor Template type"
 msgid "Single"
 msgstr "Einzel-Inhalte"
@@ -6923,8 +7041,8 @@ msgstr "Einzel-Inhalte"
 #: includes/elementor-official/items-elementor-pro.php:363
 #: includes/elementor-official/items-elementor-pro.php:482
 #: includes/elementor-official/items-elementor-pro.php:486
-#: includes/elementor-official/items-elementor-pro.php:803
-#: includes/elementor-official/items-elementor-pro.php:807
+#: includes/elementor-official/items-elementor-pro.php:867
+#: includes/elementor-official/items-elementor-pro.php:871
 msgctxt "Elementor Template type"
 msgid "Archive"
 msgstr "Archive"
@@ -6934,8 +7052,8 @@ msgstr "Archive"
 #: includes/elementor-official/items-elementor-pro.php:381
 #: includes/elementor-official/items-elementor-pro.php:499
 #: includes/elementor-official/items-elementor-pro.php:503
-#: includes/elementor-official/items-elementor-pro.php:821
-#: includes/elementor-official/items-elementor-pro.php:825
+#: includes/elementor-official/items-elementor-pro.php:885
+#: includes/elementor-official/items-elementor-pro.php:889
 msgctxt "Elementor Template type"
 msgid "Product"
 msgstr "Produkt"
@@ -6950,8 +7068,8 @@ msgstr "Template-Typ: Produkt-Inhaltsblöcke"
 #: includes/elementor-official/items-elementor-pro.php:395
 #: includes/elementor-official/items-elementor-pro.php:512
 #: includes/elementor-official/items-elementor-pro.php:516
-#: includes/elementor-official/items-elementor-pro.php:834
-#: includes/elementor-official/items-elementor-pro.php:838
+#: includes/elementor-official/items-elementor-pro.php:898
+#: includes/elementor-official/items-elementor-pro.php:902
 msgctxt "Elementor Template type"
 msgid "Product Archive"
 msgstr "Produktarchiv"
@@ -6977,8 +7095,8 @@ msgstr "%s Popups"
 #: includes/elementor-official/items-elementor-pro.php:254
 #: includes/elementor-official/items-elementor-pro.php:428
 #: includes/elementor-official/items-elementor-pro.php:432
-#: includes/elementor-official/items-elementor-pro.php:735
-#: includes/elementor-official/items-elementor-pro.php:739
+#: includes/elementor-official/items-elementor-pro.php:799
+#: includes/elementor-official/items-elementor-pro.php:803
 msgctxt "Elementor Template type"
 msgid "Popup"
 msgstr "Popup"
@@ -7029,14 +7147,30 @@ msgstr "Neue Schrift"
 msgid "Upload New Font"
 msgstr "Neue Schrift hochladen"
 
-#: includes/elementor-official/items-elementor-pro.php:640
-#: includes/elementor-official/items-elementor-pro.php:645
+#: includes/elementor-official/items-elementor-pro.php:647
+msgid "All Icon Sets"
+msgstr "Alle Icon-Sets"
+
+#: includes/elementor-official/items-elementor-pro.php:651
+msgid "All Custom Icon Sets"
+msgstr "Alle individuellen Icon-Sets"
+
+#: includes/elementor-official/items-elementor-pro.php:660
+msgid "New Icon Set"
+msgstr "Neues Icon-Set"
+
+#: includes/elementor-official/items-elementor-pro.php:664
+msgid "Upload New Custom Icon Set"
+msgstr "Neues individuelles Icon-Set hochladen"
+
+#: includes/elementor-official/items-elementor-pro.php:696
+#: includes/elementor-official/items-elementor-pro.php:701
 msgid "Pro Resources"
 msgstr "Pro-Ressourcen"
 
 #. translators: %s - static string "@ elementor.com" (My Account @ elementor.com)
 #. translators: %s - static string "@ churchthemes.com" (My Account @ churchthemes.com)
-#: includes/elementor-official/items-elementor-pro.php:670
+#: includes/elementor-official/items-elementor-pro.php:734
 #: includes/themes/items-ct-exodus.php:265
 #: includes/themes/items-ct-maranatha.php:251
 #: includes/themes/items-ct-resurrect.php:265
@@ -7045,8 +7179,8 @@ msgstr "Pro-Ressourcen"
 msgid "My Account %s"
 msgstr "Mein Benutzerkonto %s"
 
-#: includes/elementor-official/items-elementor-pro.php:749
-#: includes/elementor-official/items-elementor-pro.php:753
+#: includes/elementor-official/items-elementor-pro.php:813
+#: includes/elementor-official/items-elementor-pro.php:817
 msgctxt "Elementor - in Toolbar New Content section"
 msgid "Popup"
 msgstr "Popup"
@@ -7362,35 +7496,35 @@ msgstr "Footer"
 msgid "David Decker - DECKERWEB"
 msgstr "David Decker - DECKERWEB.de"
 
-#: includes/functions-global.php:502
+#: includes/functions-global.php:523
 msgid "No Page Builder registered"
 msgstr "Kein Page Builder registriert"
 
-#: includes/functions-global.php:606
+#: includes/functions-global.php:627
 msgid "Default Blue"
 msgstr "Standard Blau"
 
-#: includes/functions-global.php:610
+#: includes/functions-global.php:631
 msgid "Default Orange"
 msgstr "Standard Orange"
 
-#: includes/functions-global.php:614
+#: includes/functions-global.php:635
 msgid "Toolbar Extras Purple"
 msgstr "Toolbar Extras Lila"
 
-#: includes/functions-global.php:1025
+#: includes/functions-global.php:1046
 #, php-format
 msgid "Customize %s"
 msgstr "Anpassen: %s"
 
 #. translators: %s - name of a post type (plural label)
-#: includes/functions-global.php:1065 includes/themes/items-rife.php:220
+#: includes/functions-global.php:1088 includes/themes/items-rife.php:220
 #, php-format
 msgid "All %s"
 msgstr "Alles %s"
 
 #. translators: %s - singular name of a post type (singular label)
-#: includes/functions-global.php:1072 includes/themes/items-rife.php:232
+#: includes/functions-global.php:1095 includes/themes/items-rife.php:232
 #, php-format
 msgid "New %s"
 msgstr "Neues %s"
@@ -7400,7 +7534,7 @@ msgstr "Neues %s"
 #. translators: %s - (Static) Theme name OceanWP - optionally white labeled string
 #. translators: (Static) Theme name Suki - optionally white labeled string
 #. translators: (Static) Theme name Zita - optionally white labeled string
-#: includes/functions-global.php:1116 includes/themes/items-astra.php:62
+#: includes/functions-global.php:1139 includes/themes/items-astra.php:62
 #: includes/themes/items-oceanwp.php:65 includes/themes/items-suki.php:57
 #: includes/themes/items-suki.php:62 includes/themes/items-zita.php:58
 #: includes/themes/items-zita.php:63
@@ -7411,153 +7545,153 @@ msgstr "Theme: %s"
 #. translators: %s - Name of current active Theme or Parent Theme (static!)
 #. translators: (Static) Theme name Astra - optionally white labeled string
 #. translators: %s - (Static) Theme name OceanWP - optionally white labeled string
-#: includes/functions-global.php:1125 includes/themes/items-astra.php:67
+#: includes/functions-global.php:1148 includes/themes/items-astra.php:67
 #: includes/themes/items-oceanwp.php:73
 #, php-format
 msgid "Active Theme: %s"
 msgstr "Aktives Theme: %s"
 
-#: includes/functions-global.php:1203
+#: includes/functions-global.php:1226
 msgid "Developer Documentation"
 msgstr "Entwickler-Dokumentation"
 
-#: includes/functions-global.php:1209
+#: includes/functions-global.php:1232
 msgid "Official Support"
 msgstr "Offizieller Support"
 
-#: includes/functions-global.php:1212
+#: includes/functions-global.php:1235
 msgid "Official Site"
 msgstr "Offizielle Website"
 
-#: includes/functions-global.php:1215
+#: includes/functions-global.php:1238
 msgid "Official Blog"
 msgstr "Offizieller Blog"
 
-#: includes/functions-global.php:1218
+#: includes/functions-global.php:1241
 msgid "Development @ GitHub"
 msgstr "Entwicklung @ GitHub"
 
-#: includes/functions-global.php:1221
+#: includes/functions-global.php:1244
 msgid "GitHub Issues"
 msgstr "GitHub Issues"
 
 #. translators: Title attribute for linked text
-#: includes/functions-global.php:1223
+#: includes/functions-global.php:1246
 msgid "GitHub Issues (Bug Tracker)"
 msgstr "GitHub Issues (Bugtracker)"
 
-#: includes/functions-global.php:1226
+#: includes/functions-global.php:1249
 msgid "Community Translations"
 msgstr "Community-Übersetzungen"
 
 #. translators: Title attribute for linked text
-#: includes/functions-global.php:1228
+#: includes/functions-global.php:1251
 msgid "Community Translations (at WordPress.org)"
 msgstr "Community-Übersetzungen (bei WordPress.org)"
 
-#: includes/functions-global.php:1231
+#: includes/functions-global.php:1254
 msgid "Translate Pro Plugin"
 msgstr "Pro-Plugin übersetzen"
 
-#: includes/functions-global.php:1234
+#: includes/functions-global.php:1257
 msgid "YouTube Channel"
 msgstr "YouTube-Kanal"
 
-#: includes/functions-global.php:1237
+#: includes/functions-global.php:1260
 msgid "YouTube Tutorials"
 msgstr "YouTube-Anleitungen"
 
-#: includes/functions-global.php:1240
+#: includes/functions-global.php:1263
 msgid "Videos"
 msgstr "Videos"
 
-#: includes/functions-global.php:1243
+#: includes/functions-global.php:1266
 msgid "Knowledge Base"
 msgstr "Wissensbasis"
 
 #. translators: Title attribute for linked text
-#: includes/functions-global.php:1245
+#: includes/functions-global.php:1268
 msgid "Knowledge Base Articles"
 msgstr "Wissensbasis-Artikel (KB)"
 
-#: includes/functions-global.php:1248
+#: includes/functions-global.php:1271
 msgid "Tutorials"
 msgstr "Anleitungen"
 
 #. translators: Title attribute for linked text
-#: includes/functions-global.php:1250
+#: includes/functions-global.php:1273
 msgid "Tutorial Articles"
 msgstr "Anleitungen"
 
-#: includes/functions-global.php:1253
+#: includes/functions-global.php:1276
 msgid "User Forum"
 msgstr "Anwenderforum"
 
-#: includes/functions-global.php:1256
+#: includes/functions-global.php:1279
 msgid "Community Forum"
 msgstr "Community-Forum"
 
-#: includes/functions-global.php:1262
+#: includes/functions-global.php:1285
 msgid "Code Reference"
 msgstr "Code-Referenz"
 
-#: includes/functions-global.php:1265
+#: includes/functions-global.php:1288
 msgid "Pro Docs"
 msgstr "Pro-Dokumentation"
 
-#: includes/functions-global.php:1268
+#: includes/functions-global.php:1291
 msgid "Pro: Documentation"
 msgstr "Pro: Dokumentation"
 
-#: includes/functions-global.php:1271
+#: includes/functions-global.php:1294
 msgid "Pro: Modules Documentation"
 msgstr "Pro: Modul-Dokumentation"
 
-#: includes/functions-global.php:1274
+#: includes/functions-global.php:1297
 msgid "Pro: Facebook Group"
 msgstr "Pro: Facebook-Gruppe"
 
-#: includes/functions-global.php:1277
+#: includes/functions-global.php:1300
 msgid "Pro: Support"
 msgstr "Pro: Support"
 
-#: includes/functions-global.php:1280
+#: includes/functions-global.php:1303
 msgid "Pro: Official Site"
 msgstr "Pro: Offizielle Website"
 
-#: includes/functions-global.php:1283
+#: includes/functions-global.php:1306
 msgid "Pro: APIs"
 msgstr "Pro: APIs"
 
-#: includes/functions-global.php:1286
+#: includes/functions-global.php:1309
 msgid "Slack Channel"
 msgstr "Slack-Kanal"
 
-#: includes/functions-global.php:1289
+#: includes/functions-global.php:1312
 msgid "Change Logs"
 msgstr "Versionshistorie"
 
-#: includes/functions-global.php:1290
+#: includes/functions-global.php:1313
 msgid "Version History"
 msgstr "Versionsprotokoll"
 
-#: includes/functions-global.php:1293
+#: includes/functions-global.php:1316
 msgid "External Resource"
 msgstr "Externe Ressource"
 
-#: includes/functions-global.php:1394
+#: includes/functions-global.php:1417
 msgid "You have no sufficient permission to edit this special menu."
 msgstr ""
 "Du hast keine ausreichende Berechtigung, um dieses besondere Menü bearbeiten "
 "zu können."
 
-#: includes/functions-global.php:1594
+#: includes/functions-global.php:1617
 msgid "Test this custom URL"
 msgstr "Diese benutzerdefinierte URL testen"
 
 #. translators: Autofocus section in the Customizer
-#: includes/functions-global.php:1675 includes/functions-global.php:1680
-#: includes/functions-global.php:1727
+#: includes/functions-global.php:1698 includes/functions-global.php:1703
+#: includes/functions-global.php:1750
 #: includes/themes-genesis/items-genesis-daily-dish-pro.php:89
 #: includes/themes-genesis/items-genesis-daily-dish-pro.php:93
 #: includes/themes-genesis/items-genesis-digital-pro.php:90
@@ -7615,7 +7749,7 @@ msgid "Site Identity"
 msgstr "Website-Identität"
 
 #. translators: Autofocus section in the Customizer
-#: includes/functions-global.php:1731
+#: includes/functions-global.php:1754
 #: includes/themes-genesis/items-genesis-academy-pro.php:44
 #: includes/themes-genesis/items-genesis-agentpress-pro.php:37
 #: includes/themes-genesis/items-genesis-altitude-pro.php:42
@@ -7680,7 +7814,7 @@ msgid "Header Image"
 msgstr "Headerbild"
 
 #. translators: Autofocus section in the Customizer
-#: includes/functions-global.php:1735
+#: includes/functions-global.php:1758
 #: includes/themes-genesis/items-genesis-agentpress-pro.php:32
 #: includes/themes-genesis/items-genesis-atmosphere-pro.php:49
 #: includes/themes-genesis/items-genesis-author-pro.php:42
@@ -7712,7 +7846,7 @@ msgstr "Headerbild"
 #: includes/themes-genesis/items-genesis-wellness-pro.php:76
 #: includes/themes-genesis/items-genesis-wellness-pro.php:80
 #: includes/themes/items-atomic-blocks.php:77
-#: includes/themes/items-coblocks.php:70
+#: includes/themes/items-chaplin.php:94 includes/themes/items-coblocks.php:70
 #: includes/themes/items-ct-resurrect.php:116
 #: includes/themes/items-ct-resurrect.php:120
 #: includes/themes/items-default-twenty-themes.php:71
@@ -7724,7 +7858,7 @@ msgid "Background Image"
 msgstr "Hintergrundbild"
 
 #. translators: Autofocus section in the Customizer
-#: includes/functions-global.php:1739
+#: includes/functions-global.php:1762
 #: includes/plugins/items-wp-mobile-menu.php:83
 #: includes/plugins/items-wp-mobile-menu.php:87
 #: includes/themes-genesis/items-genesis-academy-pro.php:39
@@ -7788,7 +7922,7 @@ msgstr "Hintergrundbild"
 #: includes/themes-genesis/items-genesis-wellness-pro.php:52
 #: includes/themes/items-astra.php:104
 #: includes/themes/items-atomic-blocks.php:72
-#: includes/themes/items-coblocks.php:65
+#: includes/themes/items-chaplin.php:63 includes/themes/items-coblocks.php:65
 #: includes/themes/items-ct-maranatha.php:102
 #: includes/themes/items-ct-maranatha.php:106
 #: includes/themes/items-ct-resurrect.php:102
@@ -7805,15 +7939,15 @@ msgstr "Hintergrundbild"
 msgid "Colors"
 msgstr "Farben"
 
-#: includes/functions-global.php:1888 includes/functions-global.php:1893
+#: includes/functions-global.php:1911 includes/functions-global.php:1916
 msgid "Color Wheel &amp; Color Schemes"
 msgstr "Farbrad &amp; Farbschemata"
 
-#: includes/functions-global.php:1903 includes/functions-global.php:1908
+#: includes/functions-global.php:1926 includes/functions-global.php:1931
 msgid "Color Scheme Designer"
 msgstr "Farbschema-Designer"
 
-#: includes/functions-global.php:1918 includes/functions-global.php:1923
+#: includes/functions-global.php:1941 includes/functions-global.php:1946
 msgid "Color Tools"
 msgstr "Farb-Werkzeuge"
 
@@ -7865,40 +7999,40 @@ msgstr "Drop-ins"
 msgid "Drop-ins - Special Plugins"
 msgstr "Drop-ins - Besondere Plugins"
 
-#: includes/items-dev-mode.php:286
+#: includes/items-dev-mode.php:287
 msgctxt "ID of current element/ queried object"
 msgid "ID"
 msgstr "ID"
 
-#: includes/items-dev-mode.php:299
+#: includes/items-dev-mode.php:300
 msgid "Internal WordPress ID of current element"
 msgstr "Interne WordPress-ID des aktuellen Elements"
 
-#: includes/items-dev-mode.php:347
+#: includes/items-dev-mode.php:348
 msgid "WordPress Codex"
 msgstr "WordPress-Codex"
 
-#: includes/items-dev-mode.php:352
+#: includes/items-dev-mode.php:353
 msgid "WordPress Codex for Developers"
 msgstr "WordPress-Codex für Entwickler"
 
-#: includes/items-dev-mode.php:364 includes/items-dev-mode.php:369
+#: includes/items-dev-mode.php:365 includes/items-dev-mode.php:370
 msgid "Block Editor (Gutenberg) Handbook"
 msgstr "Block-Editor-Handbuch (Gutenberg)"
 
-#: includes/items-dev-mode.php:383 includes/items-dev-mode.php:388
+#: includes/items-dev-mode.php:384 includes/items-dev-mode.php:389
 msgid "Child Themes Handbook"
 msgstr "Child-Themes-Handbuch"
 
-#: includes/items-dev-mode.php:400 includes/items-dev-mode.php:405
+#: includes/items-dev-mode.php:401 includes/items-dev-mode.php:406
 msgid "REST API Handbook"
 msgstr "REST-API-Handbuch"
 
-#: includes/items-dev-mode.php:415
+#: includes/items-dev-mode.php:416
 msgid "StackExchange Forum"
 msgstr "StackExchange-Forum"
 
-#: includes/items-dev-mode.php:420
+#: includes/items-dev-mode.php:421
 msgid "WordPress Developers @ StackExchange"
 msgstr "WordPress Entwickler @ StackExchange"
 
@@ -7914,15 +8048,15 @@ msgstr "%s ansehen"
 msgid "View Archive for"
 msgstr "Archiv ansehen für"
 
-#: includes/items-edit-nav-menus.php:52 includes/items-edit-nav-menus.php:56
+#: includes/items-edit-nav-menus.php:56 includes/items-edit-nav-menus.php:60
 msgid "Edit Menu:"
 msgstr "Menü bearbeiten:"
 
-#: includes/items-edit-nav-menus.php:105
+#: includes/items-edit-nav-menus.php:109
 msgid "Toolbar Menu:"
 msgstr "Toolbar-Menü:"
 
-#: includes/items-edit-nav-menus.php:109
+#: includes/items-edit-nav-menus.php:113
 msgid "Edit Super Admin Toolbar Menu:"
 msgstr "Super Admin-Toolbar-Menü bearbeiten:"
 
@@ -7980,266 +8114,315 @@ msgstr "Neues Nav-Menü hinzufügen"
 msgid "Upload Theme"
 msgstr "Theme hochladen"
 
-#: includes/items-new-content.php:294
+#: includes/items-new-content.php:296
 msgid "Theme Installer - Upload Theme"
 msgstr "Them-Installer - Theme hochladen"
 
-#: includes/items-new-content.php:295
+#: includes/items-new-content.php:297
 msgid "Upload Theme ZIP"
 msgstr "Theme-ZIP hochladen"
 
-#: includes/items-new-content.php:308
+#: includes/items-new-content.php:310
 msgid "Plugin Installer - Upload Plugin"
 msgstr "Plugin-Installer - Plugin hochladen"
 
-#: includes/items-new-content.php:309
+#: includes/items-new-content.php:311
 msgid "Upload Plugin ZIP"
 msgstr "Plugin-ZIP hochladen"
 
-#: includes/items-new-content.php:399
+#: includes/items-new-content.php:401
 msgid "Install Plugin"
 msgstr "Plugin installieren"
 
-#: includes/items-new-content.php:403
+#: includes/items-new-content.php:405
 msgid "Install Plugin - Search via WordPress.org"
 msgstr "Plugin Installieren - Suche via WordPress.org"
 
-#: includes/items-new-content.php:412
+#: includes/items-new-content.php:414
 msgid "Search Plugin Directory"
 msgstr "Pluginverzeichnis durchsuchen"
 
-#: includes/items-new-content.php:416
+#: includes/items-new-content.php:418
 msgid "Search WordPress.org Plugin Directory"
 msgstr "WordPress.org Pluginverzeichnis durchsuchen"
 
-#: includes/items-new-content.php:427
+#: includes/items-new-content.php:429
 msgid "Search Categories"
 msgstr "Kategorien suchen"
 
-#: includes/items-new-content.php:431
+#: includes/items-new-content.php:433
 msgid "Search Categories (Plugin Tags)"
 msgstr "Kategorien suchen (Plugin-Schlagwörter)"
 
-#: includes/items-new-content.php:442 includes/items-new-content.php:535
+#: includes/items-new-content.php:444 includes/items-new-content.php:537
 msgid "Upload ZIP file"
 msgstr "ZIP-Datei hochladen"
 
-#: includes/items-new-content.php:446
+#: includes/items-new-content.php:448
 msgid "Install Plugin - Upload ZIP file"
 msgstr "Plugin installieren - ZIP-Datei hochladen"
 
-#: includes/items-new-content.php:458
+#: includes/items-new-content.php:460
 msgid "Newest Plugins"
 msgstr "Neueste Plugins"
 
-#: includes/items-new-content.php:462
+#: includes/items-new-content.php:464
 msgid "Newest Plugins added on WordPress.org"
 msgstr "Neu hinzugefügte Plugins bei WordPress.org"
 
-#: includes/items-new-content.php:476
+#: includes/items-new-content.php:478
 msgid "Topics, Use Cases, Tags"
 msgstr "Themen &amp; Schlagwörter"
 
-#: includes/items-new-content.php:480
+#: includes/items-new-content.php:482
 msgid ""
 "Install Plugins - Curated Topics, Use Cases, Plugin Tags (via WordPress.org)"
 msgstr ""
 "Plugin installieren - Themen, Einsatzzwecke, Plugin-Schlagwörter (via "
 "WordPress.org)"
 
-#: includes/items-new-content.php:493 includes/items-new-content.php:568
+#: includes/items-new-content.php:495 includes/items-new-content.php:570
 msgid "Install Favorites"
 msgstr "Favoriten installieren"
 
-#: includes/items-new-content.php:497
+#: includes/items-new-content.php:499
 msgid "Install Plugins - Favorites (via WordPress.org)"
 msgstr "Plugin installieren - Favoriten (via WordPress.org)"
 
-#: includes/items-new-content.php:509
+#: includes/items-new-content.php:511
 msgid "Install Theme"
 msgstr "Theme installieren"
 
-#: includes/items-new-content.php:513
+#: includes/items-new-content.php:515
 msgid "Install Theme - Search via WordPress.org"
 msgstr "Theme installieren - Suche via WordPress.org"
 
-#: includes/items-new-content.php:522
+#: includes/items-new-content.php:524
 msgid "Search Theme Directory"
 msgstr "Themeverzeichnis durchsuchen"
 
-#: includes/items-new-content.php:526
+#: includes/items-new-content.php:528
 msgid "Search WordPress Theme Directory"
 msgstr "WordPress.org Themeverzeichnis durchsuchen"
 
-#: includes/items-new-content.php:539
+#: includes/items-new-content.php:541
 msgid "Install Theme - Upload ZIP file"
 msgstr "Theme installieren - ZIP-Datei hochladen"
 
-#: includes/items-new-content.php:551
+#: includes/items-new-content.php:553
 msgid "Newest Themes"
 msgstr "Neueste Themes"
 
-#: includes/items-new-content.php:555
+#: includes/items-new-content.php:557
 msgid "Newest Themes added on WordPress.org"
 msgstr "Neu hinzugefügte Themes bei WordPress.org"
 
-#: includes/items-new-content.php:572
+#: includes/items-new-content.php:574
 msgid "Install Theme - Favorites (via WordPress.org)"
 msgstr "Theme installieren - Favoriten (via WordPress.org)"
 
-#: includes/items-site-group.php:143 includes/items-site-group.php:147
+#: includes/items-site-group.php:145 includes/items-site-group.php:149
 msgid "Manage Content"
 msgstr "Inhalte verwalten"
 
-#: includes/items-site-group.php:156 includes/items-site-group.php:160
+#: includes/items-site-group.php:158 includes/items-site-group.php:162
 msgid "Edit Pages"
 msgstr "Seiten bearbeiten"
 
-#: includes/items-site-group.php:169 includes/items-site-group.php:173
+#: includes/items-site-group.php:171 includes/items-site-group.php:175
 msgid "Edit Posts"
 msgstr "Beiträge bearbeiten"
 
-#: includes/items-site-group.php:185
+#: includes/items-site-group.php:187
 msgid "Gallery &amp; Slider"
 msgstr "Galerien &amp; Slider"
 
-#: includes/items-site-group.php:189
+#: includes/items-site-group.php:191
 msgid "Galleries &amp; Sliders from Add-On Plugins"
 msgstr "Galerien &amp; Slider von Add-On-Plugins"
 
-#: includes/items-site-group.php:201 includes/items-site-group.php:205
+#: includes/items-site-group.php:203 includes/items-site-group.php:207
 msgid "Media Library"
 msgstr "Medien-Bibliothek"
 
-#: includes/items-site-group.php:221
+#: includes/items-site-group.php:223
 msgid "Grid View"
 msgstr "Rasteransicht"
 
-#: includes/items-site-group.php:225
+#: includes/items-site-group.php:227
 msgid "Media Files as Grid View"
 msgstr "Mediendateien in Rasteransicht"
 
-#: includes/items-site-group.php:234
+#: includes/items-site-group.php:236
 msgid "List View"
 msgstr "Listenansicht"
 
-#: includes/items-site-group.php:238
+#: includes/items-site-group.php:240
 msgid "Media Files as List View"
 msgstr "Mediendateien in Listenansicht"
 
-#: includes/items-site-group.php:262 includes/items-site-group.php:577
+#: includes/items-site-group.php:264 includes/items-site-group.php:581
 msgid "Nav Menus"
 msgstr "Nav-Menüs"
 
-#: includes/items-site-group.php:266
+#: includes/items-site-group.php:268
 msgid "Manage Nav Menus"
 msgstr "Nav-Menüs verwalten"
 
-#: includes/items-site-group.php:275 includes/items-site-group.php:342
+#: includes/items-site-group.php:277 includes/items-site-group.php:344
 msgid "Manage in WP-Admin"
 msgstr "Bearbeiten in WP-Admin"
 
-#: includes/items-site-group.php:279
+#: includes/items-site-group.php:281
 msgid "Manage Nav Menus in WP-Admin Dashboard (Classic)"
 msgstr "Nav-Menüs im WP-Admin Dashboard bearbeiten (klassisch)"
 
-#: includes/items-site-group.php:288 includes/items-site-group.php:355
+#: includes/items-site-group.php:290 includes/items-site-group.php:357
 msgid "Customize Live"
 msgstr "Live anpassen"
 
-#: includes/items-site-group.php:292 includes/items-site-group.php:581
+#: includes/items-site-group.php:294 includes/items-site-group.php:585
 msgid "Customize Nav Menus with Live Preview"
 msgstr "Nav-Menüs mit Live-Vorschau im Customizer bearbeiten"
 
-#: includes/items-site-group.php:301
+#: includes/items-site-group.php:303
 #: includes/plugins/items-max-mega-menu.php:84
 #: includes/plugins/items-max-mega-menu.php:88
 msgid "Menu Locations"
 msgstr "Menüpositionen"
 
-#: includes/items-site-group.php:305
+#: includes/items-site-group.php:307
 msgid "Manage Nav Menus Locations"
 msgstr "Menüpositionen verwalten"
 
-#: includes/items-site-group.php:333
+#: includes/items-site-group.php:335
 msgid "Manage Widget Blocks"
 msgstr "Widget-Inhaltsblöcke bearbeiten"
 
-#: includes/items-site-group.php:346
+#: includes/items-site-group.php:348
 msgid "Manage Widgets in WP-Admin Dashboard (Classic)"
 msgstr "Widgets im WP-Admin Dashboard bearbeiten (klassisch)"
 
-#: includes/items-site-group.php:359 includes/items-site-group.php:568
+#: includes/items-site-group.php:361 includes/items-site-group.php:572
 msgid "Customize Widgets with Live Preview"
 msgstr "Widgets mit Live-Vorschau im Customizer bearbeiten"
 
-#: includes/items-site-group.php:403
+#: includes/items-site-group.php:407
 msgid "All Updates"
 msgstr "Alle Updates"
 
-#: includes/items-site-group.php:407
+#: includes/items-site-group.php:411
 msgid "All Updates: Core, Plugins, Themes, Translations"
 msgstr ""
 "Auf Aktualisierungen prüfen - WordPress-Core, Plugins, Themes, Übersetzungen"
 
-#: includes/items-site-group.php:424
+#: includes/items-site-group.php:428
 #: includes/plugins/items-local-development.php:41
 #: includes/plugins/items-local-development.php:45
 msgid "Plugins"
 msgstr "Plugins"
 
-#: includes/items-site-group.php:428
+#: includes/items-site-group.php:432
 msgid "Plugins Page"
 msgstr "Plugins-Seite"
 
-#: includes/items-site-group.php:439 includes/items-site-group.php:443
+#: includes/items-site-group.php:443 includes/items-site-group.php:447
 #: includes/plugins/items-easy-updates-manager.php:73
 msgid "All Plugins"
 msgstr "Alle Plugins"
 
-#: includes/items-site-group.php:452
+#: includes/items-site-group.php:456
 msgid "Active Plugins"
 msgstr "Aktive Plugins"
 
-#: includes/items-site-group.php:456
+#: includes/items-site-group.php:460
 msgid "Currently active Plugins"
 msgstr "Derzeit aktive Plugins"
 
-#: includes/items-site-group.php:465
+#: includes/items-site-group.php:469
 msgid "Inactive Plugins"
 msgstr "Inaktive Plugins"
 
-#: includes/items-site-group.php:469
+#: includes/items-site-group.php:473
 msgid "Currently inactive Plugins"
 msgstr "Derzeit inaktive Plugins"
 
-#: includes/items-site-group.php:505
+#: includes/items-site-group.php:509
 msgid "Site Health"
 msgstr "Website-Zustand"
 
-#: includes/items-site-group.php:509
+#: includes/items-site-group.php:513
 msgid "Site Health Status &amp; Debug Info"
 msgstr "Website-Status &amp; Debug-Info"
 
-#: includes/items-site-group.php:518
+#: includes/items-site-group.php:522
 msgid "Health Status"
 msgstr "Website-Status"
 
-#: includes/items-site-group.php:522
+#: includes/items-site-group.php:526
 msgid "Site Health Status"
 msgstr "Website-Status"
 
-#: includes/items-site-group.php:531
+#: includes/items-site-group.php:535
 msgid "Debug Info"
 msgstr "Debug-Info"
 
-#: includes/items-site-group.php:535
+#: includes/items-site-group.php:539
 msgid "Debug Info &amp; Error Reporting"
 msgstr "Debug-Info &amp; Fehlerberichte"
 
-#: includes/items-site-group.php:594
+#: includes/items-site-group.php:598
 msgid "Customize CSS with Live Preview"
 msgstr "Eigenes CSS mit Live-Vorschau im Customizer bearbeiten"
+
+#: includes/items-site-group.php:643
+msgid "Release Notes"
+msgstr "Versionshinweise"
+
+#. translators: %s - current WordPress version, for example 5.2.2
+#: includes/items-site-group.php:649
+#, php-format
+msgid "Release Notes for WordPress Version %s"
+msgstr "Versionshinweise für WordPress Version %s"
+
+#: includes/items-site-group.php:664
+msgid "System Info - Site Health Status"
+msgstr "Systeminformation - Website-Zustand"
+
+#: includes/items-site-group.php:682
+msgid "Privacy Notice"
+msgstr "Datenschutzhinweis"
+
+#: includes/items-site-group.php:686
+msgid "Privacy Notice - Data Usage Info"
+msgstr "Datenschutzhinweis - Info zur Datennutzung"
+
+#: includes/items-site-group.php:695
+#: includes/plugins-forms/items-post-smtp.php:256
+#: includes/plugins-forms/items-post-smtp.php:260
+#: includes/themes-genesis/items-genesis.php:219
+msgid "What's New"
+msgstr "Was ist neu?"
+
+#: includes/items-site-group.php:699
+msgid "What's New - Release Feature Info"
+msgstr "Was ist neu - Versionsinformationen"
+
+#: includes/items-site-group.php:708
+msgid "Contributors"
+msgstr "Beitragende"
+
+#: includes/items-site-group.php:712
+msgid "List of Release Contributors"
+msgstr "Liste der Release-Beitragenden"
+
+#: includes/items-site-group.php:721
+msgid "Freedoms"
+msgstr "Freiheiten"
+
+#: includes/items-site-group.php:725
+msgid "Freedoms - GPL License Info"
+msgstr "Freiheiten - GPL Lizenzinformationen"
 
 #: includes/items-tbex-plugin.php:41
 msgctxt "For Toolbar Extras Plugin"
@@ -8362,50 +8545,79 @@ msgstr "Redakteur-Benutzer"
 msgid "%s - External Resources"
 msgstr "%s - Externe Ressourcen"
 
-#: includes/items-web-group.php:100 includes/items-web-group.php:105
-msgid "Pingdom Tools"
-msgstr "Pingdom-Werkzeuge"
-
-#: includes/items-web-group.php:115 includes/items-web-group.php:120
+#: includes/items-web-group.php:107 includes/items-web-group.php:112
 msgid "GTmetrix Report"
 msgstr "GTmetrix-Bericht"
 
-#: includes/items-web-group.php:132 includes/items-web-group.php:137
+#: includes/items-web-group.php:124 includes/items-web-group.php:129
 msgid "Submit Current Page URL"
 msgstr "Aktuelle Seiten-URL einreichen"
 
-#: includes/items-web-group.php:148 includes/items-web-group.php:153
+#: includes/items-web-group.php:140 includes/items-web-group.php:145
 msgid "Submit Home URL"
 msgstr "Startseiten-URL einreichen"
 
-#: includes/items-web-group.php:163 includes/items-web-group.php:168
-msgid "Google Page Speed"
-msgstr "Google Page Speed"
+#: includes/items-web-group.php:156 includes/items-web-group.php:161
+msgid "Pingdom Tools"
+msgstr "Pingdom-Werkzeuge"
 
-#: includes/items-web-group.php:180 includes/items-web-group.php:185
-#: includes/items-web-group.php:231 includes/items-web-group.php:236
-msgid "Test Current Page URL"
-msgstr "Aktuelle Seiten-URL testen"
-
-#: includes/items-web-group.php:196 includes/items-web-group.php:201
-#: includes/items-web-group.php:247 includes/items-web-group.php:252
-msgid "Test Home URL"
-msgstr "Startseiten-URL testen"
-
-#: includes/items-web-group.php:214 includes/items-web-group.php:219
+#: includes/items-web-group.php:172 includes/items-web-group.php:177
 msgid "Load Impact"
 msgstr "Lade-Auswirkungen"
 
-#: includes/items-web-group.php:262 includes/items-web-group.php:267
+#: includes/items-web-group.php:221
+msgid "Facebook Debugger"
+msgstr "Facebook Debugger"
+
+#: includes/items-web-group.php:226
+msgid "Facebook Debugger for Sharing Links"
+msgstr "Facebook Debugger für Teilen-Links"
+
+#. translators: %s - label, "Test Current Page URL"
+#: includes/items-web-group.php:245
+#, php-format
+msgid "%s for Sharing Links"
+msgstr "%s für Teilen-Links"
+
+#: includes/items-web-group.php:274 includes/items-web-group.php:279
+msgid "Google Services"
+msgstr "Google Dienste"
+
+#: includes/items-web-group.php:288
+msgid "Google Structured Data"
+msgstr "Google Strukturierte Daten"
+
+#: includes/items-web-group.php:293
+msgid "Google Page Speed"
+msgstr "Google Page Speed"
+
+#: includes/items-web-group.php:298
+msgid "Google Mobile Friendly"
+msgstr "Google Mobile-freundlich"
+
+#: includes/items-web-group.php:303
+msgid "Google Rich Results: Mobile"
+msgstr "Google Rich Ergebnisse: Mobil"
+
+#: includes/items-web-group.php:308
+msgid "Google Rich Results: Desktop"
+msgstr "Google Rich Ergebnisse: Desktop"
+
+#: includes/items-web-group.php:313
+msgid "Google Cache"
+msgstr "Google Cache"
+
+#: includes/items-web-group.php:386 includes/items-web-group.php:391
+#: includes/plugins/items-rankmath.php:682
 msgid "Google Search Console"
 msgstr "Google Search Console"
 
-#: includes/items-web-group.php:276 includes/items-web-group.php:281
+#: includes/items-web-group.php:401 includes/items-web-group.php:406
 #: includes/plugins-forms/items-mailster.php:759
 msgid "Google Analytics"
 msgstr "Google Analytics"
 
-#: includes/items-web-group.php:290 includes/items-web-group.php:295
+#: includes/items-web-group.php:416 includes/items-web-group.php:421
 msgid "Google Tag Manager"
 msgstr "Google Tag-Manager"
 
@@ -8659,6 +8871,8 @@ msgstr "DSGVO (Datenschutz)"
 #: includes/plugins-forms/items-wpforms.php:472
 #: includes/plugins/items-hesham-schema.php:204
 #: includes/plugins/items-hesham-schema.php:208
+#: includes/plugins/items-rankmath.php:791
+#: includes/plugins/items-rankmath.php:795
 #: includes/themes-genesis/items-genesis.php:130
 msgid "Getting Started"
 msgstr "Erste Schritte"
@@ -8796,6 +9010,8 @@ msgstr "Google Schriften"
 
 #: includes/plugins-forms/items-convertplus.php:154
 #: includes/plugins-forms/items-convertplus.php:158
+#: includes/plugins/items-rankmath-singles.php:49
+#: includes/plugins/items-rankmath.php:48
 #: includes/themes-genesis/items-genesis-customizer.php:219
 #: includes/themes/items-customify.php:288
 #: includes/themes/items-customify.php:292
@@ -8984,8 +9200,8 @@ msgstr "Neue Ansicht"
 
 #: includes/plugins-forms/items-formidable-forms.php:296
 #: includes/plugins-forms/items-formidable-forms.php:300
-#: includes/plugins-genesis/items-blox.php:142
 #: includes/plugins-genesis/items-blox.php:146
+#: includes/plugins-genesis/items-blox.php:150
 #: includes/plugins/items-login-designer.php:97
 #: includes/themes/items-ct-risen.php:107
 #: includes/themes/items-ct-risen.php:111
@@ -9821,8 +10037,11 @@ msgstr "Post SMTP E-Mail-Protokolle"
 
 #: includes/plugins-forms/items-post-smtp.php:71
 #: includes/plugins-forms/items-post-smtp.php:75
+#: includes/plugins/items-cartflows.php:190
+#: includes/plugins/items-cartflows.php:194
 #: includes/plugins/items-hesham-schema.php:191
 #: includes/plugins/items-hesham-schema.php:195
+#: includes/plugins/items-rankmath.php:62
 #: includes/plugins/items-wp-schema-pro.php:204
 #: includes/plugins/items-wp-schema-pro.php:208
 #: includes/themes/items-jupiterx.php:51 includes/themes/items-jupiterx.php:59
@@ -9854,7 +10073,7 @@ msgstr "Benachrichtigungen"
 #. translators: Autofocus section in the Customizer
 #: includes/plugins-forms/items-post-smtp.php:176
 #: includes/plugins-forms/items-post-smtp.php:180
-#: includes/plugins/items-acf.php:135 includes/plugins/items-acf.php:139
+#: includes/plugins/items-acf.php:129 includes/plugins/items-acf.php:133
 #: includes/plugins/items-catch-import-export.php:33
 #: includes/plugins/items-catch-import-export.php:48
 #: includes/plugins/items-customizer-export-import.php:33
@@ -9887,12 +10106,6 @@ msgstr "Verbindungstest"
 #: includes/plugins-forms/items-post-smtp.php:233
 msgid "Diagnostic Test"
 msgstr "Diagnosetest"
-
-#: includes/plugins-forms/items-post-smtp.php:256
-#: includes/plugins-forms/items-post-smtp.php:260
-#: includes/themes-genesis/items-genesis.php:219
-msgid "What's New"
-msgstr "Was ist neu?"
 
 #: includes/plugins-forms/items-post-smtp.php:269
 #: includes/plugins-forms/items-post-smtp.php:273
@@ -9958,8 +10171,8 @@ msgstr "Überprüfung"
 
 #: includes/plugins-forms/items-wpforms.php:388
 #: includes/plugins-forms/items-wpforms.php:392
-#: includes/plugins-genesis/items-blox.php:155
 #: includes/plugins-genesis/items-blox.php:159
+#: includes/plugins-genesis/items-blox.php:163
 msgid "Misc"
 msgstr "Sonstiges"
 
@@ -9968,44 +10181,44 @@ msgstr "Sonstiges"
 msgid "Developer Team"
 msgstr "Entwickler-Team"
 
-#: includes/plugins-genesis/items-blox.php:40
+#: includes/plugins-genesis/items-blox.php:44
 msgid "All Global Blocks"
 msgstr "Alle Globalen Blöcke"
 
-#: includes/plugins-genesis/items-blox.php:44
+#: includes/plugins-genesis/items-blox.php:48
 msgid "All Global Content Blocks"
 msgstr "Alle Globalen Inhaltsblöcke"
 
-#: includes/plugins-genesis/items-blox.php:53
+#: includes/plugins-genesis/items-blox.php:57
 msgid "New Global Block"
 msgstr "Neuer Globaler Block"
 
-#: includes/plugins-genesis/items-blox.php:57
+#: includes/plugins-genesis/items-blox.php:61
 msgid "New Global Content Block"
 msgstr "Neuer Globaler Inhaltsblock"
 
-#: includes/plugins-genesis/items-blox.php:87
 #: includes/plugins-genesis/items-blox.php:91
+#: includes/plugins-genesis/items-blox.php:95
 msgid "Global Content Block"
 msgstr "Globaler Inhaltsblock"
 
-#: includes/plugins-genesis/items-blox.php:103
 #: includes/plugins-genesis/items-blox.php:107
+#: includes/plugins-genesis/items-blox.php:111
 msgid "Block Settings"
 msgstr "Block-Einstellungen"
 
-#: includes/plugins-genesis/items-blox.php:129
 #: includes/plugins-genesis/items-blox.php:133
+#: includes/plugins-genesis/items-blox.php:137
 msgid "Defaults"
 msgstr "Standards"
 
-#: includes/plugins-genesis/items-blox.php:189
-#: includes/plugins-genesis/items-blox.php:193
+#: includes/plugins-genesis/items-blox.php:195
+#: includes/plugins-genesis/items-blox.php:199
 msgid "Sandboxed Functions"
 msgstr "Functions-Sandbox"
 
-#: includes/plugins-genesis/items-blox.php:205
-#: includes/plugins-genesis/items-blox.php:209
+#: includes/plugins-genesis/items-blox.php:211
+#: includes/plugins-genesis/items-blox.php:215
 msgid "Hook Config"
 msgstr "Hook-Konfiguration"
 
@@ -10154,7 +10367,10 @@ msgid "Easy Genesis"
 msgstr "Easy Genesis"
 
 #: includes/plugins-genesis/items-easy-genesis.php:61
-#: includes/plugins/items-pods.php:159 includes/themes/items-jupiterx.php:88
+#: includes/plugins/items-pods.php:159
+#: includes/plugins/items-rankmath-singles.php:177
+#: includes/plugins/items-rankmath.php:436
+#: includes/themes/items-jupiterx.php:88
 msgid "Pages"
 msgstr "Seiten"
 
@@ -10311,7 +10527,7 @@ msgstr "Helferlein"
 #. translators: Autofocus section in the Customizer
 #: includes/plugins-genesis/items-genesis-design-palette-pro.php:351
 #: includes/plugins-genesis/items-genesis-design-palette-pro.php:355
-#: includes/themes/items-astra.php:109
+#: includes/themes/items-astra.php:109 includes/themes/items-chaplin.php:68
 #: includes/themes/items-ct-maranatha.php:116
 #: includes/themes/items-ct-maranatha.php:120
 #: includes/themes/items-ct-saved.php:116
@@ -10321,7 +10537,7 @@ msgstr "Schriften"
 
 #: includes/plugins-genesis/items-genesis-design-palette-pro.php:377
 #: includes/plugins-genesis/items-genesis-design-palette-pro.php:381
-#: includes/string-switcher.php:1121
+#: includes/string-switcher.php:1124
 msgid "Support"
 msgstr "Support"
 
@@ -10615,45 +10831,45 @@ msgstr "ACF Erweitert"
 msgid "Options Table"
 msgstr "Options-Tabelle"
 
-#: includes/plugins/items-acf.php:41
+#: includes/plugins/items-acf.php:35
 msgid "ACF Field Groups"
 msgstr "ACF-Feldgruppen"
 
-#: includes/plugins/items-acf.php:45
+#: includes/plugins/items-acf.php:39
 msgid "Advanced Custom Fields (ACF) - Field Groups"
 msgstr "Advanced Custom Fields (ACF) - Feldgruppen"
 
-#: includes/plugins/items-acf.php:62 includes/plugins/items-acf.php:66
+#: includes/plugins/items-acf.php:56 includes/plugins/items-acf.php:60
 #: includes/plugins/items-custom-field-suite.php:47
 #: includes/plugins/items-custom-field-suite.php:51
 #: includes/plugins/items-meta-box.php:123
 msgid "All Field Groups"
 msgstr "Alle Feldgruppen"
 
-#: includes/plugins/items-acf.php:75 includes/plugins/items-acf.php:79
+#: includes/plugins/items-acf.php:69 includes/plugins/items-acf.php:73
 #: includes/plugins/items-custom-field-suite.php:60
 #: includes/plugins/items-custom-field-suite.php:64
 #: includes/plugins/items-meta-box.php:136
 msgid "New Field Group"
 msgstr "Neue Feldgruppe"
 
-#: includes/plugins/items-acf.php:113
+#: includes/plugins/items-acf.php:107
 msgid "Categories (via ACF Extended)"
 msgstr "Kategorien (über ACF Erweitert)"
 
-#: includes/plugins/items-acf.php:150
+#: includes/plugins/items-acf.php:144
 msgid "Pro: Updates"
 msgstr "Pro: Updates"
 
-#: includes/plugins/items-acf.php:154
+#: includes/plugins/items-acf.php:148
 msgid "Pro: Updates &amp; License"
 msgstr "Pro: Updates &amp; Lizenz"
 
-#: includes/plugins/items-acf.php:238
+#: includes/plugins/items-acf.php:232
 msgid "ACF Field Group"
 msgstr "ACF-Feldgruppe"
 
-#: includes/plugins/items-acf.php:242
+#: includes/plugins/items-acf.php:236
 msgid "Field Group - Advanced Custom Fields"
 msgstr "Feldgruppe - Erweiterte benutzerdefinierte Felder (ACF)"
 
@@ -10798,7 +11014,6 @@ msgstr "Sidebars verwalten"
 #: includes/plugins/items-bsf-sidebar-manager.php:53
 #: includes/plugins/items-content-aware-sidebars.php:49
 #: includes/plugins/items-content-aware-sidebars.php:53
-#: includes/plugins/items-sidebar-builder.php:63
 msgid "New Sidebar"
 msgstr "Neue Sidebar"
 
@@ -10836,6 +11051,31 @@ msgstr "Abläufe importieren"
 #: includes/plugins/items-cartflows.php:180
 msgid "Export Flows"
 msgstr "Abläufe exportieren"
+
+#: includes/plugins/items-cartflows.php:203
+#: includes/plugins/items-cartflows.php:207
+msgid "Step 1: Basic"
+msgstr "Schritt 1: Basis"
+
+#: includes/plugins/items-cartflows.php:216
+#: includes/plugins/items-cartflows.php:220
+msgid "Step 2: Page Builder"
+msgstr "Schritt 2: Page Builder"
+
+#: includes/plugins/items-cartflows.php:229
+#: includes/plugins/items-cartflows.php:233
+msgid "Step 3: Checkout"
+msgstr "Schritt 3: Kasse"
+
+#: includes/plugins/items-cartflows.php:242
+#: includes/plugins/items-cartflows.php:246
+msgid "Step 4: Training"
+msgstr "Schritt 4: Training"
+
+#: includes/plugins/items-cartflows.php:255
+#: includes/plugins/items-cartflows.php:259
+msgid "Step 5: Ready"
+msgstr "Schritt 5: Fertig"
 
 #: includes/plugins/items-catch-import-export.php:37
 #: includes/plugins/items-catch-import-export.php:52
@@ -12423,18 +12663,368 @@ msgstr "Popups bearbeiten"
 msgid "QuadMenu"
 msgstr "QuadMenü"
 
-#: includes/plugins/items-redirection.php:30
-#: includes/plugins/items-redirection.php:34
-msgctxt "A plugin name"
-msgid "Redirection"
+#: includes/plugins/items-rankmath-singles.php:35
+#: includes/plugins/items-rankmath.php:34
+msgid "Rank Math SEO"
+msgstr "Rank Math SEO"
+
+#: includes/plugins/items-rankmath-singles.php:39
+#: includes/plugins/items-rankmath.php:38
+msgid "Rank Math SEO Options"
+msgstr "Rank Math SEO Optionen"
+
+#: includes/plugins/items-rankmath-singles.php:53
+#: includes/plugins/items-rankmath.php:52
+msgid "Dashboard and Module Setup"
+msgstr "Dashboard und Moduleinrichtung"
+
+#: includes/plugins/items-rankmath-singles.php:80
+#: includes/plugins/items-rankmath-singles.php:84
+#: includes/plugins/items-rankmath-singles.php:354
+#: includes/plugins/items-rankmath-singles.php:358
+#: includes/plugins/items-rankmath-singles.php:399
+#: includes/plugins/items-rankmath-singles.php:403
+#: includes/plugins/items-rankmath.php:271
+#: includes/plugins/items-rankmath.php:275
+#: includes/plugins/items-rankmath.php:548
+#: includes/plugins/items-rankmath.php:552
+#: includes/plugins/items-rankmath.php:830
+#: includes/plugins/items-rankmath.php:834
+msgid "404 Monitor"
+msgstr "404-Monitor"
+
+#: includes/plugins/items-rankmath-singles.php:97
+#: includes/plugins/items-rankmath-singles.php:101
+#: includes/plugins/items-rankmath-singles.php:242
+#: includes/plugins/items-rankmath-singles.php:416
+#: includes/plugins/items-rankmath-singles.php:420
+#: includes/plugins/items-rankmath.php:284
+#: includes/plugins/items-rankmath.php:288
+#: includes/plugins/items-rankmath.php:566
+#: includes/plugins/items-rankmath.php:843
+#: includes/plugins/items-rankmath.php:847
+msgid "Redirections"
 msgstr "Weiterleitungen"
 
+#: includes/plugins/items-rankmath-singles.php:117
+#: includes/plugins/items-rankmath-singles.php:121
+#: includes/plugins/items-rankmath.php:324
+#: includes/plugins/items-rankmath.php:328
+msgid "Titles &amp; Meta"
+msgstr "Titel &amp; Meta"
+
+#: includes/plugins/items-rankmath-singles.php:130
+#: includes/plugins/items-rankmath-singles.php:134
+#: includes/plugins/items-rankmath.php:817
+#: includes/plugins/items-rankmath.php:821
+msgid "Local SEO"
+msgstr "Lokales SEO"
+
+#: includes/plugins/items-rankmath-singles.php:143
+#: includes/plugins/items-rankmath-singles.php:147
+#: includes/plugins/items-rankmath.php:363
+#: includes/plugins/items-rankmath.php:367
+msgid "Social Meta"
+msgstr "Social Meta"
+
+#: includes/plugins/items-rankmath-singles.php:164
+#: includes/plugins/items-rankmath.php:423 includes/themes/items-chaplin.php:83
+msgid "Posts"
+msgstr "Beiträge"
+
+#: includes/plugins/items-rankmath-singles.php:168
+#: includes/plugins/items-rankmath.php:427
+msgid "Post Type: Posts"
+msgstr "Inhaltstyp: Beiträge"
+
+#: includes/plugins/items-rankmath-singles.php:181
+#: includes/plugins/items-rankmath.php:440
+msgid "Post Type: Pages"
+msgstr "Inhaltstyp: Seiten"
+
+#: includes/plugins/items-rankmath-singles.php:190
+#: includes/plugins/items-rankmath.php:449
+msgid "Media"
+msgstr "Medien"
+
+#: includes/plugins/items-rankmath-singles.php:194
+#: includes/plugins/items-rankmath.php:453
+msgid "Post Type: Attachments (Media)"
+msgstr "Inhaltstyp: Anhänge (Medien)"
+
+#: includes/plugins/items-rankmath-singles.php:215
+#: includes/plugins/items-rankmath.php:474
+msgid "Taxonomy: Categories"
+msgstr "Taxonomie: Kategorien"
+
+#: includes/plugins/items-rankmath-singles.php:224
+#: includes/plugins/items-rankmath.php:483
+msgid "Tags"
+msgstr "Schlagwörter"
+
+#: includes/plugins/items-rankmath-singles.php:228
+#: includes/plugins/items-rankmath.php:487
+msgid "Taxonomy: Tags"
+msgstr "Taxonomie: Schlagwörter"
+
+#: includes/plugins/items-rankmath-singles.php:246
+#: includes/plugins/items-rankmath.php:570
+msgid "Setup Redirections"
+msgstr "Einrichten von Weiterleitungen"
+
+#: includes/plugins/items-rankmath-singles.php:263
+#: includes/plugins/items-rankmath-singles.php:267
+#: includes/plugins/items-rankmath.php:587
+#: includes/plugins/items-rankmath.php:591
 #: includes/plugins/items-redirection.php:43
 #: includes/plugins/items-redirection.php:47
 #: includes/plugins/items-seopress.php:98
 #: includes/plugins/items-seopress.php:102
 msgid "All Redirections"
 msgstr "Alle Weiterleitungen"
+
+#: includes/plugins/items-rankmath-singles.php:276
+#: includes/plugins/items-rankmath.php:600
+#: includes/plugins/items-seopress.php:111
+#: includes/plugins/items-seopress.php:115
+msgid "New Redirection"
+msgstr "Neue Weiterleitung"
+
+#: includes/plugins/items-rankmath-singles.php:280
+#: includes/plugins/items-rankmath.php:604
+msgid "Add new Redirection"
+msgstr "Neue Weiterleitung hinzufügen"
+
+#: includes/plugins/items-rankmath-singles.php:297
+#: includes/plugins/items-rankmath.php:621
+msgid "Export to .htaccess"
+msgstr "Exportieren nach .htaccess"
+
+#: includes/plugins/items-rankmath-singles.php:301
+#: includes/plugins/items-rankmath.php:625
+msgid "Export Redirections to .htaccess file (Apache Server)"
+msgstr "Weiterleitungen in eine .htaccess-Datei exportieren (Apache-Server)"
+
+#: includes/plugins/items-rankmath-singles.php:310
+#: includes/plugins/items-rankmath.php:634
+msgid "Export to Nginx"
+msgstr "Exportieren nach Nginx"
+
+#: includes/plugins/items-rankmath-singles.php:314
+#: includes/plugins/items-rankmath.php:638
+msgid "Export Redirections to Nginx config file (Nginx Server)"
+msgstr ""
+"Weiterleitungen in die Nginx-Konfigurationsdatei (Nginx-Server) exportieren"
+
+#: includes/plugins/items-rankmath-singles.php:327
+#: includes/plugins/items-rankmath.php:651
+msgid "Settings for Redirections"
+msgstr "Einstellungen für Weiterleitungen"
+
+#: includes/plugins/items-rankmath-singles.php:336
+#: includes/plugins/items-rankmath.php:660
+msgid "Learn More"
+msgstr "Mehr erfahren"
+
+#: includes/plugins/items-rankmath-singles.php:340
+#: includes/plugins/items-rankmath.php:664
+msgid "Learn More - Help"
+msgstr "Mehr erfahren - Hilfe"
+
+#: includes/plugins/items-rankmath-singles.php:384
+#: includes/plugins/items-rankmath-singles.php:388
+#: includes/plugins/items-rankmath.php:778
+#: includes/plugins/items-rankmath.php:782
+msgid "Help &amp; Support"
+msgstr "Hilfe &amp; Support"
+
+#: includes/plugins/items-rankmath-singles.php:433
+#: includes/plugins/items-rankmath-singles.php:437
+#: includes/plugins/items-rankmath.php:856
+#: includes/plugins/items-rankmath.php:860
+msgid "Rich Snippet"
+msgstr "Rich-Snippet"
+
+#: includes/plugins/items-rankmath-singles.php:511
+#: includes/plugins/items-rankmath-singles.php:515
+#: includes/plugins/items-rankmath.php:1009
+#: includes/plugins/items-rankmath.php:1013
+msgid "Redirection"
+msgstr "Weiterleitung"
+
+#: includes/plugins/items-rankmath.php:66
+msgid "Start Setup Wizard"
+msgstr "Einrichtungsassistent starten"
+
+#: includes/plugins/items-rankmath.php:75
+#: includes/plugins/items-rankmath.php:79
+msgid "Step 1: Your Website"
+msgstr "Schritt 1: Deine Website"
+
+#: includes/plugins/items-rankmath.php:88
+msgid "Step 2: Search Console"
+msgstr "Schritt 2: Suchkonsole"
+
+#: includes/plugins/items-rankmath.php:92
+msgid "Step 2: Google Search Console"
+msgstr "Schritt 2: Google Search Console"
+
+#: includes/plugins/items-rankmath.php:101
+#: includes/plugins/items-rankmath.php:105
+msgid "Step 3: Sitemaps"
+msgstr "Schritt 3: Sitemaps"
+
+#: includes/plugins/items-rankmath.php:114
+#: includes/plugins/items-rankmath.php:118
+msgid "Step 4: Optimization &amp; SEO Tweaks"
+msgstr "Schritt 4: Optimierung &amp; SEO-Anpassungen"
+
+#: includes/plugins/items-rankmath.php:127
+#: includes/plugins/items-rankmath.php:131
+msgid "Step 5: Ready Check"
+msgstr "Schritt 5: Fertig-Check"
+
+#: includes/plugins/items-rankmath.php:140
+#: includes/plugins/items-rankmath.php:144
+msgid "Advanced 1: Role Manager"
+msgstr "Fortgeschrittene 1: Benutzerrollen verwalten"
+
+#: includes/plugins/items-rankmath.php:153
+#: includes/plugins/items-rankmath.php:157
+msgid "Advanced 2: 404 &amp; Redirections"
+msgstr "Fortgeschrittene 2: 404 &amp; Weiterleitungen"
+
+#: includes/plugins/items-rankmath.php:166
+msgid "Advanced 3: Miscellaneous"
+msgstr "Fortgeschrittene 3: Sonstiges"
+
+#: includes/plugins/items-rankmath.php:170
+msgid "Advanced 3: Miscellaneous Options"
+msgstr "Fortgeschrittene 3: Verschiedene Optionen"
+
+#: includes/plugins/items-rankmath.php:193
+#: includes/plugins/items-rankmath.php:197
+msgid "Links"
+msgstr "Links"
+
+#: includes/plugins/items-rankmath.php:206
+#: includes/plugins/items-rankmath.php:210 includes/themes/items-chaplin.php:73
+msgid "Images"
+msgstr "Bilder"
+
+#: includes/plugins/items-rankmath.php:219
+#: includes/plugins/items-rankmath.php:223
+msgid "Breadcrumbs"
+msgstr "Breadcrumbs"
+
+#: includes/plugins/items-rankmath.php:232
+#: includes/plugins/items-rankmath.php:236
+msgid "Webmaster Tools"
+msgstr "Webmaster-Werkzeuge"
+
+#: includes/plugins/items-rankmath.php:245
+msgid "Edit robots.txt"
+msgstr "robots.txt bearbeiten"
+
+#: includes/plugins/items-rankmath.php:249
+msgid "Edit WordPress virtual robots.txt file"
+msgstr "Virtuelle WordPress robots.txt-Datei bearbeiten"
+
+#: includes/plugins/items-rankmath.php:258
+msgid "Edit .htaccess"
+msgstr ".htaccess bearbeiten"
+
+#: includes/plugins/items-rankmath.php:262
+msgid "Edit the .htaccess file of this installation"
+msgstr ".htaccess-Datei dieser Installation bearbeiten"
+
+#: includes/plugins/items-rankmath.php:297
+#: includes/plugins/items-rankmath.php:301
+#: includes/plugins/items-rankmath.php:678
+#: includes/plugins/items-rankmath.php:882
+#: includes/plugins/items-rankmath.php:886
+msgid "Search Console"
+msgstr "Search Console"
+
+#: includes/plugins/items-rankmath.php:310
+msgid "Others"
+msgstr "Sonstiges"
+
+#: includes/plugins/items-rankmath.php:337
+#: includes/plugins/items-rankmath.php:341
+msgid "Global Meta"
+msgstr "Globale Meta"
+
+#: includes/plugins/items-rankmath.php:350
+#: includes/plugins/items-rankmath.php:354
+msgid "Local Meta"
+msgstr "Lokale Meta"
+
+#. translators: Autofocus section in the Customizer
+#: includes/plugins/items-rankmath.php:376
+#: includes/themes/items-ct-maranatha.php:172
+#: includes/themes/items-ct-maranatha.php:176
+#: includes/themes/items-ct-risen.php:146
+#: includes/themes/items-ct-risen.php:150
+msgid "Homepage"
+msgstr "Startseite"
+
+#: includes/plugins/items-rankmath.php:380
+msgid "Homepage Title &amp; Meta Data"
+msgstr "Homepage-Titel &amp; Metadaten"
+
+#: includes/plugins/items-rankmath.php:389
+#: includes/plugins/items-rankmath.php:393
+msgid "Authors"
+msgstr "Autoren"
+
+#: includes/plugins/items-rankmath.php:402
+#: includes/plugins/items-rankmath.php:406
+msgid "Misc Pages"
+msgstr "Sonstige Seiten"
+
+#: includes/plugins/items-rankmath.php:499
+#: includes/plugins/items-rankmath.php:503
+msgid "Sitemap Settings"
+msgstr "Sitemap-Einstellungen"
+
+#: includes/plugins/items-rankmath.php:704
+#: includes/plugins/items-rankmath.php:708
+msgid "Search Analytics"
+msgstr "Suchanalyse"
+
+#: includes/plugins/items-rankmath.php:717
+#: includes/plugins/items-rankmath.php:721
+msgid "Sitemaps"
+msgstr "Sitemaps"
+
+#: includes/plugins/items-rankmath.php:730
+#: includes/plugins/items-rankmath.php:734
+msgid "Keyword Tracker"
+msgstr "Keyword-Tracker"
+
+#: includes/plugins/items-rankmath.php:748
+#: includes/plugins/items-rankmath.php:752
+#: includes/plugins/items-rankmath.php:895
+#: includes/plugins/items-rankmath.php:899
+msgid "SEO Analysis"
+msgstr "SEO-Analyse"
+
+#: includes/plugins/items-rankmath.php:804
+#: includes/plugins/items-rankmath.php:808
+msgid "AMP"
+msgstr "AMP"
+
+#: includes/plugins/items-rankmath.php:908
+#: includes/plugins/items-rankmath.php:912
+msgid "Sitemap"
+msgstr "Sitemap"
+
+#: includes/plugins/items-redirection.php:30
+#: includes/plugins/items-redirection.php:34
+msgctxt "A plugin name"
+msgid "Redirection"
+msgstr "Weiterleitungen"
 
 #: includes/plugins/items-redirection.php:57
 #: includes/plugins/items-redirection.php:61
@@ -12524,11 +13114,6 @@ msgstr "Historie"
 msgid "SEOPress"
 msgstr "SEOPress"
 
-#: includes/plugins/items-seopress.php:111
-#: includes/plugins/items-seopress.php:115
-msgid "New Redirection"
-msgstr "Neue Weiterleitung"
-
 #: includes/plugins/items-seopress.php:127
 #: includes/plugins/items-seopress.php:131
 msgid "All Broken Links"
@@ -12617,36 +13202,6 @@ msgstr "ShortPixel Bildoptimierer"
 #: includes/plugins/items-shortpixel-image-optimizer.php:102
 msgid "Cloudflare API"
 msgstr "Cloudflare API"
-
-#: includes/plugins/items-sidebar-builder.php:37
-#: includes/plugins/items-sidebar-builder.php:41
-msgid "Sidebar Builder"
-msgstr "Seitenleiste bauen"
-
-#: includes/plugins/items-sidebar-builder.php:50
-msgid "All Sidebars"
-msgstr "Alle Seitenleisten"
-
-#: includes/plugins/items-sidebar-builder.php:54
-msgid "All Sidebars (Widget Areas)"
-msgstr "Alle Seitenleisten (Widgetbereiche)"
-
-#: includes/plugins/items-sidebar-builder.php:67
-msgid "New Sidebar (Widget Area)"
-msgstr "Neue Seiteleiste bauen (Widgetbereich)"
-
-#: includes/plugins/items-sidebar-builder.php:78
-#: includes/plugins/items-sidebar-builder.php:82
-msgid "New Sidebar Builder"
-msgstr "Neue Seitenleiste bauen"
-
-#: includes/plugins/items-sidebar-builder.php:158
-msgid "Sidebar (Widget Area)"
-msgstr "Seitenleiste (Widgetbereich)"
-
-#: includes/plugins/items-sidebar-builder.php:160
-msgid "Sidebar - Widget Area"
-msgstr "Seitenleiste - Widgetbereich"
 
 #: includes/plugins/items-simple-css.php:33
 #: includes/plugins/items-simple-css.php:37
@@ -12739,37 +13294,37 @@ msgstr "Link-Sortierung"
 msgid "Edit URLs"
 msgstr "URLs bearbeiten"
 
-#: includes/plugins/items-site-health-manager.php:43
+#: includes/plugins/items-site-health-manager.php:44
 msgid "Site Health Manager"
 msgstr "Website-Zustand Manager"
 
-#: includes/plugins/items-site-health-manager.php:47
+#: includes/plugins/items-site-health-manager.php:48
 msgid "Site Health Manager for Status &amp; Info Tabs"
 msgstr "Website-Zustand Manager für Status- &amp; -Debug-Info-Tabs"
 
-#: includes/plugins/items-site-health-manager.php:56
-#: includes/plugins/items-site-health-tool-manager.php:56
+#: includes/plugins/items-site-health-manager.php:57
+#: includes/plugins/items-site-health-tool-manager.php:57
 msgid "Manage Status"
 msgstr "Status verwalten"
 
-#: includes/plugins/items-site-health-manager.php:60
-#: includes/plugins/items-site-health-tool-manager.php:60
+#: includes/plugins/items-site-health-manager.php:61
+#: includes/plugins/items-site-health-tool-manager.php:61
 msgid "Manage Site Health Status Items/ Tests"
 msgstr "Website-Status Zustandselemente-Elemente/ -Tests verwalten"
 
-#: includes/plugins/items-site-health-manager.php:69
+#: includes/plugins/items-site-health-manager.php:70
 msgid "Manage Info"
 msgstr "Infos verwalten"
 
-#: includes/plugins/items-site-health-manager.php:73
+#: includes/plugins/items-site-health-manager.php:74
 msgid "Manage Site Health Debug Info Items"
 msgstr "Verwalten von Info-Elementen für Website-Zustand Debug-Informationen"
 
-#: includes/plugins/items-site-health-tool-manager.php:43
+#: includes/plugins/items-site-health-tool-manager.php:44
 msgid "Site Health Tool Manager"
 msgstr "Website-Zustand Manager"
 
-#: includes/plugins/items-site-health-tool-manager.php:47
+#: includes/plugins/items-site-health-tool-manager.php:48
 msgid "Site Health Tool Manager for Status Tab"
 msgstr "Website-Zustand Manager für Status-Tab"
 
@@ -12928,6 +13483,28 @@ msgstr "Datensicherungen"
 #: includes/plugins/items-user-activity-log.php:36
 msgid "User Activity Log"
 msgstr "Protokoll der Benutzeraktivität"
+
+#: includes/plugins/items-we-sidebar-builder.php:38
+#: includes/plugins/items-we-sidebar-builder.php:42
+msgid "Reusable Templates"
+msgstr "Wiederverwendbare Templates"
+
+#: includes/plugins/items-we-sidebar-builder.php:55
+msgid "All Reusable Templates"
+msgstr "Alle wiederverwendbaren Templates"
+
+#: includes/plugins/items-we-sidebar-builder.php:64
+#: includes/plugins/items-we-sidebar-builder.php:68
+msgid "New Reusable Template"
+msgstr "Neues wiederverwendbares Template"
+
+#: includes/plugins/items-we-sidebar-builder.php:167
+msgid "Reusable Template"
+msgstr "Wiederverwendbares Template"
+
+#: includes/plugins/items-we-sidebar-builder.php:169
+msgid "Reusable Template Block"
+msgstr "Wiederverwendbarer Template-Block"
 
 #: includes/plugins/items-widget-options.php:37
 #: includes/plugins/items-widget-options.php:41
@@ -13524,35 +14101,43 @@ msgstr "Plugin nicht installiert oder aktiv"
 msgid "opens in a new tab"
 msgstr "öffnet in neuem Tab"
 
-#: includes/string-switcher.php:1126
+#: includes/string-switcher.php:1129
 msgid "User Group"
 msgstr "Benutzergruppe"
 
 #. translators: 1 - label, "Support" / 2 - label, "User Group"
-#: includes/string-switcher.php:1157
+#: includes/string-switcher.php:1160
 #, php-format
 msgid "Diagnostic information for this plugin, helpful for %s and %s"
 msgstr "Diagnoseinformationen für dieses Plugin, hilfreich für %s und %s"
 
-#: includes/string-switcher.php:1184
+#: includes/string-switcher.php:1187
 msgid "Add-On"
 msgstr "Add-On"
 
 #. translators: Genesis Default Theme Settings
-#: includes/string-switcher.php:1188
+#: includes/string-switcher.php:1191
 #: includes/themes-genesis/items-genesis.php:170
 msgid "Theme"
 msgstr "Theme"
 
-#: includes/string-switcher.php:1192
+#: includes/string-switcher.php:1195
 msgid "Child Theme"
 msgstr "Child Theme"
 
 #. translators: %s - label for item, for example "Plugin"
-#: includes/string-switcher.php:1199
+#: includes/string-switcher.php:1202
 #, php-format
 msgid "%s Version History"
 msgstr "Versionshistorie des %s"
+
+#: includes/string-switcher.php:1218
+msgid "Test Current Page URL"
+msgstr "Aktuelle Seiten-URL testen"
+
+#: includes/string-switcher.php:1231
+msgid "Test Home URL"
+msgstr "Startseiten-URL testen"
 
 #: includes/themes-genesis/items-dynamik-website-builder.php:102
 #: includes/themes-genesis/items-dynamik-website-builder.php:107
@@ -14075,6 +14660,14 @@ msgstr "Inhaltsdaten importieren"
 msgid "Export Content Data"
 msgstr "Inhaltsdaten exportieren"
 
+#: includes/themes/items-chaplin.php:78
+msgid "Site Header"
+msgstr "Website-Header"
+
+#: includes/themes/items-chaplin.php:89
+msgid "Cover Template"
+msgstr "Cover-Template"
+
 #: includes/themes/items-ct-exodus.php:72
 #: includes/themes/items-ct-exodus.php:76
 #: includes/themes/items-ct-maranatha.php:72
@@ -14114,14 +14707,6 @@ msgstr "Startseiten-Slider"
 #: includes/themes/items-ct-resurrect.php:190
 msgid "Social Media Icons"
 msgstr "Soziale-Medien-Icons"
-
-#. translators: Autofocus section in the Customizer
-#: includes/themes/items-ct-maranatha.php:172
-#: includes/themes/items-ct-maranatha.php:176
-#: includes/themes/items-ct-risen.php:146
-#: includes/themes/items-ct-risen.php:150
-msgid "Homepage"
-msgstr "Startseite"
 
 #: includes/themes/items-ct-risen.php:94 includes/themes/items-ct-risen.php:98
 msgid "Risen Settings"
@@ -14924,6 +15509,27 @@ msgstr ""
 "der Website-Erstellung mit dem Elementor Page Builder und dessen Ökosystem "
 "aus Add-Ons sowie aus dem Bereich der Themes."
 
+#~ msgid "Sidebar Builder"
+#~ msgstr "Seitenleiste bauen"
+
+#~ msgid "All Sidebars"
+#~ msgstr "Alle Seitenleisten"
+
+#~ msgid "All Sidebars (Widget Areas)"
+#~ msgstr "Alle Seitenleisten (Widgetbereiche)"
+
+#~ msgid "New Sidebar (Widget Area)"
+#~ msgstr "Neue Seiteleiste bauen (Widgetbereich)"
+
+#~ msgid "New Sidebar Builder"
+#~ msgstr "Neue Seitenleiste bauen"
+
+#~ msgid "Sidebar (Widget Area)"
+#~ msgstr "Seitenleiste (Widgetbereich)"
+
+#~ msgid "Sidebar - Widget Area"
+#~ msgstr "Seitenleiste - Widgetbereich"
+
 #~ msgid "Plugin Version History"
 #~ msgstr "Versionsprotokoll des Plugins"
 
@@ -15040,9 +15646,6 @@ msgstr ""
 #~ msgctxt "regular Toolbar item"
 #~ msgid "Elementor"
 #~ msgstr "Elementor"
-
-#~ msgid "Advanced Block Settings"
-#~ msgstr "Erweiterte Block-Einstellungen"
 
 #~ msgctxt "Plugin settings tab title"
 #~ msgid "Tools"

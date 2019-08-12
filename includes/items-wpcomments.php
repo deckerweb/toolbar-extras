@@ -18,18 +18,18 @@ add_action( 'admin_bar_menu', 'ddw_tbex_items_wpcomments', 50 );
  *
  * @since 1.4.0
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_items_wpcomments() {
+function ddw_tbex_items_wpcomments( $admin_bar ) {
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_group(
+	$admin_bar->add_group(
 		array(
 			'id'     => 'group-wpcomments-pending',
-			'parent' => 'comments'
+			'parent' => 'comments',
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'tbex-wpcomments-pending',
 			'parent' => 'group-wpcomments-pending',
@@ -37,12 +37,12 @@ function ddw_tbex_items_wpcomments() {
 			'href'   => esc_url( admin_url( 'edit-comments.php?comment_status=moderated' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'For Moderation: Pending Comments', 'toolbar-extras' )
+				'title'  => esc_attr__( 'For Moderation: Pending Comments', 'toolbar-extras' ),
 			)
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'tbex-wpcomments-approved',
 			'parent' => 'comments',
@@ -50,12 +50,12 @@ function ddw_tbex_items_wpcomments() {
 			'href'   => esc_url( admin_url( 'edit-comments.php?comment_status=approved' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Approved Comments', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Approved Comments', 'toolbar-extras' ),
 			)
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'tbex-wpcomments-all',
 			'parent' => 'comments',
@@ -63,12 +63,12 @@ function ddw_tbex_items_wpcomments() {
 			'href'   => esc_url( admin_url( 'edit-comments.php?comment_status=all' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'All Comments', 'toolbar-extras' )
+				'title'  => esc_attr__( 'All Comments', 'toolbar-extras' ),
 			)
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'tbex-wpcomments-spam',
 			'parent' => 'comments',
@@ -76,12 +76,12 @@ function ddw_tbex_items_wpcomments() {
 			'href'   => esc_url( admin_url( 'edit-comments.php?comment_status=spam' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Review Spam Comments', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Review Spam Comments', 'toolbar-extras' ),
 			)
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'tbex-wpcomments-trash',
 			'parent' => 'comments',
@@ -89,7 +89,7 @@ function ddw_tbex_items_wpcomments() {
 			'href'   => esc_url( admin_url( 'edit-comments.php?comment_status=trash' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Review Trashed Comments', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Review Trashed Comments', 'toolbar-extras' ),
 			)
 		)
 	);

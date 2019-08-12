@@ -22,9 +22,9 @@ add_action( 'admin_bar_menu', 'ddw_tbex_local_dev_environment' );
  * @uses ddw_tbex_string_local_dev_environment()
  * @uses ddw_tbex_item_title_with_settings_icon()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar']
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_local_dev_environment() {
+function ddw_tbex_local_dev_environment( $admin_bar ) {
 
 	$environment_text = ddw_tbex_string_local_dev_environment();
 
@@ -35,13 +35,13 @@ function ddw_tbex_local_dev_environment() {
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'tbex-local-dev-text',
 			'parent' => 'top-secondary',	/** Puts the text on the right side of the Toolbar! */
 			'title'  => ddw_tbex_item_title_with_settings_icon( strtoupper( $environment_text ), 'development', 'local_dev_icon' ),
 			'meta'   => array(
-				'title'  => $title_attr
+				'title'  => $title_attr,
 			)
 		)
 	);
@@ -114,7 +114,7 @@ function ddw_tbex_local_dev_toolbar_styles() {
 
 			}
 
-			#adminbarsearch: before,
+			#adminbarsearch:before,
 			.ab-icon:before,
 			.ab-item:before {
 				color: #eee !important;

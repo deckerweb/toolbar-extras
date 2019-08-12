@@ -63,17 +63,17 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_devmode_file_editors', 15 );
  *
  * @since 1.0.0
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_devmode_file_editors() {
+function ddw_tbex_site_items_devmode_file_editors( $admin_bar ) {
 
 	if ( ! ( defined( 'DISALLOW_FILE_EDIT' ) && DISALLOW_FILE_EDIT ) ) {
 
 		/** Group */
-		$GLOBALS[ 'wp_admin_bar' ]->add_group(
+		$admin_bar->add_group(
 			array(
 				'id'     => 'group-wp-editors',
-				'parent' => 'rapid-dev'
+				'parent' => 'rapid-dev',
 			)
 		);
 
@@ -81,7 +81,7 @@ function ddw_tbex_site_items_devmode_file_editors() {
 
 			add_filter( 'tbex_filter_is_dev_mode', '__return_empty_string' );
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'theme-editor',
 					'parent' => 'group-wp-editors',
@@ -90,7 +90,7 @@ function ddw_tbex_site_items_devmode_file_editors() {
 					'meta'   => array(
 						'rel'    => ddw_tbex_meta_rel(),
 						'target' => ddw_tbex_meta_target(),
-						'title'  => esc_attr__( 'Theme Editor', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Theme Editor', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -101,7 +101,7 @@ function ddw_tbex_site_items_devmode_file_editors() {
 
 			add_filter( 'tbex_filter_is_dev_mode', '__return_empty_string' );
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'plugin-editor',
 					'parent' => 'group-wp-editors',
@@ -110,7 +110,7 @@ function ddw_tbex_site_items_devmode_file_editors() {
 					'meta'   => array(
 						'rel'    => ddw_tbex_meta_rel(),
 						'target' => ddw_tbex_meta_target(),
-						'title'  => esc_attr__( 'Plugin Editor', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Plugin Editor', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -222,15 +222,16 @@ add_action( 'admin_bar_menu', 'ddw_tbex_items_devmode_element_ids' );
  * @uses ddw_tbex_item_title_with_icon()
  *
  * @global object $GLOBALS[ 'wp_the_query' ]
- * @global mixed  $GLOBALS[ 'wp_admin_bar' ]
+ *
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_items_devmode_element_ids() {
+function ddw_tbex_items_devmode_element_ids( $admin_bar ) {
 
 	/** Bail early if items should not be displayed */
 	if ( ! ddw_tbex_use_devmode_element_ids()
 		|| ( is_admin() && ! in_array( get_current_screen()->base, array( 'edit', 'post', 'term' ) ) )
 	) {
-		return;
+		return $admin_bar;
 	}
 
 	/** Set default */
@@ -288,7 +289,7 @@ function ddw_tbex_items_devmode_element_ids() {
 	);
 
 	/** Build the complete Toolbar node */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'tbex-element-id-' . $the_id,
 			'parent' => is_blog_admin() ? $parent : 'edit',
@@ -296,7 +297,7 @@ function ddw_tbex_items_devmode_element_ids() {
 			'href'   => FALSE,
 			'meta'   => array(
 				'class'  => 'tbex-element-id',
-				'title'  => esc_attr__( 'Internal WordPress ID of current element', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Internal WordPress ID of current element', 'toolbar-extras' ),
 			)
 		)
 	);
@@ -314,20 +315,20 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_devmode_resources', 999 );
  * @uses ddw_tbex_display_items_resources()
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_devmode_resources() {
+function ddw_tbex_site_items_devmode_resources( $admin_bar ) {
 
 	/** Bail early if resources display is disabled */
 	if ( ! ddw_tbex_display_items_resources() ) {
-		return;
+		return $admin_bar;
 	}
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_group(
+	$admin_bar->add_group(
 		array(
 			'id'     => 'group-devmode-resources',
 			'parent' => 'rapid-dev',
-			'meta'   => array( 'class' => 'ab-sub-secondary' )
+			'meta'   => array( 'class' => 'ab-sub-secondary' ),
 		)
 	);
 
@@ -340,7 +341,7 @@ function ddw_tbex_site_items_devmode_resources() {
 	);
 
 	/** Codex (old) */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'wp-codex-devs',
 			'parent' => 'group-devmode-resources',
@@ -349,7 +350,7 @@ function ddw_tbex_site_items_devmode_resources() {
 			'meta'   => array(
 				'rel'    => ddw_tbex_meta_rel(),
 				'target' => ddw_tbex_meta_target(),
-				'title'  => esc_attr__( 'WordPress Codex for Developers', 'toolbar-extras' )
+				'title'  => esc_attr__( 'WordPress Codex for Developers', 'toolbar-extras' ),
 			)
 		)
 	);
@@ -357,7 +358,7 @@ function ddw_tbex_site_items_devmode_resources() {
 	/** Handbook: Block Editor (Gutenberg) */
 	if ( ddw_tbex_is_block_editor_active() ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'wp-handbook-block-editor',
 				'parent' => 'group-devmode-resources',
@@ -366,7 +367,7 @@ function ddw_tbex_site_items_devmode_resources() {
 				'meta'   => array(
 					'rel'    => ddw_tbex_meta_rel(),
 					'target' => ddw_tbex_meta_target(),
-					'title'  => esc_attr__( 'Block Editor (Gutenberg) Handbook', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Block Editor (Gutenberg) Handbook', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -376,7 +377,7 @@ function ddw_tbex_site_items_devmode_resources() {
 	/** Handbook: Child Theme */
 	if ( is_child_theme() ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'wp-handbook-child-theme',
 				'parent' => 'group-devmode-resources',
@@ -385,7 +386,7 @@ function ddw_tbex_site_items_devmode_resources() {
 				'meta'   => array(
 					'rel'    => ddw_tbex_meta_rel(),
 					'target' => ddw_tbex_meta_target(),
-					'title'  => esc_attr__( 'Child Themes Handbook', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Child Themes Handbook', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -393,7 +394,7 @@ function ddw_tbex_site_items_devmode_resources() {
 	}  // end if
 
 	/** Handbook: Rest API */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'wp-handbook-restapi',
 			'parent' => 'group-devmode-resources',
@@ -402,13 +403,13 @@ function ddw_tbex_site_items_devmode_resources() {
 			'meta'   => array(
 				'rel'    => ddw_tbex_meta_rel(),
 				'target' => ddw_tbex_meta_target(),
-				'title'  => esc_attr__( 'REST API Handbook', 'toolbar-extras' )
+				'title'  => esc_attr__( 'REST API Handbook', 'toolbar-extras' ),
 			)
 		)
 	);
 
 	/** StackExchange */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'stackexchange-wpdev',
 			'parent' => 'group-devmode-resources',
@@ -417,7 +418,7 @@ function ddw_tbex_site_items_devmode_resources() {
 			'meta'   => array(
 				'rel'    => ddw_tbex_meta_rel(),
 				'target' => ddw_tbex_meta_target(),
-				'title'  => esc_attr__( 'WordPress Developers @ StackExchange', 'toolbar-extras' )
+				'title'  => esc_attr__( 'WordPress Developers @ StackExchange', 'toolbar-extras' ),
 			)
 		)
 	);

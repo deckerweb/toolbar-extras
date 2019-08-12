@@ -19,19 +19,19 @@ add_action( 'admin_bar_menu', 'ddw_tbex_user_items_profiles' );
  * @since 1.0.0
  * @since 1.3.2 Added Multisite support for Network admin.
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_user_items_profiles() {
+function ddw_tbex_user_items_profiles( $admin_bar ) {
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_group(
+	$admin_bar->add_group(
 		array(
 			'id'     => 'group-tbex-users',
 			'parent' => 'my-account',
-			'meta'   => array( 'class' => 'ab-sub-secondary' )
+			'meta'   => array( 'class' => 'ab-sub-secondary' ),
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'users-all',
 			'parent' => 'group-tbex-users',
@@ -40,12 +40,12 @@ function ddw_tbex_user_items_profiles() {
 			'meta'   => array(
 				'class'  => 'tbex-users-main',
 				'target' => '',
-				'title'  => esc_attr__( 'List All Users', 'toolbar-extras' )
+				'title'  => esc_attr__( 'List All Users', 'toolbar-extras' ),
 			)
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'user-new',
 			'parent' => 'group-tbex-users',
@@ -54,14 +54,14 @@ function ddw_tbex_user_items_profiles() {
 			'meta'   => array(
 				'class'  => 'tbex-users',
 				'target' => '',
-				'title'  => esc_attr__( 'Create New User', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Create New User', 'toolbar-extras' ),
 			)
 		)
 	);
 
 	if ( is_network_admin() ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'user-super-admins',
 				'parent' => 'group-tbex-users',
@@ -70,14 +70,14 @@ function ddw_tbex_user_items_profiles() {
 				'meta'   => array(
 					'class'  => 'tbex-users',
 					'target' => '',
-					'title'  => esc_attr__( 'Super Admins', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Super Admins', 'toolbar-extras' ),
 				)
 			)
 		);
 
 	} else {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'user-admins',
 				'parent' => 'group-tbex-users',
@@ -86,7 +86,7 @@ function ddw_tbex_user_items_profiles() {
 				'meta'   => array(
 					'class'  => 'tbex-users',
 					'target' => '',
-					'title'  => esc_attr__( 'Admin Users', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Admin Users', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -98,7 +98,7 @@ function ddw_tbex_user_items_profiles() {
 
 	if ( ! empty( $editors ) ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'user-editors',
 				'parent' => 'group-tbex-users',
@@ -107,21 +107,21 @@ function ddw_tbex_user_items_profiles() {
 				'meta'   => array(
 					'class'  => 'tbex-users',
 					'target' => '',
-					'title'  => esc_attr__( 'Editor Users', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Editor Users', 'toolbar-extras' ),
 				)
 			)
 		);
 
 	}  // end if
 
-	do_action( 'tbex_after_group_users' );
+	do_action( 'tbex_after_group_users', $admin_bar );
 
 	/** Additional hook place for add-ons */
-	$GLOBALS[ 'wp_admin_bar' ]->add_group(
+	$admin_bar->add_group(
 		array(
 			'id'     => 'group-user-roles',
 			'parent' => 'group-tbex-users',
-			'meta'   => array( 'class' => 'ab-sub-secondary' )
+			'meta'   => array( 'class' => 'ab-sub-secondary' ),
 		)
 	);
 

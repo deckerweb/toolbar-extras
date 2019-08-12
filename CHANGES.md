@@ -14,6 +14,42 @@
 
 ## Changelog of the Plugin
 
+### ⚡ 1.4.5 - 2019-08-12
+
+* New: Added support for Elementor Pro v2.6+ where needed ("Custom Icons" for example)
+* New: Added very useful "Changelog" resource item to some supported plugins and themes, including Elementor (free) and Elementor Pro
+* New: For optional "Web Group" added new 6 new services for live testing URLs - Facebook Debugger, plus 5 more Google Services!
+* New: Added useful sub items to WordPress Logo/ About group, including release notes for WordPress version of your current install (dynamic!)
+* New: Added theme support for "Chaplin" (free, by Anders Norén)
+* New: Added ["Milestones" Page to plugin website](https://toolbarextras.com/milestones/) to list amazing achievements of this plugin project
+* Tweak: For "Essential Addons" plugin support, added new resource items (videos, changelog); removed deprecated item
+* Tweak: For "The Plus Addons" plugin support, added new resource items (facebook group, changelog)
+* Tweak: For "JetSmartFilters" plugin support, added new items (settings, changelog)
+* Tweak: For "CartFlows" plugin support, added new Setup Wizard items; removed WooCommerce dependency (since CartFlows can now also operate without it)
+* Tweak: For "WooLentor" plugin support, added new item and pro version integration
+* Tweak: Plugin support for "Reusable Blocks – Elementor, Beaver Builder, WYSIWYG" (free, by WebEmpire) rebranded because plugin changed its name/branding etc. (former name was: "Design Sidebar Using Page Builder")
+* Tweak: Various smaller addition and tweaks for even better support of our official Add-Ons (helper functions, styles)
+* Tweak: Lots of under the hood improvements on code base, and for CSS styles
+* Tweak: Updated `.pot` file plus all German translations (formal, informal) and language packs
+* Fix: Fixed PHP notice if setting of a default page builder enabled but the appropriate builder was deactivated meanwhile
+* Fix: Duplicate function declarations
+
+**New, 1.4.5:** *Extended the Plugin support for Elementor Add-Ons:*
+
+* JetTabs (Premium, by Zemez Jet/ CrocoBlock)
+* JetBooking (Premium, by Zemez Jet/ CrocoBlock) - *A special JetEngine Add-On*
+* Social Addons for Elementor (Lite) (free, by WebEmpire)
+* ToolKit for Elementor (Premium, by ToolKit for Elementor)
+* WooLentor Pro (Premium, by HasThemes/ HT Plugins)
+
+**New, 1.4.5:** *Extended the general Plugin support for:*
+
+* Rank Math SEO (free, by Rank Math)
+* Redirections by Rank Math (free, by Rank Math)
+* 404 Monitor by Rank Math (free, by Rank Math)
+* Schema Markup Rich Snippets (free, by Rank Math)
+
+
 ### ⚡ 1.4.4 - 2019-07-04
 
 * New: Added 31 new Dashicons from WordPress 5.2+ to our list of Dashicons icon picker (on our settings page) - only if your install runs WordPress 5.2 or higher

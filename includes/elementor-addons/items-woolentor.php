@@ -14,9 +14,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_woolentor', 100 );
 /**
- * Add-On Items from Plugin: WooLentor (free, by HT Plugins)
+ * Add-On Items for these plugins:
+ *   - WooLentor (free, by HasThemes/ HT Plugins)
+ *   - WooLentor Pro (Premium, by HasThemes/ HT Plugins)
  *
  * @since 1.4.3
+ * @since 1.4.5 New items & resources; tweaks & improvements.
  *
  * @uses ddw_tbex_display_items_resources()
  * @uses ddw_tbex_resource_item()
@@ -40,6 +43,19 @@ function ddw_tbex_aoitems_woolentor( $admin_bar ) {
 			)
 		)
 	);
+
+		$admin_bar->add_node(
+			array(
+				'id'     => 'woolentor-elements',
+				'parent' => 'woolentor',
+				'title'  => esc_attr__( 'Activate Elements', 'toolbar-extras' ),
+				'href'   => esc_url( admin_url( 'admin.php?page=woolentor#woolentor_elements_tabs' ) ),
+				'meta'   => array(
+					'target' => '',
+					'title'  => esc_attr__( 'Activate Elements', 'toolbar-extras' ),
+				)
+			)
+		);
 
 		$admin_bar->add_node(
 			array(
@@ -72,7 +88,7 @@ function ddw_tbex_aoitems_woolentor( $admin_bar ) {
 				'id'     => 'woolentor-template-library',
 				'parent' => 'woolentor',
 				'title'  => esc_attr__( 'Template Library', 'toolbar-extras' ),
-				'href'   => esc_url( admin_url( 'admin.php?page=woolentor#woolentor_template_library_tabs' ) ),
+				'href'   => esc_url( admin_url( 'admin.php?page=woolentor_templates' ) ),
 				'meta'   => array(
 					'target' => '',
 					'title'  => esc_attr__( 'Template Library', 'toolbar-extras' ),
@@ -93,9 +109,16 @@ function ddw_tbex_aoitems_woolentor( $admin_bar ) {
 
 		ddw_tbex_resource_item(
 			'support-forum',
-			'analogwp-support',
+			'woolentor-support',
 			'group-woolentor-resources',
 			'https://wordpress.org/support/plugin/woolentor-addons/'
+		);
+
+		ddw_tbex_resource_item(
+			'documentation',
+			'woolentor-docs',
+			'group-woolentor-resources',
+			'https://demo.hasthemes.com/doc/woolentor/index.html'
 		);
 
 		ddw_tbex_resource_item(

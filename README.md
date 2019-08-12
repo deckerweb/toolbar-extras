@@ -11,7 +11,7 @@
 **Requires at least:** 4.7  
 **Tested up to:** 5.2  
 **Requires PHP:** 5.6  
-**Stable tag:** 1.4.4  
+**Stable tag:** 1.4.5  
 **License:** GPL-2.0-or-later  
 **License URI:** https://opensource.org/licenses/GPL-2.0  
 
@@ -72,23 +72,23 @@ Out of the box the plugin includes support for dozens of awesome Plugins and The
 * [**Page Builder Framework**](https://wordpress.org/themes/page-builder-framework/), including their **Premium Add-On plugin** (both by David Vongries & MapSteps)
 * [**Customify** (free, by WPCustomify/ PressMaximum)](https://wordpress.org/themes/customify/), including **Customify Pro** (Add-On)
 * [**Suki** (free, by SukiWP/ David Rozando)](https://wordpress.org/themes/suki/), including **Suki Pro** (Add-On)
-* [**StartWP**](https://wordpress.org/themes/start/), including their **StartWP Extended Add-On plugin** (both free and by Munir Kamal)
-* [**Kava Theme** (free & Premium, by Zemez Jet & CrocoBlock)](https://toolbarextras.com/go/crocoblock/) - including all Jet Plugins
 * **Suite of "Twenty 20.." default themes**, like [*Twenty Nineteen*](https://wordpress.org/themes/twentynineteen/) and [*Twenty Seventeen*](https://wordpress.org/themes/twentyseventeen/)
-* [**Elementor Hello Theme** (free, by Elementor Team/ Elementor Ltd.)](https://github.com/elementor/elementor-hello-theme), a simple starter theme for developers
+* [**Hello Elementor Theme** (free, by Elementor Team/ Elementor Ltd.)](https://github.com/elementor/hello-theme), an official, simple starter theme for developers
 * **Layers for Elementor** (free, by Elementor Team/ Elementor Ltd.), an official Elementor-friendly Theme
 * **Freelancer Framework** (free, by Cobalt Apps)
 * **Dynamik Website Builder (Child Theme for Genesis)** (Premium, by Cobalt Apps)
 * **Beaver Builder Theme** (Premium, by FastLine Media LLC)
 * [**Hestia**](https://wordpress.org/themes/hestia/), including its Child Themes "Orfeo", "Tiny Hestia", "Christmas Hestia" (all by Themeisle)
 * [**Sydney** (free, by athemes)](https://wordpress.org/themes/sydney/)
-* [**Flexia** (free)](https://wordpress.org/themes/flexia/) - including Flexia Core (free) and Flexia Pro (Premium) plugins (all three by WPDeveloper)
 * [**Phlox** (free, by averta)](https://wordpress.org/themes/phlox/) - including the free Add-Ons "Phlox Core Elements" and "Phlox Portfolio"
 * [**Futurio** (free, by FuturioWP)](https://wordpress.org/themes/futurio/), including **Futurio Pro** (Add-On)
 * [**Woostify** (free, by BoostifyThemes)](https://wordpress.org/themes/woostify/), including **Woostify Pro** (Add-On)
 * [**Zita** (free, by WpZita team)](https://wordpress.org/themes/zita/), including **Zita Pro** (Add-On)
 * **Rife Free & Rife Pro** (free/Premium, by Apollo13Themes)
 * **Sane** (free) and **Sane Pro** (Premium) (both by Elegant Marketplace)
+* [**Kava Theme** (free & Premium, by Zemez Jet & CrocoBlock)](https://toolbarextras.com/go/crocoblock/) - including all Jet Plugins
+* [**StartWP**](https://wordpress.org/themes/start/), including their **StartWP Extended Add-On plugin** (both free and by Munir Kamal)
+* [**Flexia** (free)](https://wordpress.org/themes/flexia/) - including Flexia Core (free) and Flexia Pro (Premium) plugins (all three by WPDeveloper)
 * [**Storefront** (free, by Automattic, Inc.)](https://wordpress.org/themes/storefront/), including 13 Add-On plugins
 * [**Buildwall** (Premium, by Zemez Jet)](https://toolbarextras.com/go/buildwall-tm/)
 * **All church-specific themes by churchthemes.com** (Premium)
@@ -155,16 +155,21 @@ Out of the box the plugin includes support for dozens of awesome Plugins and The
 * **Extender Pro** (Premium, by Cobalt Apps)
 * **Freelancer DevKit** (Premium, by Cobalt Apps)
 * [**IconPress Lite/Pro** (free/Premium, by IconPress Team)](https://wordpress.org/plugins/iconpress-lite/)
+* [**Advanced Custom Fields (ACF)** (free, by Elliot Condon)](https://wordpress.org/plugins/advanced-custom-fields/)
+* **Advanced Custom Fields Pro (ACF Pro)** (Pro, Elliot Condon)
+* [**Pods** (free, by Pods Framework Team)](https://wordpress.org/plugins/pods/)
+* [**Meta Box** (free, by MetaBox.io)](https://wordpress.org/plugins/meta-box/) + Add-Ons
 * **Instant IDE** (Premium, by Cobalt Apps)
 * [**All-in-one Migration** (free, by ServMask)](https://wordpress.org/plugins/all-in-one-wp-migration/)
 * [**UpdraftPlus** (free, by UpdraftPlus.Com, DavidAnderson)](https://wordpress.org/plugins/updraftplus/)
 * [**Duplicator** (free, by Snap Creek)](https://wordpress.org/plugins/duplicator/)
 * [**BackWPup** (free, by Inpsyde GmbH)](https://wordpress.org/plugins/backwpup/)
+* [**WPvivid Backup Plugin** (free, by WPvivid Team)](https://wordpress.org/plugins/wpvivid-backuprestore/)
 * Lots of Genesis-specific plugins as well :-)
 * Lots of Email Marketing plugins like OptinMonster, Convert Plus, Convert Pro, Hustle, Bloom, Mailster, MailPoet 3, MailPoet Legacy
-* Lots of SEO specific plugins like Yoast SEO (free & Premium), SEOPress (free & Premium)
+* Lots of SEO specific plugins like Yoast SEO (free & Premium), SEOPress (free & Premium), The SEO Framework, All In One SEO Pack
 * Suite of "Cherry Plugins" by Zemez (all free), that work well with Elementor (Projects, Service Lists, Team Members, Testimonials)
-* Over 30 (and growing!) plugins specific for the Block Editor (Gutenberg)
+* Over 40 (and growing!) plugins specific for the Block Editor (Gutenberg)
 * *(Support for some more general Plugins is added step by step...)*
 
 👉 [See full Plugins support listing on plugin's website](https://toolbarextras.com/plugin-support/)
@@ -494,6 +499,41 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 ## Changelog 
 
 ([For the full changelog of this plugin visit its website at ToolbarExtras.com](https://toolbarextras.com/changelog/))
+
+
+### ⚡ 1.4.5 - 2019-08-12
+* New: Added support for Elementor Pro v2.6+ where needed ("Custom Icons" for example)
+* New: Added very useful "Changelog" resource item to some supported plugins and themes, including Elementor (free) and Elementor Pro
+* New: For optional "Web Group" added new 6 new services for live testing URLs - Facebook Debugger, plus 5 more Google Services!
+* New: Added useful sub items to WordPress Logo/ About group, including release notes for WordPress version of your current install (dynamic!)
+* New: Added theme support for "Chaplin" (free, by Anders Norén)
+* New: Added ["Milestones" Page to plugin website](https://toolbarextras.com/milestones/) to list amazing achievements of this plugin project
+* Tweak: For "Essential Addons" plugin support, added new resource items (videos, changelog); removed deprecated item
+* Tweak: For "The Plus Addons" plugin support, added new resource items (facebook group, changelog)
+* Tweak: For "JetSmartFilters" plugin support, added new items (settings, changelog)
+* Tweak: For "CartFlows" plugin support, added new Setup Wizard items; removed WooCommerce dependency (since CartFlows can now also operate without it)
+* Tweak: For "WooLentor" plugin support, added new item and pro version integration
+* Tweak: Plugin support for "Reusable Blocks – Elementor, Beaver Builder, WYSIWYG" (free, by WebEmpire) rebranded because plugin changed its name/branding etc. (former name was: "Design Sidebar Using Page Builder")
+* Tweak: Various smaller addition and tweaks for even better support of our official Add-Ons (helper functions, styles)
+* Tweak: Lots of under the hood improvements on code base, and for CSS styles
+* Tweak: Updated `.pot` file plus all German translations (formal, informal) and language packs
+* Fix: Fixed PHP notice if setting of a default page builder enabled but the appropriate builder was deactivated meanwhile
+* Fix: Duplicate function declarations
+
+**New, 1.4.5:** *Extended the Plugin support for Elementor Add-Ons:*
+
+* JetTabs (Premium, by Zemez Jet/ CrocoBlock)
+* JetBooking (Premium, by Zemez Jet/ CrocoBlock) - *A special JetEngine Add-On*
+* Social Addons for Elementor (Lite) (free, by WebEmpire)
+* ToolKit for Elementor (Premium, by ToolKit for Elementor)
+* WooLentor Pro (Premium, by HasThemes/ HT Plugins)
+
+**New, 1.4.5:** *Extended the general Plugin support for:*
+
+* Rank Math SEO (free, by Rank Math)
+* Redirections by Rank Math (free, by Rank Math)
+* 404 Monitor by Rank Math (free, by Rank Math)
+* Schema Markup Rich Snippets (free, by Rank Math)
 
 
 ### ⚡ 1.4.4 - 2019-07-04
@@ -1454,6 +1494,10 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 
 
 
+### 1.4.5
+9 additional Plugins and 1 new Theme supported! New items for optional Web Group. Elementor 2.6+ support. Lots of refinements and improvements. - **Update highly recommended.**
+
+
 ### 1.4.4
 16 additional Plugins supported! 31 new Dashicons for customization available (since WP 5.2+). Lots of refinements and improvements. - **Update highly recommended.**
 
@@ -1577,6 +1621,7 @@ Credit where credit is due. The following code, classes and libraries were used 
 
 
 ## 🔆 My Other Plugins 
+* [**Toolbar Extras for Give Donations (GiveWP) - Add-On plugin**](https://wordpress.org/plugins/toolbar-extras-givewp/)
 * [**Toolbar Extras for MainWP Dashboard - Add-On plugin**](https://wordpress.org/plugins/toolbar-extras-mainwp/)
 * [**Toolbar Extras for Oxygen Builder - Add-On plugin**](https://wordpress.org/plugins/toolbar-extras-oxygen/)
 * [**Builder Template Categories - for WordPress Page Builders**](https://wordpress.org/plugins/builder-template-categories/)

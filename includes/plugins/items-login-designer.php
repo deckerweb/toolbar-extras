@@ -24,9 +24,9 @@ add_filter( 'wp_before_admin_bar_render', 'ddw_tbex_site_items_login_designer', 
  * @uses ddw_tbex_item_title_with_icon()
  * @uses ddw_tbex_customizer_focus()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_login_designer( $wp_admin_bar ) {
+function ddw_tbex_site_items_login_designer( $admin_bar ) {
 
 	$customizer_url = ddw_tbex_customizer_focus(
 		'panel',
@@ -37,7 +37,7 @@ function ddw_tbex_site_items_login_designer( $wp_admin_bar ) {
 	$title = esc_attr__( 'Login Designer', 'toolbar-extras' );
 
 	/** For: Active Theme Group */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'rtabor-logindesigner',
 			'parent' => 'group-active-theme',
@@ -45,13 +45,13 @@ function ddw_tbex_site_items_login_designer( $wp_admin_bar ) {
 			'href'   => $customizer_url,
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => $title
-			)
+				'title'  => $title,
+			),
 		)
 	);
 
 	/** For: Front Customizer */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'my-sub-item',	// same as original
 			'parent' => 'customize',
@@ -59,8 +59,8 @@ function ddw_tbex_site_items_login_designer( $wp_admin_bar ) {
 			'href'   => $customizer_url,
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => $title
-			)
+				'title'  => $title,
+			),
 		)
 	);
 
@@ -123,20 +123,22 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_login_designer_resources', 120 )
  *
  * @uses ddw_tbex_display_items_resources()
  * @uses ddw_tbex_resource_item()
+ *
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_login_designer_resources() {
+function ddw_tbex_aoitems_login_designer_resources( $admin_bar ) {
 
 	/** Bail early if no resources display active */
 	if ( ! ddw_tbex_display_items_resources() ) {
-		return;
+		return $admin_bar;
 	}
 
 	/** Group: Plugin's resources */
-	$GLOBALS[ 'wp_admin_bar' ]->add_group(
+	$admin_bar->add_group(
 		array(
 			'id'     => 'group-logindesigner-resources',
 			'parent' => 'rtabor-logindesigner',
-			'meta'   => array( 'class' => 'ab-sub-secondary' )
+			'meta'   => array( 'class' => 'ab-sub-secondary' ),
 		)
 	);
 

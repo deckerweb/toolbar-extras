@@ -579,7 +579,7 @@ function ddw_tbex_items_elementor_pro_fonts() {
 	$GLOBALS[ 'wp_admin_bar' ]->add_group(
 		array(
 			'id'     => 'group-elementor-fonts',
-			'parent' => 'elementor-library'
+			'parent' => 'elementor-library',
 		)
 	);
 
@@ -606,6 +606,62 @@ function ddw_tbex_items_elementor_pro_fonts() {
 			'meta'   => array(
 				'target' => '',
 				'title'  => esc_attr__( 'Upload New Font', 'toolbar-extras' )
+			)
+		)
+	);
+
+}  // end function
+
+
+add_action( 'admin_bar_menu', 'ddw_tbex_items_elementor_pro_icons', 131 );
+/**
+ * Add Elementor Pro - Custom Icons items (since Elementor Pro v2.6.0+)
+ *   NOTE: Later hook priority to place lower within the active theme stack.
+ *
+ * @since 1.4.5
+ *
+ * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ */
+function ddw_tbex_items_elementor_pro_icons() {
+
+	$type = 'elementor_icons';
+
+	/** Bail early if post type does not exist */
+	if ( ! post_type_exists( $type ) ) {
+		return;
+	}
+
+	/** Group: Pro Custom Fonts */
+	$GLOBALS[ 'wp_admin_bar' ]->add_group(
+		array(
+			'id'     => 'group-elementor-icons',
+			'parent' => 'elementor-library',
+		)
+	);
+
+	/** Pro: Custom Fonts */
+	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		array(
+			'id'     => 'elementor-icons-all',
+			'parent' => 'group-elementor-icons',
+			'title'  => esc_attr__( 'All Icon Sets', 'toolbar-extras' ),
+			'href'   => esc_url( admin_url( 'edit.php?post_type=' . $type ) ),
+			'meta'   => array(
+				'target' => '',
+				'title'  => esc_attr__( 'All Custom Icon Sets', 'toolbar-extras' )
+			)
+		)
+	);
+
+	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		array(
+			'id'     => 'elementor-icons-new',
+			'parent' => 'group-elementor-icons',
+			'title'  => esc_attr__( 'New Icon Set', 'toolbar-extras' ),
+			'href'   => esc_url( admin_url( 'post-new.php?post_type=' . $type ) ),
+			'meta'   => array(
+				'target' => '',
+				'title'  => esc_attr__( 'Upload New Custom Icon Set', 'toolbar-extras' )
 			)
 		)
 	);
@@ -652,6 +708,14 @@ function ddw_tbex_items_elementor_pro_resources() {
 			'epro-resources-docs',
 			'epro-resources',
 			ddw_tbex_get_resource_url( 'elementor', 'url_docs_pro' )
+		);
+
+		ddw_tbex_resource_item(
+			'changelog',
+			'epro-resources-changelog',
+			'epro-resources',
+			ddw_tbex_get_resource_url( 'elementor', 'url_changes_pro' ),
+			ddw_tbex_string_version_history( 'plugin' )
 		);
 
 		ddw_tbex_resource_item(

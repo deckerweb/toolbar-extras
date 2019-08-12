@@ -393,6 +393,17 @@ if ( ( 'Risen' == wp_get_theme() && function_exists( 'risen_setup' ) )	// Risen 
 
 
 /**
+ * Theme: Chaplin (free, by Anders Norén)
+ * @since 1.4.5
+ */
+if ( ( 'Chaplin' == wp_get_theme() && function_exists( 'chaplin_theme_support' ) )	// Chaplin w/o child theme
+	|| ( 'chaplin' === wp_basename( get_template_directory() ) && function_exists( 'chaplin_theme_support' ) )		// Chaplin w/ child theme
+) {
+	require_once TBEX_PLUGIN_DIR . 'includes/themes/items-chaplin.php';
+}
+
+
+/**
  * Theme: Atomic Blocks (free, by Atomic Blocks/ Array Themes)
  * @since 1.4.0
  */
@@ -457,12 +468,12 @@ if (
 	(
 		( 'Sane' == wp_get_theme() || 'Sane Pro' == wp_get_theme() )		// Sane w/o child theme
 		&& function_exists( 'sane_setup' )
-	)	
+	)
 	||
 		(
 			( 'sane' === wp_basename( get_template_directory() ) || 'sane-pro' === wp_basename( get_template_directory() ) )		// Sane w/ child theme
-			&& function_exists( 'sane_setup' ) 
-		)		
+			&& function_exists( 'sane_setup' )
+		)
 ) {
 	require_once TBEX_PLUGIN_DIR . 'includes/themes/items-sane.php';
 }

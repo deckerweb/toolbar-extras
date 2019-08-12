@@ -63,8 +63,8 @@ class Items_CPT_Generic {
 	public function items_generic_type() {
 		
 		/** Get variables from the instance */
-		$this->type  = $this->type;
-		$this->label = $this->label;
+		//$this->type  = $this->type;
+		//$this->label = $this->label;
 
 		/** Sanitize variables */
 		$type  = sanitize_key( $this->type );

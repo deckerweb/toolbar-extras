@@ -103,7 +103,7 @@ if ( defined( 'ARFPLUGINTITLE' ) ) {
 
 
 /**
- * Plugin: MailChimp for WordPress (free, by ibericode)
+ * Plugin: Mailchimp for WordPress (free, by ibericode)
  * @since 1.3.2
  */
 if ( class_exists( 'MC4WP_Form_Manager' ) ) {

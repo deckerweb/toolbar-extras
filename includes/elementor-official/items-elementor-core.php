@@ -686,6 +686,14 @@ function ddw_tbex_items_elementor_core_resources() {
 		);
 
 		ddw_tbex_resource_item(
+			'changelog',
+			'elementor-resources-changelog',
+			'elementor-resources',
+			ddw_tbex_get_resource_url( 'elementor', 'url_changes' ),
+			ddw_tbex_string_version_history( 'plugin' )
+		);
+
+		ddw_tbex_resource_item(
 			'github',
 			'elementor-resources-github',
 			'elementor-resources',

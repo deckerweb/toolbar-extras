@@ -676,7 +676,7 @@ function ddw_tbex_string_notice_shown_once() {
  *
  * @since 1.0.0
  *
- * @param string $plural If plural form to be used ('plural') or not.
+ * @param string $type If plural form to be used ('plural') or not.
  * @return string Role label based on Multisite context.
  */
 function ddw_tbex_string_maybe_super_admin( $type = 'plural' ) {
@@ -1114,6 +1114,9 @@ function ddw_tbex_string_screen_reader_new_tab() {
  */
 function ddw_tbex_string_debug_info_link( $type = '', $source = 'tbex' ) {
 
+	$url   = '';
+	$label = '';
+
 	switch ( sanitize_key( $type) ) {
 
 		case 'support':
@@ -1199,5 +1202,32 @@ function ddw_tbex_string_version_history( $type = '' ) {
 		esc_attr__( '%s Version History', 'toolbar-extras' ),
 		esc_attr( $item )
 	);
+
+}  // end function
+
+
+/**
+ * Build string for Web Group: "Test Current Page URL"
+ *
+ * @since 1.4.5
+ *
+ * @return string Translateable string.
+ */
+function ddw_tbex_string_test_current_page_url() {
+
+	return esc_attr__( 'Test Current Page URL', 'toolbar-extras' );
+
+}  // end function
+
+/**
+ * Build string for Web Group: "Test Home URL"
+ *
+ * @since 1.4.5
+ *
+ * @return string Translateable string.
+ */
+function ddw_tbex_string_test_home_url() {
+
+	return esc_attr__( 'Test Home URL', 'toolbar-extras' );
 
 }  // end function

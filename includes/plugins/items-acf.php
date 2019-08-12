@@ -12,12 +12,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 
-//
-
-
-//
-
-
 add_action( 'admin_bar_menu', 'ddw_tbex_site_items_advanced_custom_fields', 15 );
 /**
  * Items for plugin: Advanced Custom Fields (free, by Elliot Condon)

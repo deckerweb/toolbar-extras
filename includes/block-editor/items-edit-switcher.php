@@ -44,8 +44,10 @@ add_action( 'admin_bar_menu', 'ddw_tbex_blocks_edit_switcher', 120 );
  * @global int    $GLOBALS[ 'post_id' ]
  * @global object $GLOBALS[ 'wp_the_query' ]
  * @global mixed  $GLOBALS[ 'wp_admin_bar' ]
+ *
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_blocks_edit_switcher( $wp_admin_bar ) {
+function ddw_tbex_blocks_edit_switcher( $admin_bar ) {
 
 	$edit_url = null;
 
@@ -63,7 +65,7 @@ function ddw_tbex_blocks_edit_switcher( $wp_admin_bar ) {
 
 	/** Bail early if no post or post ID set/known */
 	if ( empty( $post ) || empty( $post->ID ) ) {
-		return $wp_admin_bar;
+		return $admin_bar;
 	}
 
 	/**
@@ -85,7 +87,7 @@ function ddw_tbex_blocks_edit_switcher( $wp_admin_bar ) {
 		if ( isset( $_GET[ 'classic-editor' ] ) ) {
 
 			/** If "Classic Editor" is active - offer switch to "Block Editor" (Gutenberg) */
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'    => 'tbex-block-editor',
 					'title' => esc_attr__( 'Edit (Blocks)', 'toolbar-extras' ),
@@ -93,7 +95,7 @@ function ddw_tbex_blocks_edit_switcher( $wp_admin_bar ) {
 					'meta'  => array(
 						'class'  => 'tbex-edit-switcher',
 						'target' => '',
-						'title'  => esc_attr__( 'Edit in Block Editor (Gutenberg)', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Edit in Block Editor (Gutenberg)', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -101,7 +103,7 @@ function ddw_tbex_blocks_edit_switcher( $wp_admin_bar ) {
 		} else {
 
 			/** If "Block Editor" (Gutenberg) is in use - offer switch back to "Classic Editor" */
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'    => 'tbex-classic-editor',
 					'title' => esc_attr__( 'Edit (Classic)', 'toolbar-extras' ),
@@ -109,7 +111,7 @@ function ddw_tbex_blocks_edit_switcher( $wp_admin_bar ) {
 					'meta'  => array(
 						'class'  => 'tbex-edit-switcher',
 						'target' => '',
-						'title'  => esc_attr__( 'Edit in Classic Editor', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Edit in Classic Editor', 'toolbar-extras' ),
 					)
 				)
 			);

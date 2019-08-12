@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function ddw_tbex_use_tweak_frontend_toolbar_color() {
 
-	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'toolbar_front_color' ) ) ? TRUE : FALSE;;
+	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'toolbar_front_color' ) );
 
 }  // end function
 
@@ -39,7 +39,7 @@ function ddw_tbex_use_tweak_frontend_toolbar_color() {
  */
 function ddw_tbex_use_tweak_wplogo() {
 
-	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'remove_wp_logo' ) ) ? TRUE : FALSE;;
+	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'remove_wp_logo' ) );
 
 }  // end function
 
@@ -55,7 +55,7 @@ function ddw_tbex_use_tweak_wplogo() {
  */
 function ddw_tbex_use_tweak_customizer() {
 
-	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'remove_front_customizer' ) ) ? TRUE : FALSE;;
+	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'remove_front_customizer' ) );
 
 }  // end function
 
@@ -71,7 +71,7 @@ function ddw_tbex_use_tweak_customizer() {
  */
 function ddw_tbex_use_tweak_media_newcontent() {
 
-	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'remove_media_newcontent' ) ) ? TRUE : FALSE;;
+	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'remove_media_newcontent' ) );
 
 }  // end function
 
@@ -87,7 +87,7 @@ function ddw_tbex_use_tweak_media_newcontent() {
  */
 function ddw_tbex_use_tweak_user_newcontent() {
 
-	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'remove_user_newcontent' ) ) ? TRUE : FALSE;;
+	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'remove_user_newcontent' ) );
 
 }  // end function
 
@@ -103,7 +103,7 @@ function ddw_tbex_use_tweak_user_newcontent() {
  */
 function ddw_tbex_use_tweak_gravityforms() {
 
-	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'rehook_gravityforms' ) ) ? TRUE : FALSE;;
+	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'rehook_gravityforms' ) );
 
 }  // end function
 
@@ -119,7 +119,7 @@ function ddw_tbex_use_tweak_gravityforms() {
  */
 function ddw_tbex_use_tweak_smartslider() {
 
-	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'rehook_smartslider' ) ) ? TRUE : FALSE;;
+	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'rehook_smartslider' ) );
 
 }  // end function
 
@@ -135,7 +135,7 @@ function ddw_tbex_use_tweak_smartslider() {
  */
 function ddw_tbex_use_tweak_nextgen() {
 
-	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'rehook_nextgen' ) ) ? TRUE : FALSE;;
+	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'rehook_nextgen' ) );
 
 }  // end function
 
@@ -151,7 +151,7 @@ function ddw_tbex_use_tweak_nextgen() {
  */
 function ddw_tbex_use_tweak_ithemes_security() {
 
-	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'rehook_ithsec' ) ) ? TRUE : FALSE;;
+	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'rehook_ithsec' ) );
 
 }  // end function
 
@@ -167,7 +167,7 @@ function ddw_tbex_use_tweak_ithemes_security() {
  */
 function ddw_tbex_use_tweak_wprocket() {
 
-	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'rehook_wprocket' ) ) ? TRUE : FALSE;;
+	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'rehook_wprocket' ) );
 
 }  // end function
 
@@ -183,7 +183,7 @@ function ddw_tbex_use_tweak_wprocket() {
  */
 function ddw_tbex_use_tweak_autoptimize() {
 
-	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'rehook_autoptimize' ) ) ? TRUE : FALSE;;
+	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'rehook_autoptimize' ) );
 
 }  // end function
 
@@ -200,7 +200,7 @@ function ddw_tbex_use_tweak_autoptimize() {
  */
 function ddw_tbex_use_tweak_swift_performance() {
 
-	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'rehook_swiftperformance' ) ) ? TRUE : FALSE;;
+	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'rehook_swiftperformance' ) );
 
 }  // end function
 
@@ -216,7 +216,7 @@ function ddw_tbex_use_tweak_swift_performance() {
  */
 function ddw_tbex_use_tweak_woocommerce_newcontent() {
 
-	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'remove_woo_posttypes' ) ) ? TRUE : FALSE;
+	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'remove_woo_posttypes' ) );
 
 }  // end function
 
@@ -232,7 +232,7 @@ function ddw_tbex_use_tweak_woocommerce_newcontent() {
  */
 function ddw_tbex_use_tweak_aioseo() {
 
-	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'remove_aioseo' ) ) ? TRUE : FALSE;
+	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'remove_aioseo' ) );
 
 }  // end function
 
@@ -248,7 +248,7 @@ function ddw_tbex_use_tweak_aioseo() {
  */
 function ddw_tbex_use_tweak_updraftplus() {
 
-	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'remove_updraftplus' ) ) ? TRUE : FALSE;
+	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'remove_updraftplus' ) );
 
 }  // end function
 
@@ -264,7 +264,7 @@ function ddw_tbex_use_tweak_updraftplus() {
  */
 function ddw_tbex_use_tweak_members() {
 
-	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'remove_members' ) ) ? TRUE : FALSE;;
+	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'remove_members' ) );
 
 }  // end function
 
@@ -280,7 +280,7 @@ function ddw_tbex_use_tweak_members() {
  */
 function ddw_tbex_use_tweak_cobaltapps() {
 
-	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'remove_cobaltapps' ) ) ? TRUE : FALSE;
+	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'remove_cobaltapps' ) );
 
 }  // end function
 
@@ -296,7 +296,7 @@ function ddw_tbex_use_tweak_cobaltapps() {
  */
 function ddw_tbex_use_tweak_customcsspro() {
 
-	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'remove_customcsspro' ) ) ? TRUE : FALSE;
+	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'remove_customcsspro' ) );
 
 }  // end function
 
@@ -312,7 +312,7 @@ function ddw_tbex_use_tweak_customcsspro() {
  */
 function ddw_tbex_use_tweak_adminpagespider() {
 
-	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'remove_apspider' ) ) ? TRUE : FALSE;
+	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'remove_apspider' ) );
 
 }  // end function
 
@@ -329,7 +329,7 @@ function ddw_tbex_use_tweak_adminpagespider() {
  */
 function ddw_tbex_use_tweak_mstba_siteextgroup() {
 
-	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'remove_mstba_siteextgroup' ) ) ? TRUE : FALSE;
+	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'remove_mstba_siteextgroup' ) );
 
 }  // end function
 
@@ -346,7 +346,7 @@ function ddw_tbex_use_tweak_mstba_siteextgroup() {
  */
 function ddw_tbex_use_tweak_unload_translations_elementor() {
 
-	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'unload_td_elementor' ) ) ? TRUE : FALSE;
+	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'unload_td_elementor' ) );
 
 }  // end function
 
@@ -362,7 +362,7 @@ function ddw_tbex_use_tweak_unload_translations_elementor() {
  */
 function ddw_tbex_use_tweak_unload_translations_toolbar_extras() {
 
-	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'unload_td_toolbar_extras' ) ) ? TRUE : FALSE;
+	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'unload_td_toolbar_extras' ) );
 
 }  // end function
 
@@ -378,7 +378,7 @@ function ddw_tbex_use_tweak_unload_translations_toolbar_extras() {
  */
 function ddw_tbex_use_tweak_elementor_remove_wpwidgets() {
 
-	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'remove_elementor_wpwidgets' ) ) ? TRUE : FALSE;
+	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'remove_elementor_wpwidgets' ) );
 
 }  // end function
 
@@ -394,7 +394,7 @@ function ddw_tbex_use_tweak_elementor_remove_wpwidgets() {
  */
 function ddw_tbex_use_tweak_elementor_display_tbuilder() {
 
-	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'display_elementor_tbuilder' ) ) ? TRUE : FALSE;
+	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'display_elementor_tbuilder' ) );
 
 }  // end function
 
@@ -410,7 +410,7 @@ function ddw_tbex_use_tweak_elementor_display_tbuilder() {
  */
 function ddw_tbex_use_tweak_elementor_display_popups() {
 
-	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'display_elementor_popups' ) ) ? TRUE : FALSE;
+	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'display_elementor_popups' ) );
 
 }  // end function
 
@@ -426,7 +426,7 @@ function ddw_tbex_use_tweak_elementor_display_popups() {
  */
 function ddw_tbex_use_tweak_myaccount_item() {
 
-	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'use_myaccount_tweak' ) ) ? TRUE : FALSE;;
+	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'use_myaccount_tweak' ) );
 
 }  // end function
 
@@ -442,7 +442,7 @@ function ddw_tbex_use_tweak_myaccount_item() {
  */
 function ddw_tbex_use_tweak_elementor_inspector() {
 
-	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'rehook_elementor_inspector' ) ) ? TRUE : FALSE;;
+	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'rehook_elementor_inspector' ) );
 
 }  // end function
 
@@ -458,7 +458,7 @@ function ddw_tbex_use_tweak_elementor_inspector() {
  */
 function ddw_tbex_use_tweak_stylepress_elementor() {
 
-	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'rehook_stylepress' ) ) ? TRUE : FALSE;;
+	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'rehook_stylepress' ) );
 
 }  // end function
 
@@ -474,7 +474,7 @@ function ddw_tbex_use_tweak_stylepress_elementor() {
  */
 function ddw_tbex_use_tweak_yoastseo() {
 
-	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'rehook_yoastseo' ) ) ? TRUE : FALSE;;
+	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'rehook_yoastseo' ) );
 
 }  // end function
 
@@ -490,7 +490,7 @@ function ddw_tbex_use_tweak_yoastseo() {
  */
 function ddw_tbex_use_tweak_seopress() {
 
-	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'rehook_seopress' ) ) ? TRUE : FALSE;;
+	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'rehook_seopress' ) );
 
 }  // end function
 
@@ -506,7 +506,7 @@ function ddw_tbex_use_tweak_seopress() {
  */
 function ddw_tbex_use_tweak_easy_updates_manager() {
 
-	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'remove_easy_um' ) ) ? TRUE : FALSE;;
+	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'remove_easy_um' ) );
 
 }  // end function
 

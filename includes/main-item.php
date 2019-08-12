@@ -21,6 +21,9 @@ add_action( 'admin_bar_menu', 'ddw_tbex_toolbar_main_item', ddw_tbex_main_item_p
  * @since 1.0.0
  * @since 1.4.0 Implemented settings support for fallback item, as well as URL
  *              support for both items.
+ * @since 1.4.5 Added additional filter 'tbex_filter_set_builder_is_active' to
+ *              catch cases were a default builder is set in settings but that
+ *              builder plugin is not activated.
  *
  * @uses ddw_tbex_get_default_pagebuilder()
  * @uses ddw_tbex_is_pagebuilder_active()
@@ -32,9 +35,9 @@ add_action( 'admin_bar_menu', 'ddw_tbex_toolbar_main_item', ddw_tbex_main_item_p
  * @uses ddw_tbex_string_fallback_item()
  * @uses ddw_tbex_customizer_start()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_toolbar_main_item() {
+function ddw_tbex_toolbar_main_item( $admin_bar ) {
 
 	/** Get default Page Builder */
 	$default_builder = ddw_tbex_get_default_pagebuilder();
@@ -45,6 +48,7 @@ function ddw_tbex_toolbar_main_item() {
 	if ( ddw_tbex_is_pagebuilder_active()
 		&& ! empty( $default_builder )
 		&& 'default-none' !== $default_builder
+		&& apply_filters( 'tbex_filter_set_builder_is_active', TRUE )
 	) {
 		
 		/** Get all registered Page Builders */
@@ -55,14 +59,14 @@ function ddw_tbex_toolbar_main_item() {
 		$main_url = ( ! empty( $main_url ) ) ? $main_url : $all_builders[ $default_builder ][ 'admin_url' ];
 
 		/** Add main node for Page Builder context */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => ddw_tbex_id_main_item(),
 				'title'  => ddw_tbex_item_title_with_settings_icon( ddw_tbex_string_main_item(), 'general', 'main_item_icon' ),
 				'href'   => esc_url( $main_url ),
 				'meta'   => array(
 					'class'  => 'tbex-main',
-					'target' => $link_target,
+					'target' => sanitize_key( $link_target ),
 					'rel'    => ddw_tbex_meta_rel(),
 					'title'  => ddw_tbex_string_main_item()
 				)
@@ -76,14 +80,14 @@ function ddw_tbex_toolbar_main_item() {
 		$fallback_url = ( ! empty( $fallback_url ) ) ? esc_url( $fallback_url ) : ddw_tbex_customizer_start();
 
 		/** Add main node for fallback context */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => ddw_tbex_id_main_item(),
 				'title'  => ddw_tbex_item_title_with_settings_icon( ddw_tbex_string_fallback_item(), 'general', 'fallback_item_icon' ),
 				'href'   => $fallback_url,
 				'meta'   => array(
 					'class'  => 'tbex-main',
-					'target' => $link_target,		// empty( $fallback_url ) ? '' : ddw_tbex_meta_target(),
+					'target' => sanitize_key( $link_target ),		// empty( $fallback_url ) ? '' : ddw_tbex_meta_target(),
 					'rel'    => ddw_tbex_meta_rel(),
 					'title'  => ddw_tbex_string_fallback_item()
 				)
@@ -93,6 +97,6 @@ function ddw_tbex_toolbar_main_item() {
 	}   // end if
 
 	/** Action Hook: After Main Item */
-	do_action( 'tbex_after_main_item' );
+	do_action( 'tbex_after_main_item', $admin_bar );
 
 }  // end function

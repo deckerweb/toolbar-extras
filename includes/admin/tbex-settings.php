@@ -958,3 +958,42 @@ function ddw_tbex_add_color_item_wordpress( $color_items ) {
 	return $color_items;
 
 }  // end function
+
+
+add_filter( 'tbex_filter_set_builder_is_active', 'ddw_tbex_builder_logic_for_builtin' );
+/**
+ * This logic is needed for our Main Item: it checks if the default Builder set
+ *   in our settings is really active. This avoids any notices, and can also
+ *   properly trigger the fallback mode for the Main Item.
+ *
+ *   Note: Add-Ons need to opt-in into this filter and check for themselves.
+ *
+ * @since 1.4.5
+ *
+ * @see plugin file: /includes/main-item.php
+ *
+ * @param bool $is_active
+ * @return bool TRUE if the set builder is active, FALSE otherwise.
+ */
+function ddw_tbex_builder_logic_for_builtin( $is_active ) {
+
+	$is_active = (bool) $is_active;
+
+	$default_builder = ddw_tbex_get_default_pagebuilder();
+
+	/** Check for Block Editor/ Gutenberg */
+	if ( 'block-editor' === $default_builder
+		&& ( ! ddw_tbex_is_block_editor_active() || ! ddw_tbex_is_block_editor_wanted() )
+	) {
+		return FALSE;
+	}
+
+	/** Check for Elementor */
+	if ( 'elementor' === $default_builder && ! ddw_tbex_is_elementor_active() ) {
+		return FALSE;
+	}
+
+	/** Default: return TRUE */
+	return TRUE;
+
+}  // end function

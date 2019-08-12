@@ -196,6 +196,8 @@ function ddw_tbex_is_elementor_pro_active() {
  */
 function ddw_tbex_is_elementor_version( $type = 'core', $version = '', $operator = '' ) {
 
+	$elementor_version = '';
+	
 	/** Check type for the 2 possible values */
 	switch ( sanitize_key( $type ) ) {
 

@@ -21,7 +21,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @param string $suffix String for suffix for Toolbar node ID and group ID.
  * @param string $parent String for Toolbar parent node.
- * @return object $GLOBALS[ 'wp_admin_bar' ] object to build new Toolbar nodes.
+ *
+ * @global object $GLOBALS[ 'wp_admin_bar' ] object to build new Toolbar nodes.
  */
 function ddw_tbex_aoitems_site_health_manager( $suffix = '', $parent = '' ) {
 
@@ -114,8 +115,6 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_maybe_site_health_manager', 5
  * @uses ddw_tbex_is_wp52_install()
  * @uses ddw_tbex_aoitems_site_health_manager()
  * @uses ddw_tbex_is_addon_mainwp_active()
- *
- * @param object $admin_bar Object of Toolbar nodes.
  */
 function ddw_tbex_site_items_maybe_site_health_manager() {
 

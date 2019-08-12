@@ -535,11 +535,11 @@ if ( ddw_tbex_is_woocommerce_active() ) {
 
 /**
  * Plugin: CartFlows (free, by CartFlows Inc)
+ *   Note: Since CartFlows v1.1.20 the WooCommerce dependency was removed, so we removed it here as well!
  * @since 1.4.2
+ * @since 1.4.5 Removed WooCommerce dependency.
  */
-if ( ddw_tbex_is_woocommerce_active()		// as it extends WooCommerce!
-	&& class_exists( 'Cartflows_Loader' )
-) {
+if ( class_exists( 'Cartflows_Loader' ) ) {
 	require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-cartflows.php';
 }
 
@@ -554,11 +554,12 @@ if ( class_exists( 'Popup_Maker' ) ) {
 
 
 /**
- * Plugin: Design Sidebar Using Page Builder (free, by WebEmpire)
+ * Plugin: Reusable Blocks – Elementor, Beaver Builder, WYSIWYG (free, by WebEmpire)
  * @since 1.4.3
+ * @since 1.4.5 Renaming because plugin changed its name/branding etc.
  */
 if ( defined( 'WE_SIDEBAR_PLUGIN_VERSION' ) ) {
-	require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-sidebar-builder.php';
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-we-sidebar-builder.php';
 }
 
 
@@ -868,6 +869,54 @@ if ( defined( 'THE_SEO_FRAMEWORK_VERSION' ) ) {
 if ( defined( 'WPSEO_VERSION' ) ) {
 	require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-yoastseo.php';
 }
+
+
+/**
+ * Plugin: Rank Math SEO (free, by Rank Math)
+ * Plugins: Rank Math single feature plugins (all free, by Rank Math)
+ * @since 1.4.5
+ */
+if ( class_exists( 'RankMath' ) ) {
+
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-rankmath.php';
+
+} else {
+
+	/**
+	 * Detect some Rank Math specific single plugins.
+	 *
+	 * @since 1.4.5
+	 *
+	 * @uses ddw_tbex_detect_plugin()
+	 *
+	 * @return bool TRUE if a plugin exists, or FALSE if no plugin constant, class
+	 *              or function detected.
+	 */
+	function ddw_tbex_detect_rankmath_single_plugins() {
+
+		return ddw_tbex_detect_plugin(
+
+			array(
+
+				/** Classes to detect */
+				'classes'   => array(
+					'RANKMATH_SCHEMA',
+					'RankMath_Monitor',
+					'RankMath_Redirections',
+					
+				),
+
+			)  // end array
+
+		);
+
+	}  // end function
+
+	if ( ddw_tbex_detect_rankmath_single_plugins() ) {
+		require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-rankmath-singles.php';
+	}
+
+}  // end if
 
 
 /**

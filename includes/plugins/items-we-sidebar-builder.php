@@ -1,6 +1,6 @@
 <?php
 
-// includes/plugins/items-sidebar-builder
+// includes/plugins/items-we-sidebar-builder
 
 /**
  * Prevent direct access to this file.
@@ -12,12 +12,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 
-add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_sidebar_builder', 100 );
+add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_reusable_templates', 100 );
 /**
  * Add-On items for Plugin:
- *   Design Sidebar Using Page Builder (free, by WebEmpire)
+ *   Reusable Blocks – Elementor, Beaver Builder, WYSIWYG (free, by WebEmpire)
  *
  * @since 1.4.3
+ * @since 1.4.5 Renaming because plugin changed its name/branding etc.
  *
  * @uses ddw_tbex_is_elementor_active()
  * @uses ddw_tbex_is_btcplugin_active()
@@ -26,45 +27,45 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_sidebar_builder', 100 );
  *
  * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_sidebar_builder( $admin_bar ) {
+function ddw_tbex_aoitems_reusable_templates( $admin_bar ) {
 
 	$type = 'we-sidebar-builder';
 
 	$admin_bar->add_node(
 		array(
-			'id'     => 'ao-sidebarbuilder',
+			'id'     => 'ao-reusabletemplates',
 			'parent' => 'group-creative-content',
-			'title'  => esc_attr__( 'Sidebar Builder', 'toolbar-extras' ),
+			'title'  => esc_attr__( 'Reusable Templates', 'toolbar-extras' ),
 			'href'   => esc_url( admin_url( 'edit.php?post_type=' . $type ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Sidebar Builder', 'toolbar-extras' ),
+				'title'  => esc_attr__( 'Reusable Templates', 'toolbar-extras' ),
 			)
 		)
 	);
 
 		$admin_bar->add_node(
 			array(
-				'id'     => 'ao-sidebarbuilder-all',
-				'parent' => 'ao-sidebarbuilder',
-				'title'  => esc_attr__( 'All Sidebars', 'toolbar-extras' ),
+				'id'     => 'ao-reusabletemplates-all',
+				'parent' => 'ao-reusabletemplates',
+				'title'  => esc_attr__( 'All Templates', 'toolbar-extras' ),
 				'href'   => esc_url( admin_url( 'edit.php?post_type=' . $type ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'All Sidebars (Widget Areas)', 'toolbar-extras' ),
+					'title'  => esc_attr__( 'All Reusable Templates', 'toolbar-extras' ),
 				)
 			)
 		);
 
 		$admin_bar->add_node(
 			array(
-				'id'     => 'ao-sidebarbuilder-new',
-				'parent' => 'ao-sidebarbuilder',
-				'title'  => esc_attr__( 'New Sidebar', 'toolbar-extras' ),
+				'id'     => 'ao-reusabletemplates-new',
+				'parent' => 'ao-reusabletemplates',
+				'title'  => esc_attr__( 'New Reusable Template', 'toolbar-extras' ),
 				'href'   => esc_url( admin_url( 'post-new.php?post_type=' . $type ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'New Sidebar (Widget Area)', 'toolbar-extras' ),
+					'title'  => esc_attr__( 'New Reusable Template', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -73,31 +74,31 @@ function ddw_tbex_aoitems_sidebar_builder( $admin_bar ) {
 
 			$GLOBALS[ 'wp_admin_bar' ]->add_node(
 				array(
-					'id'     => 'ao-sidebarbuilder-elementor',
-					'parent' => 'ao-sidebarbuilder',
-					'title'  => esc_attr__( 'New Sidebar Builder', 'toolbar-extras' ),
+					'id'     => 'ao-reusabletemplates-elementor',
+					'parent' => 'ao-reusabletemplates',
+					'title'  => esc_attr__( 'New Template Builder', 'toolbar-extras' ),
 					'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( $type ) ),
 					'meta'   => array(
 						'target' => ddw_tbex_meta_target( 'builder' ),
-						'title'  => esc_attr__( 'New Sidebar Builder', 'toolbar-extras' ),
+						'title'  => esc_attr__( 'New Template Builder', 'toolbar-extras' ),
 					)
 				)
 			);
 
 		}  // end if
 
-		/** Sidebar categories, via BTC plugin */
+		/** Template categories, via BTC plugin */
 		if ( ddw_tbex_is_btcplugin_active() && version_compare( 'BTC_PLUGIN_VERSION', '1.5.1', '>' ) ) {
 
 			$admin_bar->add_node(
 				array(
-					'id'     => 'ao-sidebarbuilder-categories',
-					'parent' => 'ao-sidebarbuilder',
-					'title'  => ddw_btc_string_template( 'sidebar' ),
+					'id'     => 'ao-reusabletemplates-categories',
+					'parent' => 'ao-reusabletemplates',
+					'title'  => ddw_btc_string_template( 'template' ),
 					'href'   => esc_url( admin_url( 'edit-tags.php?taxonomy=builder-template-category&post_type=' . $type ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_html( ddw_btc_string_template( 'sidebar' ) ),
+						'title'  => esc_html( ddw_btc_string_template( 'template' ) ),
 					)
 				)
 			);
@@ -109,24 +110,31 @@ function ddw_tbex_aoitems_sidebar_builder( $admin_bar ) {
 
 			$admin_bar->add_group(
 				array(
-					'id'     => 'group-sidebarbuilder-resources',
-					'parent' => 'ao-sidebarbuilder',
+					'id'     => 'group-reusabletemplates-resources',
+					'parent' => 'ao-reusabletemplates',
 					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 
 			ddw_tbex_resource_item(
 				'support-forum',
-				'sidebarbuilder-support',
-				'group-sidebarbuilder-resources',
+				'reusabletemplates-support',
+				'group-reusabletemplates-resources',
 				'https://wordpress.org/support/plugin/design-sidebar-using-page-builder'
 			);
 
 			ddw_tbex_resource_item(
 				'translations-community',
-				'sidebarbuilder-translate',
-				'group-sidebarbuilder-resources',
+				'reusabletemplates-translate',
+				'group-reusabletemplates-resources',
 				'https://translate.wordpress.org/projects/wp-plugins/design-sidebar-using-page-builder'
+			);
+
+			ddw_tbex_resource_item(
+				'github',
+				'reusabletemplates-github',
+				'group-reusabletemplates-resources',
+				'https://github.com/web-empire/design-sidebar-with-builder'
 			);
 
 		}  // end if
@@ -134,15 +142,16 @@ function ddw_tbex_aoitems_sidebar_builder( $admin_bar ) {
 }  // end function
 
 
-add_action( 'admin_bar_menu', 'ddw_tbex_new_content_sidebar_builder', 80 );
+add_action( 'admin_bar_menu', 'ddw_tbex_new_content_reusable_template', 80 );
 /**
- * Items for "New Content" section: New Sidebar (Widget Area) for Builders
+ * Items for "New Content" section: New Reusable Template for Builders
  *
  * @since 1.4.3
+ * @since 1.4.5 Renaming because plugin changed its name/branding etc.
  *
  * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_new_content_sidebar_builder( $admin_bar ) {
+function ddw_tbex_new_content_reusable_template( $admin_bar ) {
 
 	/** Bail early if items display is not wanted */
 	if ( ! ddw_tbex_display_items_new_content() ) {
@@ -153,11 +162,11 @@ function ddw_tbex_new_content_sidebar_builder( $admin_bar ) {
 
 	$admin_bar->add_node(
 		array(
-			'id'     => 'new-' . $type,
+			'id'     => 'new-' . $type,		// same as original!
 			'parent' => 'new-content',
-			'title'  => esc_attr__( 'Sidebar (Widget Area)', 'toolbar-extras' ),
+			'title'  => esc_attr__( 'Reusable Template', 'toolbar-extras' ),
 			'meta'   => array(
-				'title'  => ddw_tbex_string_add_new_item( __( 'Sidebar - Widget Area', 'toolbar-extras' ) ),
+				'title'  => ddw_tbex_string_add_new_item( __( 'Reusable Template Block', 'toolbar-extras' ) ),
 			)
 		)
 	);

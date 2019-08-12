@@ -20,15 +20,15 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_pufe', 100 );
  *
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_pufe() {
+function ddw_tbex_aoitems_pufe( $admin_bar ) {
 
 	/** Use Add-On hook place */
 	add_filter( 'tbex_filter_is_addon', '__return_empty_string' );
 
 	/** Plugin's Settings */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'ao-pufe',
 			'parent' => 'tbex-addons',
@@ -36,12 +36,12 @@ function ddw_tbex_aoitems_pufe() {
 			'href'   => esc_url( admin_url( 'admin.php?page=powerups_for_elementor' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_addon_title_attr( __( 'Power-Ups for Elementor', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_addon_title_attr( __( 'Power-Ups for Elementor', 'toolbar-extras' ) ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-pufe-settings',
 				'parent' => 'ao-pufe',
@@ -49,7 +49,7 @@ function ddw_tbex_aoitems_pufe() {
 				'href'   => esc_url( admin_url( 'admin.php?page=powerups_for_elementor' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -57,11 +57,11 @@ function ddw_tbex_aoitems_pufe() {
 		/** Group: Plugin's Resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-pufe-resources',
 					'parent' => 'ao-pufe',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 
@@ -97,19 +97,19 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_pufe_elemenfolio', 100 );
  *
  * @since 1.1.0
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_pufe_elemenfolio() {
+function ddw_tbex_aoitems_pufe_elemenfolio( $admin_bar ) {
 
 	/** Bail early if items display is not needed */
 	if ( function_exists( 'elpt_setup_menu' )		// "Portfolio for Elementor" plugin by WpPug active
 		|| ( 0 == get_option( 'elpug_portfolio_switch' ) )
 	) {
-		return;
+		return $admin_bar;
 	}
 
 	/** Portfolio Items */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'ao-pufe-portfolio',
 			'parent' => 'group-creative-content',
@@ -117,12 +117,12 @@ function ddw_tbex_aoitems_pufe_elemenfolio() {
 			'href'   => esc_url( admin_url( 'edit.php?post_type=elemenfolio' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Portfolio Items', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Portfolio Items', 'toolbar-extras' ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-pufe-portfolio-all',
 				'parent' => 'ao-pufe-portfolio',
@@ -130,12 +130,12 @@ function ddw_tbex_aoitems_pufe_elemenfolio() {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=elemenfolio' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'All Items', 'toolbar-extras' )
+					'title'  => esc_attr__( 'All Items', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-pufe-portfolio-new',
 				'parent' => 'ao-pufe-portfolio',
@@ -143,14 +143,14 @@ function ddw_tbex_aoitems_pufe_elemenfolio() {
 				'href'   => esc_url( admin_url( 'post-new.php?post_type=elemenfolio' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'New Portfolio', 'toolbar-extras' )
+					'title'  => esc_attr__( 'New Portfolio', 'toolbar-extras' ),
 				)
 			)
 		);
 
 		if ( ddw_tbex_is_elementor_active() && \Elementor\User::is_current_user_can_edit_post_type( 'elemenfolio' ) ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ao-pufe-portfolio-builder',
 					'parent' => 'ao-pufe-portfolio',
@@ -158,7 +158,7 @@ function ddw_tbex_aoitems_pufe_elemenfolio() {
 					'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'elemenfolio' ) ),
 					'meta'   => array(
 						'target' => ddw_tbex_meta_target( 'builder' ),
-						'title'  => esc_attr__( 'New Portfolio Builder', 'toolbar-extras' )
+						'title'  => esc_attr__( 'New Portfolio Builder', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -174,9 +174,9 @@ add_action( 'admin_bar_menu', 'ddw_tbex_new_content_pufe_elemenfolio' );
  *
  * @since 1.1.0
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_new_content_pufe_elemenfolio() {
+function ddw_tbex_new_content_pufe_elemenfolio( $admin_bar ) {
 
 	/** Bail early if items display is not wanted */
 	if ( ! ddw_tbex_display_items_new_content()
@@ -184,10 +184,10 @@ function ddw_tbex_new_content_pufe_elemenfolio() {
 		|| function_exists( 'elpt_setup_menu' )		// "Portfolio for Elementor" plugin by WpPug active
 		|| ( 0 == get_option( 'elpug_portfolio_switch' ) )
 	) {
-		return;
+		return $admin_bar;
 	}
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'elemenfolio-with-builder',
 			'parent' => 'new-elemenfolio',
@@ -195,7 +195,7 @@ function ddw_tbex_new_content_pufe_elemenfolio() {
 			'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'elemenfolio' ) ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target( 'builder' ),
-				'title'  => ddw_tbex_string_newcontent_create_with_builder()
+				'title'  => ddw_tbex_string_newcontent_create_with_builder(),
 			)
 		)
 	);

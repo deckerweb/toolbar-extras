@@ -240,6 +240,8 @@ add_action( 'install_themes_tbex-upload', 'ddw_tbex_theme_installer_upload_tab_c
  * @since 1.3.5 Added missing $paged variable to avoid errors/notices.
  *
  * @uses install_themes_upload() WP Core function!
+ *
+ * @param string $paged
  */
 function ddw_tbex_theme_installer_upload_tab_content( $paged ) {
 

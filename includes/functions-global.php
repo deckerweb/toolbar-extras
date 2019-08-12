@@ -117,9 +117,13 @@ function ddw_tbex_info_values() {
  * Get an info source - array from Toolbar Extras itself or one of its Add-Ons.
  *
  * @since 1.4.2
+ * @since 1.4.5 Added new info source.
  *
  * @see ddw_tbex_get_info_url()
  * @see ddw_tbex_get_info_link()
+ *
+ * @param string $source
+ * @return string String of function name to use.
  */
 function ddw_tbex_get_info_source( $source ) {
 
@@ -153,10 +157,15 @@ function ddw_tbex_get_info_source( $source ) {
 			$function = ddw_tbexbzy_info_values();
 			break;
 
+		case 'givewp':
+			$function = ddw_tbexgive_info_values();
+			break;
+
 		default:
 			$function = ddw_tbex_info_values();
 			break;
-	}
+
+	}  // end switch
 
 	return $function;
 
@@ -230,7 +239,8 @@ function ddw_tbex_get_info_link( $url_key = '', $text = '', $class = '', $source
  * @uses ddw_tbex_info_values()
  * @uses ddw_tbex_get_info_source()
  *
- * @param int $first_year Integer number of first year.
+ * @param int    $first_year Integer number of first year.
+ * @param string $source Type of source to check for.
  * @return string Current year or timespan of years.
  */
 function ddw_tbex_coding_years( $first_year = '', $source = 'tbex' ) {
@@ -253,7 +263,8 @@ add_shortcode( 'tbex-userid', 'ddw_tbex_shortcode_user_id' );
  *
  * @since 1.4.0
  *
- * @param array $atts Array of Shortcode attributes.
+ * @param array  $atts Array of Shortcode attributes.
+ * @param string $content Content of Shortcode.
  * @return string Filterable text string of user's ID.
  */
 function ddw_tbex_shortcode_user_id( $atts, $content ) {
@@ -278,7 +289,8 @@ add_shortcode( 'tbex-email', 'ddw_tbex_shortcode_user_email' );
  *
  * @since 1.4.0
  *
- * @param array $atts Array of Shortcode attributes.
+ * @param array  $atts Array of Shortcode attributes.
+ * @param string $content Content of Shortcode.
  * @return string Filterable text string of user's email.
  */
 function ddw_tbex_shortcode_user_email( $atts, $content ) {
@@ -303,7 +315,8 @@ add_shortcode( 'tbex-login', 'ddw_tbex_shortcode_user_login_name' );
  *
  * @since 1.4.0
  *
- * @param array $atts Array of Shortcode attributes.
+ * @param array  $atts Array of Shortcode attributes.
+ * @param string $content Content of Shortcode.
  * @return string Filterable text string of user's login name.
  */
 function ddw_tbex_shortcode_user_login_name( $atts, $content ) {
@@ -328,7 +341,8 @@ add_shortcode( 'tbex-displayname', 'ddw_tbex_shortcode_user_display_name' );
  *
  * @since 1.4.0
  *
- * @param array $atts Array of Shortcode attributes.
+ * @param array  $atts Array of Shortcode attributes.
+ * @param string $content Content of Shortcode.
  * @return string Filterable text string of user's display name.
  */
 function ddw_tbex_shortcode_user_display_name( $atts, $content ) {
@@ -353,7 +367,8 @@ add_shortcode( 'tbex-firstname', 'ddw_tbex_shortcode_user_firstname' );
  *
  * @since 1.4.0
  *
- * @param array $atts Array of Shortcode attributes.
+ * @param array  $atts Array of Shortcode attributes.
+ * @param string $content Content of Shortcode.
  * @return string Filterable text string of user's first name.
  */
 function ddw_tbex_shortcode_user_firstname( $atts ) {
@@ -378,7 +393,8 @@ add_shortcode( 'tbex-lastname', 'ddw_tbex_shortcode_user_lastname' );
  *
  * @since 1.4.0
  *
- * @param array $atts Array of Shortcode attributes.
+ * @param array  $atts Array of Shortcode attributes.
+ * @param string $content Content of Shortcode.
  * @return string Filterable text string of user's last name.
  */
 function ddw_tbex_shortcode_user_lastname( $atts ) {
@@ -403,6 +419,7 @@ function ddw_tbex_shortcode_user_lastname( $atts ) {
  *
  * @since 1.4.0
  * @since 1.4.2 Added new switch cases.
+ * @since 1.4.5 Added new switch case.
  *
  * @uses ddw_tbex_resources_{resource_type}()
  *
@@ -448,6 +465,10 @@ function ddw_tbex_get_resource_url( $type = '', $url_key = '', $raw = FALSE ) {
 
 		case 'brizy':
 			$function = ddw_tbexbzy_resources_brizy();
+			break;
+
+		case 'givewp':
+			$function = ddw_tbexgive_resources_givewp();
 			break;
 
 		case 'tbex':
@@ -686,7 +707,7 @@ function ddw_tbex_settings_color_picker_items() {
 
 /**
  * To get filterable hook priority for main item.
- *   Default: 71 - that means after "New Content" section.
+ *   Default: 71 - that means after "New Content" Group.
  *
  * @since 1.0.0
  *
@@ -1057,6 +1078,8 @@ function ddw_tbex_restrict_super_admin_menu_access() {
  */
 function ddw_tbex_string_cpt( $type = '', $element = '' ) {
 
+	$string = '';
+	
 	/** Check type for the 2 possible values */
 	switch ( sanitize_key( $type ) ) {
 
@@ -1524,7 +1547,7 @@ add_filter( 'admin_bar_menu', 'ddw_tbex_remove_tooltips_title_attr', 99999 );
  * @uses ddw_tbex_display_link_title_attributes()
  *
  * @param object $wp_admin_bar Object of Toolbar holding all nodes.
- * @return void
+ * @return object|void
  */
 function ddw_tbex_remove_tooltips_title_attr( $wp_admin_bar ) {
 
@@ -1860,7 +1883,7 @@ function ddw_tbex_items_theme_customizer_deep() {
  *
  * @param string $suffix String for suffix for Toolbar node ID and group ID.
  * @param string $parent String for Toolbar parent node.
- * @return object $GLOBALS[ 'wp_admin_bar' ] object to build new Toolbar nodes.
+ * @return void|object $GLOBALS[ 'wp_admin_bar' ] object to build new Toolbar nodes.
  */
 function ddw_tbex_resources_color_wheel( $suffix = '', $parent = '' ) {
 
@@ -1924,5 +1947,42 @@ function ddw_tbex_resources_color_wheel( $suffix = '', $parent = '' ) {
 				)
 			)
 		);
+
+}  // end function
+
+
+/**
+ * Helper function to get all pages (post objects) with a certain Shortcode in
+ *   their content.
+ *
+ * @since 1.4.5
+ *
+ * @link https://advent.squareonemd.co.uk/find-pages-using-given-wordpress-shortcode/
+ *
+ * @param string $shortcode The given Shortcode to check for.
+ * @param array  $args      Additional WP_Query arguments.
+ * @return array Array of pages as post objects.
+ */
+function ddw_tbex_get_pages_with_shortcode( $shortcode, $args = array() ) {
+
+	$shortcode = sanitize_key( $shortcode );
+
+	/** Bail early if Shortcode was not yet registered */
+    if ( ! shortcode_exists( $shortcode ) ) {
+        return null;
+    }
+
+    $pages = get_pages( $args );
+    $list  = array();
+
+    foreach ( $pages as $page ) {
+
+        if ( has_shortcode( $page->post_content, $shortcode ) ) {
+            $list[] = $page;
+        }
+
+    }  // end foreach
+
+    return $list;
 
 }  // end function

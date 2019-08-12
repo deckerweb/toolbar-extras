@@ -155,19 +155,6 @@ function ddw_tbex_aoitems_theplus_addons( $admin_bar ) {
 
 		}  // end if
 
-		$admin_bar->add_node(
-			array(
-				'id'     => 'theplusaddons-about',
-				'parent' => 'theplusaddons',
-				'title'  => esc_attr__( 'Plugin Info', 'toolbar-extras' ),
-				'href'   => esc_url( admin_url( 'admin.php?page=theplus_about_us' ) ),
-				'meta'   => array(
-					'target' => '',
-					'title'  => esc_attr__( 'About', 'toolbar-extras' ),
-				)
-			)
-		);
-
 	/** Group: Plugin's resources */
 	if ( ddw_tbex_display_items_resources() ) {
 
@@ -198,6 +185,21 @@ function ddw_tbex_aoitems_theplus_addons( $admin_bar ) {
 			'theplusaddons-youtube-channel',
 			'group-theplusaddons-resources',
 			'https://www.youtube.com/playlist?list=PLFRO-irWzXaLK9H5opSt88xueTnRhqvO5'
+		);
+
+		ddw_tbex_resource_item(
+			'facebook-group',
+			'theplusaddons-fbgroup',
+			'group-theplusaddons-resources',
+			'https://www.facebook.com/groups/theplus4elementor/'
+		);
+
+		ddw_tbex_resource_item(
+			'changelog',
+			'theplusaddons-changelog',
+			'group-theplusaddons-resources',
+			'https://elementor.theplusaddons.com/changelog/',
+			ddw_tbex_string_version_history( 'addon' )
 		);
 
 		ddw_tbex_resource_item(
@@ -298,18 +300,18 @@ add_action( 'admin_bar_menu', 'ddw_tbex_new_content_theplus_addons_cpt' );
  *
  * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_new_content_theplus_addons_cpt() {
+function ddw_tbex_new_content_theplus_addons_cpt( $admin_bar ) {
 
 	/** Bail early if items display is not wanted */
 	if ( ! ddw_tbex_display_items_new_content() ) {
-		return;
+		return $admin_bar;
 	}
 
 	$cpt_option = get_option( 'post_type_options' );
 
 	if ( 'plugin' === $cpt_option[ 'client_post_type' ] && \Elementor\User::is_current_user_can_edit_post_type( 'theplus_clients' ) ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'tpclient-with-builder',
 				'parent' => 'new-theplus_clients',
@@ -326,7 +328,7 @@ function ddw_tbex_new_content_theplus_addons_cpt() {
 
 	if ( 'plugin' === $cpt_option[ 'testimonial_post_type' ] && \Elementor\User::is_current_user_can_edit_post_type( 'theplus_testimonial' ) ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'tptestimonial-with-builder',
 				'parent' => 'new-theplus_testimonial',
@@ -343,7 +345,7 @@ function ddw_tbex_new_content_theplus_addons_cpt() {
 
 	if ( 'plugin' === $cpt_option[ 'team_member_post_type' ] && \Elementor\User::is_current_user_can_edit_post_type( 'theplus_team_member' ) ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'tpteam-member-with-builder',
 				'parent' => 'new-theplus_team_member',

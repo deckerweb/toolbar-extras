@@ -229,7 +229,7 @@ function ddw_tbex_maybe_tweak_howdy_welcome( $wp_admin_bar ) {
 
 	/** Bail early if no user */
 	if ( ! $user_id ) {
-		return;
+		return $wp_admin_bar;
 	}
 
 	/** Default: Get the user's profile URL */

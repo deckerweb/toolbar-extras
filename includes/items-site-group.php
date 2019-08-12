@@ -131,12 +131,14 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_manage_content' );
  *
  * @since 1.0.0
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @uses ddw_tbex_use_hook_place_gallery_slider()
+ *
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_manage_content() {
+function ddw_tbex_site_items_manage_content( $admin_bar ) {
 
 	/** Manage Content */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'manage-content',
 			'parent' => 'tbex-sitegroup-manage-content',
@@ -144,12 +146,12 @@ function ddw_tbex_site_items_manage_content() {
 			'href'   => '',
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Manage Content', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Manage Content', 'toolbar-extras' ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'manage-content-pages',
 				'parent' => 'manage-content',
@@ -157,12 +159,12 @@ function ddw_tbex_site_items_manage_content() {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=page' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Edit Pages', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Edit Pages', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'manage-content-posts',
 				'parent' => 'manage-content',
@@ -170,7 +172,7 @@ function ddw_tbex_site_items_manage_content() {
 				'href'   => esc_url( admin_url( 'edit.php' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Edit Posts', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Edit Posts', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -178,7 +180,7 @@ function ddw_tbex_site_items_manage_content() {
 	/** Add conditional hook place for general gallery & slider plugins */
 	if ( ddw_tbex_use_hook_place_gallery_slider()	/* has_filter( 'tbex_filter_is_gallery_slider' ) */ ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'gallery-slider-addons',
 				'parent' => 'tbex-sitegroup-manage-content',
@@ -186,7 +188,7 @@ function ddw_tbex_site_items_manage_content() {
 				'href'   => '',
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Galleries &amp; Sliders from Add-On Plugins', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Galleries &amp; Sliders from Add-On Plugins', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -194,7 +196,7 @@ function ddw_tbex_site_items_manage_content() {
 	}  // end if
 
 	/** Media */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'manage-content-media',
 			'parent' => 'tbex-sitegroup-manage-content',
@@ -202,19 +204,19 @@ function ddw_tbex_site_items_manage_content() {
 			'href'   => esc_url( admin_url( 'upload.php' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Media Library', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Media Library', 'toolbar-extras' ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_group(
+		$admin_bar->add_group(
 			array(
 				'id'     => 'group-managecontent-media',
 				'parent' => 'manage-content-media',
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'manage-content-media-grid',
 				'parent' => 'group-managecontent-media',
@@ -222,12 +224,12 @@ function ddw_tbex_site_items_manage_content() {
 				'href'   => esc_url( admin_url( 'upload.php?mode=grid' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Media Files as Grid View', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Media Files as Grid View', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'manage-content-media-list',
 				'parent' => 'group-managecontent-media',
@@ -235,7 +237,7 @@ function ddw_tbex_site_items_manage_content() {
 				'href'   => esc_url( admin_url( 'upload.php?mode=list' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Media Files as List View', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Media Files as List View', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -251,11 +253,11 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_nav_menus' );
  *
  * @uses ddw_tbex_customizer_focus()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_nav_menus() {
+function ddw_tbex_site_items_nav_menus( $admin_bar ) {
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'wpmenus',
 			'parent' => 'tbex-sitegroup-elements',
@@ -263,12 +265,12 @@ function ddw_tbex_site_items_nav_menus() {
 			'href'   => esc_url( admin_url( 'nav-menus.php' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Manage Nav Menus', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Manage Nav Menus', 'toolbar-extras' ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'wpmenus-admin',
 				'parent' => 'wpmenus',
@@ -276,12 +278,12 @@ function ddw_tbex_site_items_nav_menus() {
 				'href'   => esc_url( admin_url( 'nav-menus.php' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Manage Nav Menus in WP-Admin Dashboard (Classic)', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Manage Nav Menus in WP-Admin Dashboard (Classic)', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'wpmenus-live',
 				'parent' => 'wpmenus',
@@ -289,12 +291,12 @@ function ddw_tbex_site_items_nav_menus() {
 				'href'   => ddw_tbex_customizer_focus( 'panel', 'nav_menus' ),
 				'meta'   => array(
 					'target' => ddw_tbex_meta_target(),
-					'title'  => esc_attr__( 'Customize Nav Menus with Live Preview', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Customize Nav Menus with Live Preview', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'wpmenus-locations',
 				'parent' => 'wpmenus',
@@ -302,7 +304,7 @@ function ddw_tbex_site_items_nav_menus() {
 				'href'   => esc_url( admin_url( 'nav-menus.php?action=locations' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Manage Nav Menus Locations', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Manage Nav Menus Locations', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -318,11 +320,11 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_widgets' );
  *
  * @uses ddw_tbex_customizer_focus()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_widgets() {
+function ddw_tbex_site_items_widgets( $admin_bar ) {
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'wpwidgets',
 			'parent' => 'tbex-sitegroup-elements',
@@ -330,12 +332,12 @@ function ddw_tbex_site_items_widgets() {
 			'href'   => esc_url( admin_url( 'widgets.php' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Manage Widget Blocks', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Manage Widget Blocks', 'toolbar-extras' ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'wpwidgets-admin',
 				'parent' => 'wpwidgets',
@@ -343,12 +345,12 @@ function ddw_tbex_site_items_widgets() {
 				'href'   => esc_url( admin_url( 'widgets.php' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Manage Widgets in WP-Admin Dashboard (Classic)', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Manage Widgets in WP-Admin Dashboard (Classic)', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'wpwidgets-live',
 				'parent' => 'wpwidgets',
@@ -356,7 +358,7 @@ function ddw_tbex_site_items_widgets() {
 				'href'   => ddw_tbex_customizer_focus( 'panel', 'widgets' ),
 				'meta'   => array(
 					'target' => ddw_tbex_meta_target(),
-					'title'  => esc_attr__( 'Customize Widgets with Live Preview', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Customize Widgets with Live Preview', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -367,6 +369,8 @@ function ddw_tbex_site_items_widgets() {
 add_action( 'admin_bar_menu', 'ddw_tbex_site_items_more_stuff', 20 );
 /**
  * More Items: Updates, Plugins, etc.
+ *
+ *  Includes action hook: 'tbex_after_site_group_update_check'
  *
  * @since 1.0.0
  *
@@ -548,16 +552,16 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_customizer' );
  *
  * @uses ddw_tbex_customizer_focus()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar']
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_customizer() {
+function ddw_tbex_site_items_customizer( $admin_bar ) {
 
 	/** Bail early as this stuff is only needed on the frontend :) */
 	if ( is_admin() ) {
-		return;
+		return $admin_bar;
 	}
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'customize-wpwidgets',
 			'parent' => 'customize',
@@ -565,12 +569,12 @@ function ddw_tbex_site_items_customizer() {
 			'href'   => ddw_tbex_customizer_focus( 'panel', 'widgets' ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => esc_attr__( 'Customize Widgets with Live Preview', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Customize Widgets with Live Preview', 'toolbar-extras' ),
 			)
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'customize-wpmenus',
 			'parent' => 'customize',
@@ -578,12 +582,12 @@ function ddw_tbex_site_items_customizer() {
 			'href'   => ddw_tbex_customizer_focus( 'panel', 'nav_menus' ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => esc_attr__( 'Customize Nav Menus with Live Preview', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Customize Nav Menus with Live Preview', 'toolbar-extras' ),
 			)
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'customize-css',
 			'parent' => 'customize',
@@ -591,9 +595,136 @@ function ddw_tbex_site_items_customizer() {
 			'href'   => ddw_tbex_customizer_focus( 'section', 'custom_css' ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => esc_attr__( 'Customize CSS with Live Preview', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Customize CSS with Live Preview', 'toolbar-extras' ),
 			)
 		)
 	);
+
+}  // end function
+
+
+add_action( 'admin_bar_menu', 'ddw_tbex_wpitems_about_additions', 100 );
+/**
+ * More Items: Site Health status, Debug info
+ *   Note: Can be disabled via filter 'tbex_filter_site_health_items'.
+ *
+ * @since 1.4.5
+ *
+ * @global string $GLOBALS[ 'wp_version' ]
+ *
+ * @param object $admin_bar Object of Toolbar nodes.
+ */
+function ddw_tbex_wpitems_about_additions( $admin_bar ) {
+
+	$cleanup = array( '-beta', '-rc', '-alpha' );
+
+	$wpversion_clean = str_replace ( $cleanup, '', $GLOBALS[ 'wp_version' ] );
+	$wpversion_dash  = str_replace( '.', '-', $wpversion_clean );
+	$version_url     = sprintf(
+		'https://wordpress.org/support/wordpress-version/version-%s/',
+		$wpversion_dash
+	);
+
+	// https://wordpress.org/support/wordpress-version/version-4-0/
+	// https://wordpress.org/support/wordpress-version/version-5-2-2/
+
+	/** Version & system info */
+	$admin_bar->add_group(
+		array(
+			'id'     => 'group-wpabout-additions-version',
+			'parent' => 'about',
+		)
+	);
+
+		$admin_bar->add_node(
+			array(
+				'id'     => 'wpabout-release-notes',
+				'parent' => 'group-wpabout-additions-version',
+				'title'  => esc_attr__( 'Release Notes', 'toolbar-extras' ),
+				'href'   => esc_url( $version_url ),
+				'meta'   => array(
+					'target' => ddw_tbex_meta_target(),
+					'title'  => sprintf(
+						/* translators: %s - current WordPress version, for example 5.2.2 */
+						esc_attr__( 'Release Notes for WordPress Version %s', 'toolbar-extras' ),
+						$GLOBALS[ 'wp_version' ]
+					),
+				)
+			)
+		);
+
+		$admin_bar->add_node(
+			array(
+				'id'     => 'wpabout-system-info',
+				'parent' => 'group-wpabout-additions-version',
+				'title'  => esc_attr__( 'System Info', 'toolbar-extras' ),
+				'href'   => esc_url( admin_url( 'site-health.php?tab=debug' ) ),
+				'meta'   => array(
+					'target' => '',
+					'title'  => esc_attr__( 'System Info - Site Health Status', 'toolbar-extras' ),
+				)
+			)
+		);
+
+	/** About sub items */
+	$admin_bar->add_group(
+		array(
+			'id'     => 'group-wpabout-additions-sub',
+			'parent' => 'about',
+			'meta'   => array( 'class' => 'tbex-group-resources-divider' ),
+		)
+	);
+
+		$admin_bar->add_node(
+			array(
+				'id'     => 'wpabout-privacy',
+				'parent' => 'group-wpabout-additions-sub',
+				'title'  => esc_attr__( 'Privacy Notice', 'toolbar-extras' ),
+				'href'   => esc_url( admin_url( 'freedoms.php?privacy-notice' ) ),
+				'meta'   => array(
+					'target' => '',
+					'title'  => esc_attr__( 'Privacy Notice - Data Usage Info', 'toolbar-extras' ),
+				)
+			)
+		);
+
+		$admin_bar->add_node(
+			array(
+				'id'     => 'wpabout-whats-new',
+				'parent' => 'group-wpabout-additions-sub',
+				'title'  => esc_attr__( 'What\'s New', 'toolbar-extras' ),
+				'href'   => esc_url( admin_url( 'about.php' ) ),
+				'meta'   => array(
+					'target' => '',
+					'title'  => esc_attr__( 'What\'s New - Release Feature Info', 'toolbar-extras' ),
+				)
+			)
+		);
+
+		$admin_bar->add_node(
+			array(
+				'id'     => 'wpabout-credits',
+				'parent' => 'group-wpabout-additions-sub',
+				'title'  => esc_attr__( 'Contributors', 'toolbar-extras' ),
+				'href'   => esc_url( admin_url( 'credits.php' ) ),
+				'meta'   => array(
+					'target' => '',
+					'title'  => esc_attr__( 'List of Release Contributors', 'toolbar-extras' ),
+				)
+			)
+		);
+
+		$admin_bar->add_node(
+			array(
+				'id'     => 'wpabout-freedoms',
+				'parent' => 'group-wpabout-additions-sub',
+				'title'  => esc_attr__( 'Freedoms', 'toolbar-extras' ),
+				'href'   => esc_url( admin_url( 'freedoms.php' ) ),
+				'meta'   => array(
+					'target' => '',
+					'title'  => esc_attr__( 'Freedoms - GPL License Info', 'toolbar-extras' ),
+				)
+			)
+		);
 
 }  // end function

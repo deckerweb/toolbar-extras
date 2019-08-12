@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 
-add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_anywhere_elementor', 100 );
+add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_stylepress_for_elementor', 100 );
 /**
  * Items for Add-On: StylePress for Elementor (free, by David Baker (dtbaker))
  *
@@ -23,7 +23,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_anywhere_elementor', 100 );
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
-function ddw_tbex_aoitems_anywhere_elementor() {
+function ddw_tbex_aoitems_stylepress_for_elementor() {
 
 	/** Plugin's items */
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(
@@ -220,7 +220,7 @@ add_filter( 'admin_bar_menu', 'ddw_tbex_rehook_items_stylepress_helper', 5, 1 );
  *
  * @uses ddw_tbex_use_tweak_stylepress_elementor()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $wp_admin_bar Object holding all Toolbar nodes.
  */
 function ddw_tbex_rehook_items_stylepress_helper( $wp_admin_bar ) {
 	
@@ -229,7 +229,7 @@ function ddw_tbex_rehook_items_stylepress_helper( $wp_admin_bar ) {
 		return $wp_admin_bar;
 	}
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+    $wp_admin_bar->add_node(
 		array(
 			'id'     => 'stylepress_nav',		// same as original!
 			'parent' => 'ao-stylepressfe',

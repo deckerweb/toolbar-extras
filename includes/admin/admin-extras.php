@@ -44,6 +44,8 @@ require_once TBEX_PLUGIN_DIR . 'includes/admin/views/notice-plugin-review.php';
  */
 function ddw_tbex_custom_settings_links( $action_links = [] ) {
 
+	$tbex_links = array();
+
 	/** Add settings link only if user can 'manage_options' */
 	if ( current_user_can( 'edit_theme_options' ) ) {
 
@@ -117,19 +119,39 @@ function ddw_tbex_plugin_links( $tbex_links, $tbex_file ) {
 		<?php
 
 		/* translators: Plugins page listing */
-		$tbex_links[] = ddw_tbex_get_info_link( 'url_wporg_forum', esc_html_x( 'Support', 'Plugins page listing', 'toolbar-extras' ), 'dashicons-before dashicons-sos' );
+		$tbex_links[] = ddw_tbex_get_info_link(
+			'url_wporg_forum',
+			esc_html_x( 'Support', 'Plugins page listing', 'toolbar-extras' ),
+			'dashicons-before dashicons-sos'
+		);
 
 		/* translators: Plugins page listing */
-		$tbex_links[] = ddw_tbex_get_info_link( 'url_fb_group', esc_html_x( 'Facebook Group', 'Plugins page listing', 'toolbar-extras' ), 'dashicons-before dashicons-facebook' );
+		$tbex_links[] = ddw_tbex_get_info_link(
+			'url_fb_group',
+			esc_html_x( 'Facebook Group', 'Plugins page listing', 'toolbar-extras' ),
+			'dashicons-before dashicons-facebook'
+		);
 
 		/* translators: Plugins page listing */
-		$tbex_links[] = ddw_tbex_get_info_link( 'url_translate', esc_html_x( 'Translations', 'Plugins page listing', 'toolbar-extras' ), 'dashicons-before dashicons-translation' );
+		$tbex_links[] = ddw_tbex_get_info_link(
+			'url_translate',
+			esc_html_x( 'Translations', 'Plugins page listing', 'toolbar-extras' ),
+			'dashicons-before dashicons-translation'
+		);
 
 		/* translators: Plugins page listing */
-		$tbex_links[] = ddw_tbex_get_info_link( 'url_donate', esc_html_x( 'Donate', 'Plugins page listing', 'toolbar-extras' ), 'button dashicons-before dashicons-thumbs-up' );
+		$tbex_links[] = ddw_tbex_get_info_link(
+			'url_donate',
+			esc_html_x( 'Donate', 'Plugins page listing', 'toolbar-extras' ),
+			'button dashicons-before dashicons-thumbs-up'
+		);
 
 		/* translators: Plugins page listing */
-		$tbex_links[] = ddw_tbex_get_info_link( 'url_newsletter', esc_html_x( 'Join our Newsletter', 'Plugins page listing', 'toolbar-extras' ), 'button-primary dashicons-before dashicons-awards' );
+		$tbex_links[] = ddw_tbex_get_info_link(
+			'url_newsletter',
+			esc_html_x( 'Join our Newsletter', 'Plugins page listing', 'toolbar-extras' ),
+			'button-primary dashicons-before dashicons-awards'
+		);
 
 	}  // end if plugin links
 
@@ -208,7 +230,7 @@ function ddw_tbex_dashboard_plugin_version_info( $content ) {
 	 *   plugin)
 	 */
 	if ( ! ddw_tbex_show_toolbar_items() ) {
-		return;
+		return $content;
 	}
 
 	$tbex_info = sprintf(

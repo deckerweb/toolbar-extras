@@ -36,7 +36,6 @@ function ddw_tbex_is_pafe_pro_active() {
  *
  * @param string $suffix String for suffix for Toolbar node ID and group ID.
  * @param string $parent String for Toolbar parent node.
- * @return object $GLOBALS[ 'wp_admin_bar' ] object to build new Toolbar nodes.
  */
 function ddw_tbex_aoitems_piotnet_addons_resources( $suffix = '', $parent = '' ) {
 

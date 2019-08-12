@@ -23,6 +23,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function ddw_tbex_pm_badge( $type = '' ) {
 
+	$label = '';
+	
 	switch ( sanitize_key( $type ) ) {
 
 		case 'required':
@@ -185,7 +187,7 @@ function ddw_tbex_plugin_manager() {
 		array(
 			'name'    => _x( 'Asset CleanUp: Page Speed Booster', 'Plugin Name', 'toolbar-extras' ),
 			'slug'    => 'wp-asset-clean-up',
-			'version' => '1.3.3.1+',
+			'version' => '1.3.3.7+',
 			'notice' => array(
 				'message' => ddw_tbex_pm_badge( 'useful' ) .
 					ddw_tbex_pmstring_for( ddw_tbex_pmstring_for_general() ) .
@@ -201,6 +203,17 @@ function ddw_tbex_plugin_manager() {
 				'message' => ddw_tbex_pm_badge( 'useful' ) .
 					ddw_tbex_pmstring_for( ddw_tbex_pmstring_for_general() ) .
 					ddw_tbex_pmstring_info( __( 'Highly recommended free extension to add custom code snippets to your project. Perfect and better replacement of former "functions.php" of a theme... :-)', 'toolbar-extras' ) ),
+				'class'   => $class,
+			),
+		),
+		array(
+			'name'    => _x( 'Members', 'Plugin Name', 'toolbar-extras' ),
+			'slug'    => 'members',
+			'version' => '2.2.0+',
+			'notice'  => array(
+				'message' => ddw_tbex_pm_badge( 'useful' ) .
+					ddw_tbex_pmstring_for( ddw_tbex_pmstring_for_general() ) .
+					ddw_tbex_pmstring_info( __( 'Recommended - allows you to make your Dashboard Site only accessable via login', 'toolbar-extras' ) ),
 				'class'   => $class,
 			),
 		),

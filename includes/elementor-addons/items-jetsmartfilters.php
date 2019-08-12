@@ -84,6 +84,19 @@ function ddw_tbex_aoitems_jetsmartfilters( $admin_bar ) {
 
 		}  // end if
 
+		$admin_bar->add_node(
+			array(
+				'id'     => 'ao-jetsmartfilters-settings',
+				'parent' => 'ao-jetsmartfilters',
+				'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
+				'href'   => esc_url( admin_url( 'admin.php?page=jet-smart-filters-settings' ) ),
+				'meta'   => array(
+					'target' => '',
+					'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
+				)
+			)
+		);
+
 		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
 

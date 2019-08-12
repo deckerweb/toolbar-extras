@@ -28,6 +28,21 @@ function ddw_tbex_is_jetengine_bookingforms_active() {
 }  // end function
 
 
+/**
+ * Check if JetBooking plugin is active or not.
+ *   Note: JetBooking is a special JetEngine Add-On.
+ *
+ * @since 1.4.4
+ *
+ * @return bool TRUE if constant defined, FALSE otherwise.
+ */
+function ddw_tbex_is_jetbooking_active() {
+
+	return defined( 'JET_ABAF_VERSION' );
+
+}  // end function
+
+
 add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_jetengine', 100 );
 /**
  * Items for Add-On: JetEngine (Premium, by Zemez Jet/ CrocoBlock)
@@ -359,6 +374,24 @@ function ddw_tbex_aoitems_jetengine( $admin_bar ) {
 					);
 
 			}  // end if
+
+		/** JetBooking Add-On: Apartments Booking */
+		if ( ddw_tbex_is_jetbooking_active() ) {
+
+			$admin_bar->add_node(
+				array(
+					'id'     => 'ao-jetengine-apartment-booking-settings',
+					'parent' => 'group-jetengine-modules',
+					'title'  => esc_attr__( 'Apartment Booking', 'toolbar-extras' ),
+					'href'   => esc_url( admin_url( 'admin.php?page=jet-abaf' ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => esc_attr__( 'Apartment Booking Settings', 'toolbar-extras' ),
+					)
+				)
+			);
+
+		}  // end if
 
 		/** JetEngine Settings etc. */
 		$admin_bar->add_group(

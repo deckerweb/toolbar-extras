@@ -17,6 +17,7 @@ add_filter( 'tbex_filter_elementor_template_types', 'ddw_tbex_add_elementor_temp
  *
  * @since 1.1.0
  *
+ * @param array $template_types Array of Elementor template types.
  * @return array Filtered, enhanced array of template types.
  */
 function ddw_tbex_add_elementor_template_type_ecsloop( array $template_types ) {
@@ -38,16 +39,16 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_ele_custom_skin', 200 );
  * @uses ddw_tbex_string_elementor_template_create_with_builder()
  * @uses ddw_tbex_get_elementor_template_add_new_url()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_ele_custom_skin() {
+function ddw_tbex_aoitems_ele_custom_skin( $admin_bar ) {
 
 	/** Display only for Elementor 2.0+ */
 	if ( ! ddw_tbex_is_elementor_version( 'pro', '2.0.0-beta1', '>=' ) ) {
-		return;
+		return $admin_bar;
 	}
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'elementor-library-ecsloops',
 			'parent' => 'elibrary-types',
@@ -61,7 +62,7 @@ function ddw_tbex_aoitems_ele_custom_skin() {
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'et-build-template-ecsloop',
 			'parent' => 'elementor-library-new-builder',
@@ -87,18 +88,18 @@ add_action( 'admin_bar_menu', 'ddw_tbex_items_ele_custom_skin_new_content', 140 
  * @uses ddw_tbex_string_elementor_template_create_with_builder()
  * @uses ddw_tbex_get_elementor_template_add_new_url()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_items_ele_custom_skin_new_content() {
+function ddw_tbex_items_ele_custom_skin_new_content( $admin_bar ) {
 
 	/** Bail early if items display is not wanted */
 	if ( ! ddw_tbex_display_items_new_content() ) {
-		return;
+		return $admin_bar;
 	}
 
 	if ( \Elementor\User::is_current_user_can_edit_post_type( 'elementor_library' ) ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'et-ecsloop-with-builder',
 				'parent' => 'tbex-elementor-template',
