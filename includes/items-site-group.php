@@ -41,84 +41,367 @@ function ddw_tbex_remove_wp_site_items() {
 }  // end function
 
 
+add_action( 'admin_bar_menu', 'ddw_tbex_site_items_website_settings', ddw_tbex_website_settings_item_priority() );
+/**
+ * Items for Website Settings/ Tools.
+ *
+ *   Note: The hook priority (default: 32) can be filtered via:
+ *         'tbex_filter_website_settings_item_priority'
+ *
+ * @since 1.4.7
+ *
+ * @uses get_bloginfo()
+ * @uses get_post_type_archive_link()
+ * @uses ddw_tbex_meta_target()
+ *
+ * @param object $admin_bar Object of Toolbar nodes.
+ */
+function ddw_tbex_site_items_website_settings( $admin_bar ) {
+
+	$site_key = sanitize_key( get_bloginfo( 'name' ) );
+
+	$admin_bar->add_node(
+		array(
+			'id'     => 'website-settings-' . $site_key,
+			'parent' => 'site-name',
+			'title'  => esc_attr__( 'Website Settings', 'toolbar-extras' ),
+			'href'   => esc_url( admin_url( 'options-general.php' ) ),
+			'meta'   => array(
+				'target' => '',
+				'title'  => esc_attr__( 'Settings for this Site', 'toolbar-extras' ) . ': ' . esc_attr( get_bloginfo( 'name' ) ),
+			)
+		)
+	);
+
+		/** General Settings */
+		$admin_bar->add_node(
+			array(
+				'id'     => 'website-settings-' . $site_key . '-general',
+				'parent' => 'website-settings-' . $site_key,
+				'title'  => esc_attr__( 'General Settings', 'toolbar-extras' ),
+				'href'   => esc_url( admin_url( 'options-general.php' ) ),
+				'meta'   => array(
+					'target' => '',
+					'title'  => esc_attr__( 'General Settings for this Site', 'toolbar-extras' ),
+				)
+			)
+		);
+
+		/** Permalinks */
+		$admin_bar->add_node(
+			array(
+				'id'     => 'website-settings-' . $site_key . '-permalinks',
+				'parent' => 'website-settings-' . $site_key,
+				'title'  => esc_attr__( 'Permalinks', 'toolbar-extras' ),
+				'href'   => esc_url( admin_url( 'options-permalink.php' ) ),
+				'meta'   => array(
+					'target' => '',
+					'title'  => esc_attr__( 'Permalinks Settings - Link Structure', 'toolbar-extras' ),
+				)
+			)
+		);
+		
+		/** Writing & Publishing */
+		$admin_bar->add_node(
+			array(
+				'id'     => 'website-settings-' . $site_key . '-writing',
+				'parent' => 'website-settings-' . $site_key,
+				'title'  => esc_attr__( 'Writing &amp; Publishing', 'toolbar-extras' ),
+				'href'   => esc_url( admin_url( 'options-writing.php' ) ),
+				'meta'   => array(
+					'target' => '',
+					'title'  => esc_attr__( 'Writing &amp; Publishing Settings', 'toolbar-extras' ),
+				)
+			)
+		);
+
+		/** Reading & Content */
+		$admin_bar->add_node(
+			array(
+				'id'     => 'website-settings-' . $site_key . '-reading',
+				'parent' => 'website-settings-' . $site_key,
+				'title'  => esc_attr__( 'Reading &amp; Content', 'toolbar-extras' ),
+				'href'   => esc_url( admin_url( 'options-reading.php' ) ),
+				'meta'   => array(
+					'target' => '',
+					'title'  => esc_attr__( 'Reading &amp; Content Settings', 'toolbar-extras' ),
+				)
+			)
+		);
+
+			$admin_bar->add_node(
+				array(
+					'id'     => 'website-settings-' . $site_key . '-reading-settings',
+					'parent' => 'website-settings-' . $site_key . '-reading',
+					'title'  => esc_attr__( 'Content &amp; Page Settings', 'toolbar-extras' ),
+					'href'   => esc_url( admin_url( 'options-reading.php' ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => esc_attr__( 'Content &amp; Page Settings', 'toolbar-extras' ),
+					)
+				)
+			);
+
+			$admin_bar->add_node(
+				array(
+					'id'     => 'website-settings-' . $site_key . '-reading-home',
+					'parent' => 'website-settings-' . $site_key . '-reading',
+					'title'  => esc_attr__( 'Preview Home Page', 'toolbar-extras' ),
+					'href'   => esc_url( home_url( '/' ) ),
+					'meta'   => array(
+						'target' => ddw_tbex_meta_target(),
+						'title'  => esc_attr__( 'Preview Website Home Page', 'toolbar-extras' ),
+					)
+				)
+			);
+
+			$admin_bar->add_node(
+				array(
+					'id'     => 'website-settings-' . $site_key . '-reading-blog',
+					'parent' => 'website-settings-' . $site_key . '-reading',
+					'title'  => esc_attr__( 'Preview Blog Page', 'toolbar-extras' ),
+					'href'   => esc_url( get_post_type_archive_link( 'post' ) ),
+					'meta'   => array(
+						'target' => ddw_tbex_meta_target(),
+						'title'  => esc_attr__( 'Preview Website Blog Page (with latest Posts/ Articles)', 'toolbar-extras' ),
+					)
+				)
+			);
+
+		/** Comments/ Discussion */
+		$admin_bar->add_node(
+			array(
+				'id'     => 'website-settings-' . $site_key . '-comments',
+				'parent' => 'website-settings-' . $site_key,
+				'title'  => esc_attr__( 'Comments', 'toolbar-extras' ),
+				'href'   => esc_url( admin_url( 'options-discussion.php' ) ),
+				'meta'   => array(
+					'target' => '',
+					'title'  => esc_attr__( 'Comments &amp; Discussion Settings', 'toolbar-extras' ),
+				)
+			)
+		);
+
+		/** Media Library */
+		$admin_bar->add_node(
+			array(
+				'id'     => 'website-settings-' . $site_key . '-media',
+				'parent' => 'website-settings-' . $site_key,
+				'title'  => esc_attr__( 'Media Library', 'toolbar-extras' ),
+				'href'   => esc_url( admin_url( 'options-media.php' ) ),
+				'meta'   => array(
+					'target' => '',
+					'title'  => esc_attr__( 'Media Library Settings', 'toolbar-extras' ),
+				)
+			)
+		);
+
+			$admin_bar->add_node(
+				array(
+					'id'     => 'website-settings-' . $site_key . '-media-settings',
+					'parent' => 'website-settings-' . $site_key . '-media',
+					'title'  => esc_attr__( 'Library Settings', 'toolbar-extras' ),
+					'href'   => esc_url( admin_url( 'options-media.php' ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => esc_attr__( 'Media Library Settings', 'toolbar-extras' ),
+					)
+				)
+			);
+
+			$admin_bar->add_node(
+				array(
+					'id'     => 'website-settings-' . $site_key . '-media-library',
+					'parent' => 'website-settings-' . $site_key . '-media',
+					'title'  => esc_attr__( 'Library Overview', 'toolbar-extras' ),
+					'href'   => esc_url( admin_url( 'upload.php' ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => esc_attr__( 'Media Library Overview', 'toolbar-extras' ),
+					)
+				)
+			);
+
+		/** Privacy Page/ Tools */
+		$admin_bar->add_node(
+			array(
+				'id'     => 'website-settings-' . $site_key . '-privacy',
+				'parent' => 'website-settings-' . $site_key,
+				'title'  => esc_attr__( 'Privacy Page', 'toolbar-extras' ),
+				'href'   => esc_url( admin_url( 'privacy.php' ) ),
+				'meta'   => array(
+					'target' => '',
+					'title'  => esc_attr__( 'Privacy Page Settings - for GDPR', 'toolbar-extras' ),
+				)
+			)
+		);
+
+			$admin_bar->add_node(
+				array(
+					'id'     => 'website-settings-' . $site_key . '-privacy-settings',
+					'parent' => 'website-settings-' . $site_key . '-privacy',
+					'title'  => esc_attr__( 'Page Settings', 'toolbar-extras' ),
+					'href'   => esc_url( admin_url( 'privacy.php' ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => esc_attr__( 'Setup Privacy Page', 'toolbar-extras' ),
+					)
+				)
+			);
+
+			$privacy_page_id = get_option( 'wp_page_for_privacy_policy' );
+
+			if ( $privacy_page_id ) {
+
+				$admin_bar->add_node(
+					array(
+						'id'     => 'website-settings-' . $site_key . '-privacy-page-edit',
+						'parent' => 'website-settings-' . $site_key . '-privacy',
+						'title'  => esc_attr__( 'Edit Page', 'toolbar-extras' ),
+						'href'   => esc_url( admin_url( 'post.php?post=' . absint( $privacy_page_id ) . '&action=edit' ) ),
+						'meta'   => array(
+							'target' => '',
+							'title'  => esc_attr__( 'Edit Privacy Page', 'toolbar-extras' ),
+						)
+					)
+				);
+
+				$admin_bar->add_node(
+					array(
+						'id'     => 'website-settings-' . $site_key . '-privacy-page-preview',
+						'parent' => 'website-settings-' . $site_key . '-privacy',
+						'title'  => esc_attr__( 'Preview Page', 'toolbar-extras' ),
+						'href'   => esc_url( get_permalink( absint( $privacy_page_id ) ) ),
+						'meta'   => array(
+							'target' => ddw_tbex_meta_target(),
+							'title'  => esc_attr__( 'Preview Privacy Page', 'toolbar-extras' ),
+						)
+					)
+				);
+
+			}  // end if
+
+			$admin_bar->add_node(
+				array(
+					'id'     => 'website-settings-' . $site_key . '-privacy-guide',
+					'parent' => 'website-settings-' . $site_key . '-privacy',
+					'title'  => esc_attr__( 'Page Content Guide', 'toolbar-extras' ),
+					'href'   => esc_url( admin_url( 'tools.php?wp-privacy-policy-guide=1' ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => esc_attr__( 'Page Content Guide - with Example', 'toolbar-extras' ),
+					)
+				)
+			);
+
+			$admin_bar->add_node(
+				array(
+					'id'     => 'website-settings-' . $site_key . '-privacy-export',
+					'parent' => 'website-settings-' . $site_key . '-privacy',
+					'title'  => esc_attr__( 'Export Personal Data', 'toolbar-extras' ),
+					'href'   => esc_url( admin_url( 'tools.php?page=export_personal_data' ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => esc_attr__( 'Export Personal Data', 'toolbar-extras' ),
+					)
+				)
+			);
+
+			$admin_bar->add_node(
+				array(
+					'id'     => 'website-settings-' . $site_key . '-privacy-erase',
+					'parent' => 'website-settings-' . $site_key . '-privacy',
+					'title'  => esc_attr__( 'Erase Personal Data', 'toolbar-extras' ),
+					'href'   => esc_url( admin_url( 'tools.php?page=remove_personal_data' ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => esc_attr__( 'Erase Personal Data', 'toolbar-extras' ),
+					)
+				)
+			);
+
+}  // end function
+
+
 add_action( 'admin_bar_menu', 'ddw_tbex_site_items_base_groups', 99 );
 /**
  * Set base groups for "own" Site Group as "hook places".
  *   Set additional action hooks to enable custom groups.
  *
  * @since 1.0.0
+ * @since 1.4.7 Added param $admin_bar (object) to action hooks.
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_base_groups() {
+function ddw_tbex_site_items_base_groups( $admin_bar ) {
 
-	do_action( 'tbex_before_site_group_content' );
+	do_action( 'tbex_before_site_group_content', $admin_bar );
 
 	/** Add these hook places only for Sites - not for Network Admin */
 	if ( ! is_network_admin() ) {
 
 		/** Group: Manage Content (Posts, Pages, Products) */
-		$GLOBALS[ 'wp_admin_bar' ]->add_group(
+		$admin_bar->add_group(
 			array(
 				'id'     => 'tbex-sitegroup-manage-content',
-				'parent' => ddw_tbex_parent_id_site_group()
+				'parent' => ddw_tbex_parent_id_site_group(),
 			)
 		);
 
-		do_action( 'tbex_after_site_group_content' );
+		do_action( 'tbex_after_site_group_content', $admin_bar );
 
 
 		/** Group: Forms */
-		$GLOBALS[ 'wp_admin_bar' ]->add_group(
+		$admin_bar->add_group(
 			array(
 				'id'     => 'tbex-sitegroup-forms',
-				'parent' => ddw_tbex_parent_id_site_group()
+				'parent' => ddw_tbex_parent_id_site_group(),
 			)
 		);
 
-		do_action( 'tbex_after_site_group_forms' );
+		do_action( 'tbex_after_site_group_forms', $admin_bar );
 
 
 		/** Group: Elements - Widgets, Menus, etc. */
-		$GLOBALS[ 'wp_admin_bar' ]->add_group(
+		$admin_bar->add_group(
 			array(
 				'id'     => 'tbex-sitegroup-elements',
-				'parent' => ddw_tbex_parent_id_site_group()
+				'parent' => ddw_tbex_parent_id_site_group(),
 			)
 		);
 
-		do_action( 'tbex_after_site_group_elements' );
+		do_action( 'tbex_after_site_group_elements', $admin_bar );
 
 	}  // end if !(Network Admin) check
 
 	/** Group: Tools (Cache, Backups, etc.) ... */
-	$GLOBALS[ 'wp_admin_bar' ]->add_group(
+	$admin_bar->add_group(
 		array(
 			'id'     => 'tbex-sitegroup-tools',
-			'parent' => ddw_tbex_parent_id_site_group()
+			'parent' => ddw_tbex_parent_id_site_group(),
 		)
 	);
 
-	do_action( 'tbex_after_site_group_tools' );
+	do_action( 'tbex_after_site_group_tools', $admin_bar );
 
 
 	/** Group: More stuff... */
-	$GLOBALS[ 'wp_admin_bar' ]->add_group(
+	$admin_bar->add_group(
 		array(
 			'id'     => 'tbex-sitegroup-stuff',
-			'parent' => ddw_tbex_parent_id_site_group()
+			'parent' => ddw_tbex_parent_id_site_group(),
 		)
 	);
 
-	do_action( 'tbex_after_site_group_stuff' );
+	do_action( 'tbex_after_site_group_stuff', $admin_bar );
 
 
 	/** Group: Toolbar Extras Plugin Settings */
-	$GLOBALS[ 'wp_admin_bar' ]->add_group(
+	$admin_bar->add_group(
 		array(
 			'id'     => 'tbex-sitegroup-plsettings',
 			'parent' => ddw_tbex_parent_id_site_group(),
-			'meta'   => array( 'class' => 'ab-sub-secondary' )
+			'meta'   => array( 'class' => 'ab-sub-secondary' ),
 		)
 	);
 
@@ -393,7 +676,7 @@ function ddw_tbex_site_items_more_stuff() {
 				'href'   => is_multisite() ? esc_url( network_admin_url( 'update-core.php?force-check=1' ) ) : esc_url( admin_url( 'update-core.php?force-check=1' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Check for Updates - Core, Plugins, Themes, Translations', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Check for Updates - Core, Plugins, Themes, Translations', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -408,7 +691,7 @@ function ddw_tbex_site_items_more_stuff() {
 						'href'   => is_multisite() ? esc_url( network_admin_url( 'update-core.php?force-check=1' ) ) : esc_url( admin_url( 'update-core.php?force-check=1' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'All Updates: Core, Plugins, Themes, Translations', 'toolbar-extras' )
+							'title'  => esc_attr__( 'All Updates: Core, Plugins, Themes, Translations', 'toolbar-extras' ),
 						)
 					)
 				);
@@ -429,7 +712,7 @@ function ddw_tbex_site_items_more_stuff() {
 			'href'   => is_network_admin() ? esc_url( network_admin_url( 'plugins.php' ) ) : esc_url( admin_url( 'plugins.php' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Plugins Page', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Plugins Page', 'toolbar-extras' ),
 			)
 		)
 	);
@@ -444,7 +727,7 @@ function ddw_tbex_site_items_more_stuff() {
 					'href'   => is_network_admin() ? esc_url( network_admin_url( 'plugins.php?plugin_status=all' ) ) : esc_url( admin_url( 'plugins.php?plugin_status=all' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'All Plugins', 'toolbar-extras' )
+						'title'  => esc_attr__( 'All Plugins', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -457,7 +740,7 @@ function ddw_tbex_site_items_more_stuff() {
 					'href'   => is_network_admin() ? esc_url( network_admin_url( 'plugins.php?plugin_status=active' ) ) : esc_url( admin_url( 'plugins.php?plugin_status=active' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Currently active Plugins', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Currently active Plugins', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -470,7 +753,25 @@ function ddw_tbex_site_items_more_stuff() {
 					'href'   => is_network_admin() ? esc_url( network_admin_url( 'plugins.php?plugin_status=inactive' ) ) : esc_url( admin_url( 'plugins.php?plugin_status=inactive' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Currently inactive Plugins', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Currently inactive Plugins', 'toolbar-extras' ),
+					)
+				)
+			);
+
+		}  // end if
+
+		if ( has_action( 'after_setup_theme', 'ddw_tbex_plugin_manager' ) && current_user_can( 'install_plugins' ) ) {
+
+			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				array(
+					'id'     => 'wpplugins-suggested',
+					'parent' => 'wpplugins',
+					'title'  => esc_attr_x( 'Suggested Plugins', 'For Toolbar Extras Plugin', 'toolbar-extras' ),
+					'href'   => esc_url( admin_url( 'plugins.php?page=toolbar-extras-suggested-plugins' ) ),
+					'meta'   => array(
+						'target' => '',
+						/* translators: Title attribute for Toolbar Extras "Suggested Plugins" settings link */
+						'title'  => esc_attr_x( 'Plugin Manager for our Add-Ons - Required, Recommended and Useful Plugins', 'For Toolbar Extras Plugin', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -498,7 +799,7 @@ function ddw_tbex_site_items_health_debug( $admin_bar ) {
 		|| ( ! is_multisite() && ! current_user_can( 'install_plugins' ) )
 		|| ( is_multisite() && ! current_user_can( 'setup_network' ) )
 	) {
-		return;
+		return $admin_bar;
 	}
 
 	/** Site Health */
@@ -510,7 +811,7 @@ function ddw_tbex_site_items_health_debug( $admin_bar ) {
 			'href'   => esc_url( admin_url( 'site-health.php' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Site Health Status &amp; Debug Info', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Site Health Status &amp; Debug Info', 'toolbar-extras' ),
 			)
 		)
 	);
@@ -523,7 +824,7 @@ function ddw_tbex_site_items_health_debug( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'site-health.php' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Site Health Status', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Site Health Status', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -536,7 +837,7 @@ function ddw_tbex_site_items_health_debug( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'site-health.php?tab=debug' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Debug Info &amp; Error Reporting', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Debug Info &amp; Error Reporting', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -605,10 +906,13 @@ function ddw_tbex_site_items_customizer( $admin_bar ) {
 
 add_action( 'admin_bar_menu', 'ddw_tbex_wpitems_about_additions', 100 );
 /**
- * More Items: Site Health status, Debug info
- *   Note: Can be disabled via filter 'tbex_filter_site_health_items'.
+ * More Items: Sub items for "WordPress About".
  *
  * @since 1.4.5
+ * @since 1.4.7 Further tweaks; improved ClassicPress compatibility.
+ *
+ * @uses ddw_tbex_is_classicpress_install()
+ * @uses ddw_tbex_is_wp52_install()
  *
  * @global string $GLOBALS[ 'wp_version' ]
  *
@@ -618,15 +922,29 @@ function ddw_tbex_wpitems_about_additions( $admin_bar ) {
 
 	$cleanup = array( '-beta', '-rc', '-alpha' );
 
-	$wpversion_clean = str_replace ( $cleanup, '', $GLOBALS[ 'wp_version' ] );
+	$wpversion_raw   = str_replace ( $cleanup, '', $GLOBALS[ 'wp_version' ] );
+	$wpversion_clean = $wpversion_raw;
+
+	if ( strpos( $wpversion_raw, '-' ) !== FALSE ) {
+		$wpversion_clean = substr_replace( $wpversion_raw, '', -6 );
+	}
+
 	$wpversion_dash  = str_replace( '.', '-', $wpversion_clean );
-	$version_url     = sprintf(
+	$version_url_wp  = sprintf(
 		'https://wordpress.org/support/wordpress-version/version-%s/',
 		$wpversion_dash
 	);
+	$version_url_cp  = 'https://forums.classicpress.net/c/announcements/release-notes';
 
 	// https://wordpress.org/support/wordpress-version/version-4-0/
 	// https://wordpress.org/support/wordpress-version/version-5-2-2/
+
+	$title_attr_wp = sprintf(
+		/* translators: %s - current WordPress version, for example 5.2.2 */
+		esc_attr__( 'Release Notes for WordPress Version %s', 'toolbar-extras' ),
+		$GLOBALS[ 'wp_version' ]
+	);
+	$title_attr_cp = esc_attr__( 'Release Notes for ClassicPress Versions', 'toolbar-extras' );
 
 	/** Version & system info */
 	$admin_bar->add_group(
@@ -641,30 +959,30 @@ function ddw_tbex_wpitems_about_additions( $admin_bar ) {
 				'id'     => 'wpabout-release-notes',
 				'parent' => 'group-wpabout-additions-version',
 				'title'  => esc_attr__( 'Release Notes', 'toolbar-extras' ),
-				'href'   => esc_url( $version_url ),
+				'href'   => ddw_tbex_is_classicpress_install() ? esc_url( $version_url_cp ) : esc_url( $version_url_wp ),
 				'meta'   => array(
 					'target' => ddw_tbex_meta_target(),
-					'title'  => sprintf(
-						/* translators: %s - current WordPress version, for example 5.2.2 */
-						esc_attr__( 'Release Notes for WordPress Version %s', 'toolbar-extras' ),
-						$GLOBALS[ 'wp_version' ]
-					),
+					'title'  => ddw_tbex_is_classicpress_install() ? $title_attr_cp : $title_attr_wp,
 				)
 			)
 		);
 
-		$admin_bar->add_node(
-			array(
-				'id'     => 'wpabout-system-info',
-				'parent' => 'group-wpabout-additions-version',
-				'title'  => esc_attr__( 'System Info', 'toolbar-extras' ),
-				'href'   => esc_url( admin_url( 'site-health.php?tab=debug' ) ),
-				'meta'   => array(
-					'target' => '',
-					'title'  => esc_attr__( 'System Info - Site Health Status', 'toolbar-extras' ),
+		if ( ddw_tbex_is_wp52_install() ) {
+
+			$admin_bar->add_node(
+				array(
+					'id'     => 'wpabout-system-info',
+					'parent' => 'group-wpabout-additions-version',
+					'title'  => esc_attr__( 'System Info', 'toolbar-extras' ),
+					'href'   => esc_url( admin_url( 'site-health.php?tab=debug' ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => esc_attr__( 'System Info - Site Health Status', 'toolbar-extras' ),
+					)
 				)
-			)
-		);
+			);
+
+		}  // end if
 
 	/** About sub items */
 	$admin_bar->add_group(
@@ -726,5 +1044,22 @@ function ddw_tbex_wpitems_about_additions( $admin_bar ) {
 				)
 			)
 		);
+
+		if ( ddw_tbex_is_classicpress_install() ) {
+
+			$admin_bar->add_node(
+				array(
+					'id'     => 'wpabout-cpdonate',
+					'parent' => 'group-wpabout-additions-sub',
+					'title'  => esc_attr__( 'Donate', 'toolbar-extras' ),
+					'href'   => 'https://donate.classicpress.net/',
+					'meta'   => array(
+						'target' => ddw_tbex_meta_target(),
+						'title'  => esc_attr__( 'Donate to the ClassicPress Project', 'toolbar-extras' ),
+					)
+				)
+			);
+
+		}  // end if
 
 }  // end function

@@ -21,12 +21,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_sydney', 100 );
  * @uses ddw_tbex_string_theme_title()
  * @uses ddw_tbex_item_theme_creative_customize()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_sydney() {
+function ddw_tbex_themeitems_sydney( $admin_bar ) {
 
 	/** Sydney creative */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'theme-creative',
 			'parent' => 'group-active-theme',
@@ -34,7 +34,7 @@ function ddw_tbex_themeitems_sydney() {
 			'href'   => esc_url( admin_url( 'themes.php?page=sydney-info.php' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_theme_title( 'attr' )
+				'title'  => ddw_tbex_string_theme_title( 'attr', 'child' ),
 			)
 		)
 	);
@@ -110,21 +110,21 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_sydney_resources', 120 );
  * @uses ddw_tbex_display_items_resources()
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_sydney_resources() {
+function ddw_tbex_themeitems_sydney_resources( $admin_bar ) {
 
 	/** Bail early if no resources display active */
 	if ( ! ddw_tbex_display_items_resources() ) {
-		return;
+		return $admin_bar;
 	}
 
 	/** Group: Resources for Sydney Theme */
-	$GLOBALS[ 'wp_admin_bar' ]->add_group(
+	$admin_bar->add_group(
 		array(
 			'id'     => 'group-theme-resources',
 			'parent' => 'theme-creative',
-			'meta'   => array( 'class' => 'ab-sub-secondary' )
+			'meta'   => array( 'class' => 'ab-sub-secondary' ),
 		)
 	);
 
@@ -147,7 +147,7 @@ function ddw_tbex_themeitems_sydney_resources() {
 		'theme-docs',
 		'group-theme-resources',
 		'https://docs.athemes.com/category/8-sydney',
-		esc_attr__( 'Official Theme Documentation', 'toolbar-extras' )
+		ddw_tbex_string_official_theme_documentation()
 	);
 
 	ddw_tbex_resource_item(

@@ -12,36 +12,78 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 
+/**
+ * Get the version of Element Pack to determine lite or pro versions.
+ *
+ * @since 1.4.7
+ *
+ * @see plugin file: includes/items-plugins-elementor-addons.php
+ * @uses BDTEP_VER
+ *
+ * @return string 'pro' if BDTEP_VER is greater/equal than 3.0 or 'lite' if
+ *                BDTEP_VER is greater/equal than 1.0 but smaller than 2.0.
+ */
+function ddw_tbex_get_element_pack_version() {
+
+	if ( ! defined( 'BDTEP_VER' ) ) {
+		return 'not-defined';
+	}
+
+	if ( version_compare( BDTEP_VER, '3.0', '>=' ) ) {
+		return 'pro';
+	} elseif ( version_compare( BDTEP_VER, '1.0.2', '>=' ) && version_compare( BDTEP_VER, '2.0', '<' ) ) {
+		return 'lite';
+	}
+
+}  // end function
+
+
 add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_bdthemes_element_pack', 100 );
 /**
- * Items for Add-On: Element Pack (by BdThemes)
+ * Items for Add-Ons:
+ *   - Element Pack (Pro) (Premium, by BdThemes)
+ *   - Element Pack Lite (free, by BdThemes)
  *
  * @since 1.0.0
+ * @since 1.4.7 Added support for Lite version of this Add-On plugin.
  *
+ * @uses ddw_tbex_get_element_pack_version()
+ * @uses ddw_tbex_string_premium_addon_title_attr()
+ * @uses ddw_tbex_string_free_addon_title_attr()
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_bdthemes_element_pack() {
+function ddw_tbex_aoitems_bdthemes_element_pack( $admin_bar ) {
 
 	/** Use Add-On hook place */
 	add_filter( 'tbex_filter_is_addon', '__return_empty_string' );
 
+	$ep_version = ddw_tbex_get_element_pack_version();
+
+	$ep_title      = esc_attr__( 'Element Pack', 'toolbar-extras' );
+	$ep_title_attr = ddw_tbex_string_premium_addon_title_attr( $ep_title );
+
+	if ( 'lite' === $ep_version ) {
+		$ep_title      = esc_attr__( 'Element Pack Lite', 'toolbar-extras' );
+		$ep_title_attr = ddw_tbex_string_free_addon_title_attr( $ep_title );
+	}
+
 	/** Extras Settings */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'ao-bdepack',
 			'parent' => 'tbex-addons',
-			'title'  => esc_attr__( 'Element Pack', 'toolbar-extras' ),
+			'title'  => $ep_title,
 			'href'   => esc_url( admin_url( 'admin.php?page=element_pack_options' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_premium_addon_title_attr( __( 'Element Pack', 'toolbar-extras' ) )
+				'title'  => $ep_title_attr,
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-bdepack-widgets',
 				'parent' => 'ao-bdepack',
@@ -49,51 +91,56 @@ function ddw_tbex_aoitems_bdthemes_element_pack() {
 				'href'   => esc_url( admin_url( 'admin.php?page=element_pack_options#element_pack_active_modules' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Activate Widgets', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Activate Widgets', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
-			array(
-				'id'     => 'ao-bdepack-thirdparty-widgets',
-				'parent' => 'ao-bdepack',
-				'title'  => esc_attr__( 'Third-Party Widgets', 'toolbar-extras' ),
-				'href'   => esc_url( admin_url( 'admin.php?page=element_pack_options#element_pack_third_party_widget' ) ),
-				'meta'   => array(
-					'target' => '',
-					'title'  => esc_attr__( 'Activate Third-Party Widgets', 'toolbar-extras' )
-				)
-			)
-		);
+		/** Pro-only settings */
+		if ( 'pro' === $ep_version ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
-			array(
-				'id'     => 'ao-bdepack-extensions',
-				'parent' => 'ao-bdepack',
-				'title'  => esc_attr__( 'Activate Extensions', 'toolbar-extras' ),
-				'href'   => esc_url( admin_url( 'admin.php?page=element_pack_options#element_pack_elementor_extend' ) ),
-				'meta'   => array(
-					'target' => '',
-					'title'  => esc_attr__( 'Activate Extensions', 'toolbar-extras' )
+			$admin_bar->add_node(
+				array(
+					'id'     => 'ao-bdepack-thirdparty-widgets',
+					'parent' => 'ao-bdepack',
+					'title'  => esc_attr__( 'Third-Party Widgets', 'toolbar-extras' ),
+					'href'   => esc_url( admin_url( 'admin.php?page=element_pack_options#element_pack_third_party_widget' ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => esc_attr__( 'Activate Third-Party Widgets', 'toolbar-extras' ),
+					)
 				)
-			)
-		);
+			);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
-			array(
-				'id'     => 'ao-bdepack-api',
-				'parent' => 'ao-bdepack',
-				'title'  => esc_attr__( 'API Settings', 'toolbar-extras' ),
-				'href'   => esc_url( admin_url( 'admin.php?page=element_pack_options#element_pack_api_settings' ) ),
-				'meta'   => array(
-					'target' => '',
-					'title'  => esc_attr__( 'API Settings', 'toolbar-extras' )
+			$admin_bar->add_node(
+				array(
+					'id'     => 'ao-bdepack-extensions',
+					'parent' => 'ao-bdepack',
+					'title'  => esc_attr__( 'Activate Extensions', 'toolbar-extras' ),
+					'href'   => esc_url( admin_url( 'admin.php?page=element_pack_options#element_pack_elementor_extend' ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => esc_attr__( 'Activate Extensions', 'toolbar-extras' ),
+					)
 				)
-			)
-		);
+			);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
+				array(
+					'id'     => 'ao-bdepack-api',
+					'parent' => 'ao-bdepack',
+					'title'  => esc_attr__( 'API Settings', 'toolbar-extras' ),
+					'href'   => esc_url( admin_url( 'admin.php?page=element_pack_options#element_pack_api_settings' ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => esc_attr__( 'API Settings', 'toolbar-extras' ),
+					)
+				)
+			);
+
+		}  // end if
+
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-bdepack-settings-other',
 				'parent' => 'ao-bdepack',
@@ -101,27 +148,38 @@ function ddw_tbex_aoitems_bdthemes_element_pack() {
 				'href'   => esc_url( admin_url( 'admin.php?page=element_pack_options#element_pack_other_settings' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Other Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Other Settings', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		/** Group: Resources for Elementor Extras */
+		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-bdepack-resources',
 					'parent' => 'ao-bdepack',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
+
+			if ( 'pro' !== $ep_version ) {
+
+				ddw_tbex_resource_item(
+					'support-forum',
+					'bdepack-support-forum',
+					'group-bdepack-resources',
+					'https://wordpress.org/support/plugin/bdthemes-element-pack-lite'
+				);
+
+			}  // end if
 
 			ddw_tbex_resource_item(
 				'knowledge-base',
 				'bdepack-kb',
 				'group-bdepack-resources',
-				'https://bdthemes.com/support/article-categories/element-pack/'
+				'https://bdthemes.com/support/category/details/8/Element%20Pack.html'
 			);
 
 			ddw_tbex_resource_item(
@@ -133,17 +191,46 @@ function ddw_tbex_aoitems_bdthemes_element_pack() {
 
 			ddw_tbex_resource_item(
 				'support-contact',
-				'bdepack-support',
+				'bdepack-support-contact',
 				'group-bdepack-resources',
 				'https://elementpack.pro/support/'
 			);
 
-			ddw_tbex_resource_item(
-				'translations-pro',
-				'bdepack-translations',
-				'group-bdepack-resources',
-				'https://bdthemes.co/ep-translate/'
-			);
+			if ( 'pro' === $ep_version ) {
+
+				ddw_tbex_resource_item(
+					'changelog',
+					'bdepack-changelogs',
+					'group-bdepack-resources',
+					'https://elementpack.pro/change-log/',
+					ddw_tbex_string_version_history( 'addon' )
+				);
+
+				ddw_tbex_resource_item(
+					'translations-pro',
+					'bdepack-translations-pro',
+					'group-bdepack-resources',
+					'https://bdthemes.co/ep-translate/'
+				);
+
+			} elseif ( 'lite' === $ep_version ) {
+
+				ddw_tbex_resource_item(
+					'changelog',
+					'bdepack-changelogs',
+					'group-bdepack-resources',
+					'https://wordpress.org/plugins/bdthemes-element-pack-lite/#developers',
+					ddw_tbex_string_version_history( 'addon' )
+				);
+
+				ddw_tbex_resource_item(
+					'translations-community',
+					'bdepack-translations-community',
+					'group-bdepack-resources',
+					'https://translate.wordpress.org/projects/wp-plugins/bdthemes-element-pack-lite'
+				);
+
+			}  // end if
 
 			ddw_tbex_resource_item(
 				'official-site',

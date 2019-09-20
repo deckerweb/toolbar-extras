@@ -122,12 +122,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_jetthemecore', 100 );
  *
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_jetthemecore() {
+function ddw_tbex_aoitems_jetthemecore( $admin_bar ) {
 
 	/** JetThemeCore Library */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'jetthemecore-library',
 			'parent' => 'group-creative-content',
@@ -135,12 +135,12 @@ function ddw_tbex_aoitems_jetthemecore() {
 			'href'   => esc_url( admin_url( 'edit.php?post_type=jet-theme-core' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Jet Theme Parts', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Jet Theme Parts', 'toolbar-extras' ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'jetthemecore-library-all',
 				'parent' => 'jetthemecore-library',
@@ -148,12 +148,12 @@ function ddw_tbex_aoitems_jetthemecore() {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=jet-theme-core' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'All Templates', 'toolbar-extras' )
+					'title'  => esc_attr__( 'All Templates', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'jet-library-types',
 				'parent' => 'jetthemecore-library',
@@ -161,12 +161,12 @@ function ddw_tbex_aoitems_jetthemecore() {
 				'href'   => '',
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'JetThemeCore Template Types', 'toolbar-extras' )
+					'title'  => esc_attr__( 'JetThemeCore Template Types', 'toolbar-extras' ),
 				)
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'jet-library-pages',
 					'parent' => 'jet-library-types',
@@ -175,12 +175,12 @@ function ddw_tbex_aoitems_jetthemecore() {
 					'href'   => esc_url( admin_url( 'edit.php?post_type=jet-theme-core&jet_library_type=jet_page' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Template Type: Pages', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Template Type: Pages', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'jet-library-sections',
 					'parent' => 'jet-library-types',
@@ -189,12 +189,12 @@ function ddw_tbex_aoitems_jetthemecore() {
 					'href'   => esc_url( admin_url( 'edit.php?post_type=jet-theme-core&jet_library_type=jet_section' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Template Type: Section Blocks', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Template Type: Section Blocks', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'jet-library-headers',
 					'parent' => 'jet-library-types',
@@ -203,12 +203,12 @@ function ddw_tbex_aoitems_jetthemecore() {
 					'href'   => esc_url( admin_url( 'edit.php?post_type=jet-theme-core&jet_library_type=jet_header' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Template Type: Headers', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Template Type: Headers', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'jet-library-footers',
 					'parent' => 'jet-library-types',
@@ -217,12 +217,12 @@ function ddw_tbex_aoitems_jetthemecore() {
 					'href'   => esc_url( admin_url( 'edit.php?post_type=jet-theme-core&jet_library_type=jet_footer' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Template Type: Footers', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Template Type: Footers', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'jet-library-single',
 					'parent' => 'jet-library-types',
@@ -231,12 +231,12 @@ function ddw_tbex_aoitems_jetthemecore() {
 					'href'   => esc_url( admin_url( 'edit.php?post_type=jet-theme-core&jet_library_type=jet_single' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Template Type: Single Content Blocks', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Template Type: Single Content Blocks', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'jet-library-archives',
 					'parent' => 'jet-library-types',
@@ -245,12 +245,12 @@ function ddw_tbex_aoitems_jetthemecore() {
 					'href'   => esc_url( admin_url( 'edit.php?post_type=jet-theme-core&jet_library_type=jet_archive' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Template Type: Archive Content Blocks', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Template Type: Archive Content Blocks', 'toolbar-extras' ),
 					)
 				)
 			);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'jetthemecore-library-new',
 				'parent' => 'jetthemecore-library',
@@ -258,14 +258,14 @@ function ddw_tbex_aoitems_jetthemecore() {
 				'href'   => esc_url( admin_url( 'post-new.php?post_type=jet-theme-core' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'New Template', 'toolbar-extras' )
+					'title'  => esc_attr__( 'New Template', 'toolbar-extras' ),
 				)
 			)
 		);
 
 		if ( \Elementor\User::is_current_user_can_edit_post_type( 'jet-theme-core' ) ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'jetthemecore-library-new-builder',
 					'parent' => 'jetthemecore-library',
@@ -273,12 +273,12 @@ function ddw_tbex_aoitems_jetthemecore() {
 					'href'   => '',
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'New Template Builder', 'toolbar-extras' )
+						'title'  => esc_attr__( 'New Template Builder', 'toolbar-extras' ),
 					)
 				)
 			);
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'jet-build-template-page',
 						'parent' => 'jetthemecore-library-new-builder',
@@ -286,12 +286,12 @@ function ddw_tbex_aoitems_jetthemecore() {
 						'href'   => ddw_tbex_get_jetthemecore_template_add_new_url( 'jet_page' ),
 						'meta'   => array(
 							'target' => ddw_tbex_meta_target( 'builder' ),
-							'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Page', 'JetThemeCore Template type', 'toolbar-extras' ) )
+							'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Page', 'JetThemeCore Template type', 'toolbar-extras' ) ),
 						)
 					)
 				);
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'jet-build-template-section',
 						'parent' => 'jetthemecore-library-new-builder',
@@ -299,12 +299,12 @@ function ddw_tbex_aoitems_jetthemecore() {
 						'href'   => ddw_tbex_get_jetthemecore_template_add_new_url( 'jet_section' ),
 						'meta'   => array(
 							'target' => ddw_tbex_meta_target( 'builder' ),
-							'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Section', 'JetThemeCore Template type', 'toolbar-extras' ) )
+							'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Section', 'JetThemeCore Template type', 'toolbar-extras' ) ),
 						)
 					)
 				);
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'jet-build-template-header',
 						'parent' => 'jetthemecore-library-new-builder',
@@ -312,12 +312,12 @@ function ddw_tbex_aoitems_jetthemecore() {
 						'href'   => ddw_tbex_get_jetthemecore_template_add_new_url( 'jet_header' ),
 						'meta'   => array(
 							'target' => ddw_tbex_meta_target( 'builder' ),
-							'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Header', 'JetThemeCore Template type', 'toolbar-extras' ) )
+							'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Header', 'JetThemeCore Template type', 'toolbar-extras' ) ),
 						)
 					)
 				);
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'jet-build-template-footer',
 						'parent' => 'jetthemecore-library-new-builder',
@@ -325,12 +325,12 @@ function ddw_tbex_aoitems_jetthemecore() {
 						'href'   => ddw_tbex_get_jetthemecore_template_add_new_url( 'jet_footer' ),
 						'meta'   => array(
 							'target' => ddw_tbex_meta_target( 'builder' ),
-							'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Footer', 'JetThemeCore Template type', 'toolbar-extras' ) )
+							'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Footer', 'JetThemeCore Template type', 'toolbar-extras' ) ),
 						)
 					)
 				);
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'jet-build-template-single',
 						'parent' => 'jetthemecore-library-new-builder',
@@ -338,12 +338,12 @@ function ddw_tbex_aoitems_jetthemecore() {
 						'href'   => ddw_tbex_get_jetthemecore_template_add_new_url( 'jet_single' ),
 						'meta'   => array(
 							'target' => ddw_tbex_meta_target( 'builder' ),
-							'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Single', 'JetThemeCore Template type', 'toolbar-extras' ) )
+							'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Single', 'JetThemeCore Template type', 'toolbar-extras' ) ),
 						)
 					)
 				);
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'jet-build-template-archive',
 						'parent' => 'jetthemecore-library-new-builder',
@@ -351,7 +351,7 @@ function ddw_tbex_aoitems_jetthemecore() {
 						'href'   => ddw_tbex_get_jetthemecore_template_add_new_url( 'jet_archive' ),
 						'meta'   => array(
 							'target' => ddw_tbex_meta_target( 'builder' ),
-							'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Archive', 'JetThemeCore Template type', 'toolbar-extras' ) )
+							'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Archive', 'JetThemeCore Template type', 'toolbar-extras' ) ),
 						)
 					)
 				);
@@ -364,7 +364,7 @@ function ddw_tbex_aoitems_jetthemecore() {
 		/** Template categories, via BTC plugin */
 		if ( ddw_tbex_is_btcplugin_active() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'jetthemecore-library-categories',
 					'parent' => 'jetthemecore-library',
@@ -372,7 +372,7 @@ function ddw_tbex_aoitems_jetthemecore() {
 					'href'   => esc_url( admin_url( 'edit-tags.php?taxonomy=builder-template-category&post_type=jet-theme-core' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_html( ddw_btc_string_template( 'template' ) )
+						'title'  => esc_html( ddw_btc_string_template( 'template' ) ),
 					)
 				)
 			);
@@ -390,20 +390,22 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_jetthemecore_resources', 200 );
  *
  * @uses ddw_tbex_display_items_resources()
  * @uses ddw_tbex_resource_item()
+ *
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_jetthemecore_resources() {
+function ddw_tbex_aoitems_jetthemecore_resources( $admin_bar ) {
 
 	/** Bail early if no resources display active */
 	if ( ! ddw_tbex_display_items_resources() ) {
-		return;
+		return $admin_bar;
 	}
 
 	/** Group: Resources for JetThemeCore */
-	$GLOBALS[ 'wp_admin_bar' ]->add_group(
+	$admin_bar->add_group(
 		array(
 			'id'     => 'group-jetthemecore-resources',
 			'parent' => 'jetthemecore-library',
-			'meta'   => array( 'class' => 'ab-sub-secondary' )
+			'meta'   => array( 'class' => 'ab-sub-secondary' ),
 		)
 	);
 
@@ -424,16 +426,16 @@ add_action( 'tbex_new_content_before_nav_menu', 'ddw_tbex_aoitems_new_content_je
  * @since 1.3.0
  * @since 1.3.2 Added new template types.
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_new_content_jetthemecore() {
+function ddw_tbex_aoitems_new_content_jetthemecore( $admin_bar ) {
 
 	/** Bail early if items display is not wanted */
 	if ( ! ddw_tbex_display_items_new_content() || ! \Elementor\User::is_current_user_can_edit_post_type( 'jet-theme-core' ) ) {
-		return;
+		return $admin_bar;
 	}
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'tbex-jetthemecore-template',
 			'parent' => 'new-content',
@@ -446,7 +448,7 @@ function ddw_tbex_aoitems_new_content_jetthemecore() {
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'jet-page-with-builder',
 				'parent' => 'tbex-jetthemecore-template',
@@ -454,12 +456,12 @@ function ddw_tbex_aoitems_new_content_jetthemecore() {
 				'href'   => ddw_tbex_get_jetthemecore_template_add_new_url( 'jet_page' ),
 				'meta'   => array(
 					'target' => ddw_tbex_meta_target( 'builder' ),
-					'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Page', 'JetThemeCore Template type', 'toolbar-extras' ) )
+					'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Page', 'JetThemeCore Template type', 'toolbar-extras' ) ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'jet-section-with-builder',
 				'parent' => 'tbex-jetthemecore-template',
@@ -467,12 +469,12 @@ function ddw_tbex_aoitems_new_content_jetthemecore() {
 				'href'   => ddw_tbex_get_jetthemecore_template_add_new_url( 'jet_section' ),
 				'meta'   => array(
 					'target' => ddw_tbex_meta_target( 'builder' ),
-					'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Section', 'JetThemeCore Template type', 'toolbar-extras' ) )
+					'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Section', 'JetThemeCore Template type', 'toolbar-extras' ) ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'jet-header-with-builder',
 				'parent' => 'tbex-jetthemecore-template',
@@ -480,12 +482,12 @@ function ddw_tbex_aoitems_new_content_jetthemecore() {
 				'href'   => ddw_tbex_get_jetthemecore_template_add_new_url( 'jet_header' ),
 				'meta'   => array(
 					'target' => ddw_tbex_meta_target( 'builder' ),
-					'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Header', 'JetThemeCore Template type', 'toolbar-extras' ) )
+					'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Header', 'JetThemeCore Template type', 'toolbar-extras' ) ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'jet-footer-with-builder',
 				'parent' => 'tbex-jetthemecore-template',
@@ -493,12 +495,12 @@ function ddw_tbex_aoitems_new_content_jetthemecore() {
 				'href'   => ddw_tbex_get_jetthemecore_template_add_new_url( 'jet_footer' ),
 				'meta'   => array(
 					'target' => ddw_tbex_meta_target( 'builder' ),
-					'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Footer', 'JetThemeCore Template type', 'toolbar-extras' ) )
+					'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Footer', 'JetThemeCore Template type', 'toolbar-extras' ) ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'jet-single-with-builder',
 				'parent' => 'tbex-jetthemecore-template',
@@ -506,12 +508,12 @@ function ddw_tbex_aoitems_new_content_jetthemecore() {
 				'href'   => ddw_tbex_get_jetthemecore_template_add_new_url( 'jet_single' ),
 				'meta'   => array(
 					'target' => ddw_tbex_meta_target( 'builder' ),
-					'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Single', 'JetThemeCore Template type', 'toolbar-extras' ) )
+					'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Single', 'JetThemeCore Template type', 'toolbar-extras' ) ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'jet-archive-with-builder',
 				'parent' => 'tbex-jetthemecore-template',
@@ -519,7 +521,7 @@ function ddw_tbex_aoitems_new_content_jetthemecore() {
 				'href'   => ddw_tbex_get_jetthemecore_template_add_new_url( 'jet_archive' ),
 				'meta'   => array(
 					'target' => ddw_tbex_meta_target( 'builder' ),
-					'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Archive', 'JetThemeCore Template type', 'toolbar-extras' ) )
+					'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Archive', 'JetThemeCore Template type', 'toolbar-extras' ) ),
 				)
 			)
 		);

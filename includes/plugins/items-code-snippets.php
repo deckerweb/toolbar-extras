@@ -46,12 +46,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_codesnippets', 15 );
  * @uses ddw_tbex_display_items_resources()
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_codesnippets() {
+function ddw_tbex_site_items_codesnippets( $admin_bar ) {
 
 	/** Code Snippets Items */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'elements-codesnippets',
 			'parent' => 'tbex-sitegroup-elements',
@@ -78,7 +78,7 @@ function ddw_tbex_site_items_codesnippets() {
 			if ( $snippets ) {
 
 				/** Add group */
-				$GLOBALS[ 'wp_admin_bar' ]->add_group(
+				$admin_bar->add_group(
 					array(
 						'id'     => 'group-codesnippets-edit-snippets',
 						'parent' => 'elements-codesnippets',
@@ -92,7 +92,7 @@ function ddw_tbex_site_items_codesnippets() {
 					$snippet_title = empty( $snippet->name ) ? sprintf( __( 'Untitled #%d', 'toolbar-extras' ), $snippet_id ) : esc_attr( $snippet->name );
 
 					/** Add item per snippet */
-					$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					$admin_bar->add_node(
 						array(
 							'id'     => 'elements-codesnippets-snippet-' . $snippet_id,
 							'parent' => 'group-codesnippets-edit-snippets',
@@ -105,7 +105,7 @@ function ddw_tbex_site_items_codesnippets() {
 						)
 					);
 
-						$GLOBALS[ 'wp_admin_bar' ]->add_node(
+						$admin_bar->add_node(
 							array(
 								'id'     => 'elements-codesnippets-snippet-' . $snippet_id . '-edit',
 								'parent' => 'elements-codesnippets-snippet-' . $snippet_id,
@@ -118,7 +118,7 @@ function ddw_tbex_site_items_codesnippets() {
 							)
 						);
 
-						$GLOBALS[ 'wp_admin_bar' ]->add_node(
+						$admin_bar->add_node(
 							array(
 								'id'     => 'elements-codesnippets-snippet-' . $snippet_id . '-clone',
 								'parent' => 'elements-codesnippets-snippet-' . $snippet_id,
@@ -131,7 +131,7 @@ function ddw_tbex_site_items_codesnippets() {
 							)
 						);
 
-						$GLOBALS[ 'wp_admin_bar' ]->add_node(
+						$admin_bar->add_node(
 							array(
 								'id'     => 'elements-codesnippets-snippet-' . $snippet_id . '-export',
 								'parent' => 'elements-codesnippets-snippet-' . $snippet_id,
@@ -150,7 +150,7 @@ function ddw_tbex_site_items_codesnippets() {
 
 		}  // end if Listing check
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'elements-codesnippets-all',
 				'parent' => 'elements-codesnippets',
@@ -163,7 +163,7 @@ function ddw_tbex_site_items_codesnippets() {
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'elements-codesnippets-new',
 				'parent' => 'elements-codesnippets',
@@ -176,7 +176,7 @@ function ddw_tbex_site_items_codesnippets() {
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'elements-codesnippets-import',
 				'parent' => 'elements-codesnippets',
@@ -189,7 +189,7 @@ function ddw_tbex_site_items_codesnippets() {
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'elements-codesnippets-settings',
 				'parent' => 'elements-codesnippets',
@@ -205,7 +205,7 @@ function ddw_tbex_site_items_codesnippets() {
 		/** Group: Resources for Code Snippets */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-codesnippets-resources',
 					'parent' => 'elements-codesnippets',
@@ -259,16 +259,16 @@ add_action( 'tbex_new_content_before_nav_menu', 'ddw_tbex_aoitems_new_content_co
  *
  * @since 1.0.0
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_new_content_code_snippet() {
+function ddw_tbex_aoitems_new_content_code_snippet( $admin_bar ) {
 
 	/** Bail early if items display is not wanted */
 	if ( ! ddw_tbex_display_items_new_content() ) {
-		return;
+		return $admin_bar;
 	}
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'tbex-code-snippet',
 			'parent' => 'new-content',
@@ -276,7 +276,7 @@ function ddw_tbex_aoitems_new_content_code_snippet() {
 			'href'   => esc_url( admin_url( 'admin.php?page=add-snippet' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr_x( 'Add new Code Snippet', 'Toolbar New Content section', 'toolbar-extras' )
+				'title'  => esc_attr_x( 'Add new Code Snippet', 'Toolbar New Content section', 'toolbar-extras' ),
 			)
 		)
 	);

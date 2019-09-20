@@ -21,12 +21,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_rooten', 100 );
  * @uses ddw_tbex_string_theme_title()
  * @uses ddw_tbex_customizer_start()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_rooten() {
+function ddw_tbex_themeitems_rooten( $admin_bar ) {
 
 	/** Theme creative */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'theme-creative',
 			'parent' => 'group-active-theme',
@@ -34,7 +34,7 @@ function ddw_tbex_themeitems_rooten() {
 			'href'   => ddw_tbex_customizer_start(),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_theme_title( 'attr', 'child' )
+				'title'  => ddw_tbex_string_theme_title( 'attr', 'child' ),
 			)
 		)
 	);
@@ -42,7 +42,7 @@ function ddw_tbex_themeitems_rooten() {
 		/** Rooten customize */
 		ddw_tbex_item_theme_creative_customize();
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'rooten-sidebar-generators',
 				'parent' => 'theme-creative',
@@ -50,7 +50,7 @@ function ddw_tbex_themeitems_rooten() {
 				'href'   => esc_url( admin_url( 'themes.php?page=rooten-sidebar-generator' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Sidebar Generator', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Sidebar Generator', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -211,20 +211,22 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_rooten_resources', 120 );
  *
  * @uses ddw_tbex_display_items_resources()
  * @uses ddw_tbex_resource_item()
+ *
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_rooten_resources() {
+function ddw_tbex_themeitems_rooten_resources( $admin_bar ) {
 
 	/** Bail early if no resources display active */
 	if ( ! ddw_tbex_display_items_resources() ) {
-		return;
+		return $admin_bar;
 	}
 
 	/** Group: Resources for Rooten */
-	$GLOBALS[ 'wp_admin_bar' ]->add_group(
+	$admin_bar->add_group(
 		array(
 			'id'     => 'group-theme-resources',
 			'parent' => 'theme-creative',
-			'meta'   => array( 'class' => 'ab-sub-secondary' )
+			'meta'   => array( 'class' => 'ab-sub-secondary' ),
 		)
 	);
 

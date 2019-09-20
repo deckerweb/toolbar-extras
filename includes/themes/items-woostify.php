@@ -33,7 +33,6 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_woostify', 100 );
  * @since 1.4.2
  *
  * @uses ddw_tbex_string_theme_title()
- * @uses ddw_tbex_is_suki_pro_active()
  * @uses ddw_tbex_item_theme_creative_customize()
  *
  * @param object $admin_bar Object of Toolbar nodes.
@@ -130,7 +129,7 @@ function ddw_tbex_themeitems_woostify_resources( $admin_bar ) {
 
 	/** Bail early if no resources display active */
 	if ( ! ddw_tbex_display_items_resources() ) {
-		return;
+		return $admin_bar;
 	}
 
 	/** Group: Resources for Woostify Theme */
@@ -161,11 +160,11 @@ function ddw_tbex_themeitems_woostify_resources( $admin_bar ) {
 		'theme-docs',
 		'group-theme-resources',
 		'https://woostify.com/docs/',
-		esc_attr__( 'Official Theme Documentation', 'toolbar-extras' )
+		ddw_tbex_string_official_theme_documentation()
 	);
 
 	/** Required hook for Woostify Pro resources */
-	do_action( 'tbex_after_theme_free_docs' );
+	do_action( 'tbex_after_theme_free_docs', $admin_bar );
 
 	ddw_tbex_resource_item(
 		'facebook-group',
@@ -174,6 +173,14 @@ function ddw_tbex_themeitems_woostify_resources( $admin_bar ) {
 		'https://www.facebook.com/groups/2245150649099616/'
 	);
 
+	ddw_tbex_resource_item(
+		'changelog',
+		'theme-changelog',
+		'group-theme-resources',
+		'https://woostify.com/product/woostify-theme/',
+		ddw_tbex_string_version_history( 'theme' )
+	);
+	
 	ddw_tbex_resource_item(
 		'translations-community',
 		'theme-translate',
@@ -209,7 +216,7 @@ function ddw_tbex_themeitems_woostify_sites_library( $admin_bar ) {
 
 	/** Bail early if no display of Demo Import items */
 	if ( ! ddw_tbex_display_items_demo_import() ) {
-		return;
+		return $admin_bar;
 	}
 
 	/** Sites Library */
@@ -227,7 +234,7 @@ function ddw_tbex_themeitems_woostify_sites_library( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'themes.php?page=woostify-sites' ) ),
 				'meta'   => array(
 					'target' => ddw_tbex_meta_target(),
-					'title'  => esc_attr__( 'Import Woostify Sites', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Import Woostify Sites', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -251,7 +258,7 @@ function ddw_tbex_themeitems_woostify_pro( $admin_bar ) {
 
 	/** Bail early if Pro version is not active */
 	if ( ! ddw_tbex_is_woostify_pro_active() ) {
-		return;
+		return $admin_bar;
 	}
 
 	/** Woostify settings */
@@ -263,7 +270,7 @@ function ddw_tbex_themeitems_woostify_pro( $admin_bar ) {
 			'href'   => esc_url( admin_url( 'themes.php?page=woostify-welcome' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Woostify Pro Settings', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Woostify Pro Settings', 'toolbar-extras' ),
 			)
 		)
 	);
@@ -276,7 +283,7 @@ function ddw_tbex_themeitems_woostify_pro( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'themes.php?page=woostify-welcome' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Activate Modules', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Activate Modules', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -292,12 +299,14 @@ add_action( 'tbex_after_theme_free_docs', 'ddw_tbex_themeitems_woostify_pro_reso
  *
  * @uses ddw_tbex_is_woostify_pro_active()
  * @uses ddw_tbex_resource_item()
+ *
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_woostify_pro_resources() {
+function ddw_tbex_themeitems_woostify_pro_resources( $admin_bar ) {
 
 	/** Bail early if Pro version is not active */
 	if ( ! ddw_tbex_is_woostify_pro_active() ) {
-		return;
+		return $admin_bar;
 	}
 
 	ddw_tbex_resource_item(

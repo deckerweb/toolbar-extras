@@ -42,11 +42,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_duplicator_pro', 10 );
  *
  * @since 1.3.2
  *
+ * @uses ddw_tbex_is_network_active_duplicator_pro()
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar']
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_duplicator_pro() {
+function ddw_tbex_site_items_duplicator_pro( $admin_bar ) {
 
 	/**
 	 * Bail early if:
@@ -61,12 +62,12 @@ function ddw_tbex_site_items_duplicator_pro() {
 	 */
 	if ( is_multisite()
 		&& ! is_main_site()
-		&& ! ddw_tbex_is_network_admin_duplicator_pro()
+		&& ! ddw_tbex_is_network_active_duplicator_pro()
 	) {
-		return;
+		return $admin_bar;
 	}
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'duplicatorpro',
 			'parent' => 'tbex-sitegroup-tools',
@@ -74,13 +75,13 @@ function ddw_tbex_site_items_duplicator_pro() {
 			'href'   => esc_url( network_admin_url( 'admin.php?page=duplicator-pro' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Duplicator Pro', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Duplicator Pro', 'toolbar-extras' ),
 			)
 		)
 	);
 
 		/** Archives (Packages) */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'duplicatorpro-archives',
 				'parent' => 'duplicatorpro',
@@ -88,12 +89,12 @@ function ddw_tbex_site_items_duplicator_pro() {
 				'href'   => esc_url( network_admin_url( 'admin.php?page=duplicator-pro' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Archives', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Archives', 'toolbar-extras' ),
 				)
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'duplicatorpro-archives-all',
 					'parent' => 'duplicatorpro-archives',
@@ -101,12 +102,12 @@ function ddw_tbex_site_items_duplicator_pro() {
 					'href'   => esc_url( network_admin_url( 'admin.php?page=duplicator-pro' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'All Archives', 'toolbar-extras' )
+						'title'  => esc_attr__( 'All Archives', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'duplicatorpro-archives-new',
 					'parent' => 'duplicatorpro-archives',
@@ -114,13 +115,13 @@ function ddw_tbex_site_items_duplicator_pro() {
 					'href'   => esc_url( network_admin_url( 'admin.php?page=duplicator-pro&tab=packages&inner_page=new1' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'New Archive', 'toolbar-extras' )
+						'title'  => esc_attr__( 'New Archive', 'toolbar-extras' ),
 					)
 				)
 			);
 
 		/** Schedules */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'duplicatorpro-schedules',
 				'parent' => 'duplicatorpro',
@@ -128,12 +129,12 @@ function ddw_tbex_site_items_duplicator_pro() {
 				'href'   => esc_url( network_admin_url( 'admin.php?page=duplicator-pro-schedules' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Schedules', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Schedules', 'toolbar-extras' ),
 				)
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'duplicatorpro-schedules-all',
 					'parent' => 'duplicatorpro-schedules',
@@ -141,12 +142,12 @@ function ddw_tbex_site_items_duplicator_pro() {
 					'href'   => esc_url( network_admin_url( 'admin.php?page=duplicator-pro-schedules' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'All Schedules', 'toolbar-extras' )
+						'title'  => esc_attr__( 'All Schedules', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'duplicatorpro-schedules-new',
 					'parent' => 'duplicatorpro-schedules',
@@ -154,13 +155,13 @@ function ddw_tbex_site_items_duplicator_pro() {
 					'href'   => esc_url( network_admin_url( 'admin.php?page=duplicator-pro-schedules&tab=schedules&inner_page=edit' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'New Schedule', 'toolbar-extras' )
+						'title'  => esc_attr__( 'New Schedule', 'toolbar-extras' ),
 					)
 				)
 			);
 
 		/** Storage Providers */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'duplicatorpro-storage-providers',
 				'parent' => 'duplicatorpro',
@@ -168,12 +169,12 @@ function ddw_tbex_site_items_duplicator_pro() {
 				'href'   => esc_url( network_admin_url( 'admin.php?page=duplicator-pro-storage' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Storage Providers', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Storage Providers', 'toolbar-extras' ),
 				)
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'duplicatorpro-storage-providers-all',
 					'parent' => 'duplicatorpro-storage-providers',
@@ -181,12 +182,12 @@ function ddw_tbex_site_items_duplicator_pro() {
 					'href'   => esc_url( network_admin_url( 'admin.php?page=duplicator-pro-storage' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'All Storage Providers', 'toolbar-extras' )
+						'title'  => esc_attr__( 'All Storage Providers', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'duplicatorpro-storage-providers-new',
 					'parent' => 'duplicatorpro-storage-providers',
@@ -194,13 +195,13 @@ function ddw_tbex_site_items_duplicator_pro() {
 					'href'   => esc_url( network_admin_url( 'admin.php?page=duplicator-pro-storage&tab=storage&inner_page=edit' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'New Storage Provider', 'toolbar-extras' )
+						'title'  => esc_attr__( 'New Storage Provider', 'toolbar-extras' ),
 					)
 				)
 			);
 
 		/** Tools */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'duplicatorpro-tools',
 				'parent' => 'duplicatorpro',
@@ -208,20 +209,20 @@ function ddw_tbex_site_items_duplicator_pro() {
 				'href'   => esc_url( network_admin_url( 'admin.php?page=duplicator-pro-tools' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Tools &amp; Logs', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Tools &amp; Logs', 'toolbar-extras' ),
 				)
 			)
 		);
 
 			/** Tools > Templates */
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-duplicatorpro-tools-templates',
-					'parent' => 'duplicatorpro-tools'
+					'parent' => 'duplicatorpro-tools',
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'duplicatorpro-tools-templates',
 					'parent' => 'group-duplicatorpro-tools-templates',
@@ -229,12 +230,12 @@ function ddw_tbex_site_items_duplicator_pro() {
 					'href'   => esc_url( network_admin_url( 'admin.php?page=duplicator-pro-tools&tab=templates' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'All Templates', 'toolbar-extras' )
+						'title'  => esc_attr__( 'All Templates', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'duplicatorpro-tools-templates-new',
 					'parent' => 'group-duplicatorpro-tools-templates',
@@ -242,13 +243,13 @@ function ddw_tbex_site_items_duplicator_pro() {
 					'href'   => esc_url( network_admin_url( 'admin.php?page=duplicator-pro-tools&tab=templates&inner_page=edit' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'New Template', 'toolbar-extras' )
+						'title'  => esc_attr__( 'New Template', 'toolbar-extras' ),
 					)
 				)
 			);
 
 			/** Tools > Diagnostics */
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'duplicatorpro-tools-information',
 					'parent' => 'duplicatorpro-tools',
@@ -256,12 +257,12 @@ function ddw_tbex_site_items_duplicator_pro() {
 					'href'   => esc_url( network_admin_url( 'admin.php?page=duplicator-pro-tools&tab=diagnostics&section=diagnostic' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Information', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Information', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'duplicatorpro-tools-logs',
 					'parent' => 'duplicatorpro-tools',
@@ -269,12 +270,12 @@ function ddw_tbex_site_items_duplicator_pro() {
 					'href'   => esc_url( network_admin_url( 'admin.php?page=duplicator-pro-tools&tab=diagnostics&section=log' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Log Files', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Log Files', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'duplicatorpro-tools-phplogs',
 					'parent' => 'duplicatorpro-tools',
@@ -282,13 +283,13 @@ function ddw_tbex_site_items_duplicator_pro() {
 					'href'   => esc_url( network_admin_url( 'admin.php?page=duplicator-pro-tools&tab=diagnostics&section=phplogs' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'PHP Logs', 'toolbar-extras' )
+						'title'  => esc_attr__( 'PHP Logs', 'toolbar-extras' ),
 					)
 				)
 			);
 
 		/** Settings */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'duplicatorpro-settings',
 				'parent' => 'duplicatorpro',
@@ -296,12 +297,12 @@ function ddw_tbex_site_items_duplicator_pro() {
 				'href'   => esc_url( network_admin_url( 'admin.php?page=duplicator-pro-settings' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
 				)
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'duplicatorpro-settings-general',
 					'parent' => 'duplicatorpro-settings',
@@ -309,12 +310,12 @@ function ddw_tbex_site_items_duplicator_pro() {
 					'href'   => esc_url( network_admin_url( 'admin.php?page=duplicator-pro-settings&tab=general' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'General', 'toolbar-extras' )
+						'title'  => esc_attr__( 'General', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'duplicatorpro-settings-packages',
 					'parent' => 'duplicatorpro-settings',
@@ -322,12 +323,12 @@ function ddw_tbex_site_items_duplicator_pro() {
 					'href'   => esc_url( network_admin_url( 'admin.php?page=duplicator-pro-settings&tab=package' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Packages', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Packages', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'duplicatorpro-settings-schedules',
 					'parent' => 'duplicatorpro-settings',
@@ -335,12 +336,12 @@ function ddw_tbex_site_items_duplicator_pro() {
 					'href'   => esc_url( network_admin_url( 'admin.php?page=duplicator-pro-settings&tab=schedule' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Schedules', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Schedules', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'duplicatorpro-settings-storage',
 					'parent' => 'duplicatorpro-settings',
@@ -348,12 +349,12 @@ function ddw_tbex_site_items_duplicator_pro() {
 					'href'   => esc_url( network_admin_url( 'admin.php?page=duplicator-pro-settings&tab=storage' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Storage', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Storage', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'duplicatorpro-settings-license',
 					'parent' => 'duplicatorpro-settings',
@@ -361,7 +362,7 @@ function ddw_tbex_site_items_duplicator_pro() {
 					'href'   => esc_url( network_admin_url( 'admin.php?page=duplicator-pro-settings&tab=licensing' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'License', 'toolbar-extras' )
+						'title'  => esc_attr__( 'License', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -369,11 +370,11 @@ function ddw_tbex_site_items_duplicator_pro() {
 		/** Group: Resources for Duplicator Pro */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-duplicatorpro-resources',
 					'parent' => 'duplicatorpro',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 
@@ -389,6 +390,14 @@ function ddw_tbex_site_items_duplicator_pro() {
 				'duplicatorpro-docs',
 				'group-duplicatorpro-resources',
 				'https://snapcreek.com/duplicator/docs/'
+			);
+
+			ddw_tbex_resource_item(
+				'changelog',
+				'duplicatorpro-changelog',
+				'group-duplicatorpro-resources',
+				'https://snapcreek.com/duplicator/docs/changelog/',
+				ddw_tbex_string_version_history( 'pro-plugin' )
 			);
 
 			ddw_tbex_resource_item(
@@ -409,18 +418,18 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_new_content_duplicator_pro', 100
  *
  * @since 1.3.2
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_new_content_duplicator_pro() {
+function ddw_tbex_aoitems_new_content_duplicator_pro( $admin_bar ) {
 
 	/** Bail early if items display is not wanted */
 	if ( ! ddw_tbex_display_items_new_content() ) {
-		return;
+		return $admin_bar;
 	}
 
 	if ( ddw_tbex_display_items_dev_mode() ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'tbex-duplicatorpro-package',
 				'parent' => 'new-content',
@@ -428,7 +437,7 @@ function ddw_tbex_aoitems_new_content_duplicator_pro() {
 				'href'   => ddw_tbex_is_network_active_duplicator_pro() ? esc_url( network_admin_url( 'admin.php?page=duplicator-pro&tab=packages&inner_page=new1' ) ) : esc_url( admin_url( 'admin.php?page=duplicator-pro&tab=packages&inner_page=new1' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => ddw_tbex_string_add_new_item( __( 'Duplicator Archive', 'toolbar-extras' ) )
+					'title'  => ddw_tbex_string_add_new_item( __( 'Duplicator Archive', 'toolbar-extras' ) ),
 				)
 			)
 		);

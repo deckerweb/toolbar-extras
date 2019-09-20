@@ -148,6 +148,15 @@ if ( ddw_tbex_is_acf_pro_active() && class_exists( 'AF' ) ) {
 
 
 /**
+ * Plugin: Flo Forms (free, by Flothemes)
+ * @since 1.4.7
+ */
+if ( class_exists( 'Flo_Forms_Loader' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins-forms/items-flo-forms.php';
+}
+
+
+/**
  * Plugin: BuddyForms (free, by ThemeKraft)
  * @since 1.4.2
  */

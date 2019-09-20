@@ -185,6 +185,14 @@ function ddw_tbex_site_items_advanced_custom_fields( $admin_bar ) {
 			);
 
 			ddw_tbex_resource_item(
+				'changelog',
+				'acfplugin-changelog',
+				'group-acfplugin-resources',
+				'https://www.advancedcustomfields.com/changelog/',
+				ddw_tbex_string_version_history( 'plugin' )
+			);
+			
+			ddw_tbex_resource_item(
 				'translations-community',
 				'acfplugin-translate',
 				'group-acfplugin-resources',

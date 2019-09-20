@@ -35,12 +35,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_futurio', 100 );
  * @uses ddw_tbex_string_theme_title()
  * @uses ddw_tbex_item_theme_creative_customize()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_futurio() {
+function ddw_tbex_themeitems_futurio( $admin_bar ) {
 
 	/** Futurio creative */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'theme-creative',
 			'parent' => 'group-active-theme',
@@ -144,21 +144,21 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_futurio_resources', 120 );
  * @uses ddw_tbex_is_futurio_pro_active()
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_futurio_resources() {
+function ddw_tbex_themeitems_futurio_resources( $admin_bar ) {
 
 	/** Bail early if no resources display active */
 	if ( ! ddw_tbex_display_items_resources() ) {
-		return;
+		return $admin_bar;
 	}
 
 	/** Group: Resources for Futurio Theme */
-	$GLOBALS[ 'wp_admin_bar' ]->add_group(
+	$admin_bar->add_group(
 		array(
 			'id'     => 'group-theme-resources',
 			'parent' => ddw_tbex_is_futurio_pro_active() ? 'theme-settings' : 'theme-creative',
-			'meta'   => array( 'class' => 'ab-sub-secondary' )
+			'meta'   => array( 'class' => 'ab-sub-secondary' ),
 		)
 	);
 
@@ -174,11 +174,11 @@ function ddw_tbex_themeitems_futurio_resources() {
 		'theme-docs',
 		'group-theme-resources',
 		'https://futuriowp.com/docs/futurio/',
-		esc_attr__( 'Official Theme Documentation', 'toolbar-extras' )
+		ddw_tbex_string_official_theme_documentation()
 	);
 
 	/** Required hook for Futurio Pro resources */
-	do_action( 'tbex_after_theme_free_docs' );
+	do_action( 'tbex_after_theme_free_docs', $admin_bar );
 
 	ddw_tbex_resource_item(
 		'translations-community',
@@ -208,16 +208,16 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_futurio_demo_install', 100 );
  * @uses ddw_tbex_id_sites_browser()
  * @uses ddw_tbex_item_title_with_settings_icon()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_futurio_demo_install() {
+function ddw_tbex_themeitems_futurio_demo_install( $admin_bar ) {
 
 	/** Bail early if no display of Demo Import items */
 	if ( ! ddw_tbex_display_items_demo_import() ) {
-		return;
+		return $admin_bar;
 	}
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => ddw_tbex_id_sites_browser(),
 			'parent' => 'group-demo-import',
@@ -229,7 +229,7 @@ function ddw_tbex_themeitems_futurio_demo_install() {
 			'href'   => esc_url( admin_url( 'themes.php?page=futurio-panel-install-demos' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Futurio Install Demos', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Futurio Install Demos', 'toolbar-extras' ),
 			)
 		)
 	);
@@ -245,17 +245,17 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_futurio_pro', 100 );
  *
  * @uses ddw_tbex_is_futurio_pro_active()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_futurio_pro() {
+function ddw_tbex_themeitems_futurio_pro( $admin_bar ) {
 
 	/** Bail early if Pro version is not active */
 	if ( ! ddw_tbex_is_futurio_pro_active() ) {
-		return;
+		return $admin_bar;
 	}
 
 	/** Futurio settings */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'theme-settings',
 			'parent' => 'group-active-theme',
@@ -268,7 +268,7 @@ function ddw_tbex_themeitems_futurio_pro() {
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'theme-settings-info',
 				'parent' => 'theme-settings',
@@ -276,12 +276,12 @@ function ddw_tbex_themeitems_futurio_pro() {
 				'href'   => esc_url( admin_url( 'themes.php?page=futurio' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Theme Info', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Theme Info', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'theme-settings-license',
 				'parent' => 'theme-settings',
@@ -289,7 +289,7 @@ function ddw_tbex_themeitems_futurio_pro() {
 				'href'   => esc_url( admin_url( 'options-general.php?page=futurio-license-options' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'License', 'toolbar-extras' )
+					'title'  => esc_attr__( 'License', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -305,12 +305,14 @@ add_action( 'tbex_after_theme_free_docs', 'ddw_tbex_themeitems_futurio_pro_resou
  *
  * @uses ddw_tbex_is_futurio_pro_active()
  * @uses ddw_tbex_resource_item()
+ *
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_futurio_pro_resources() {
+function ddw_tbex_themeitems_futurio_pro_resources( $admin_bar ) {
 
 	/** Bail early if Pro version is not active */
 	if ( ! ddw_tbex_is_futurio_pro_active() ) {
-		return;
+		return $admin_bar;
 	}
 
 	ddw_tbex_resource_item(

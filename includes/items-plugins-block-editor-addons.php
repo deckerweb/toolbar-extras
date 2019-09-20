@@ -158,6 +158,15 @@ if ( ddw_tbex_is_woocommerce_active() && defined( 'VI_WCEB_VERSION' ) ) {
 }
 
 
+/**
+ * Plugin: Block Areas (free, by The WP Rig Contributors)
+ * @since 1.4.7
+ */
+if ( function_exists( 'block_areas_load' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-block-areas.php';
+}
+
+
 
 /**
  * 2nd GROUP: Settings, Extras, Elements etc. (Add-On type)
@@ -471,6 +480,24 @@ if ( class_exists( '\CloudBlocks\CloudBlocks' ) ) {
 }
 
 
+/**
+ * Plugin: Gutentor (free, by Gutentor)
+ * @since 1.4.7
+ */
+if ( defined( 'GUTENTOR_VERSION' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-gutentor.php';
+}
+
+
+/**
+ * Plugin: BlockyPage Gutenberg Blocks (free, by BlockyPage Team)
+ * @since 1.4.7
+ */
+if ( function_exists( 'blpge_welcome_page_html' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-blockypage.php';
+}
+
+
 
 /**
  * Conditional Hook Position for Add-Ons
@@ -487,17 +514,17 @@ add_action( 'admin_bar_menu', 'ddw_tbex_addons_hook_place_block_editor', 200 );
  * Add Block Editor (Gutenberg) specific sub group at the Add-Ons hook place.
  *
  * @since  1.4.0
-*
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ *
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_addons_hook_place_block_editor() {
+function ddw_tbex_addons_hook_place_block_editor( $admin_bar ) {
 
 	if ( has_filter( 'tbex_filter_is_addon' ) ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_group(
+		$admin_bar->add_group(
 			array(
 				'id'     => 'group-tbex-addons-blockeditor',
-				'parent' => 'tbex-addons'
+				'parent' => 'tbex-addons',
 			)
 		);
 

@@ -61,6 +61,20 @@ function ddw_tbex_is_addon_oxygen_active() {
 
 
 /**
+ * Is the TBEX GiveWP Add-On plugin active or not?
+ *
+ * @since 1.4.7
+ *
+ * @return bool TRUE if plugin is active, FALSE otherwise.
+ */
+function ddw_tbex_is_addon_givewp_active() {
+
+	return defined( 'TBEXGIVE_PLUGIN_VERSION' );
+
+}  // end function
+
+
+/**
  * Is the TBEX Brizy Add-On plugin active or not?
  *
  * @since 1.4.2
@@ -70,6 +84,20 @@ function ddw_tbex_is_addon_oxygen_active() {
 function ddw_tbex_is_addon_brizy_active() {
 
 	return defined( 'TBEXBZY_PLUGIN_VERSION' );
+
+}  // end function
+
+
+/**
+ * Is the TBEX Simple:Press Add-On plugin active or not?
+ *
+ * @since 1.4.7
+ *
+ * @return bool TRUE if plugin is active, FALSE otherwise.
+ */
+function ddw_tbex_is_addon_simplepress_active() {
+
+	return defined( 'TBEXSP_PLUGIN_VERSION' );
 
 }  // end function
 
@@ -189,10 +217,11 @@ function ddw_tbex_is_elementor_pro_active() {
  * @uses ddw_tbex_is_elementor_active()
  * @uses ddw_tbex_is_elementor_pro_active()
  *
- * @param string $type Type of Elementor, free Core or Pro Version.
- * @param string $version Version of Elementor Core/Pro to check against.
+ * @param string $type     Type of Elementor, free Core or Pro Version.
+ * @param string $version  Version of Elementor Core/Pro to check against.
  * @param string $operator Comparison operator.
- * @return bool TRUE if the specific Elementor Core/Pro version is active, FALSE otherwise.
+ * @return bool TRUE if the specific Elementor Core/Pro version is active, FALSE
+ *              otherwise.
  */
 function ddw_tbex_is_elementor_version( $type = 'core', $version = '', $operator = '' ) {
 
@@ -227,6 +256,71 @@ define( 'TBEX_ELEMENTOR_BEFORE_240', '2.3.999' );
 
 
 /**
+ * Check if Astra theme is active or not.
+ *
+ * @since 1.4.7
+ *
+ * @return bool TRUE if constant defined, FALSE otherwise.
+ */
+function ddw_tbex_is_astra_active() {
+
+	return ( defined( 'ASTRA_THEME_VERSION' ) );
+
+}  // end function
+
+
+/**
+ * Check if Astra Pro Add-On plugin is active or not.
+ *
+ * @since 1.0.0
+ * @since 1.4.7 Refactored.
+ *
+ * @return bool TRUE if class exists, FALSE otherwise.
+ */
+function ddw_tbex_is_astra_pro_active() {
+
+	return ( defined( 'ASTRA_EXT_VER' ) || class_exists( 'Astra_Addon_Update' ) );
+
+}  // end function
+
+
+/**
+ * Check for a specific version of Astra Core/Pro.
+ *
+ * @since 1.4.7
+ *
+ * @uses ddw_tbex_is_astra_active()
+ * @uses ddw_tbex_is_astra_pro_active()
+ *
+ * @param string $type     Type of Astra, free Core or Pro Version.
+ * @param string $version  Version of Astra Core/Pro to check against.
+ * @param string $operator Comparison operator.
+ * @return bool TRUE if the specific Astra Core/Pro version is active, FALSE
+ *              otherwise.
+ */
+function ddw_tbex_is_astra_version( $type = 'core', $version = '', $operator = '' ) {
+
+	$astra_version = '';
+	
+	/** Check type for the 2 possible values */
+	switch ( sanitize_key( $type ) ) {
+
+		case 'core':
+			$astra_version = ddw_tbex_is_astra_active() ? ASTRA_THEME_VERSION : 0;
+			break;
+
+		case 'pro':
+			$astra_version = ddw_tbex_is_astra_pro_active() ? ASTRA_EXT_VER : 0;
+			break;
+
+	}  // end switch
+
+	return version_compare( $astra_version, strtolower( $version ), strtolower( $operator ) );
+
+}  // end function
+
+
+/**
  * Is Genesis Framework plugin active or not?
  *   (A Premium theme by StudioPress/ Rainmaker Digital, LLC)
  *   NOTE: Usage of Genesis without Child Theme is absolutely NOT recommended,
@@ -250,6 +344,7 @@ function ddw_tbex_is_genesis_active() {
  * @since 1.0.0
  * @since 1.4.0 Added Twenty Nineteen theme.
  * @since 1.4.3 Improved general compatibility for parent/child themes.
+ * @since 1.4.7 Added Twenty Twenty theme.
  *
  * @return bool TRUE if current active Theme/ Child Theme is in the array of
  *              supported themes, FALSE otherwise.
@@ -258,6 +353,7 @@ function ddw_tbex_is_default_twenty() {
 
 	/** Supported official default themes */
 	$supported_twenty = array(
+		'twentytwenty',
 		'twentynineteen',
 		'twentyseventeen',
 		'twentysixteen',
@@ -1003,5 +1099,19 @@ function ddw_tbex_is_acf_pro_active() {
 function ddw_tbex_is_acf_extended_active() {
 
 	return ddw_tbex_is_acf_pro_active() && function_exists( 'acfe_load' );
+
+}  // end function
+
+
+/**
+ * Is the Export Import Menus plugin active or not?
+ *
+ * @since 1.4.7
+ *
+ * @return bool TRUE if plugin is active, FALSE otherwise.
+ */
+function ddw_tbex_is_export_import_menus_active() {
+
+	return class_exists( 'DspExportImportMenus' );
 
 }  // end function

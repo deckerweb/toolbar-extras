@@ -19,21 +19,21 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_devmode_theme_switcha', 50 );
  *
  * @since 1.0.0
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_devmode_theme_switcha() {
+function ddw_tbex_site_items_devmode_theme_switcha( $admin_bar ) {
 
 	add_filter( 'tbex_filter_is_dev_mode', '__return_empty_string' );
 
 	/** Group */
-	$GLOBALS[ 'wp_admin_bar' ]->add_group(
+	$admin_bar->add_group(
 		array(
 			'id'     => 'group-themeswitcha',
-			'parent' => 'rapid-dev'
+			'parent' => 'rapid-dev',
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'themeswitcha',
 			'parent' => 'group-themeswitcha',
@@ -41,7 +41,7 @@ function ddw_tbex_site_items_devmode_theme_switcha() {
 			'href'   => esc_url( admin_url( 'options-general.php?page=theme_switcha_settings' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Theme Switcha', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Theme Switcha', 'toolbar-extras' ),
 			)
 		)
 	);

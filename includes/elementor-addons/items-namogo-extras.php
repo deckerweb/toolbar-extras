@@ -36,7 +36,7 @@ function ddw_tbex_aoitems_elementor_extras( $admin_bar ) {
 			'href'   => esc_url( admin_url( 'admin.php?page=elementor-extras' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_premium_addon_title_attr( __( 'Elementor Extras', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_premium_addon_title_attr( __( 'Elementor Extras', 'toolbar-extras' ) ),
 			)
 		)
 	);
@@ -49,7 +49,7 @@ function ddw_tbex_aoitems_elementor_extras( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'admin.php?page=elementor-extras#elementor_extras_widgets' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Activate Widgets', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Activate Widgets', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -62,7 +62,7 @@ function ddw_tbex_aoitems_elementor_extras( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'admin.php?page=elementor-extras#elementor_extras_extensions' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Activate Extensions', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Activate Extensions', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -75,7 +75,7 @@ function ddw_tbex_aoitems_elementor_extras( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'admin.php?page=elementor-extras#elementor_extras_apis' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Activate APIs', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Activate APIs', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -88,7 +88,7 @@ function ddw_tbex_aoitems_elementor_extras( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'admin.php?page=elementor-extras#elementor_extras_advanced' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Advanced Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Advanced Settings', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -101,7 +101,7 @@ function ddw_tbex_aoitems_elementor_extras( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'admin.php?page=elementor_extras_license' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'License', 'toolbar-extras' )
+					'title'  => esc_attr__( 'License', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -113,7 +113,7 @@ function ddw_tbex_aoitems_elementor_extras( $admin_bar ) {
 				array(
 					'id'     => 'group-namogoextras-resources',
 					'parent' => 'ao-namogoextras',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

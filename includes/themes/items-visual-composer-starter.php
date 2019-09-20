@@ -22,12 +22,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_visual_composer_starter', 100
  * @uses ddw_tbex_customizer_focus()
  * @uses ddw_tbex_item_theme_creative_customize()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_visual_composer_starter() {
+function ddw_tbex_themeitems_visual_composer_starter( $admin_bar ) {
 
 	/** Visual Composer Starter creative */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'theme-creative',
 			'parent' => 'group-active-theme',
@@ -35,7 +35,7 @@ function ddw_tbex_themeitems_visual_composer_starter() {
 			'href'   => ddw_tbex_customizer_focus( 'section', 'vct_overall_site' ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_theme_title( 'attr', 'child' )
+				'title'  => ddw_tbex_string_theme_title( 'attr', 'child' ),
 			)
 		)
 	);
@@ -123,21 +123,21 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_visual_composer_starter_resou
  * @uses ddw_tbex_display_items_resources()
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_visual_composer_starter_resources() {
+function ddw_tbex_themeitems_visual_composer_starter_resources( $admin_bar ) {
 
 	/** Bail early if no resources display active */
 	if ( ! ddw_tbex_display_items_resources() ) {
-		return;
+		return $admin_bar;
 	}
 
 	/** Group: Resources for Visual Composer Starter Theme */
-	$GLOBALS[ 'wp_admin_bar' ]->add_group(
+	$admin_bar->add_group(
 		array(
 			'id'     => 'group-theme-resources',
 			'parent' => 'theme-creative',
-			'meta'   => array( 'class' => 'ab-sub-secondary' )
+			'meta'   => array( 'class' => 'ab-sub-secondary' ),
 		)
 	);
 

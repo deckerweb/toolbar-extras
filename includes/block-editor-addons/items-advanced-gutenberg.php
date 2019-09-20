@@ -20,11 +20,11 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_advanced_gutenberg', 150 );
  *
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar']
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_advanced_gutenberg() {
+function ddw_tbex_aoitems_advanced_gutenberg( $admin_bar ) {
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'tbex-advanced-gutenberg',
 			'parent' => 'group-creative-content',
@@ -32,12 +32,12 @@ function ddw_tbex_aoitems_advanced_gutenberg() {
 			'href'   => esc_url( admin_url( 'admin.php?page=advgb_main' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_free_addon_title_attr( __( 'Advanced Gutenberg', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_free_addon_title_attr( __( 'Advanced Gutenberg', 'toolbar-extras' ) ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'advanced-gutenberg-profiles-all',
 				'parent' => 'tbex-advanced-gutenberg',
@@ -45,12 +45,12 @@ function ddw_tbex_aoitems_advanced_gutenberg() {
 				'href'   => esc_url( admin_url( 'admin.php?page=advgb_main#profiles' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'All Profiles', 'toolbar-extras' )
+					'title'  => esc_attr__( 'All Profiles', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'advanced-gutenberg-profiles-new',
 				'parent' => 'tbex-advanced-gutenberg',
@@ -58,12 +58,12 @@ function ddw_tbex_aoitems_advanced_gutenberg() {
 				'href'   => esc_url( admin_url( 'admin.php?page=advgb_main&view=profile&id=new' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'New Profile', 'toolbar-extras' )
+					'title'  => esc_attr__( 'New Profile', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'advanced-gutenberg-settings',
 				'parent' => 'tbex-advanced-gutenberg',
@@ -71,12 +71,12 @@ function ddw_tbex_aoitems_advanced_gutenberg() {
 				'href'   => esc_url( admin_url( 'admin.php?page=advgb_main#settings' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
 				)
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'advanced-gutenberg-settings-configuration',
 					'parent' => 'advanced-gutenberg-settings',
@@ -84,12 +84,12 @@ function ddw_tbex_aoitems_advanced_gutenberg() {
 					'href'   => esc_url( admin_url( 'admin.php?page=advgb_main#settings' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Configuration', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Configuration', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'advanced-gutenberg-settings-email-form',
 					'parent' => 'advanced-gutenberg-settings',
@@ -97,12 +97,12 @@ function ddw_tbex_aoitems_advanced_gutenberg() {
 					'href'   => esc_url( admin_url( 'admin.php?page=advgb_main#email-form' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Email &amp; Form', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Email &amp; Form', 'toolbar-extras' ),
 					)
 				)
 			);
 			
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'advanced-gutenberg-settings-styles',
 					'parent' => 'advanced-gutenberg-settings',
@@ -110,12 +110,12 @@ function ddw_tbex_aoitems_advanced_gutenberg() {
 					'href'   => esc_url( admin_url( 'admin.php?page=advgb_main#custom-styles' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Custom Styles', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Custom Styles', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'advanced-gutenberg-settings-translation',
 					'parent' => 'advanced-gutenberg-settings',
@@ -123,7 +123,7 @@ function ddw_tbex_aoitems_advanced_gutenberg() {
 					'href'   => esc_url( admin_url( 'admin.php?page=advgb_main#translation' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Translation Tools', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Translation Tools', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -131,11 +131,11 @@ function ddw_tbex_aoitems_advanced_gutenberg() {
 		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-advancedgutenberg-resources',
 					'parent' => 'tbex-advanced-gutenberg',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 
@@ -171,16 +171,16 @@ add_action( 'tbex_new_content_before_nav_menu', 'ddw_tbex_new_content_advanced_g
  *
  * @since 1.4.0
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_new_content_advanced_gutenberg() {
+function ddw_tbex_new_content_advanced_gutenberg( $admin_bar ) {
 
 	/** Bail early if items display is not wanted */
 	if ( ! ddw_tbex_display_items_new_content() ) {
-		return;
+		return $admin_bar;
 	}
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'tbex-new-advgb-profile',
 			'parent' => 'new-content',
@@ -188,7 +188,7 @@ function ddw_tbex_new_content_advanced_gutenberg() {
 			'href'   => esc_url( admin_url( 'admin.php?page=advgb_main&view=profile&id=new' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Add new Block Editor Profile via Advanced Gutenberg Add-On', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Add new Block Editor Profile via Advanced Gutenberg Add-On', 'toolbar-extras' ),
 			)
 		)
 	);

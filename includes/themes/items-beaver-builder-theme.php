@@ -23,12 +23,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_bbtheme', 100 );
  * @uses ddw_tbex_customizer_focus()
  * @uses ddw_tbex_customizer_start()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_bbtheme() {
+function ddw_tbex_themeitems_bbtheme( $admin_bar ) {
 
 	/** Beaver Builder Theme creative */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'theme-creative',
 			'parent' => 'group-active-theme',
@@ -126,16 +126,18 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_bbtheme_resources', 120 );
  *
  * @uses ddw_tbex_display_items_resources()
  * @uses ddw_tbex_resource_item()
+ *
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_bbtheme_resources() {
+function ddw_tbex_themeitems_bbtheme_resources( $admin_bar ) {
 
 	/** Bail early if no resources display active */
 	if ( ! ddw_tbex_display_items_resources() ) {
-		return;
+		return $admin_bar;
 	}
 
 	/** Group: Resources for Beaver Builder Theme */
-	$GLOBALS[ 'wp_admin_bar' ]->add_group(
+	$admin_bar->add_group(
 		array(
 			'id'     => 'group-theme-resources',
 			'parent' => 'theme-creative',
@@ -150,6 +152,14 @@ function ddw_tbex_themeitems_bbtheme_resources() {
 		'https://kb.wpbeaverbuilder.com/collection/7-theme'
 	);
 
+	ddw_tbex_resource_item(
+		'changelog',
+		'theme-changelog',
+		'group-theme-resources',
+		'https://www.wpbeaverbuilder.com/change-logs/#change-logs-2',
+		ddw_tbex_string_version_history( 'theme' )
+	);
+	
 	ddw_tbex_resource_item(
 		'official-site',
 		'theme-site',

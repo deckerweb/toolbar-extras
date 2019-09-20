@@ -17,6 +17,6 @@
     "source": "https://github.com/deckerweb/toolbar-extras"
   },
   "require": {
-    "php": ">=5.6"
+    "php": ">=5.6.20"
   }
 }

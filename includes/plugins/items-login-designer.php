@@ -20,7 +20,7 @@ add_filter( 'wp_before_admin_bar_render', 'ddw_tbex_site_items_login_designer', 
  *
  * @since 1.4.0
  *
- * @uses Login_Designer::get_login_designer_page()
+ * @uses Login_Designer()->get_login_designer_page()
  * @uses ddw_tbex_item_title_with_icon()
  * @uses ddw_tbex_customizer_focus()
  *
@@ -33,7 +33,7 @@ function ddw_tbex_site_items_login_designer( $admin_bar ) {
 	$customizer_url = ddw_tbex_customizer_focus(
 		'panel',
 		'login_designer__section--styles',
-		get_permalink( Login_Designer::get_login_designer_page() )
+		get_permalink( Login_Designer()->get_login_designer_page() )
 	);
 
 	$title = esc_attr__( 'Login Designer', 'toolbar-extras' );
@@ -75,7 +75,7 @@ add_filter( 'tbex_filter_items_theme_customizer_deep', 'ddw_tbex_themeitems_logi
  *
  * @since 1.4.0
  *
- * @uses Login_Designer::get_login_designer_page()
+ * @uses Login_Designer()->get_login_designer_page()
  *
  * @param array $items Existing array of params for creating Toolbar nodes.
  * @return array Tweaked array of params for creating Toolbar nodes.
@@ -83,7 +83,7 @@ add_filter( 'tbex_filter_items_theme_customizer_deep', 'ddw_tbex_themeitems_logi
 function ddw_tbex_themeitems_login_designer_customizer_sections( array $items ) {
 
 	$parent      = 'rtabor-logindesigner';
-	$preview_url = get_permalink( Login_Designer::get_login_designer_page() );
+	$preview_url = get_permalink( Login_Designer()->get_login_designer_page() );
 
 	/** Declare plugin's items */
 	$lgds_items = array(

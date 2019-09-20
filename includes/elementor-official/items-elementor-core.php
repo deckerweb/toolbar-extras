@@ -795,6 +795,13 @@ function ddw_tbex_items_elementor_core_developers() {
 		);
 
 		ddw_tbex_resource_item(
+			'dev-blog',
+			'elementor-developers-blog',
+			'elementor-developers',
+			ddw_tbex_get_resource_url( 'elementor', 'url_dev_blog' )
+		);
+
+		ddw_tbex_resource_item(
 			'code-reference',
 			'elementor-developers-code',
 			'elementor-developers',

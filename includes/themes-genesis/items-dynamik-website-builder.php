@@ -262,7 +262,7 @@ function ddw_tbex_themeitems_dynamik_resources() {
 		'dynamik-docs',
 		'group-dynamik-resources',
 		'https://docs.cobaltapps.com/collection/368-dynamik',
-		esc_attr__( 'Official Theme Documentation', 'toolbar-extras' )
+		ddw_tbex_string_official_theme_documentation()
 	);
 
 	ddw_tbex_resource_item(

@@ -14,16 +14,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 add_action( 'admin_bar_menu', 'ddw_tbex_site_items_soliloquy', 15 );
 /**
- * Site items for Plugin: Soliloquy Sliders Lite/Pro (free/Premium, by Soliloquy Team)
+ * Site items for Plugin:
+ *   Soliloquy Sliders Lite/Pro (free/Premium, by Soliloquy Team)
  *
  * @since 1.1.0
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_soliloquy() {
+function ddw_tbex_site_items_soliloquy( $admin_bar ) {
 
 	/** For: Manage Content */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'soliloquy',
 			'parent' => 'gallery-slider-addons',
@@ -31,12 +32,12 @@ function ddw_tbex_site_items_soliloquy() {
 			'href'   => esc_url( admin_url( 'edit.php?post_type=soliloquy' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Soliloquy Slider', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Soliloquy Slider', 'toolbar-extras' ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'soliloquy-all',
 				'parent' => 'soliloquy',
@@ -44,12 +45,12 @@ function ddw_tbex_site_items_soliloquy() {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=soliloquy' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'All Sliders', 'toolbar-extras' )
+					'title'  => esc_attr__( 'All Sliders', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'soliloquy-new',
 				'parent' => 'soliloquy',
@@ -57,14 +58,14 @@ function ddw_tbex_site_items_soliloquy() {
 				'href'   => esc_url( admin_url( 'post-new.php?post_type=soliloquy' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'New Slider', 'toolbar-extras' )
+					'title'  => esc_attr__( 'New Slider', 'toolbar-extras' ),
 				)
 			)
 		);
 
 		if ( class_exists( 'Soliloquy' ) ) {
 			
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'soliloquy-settings',
 					'parent' => 'soliloquy',
@@ -72,12 +73,12 @@ function ddw_tbex_site_items_soliloquy() {
 					'href'   => esc_url( admin_url( 'edit.php?post_type=soliloquy&page=soliloquy-settings' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'soliloquy-addons',
 					'parent' => 'soliloquy',
@@ -85,7 +86,7 @@ function ddw_tbex_site_items_soliloquy() {
 					'href'   => esc_url( admin_url( 'edit.php?post_type=soliloquy&page=soliloquy-addons' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Activate/ Deactivate Add-Ons', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Activate/ Deactivate Add-Ons', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -95,11 +96,11 @@ function ddw_tbex_site_items_soliloquy() {
 		/** Group: Resources for Soliloquy */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-soliloquy-resources',
 					'parent' => 'soliloquy',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 
@@ -159,16 +160,16 @@ add_action( 'tbex_new_content_before_nav_menu', 'ddw_tbex_new_content_soliloquy'
  *
  * @since 1.1.0
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_new_content_soliloquy() {
+function ddw_tbex_new_content_soliloquy( $admin_bar ) {
 
 	/** Bail early if items display is not wanted */
 	if ( ! ddw_tbex_display_items_new_content() ) {
-		return;
+		return $admin_bar;
 	}
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'tbex-new-soliloquy',
 			'parent' => 'new-content',
@@ -176,9 +177,9 @@ function ddw_tbex_new_content_soliloquy() {
 			'href'   => esc_url( admin_url( 'post-new.php?post_type=soliloquy' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr_x( 'Add new Soliloquy Slider', 'Toolbar New Content section', 'toolbar-extras' )
+				'title'  => esc_attr_x( 'Add new Soliloquy Slider', 'Toolbar New Content section', 'toolbar-extras' ),
 			)
 		)
 	);
 
-}  // end if
+}  // end function

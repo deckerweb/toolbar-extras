@@ -139,3 +139,25 @@ function ddw_tbex_aoitems_jetsmartfilters( $admin_bar ) {
 		}  // end if
 
 }  // end function
+
+
+add_action( 'admin_menu', 'ddw_tbex_add_submenu_jetsmartfilters' );
+/**
+ * Add the appropriate admin menu - using the post type list table page as
+ *   the callback.
+ *
+ * @since 1.4.7
+ *
+ * @uses add_submenu_page()
+ */
+function ddw_tbex_add_submenu_jetsmartfilters() {
+
+    add_submenu_page(
+    	'edit.php?post_type=jet-smart-filters',
+        _x( 'JetSmartFilters Settings', 'Admin page title', 'toolbar-extras' ),
+        _x( 'Settings', 'Admin menu label', 'toolbar-extras' ),
+        'manage_options',
+        esc_url( admin_url( 'admin.php?page=jet-smart-filters-settings' ) )
+    );
+
+}  // end function

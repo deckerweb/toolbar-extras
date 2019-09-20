@@ -35,12 +35,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_flexia', 100 );
  * @uses ddw_tbex_string_customize_design()
  * @uses ddw_tbex_customizer_start()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_flexia() {
+function ddw_tbex_themeitems_flexia( $admin_bar ) {
 
 	/** Flexia creative */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'theme-creative',
 			'parent' => 'group-active-theme',
@@ -53,7 +53,7 @@ function ddw_tbex_themeitems_flexia() {
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'theme-creative-customize',
 				'parent' => 'theme-creative',
@@ -78,11 +78,11 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_flexia_customize', 100 );
  * @uses ddw_tbex_customizer_focus()
  * @uses ddw_tbex_string_customize_attr()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_flexia_customize() {
+function ddw_tbex_themeitems_flexia_customize( $admin_bar ) {
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'flexiacmz-general-settings',
 			'parent' => 'theme-creative-customize',
@@ -96,7 +96,7 @@ function ddw_tbex_themeitems_flexia_customize() {
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'flexiacmz-header',
 			'parent' => 'theme-creative-customize',
@@ -110,7 +110,7 @@ function ddw_tbex_themeitems_flexia_customize() {
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'flexiacmz-footer',
 			'parent' => 'theme-creative-customize',
@@ -124,7 +124,7 @@ function ddw_tbex_themeitems_flexia_customize() {
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'flexiacmz-layout',
 			'parent' => 'theme-creative-customize',
@@ -138,7 +138,7 @@ function ddw_tbex_themeitems_flexia_customize() {
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'flexiacmz-blog-styles',
 			'parent' => 'theme-creative-customize',
@@ -152,7 +152,7 @@ function ddw_tbex_themeitems_flexia_customize() {
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'flexiacmz-color-typography',
 			'parent' => 'theme-creative-customize',
@@ -166,7 +166,7 @@ function ddw_tbex_themeitems_flexia_customize() {
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'flexiacmz-design',
 			'parent' => 'theme-creative-customize',
@@ -180,7 +180,7 @@ function ddw_tbex_themeitems_flexia_customize() {
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'flexiacmz-custom-javascripts',
 			'parent' => 'theme-creative-customize',
@@ -207,17 +207,17 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_flexia_resources', 120 );
  * @uses ddw_tbex_display_items_resources()
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_flexia_resources() {
+function ddw_tbex_themeitems_flexia_resources( $admin_bar ) {
 
 	/** Bail early if no resources display active */
 	if ( ! ddw_tbex_display_items_resources() ) {
-		return;
+		return $admin_bar;
 	}
 
 	/** Group: Resources for Flexia Theme */
-	$GLOBALS[ 'wp_admin_bar' ]->add_group(
+	$admin_bar->add_group(
 		array(
 			'id'     => 'group-theme-resources',
 			'parent' => ddw_tbex_is_flexia_pro_active() ? 'theme-settings' : 'theme-creative',
@@ -244,11 +244,11 @@ function ddw_tbex_themeitems_flexia_resources() {
 		'theme-docs',
 		'group-theme-resources',
 		'https://flexia.pro/docs/',
-		esc_attr__( 'Official Theme Documentation', 'toolbar-extras' )
+		ddw_tbex_string_official_theme_documentation()
 	);
 
 	/** Required hook for Flexia Pro resources */
-	do_action( 'tbex_after_theme_free_docs' );
+	do_action( 'tbex_after_theme_free_docs', $admin_bar );
 
 	ddw_tbex_resource_item(
 		'translations-community',
@@ -283,24 +283,24 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_flexia_pro', 100 );
  * @uses ddw_tbex_is_flexia_pro_active()
  * @uses ddw_tbex_is_elementor_active()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_flexia_pro() {
+function ddw_tbex_themeitems_flexia_pro( $admin_bar ) {
 
 	/** Bail early if Pro version is not active */
 	if ( ! ddw_tbex_is_flexia_pro_active() ) {
-		return;
+		return $admin_bar;
 	}
 
 	/** Portfolio Post Type */
-	$GLOBALS[ 'wp_admin_bar' ]->add_group(
+	$admin_bar->add_group(
 		array(
 			'id'     => 'flexia-portfolio',
 			'parent' => 'theme-creative'
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'flexiapro-portfolio-all',
 				'parent' => 'flexia-portfolio',
@@ -313,7 +313,7 @@ function ddw_tbex_themeitems_flexia_pro() {
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'flexiapro-portfolio-new',
 				'parent' => 'flexia-portfolio',
@@ -328,7 +328,7 @@ function ddw_tbex_themeitems_flexia_pro() {
 
 		if ( ddw_tbex_is_elementor_active() && \Elementor\User::is_current_user_can_edit_post_type( 'flexia-portfolio' ) ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'flexiapro-portfolio-builder',
 					'parent' => 'flexia-portfolio',
@@ -350,7 +350,7 @@ function ddw_tbex_themeitems_flexia_pro() {
 	/** Customizer: Pro Panels */
 	if ( TRUE === $flexiapro_preloader[ 'flexia-preloader' ] ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'flexiaprocmz-preloader',
 				'parent' => 'theme-creative-customize',
@@ -366,7 +366,7 @@ function ddw_tbex_themeitems_flexia_pro() {
 
 	}  // end if
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'flexiaprocmz-portfolio',
 			'parent' => 'theme-creative-customize',
@@ -381,7 +381,7 @@ function ddw_tbex_themeitems_flexia_pro() {
 	);
 
 	/** Flexia Pro Theme Settings */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'theme-settings',
 			'parent' => 'group-active-theme',
@@ -394,7 +394,7 @@ function ddw_tbex_themeitems_flexia_pro() {
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'flexiapro-modules',
 				'parent' => 'theme-settings',
@@ -409,7 +409,7 @@ function ddw_tbex_themeitems_flexia_pro() {
 
 		if ( TRUE === $flexiapro_under_construction[ 'flexia-under-construction' ] ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'flexiapro-under-construction',
 					'parent' => 'theme-settings',
@@ -436,20 +436,20 @@ add_action( 'tbex_new_content_before_nav_menu', 'ddw_tbex_new_content_flexia_pro
  * @uses ddw_tbex_display_items_new_content()
  * @uses ddw_tbex_is_elementor_active()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_new_content_flexia_pro() {
+function ddw_tbex_new_content_flexia_pro( $admin_bar ) {
 
 	/** Bail early if items display is not wanted */
 	if ( ! ddw_tbex_display_items_new_content() ) {
-		return;
+		return $admin_bar;
 	}
 
 	if ( ddw_tbex_is_elementor_active()
 		&& \Elementor\User::is_current_user_can_edit_post_type( 'flexia-portfolio' )
 	) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'flexiapro-new-portfolio-with-builder',
 				'parent' => 'new-flexia-portfolio',

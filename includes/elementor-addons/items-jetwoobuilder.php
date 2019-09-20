@@ -160,7 +160,8 @@ function ddw_tbex_aoitems_jetwoobuilder( $admin_bar ) {
 				'changelog',
 				'jetwoobuilder-changelog',
 				'group-jetwoobuilder-resources',
-				'http://documentation.zemez.io/wordpress/index.php?project=jetwoobuilder&lang=en&section=jetwoobuilder-changelog'
+				'http://documentation.zemez.io/wordpress/index.php?project=jetwoobuilder&lang=en&section=jetwoobuilder-changelog',
+				ddw_tbex_string_version_history( 'addon' )
 			);
 			
 			ddw_tbex_resource_item(

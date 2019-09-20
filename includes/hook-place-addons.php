@@ -35,7 +35,7 @@ function ddw_tbex_addons_hook_place( $admin_bar ) {
 				'href'   => '',
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Elements and Options from Add-On Plugins', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Elements and Options from Add-On Plugins', 'toolbar-extras' ),
 				)
 			)
 		);

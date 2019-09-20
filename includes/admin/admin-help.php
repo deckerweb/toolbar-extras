@@ -31,9 +31,15 @@ function ddw_tbex_prepare_menu_help_styles() {
  * Register CSS styles for our help tabs.
  *
  * @since 1.4.0
+ * @since 1.4.7 Conditionally add additional inline styles for WP 5.2.3+.
+ *
+ * @uses wp_add_inline_style()
+ *
+ * @global string $GLOBALS[ 'wp_version' ]
  */
 function ddw_tbex_register_styles_help_tabs() {
 
+	/** Register and enqueue stylesheet */
 	wp_register_style(
 		'tbex-help-tabs',
 		plugins_url( '/assets/css/tbex-help.css', dirname( dirname( __FILE__ ) ) ),
@@ -43,6 +49,20 @@ function ddw_tbex_register_styles_help_tabs() {
 	);
 
 	wp_enqueue_style( 'tbex-help-tabs' );
+
+	/** Add additional inline styles for special cases */
+	$inline_css = '
+		.help-tab-content .dashicons-before:before {
+			margin-top: 3.5px;
+		}
+
+		.tbex-help-sidebar-icons::before {
+			margin-top: 0;
+		}';
+
+	if ( version_compare( $GLOBALS[ 'wp_version' ], '5.2.3', '>=' ) ) {
+		wp_add_inline_style( 'tbex-help-tabs', $inline_css );
+	}
 
 }  // end function
 
@@ -102,13 +122,14 @@ function ddw_tbex_toolbar_extras_help_content() {
 	);
 
 	$help_tabs = array();
-	$help_tabs[ 'getstarted' ][ 'label' ]  = esc_html_x( 'Getting Started', 'Help tab label', 'toolbar-extras' );
-	$help_tabs[ 'general' ][ 'label' ]     = esc_html_x( 'General Settings', 'Help tab label', 'toolbar-extras' );
-	$help_tabs[ 'tweaks' ][ 'label' ]      = esc_html_x( 'Smart Tweaks', 'Help tab label', 'toolbar-extras' );
-	$help_tabs[ 'development' ][ 'label' ] = esc_html_x( 'For Development', 'Help tab label', 'toolbar-extras' );
-	$help_tabs[ 'menus' ][ 'label' ]       = $menus_title;
-	$help_tabs[ 'addons' ][ 'label' ]      = esc_html_x( 'Add-Ons', 'Help tab label', 'toolbar-extras' );
-	$help_tabs[ 'about' ][ 'label' ]       = esc_html_x( 'About', 'Help tab label', 'toolbar-extras' );
+	$help_tabs[ 'getstarted' ][ 'label' ]   = esc_html_x( 'Getting Started', 'Help tab label', 'toolbar-extras' );
+	$help_tabs[ 'general' ][ 'label' ]      = esc_html_x( 'General Settings', 'Help tab label', 'toolbar-extras' );
+	$help_tabs[ 'tweaks' ][ 'label' ]       = esc_html_x( 'Smart Tweaks', 'Help tab label', 'toolbar-extras' );
+	$help_tabs[ 'development' ][ 'label' ]  = esc_html_x( 'For Development', 'Help tab label', 'toolbar-extras' );
+	$help_tabs[ 'menus' ][ 'label' ]        = $menus_title;
+	$help_tabs[ 'addons' ][ 'label' ]       = esc_html_x( 'Add-Ons', 'Help tab label', 'toolbar-extras' );
+	$help_tabs[ 'importexport' ][ 'label' ] = esc_html_x( 'Import &amp; Export', 'Help tab label', 'toolbar-extras' );
+	$help_tabs[ 'about' ][ 'label' ]        = esc_html_x( 'About', 'Help tab label', 'toolbar-extras' );
 
 	foreach ( $help_tabs as $help_tab => $tab_data ) {
 

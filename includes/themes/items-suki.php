@@ -36,9 +36,9 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_suki', 100 );
  * @uses ddw_tbex_is_suki_pro_active()
  * @uses ddw_tbex_item_theme_creative_customize()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_suki() {
+function ddw_tbex_themeitems_suki( $admin_bar ) {
 
 	/** Respect Suki White Labeling (if Pro Add-On plugin is active) */
 	$suki_theme_name = wp_get_theme( get_template() )->get( 'Name' );
@@ -49,17 +49,15 @@ function ddw_tbex_themeitems_suki() {
 	}
 
 	/** Suki creative */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'theme-creative',
 			'parent' => 'group-active-theme',
-			/* translators: (Static) Theme name Suki - optionally white labeled string */
-			'title'  => sprintf( esc_attr__( 'Theme: %s', 'toolbar-extras' ), $suki_theme_name ),	// ddw_tbex_string_theme_title( 'title', 'child' ),
+			'title'  => ddw_tbex_string_theme_title( 'title', 'child', $suki_theme_name ),
 			'href'   => esc_url( admin_url( 'themes.php?page=suki' ) ),
 			'meta'   => array(
 				'target' => '',
-				/* translators: (Static) Theme name Suki - optionally white labeled string */
-				'title'  => sprintf( esc_attr__( 'Theme: %s', 'toolbar-extras' ), $suki_theme_name )	//ddw_tbex_string_theme_title( 'attr' )
+				'title'  => ddw_tbex_string_theme_title( 'attr', 'child', $suki_theme_name )
 			)
 		)
 	);
@@ -160,21 +158,21 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_suki_resources', 120 );
  * @uses ddw_tbex_is_suki_pro_active()
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_suki_resources() {
+function ddw_tbex_themeitems_suki_resources( $admin_bar ) {
 
 	/** Bail early if no resources display active */
 	if ( ! ddw_tbex_display_items_resources() ) {
-		return;
+		return $admin_bar;
 	}
 
 	/** Group: Resources for Suki Theme */
-	$GLOBALS[ 'wp_admin_bar' ]->add_group(
+	$admin_bar->add_group(
 		array(
 			'id'     => 'group-theme-resources',
 			'parent' => ddw_tbex_is_suki_pro_active() ? 'theme-settings' : 'theme-creative',
-			'meta'   => array( 'class' => 'ab-sub-secondary' )
+			'meta'   => array( 'class' => 'ab-sub-secondary' ),
 		)
 	);
 
@@ -190,11 +188,11 @@ function ddw_tbex_themeitems_suki_resources() {
 		'theme-docs',
 		'group-theme-resources',
 		'https://docs.sukiwp.com/',
-		esc_attr__( 'Official Theme Documentation', 'toolbar-extras' )
+		ddw_tbex_string_official_theme_documentation()
 	);
 
 	/** Required hook for Suki Pro resources */
-	do_action( 'tbex_after_theme_free_docs' );
+	do_action( 'tbex_after_theme_free_docs', $admin_bar );
 
 	ddw_tbex_resource_item(
 		'facebook-group',
@@ -235,13 +233,13 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_suki_pro', 100 );
  *
  * @uses ddw_tbex_is_suki_pro_active()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_suki_pro() {
+function ddw_tbex_themeitems_suki_pro( $admin_bar ) {
 
 	/** Bail early if Pro version is not active */
 	if ( ! ddw_tbex_is_suki_pro_active() ) {
-		return;
+		return $admin_bar;
 	}
 
 	/** Get Suki Pro white label strings */
@@ -253,7 +251,7 @@ function ddw_tbex_themeitems_suki_pro() {
 	);
 
 	/** Suki settings */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'theme-settings',
 			'parent' => 'group-active-theme',
@@ -261,12 +259,12 @@ function ddw_tbex_themeitems_suki_pro() {
 			'href'   => esc_url( admin_url( 'themes.php?page=suki' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => $suki_pro_title
+				'title'  => $suki_pro_title,
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'theme-settings-modules',
 				'parent' => 'theme-settings',
@@ -274,7 +272,7 @@ function ddw_tbex_themeitems_suki_pro() {
 				'href'   => esc_url( admin_url( 'themes.php?page=suki' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Activate Modules', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Activate Modules', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -284,7 +282,7 @@ function ddw_tbex_themeitems_suki_pro() {
 
 		if ( 1 !== $suki_hide_whitelabel ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'theme-settings-whitelabel',
 					'parent' => 'theme-settings',
@@ -292,7 +290,7 @@ function ddw_tbex_themeitems_suki_pro() {
 					'href'   => esc_url( admin_url( 'themes.php?page=suki-white-label' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'White Label Branding', 'toolbar-extras' )
+						'title'  => esc_attr__( 'White Label Branding', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -305,16 +303,16 @@ function ddw_tbex_themeitems_suki_pro() {
 	/** Module: Custom Blocks */
 	if ( in_array( 'custom-blocks', $suki_modules ) ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_group(
+		$admin_bar->add_group(
 			array(
 				'id'     => 'group-suki-blocks',
-				'parent' => 'theme-creative'
+				'parent' => 'theme-creative',
 			)
 		);
 
 			$type = 'suki_block';
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'suki-custom-blocks-all',
 					'parent' => 'group-suki-blocks',
@@ -322,12 +320,12 @@ function ddw_tbex_themeitems_suki_pro() {
 					'href'   => esc_url( admin_url( 'edit.php?post_type=' . $type ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Custom Blocks', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Custom Blocks', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'suki-custom-blocks-new',
 					'parent' => 'group-suki-blocks',
@@ -335,14 +333,14 @@ function ddw_tbex_themeitems_suki_pro() {
 					'href'   => esc_url( admin_url( 'post-new.php?post_type=' . $type ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'New Block', 'toolbar-extras' )
+						'title'  => esc_attr__( 'New Block', 'toolbar-extras' ),
 					)
 				)
 			);
 
 			if ( ddw_tbex_is_elementor_active() && \Elementor\User::is_current_user_can_edit_post_type( $type ) ) {
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'suki-custom-blocks-builder',
 						'parent' => 'group-suki-blocks',
@@ -350,7 +348,7 @@ function ddw_tbex_themeitems_suki_pro() {
 						'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( $type ) ),
 						'meta'   => array(
 							'target' => ddw_tbex_meta_target( 'builder' ),
-							'title'  => esc_attr__( 'New Block Builder', 'toolbar-extras' )
+							'title'  => esc_attr__( 'New Block Builder', 'toolbar-extras' ),
 						)
 					)
 				);
@@ -360,7 +358,7 @@ function ddw_tbex_themeitems_suki_pro() {
 			/** Block categories, via BTC plugin */
 			if ( ddw_tbex_is_btcplugin_active() ) {
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'suki-custom-blocks-categories',
 						'parent' => 'group-suki-blocks',
@@ -368,7 +366,7 @@ function ddw_tbex_themeitems_suki_pro() {
 						'href'   => esc_url( admin_url( 'edit-tags.php?taxonomy=builder-template-category&post_type=' . $type ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_html( ddw_btc_string_template( 'block' ) )
+							'title'  => esc_html( ddw_btc_string_template( 'block' ) ),
 						)
 					)
 				);
@@ -380,14 +378,14 @@ function ddw_tbex_themeitems_suki_pro() {
 	/** Module: Custom Fonts */
 	if ( in_array( 'custom-fonts', $suki_modules ) ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_group(
+		$admin_bar->add_group(
 			array(
 				'id'     => 'group-suki-fonts',
 				'parent' => 'theme-creative'
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'suki-custom-fonts-configure',
 					'parent' => 'group-suki-fonts',
@@ -395,7 +393,7 @@ function ddw_tbex_themeitems_suki_pro() {
 					'href'   => esc_url( admin_url( 'themes.php?page=suki-custom-fonts' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Custom Fonts', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Custom Fonts', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -405,14 +403,14 @@ function ddw_tbex_themeitems_suki_pro() {
 	/** Module: Custom Icons */
 	if ( in_array( 'custom-icons', $suki_modules ) ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_group(
+		$admin_bar->add_group(
 			array(
 				'id'     => 'group-suki-icons',
 				'parent' => 'theme-creative'
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'suki-custom-icons-overrides',
 					'parent' => 'group-suki-icons',
@@ -420,12 +418,12 @@ function ddw_tbex_themeitems_suki_pro() {
 					'href'   => esc_url( admin_url( 'themes.php?page=suki-custom-icons&tab=override' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Custom Icons: Override Default Icons', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Custom Icons: Override Default Icons', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'suki-custom-icons-social',
 					'parent' => 'group-suki-icons',
@@ -433,7 +431,7 @@ function ddw_tbex_themeitems_suki_pro() {
 					'href'   => esc_url( admin_url( 'themes.php?page=suki-custom-icons&tab=add_social' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Custom Icons: Add Social Icons', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Custom Icons: Add Social Icons', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -452,11 +450,11 @@ add_action( 'tbex_after_theme_free_docs', 'ddw_tbex_themeitems_suki_pro_resource
  * @uses ddw_tbex_is_suki_pro_active()
  * @uses ddw_tbex_resource_item()
  */
-function ddw_tbex_themeitems_suki_pro_resources() {
+function ddw_tbex_themeitems_suki_pro_resources( $admin_bar ) {
 
 	/** Bail early if Pro version is not active */
 	if ( ! ddw_tbex_is_suki_pro_active() ) {
-		return;
+		return $admin_bar;
 	}
 
 	ddw_tbex_resource_item(
@@ -477,22 +475,22 @@ add_action( 'tbex_new_content_before_nav_menu', 'ddw_tbex_themeitems_new_content
  *
  * @uses ddw_tbex_is_elementor_active()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_new_content_suki_pro() {
+function ddw_tbex_themeitems_new_content_suki_pro( $admin_bar ) {
 
 	/** Get current active Suki Pro modules */
 	$suki_modules = get_option( 'suki_pro_active_modules', array() );
 
 	/** Bail early if Suki Pro module not active */
 	if ( ! in_array( 'custom-blocks', $suki_modules ) ) {
-		return;
+		return $admin_bar;
 	}
 
 	$type = 'suki_block';
 
-	/** OceanWP Library (Core) */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	/** Suki Blocks */
+	$admin_bar->add_node(
 		array(
 			'id'     => 'new-' . $type,
 			'parent' => 'new-content',
@@ -500,14 +498,14 @@ function ddw_tbex_themeitems_new_content_suki_pro() {
 			'href'   => esc_url( admin_url( 'post-new.php?post_type=' . $type ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_add_new_item( __( 'Custom Block', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_add_new_item( __( 'Custom Block', 'toolbar-extras' ) ),
 			)
 		)
 	);
 
 	if ( ddw_tbex_is_elementor_active() && \Elementor\User::is_current_user_can_edit_post_type( $type ) ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'suki-block-with-builder',
 				'parent' => 'new-' . $type,
@@ -515,7 +513,7 @@ function ddw_tbex_themeitems_new_content_suki_pro() {
 				'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( $type ) ),
 				'meta'   => array(
 					'target' => ddw_tbex_meta_target( 'builder' ),
-					'title'  => ddw_tbex_string_newcontent_create_with_builder()
+					'title'  => ddw_tbex_string_newcontent_create_with_builder(),
 				)
 			)
 		);

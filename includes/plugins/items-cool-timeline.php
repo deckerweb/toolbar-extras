@@ -18,19 +18,19 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_cool_timeline', 15 );
  *
  * @since 1.3.2
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_cool_timeline() {
+function ddw_tbex_site_items_cool_timeline( $admin_bar ) {
 
 	/** For: Manage Content */
-	$GLOBALS[ 'wp_admin_bar' ]->add_group(
+	$admin_bar->add_group(
 		array(
 			'id'     => 'group-cp-cool-timeline',
-			'parent' => 'manage-content'
+			'parent' => 'manage-content',
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'cp-cool-timeline-edit',
 			'parent' => 'group-cp-cool-timeline',
@@ -38,12 +38,12 @@ function ddw_tbex_site_items_cool_timeline() {
 			'href'   => esc_url( admin_url( 'edit.php?post_type=cool_timeline' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Edit Timeline Stories', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Edit Timeline Stories', 'toolbar-extras' ),
 			)
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'cp-cool-timeline-settings',
 			'parent' => 'group-cp-cool-timeline',
@@ -51,7 +51,7 @@ function ddw_tbex_site_items_cool_timeline() {
 			'href'   => esc_url( admin_url( 'admin.php?page=cool_timeline_page' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
 			)
 		)
 	);
@@ -65,16 +65,16 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_cool_timeline', 100 );
  *
  * @since 1.3.2
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_cool_timeline() {
+function ddw_tbex_aoitems_cool_timeline( $admin_bar ) {
 
 	/** Bail early if Elementor or specific Add-On not active */
 	if ( ! ddw_tbex_is_elementor_active() || ! function_exists( 'ctla_load' ) ) {
-		return;
+		return $admin_bar;
 	}
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'ao-cool-timeline',
 			'parent' => 'group-creative-content',
@@ -82,12 +82,12 @@ function ddw_tbex_aoitems_cool_timeline() {
 			'href'   => esc_url( admin_url( 'edit.php?post_type=cool_timeline' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Timeline Content', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Timeline Content', 'toolbar-extras' ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-cool-timeline-all',
 				'parent' => 'ao-cool-timeline',
@@ -95,12 +95,12 @@ function ddw_tbex_aoitems_cool_timeline() {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=cool_timeline' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'All Timeline Stories', 'toolbar-extras' )
+					'title'  => esc_attr__( 'All Timeline Stories', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-cool-timeline-new',
 				'parent' => 'ao-cool-timeline',
@@ -108,14 +108,14 @@ function ddw_tbex_aoitems_cool_timeline() {
 				'href'   => esc_url( admin_url( 'post-new.php?post_type=cool_timeline' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'New Timeline Story', 'toolbar-extras' )
+					'title'  => esc_attr__( 'New Timeline Story', 'toolbar-extras' ),
 				)
 			)
 		);
 
 		if ( \Elementor\User::is_current_user_can_edit_post_type( 'cool_timeline' ) ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ao-cool-timeline-builder',
 					'parent' => 'ao-cool-timeline',
@@ -123,14 +123,14 @@ function ddw_tbex_aoitems_cool_timeline() {
 					'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'cool_timeline' ) ),
 					'meta'   => array(
 						'target' => ddw_tbex_meta_target( 'builder' ),
-						'title'  => esc_attr__( 'New Timeline Builder', 'toolbar-extras' )
+						'title'  => esc_attr__( 'New Timeline Builder', 'toolbar-extras' ),
 					)
 				)
 			);
 
 		}  // end if
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-cool-timeline-settings',
 				'parent' => 'ao-cool-timeline',
@@ -138,7 +138,7 @@ function ddw_tbex_aoitems_cool_timeline() {
 				'href'   => esc_url( admin_url( 'admin.php?page=cool_timeline_page' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -146,11 +146,11 @@ function ddw_tbex_aoitems_cool_timeline() {
 		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-cooltimeline-resources',
 					'parent' => 'ao-cool-timeline',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 
@@ -179,18 +179,18 @@ add_action( 'tbex_new_content_before_nav_menu', 'ddw_tbex_new_content_cool_timel
  *
  * @since 1.3.2
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_new_content_cool_timeline() {
+function ddw_tbex_new_content_cool_timeline( $admin_bar ) {
 
 	/** Bail early if items display is not wanted */
 	if ( ! ddw_tbex_display_items_new_content() ) {
-		return;
+		return $admin_bar;
 	}
 
 	if ( ddw_tbex_is_elementor_active() && \Elementor\User::is_current_user_can_edit_post_type( 'cool_timeline' ) ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'cp-cool-timeline-with-builder',
 				'parent' => 'new-cool_timeline',
@@ -198,7 +198,7 @@ function ddw_tbex_new_content_cool_timeline() {
 				'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'cool_timeline' ) ),
 				'meta'   => array(
 					'target' => ddw_tbex_meta_target( 'builder' ),
-					'title'  => ddw_tbex_string_newcontent_create_with_builder()
+					'title'  => ddw_tbex_string_newcontent_create_with_builder(),
 				)
 			)
 		);

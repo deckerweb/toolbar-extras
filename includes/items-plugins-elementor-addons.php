@@ -300,6 +300,24 @@ if ( defined( 'TOOLKIT_FOR_ELEMENTOR_VERSION' ) ) {
 }
 
 
+/**
+ * Add-On: ElementsKit Lite (Premium, by wpmet)
+ * @since 1.4.7
+ */
+if ( class_exists( 'ElementsKit' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-elements-kit.php';
+}
+
+
+/**
+ * Add-On: The Pack Addons (Premium, by XLDevelopment/ Web Angon/ Ashraf)
+ * @since 1.4.7
+ */
+if ( function_exists( 'thepack_tb_load_reqfiles' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-thepack-addons.php';
+}
+
+
 
 /**
  * 2nd GROUP: Settings, Extras, Elements etc.
@@ -354,7 +372,9 @@ if ( defined( 'UAEL_FILE' ) ) {
 
 /**
  * Add-On: Element Pack (Premium, by BdThemes)
+ * Add-On: Element Pack Lite (free, by BdThemes)
  * @since 1.0.0
+ * @since 1.4.7 Integrated Lite version of Add-On.
  */
 if ( defined( 'BDTEP_VER' ) ) {
 	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-bdthemes-element-pack.php';
@@ -688,8 +708,8 @@ if ( function_exists( 'Briefcase_Elementor_Widgets' )
 
 
 /**
- * Add-On: WooLentor (free, by HasThemes/ HT Plugins)
- * Add-On: WooLentor Pro (Premium, by HasThemes/ HT Plugins)
+ * Add-On: WooLentor (free, by HasThemes)
+ * Add-On: WooLentor Pro (Premium, by HasThemes)
  * @since 1.4.3
  * @since 1.4.5 Added WooLentor Pro version.
  */
@@ -697,6 +717,16 @@ if ( ( defined( 'WOOLENTOR_VERSION' ) || defined( 'WOOLENTOR_VERSION_PRO' ) )
 	&& ddw_tbex_is_woocommerce_active()		// depends on WooCommerce
 ) {
 	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-woolentor.php';
+}
+
+
+/**
+ * Add-On: HT Builder (free, by HasThemes)
+ * Add-On: HT Builder Pro (Premium, by HasThemes)
+ * @since 1.4.7
+ */
+if ( ( defined( 'HTBUILDER_VERSION' ) || defined( 'HTBUILDER_VERSION_PRO' ) ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-ht-builder.php';
 }
 
 
@@ -832,6 +862,16 @@ if ( ddw_tbex_is_elementor_pro_active()
  */
 if ( function_exists( 'eforms_on_activate' ) ) {
 	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-elementor-forms.php';
+}
+
+
+/**
+ * Add-On: MetForm (free, by WpMet)
+ *   Note: Needs only Elementor (free) to be active!
+ * @since 1.4.7
+ */
+if ( class_exists( '\MetForm\Plugin' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-metform.php';
 }
 
 

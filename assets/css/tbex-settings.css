@@ -58,12 +58,13 @@
 
 .nav-tab-wrapper a.nav-tab:before {
 	line-height: 1.2;
-	margin-right: 3px;
+	margin-right: 0;  /* 3px; */
 }
 
 .nav-tab-wrapper a.nav-tab {
-	margin-right: 5px;
-	padding-right: 13px;
+	margin-right: 0;  /* 5px; */
+	padding-left: 8px;
+	padding-right: 8px;  /* 13px; */
 }
 
 .tbex-settings-page h2:empty {
@@ -224,6 +225,11 @@
 }
 
 
+.settings_page_toolbar-extras .wp-picker-container {
+	display: block;
+	margin-bottom: 10px;
+}
+
 .bg-local-base {
 	display: inline-block;
 	width: 28px;
@@ -251,6 +257,61 @@
 
 .tbex-desc-newcontent:before {
 	vertical-align: bottom;
+}
+
+.tbex-explain-icon.dashicons-before:before {
+	clear: left;
+	color: #c56cd7;
+	display: inline;
+	float: left;
+	font-size: 250%;
+	opacity: .5;
+}
+
+.tbex-explain-heading {
+	margin-left: 50px;
+}
+
+
+/* Tab: Import & Export */
+
+.settings_page_toolbar-extras .tbex-import-export .submit {
+    margin-left: 0;
+    margin-top: 15px;
+}
+
+.tbex-export-choices label {
+	display: block;
+	margin-top: 15px;
+}
+
+.settings_page_toolbar-extras #import_file {
+	padding: 20px;
+	margin: 15px auto 5px;
+	max-width: 80%;
+	text-align: center;
+}
+
+.settings_page_toolbar-extras input#import_file {
+    background-color: #ffffe8;
+    border: 4px dashed #b4b9be;
+    display: inline-block;
+    font-size: 135%;
+    padding: 20px;
+    width: 100% !important;
+}
+
+.settings_page_toolbar-extras input#import_file:hover {
+    background-color: #ffffd9;
+}
+
+.dark-mode.settings_page_toolbar-extras input#import_file {
+	background-color: #404C58;
+	border-color: #23282d;
+}
+
+.dark-mode.settings_page_toolbar-extras input#import_file:hover {
+    background-color: #50626f;
 }
 
 
@@ -550,8 +611,42 @@
 }
 
 
+/** Thickbox related */
+
+#TB_window {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-height: 100%;
+    max-width: 90%;
+    margin: 0 !important;
+}
+
+#TB_ajaxContent {
+    width: 100% !important;
+    height: 90vh !important;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+iframe #plugin-information-title.with-banner {
+	background-position: 50% 50% !important;
+	background-repeat: no-repeat !important;
+	background-size: 100% !important;
+}
+
+
+
 /* Media Queries
 ------------------------------------------------------------ */
+
+@media screen and (min-width: 1025px) {
+
+	abbr[title] {
+		cursor: help;
+	}
+
+}
 
 @media only screen and (max-width: 1500px) {
 

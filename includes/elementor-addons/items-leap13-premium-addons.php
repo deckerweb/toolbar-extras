@@ -266,6 +266,6 @@ function ddw_tbex_maybe_remove_items_l13pa_pro() {
 
 	if ( $l13pa_whitelabel && 1 == $l13pa_whitelabel[ 'premium-wht-lbl-version' ] ) {
 		$GLOBALS[ 'wp_admin_bar' ]->remove_node( 'ao-l13pa-versioncontrol' );
-	}  // end if
+	}
 
 }  // end function

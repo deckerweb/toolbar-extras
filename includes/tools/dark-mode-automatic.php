@@ -1,5 +1,7 @@
 <?php
 
+namespace DDW\TBEX;
+
 // includes/tools/dark-mode-automatic
 
 /**
@@ -22,17 +24,17 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  *   The code of this class is licensed under GPL-2.0-or-later (same as Dark
  *   Mode plugin itself.)
- * @see https://github.com/danieltj27/Dark-Mode/wiki/Help:-Automatically-turning-Dark-Mode-on-or-off
+ * @see https://github.com/dgwyer/Dark-Mode/wiki/Help:-Automatically-turning-Dark-Mode-on-or-off
  * @link https://gist.github.com/danieltj27/8624d57c5e0f30465f963bc7838bbb7f
  *
  * ?
  */
 
 if ( class_exists( 'Dark_Mode' ) && ! class_exists( 'Auto_Dark_Mode' ) ) {
-	$tbex_auto_dark_mode = new DDW_TBEX_Auto_Dark_Mode;
+	$tbex_auto_dark_mode = new \DDW\TBEX\Extra_Auto_Dark_Mode;
 }
 
-class DDW_TBEX_Auto_Dark_Mode {
+class Extra_Auto_Dark_Mode {
 
 	/**
 	 * Make WordPress Dark sometimes.
@@ -69,7 +71,7 @@ class DDW_TBEX_Auto_Dark_Mode {
 
 			/** Get the time frames for auto mode */
 			$auto_start = date_i18n( 'Y-m-d H:i:s', strtotime( get_user_meta( $user_id, 'dark_mode_start', TRUE ) ) );
-			$auto_end = date_i18n( 'Y-m-d H:i:s', strtotime( get_user_meta( $user_id, 'dark_mode_end', TRUE ) ) );
+			$auto_end   = date_i18n( 'Y-m-d H:i:s', strtotime( get_user_meta( $user_id, 'dark_mode_end', TRUE ) ) );
 
 			/** Check the start time is greater than the end time */
 			if ( $auto_start > $auto_end ) {

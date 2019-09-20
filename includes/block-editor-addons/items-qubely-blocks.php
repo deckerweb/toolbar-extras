@@ -14,7 +14,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_qubely_blocks', 10 );
 /**
- * Site items for Plugin: Qubely Blocks (free, by Themeum)
+ * Site items for Plugin:
+ *   Qubely - Advanced Gutenberg Blocks (free, by Themeum)
  *
  * @since 1.4.2
  *
@@ -83,6 +84,13 @@ function ddw_tbex_aoitems_qubely_blocks( $admin_bar ) {
 				'qubelyblocks-translate',
 				'group-qubelyblocks-resources',
 				'https://translate.wordpress.org/projects/wp-plugins/qubely'
+			);
+
+			ddw_tbex_resource_item(
+				'official-site',
+				'qubelyblocks-site',
+				'group-qubelyblocks-resources',
+				'https://qubely.io/'
 			);
 
 		}  // end if

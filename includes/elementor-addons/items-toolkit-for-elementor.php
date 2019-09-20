@@ -221,7 +221,7 @@ function ddw_tbex_aoitems_toolkit_for_elementor( $admin_bar ) {
 }  // end function
 
 
-add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_new_content_toolkit_templates', 50 );
+add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_new_content_toolkit_templates', 80 );
 /**
  * Items for "New Content" section: New ToolKit for Elementor Template
  *

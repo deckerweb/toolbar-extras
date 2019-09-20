@@ -34,7 +34,7 @@ function ddw_tbex_themeitems_hestia() {
 			'href'   => esc_url( admin_url( 'themes.php?page=hestia-welcome' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_theme_title( 'attr' )
+				'title'  => ddw_tbex_string_theme_title( 'attr', 'child' )
 			)
 		)
 	);

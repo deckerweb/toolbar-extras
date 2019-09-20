@@ -39,7 +39,7 @@ function ddw_tbex_aoitems_acf_extended( $admin_bar ) {
 	);
 
 	/** Block Types (ACF Pro 5.8+) */
-	if ( version_compare( ACF_VERSION, '5.8.0', '>=' )
+	if ( ( defined( 'ACF_VERSION' ) && version_compare( ACF_VERSION, '5.8.0', '>=' ) )
 		&& ( ddw_tbex_is_block_editor_active() && ddw_tbex_is_block_editor_wanted() )
 	) {
 

@@ -273,7 +273,7 @@ function ddw_tbex_themeitems_genesis_customizer_child( $admin_bar ) {
 		);
 
 		/** Optional hook for Genesis Customizer Pro resources */
-		do_action( 'tbex_after_theme_free_docs' );
+		do_action( 'tbex_after_theme_free_docs', $admin_bar );
 
 		if ( ddw_tbex_is_genesis_customizer_pro_active() ) {
 
@@ -322,7 +322,7 @@ function ddw_tbex_themeitems_genesis_customizer_theme_setup_import( $admin_bar )
 
 	/** Bail early if no display of Demo Import items */
 	if ( ! ddw_tbex_display_items_demo_import() ) {
-		return;
+		return $admin_bar;
 	}
 
 	/** Theme Setup/ Import */

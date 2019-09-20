@@ -154,16 +154,18 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_pbf_resources', 120 );
  * @uses ddw_tbex_display_items_resources()
  * @uses ddw_tbex_is_wpbf_premium_active()
  * @uses ddw_tbex_resource_item()
+ *
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_pbf_resources() {
+function ddw_tbex_themeitems_pbf_resources( $admin_bar ) {
 
 	/** Bail early if no resources display active */
 	if ( ! ddw_tbex_display_items_resources() ) {
-		return;
+		return $admin_bar;
 	}
 
 	/** Group: Resources for Page Builder Framework Theme */
-	$GLOBALS[ 'wp_admin_bar' ]->add_group(
+	$admin_bar->add_group(
 		array(
 			'id'     => 'group-theme-resources',
 			'parent' => ddw_tbex_is_wpbf_premium_active() ? 'theme-settings' : 'theme-creative',
@@ -190,11 +192,19 @@ function ddw_tbex_themeitems_pbf_resources() {
 		'theme-docs',
 		'group-theme-resources',
 		'https://wp-pagebuilderframework.com/docs/',
-		esc_attr__( 'Official Theme Documentation', 'toolbar-extras' )
+		ddw_tbex_string_official_theme_documentation()
 	);
 
 	/** Required hook for WPBF Premium resources */
-	do_action( 'tbex_after_theme_free_docs' );
+	do_action( 'tbex_after_theme_free_docs', $admin_bar );
+
+	ddw_tbex_resource_item(
+		'changelog',
+		'theme-changelog',
+		'group-theme-resources',
+		'https://wp-pagebuilderframework.com/changelog/',
+		ddw_tbex_string_version_history( 'theme' )
+	);
 
 	ddw_tbex_resource_item(
 		'translations-community',
@@ -231,13 +241,13 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_wpbf_premium', 100 );
  * @uses ddw_tbex_is_wpbf_premium_active()
  * @uses ddw_tbex_customizer_focus()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_wpbf_premium() {
+function ddw_tbex_themeitems_wpbf_premium( $admin_bar ) {
 
 	/** Bail early if Premium version is not active */
 	if ( ! ddw_tbex_is_wpbf_premium_active() ) {
-		return;
+		return $admin_bar;
 	}
 
 	/** Get Premium White Label settings */
@@ -251,7 +261,7 @@ function ddw_tbex_themeitems_wpbf_premium() {
 	);
 
 	/** Page Builder Framework settings */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'theme-settings',
 			'parent' => 'group-active-theme',
@@ -264,7 +274,7 @@ function ddw_tbex_themeitems_wpbf_premium() {
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'theme-settings-global',
 				'parent' => 'theme-settings',
@@ -277,7 +287,7 @@ function ddw_tbex_themeitems_wpbf_premium() {
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'theme-settings-license',
 				'parent' => 'theme-settings',
@@ -293,7 +303,7 @@ function ddw_tbex_themeitems_wpbf_premium() {
 	/** Premium: Custom Sections */
 	if ( class_exists( '\WPBF\HookSystem' ) ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_group(
+		$admin_bar->add_group(
 			array(
 				'id'     => 'wpbf-sections',
 				'parent' => 'theme-creative'
@@ -302,7 +312,7 @@ function ddw_tbex_themeitems_wpbf_premium() {
 
 			$type = 'wpbf_hooks';
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'wpbf-sections-all',
 					'parent' => 'wpbf-sections',
@@ -315,7 +325,7 @@ function ddw_tbex_themeitems_wpbf_premium() {
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'wpbf-sections-new',
 					'parent' => 'wpbf-sections',
@@ -330,7 +340,7 @@ function ddw_tbex_themeitems_wpbf_premium() {
 
 			if ( ddw_tbex_is_elementor_active() && \Elementor\User::is_current_user_can_edit_post_type( $type ) ) {
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'wpbf-sections-builder',
 						'parent' => 'wpbf-sections',
@@ -348,7 +358,7 @@ function ddw_tbex_themeitems_wpbf_premium() {
 			/** Section categories, via BTC plugin */
 			if ( ddw_tbex_is_btcplugin_active() ) {
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'wpbf-sections-categories',
 						'parent' => 'wpbf-sections',
@@ -366,7 +376,7 @@ function ddw_tbex_themeitems_wpbf_premium() {
 	}  // end if Custom Sections
 
 	/** Premium Add-On: Customizer additions */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'pbfcmz-scripts-styles',
 			'parent' => 'theme-creative-customize',
@@ -375,7 +385,7 @@ function ddw_tbex_themeitems_wpbf_premium() {
 			'href'   => ddw_tbex_customizer_focus( 'panel', 'scripts_panel' ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Scripts &amp; Styles', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_customize_attr( __( 'Scripts &amp; Styles', 'toolbar-extras' ) ),
 			)
 		)
 	);
@@ -391,12 +401,14 @@ add_action( 'tbex_after_theme_free_docs', 'ddw_tbex_themeitems_wpbf_premium_reso
  *
  * @uses ddw_tbex_is_wpbf_premium_active()
  * @uses ddw_tbex_resource_item()
+ *
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_wpbf_premium_resources() {
+function ddw_tbex_themeitems_wpbf_premium_resources( $admin_bar ) {
 
 	/** Bail early if Premium version is not active */
 	if ( ! ddw_tbex_is_wpbf_premium_active() ) {
-		return;
+		return $admin_bar;
 	}
 
 	ddw_tbex_resource_item(
@@ -422,18 +434,18 @@ add_action( 'tbex_new_content_before_nav_menu', 'ddw_tbex_themeitems_new_content
  *
  * @since 1.3.8
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_new_content_wpbf_premium() {
+function ddw_tbex_themeitems_new_content_wpbf_premium( $admin_bar ) {
 
 	/** Bail early if items display is not wanted */
 	if ( ! ddw_tbex_display_items_new_content() ) {
-		return;
+		return $admin_bar;
 	}
 
 	$type = 'wpbf_hooks';
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'tbex-new-' . $type,
 			'parent' => 'new-content',
@@ -448,7 +460,7 @@ function ddw_tbex_themeitems_new_content_wpbf_premium() {
 
 	if ( ddw_tbex_is_elementor_active() && \Elementor\User::is_current_user_can_edit_post_type( $type ) ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'wpbf-section-with-builder',
 				'parent' => 'tbex-new-' . $type,
@@ -456,7 +468,7 @@ function ddw_tbex_themeitems_new_content_wpbf_premium() {
 				'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( $type ) ),
 				'meta'   => array(
 					'target' => ddw_tbex_meta_target( 'builder' ),
-					'title'  => ddw_tbex_string_newcontent_create_with_builder()
+					'title'  => ddw_tbex_string_newcontent_create_with_builder(),
 				)
 			)
 		);

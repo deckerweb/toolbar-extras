@@ -267,6 +267,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_genesis_resources', 130 );
  *
  * @since 1.0.0
  * @since 1.4.2 Added developer docs.
+ * @since 1.4.7 Added changelog item.
  *
  * @uses ddw_tbex_display_items_resources()
  * @uses ddw_tbex_is_genesis_settings_active()
@@ -351,6 +352,14 @@ function ddw_tbex_themeitems_genesis_resources() {
 				'title'  => esc_attr__( 'Genesis for Beginners', 'toolbar-extras' )
 			)
 		)
+	);
+
+	ddw_tbex_resource_item(
+		'changelog',
+		'theme-changelog',
+		'group-theme-resources',
+		'https://studiopress.github.io/genesis/changelog/',
+		ddw_tbex_string_version_history( 'framework' )
 	);
 
 	/** Developer documentation */

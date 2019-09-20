@@ -36,7 +36,7 @@ function ddw_tbex_themeitems_freelancer() {
 			'href'   => esc_url( admin_url( 'themes.php?page=freelancer-settings' ) ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_theme_title( 'attr' )
+				'title'  => ddw_tbex_string_theme_title( 'attr' ),
 			)
 		)
 	);
@@ -52,7 +52,7 @@ function ddw_tbex_themeitems_freelancer() {
 				'href'   => esc_url( admin_url( 'themes.php?page=freelancer-settings' ) ),
 				'meta'   => array(
 					'target' => ddw_tbex_meta_target(),
-					'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -65,7 +65,7 @@ function ddw_tbex_themeitems_freelancer() {
 				'href'   => esc_url( admin_url( 'themes.php?page=freelancer-license' ) ),
 				'meta'   => array(
 					'target' => ddw_tbex_meta_target(),
-					'title'  => esc_attr__( 'License', 'toolbar-extras' )
+					'title'  => esc_attr__( 'License', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -121,7 +121,7 @@ function ddw_tbex_themeitems_freelancer_resources() {
 		array(
 			'id'     => 'group-theme-resources',
 			'parent' => 'theme-creative',
-			'meta'   => array( 'class' => 'ab-sub-secondary' )
+			'meta'   => array( 'class' => 'ab-sub-secondary' ),
 		)
 	);
 
@@ -137,7 +137,7 @@ function ddw_tbex_themeitems_freelancer_resources() {
 		'theme-docs',
 		'group-theme-resources',
 		'https://docs.cobaltapps.com/collection/398-freelancer-framework',
-		esc_attr__( 'Official Theme Documentation', 'toolbar-extras' )
+		ddw_tbex_string_official_theme_documentation()
 	);
 
 	ddw_tbex_resource_item(

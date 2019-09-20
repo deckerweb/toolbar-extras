@@ -17,11 +17,11 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 1.1.0
  *
- * @return bool TRUE if constant defined, FALSE otherwise.
+ * @return bool TRUE if function exists, FALSE otherwise.
  */
 function ddw_tbex_is_startwp_extended_active() {
 
-	return ( function_exists( 'swp_extended' ) ) ? TRUE : FALSE;
+	return function_exists( 'swp_extended' );
 
 }  // end function
 
@@ -36,25 +36,25 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_startwp', 100 );
  * @uses ddw_tbex_customizer_focus()
  * @uses ddw_tbex_customizer_start()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_startwp() {
+function ddw_tbex_themeitems_startwp( $admin_bar ) {
 
 	/** StartWP creative */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'theme-creative',
 			'parent' => 'group-active-theme',
-			'title'  => ddw_tbex_string_theme_title(),
+			'title'  => ddw_tbex_string_theme_title( 'title', 'child' ),
 			'href'   => ddw_tbex_customizer_focus( 'panel', 'theme_styles' ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_theme_title( 'attr' )
+				'title'  => ddw_tbex_string_theme_title( 'attr', 'child' ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'theme-creative-customize',
 				'parent' => 'theme-creative',
@@ -62,7 +62,7 @@ function ddw_tbex_themeitems_startwp() {
 				'href'   => ddw_tbex_customizer_start(),
 				'meta'   => array(
 					'target' => ddw_tbex_meta_target(),
-					'title'  => esc_attr__( 'Customize Design', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Customize Design', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -79,11 +79,11 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_startwp_customize', 100 );
  * @uses ddw_tbex_customizer_focus()
  * @uses ddw_tbex_string_customize_attr()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_startwp_customize() {
+function ddw_tbex_themeitems_startwp_customize( $admin_bar ) {
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'startwpcmz-general',
 			'parent' => 'theme-creative-customize',
@@ -97,7 +97,7 @@ function ddw_tbex_themeitems_startwp_customize() {
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'startwpcmz-header',
 			'parent' => 'theme-creative-customize',
@@ -111,7 +111,7 @@ function ddw_tbex_themeitems_startwp_customize() {
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'startwpcmz-menu',
 			'parent' => 'theme-creative-customize',
@@ -125,7 +125,7 @@ function ddw_tbex_themeitems_startwp_customize() {
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'startwpcmz-blogarchivesingle',
 			'parent' => 'theme-creative-customize',
@@ -139,7 +139,7 @@ function ddw_tbex_themeitems_startwp_customize() {
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'startwpcmz-sidebar',
 			'parent' => 'theme-creative-customize',
@@ -156,7 +156,7 @@ function ddw_tbex_themeitems_startwp_customize() {
 	/** 404 Error Page */
 	$url_404_live = get_site_url() . '/404-live-test-' . md5( mt_rand() );
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'startwpcmz-404page',
 			'parent' => 'theme-creative-customize',
@@ -170,7 +170,7 @@ function ddw_tbex_themeitems_startwp_customize() {
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'startwpcmz-search',
 			'parent' => 'theme-creative-customize',
@@ -184,7 +184,7 @@ function ddw_tbex_themeitems_startwp_customize() {
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'startwpcmz-footer',
 			'parent' => 'theme-creative-customize',
@@ -198,7 +198,7 @@ function ddw_tbex_themeitems_startwp_customize() {
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'startwpcmz-copyright',
 			'parent' => 'theme-creative-customize',
@@ -212,7 +212,7 @@ function ddw_tbex_themeitems_startwp_customize() {
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'startwpcmz-hooks',
 			'parent' => 'theme-creative-customize',
@@ -239,20 +239,22 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_startwp_resources', 120 );
  * @uses ddw_tbex_is_startwp_extended_active()
  * @uses ddw_tbex_display_items_resources()
  * @uses ddw_tbex_resource_item()
+ *
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_startwp_resources() {
+function ddw_tbex_themeitems_startwp_resources( $admin_bar ) {
 
 	/** Bail early if no resources display active */
 	if ( ! ddw_tbex_display_items_resources() ) {
-		return;
+		return $admin_bar;
 	}
 
 	/** Group: Resources for StartWP Theme */
-	$GLOBALS[ 'wp_admin_bar' ]->add_group(
+	$admin_bar->add_group(
 		array(
 			'id'     => 'group-theme-resources',
 			'parent' => ddw_tbex_is_startwp_extended_active() ? 'theme-settings' : 'theme-creative',
-			'meta'   => array( 'class' => 'ab-sub-secondary' )
+			'meta'   => array( 'class' => 'ab-sub-secondary' ),
 		)
 	);
 
@@ -263,6 +265,14 @@ function ddw_tbex_themeitems_startwp_resources() {
 		'https://wordpress.org/support/theme/start'
 	);
 
+	ddw_tbex_resource_item(
+		'changelog',
+		'theme-changelog',
+		'group-theme-resources',
+		'https://headwayapp.co/startwp-changelog',
+		ddw_tbex_string_version_history( 'theme' )
+	);
+	
 	ddw_tbex_resource_item(
 		'translations-community',
 		'theme-translate',
@@ -289,17 +299,17 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_startwp_extended', 100 );
  * @uses ddw_tbex_is_startwp_extended_active()
  * @uses ddw_tbex_customizer_focus()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_startwp_extended() {
+function ddw_tbex_themeitems_startwp_extended( $admin_bar ) {
 
 	/** Bail early if Extended plugin is not active */
 	if ( ! ddw_tbex_is_startwp_extended_active() ) {
-		return;
+		return $admin_bar;
 	}
 
 	/** StartWP settings */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'theme-settings',
 			'parent' => 'group-active-theme',
@@ -312,7 +322,7 @@ function ddw_tbex_themeitems_startwp_extended() {
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'theme-settings-extensions',
 				'parent' => 'theme-settings',
@@ -330,7 +340,7 @@ function ddw_tbex_themeitems_startwp_extended() {
 
 	if ( 'Enable' === $startwp_extended_woo[0] ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'startwpcmz-woo-general',
 				'parent' => 'theme-creative-customize',
@@ -344,7 +354,7 @@ function ddw_tbex_themeitems_startwp_extended() {
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'startwpcmz-woo-archive',
 				'parent' => 'theme-creative-customize',
@@ -358,7 +368,7 @@ function ddw_tbex_themeitems_startwp_extended() {
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'startwpcmz-woo-single',
 				'parent' => 'theme-creative-customize',
@@ -379,7 +389,7 @@ function ddw_tbex_themeitems_startwp_extended() {
 
 	if ( 'Enable' === $startwp_extended_edd[0] ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'startwpcmz-edd-archive',
 				'parent' => 'theme-creative-customize',
@@ -393,7 +403,7 @@ function ddw_tbex_themeitems_startwp_extended() {
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'startwpcmz-edd-single',
 				'parent' => 'theme-creative-customize',

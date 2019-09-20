@@ -54,13 +54,11 @@ function ddw_tbex_themeitems_zita( $admin_bar ) {
 		array(
 			'id'     => 'theme-creative',
 			'parent' => 'group-active-theme',
-			/* translators: (Static) Theme name Zita - optionally white labeled string */
-			'title'  => sprintf( esc_attr__( 'Theme: %s', 'toolbar-extras' ), $zita_theme_name ),
+			'title'  => ddw_tbex_string_theme_title( 'title', 'child', $zita_theme_name ),
 			'href'   => esc_url( admin_url( 'themes.php?page=zita' ) ),
 			'meta'   => array(
 				'target' => '',
-				/* translators: (Static) Theme name Zita - optionally white labeled string */
-				'title'  => sprintf( esc_attr__( 'Theme: %s', 'toolbar-extras' ), $zita_theme_name ),
+				'title'  => ddw_tbex_string_theme_title( 'title', 'child', $zita_theme_name ),
 			)
 		)
 	);
@@ -156,7 +154,7 @@ function ddw_tbex_themeitems_zita_resources( $admin_bar ) {
 
 	/** Bail early if no resources display active */
 	if ( ! ddw_tbex_display_items_resources() ) {
-		return;
+		return $admin_bar;
 	}
 
 	/** Group: Resources for Zita Theme */
@@ -180,11 +178,11 @@ function ddw_tbex_themeitems_zita_resources( $admin_bar ) {
 		'theme-docs',
 		'group-theme-resources',
 		'https://wpzita.com/docs/',
-		esc_attr__( 'Official Theme Documentation', 'toolbar-extras' )
+		ddw_tbex_string_official_theme_documentation()
 	);
 
 	/** Required hook for Zita Pro resources */
-	do_action( 'tbex_after_theme_free_docs' );
+	do_action( 'tbex_after_theme_free_docs', $admin_bar );
 
 	ddw_tbex_resource_item(
 		'facebook-group',
@@ -237,7 +235,7 @@ function ddw_tbex_themeitems_zita_site_library( $admin_bar ) {
 	if ( ! ddw_tbex_display_items_demo_import()
 		|| ! defined( 'ZITA_SITE_LIBRARY_VER' )
 	) {
-		return;
+		return $admin_bar;
 	}
 
 	$zita_sites_title = esc_attr__( 'Import Zita Sites', 'toolbar-extras' );
@@ -282,7 +280,7 @@ function ddw_tbex_themeitems_zita_pro( $admin_bar ) {
 
 	/** Bail early if Pro version is not active */
 	if ( ! ddw_tbex_is_zita_pro_active() ) {
-		return;
+		return $admin_bar;
 	}
 
 	/** Add custom font items - create Group */

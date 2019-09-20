@@ -21,7 +21,7 @@
  * @package DDWlib Plugin Installer Recommendations
  * @author  David Decker
  * @license http://www.gnu.org/licenses GNU General Public License
- * @version 1.4.1
+ * @version 1.4.2
  * @link    https://github.com/deckerweb/ddwlib-plugin-installer-recommendations
  */
 
@@ -165,6 +165,11 @@ if ( ! class_exists( 'DDWlib_Plugin_Installer_Recommendations' ) ) :
 					'popular'     => 'no',
 				),
 				'builder-template-categories' => array(		// by deckerweb		
+					'featured'    => 'yes',
+					'recommended' => 'yes',
+					'popular'     => 'no',
+				),
+				'builder-shortcode-extras' => array(		// by deckerweb		
 					'featured'    => 'yes',
 					'recommended' => 'yes',
 					'popular'     => 'no',
@@ -678,7 +683,7 @@ if ( ! class_exists( 'DDWlib_Plugin_Installer_Recommendations' ) ) :
 
 			global $plugins;
 
-			if ( is_array( $plugins ) ) {
+			if ( is_array( $plugins ) && isset( $plugins[ 'all' ] ) ) {
 
 				foreach ( $plugins[ 'all' ] as $plugin_slug => $plugin_data ) {
 

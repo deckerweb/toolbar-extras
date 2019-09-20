@@ -23,6 +23,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 require_once TBEX_PLUGIN_DIR . 'includes/admin/tbex-settings-general.php';
 require_once TBEX_PLUGIN_DIR . 'includes/admin/tbex-settings-smart-tweaks.php';
 require_once TBEX_PLUGIN_DIR . 'includes/admin/tbex-settings-development.php';
+//require_once TBEX_PLUGIN_DIR . 'includes/admin/tbex-settings-tools.php';
+
+require_once TBEX_PLUGIN_DIR . 'includes/admin/class-settings-import-export.php';
 require_once TBEX_PLUGIN_DIR . 'includes/admin/tbex-addons.php';
 
 
@@ -115,39 +118,6 @@ function ddw_tbex_get_iris_color_palette() {
 }  // end function
 
 
-add_action( 'admin_head', 'ddw_tbex_styles_color_items', 200 );
-/**
- * Add the color styles for all registered color items as inline head styles.
- *
- * @since 1.4.2
- *
- * @uses ddw_tbex_get_color_items()
- *
- * @return string Echoing string with CSS style rules.
- */
-function ddw_tbex_styles_color_items() {
-
-	$color_items = (array) ddw_tbex_get_color_items();
-
-	$output = '<style type="text/css">';
-
-	foreach ( $color_items as $color => $color_data ) {
-
-		$output .= sprintf(
-			'.bg-local-%1$s { background-color: %2$s; }',
-			sanitize_key( $color ),
-			sanitize_hex_color( $color_data[ 'color' ] )
-		);
-
-	}  // end foreach
-
-	$output .= '</style>';
-
-	echo $output;
-
-}  // end function
-
-
 /**
  * Enqueue various needed admin styles and scripts, including WordPress Color
  *   Picker Script (Iris) and Dashicons Picker.
@@ -155,10 +125,12 @@ function ddw_tbex_styles_color_items() {
  * @since 1.0.0
  * @since 1.4.0 Added toggle script.
  * @since 1.4.2 Added wp_localize_script to Iris Config.
+ * @since 1.4.7 Moved inline styles to this function, using WP standards.
  *
  * @see ddw_tbex_settings_add_admin_page()
  *
  * @uses ddw_tbex_get_iris_color_palette()
+ * @uses ddw_tbex_get_color_items()
  */
 function ddw_tbex_enqueue_admin_styles_scripts() {
 
@@ -197,6 +169,22 @@ function ddw_tbex_enqueue_admin_styles_scripts() {
 
 	wp_enqueue_script( 'tbex-iris-config' );
 
+	/** Inline Styles for our color items */
+	$color_items            = (array) ddw_tbex_get_color_items();
+	$color_items_inline_css = '';
+
+	foreach ( $color_items as $color => $color_data ) {
+
+		$color_items_inline_css .= sprintf(
+			'.bg-local-%1$s { background-color: %2$s; }',
+			sanitize_key( $color ),
+			sanitize_hex_color( $color_data[ 'color' ] )
+		);
+
+	}  // end foreach
+
+	wp_add_inline_style( 'tbex-settings-page', $color_items_inline_css );
+
 	/** Styles: Dashicons picker */
 	wp_register_style(
 		'tbex-dashicons-picker',
@@ -218,6 +206,17 @@ function ddw_tbex_enqueue_admin_styles_scripts() {
 	);
 
 	wp_enqueue_script( 'tbex-dashicons-picker' );
+
+	/** Script: Select all checkboxes */
+	wp_register_script(
+		'tbex-selectall',
+		plugins_url( '/assets/js/tbex-selectall.js', dirname( dirname( __FILE__ ) ) ),
+		array( 'jquery' ),
+		TBEX_PLUGIN_VERSION,
+		TRUE
+	);
+
+	wp_enqueue_script( 'tbex-selectall' );
 
 	/** Optionally add Thickbox JS & CSS (for video tour) */
 	add_thickbox();
@@ -618,6 +617,7 @@ function ddw_tbex_admin_localize_script() {
  *
  * @since 1.0.0
  * @since 1.4.2 Added "Add-Ons" tab.
+ * @since 1.4.7 Added "Import/Export" tab.
  *
  * @see ddw_tbex_settings_add_admin_page()
  *
@@ -631,7 +631,10 @@ function ddw_tbex_settings_create_admin_page() {
 	$url_smart_tweaks  = esc_url( add_query_arg( array( 'page' => 'toolbar-extras', 'tab'  => 'smart-tweaks' ), $settings_base ) );
 	$url_development   = esc_url( add_query_arg( array( 'page' => 'toolbar-extras', 'tab'  => 'development' ), $settings_base ) );
 	$url_addons        = esc_url( add_query_arg( array( 'page' => 'toolbar-extras', 'tab'  => 'addons' ), $settings_base ) );
+	$url_import_export = esc_url( add_query_arg( array( 'page' => 'toolbar-extras', 'tab'  => 'import-export' ), $settings_base ) );
 	$url_about_support = esc_url( add_query_arg( array( 'page' => 'toolbar-extras', 'tab'  => 'about-support' ), $settings_base ) );
+
+	
 
 	/** Render settings page */
 	?>
@@ -656,7 +659,7 @@ function ddw_tbex_settings_create_admin_page() {
 
 			<?php $active_tab = isset( $_GET[ 'tab' ] ) ? sanitize_key( wp_unslash( $_GET[ 'tab' ] ) ) : 'general'; ?>
 
-			<h2 class="nav-tab-wrapper">
+			<nav class="nav-tab-wrapper wp-clearfix" aria-label="Secondary menu">
 				<a href="<?php echo $url_general; ?>" class="dashicons-before dashicons-admin-generic nav-tab <?php echo ( 'general' === $active_tab ) ? 'nav-tab-active' : ''; ?>">
 					<?php
 						/* translators: Settings tab title in WP-Admin */
@@ -688,18 +691,27 @@ function ddw_tbex_settings_create_admin_page() {
 						_ex( 'Add-Ons', 'Plugin settings tab title', 'toolbar-extras' );
 					?>
 				</a>
+				<a href="<?php echo $url_import_export; ?>" class="dashicons-before dashicons-controls-repeat nav-tab <?php echo ( 'import-export' === $active_tab ) ? 'nav-tab-active' : ''; ?>">
+					<?php
+						/* translators: Settings tab title in WP-Admin */
+						_ex( 'Import/Export', 'Plugin settings tab title', 'toolbar-extras' );
+					?>
+				</a>
 				<a href="<?php echo $url_about_support; ?>" class="dashicons-before dashicons-info nav-tab <?php echo ( 'about-support' === $active_tab ) ? 'nav-tab-active' : ''; ?>">
 					<?php
 						/* translators: Settings tab title in WP-Admin */
 						_ex( 'About &amp; Support', 'Plugin settings tab title', 'toolbar-extras' );
 					?>
 				</a>
-			</h2>
+			</nav>
 			<form action="options.php" method="post" class="tbex-settings-page">
 				<?php
 					switch ( $active_tab ) :
 
-						/** 1) Tab General */
+						/**
+						 * 1) Tab General
+						 * @since 1.0.0
+						 */
 						case 'general' :
 							do_action( 'tbex_before_settings_general_view' );
 
@@ -713,7 +725,10 @@ function ddw_tbex_settings_create_admin_page() {
 							submit_button( ddw_tbex_string_save_changes() );
 						break;
 
-						/** 2) Tab Smart Tweaks */
+						/**
+						 * 2) Tab Smart Tweaks
+						 * @since 1.0.0
+						 */
 						case 'smart-tweaks' :
 							do_action( 'tbex_before_settings_tweaks_view' );
 
@@ -727,7 +742,10 @@ function ddw_tbex_settings_create_admin_page() {
 							submit_button( ddw_tbex_string_save_changes() );
 						break;
 
-						/** 3) Tab Development */
+						/**
+						 * 3) Tab Development
+						 * @since 1.0.0
+						 */
 						case 'development' :
 							do_action( 'tbex_before_settings_development_view' );
 
@@ -744,15 +762,30 @@ function ddw_tbex_settings_create_admin_page() {
 						/** 4) Tab Tools (upcoming) 'tools' */
 						// coming...
 
-						/** 5) Tab "Add-Ons" 'addons' */
+						/**
+						 * 5) Tab "Add-Ons" 'addons'
+						 * @since 1.4.2
+						 */
 						case 'addons' :
 							do_action( 'tbex_settings_tab_addons_list' );
 							require_once TBEX_PLUGIN_DIR . 'includes/admin/tbex-addons.php';
 						break;
 
-						/** 6) Tab Export & Import (upcoming) 'export-import' */
+						/**
+						 * 6) Tab Export & Import 'export-import'
+						 * @since 1.4.7
+						 * @see plugin file, includes/admin/class-settings-import-export.php
+						 * @uses \DDW\TBEX\Settings_Import_Export()::$instance()
+						 */
+						case 'import-export' :
+							require_once TBEX_PLUGIN_DIR . 'includes/admin/views/settings-tab-import-export.php';
+							do_action( 'tbex_settings_tab_import_export' );
+						break;
 
-						/** 7) Tab About & Support - only text, no submit button! */
+						/**
+						 * 7) Tab About & Support - only text, no submit button!
+						 * @since 1.0.0
+						 */
 						case 'about-support' :
 							do_action( 'tbex_before_settings_about_support_view' );
 							require_once TBEX_PLUGIN_DIR . 'includes/admin/views/settings-tab-about-support.php';
@@ -780,7 +813,11 @@ add_action( 'personal_options', 'ddw_tbex_user_profile_settings_link' );
  *
  * @since 1.4.0
  * @since 1.4.2 Tweaked to make it Add-On friendly.
+ * @since 1.4.7 Moved inline styles to own function, uses WP standards.
  *
+ * @see ddw_tbex_inline_styles_user_profile_page()
+ *
+ * @uses ddw_tbex_abbr()
  * @uses ddw_tbex_string_toolbar_extras()
  *
  * @param int $user_id The ID of the user profile being edited.
@@ -838,11 +875,7 @@ function ddw_tbex_user_profile_settings_link( $user_id ) {
 	$explanation = sprintf(
 		/* translators: %s - word "Toolbar" and further explanation via abbr tag (title tag) */
 		__( 'Way more options for the %s you\'ll find in Toolbar Extras\' plugin settings:', 'toolbar-extras' ),
-		sprintf(
-			'<abbr title="%1$s">%2$s</abbr>',
-			esc_attr__( 'The WordPress Admin Bar', 'toolbar-extras' ),
-			__( 'Toolbar', 'toolbar-extras' )
-		)
+		ddw_tbex_abbr( __( 'The WordPress Admin Bar', 'toolbar-extras' ), __( 'Toolbar', 'toolbar-extras' ) )
 	);
 
 	/** Section description */
@@ -869,42 +902,65 @@ function ddw_tbex_user_profile_settings_link( $user_id ) {
 	echo $output;
 
 	/** Add few subtle CSS inline styles */
-	?>
-		<style type='text/css'>
-			.form-table th.tbex-user-profile-title {
-				color: #7443c0;
-			}
-			.tbex-user-profile.button {
-				color: #A741BD;
-				/* opacity: .5; */
-			}
-			.tbex-user-profile.button:hover {
-				color: #7443c0;
-			}
-			.tbex-user-profile {
-				margin-right: 10px !important;
-			}
-			.tbex-user-profile.dashicons-before:before {
-				font-size: 18px;
-				opacity: .8;
-				margin-right: 3px;
-				margin-top: 4px;
+
+}  // end function
+
+
+add_action( 'admin_enqueue_scripts', 'ddw_tbex_inline_styles_user_profile_page', 20 );
+/**
+ * Add the needed inline styles for our user profile buttons/links added
+ *   via ddw_tbex_user_profile_settings_link().
+ *
+ * @since 1.4.7
+ *
+ * @see ddw_tbex_user_profile_settings_link()
+ *
+ * @uses wp_add_inline_style()
+ *
+ * @global string $GLOBALS[ 'pagenow' ]
+ */
+function ddw_tbex_inline_styles_user_profile_page() {
+
+	/** Bail early if not on proper admin page page */
+	if ( ! in_array( $GLOBALS[ 'pagenow' ], array( 'profile.php', 'user-edit.php' ) ) ) {
+		return;
+	}
+
+    $inline_css = '
+		.form-table th.tbex-user-profile-title {
+			color: #7443c0;
+		}
+		.tbex-user-profile.button {
+			color: #A741BD;
+			/* opacity: .5; */
+		}
+		.tbex-user-profile.button:hover {
+			color: #7443c0;
+		}
+		.tbex-user-profile {
+			margin-right: 10px !important;
+		}
+		.tbex-user-profile.dashicons-before:before {
+			font-size: 18px;
+			opacity: .8;
+			margin-right: 3px;
+			margin-top: 4px;
+		}
+		abbr[title]:after {
+			content: " (" attr(title) ")";
+		}
+
+		@media screen and (min-width: 1025px) {
+			abbr[title] {
+				border-bottom: 1px dashed #ADADAD;
+				cursor: help;
 			}
 			abbr[title]:after {
-				content: " (" attr(title) ")";
+				content: "";
 			}
+		}';
 
-			@media screen and (min-width: 1025px) {
-				abbr[title] {
-					border-bottom: 1px dashed #ADADAD;
-					cursor: help;
-				}
-				abbr[title]:after {
-					content: "";
-				}
-			}
-		</style>
-	<?php
+    wp_add_inline_style( 'wp-admin', $inline_css );
 
 }  // end function
 

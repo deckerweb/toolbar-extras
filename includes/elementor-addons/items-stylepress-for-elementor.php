@@ -21,12 +21,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_stylepress_for_elementor', 100 )
  *
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_stylepress_for_elementor() {
+function ddw_tbex_aoitems_stylepress_for_elementor( $admin_bar ) {
 
 	/** Plugin's items */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'ao-stylepressfe',
 			'parent' => 'group-creative-content',
@@ -34,12 +34,12 @@ function ddw_tbex_aoitems_stylepress_for_elementor() {
 			'href'   => esc_url( admin_url( 'admin.php?page=dtbaker-stylepress' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_free_addon_title_attr( __( 'StylePress for Elementor', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_free_addon_title_attr( __( 'StylePress for Elementor', 'toolbar-extras' ) ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-stylepressfe-all',
 				'parent' => 'ao-stylepressfe',
@@ -47,12 +47,12 @@ function ddw_tbex_aoitems_stylepress_for_elementor() {
 				'href'   => esc_url( admin_url( 'admin.php?page=dtbaker-stylepress' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'All Styles (Theme Templates)', 'toolbar-extras' )
+					'title'  => esc_attr__( 'All Styles (Theme Templates)', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-stylepressfe-settings',
 				'parent' => 'ao-stylepressfe',
@@ -60,12 +60,12 @@ function ddw_tbex_aoitems_stylepress_for_elementor() {
 				'href'   => esc_url( admin_url( 'admin.php?page=dtbaker-stylepress-settings' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Style Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Style Settings', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-stylepressfe-new',
 				'parent' => 'ao-stylepressfe',
@@ -73,14 +73,14 @@ function ddw_tbex_aoitems_stylepress_for_elementor() {
 				'href'   => esc_url( admin_url( 'admin.php?page=dtbaker-stylepress&style_id=new' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'New Style Template', 'toolbar-extras' )
+					'title'  => esc_attr__( 'New Style Template', 'toolbar-extras' ),
 				)
 			)
 		);
 
 		if ( ddw_tbex_is_elementor_active() && \Elementor\User::is_current_user_can_edit_post_type( 'dtbaker_style' ) ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ao-stylepressfe-builder',
 					'parent' => 'ao-stylepressfe',
@@ -88,7 +88,7 @@ function ddw_tbex_aoitems_stylepress_for_elementor() {
 					'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'dtbaker_style' ) ),
 					'meta'   => array(
 						'target' => ddw_tbex_meta_target( 'builder' ),
-						'title'  => esc_attr__( 'New Template Builder', 'toolbar-extras' )
+						'title'  => esc_attr__( 'New Template Builder', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -98,7 +98,7 @@ function ddw_tbex_aoitems_stylepress_for_elementor() {
 		/** Template categories, via BTC plugin */
 		if ( ddw_tbex_is_btcplugin_active() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ao-stylepressfe-categories',
 					'parent' => 'ao-stylepressfe',
@@ -106,14 +106,14 @@ function ddw_tbex_aoitems_stylepress_for_elementor() {
 					'href'   => esc_url( admin_url( 'edit-tags.php?taxonomy=builder-template-category&post_type=dtbaker_style' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_html( ddw_btc_string_template( 'template' ) )
+						'title'  => esc_html( ddw_btc_string_template( 'template' ) ),
 					)
 				)
 			);
 
 		}  // end if
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-stylepressfe-list-view',
 				'parent' => 'ao-stylepressfe',
@@ -121,7 +121,7 @@ function ddw_tbex_aoitems_stylepress_for_elementor() {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=dtbaker_style' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Templates Post Type List View', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Templates Post Type List View', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -129,11 +129,11 @@ function ddw_tbex_aoitems_stylepress_for_elementor() {
 		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-stylepressfe-resources',
 					'parent' => 'ao-stylepressfe',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 
@@ -169,16 +169,16 @@ add_action( 'tbex_new_content_before_nav_menu', 'ddw_tbex_new_content_stylepress
  *
  * @since 1.4.0
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_new_content_stylepress_template() {
+function ddw_tbex_new_content_stylepress_template( $admin_bar ) {
 
 	/** Bail early if items display is not wanted */
 	if ( ! ddw_tbex_display_items_new_content() ) {
-		return;
+		return $admin_bar;
 	}
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'new-dtbaker_style',
 			'parent' => 'new-content',
@@ -186,14 +186,14 @@ function ddw_tbex_new_content_stylepress_template() {
 			'href'   => esc_url( admin_url( 'admin.php?page=dtbaker-stylepress&style_id=new' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'StylePress Template', 'toolbar-extras' )
+				'title'  => esc_attr__( 'StylePress Template', 'toolbar-extras' ),
 			)
 		)
 	);
 
 		if ( ddw_tbex_is_elementor_active() && \Elementor\User::is_current_user_can_edit_post_type( 'dtbaker_style' ) ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'stylepress-template-with-builder',
 					'parent' => 'new-dtbaker_style',
@@ -201,7 +201,7 @@ function ddw_tbex_new_content_stylepress_template() {
 					'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'dtbaker_style' ) ),
 					'meta'   => array(
 						'target' => ddw_tbex_meta_target( 'builder' ),
-						'title'  => ddw_tbex_string_newcontent_create_with_builder()
+						'title'  => ddw_tbex_string_newcontent_create_with_builder(),
 					)
 				)
 			);
@@ -235,7 +235,7 @@ function ddw_tbex_rehook_items_stylepress_helper( $wp_admin_bar ) {
 			'parent' => 'ao-stylepressfe',
 			'title'  => esc_attr__( 'StylePress Frontend Helper', 'toolbar-extras' ),
 			'meta'   => array(
-				'title' => esc_attr__( 'StylePress Frontend Helper', 'toolbar-extras' )
+				'title' => esc_attr__( 'StylePress Frontend Helper', 'toolbar-extras' ),
 			)
 		)
 	);

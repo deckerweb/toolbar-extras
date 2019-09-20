@@ -17,7 +17,9 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_rankmath', 100 );
  * Additional items for Plugin: Rank Math SEO (free, by Rank Math)
  *
  * @since 1.4.5
+ * @since 1.4.7 Tweaked module logic; added "WooCommerce" support.
  *
+ * @uses \RankMath\Helper::is_module_active()
  * @uses ddw_tbex_resource_item()
  *
  * @param object $admin_bar Object of Toolbar nodes.
@@ -25,7 +27,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_rankmath', 100 );
 function ddw_tbex_site_items_rankmath( $admin_bar ) {
 
 	/** Get Rank Math modules, which feature (aka "toggle") is activated */
-	$rm_options = get_option( 'rank_math_modules' );
+	//$rm_options = get_option( 'rank_math_modules', [] );
+
+	/** Bail early if Rank Math Helper class not available */
+	if ( ! class_exists( '\RankMath\Helper' ) ) {
+		return $admin_bar;
+	}
 
 	$admin_bar->add_node(
 		array(
@@ -264,44 +271,33 @@ function ddw_tbex_site_items_rankmath( $admin_bar ) {
 				)
 			);
 
-			$admin_bar->add_node(
-				array(
-					'id'     => 'tbex-rankmath-settings-404monitor',
-					'parent' => 'tbex-rankmath-settings',
-					'title'  => esc_attr__( '404 Monitor', 'toolbar-extras' ),
-					'href'   => esc_url( admin_url( 'admin.php?page=rank-math-options-general#setting-panel-404-monitor' ) ),
-					'meta'   => array(
-						'target' => '',
-						'title'  => esc_attr__( '404 Monitor', 'toolbar-extras' )
-					)
-				)
+			$rm_settings_modules = array(
+				'404-monitor'    => esc_attr__( '404 Monitor', 'toolbar-extras' ),
+				'redirections'   => esc_attr__( 'Redirections', 'toolbar-extras' ),
+				'search-console' => esc_attr__( 'Search Console', 'toolbar-extras' ),
+				'woocommerce'    => esc_attr__( 'WooCommerce', 'toolbar-extras' ),
 			);
 
-			$admin_bar->add_node(
-				array(
-					'id'     => 'tbex-rankmath-settings-redirections',
-					'parent' => 'tbex-rankmath-settings',
-					'title'  => esc_attr__( 'Redirections', 'toolbar-extras' ),
-					'href'   => esc_url( admin_url( 'admin.php?page=rank-math-options-general#setting-panel-redirections' ) ),
-					'meta'   => array(
-						'target' => '',
-						'title'  => esc_attr__( 'Redirections', 'toolbar-extras' )
-					)
-				)
-			);
+			foreach ( $rm_settings_modules as $rm_settings_module => $settings_module_label ) {
+				
+				if ( \RankMath\Helper::is_module_active( $rm_settings_module ) ) {
 
-			$admin_bar->add_node(
-				array(
-					'id'     => 'tbex-rankmath-settings-search-console',
-					'parent' => 'tbex-rankmath-settings',
-					'title'  => esc_attr__( 'Search Console', 'toolbar-extras' ),
-					'href'   => esc_url( admin_url( 'admin.php?page=rank-math-options-general#setting-panel-search-console' ) ),
-					'meta'   => array(
-						'target' => '',
-						'title'  => esc_attr__( 'Search Console', 'toolbar-extras' )
-					)
-				)
-			);
+					$admin_bar->add_node(
+						array(
+							'id'     => 'tbex-rankmath-settings-' . $rm_settings_module,
+							'parent' => 'tbex-rankmath-settings',
+							'title'  => $settings_module_label,
+							'href'   => esc_url( admin_url( 'admin.php?page=rank-math-options-general#setting-panel-' . $rm_settings_module ) ),
+							'meta'   => array(
+								'target' => '',
+								'title'  => $settings_module_label,
+							)
+						)
+					);
+
+				}  // end if
+
+			}  // end foreach
 
 			$admin_bar->add_node(
 				array(
@@ -455,6 +451,23 @@ function ddw_tbex_site_items_rankmath( $admin_bar ) {
 					)
 				);
 
+				if ( \RankMath\Helper::is_module_active( 'woocommerce' ) ) {
+
+					$admin_bar->add_node(
+						array(
+							'id'     => 'tbex-rankmath-titles-meta-cpt-products',
+							'parent' => 'group-rankmathtm-cpt',
+							'title'  => esc_attr__( 'Products', 'toolbar-extras' ),
+							'href'   => esc_url( admin_url( 'admin.php?page=rank-math-options-titles#setting-panel-post-type-product' ) ),
+							'meta'   => array(
+								'target' => '',
+								'title'  => esc_attr__( 'Post Type: Products', 'toolbar-extras' )
+							)
+						)
+					);
+
+				}  // end if
+
 			/** Group: Taxonomies */
 			$admin_bar->add_group(
 				array(
@@ -489,8 +502,38 @@ function ddw_tbex_site_items_rankmath( $admin_bar ) {
 					)
 				);
 
+				if ( \RankMath\Helper::is_module_active( 'woocommerce' ) ) {
+
+					$admin_bar->add_node(
+						array(
+							'id'     => 'tbex-rankmath-titles-meta-tax-product-categories',
+							'parent' => 'group-rankmathtm-tax',
+							'title'  => esc_attr__( 'Product Categories', 'toolbar-extras' ),
+							'href'   => esc_url( admin_url( 'admin.php?page=rank-math-options-titles#setting-panel-taxonomy-product_cat' ) ),
+							'meta'   => array(
+								'target' => '',
+								'title'  => esc_attr__( 'Taxonomy: Product Categories', 'toolbar-extras' )
+							)
+						)
+					);
+
+					$admin_bar->add_node(
+						array(
+							'id'     => 'tbex-rankmath-titles-meta-tax-product-tags',
+							'parent' => 'group-rankmathtm-tax',
+							'title'  => esc_attr__( 'Product Tags', 'toolbar-extras' ),
+							'href'   => esc_url( admin_url( 'admin.php?page=rank-math-options-titles#setting-panel-taxonomy-product_tag' ) ),
+							'meta'   => array(
+								'target' => '',
+								'title'  => esc_attr__( 'Taxonomy: Product Tags', 'toolbar-extras' )
+							)
+						)
+					);
+
+				}  // end if
+
 		/** Sitemap */
-		if ( isset( $rm_options[ 'sitemap' ] ) ) {
+		if ( \RankMath\Helper::is_module_active( 'sitemap' ) ) {
 
 			$admin_bar->add_node(
 				array(
@@ -521,7 +564,7 @@ function ddw_tbex_site_items_rankmath( $admin_bar ) {
 		}  // end if
 
 		/** Role Manager */
-		if ( isset( $rm_options[ 'role-manager' ] ) ) {
+		if ( \RankMath\Helper::is_module_active( 'role-manager' ) ) {
 
 			$admin_bar->add_node(
 				array(
@@ -539,7 +582,7 @@ function ddw_tbex_site_items_rankmath( $admin_bar ) {
 		}  // end if
 
 		/** 404 Monitor */
-		if ( isset( $rm_options[ '404-monitor' ] ) ) {
+		if ( \RankMath\Helper::is_module_active( '404-monitor' ) ) {
 
 			$admin_bar->add_node(
 				array(
@@ -557,7 +600,7 @@ function ddw_tbex_site_items_rankmath( $admin_bar ) {
 		}  // end if
 
 		/** Redirections */
-		if ( isset( $rm_options[ 'redirections' ] ) ) {
+		if ( \RankMath\Helper::is_module_active( 'redirections' ) ) {
 
 			$admin_bar->add_node(
 				array(
@@ -669,7 +712,7 @@ function ddw_tbex_site_items_rankmath( $admin_bar ) {
 		}  // end if
 
 		/** Search Console */
-		if ( isset( $rm_options[ 'search-console' ] ) ) {
+		if ( \RankMath\Helper::is_module_active( 'search-console' ) ) {
 
 			$admin_bar->add_node(
 				array(
@@ -739,7 +782,7 @@ function ddw_tbex_site_items_rankmath( $admin_bar ) {
 		}  // end if
 
 		/** SEO Analysis */
-		if ( isset( $rm_options[ 'seo-analysis' ] ) ) {
+		if ( \RankMath\Helper::is_module_active( 'seo-analysis' ) ) {
 
 			$admin_bar->add_node(
 				array(
@@ -784,6 +827,20 @@ function ddw_tbex_site_items_rankmath( $admin_bar ) {
 			)
 		);
 
+			$rm_help_modules = array(
+				'amp'            => esc_attr__( 'AMP', 'toolbar-extras' ),
+				'local-seo'      => esc_attr__( 'Local SEO', 'toolbar-extras' ),
+				'404-monitor'    => esc_attr__( '404 Monitor', 'toolbar-extras' ),
+				'redirections'   => esc_attr__( 'Redirections', 'toolbar-extras' ),
+				'rich-snippet'   => esc_attr__( 'Rich Snippet', 'toolbar-extras' ),
+				'role-manager'   => esc_attr__( 'Role Manager', 'toolbar-extras' ),
+				'search-console' => esc_attr__( 'Search Console', 'toolbar-extras' ),
+				'seo-analysis'   => esc_attr__( 'SEO Analysis', 'toolbar-extras' ),
+				'sitemap'        => esc_attr__( 'Sitemap', 'toolbar-extras' ),
+				'woocommerce'    => esc_attr__( 'WooCommerce', 'toolbar-extras' ),
+				'bbpress'        => esc_attr__( 'bbPress', 'toolbar-extras' ),
+			);
+
 			$admin_bar->add_node(
 				array(
 					'id'     => 'tbex-rankmath-help-support-getting-started',
@@ -792,127 +849,31 @@ function ddw_tbex_site_items_rankmath( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'admin.php?page=rank-math-help#help-panel-getting-started' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Getting Started', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Getting Started', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$admin_bar->add_node(
-				array(
-					'id'     => 'tbex-rankmath-help-support-amp',
-					'parent' => 'tbex-rankmath-help-support',
-					'title'  => esc_attr__( 'AMP', 'toolbar-extras' ),
-					'href'   => esc_url( admin_url( 'admin.php?page=rank-math-help#help-panel-amp' ) ),
-					'meta'   => array(
-						'target' => '',
-						'title'  => esc_attr__( 'AMP', 'toolbar-extras' )
-					)
-				)
-			);
+			foreach ( $rm_help_modules as $rm_help_module => $help_module_label ) {
+				
+				if ( \RankMath\Helper::is_module_active( $rm_help_module ) ) {
 
-			$admin_bar->add_node(
-				array(
-					'id'     => 'tbex-rankmath-help-support-local-seo',
-					'parent' => 'tbex-rankmath-help-support',
-					'title'  => esc_attr__( 'Local SEO', 'toolbar-extras' ),
-					'href'   => esc_url( admin_url( 'admin.php?page=rank-math-help#help-panel-local-seo' ) ),
-					'meta'   => array(
-						'target' => '',
-						'title'  => esc_attr__( 'Local SEO', 'toolbar-extras' )
-					)
-				)
-			);
+					$admin_bar->add_node(
+						array(
+							'id'     => 'tbex-rankmath-help-support-' . $rm_help_module,
+							'parent' => 'tbex-rankmath-help-support',
+							'title'  => $help_module_label,
+							'href'   => esc_url( admin_url( 'admin.php?page=rank-math-help#help-panel-' . $rm_help_module ) ),
+							'meta'   => array(
+								'target' => '',
+								'title'  => $help_module_label,
+							)
+						)
+					);
 
-			$admin_bar->add_node(
-				array(
-					'id'     => 'tbex-rankmath-help-support-404monitor',
-					'parent' => 'tbex-rankmath-help-support',
-					'title'  => esc_attr__( '404 Monitor', 'toolbar-extras' ),
-					'href'   => esc_url( admin_url( 'admin.php?page=rank-math-help#help-panel-404-monitor' ) ),
-					'meta'   => array(
-						'target' => '',
-						'title'  => esc_attr__( '404 Monitor', 'toolbar-extras' )
-					)
-				)
-			);
+				}  // end if
 
-			$admin_bar->add_node(
-				array(
-					'id'     => 'tbex-rankmath-help-support-redirections',
-					'parent' => 'tbex-rankmath-help-support',
-					'title'  => esc_attr__( 'Redirections', 'toolbar-extras' ),
-					'href'   => esc_url( admin_url( 'admin.php?page=rank-math-help#help-panel-redirect' ) ),
-					'meta'   => array(
-						'target' => '',
-						'title'  => esc_attr__( 'Redirections', 'toolbar-extras' )
-					)
-				)
-			);
-
-			$admin_bar->add_node(
-				array(
-					'id'     => 'tbex-rankmath-help-support-rich-snippet',
-					'parent' => 'tbex-rankmath-help-support',
-					'title'  => esc_attr__( 'Rich Snippet', 'toolbar-extras' ),
-					'href'   => esc_url( admin_url( 'admin.php?page=rank-math-help#help-panel-rich-snippet' ) ),
-					'meta'   => array(
-						'target' => '',
-						'title'  => esc_attr__( 'Rich Snippet', 'toolbar-extras' )
-					)
-				)
-			);
-
-			$admin_bar->add_node(
-				array(
-					'id'     => 'tbex-rankmath-help-support-role-manager',
-					'parent' => 'tbex-rankmath-help-support',
-					'title'  => esc_attr__( 'Role Manager', 'toolbar-extras' ),
-					'href'   => esc_url( admin_url( 'admin.php?page=rank-math-help#help-panel-role-manager' ) ),
-					'meta'   => array(
-						'target' => '',
-						'title'  => esc_attr__( 'Role Manager', 'toolbar-extras' )
-					)
-				)
-			);
-
-			$admin_bar->add_node(
-				array(
-					'id'     => 'tbex-rankmath-help-support-search-console',
-					'parent' => 'tbex-rankmath-help-support',
-					'title'  => esc_attr__( 'Search Console', 'toolbar-extras' ),
-					'href'   => esc_url( admin_url( 'admin.php?page=rank-math-help#help-panel-search-console' ) ),
-					'meta'   => array(
-						'target' => '',
-						'title'  => esc_attr__( 'Search Console', 'toolbar-extras' )
-					)
-				)
-			);
-
-			$admin_bar->add_node(
-				array(
-					'id'     => 'tbex-rankmath-help-support-seo-analysis',
-					'parent' => 'tbex-rankmath-help-support',
-					'title'  => esc_attr__( 'SEO Analysis', 'toolbar-extras' ),
-					'href'   => esc_url( admin_url( 'admin.php?page=rank-math-help#help-panel-seo-analysis' ) ),
-					'meta'   => array(
-						'target' => '',
-						'title'  => esc_attr__( 'SEO Analysis', 'toolbar-extras' )
-					)
-				)
-			);
-
-			$admin_bar->add_node(
-				array(
-					'id'     => 'tbex-rankmath-help-support-sitemap',
-					'parent' => 'tbex-rankmath-help-support',
-					'title'  => esc_attr__( 'Sitemap', 'toolbar-extras' ),
-					'href'   => esc_url( admin_url( 'admin.php?page=rank-math-help#help-panel-sitemap' ) ),
-					'meta'   => array(
-						'target' => '',
-						'title'  => esc_attr__( 'Sitemap', 'toolbar-extras' )
-					)
-				)
-			);
+			}  // end foreach
 
 	/** Group: Plugin's resources */
 	if ( ddw_tbex_display_items_resources() ) {
@@ -985,21 +946,25 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_new_content_rankmath', 100 );
  * Items for "New Content" section: New Rank Math Redirection
  *
  * @since 1.4.5
+ * @since 1.4.7 Logic improvements.
  *
  * @param object $admin_bar Object of Toolbar nodes.
  */
 function ddw_tbex_aoitems_new_content_rankmath( $admin_bar ) {
 
 	/** Bail early if items display is not wanted */
-	if ( ! ddw_tbex_display_items_new_content() || is_network_admin() ) {
-		return;
+	if ( ! ddw_tbex_display_items_new_content()
+		|| is_network_admin()
+		|| ! class_exists( '\RankMath\Helper' )
+	) {
+		return $admin_bar;
 	}
 
 	/** Get Rank Math modules, which feature (aka "toggle") is activated */
-	$rm_options = get_option( 'rank_math_modules' );
+	//$rm_options = get_option( 'rank_math_modules' );
 
 	if ( ddw_tbex_display_items_dev_mode()
-		&& isset( $rm_options[ 'redirections' ] )
+		&& \RankMath\Helper::is_module_active( 'redirections' )
 	) {
 
 		$admin_bar->add_node(

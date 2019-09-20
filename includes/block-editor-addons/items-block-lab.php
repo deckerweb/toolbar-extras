@@ -83,6 +83,19 @@ function ddw_tbex_aoitems_block_lab( $admin_bar ) {
 
 		}  // end if
 
+		$admin_bar->add_node(
+			array(
+				'id'     => 'blocklab-settings',
+				'parent' => 'tbex-blocklab',
+				'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
+				'href'   => esc_url( admin_url( 'edit.php?post_type=' . $post_type . '&page=block-lab-settings' ) ),
+				'meta'   => array(
+					'target' => '',
+					'title'  => esc_attr__( 'Settings &amp; License', 'toolbar-extras' ),
+				)
+			)
+		);
+
 		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
@@ -105,7 +118,30 @@ function ddw_tbex_aoitems_block_lab( $admin_bar ) {
 				'documentation',
 				'blocklab-docs',
 				'group-blocklab-resources',
-				'https://github.com/getblocklab/block-lab/wiki'
+				'https://getblocklab.com/docs/'		// https://github.com/getblocklab/block-lab/wiki'
+			);
+
+			ddw_tbex_resource_item(
+				'official-blog',
+				'blocklab-blog',
+				'group-blocklab-resources',
+				'https://getblocklab.com/blog/',
+				esc_attr__( 'Blog with Block Building Tutorials', 'toolbar-extras' )
+			);
+
+			ddw_tbex_resource_item(
+				'slack-channel',
+				'blocklab-slack',
+				'group-blocklab-resources',
+				'https://block-lab.slack.com/'
+			);
+
+			ddw_tbex_resource_item(
+				'changelog',
+				'blocklab-changelog',
+				'group-blocklab-resources',
+				'https://github.com/getblocklab/block-lab/blob/develop/CHANGELOG.md',
+				ddw_tbex_string_version_history( 'plugin' )
 			);
 
 			ddw_tbex_resource_item(

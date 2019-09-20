@@ -226,7 +226,7 @@ function ddw_tbex_themeitems_phlox_resources() {
 		array(
 			'id'     => 'group-theme-resources',
 			'parent' => ddw_tbex_is_phlox_core_active() ? 'theme-settings' : 'theme-creative',
-			'meta'   => array( 'class' => 'ab-sub-secondary' )
+			'meta'   => array( 'class' => 'ab-sub-secondary' ),
 		)
 	);
 
@@ -242,7 +242,7 @@ function ddw_tbex_themeitems_phlox_resources() {
 		'theme-docs',
 		'group-theme-resources',
 		'http://support.averta.net/en/e-item/phlox-wordpress-theme/',
-		esc_attr__( 'Official Theme Documentation', 'toolbar-extras' )
+		ddw_tbex_string_official_theme_documentation()
 	);
 
 	ddw_tbex_resource_item(

@@ -715,7 +715,7 @@ function ddw_tbex_items_elementor_pro_resources() {
 			'epro-resources-changelog',
 			'epro-resources',
 			ddw_tbex_get_resource_url( 'elementor', 'url_changes_pro' ),
-			ddw_tbex_string_version_history( 'plugin' )
+			ddw_tbex_string_version_history( 'pro-addon' )
 		);
 
 		ddw_tbex_resource_item(

@@ -36,12 +36,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_customify', 100 );
  * @uses ddw_tbex_string_theme_title()
  * @uses ddw_tbex_item_theme_creative_customize()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_customify() {
+function ddw_tbex_themeitems_customify( $admin_bar ) {
 
 	/** Customify creative */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'theme-creative',
 			'parent' => 'group-active-theme',
@@ -174,21 +174,21 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_customify_resources', 120 );
  * @uses ddw_tbex_is_customify_pro_active()
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_customify_resources() {
+function ddw_tbex_themeitems_customify_resources( $admin_bar ) {
 
 	/** Bail early if no resources display active */
 	if ( ! ddw_tbex_display_items_resources() ) {
-		return;
+		return $admin_bar;
 	}
 
 	/** Group: Resources for Customify Theme */
-	$GLOBALS[ 'wp_admin_bar' ]->add_group(
+	$admin_bar->add_group(
 		array(
 			'id'     => 'group-theme-resources',
 			'parent' => ddw_tbex_is_customify_pro_active() ? 'theme-settings' : 'theme-creative',
-			'meta'   => array( 'class' => 'ab-sub-secondary' )
+			'meta'   => array( 'class' => 'ab-sub-secondary' ),
 		)
 	);
 
@@ -203,19 +203,19 @@ function ddw_tbex_themeitems_customify_resources() {
 		'support-contact',
 		'theme-contact',
 		'group-theme-resources',
-		'https://wpcustomify.com/contact/'
+		'https://pressmaximum.com/contact/'
 	);
 
 	ddw_tbex_resource_item(
 		'documentation',
 		'theme-docs',
 		'group-theme-resources',
-		'https://wpcustomify.com/help/documentation/',
-		esc_attr__( 'Official Theme Documentation', 'toolbar-extras' )
+		'https://pressmaximum.com/docs/customify/',
+		ddw_tbex_string_official_theme_documentation()
 	);
 
 	/** Required hook for Customify Pro resources */
-	do_action( 'tbex_after_theme_free_docs' );
+	do_action( 'tbex_after_theme_free_docs', $admin_bar );
 
 	ddw_tbex_resource_item(
 		'facebook-group',
@@ -242,7 +242,7 @@ function ddw_tbex_themeitems_customify_resources() {
 		'official-site',
 		'theme-site',
 		'group-theme-resources',
-		'https://wpcustomify.com/'
+		'https://pressmaximum.com/customify/'
 	);
 
 }  // end function
@@ -258,17 +258,17 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_customify_pro', 100 );
  * @uses ddw_tbex_is_customify_pro_active()
  * @uses Customify_Pro()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_customify_pro() {
+function ddw_tbex_themeitems_customify_pro( $admin_bar ) {
 
 	/** Bail early if Pro version is not active */
 	if ( ! ddw_tbex_is_customify_pro_active() ) {
-		return;
+		return $admin_bar;
 	}
 
 	/** Customify settings */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'theme-settings',
 			'parent' => 'group-active-theme',
@@ -281,7 +281,7 @@ function ddw_tbex_themeitems_customify_pro() {
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'theme-settings-modules',
 				'parent' => 'theme-settings',
@@ -294,7 +294,7 @@ function ddw_tbex_themeitems_customify_pro() {
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'theme-settings-changelog',
 				'parent' => 'theme-settings',
@@ -310,14 +310,14 @@ function ddw_tbex_themeitems_customify_pro() {
 	/** Module: Custom Fonts */
 	if ( Customify_Pro()->is_enabled_module( 'Customify_Pro_Module_Custom_Fonts' ) ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_group(
+		$admin_bar->add_group(
 			array(
 				'id'     => 'group-customify-fonts',
 				'parent' => 'theme-creative'
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'customify-custom-fonts-all',
 					'parent' => 'group-customify-fonts',
@@ -330,7 +330,7 @@ function ddw_tbex_themeitems_customify_pro() {
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'customify-custom-fonts-new',
 					'parent' => 'group-customify-fonts',
@@ -348,7 +348,7 @@ function ddw_tbex_themeitems_customify_pro() {
 	/** Module: Customify Hooks */
 	if ( Customify_Pro()->is_enabled_module( 'Customify_Pro_Module_Hooks' ) ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_group(
+		$admin_bar->add_group(
 			array(
 				'id'     => 'group-customify-hooks',
 				'parent' => 'theme-creative'
@@ -357,7 +357,7 @@ function ddw_tbex_themeitems_customify_pro() {
 
 			$type = 'customify_hook';
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'customify-hooks-all',
 					'parent' => 'group-customify-hooks',
@@ -370,7 +370,7 @@ function ddw_tbex_themeitems_customify_pro() {
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'customify-hooks-new',
 					'parent' => 'group-customify-hooks',
@@ -385,7 +385,7 @@ function ddw_tbex_themeitems_customify_pro() {
 
 			if ( ddw_tbex_is_elementor_active() && \Elementor\User::is_current_user_can_edit_post_type( $type ) ) {
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'customify-hooks-builder',
 						'parent' => 'group-customify-hooks',
@@ -398,7 +398,7 @@ function ddw_tbex_themeitems_customify_pro() {
 					)
 				);
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'customify-hook-with-builder',
 						'parent' => 'new-' . $type,
@@ -416,7 +416,7 @@ function ddw_tbex_themeitems_customify_pro() {
 			/** Hook categories, via BTC plugin */
 			if ( ddw_tbex_is_btcplugin_active() ) {
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'customify-hooks-categories',
 						'parent' => 'group-customify-hooks',
@@ -444,19 +444,21 @@ add_action( 'tbex_after_theme_free_docs', 'ddw_tbex_themeitems_customify_pro_res
  *
  * @uses ddw_tbex_is_customify_pro_active()
  * @uses ddw_tbex_resource_item()
+ *
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_customify_pro_resources() {
+function ddw_tbex_themeitems_customify_pro_resources( $admin_bar ) {
 
 	/** Bail early if Pro version is not active */
 	if ( ! ddw_tbex_is_customify_pro_active() ) {
-		return;
+		return $admin_bar;
 	}
 
 	ddw_tbex_resource_item(
 		'pro-modules-documentation',
 		'theme-docs-pro',
 		'group-theme-resources',
-		'https://wpcustomify.com/help/documentation/customify-pro-modules/'
+		'https://pressmaximum.com/docs/customify/customify-pro-modules/'
 	);
 
 }  // end function
@@ -473,19 +475,19 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_customify_sites_import', 100 
  * @uses ddw_tbex_id_sites_browser()
  * @uses ddw_tbex_item_title_with_settings_icon()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_customify_sites_import() {
+function ddw_tbex_themeitems_customify_sites_import( $admin_bar ) {
 
 	/** Bail early if no display of Demo Import items */
 	if ( ! ddw_tbex_display_items_demo_import() ) {
-		return;
+		return $admin_bar;
 	}
 
 	/** Sites Library */
 	if ( defined( 'CUSTOMIFY_SITES_URL' ) ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => ddw_tbex_id_sites_browser(),
 				'parent' => 'group-demo-import',

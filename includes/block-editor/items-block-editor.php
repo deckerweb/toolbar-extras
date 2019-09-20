@@ -55,6 +55,7 @@ add_action( 'admin_menu', 'ddw_tbex_wpblock_posttype_add_menu' );
  *   the callback.
  *
  * @since 1.4.3
+ * @since 1.4.7 Added check if admin menu may already exist.
  *
  * @see WP Core /wp-includes/post.php for 'wp_block' capabilities
  *
@@ -63,6 +64,13 @@ add_action( 'admin_menu', 'ddw_tbex_wpblock_posttype_add_menu' );
  */
 function ddw_tbex_wpblock_posttype_add_menu() {
 	
+	/**
+	 * Bail early if the same stuff as below was already added by other plugins.
+	 */
+	if ( ! empty( $GLOBALS[ 'admin_page_hooks' ][ 'edit.php?post_type=wp_block' ] ) ) {
+		return;
+	}
+
 	/** Add "Blocks" top-level Admin menu, below "Comments" */
     add_menu_page(
         _x( 'Reusable Blocks', 'Admin page title', 'toolbar-extras' ),
@@ -175,7 +183,7 @@ function ddw_tbex_items_block_editor_core( $admin_bar ) {
  *
  * @since 1.4.0
  *
- * @see ddw_tbex_get_resource_url() in /includes/functions-global.php
+ * @see ddw_tbex_get_resource_url() in /includes/functions-global-info.php
  *
  * @return array $block_editor_links Array of external resource links.
  */
@@ -412,7 +420,7 @@ function ddw_tbex_items_block_editor_developers( $admin_bar ) {
 	if ( ( ! ddw_tbex_display_items_dev_mode() || ! ddw_tbex_display_items_resources() )
 		|| 'block-editor' !== ddw_tbex_get_default_pagebuilder()
 	) {
-		return;
+		return $admin_bar;
 	}
 
 	/** Block Editor Developers */

@@ -94,7 +94,7 @@ function ddw_tbex_aoitems_unlimited_elements( $admin_bar ) {
 
 		ddw_tbex_resource_item(
 			'support-forum',
-			'analogwp-support',
+			'unlimitedelements-support',
 			'group-unlimitedelements-resources',
 			'https://wordpress.org/support/plugin/unlimited-elements-for-elementor/'
 		);

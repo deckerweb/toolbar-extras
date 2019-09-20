@@ -14,7 +14,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_templementor', 100 );
 /**
- * Items for Add-On: Templementor – Persistent Elementor Templates (free, by Lcweb)
+ * Items for Add-On:
+ *   Templementor – Persistent Elementor Templates (free, by Lcweb)
  *
  * @since 1.0.0
  * @since 1.3.5 Added BTC plugin support.
@@ -22,12 +23,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_templementor', 100 );
  * @uses ddw_tbex_display_items_resources()
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_templementor() {
+function ddw_tbex_aoitems_templementor( $admin_bar ) {
 
 	/** Templementor Templates */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'ao-templementor',
 			'parent' => 'group-creative-content',
@@ -35,12 +36,12 @@ function ddw_tbex_aoitems_templementor() {
 			'href'   => esc_url( admin_url( 'edit.php?post_type=tpm_templates' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_addon_title_attr( __( 'Templementor - Persistant Elementor Templates', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_addon_title_attr( __( 'Templementor - Persistant Elementor Templates', 'toolbar-extras' ) ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-templementor-all',
 				'parent' => 'ao-templementor',
@@ -48,12 +49,12 @@ function ddw_tbex_aoitems_templementor() {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=tpm_templates' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'All Templates', 'toolbar-extras' )
+					'title'  => esc_attr__( 'All Templates', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-templementor-new',
 				'parent' => 'ao-templementor',
@@ -61,14 +62,14 @@ function ddw_tbex_aoitems_templementor() {
 				'href'   => esc_url( admin_url( 'post-new.php?post_type=tpm_templates' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'New Template', 'toolbar-extras' )
+					'title'  => esc_attr__( 'New Template', 'toolbar-extras' ),
 				)
 			)
 		);
 
 		if ( ddw_tbex_is_elementor_active() && \Elementor\User::is_current_user_can_edit_post_type( 'tpm_templates' ) ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ao-templementor-builder',
 					'parent' => 'ao-templementor',
@@ -76,7 +77,7 @@ function ddw_tbex_aoitems_templementor() {
 					'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'tpm_templates' ) ),
 					'meta'   => array(
 						'target' => ddw_tbex_meta_target( 'builder' ),
-						'title'  => esc_attr__( 'New Template Builder', 'toolbar-extras' )
+						'title'  => esc_attr__( 'New Template Builder', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -86,7 +87,7 @@ function ddw_tbex_aoitems_templementor() {
 		/** Template categories, via BTC plugin */
 		if ( ddw_tbex_is_btcplugin_active() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ao-templementor-categories',
 					'parent' => 'ao-templementor',
@@ -94,21 +95,21 @@ function ddw_tbex_aoitems_templementor() {
 					'href'   => esc_url( admin_url( 'edit-tags.php?taxonomy=builder-template-category&post_type=tpm_templates' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_html( ddw_btc_string_template( 'template' ) )
+						'title'  => esc_html( ddw_btc_string_template( 'template' ) ),
 					)
 				)
 			);
 
 		}  // end if
 
-		/** Group: Resources for Templementor */
+		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-templementor-resources',
 					'parent' => 'ao-templementor',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

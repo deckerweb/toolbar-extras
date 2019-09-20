@@ -100,7 +100,7 @@ class DDW_Toolbar_Extras_Finder_Category extends \Elementor\Core\Common\Modules\
 			'resources' => [
 				'title'       => _x( 'Help Resources - Toolbar Extras', 'Title in Elementor Finder', 'toolbar-extras' ),
 				'url'         => ddw_tbex_get_info_url( 'url_plugin_docs' ),
-				'icon'        => 'info',
+				'icon'        => 'info-circle-o',
 				'keywords'    => [ 'help', 'support', 'docs', 'documentation', 'faq', 'knowledge base' ],
 				'description' => __( 'FAQ, Knowledge Base and Documentation for the plugin', 'toolbar-extras' ),
 				'actions'     => [
@@ -141,6 +141,32 @@ class DDW_Toolbar_Extras_Finder_Category extends \Elementor\Core\Common\Modules\
 			],
 		];
 
+		/** For: Toolbar Extras for Oxygen Add-On */
+		if ( ddw_tbex_is_addon_oxygen_active() ) {
+
+			$items[ 'tbexob-addon' ] = [
+				'title'       => _x( 'Oxygen Toolbar Add-On', 'Title in Elementor Finder', 'toolbar-extras' ),
+				'url'         => admin_url( 'options-general.php?page=toolbar-extras&tab=oxygen' ),
+				'icon'        => 'site-logo',
+				'keywords'    => [ 'toolbar', 'admin bar', 'oxygen', 'builder' ],
+				'description' => __( 'Oxygen Builder Toolbar options via Toolbar Extras', 'toolbar-extras' ),
+			];
+
+		}  // end if
+
+		/** For: Toolbar Extras for GiveWP Donations Add-On */
+		if ( ddw_tbex_is_addon_givewp_active() ) {
+
+			$items[ 'tbexgive-addon' ] = [
+				'title'       => _x( 'GiveWP Toolbar Add-On', 'Title in Elementor Finder', 'toolbar-extras' ),
+				'url'         => admin_url( 'options-general.php?page=toolbar-extras&tab=givewp' ),
+				'icon'        => 'heart-o',
+				'keywords'    => [ 'toolbar', 'admin bar', 'givewp', 'give', 'donate', 'donations' ],
+				'description' => __( 'GiveWP Donations Toolbar options via Toolbar Extras', 'toolbar-extras' ),
+			];
+
+		}  // end if
+
 		/** For: Toolbar Extras for MainWP Add-On */
 		if ( ddw_tbex_is_addon_mainwp_active() ) {
 
@@ -150,6 +176,32 @@ class DDW_Toolbar_Extras_Finder_Category extends \Elementor\Core\Common\Modules\
 				'icon'        => 'sitemap',
 				'keywords'    => [ 'toolbar', 'admin bar', 'mainwp', 'management' ],
 				'description' => __( 'Set items display, labels, icons, link behavior for the MainWP Add-On for Toolbar Extras', 'toolbar-extras' ),
+			];
+
+		}  // end if
+
+		/** For: Toolbar Extras for Brizy Add-On */
+		if ( ddw_tbex_is_addon_brizy_active() ) {
+
+			$items[ 'tbexbzy-addon' ] = [
+				'title'       => _x( 'Brizy Toolbar Add-On', 'Title in Elementor Finder', 'toolbar-extras' ),
+				'url'         => admin_url( 'options-general.php?page=toolbar-extras&tab=brizy' ),
+				'icon'        => 'site-logo',
+				'keywords'    => [ 'toolbar', 'admin bar', 'brizy', 'builder' ],
+				'description' => __( 'Brizy Builder Toolbar options via Toolbar Extras', 'toolbar-extras' ),
+			];
+
+		}  // end if
+
+		/** For: Toolbar Extras for Simple:Press Add-On */
+		if ( ddw_tbex_is_addon_simplepress_active() ) {
+
+			$items[ 'tbexsp-addon' ] = [
+				'title'       => _x( 'Simple:Press Toolbar Add-On', 'Title in Elementor Finder', 'toolbar-extras' ),
+				'url'         => admin_url( 'options-general.php?page=toolbar-extras&tab=simplepress' ),
+				'icon'        => 'comments',
+				'keywords'    => [ 'toolbar', 'admin bar', 'simplepress', 'simple:press', 'simple-press', 'forums' ],
+				'description' => __( 'Simple:Press Forums Toolbar options via Toolbar Extras', 'toolbar-extras' ),
 			];
 
 		}  // end if

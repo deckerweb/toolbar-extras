@@ -67,6 +67,21 @@ function ddw_tbex_is_localhost() {
 
 
 /**
+ * Check if the current WP installation is in development mode via SCRIPT_DEBUG
+ *   constant.
+ *
+ * @since 1.4.7
+ *
+ * @return bool TRUE when debugging scripts, FALSE otherwise.
+ */
+function ddw_tbex_is_wp_dev_mode() {
+
+	return defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG;
+
+}  // end function
+
+
+/**
  * Allows for filtering the general user role/capability to display main
  *   & sub-level items
  *   Default capability: 'manage_options' (Default cap for Elementor

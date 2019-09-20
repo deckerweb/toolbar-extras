@@ -903,6 +903,7 @@ if ( class_exists( 'RankMath' ) ) {
 					'RANKMATH_SCHEMA',
 					'RankMath_Monitor',
 					'RankMath_Redirections',
+					'RankMath_Woocommerce',
 					
 				),
 
@@ -1131,7 +1132,7 @@ if ( function_exists( 'cie_menuSettings' ) ) {
  * Plugin: Export Import Menus (free, by Akshay Menariya)
  * @since 1.4.0
  */
-if ( class_exists( 'DspExportImportMenus' ) ) {
+if ( ddw_tbex_is_export_import_menus_active() ) {
 	require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-export-import-menus.php';
 }
 

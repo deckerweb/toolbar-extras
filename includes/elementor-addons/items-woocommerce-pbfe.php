@@ -223,7 +223,7 @@ function ddw_tbex_new_content_dtwoopbfe( $admin_bar ) {
 
 	/** Bail early if items display is not wanted */
 	if ( ! ddw_tbex_display_items_new_content() || ! \Elementor\User::is_current_user_can_edit_post_type( $type ) ) {
-		return;
+		return $admin_bar;
 	}
 
 	/** New template */

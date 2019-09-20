@@ -39,12 +39,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_generatepress', 100 );
  * @uses ddw_tbex_string_theme_title()
  * @uses ddw_tbex_customizer_start()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_generatepress() {
+function ddw_tbex_themeitems_generatepress( $admin_bar ) {
 
 	/** GeneratePress creative */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'theme-creative',
 			'parent' => 'group-active-theme',
@@ -180,16 +180,18 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_generatepress_resources', 120
  * @uses ddw_tbex_display_items_resources()
  * @uses ddw_tbex_is_generatepress_premium_active()
  * @uses ddw_tbex_resource_item()
+ *
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_generatepress_resources() {
+function ddw_tbex_themeitems_generatepress_resources( $admin_bar ) {
 
 	/** Bail early if no resources display active */
 	if ( ! ddw_tbex_display_items_resources() ) {
-		return;
+		return $admin_bar;
 	}
 
 	/** Group: Resources for GeneratePress Theme */
-	$GLOBALS[ 'wp_admin_bar' ]->add_group(
+	$admin_bar->add_group(
 		array(
 			'id'     => 'group-theme-resources',
 			'parent' => ddw_tbex_is_generatepress_premium_active() ? 'theme-settings' : 'theme-creative',
@@ -209,11 +211,11 @@ function ddw_tbex_themeitems_generatepress_resources() {
 		'theme-docs',
 		'group-theme-resources',
 		'https://docs.generatepress.com/',
-		esc_attr__( 'Official Theme Documentation', 'toolbar-extras' )
+		ddw_tbex_string_official_theme_documentation()
 	);
 
 	/** Required hook for GeneratePress Premium resources */
-	do_action( 'tbex_after_theme_free_docs' );
+	do_action( 'tbex_after_theme_free_docs', $admin_bar );
 
 	ddw_tbex_resource_item(
 		'facebook-group',
@@ -256,26 +258,26 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_generatepress_premium', 100 )
  *
  * @uses ddw_tbex_is_generatepress_premium_active()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_generatepress_premium() {
+function ddw_tbex_themeitems_generatepress_premium( $admin_bar ) {
 
 	/** Bail early if Premium version is not active */
 	if ( ! ddw_tbex_is_generatepress_premium_active() ) {
-		return;
+		return $admin_bar;
 	}
 
 	/** Premium: Elements */
 	if ( function_exists( 'generate_premium_do_elements' ) ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_group(
+		$admin_bar->add_group(
 			array(
 				'id'     => 'generatepress-elements',
 				'parent' => 'theme-creative'
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'gp-elements-all',
 					'parent' => 'generatepress-elements',
@@ -288,7 +290,7 @@ function ddw_tbex_themeitems_generatepress_premium() {
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'gp-elements-new',
 					'parent' => 'generatepress-elements',
@@ -304,7 +306,7 @@ function ddw_tbex_themeitems_generatepress_premium() {
 			/** Element categories, via BTC plugin */
 			if ( ddw_tbex_is_btcplugin_active() ) {
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'gp-elements-categories',
 						'parent' => 'generatepress-elements',
@@ -324,14 +326,14 @@ function ddw_tbex_themeitems_generatepress_premium() {
 	/** Premium: Page Headers */
 	if ( defined( 'GENERATE_PAGE_HEADER_VERSION' ) ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_group(
+		$admin_bar->add_group(
 			array(
 				'id'     => 'generatepress-pheaders',
 				'parent' => 'theme-creative'
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'gp-ph-all',
 					'parent' => 'generatepress-pheaders',
@@ -344,7 +346,7 @@ function ddw_tbex_themeitems_generatepress_premium() {
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'gp-ph-new',
 					'parent' => 'generatepress-pheaders',
@@ -357,7 +359,7 @@ function ddw_tbex_themeitems_generatepress_premium() {
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'gp-ph-global',
 					'parent' => 'generatepress-pheaders',
@@ -375,14 +377,14 @@ function ddw_tbex_themeitems_generatepress_premium() {
 	/** Premium: Hooks */
 	if ( defined( 'GENERATE_HOOKS_VERSION' ) ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_group(
+		$admin_bar->add_group(
 			array(
 				'id'     => 'generatepress-hooks',
 				'parent' => 'theme-creative'
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'gp-hooks',
 					'parent' => 'generatepress-hooks',
@@ -398,7 +400,7 @@ function ddw_tbex_themeitems_generatepress_premium() {
 	}  // end if
 
 	/** GeneratePress settings */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'theme-settings',
 			'parent' => 'group-active-theme',
@@ -411,7 +413,7 @@ function ddw_tbex_themeitems_generatepress_premium() {
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'theme-settings-extensions',
 				'parent' => 'theme-settings',
@@ -436,12 +438,14 @@ add_action( 'tbex_after_theme_free_docs', 'ddw_tbex_themeitems_generatepress_pre
  *
  * @uses ddw_tbex_is_generatepress_premium_active()
  * @uses ddw_tbex_resource_item()
+ *
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_generatepress_premium_resources() {
+function ddw_tbex_themeitems_generatepress_premium_resources( $admin_bar ) {
 
 	/** Bail early if Premium version is not active */
 	if ( ! ddw_tbex_is_generatepress_premium_active() ) {
-		return;
+		return $admin_bar;
 	}
 
 	ddw_tbex_resource_item(
@@ -467,16 +471,16 @@ add_action( 'tbex_new_content_before_nav_menu', 'ddw_tbex_themeitems_new_content
  *
  * @since 1.3.2
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_new_content_generatepress_premium() {
+function ddw_tbex_themeitems_new_content_generatepress_premium( $admin_bar ) {
 
 	/** Bail early if Elements Module is not active */
 	if ( ! function_exists( 'generate_premium_do_elements' ) ) {
-		return;
+		return $admin_bar;
 	}
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'new-gp_elements',
 			'parent' => 'new-content',
@@ -502,13 +506,13 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_generatepress_sites_import', 
  * @uses ddw_tbex_id_sites_browser()
  * @uses ddw_tbex_item_title_with_settings_icon()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_generatepress_sites_import() {
+function ddw_tbex_themeitems_generatepress_sites_import( $admin_bar ) {
 
 	/** Bail early if no display of Demo Import items */
 	if ( ! ddw_tbex_display_items_demo_import() ) {
-		return;
+		return $admin_bar;
 	}
 
 	/** Premium: GeneratePress Sites */
@@ -516,7 +520,7 @@ function ddw_tbex_themeitems_generatepress_sites_import() {
 
 		$gp_sites_url = version_compare( GP_PREMIUM_VERSION, '1.7-rc.1', '>=' ) ? admin_url( 'themes.php?page=generatepress-site-library' ) : admin_url( 'themes.php?page=generate-options&area=generate-sites' );
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => ddw_tbex_id_sites_browser(),
 				'parent' => 'group-demo-import',

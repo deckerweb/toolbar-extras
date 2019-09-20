@@ -44,7 +44,7 @@ function ddw_tbex_menu_hook_priority() {
 add_action( 'init', 'ddw_tbex_super_admin_menu_init', 15 );
 /**
  * Setup a custom nav menu intended towards Site Admins (and editable by (Super)
- *    Admins only).
+ *   Admins only).
  *
  * @since 1.0.0
  *
@@ -117,17 +117,13 @@ function ddw_tbex_build_custom_menu( $wp_admin_bar ) {
 
 				/** Check for parent menu items to allow for threaded menus */
 				if ( $tbex_menu_item->menu_item_parent ) {
-
 					$tbex_menu_args[ 'parent' ] = 'tbex_' . $tbex_menu_item->menu_item_parent;
-
-				}  // end if
+				}
 
 				/** Only hook items if the menu is setup for our menu location */
 				if ( $tbex_menu_item ) {
-
 					$wp_admin_bar->add_node( $tbex_menu_args );
-
-				}  // end if
+				}
 
 				unset( $tbex_menu_args );
 

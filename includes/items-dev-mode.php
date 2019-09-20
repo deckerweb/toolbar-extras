@@ -20,24 +20,24 @@ add_action( 'tbex_before_site_group_content', 'ddw_tbex_site_items_dev_mode' );
  *
  * @uses ddw_tbex_item_title_with_settings_icon()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_dev_mode() {
+function ddw_tbex_site_items_dev_mode( $admin_bar ) {
 
 	if ( ! has_filter( 'tbex_filter_is_dev_mode' ) ) {
 		return;
 	}
 
 	/** Group: Rapid Dev (Dev Mode) */
-	$GLOBALS[ 'wp_admin_bar' ]->add_group(
+	$admin_bar->add_group(
 		array(
 			'id'     => 'tbex-sitegroup-dev-mode',
 			'parent' => ddw_tbex_parent_id_site_group(),
-			'meta'   => array( 'class' => 'ab-sub-secondary' )
+			'meta'   => array( 'class' => 'ab-sub-secondary' ),
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'rapid-dev',
 			'parent' => 'tbex-sitegroup-dev-mode',
@@ -49,7 +49,7 @@ function ddw_tbex_site_items_dev_mode() {
 			'href'   => '',
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Rapid Development', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Rapid Development', 'toolbar-extras' ),
 			)
 		)
 	);
@@ -62,12 +62,15 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_devmode_file_editors', 15 );
  * Optionally hook in Theme Editor and Plugin Editor to Dev Mode items.
  *
  * @since 1.0.0
+ * @since 1.4.7 Added check for constant 'DISALLOW_FILE_MODS'.
  *
  * @param object $admin_bar Object of Toolbar nodes.
  */
 function ddw_tbex_site_items_devmode_file_editors( $admin_bar ) {
 
-	if ( ! ( defined( 'DISALLOW_FILE_EDIT' ) && DISALLOW_FILE_EDIT ) ) {
+	if ( ! ( defined( 'DISALLOW_FILE_EDIT' ) && DISALLOW_FILE_EDIT )
+		|| ! ( defined( 'DISALLOW_FILE_MODS' ) && DISALLOW_FILE_MODS )
+	) {
 
 		/** Group */
 		$admin_bar->add_group(
@@ -77,6 +80,7 @@ function ddw_tbex_site_items_devmode_file_editors( $admin_bar ) {
 			)
 		);
 
+		/** Theme Editor */
 		if ( current_user_can( 'edit_themes' ) ) {
 
 			add_filter( 'tbex_filter_is_dev_mode', '__return_empty_string' );
@@ -97,6 +101,7 @@ function ddw_tbex_site_items_devmode_file_editors( $admin_bar ) {
 
 		}  // end if
 
+		/** Plugin Editor */
 		if ( current_user_can( 'edit_plugins' ) ) {
 
 			add_filter( 'tbex_filter_is_dev_mode', '__return_empty_string' );
@@ -128,13 +133,13 @@ add_action( 'tbex_before_site_group_content', 'ddw_tbex_site_items_devmode_plugi
  *
  * @since 1.0.0
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_devmode_plugin_status() {
+function ddw_tbex_site_items_devmode_plugin_status( $admin_bar ) {
 
 	if ( current_user_can( 'activate_plugins' ) ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'wpplugins-recently',
 				'parent' => 'wpplugins',
@@ -151,7 +156,7 @@ function ddw_tbex_site_items_devmode_plugin_status() {
 
 	if ( current_user_can( 'update_plugins' ) ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'wpplugins-updateable',
 				'parent' => 'wpplugins',
@@ -174,7 +179,7 @@ function ddw_tbex_site_items_devmode_plugin_status() {
 
 		//if ( apply_filters( 'show_advanced_plugins', TRUE, 'mustuse' ) ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'wpplugins-mustuse',
 					'parent' => 'wpplugins',
@@ -191,7 +196,7 @@ function ddw_tbex_site_items_devmode_plugin_status() {
 
 		//if ( apply_filters( 'show_advanced_plugins', TRUE, 'dropins' ) ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'wpplugins-dropins',
 					'parent' => 'wpplugins',
@@ -363,7 +368,7 @@ function ddw_tbex_site_items_devmode_resources( $admin_bar ) {
 				'id'     => 'wp-handbook-block-editor',
 				'parent' => 'group-devmode-resources',
 				'title'  => esc_attr__( 'Block Editor (Gutenberg) Handbook', 'toolbar-extras' ),
-				'href'   => 'https://wordpress.org/gutenberg/handbook/',
+				'href'   => 'https://developer.wordpress.org/block-editor/',
 				'meta'   => array(
 					'rel'    => ddw_tbex_meta_rel(),
 					'target' => ddw_tbex_meta_target(),
@@ -519,4 +524,22 @@ if ( defined( 'WPSYNCHRO_VERSION' ) ) {
  */
 if ( function_exists( 'wp_migrate_db' ) || function_exists( 'wp_migrate_db_pro_loaded' ) ) {
 	require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-wp-db-migrate.php';
+}
+
+
+/**
+ * Dev Add-On: WP Crontrol (free, by John Blackbourn & crontributors)
+ * @since 1.4.7
+ */
+if ( class_exists( 'Crontrol' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-wp-crontrol.php';
+}
+
+
+/**
+ * Dev Add-On: Advanced Cron Manager (free, by BracketSpace)
+ * @since 1.4.7
+ */
+if ( function_exists( 'acm_check_old_plugins' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-advanced-cron-manager.php';
 }

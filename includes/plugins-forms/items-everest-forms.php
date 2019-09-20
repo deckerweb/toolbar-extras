@@ -19,12 +19,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_everest_forms' );
  * @since 1.3.2
  * @since 1.4.0 Added individual form preview items.
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_everest_forms() {
+function ddw_tbex_site_items_everest_forms( $admin_bar ) {
 
 	/** For: Forms */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'forms-everestforms',
 			'parent' => 'tbex-sitegroup-forms',
@@ -32,7 +32,7 @@ function ddw_tbex_site_items_everest_forms() {
 			'href'   => esc_url( admin_url( 'admin.php?page=evf-builder' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_forms_system( 'Everest' )
+				'title'  => ddw_tbex_string_forms_system( 'Everest' ),
 			)
 		)
 	);
@@ -54,10 +54,10 @@ function ddw_tbex_site_items_everest_forms() {
 		if ( $forms ) {
 
 			/** Add group */
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-everestforms-edit-forms',
-					'parent' => 'forms-everestforms'
+					'parent' => 'forms-everestforms',
 				)
 			);
 
@@ -67,7 +67,7 @@ function ddw_tbex_site_items_everest_forms() {
 				$form_title = esc_attr( $form->post_title );
 				
 				/** Add item per form */
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'forms-everestforms-form-' . $form_id,
 						'parent' => 'group-everestforms-edit-forms',
@@ -75,12 +75,12 @@ function ddw_tbex_site_items_everest_forms() {
 						'href'   => esc_url( admin_url( 'admin.php?page=evf-builder&tab=fields&form_id=' . $form_id ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'Edit Form', 'toolbar-extras' ) . ': ' . $form_title
+							'title'  => esc_attr__( 'Edit Form', 'toolbar-extras' ) . ': ' . $form_title,
 						)
 					)
 				);
 
-					$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					$admin_bar->add_node(
 						array(
 							'id'     => 'forms-everestforms-form-' . $form_id . '-builder',
 							'parent' => 'forms-everestforms-form-' . $form_id,
@@ -88,12 +88,12 @@ function ddw_tbex_site_items_everest_forms() {
 							'href'   => esc_url( admin_url( 'admin.php?page=evf-builder&tab=fields&form_id=' . $form_id ) ),
 							'meta'   => array(
 								'target' => '',
-								'title'  => esc_attr__( 'Form Builder', 'toolbar-extras' )
+								'title'  => esc_attr__( 'Form Builder', 'toolbar-extras' ),
 							)
 						)
 					);
 
-					$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					$admin_bar->add_node(
 						array(
 							'id'     => 'forms-everestforms-form-' . $form_id . '-preview',
 							'parent' => 'forms-everestforms-form-' . $form_id,
@@ -101,12 +101,12 @@ function ddw_tbex_site_items_everest_forms() {
 							'href'   => esc_url( site_url( '/?form_id=' . $form_id . '&evf_preview=true' ) ),
 							'meta'   => array(
 								'target' => ddw_tbex_meta_target(),
-								'title'  => esc_attr__( 'Preview', 'toolbar-extras' )
+								'title'  => esc_attr__( 'Preview', 'toolbar-extras' ),
 							)
 						)
 					);
 
-					$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					$admin_bar->add_node(
 						array(
 							'id'     => 'forms-everestforms-form-' . $form_id . '-entries',
 							'parent' => 'forms-everestforms-form-' . $form_id,
@@ -114,7 +114,7 @@ function ddw_tbex_site_items_everest_forms() {
 							'href'   => esc_url( admin_url( 'admin.php?page=evf-entries&form_id=' . $form_id ) ),
 							'meta'   => array(
 								'target' => '',
-								'title'  => esc_attr__( 'Entries', 'toolbar-extras' )
+								'title'  => esc_attr__( 'Entries', 'toolbar-extras' ),
 							)
 						)
 					);
@@ -124,7 +124,7 @@ function ddw_tbex_site_items_everest_forms() {
 		}  // end if
 
 		/** General Everest Forms items */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-everestforms-all-forms',
 				'parent' => 'forms-everestforms',
@@ -132,12 +132,12 @@ function ddw_tbex_site_items_everest_forms() {
 				'href'   => esc_url( admin_url( 'admin.php?page=evf-builder' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'All Forms', 'toolbar-extras' )
+					'title'  => esc_attr__( 'All Forms', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-everestforms-new-form',
 				'parent' => 'forms-everestforms',
@@ -145,12 +145,12 @@ function ddw_tbex_site_items_everest_forms() {
 				'href'   => esc_url( admin_url( 'admin.php?page=evf-builder&create-form=1' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'New Form', 'toolbar-extras' )
+					'title'  => esc_attr__( 'New Form', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-everestforms-entries',
 				'parent' => 'forms-everestforms',
@@ -158,13 +158,13 @@ function ddw_tbex_site_items_everest_forms() {
 				'href'   => esc_url( admin_url( 'admin.php?page=evf-entries' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Entries', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Entries', 'toolbar-extras' ),
 				)
 			)
 		);
 
 		/** Settings */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-everestforms-settings',
 				'parent' => 'forms-everestforms',
@@ -172,12 +172,12 @@ function ddw_tbex_site_items_everest_forms() {
 				'href'   => esc_url( admin_url( 'admin.php?page=evf-settings' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
 				)
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-everestforms-settings-general',
 					'parent' => 'forms-everestforms-settings',
@@ -185,12 +185,12 @@ function ddw_tbex_site_items_everest_forms() {
 					'href'   => esc_url( admin_url( 'admin.php?page=evf-settings&tab=general' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'General', 'toolbar-extras' )
+						'title'  => esc_attr__( 'General', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-everestforms-settings-recaptcha',
 					'parent' => 'forms-everestforms-settings',
@@ -198,12 +198,12 @@ function ddw_tbex_site_items_everest_forms() {
 					'href'   => esc_url( admin_url( 'admin.php?page=evf-settings&tab=recaptcha' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'reCAPTCHA', 'toolbar-extras' )
+						'title'  => esc_attr__( 'reCAPTCHA', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-everestforms-settings-email',
 					'parent' => 'forms-everestforms-settings',
@@ -211,12 +211,12 @@ function ddw_tbex_site_items_everest_forms() {
 					'href'   => esc_url( admin_url( 'admin.php?page=evf-settings&tab=email' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Email', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Email', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-everestforms-settings-validations',
 					'parent' => 'forms-everestforms-settings',
@@ -224,13 +224,13 @@ function ddw_tbex_site_items_everest_forms() {
 					'href'   => esc_url( admin_url( 'admin.php?page=evf-settings&tab=validation' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Validations', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Validations', 'toolbar-extras' ),
 					)
 				)
 			);
 
 		/** Status */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-everestforms-status',
 				'parent' => 'forms-everestforms',
@@ -238,7 +238,7 @@ function ddw_tbex_site_items_everest_forms() {
 				'href'   => esc_url( admin_url( 'admin.php?page=evf-status' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Log Files', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Log Files', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -249,11 +249,11 @@ function ddw_tbex_site_items_everest_forms() {
 		/** Group: Resources for Everest Forms */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-everestforms-resources',
 					'parent' => 'forms-everestforms',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 			

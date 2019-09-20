@@ -170,7 +170,7 @@ function ddw_tbex_plugin_manager() {
 		array(
 			'name'    => _x( 'Builder Template Categories', 'Plugin Name', 'toolbar-extras' ),
 			'slug'    => 'builder-template-categories',
-			'version' => '1.5.1+',
+			'version' => '1.6.0+',
 			'notice' => array(
 				'message' => ddw_tbex_pm_badge( 'recommended' ) .
 					ddw_tbex_pmstring_for(
@@ -178,7 +178,8 @@ function ddw_tbex_plugin_manager() {
 						__( 'Add-On for Beaver Builder', 'toolbar-extras' ) . ' // ' .
 						__( 'Add-On for Brizy', 'toolbar-extras' ) . ' // ' .
 						__( 'Add-On for Divi', 'toolbar-extras' ) . ' // ' .
-						__( 'Add-On for Visual Composer Website Builder', 'toolbar-extras' )
+						__( 'Add-On for Visual Composer Website Builder', 'toolbar-extras' ) . ' // ' .
+						__( 'Add-On for GiveWP Donations', 'toolbar-extras' )
 					) .
 					ddw_tbex_pmstring_info( __( 'Highly recommended free extension to categorize and organize your templates and other content types for building your site', 'toolbar-extras' ) ),
 				'class'   => $class,
@@ -187,7 +188,7 @@ function ddw_tbex_plugin_manager() {
 		array(
 			'name'    => _x( 'Asset CleanUp: Page Speed Booster', 'Plugin Name', 'toolbar-extras' ),
 			'slug'    => 'wp-asset-clean-up',
-			'version' => '1.3.3.7+',
+			'version' => '1.3.4.3+',
 			'notice' => array(
 				'message' => ddw_tbex_pm_badge( 'useful' ) .
 					ddw_tbex_pmstring_for( ddw_tbex_pmstring_for_general() ) .

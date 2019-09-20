@@ -90,6 +90,9 @@ add_filter( 'plugin_row_meta', 'ddw_tbex_plugin_links', 10, 2 );
  * @since 1.0.0
  * @since 1.3.4 Added more Dashicons.
  * @since 1.3.9 Added newsletter link.
+ * @since 1.4.7 Improved inline styles.
+ *
+ * @see ddw_tbex_inline_styles_plugins_page()
  *
  * @uses ddw_tbex_get_info_link()
  *
@@ -107,6 +110,7 @@ function ddw_tbex_plugin_links( $tbex_links, $tbex_file ) {
 	/** List additional links only for this plugin */
 	if ( $tbex_file === TBEX_PLUGIN_BASEDIR . 'toolbar-extras.php' ) {
 
+		/*
 		?>
 			<style type="text/css">
 				tr[data-plugin="<?php echo $tbex_file; ?>"] .plugin-version-author-uri a.dashicons-before:before {
@@ -117,6 +121,7 @@ function ddw_tbex_plugin_links( $tbex_links, $tbex_file ) {
 				}
 			</style>
 		<?php
+		*/
 
 		/* translators: Plugins page listing */
 		$tbex_links[] = ddw_tbex_get_info_link(
@@ -164,6 +169,54 @@ function ddw_tbex_plugin_links( $tbex_links, $tbex_file ) {
 }  // end function
 
 
+add_action( 'admin_enqueue_scripts', 'ddw_tbex_inline_styles_plugins_page', 20 );
+/**
+ * Add additional inline styles on the admin Plugins page.
+ *
+ * @since 1.0.0
+ * @since 1.4.7 Splitted into function; using wp_add_inline_style() from Core.
+ *
+ * @uses wp_add_inline_style()
+ *
+ * @global string $GLOBALS[ 'pagenow' ]
+ */
+function ddw_tbex_inline_styles_plugins_page() {
+
+	/** Bail early if not on plugins.php admin page */
+	if ( 'plugins.php' !== $GLOBALS[ 'pagenow' ] ) {
+		return;
+	}
+
+	$tbex_file = TBEX_PLUGIN_BASEDIR . 'toolbar-extras.php';
+
+    /**
+     * For WordPress Admin Area
+     *   Style handle: 'wp-admin' (WordPress Core)
+     */
+    $inline_css = sprintf(
+    	'
+        tr[data-plugin="%s"] .plugin-version-author-uri a.dashicons-before:before {
+			font-size: 17px;
+			margin-right: 2px;
+			opacity: .85;
+			vertical-align: sub;
+		}
+
+		.tbex-update-message p:before,
+		.update-message.notice p:empty,
+		.update-message.updating-message > p,
+		.update-message.notice-success > p,
+		.update-message.notice-error > p {
+			display: none !important;
+		}',
+		$tbex_file
+	);
+
+    wp_add_inline_style( 'wp-admin', $inline_css );
+
+}  // end function
+
+
 add_filter( 'admin_footer_text', 'ddw_tbex_admin_footer_text' );
 /**
  * Modifies the "Thank you" text displayed in the WP Admin footer.
@@ -185,7 +238,7 @@ function ddw_tbex_admin_footer_text( $footer_text ) {
 
 	/** Active settings tab logic */
 	$active_tab = isset( $_GET[ 'tab' ] ) ? sanitize_key( wp_unslash( $_GET[ 'tab' ] ) ) : 'default';
-	$tbex_tabs  = array( 'general', 'smart-tweaks', 'development', 'addons', 'about-support', 'default' );
+	$tbex_tabs  = array( 'general', 'smart-tweaks', 'development', 'addons', 'import-export', 'about-support', 'default' );
 
 	if ( ( 'settings_page_toolbar-extras' === $current_screen->id && in_array( $active_tab, $tbex_tabs ) )
 		|| ( 'plugins_page_toolbar-extras-suggested-plugins' === $current_screen->id )
@@ -193,13 +246,13 @@ function ddw_tbex_admin_footer_text( $footer_text ) {
 
 		$rating = sprintf(
 			/* translators: %s - 5 stars icons */
-			'<a href="' . ddw_tbex_get_info_url( 'url_wporg_review' ) . '" target="_blank" rel="nofollow noopener noreferrer">' . __( '%s rating', 'toolbar-extras' ) . '</a>',
+			'<a href="' . ddw_tbex_get_info_url( 'url_wporg_review' ) . '" target="_blank" rel="nofollow noopener noreferrer"><strong>' . __( '%s rating', 'toolbar-extras' ) . '</strong></a>',
 			'&#9733;&#9733;&#9733;&#9733;&#9733;'
 		);
 
 		$footer_text = sprintf(
 			/* translators: 1 - Plugin name "Toolbar Extras" / 2 - label "5 star rating" */
-			__( 'Enjoyed %1$s? Please leave us a %2$s. We really appreciate your support!', 'toolbar-extras' ),
+			'<span class="dashicons-before dashicons-arrow-right-alt"></span> ' . __( 'Enjoyed %1$s? Please leave us a %2$s. We really appreciate your support!', 'toolbar-extras' ),
 			'<strong>' . ddw_tbex_string_toolbar_extras() . '</strong>',
 			$rating
 		);
@@ -247,6 +300,9 @@ function ddw_tbex_dashboard_plugin_version_info( $content ) {
 add_action( 'rightnow_end', 'ddw_tbex_dashboard_plugin_update_check' );
 add_action( 'mu_rightnow_end', 'ddw_tbex_dashboard_plugin_update_check' );
 /**
+ * Display a "Force Update Check" button in the "At a Glance" Dashboard widget,
+ *   including for Multisite Network Admin.
+ *
  * @since 1.4.4
  */
 function ddw_tbex_dashboard_plugin_update_check() {
@@ -282,12 +338,14 @@ add_filter( 'debug_information', 'ddw_tbex_site_health_add_debug_info', 5 );
  * @link https://make.wordpress.org/core/2019/04/25/site-health-check-in-5-2/
  *
  * @since 1.4.3
+ * @since 1.4.7 Added new items: What Template feature; TBEX.com API.
  *
  * @uses ddw_tbex_string_debug_diagnostic()
  * @uses ddw_tbex_string_undefined()
  * @uses ddw_tbex_string_enabled()
  * @uses ddw_tbex_string_disabled()
  * @uses ddw_tbex_string_uninstalled()
+ * @uses WP_Error()->get_error_message()
  *
  * @param array $debug_info Array holding all Debug Info items.
  * @return array Modified array of Debug Info.
@@ -348,6 +406,10 @@ function ddw_tbex_site_health_add_debug_info( $debug_info ) {
 			'tbex_use_dev_mode' => array(
 				'label' => __( 'Dev Mode enabled', 'toolbar-extras' ),
 				'value' => get_option( 'tbex-options-development', ddw_tbex_string_no( 'return' ) )[ 'use_dev_mode' ],
+			),
+			'tbex_what_template_theme_support' => array(
+				'label' => __( 'What Template feature enabled', 'toolbar-extras' ),
+				'value' => current_theme_supports( 'tbex-show-current-template' ) ? ddw_tbex_string_enabled() : ddw_tbex_string_disabled(),
 			),
 			'tbex_use_block_editor_support' => array(
 				'label' => __( 'Block Editor support enabled (option)', 'toolbar-extras' ),
@@ -413,6 +475,43 @@ function ddw_tbex_site_health_add_debug_info( $debug_info ) {
 		),  // end array
 	);
 
+	/** Toolbar Extra features requiring processing (Add-Ons API) */
+	$tbex_com = wp_remote_get( 'https://toolbarextras.com', array( 'timeout' => 30 ) );
+
+	$tbex_comm_label = sprintf(
+		/* translators: %s - label, "ToolbarExtras.com" */
+		__( 'Communication with %s Add-Ons API', 'toolbar-extras' ),
+		'ToolbarExtras.com'
+	);
+
+	if ( ! is_wp_error( $tbex_com ) ) {
+
+		$debug_info[ 'toolbar-extras' ][ 'fields' ][ 'tbex_addons_api_communication' ] = array(
+			'label' => $tbex_comm_label,
+			'value' => sprintf(
+				/* translators: %s - label, "ToolbarExtras.com" */
+				__( '%s is reachable', 'toolbar-extras' ),
+				'ToolbarExtras.com'
+			),
+			'debug' => 'true',
+		);
+
+	} else {
+
+		$debug_info[ 'toolbar-extras' ][ 'fields' ][ 'tbex_addons_api_communication' ] = array(
+			'label' => $tbex_comm_label,
+			'value' => sprintf(
+				/* translators: 1 - label, "ToolbarExtras.com" / 2 - The IP address WordPress.org resolves to. / 3 - The error returned by the lookup. */
+				__( 'Unable to reach %1$s at %2$s: %3$s', 'toolbar-extras' ),
+				'ToolbarExtras.com',
+				gethostbyname( 'toolbarextras.com' ),
+				$tbex_com->get_error_message()
+			),
+			'debug' => $tbex_com->get_error_message(),
+		);
+
+	}  // end if
+
 	/** Return modified Debug Info array */
 	return $debug_info;
 
@@ -452,32 +551,6 @@ if ( ! function_exists( 'ddw_wp_site_health_remove_percentage' ) ) :
 endif;
 
 
-/**
- * Inline CSS fix for Plugins page update messages.
- *
- * @since 1.3.4
- * @since 1.4.2 Style tweaks.
- *
- * @see ddw_tbex_plugin_update_message()
- * @see ddw_tbex_multisite_subsite_plugin_update_message()
- */
-function ddw_tbex_plugin_update_message_style_tweak() {
-
-	?>
-		<style type="text/css">
-			.tbex-update-message p:before,
-			.update-message.notice p:empty,
-			.update-message.updating-message > p,
-			.update-message.notice-success > p,
-			.update-message.notice-error > p {
-				display: none !important;
-			}
-		</style>
-	<?php
-
-}  // end function
-
-
 add_action( 'in_plugin_update_message-' . TBEX_PLUGIN_BASEDIR . 'toolbar-extras.php', 'ddw_tbex_plugin_update_message', 10, 2 );
 /**
  * On Plugins page add visible upgrade/update notice in the overview table.
@@ -485,6 +558,8 @@ add_action( 'in_plugin_update_message-' . TBEX_PLUGIN_BASEDIR . 'toolbar-extras.
  *         installs where the plugin is activated Network-wide.
  *
  * @since 1.3.4
+ *
+ * @see ddw_tbex_inline_styles_plugins_page()
  *
  * @param object $data
  * @param object $response
@@ -494,8 +569,6 @@ add_action( 'in_plugin_update_message-' . TBEX_PLUGIN_BASEDIR . 'toolbar-extras.
 function ddw_tbex_plugin_update_message( $data, $response ) {
 
 	if ( isset( $data[ 'upgrade_notice' ] ) ) {
-
-		ddw_tbex_plugin_update_message_style_tweak();
 
 		printf(
 			'<div class="update-message tbex-update-message">%s</div>',
@@ -515,6 +588,8 @@ add_action( 'after_plugin_row_wp-' . TBEX_PLUGIN_BASEDIR . 'toolbar-extras.php',
  *
  * @since 1.3.4
  *
+ * @see ddw_tbex_inline_styles_plugins_page()
+ *
  * @param string $file
  * @param object $plugin
  * @return string Echoed string and markup for the plugin's upgrade/update
@@ -525,8 +600,6 @@ function ddw_tbex_multisite_subsite_plugin_update_message( $file, $plugin ) {
 	if ( is_multisite() && version_compare( $plugin[ 'Version' ], $plugin[ 'new_version' ], '<' ) ) {
 
 		$wp_list_table = _get_list_table( 'WP_Plugins_List_Table' );
-
-		ddw_tbex_plugin_update_message_style_tweak();
 
 		printf(
 			'<tr class="plugin-update-tr"><td colspan="%s" class="plugin-update update-message notice inline notice-warning notice-alt"><div class="update-message tbex-update-message"><h4 style="margin: 0; font-size: 14px;">%s</h4>%s</div></td></tr>',
@@ -689,6 +762,11 @@ function ddw_tbex_register_extra_plugin_recommendations( array $plugins ) {
 				'featured'    => 'yes',
 				'recommended' => 'yes',
 				'popular'     => 'no',
+			),
+			'query-monitor' => array(
+				'featured'    => 'yes',
+				'recommended' => 'yes',
+				'popular'     => 'yes',
 			),
 		);
 

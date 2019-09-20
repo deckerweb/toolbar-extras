@@ -108,6 +108,14 @@ function ddw_tbex_site_items_the_seo_framework( $admin_bar ) {
 			);
 
 			ddw_tbex_resource_item(
+				'changelog',
+				'theseoframework-changelog',
+				'group-theseoframework-resources',
+				'https://theseoframework.com/category/changelog/',
+				ddw_tbex_string_version_history( 'plugin' )
+			);
+
+			ddw_tbex_resource_item(
 				'translations-community',
 				'theseoframework-translate',
 				'group-theseoframework-resources',

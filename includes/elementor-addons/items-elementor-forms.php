@@ -22,9 +22,9 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_elementorforms', 100 );
  * @uses ddw_tbex_display_items_resources()
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_elementorforms() {
+function ddw_tbex_aoitems_elementorforms( $admin_bar ) {
 
 	$title = sprintf(
 		/* translators: %s - Name of Elementor page builder */
@@ -33,7 +33,7 @@ function ddw_tbex_aoitems_elementorforms() {
 	);
 
 	/** For: Forms */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'ao-elementorforms',
 			'parent' => 'tbex-sitegroup-forms',
@@ -58,10 +58,10 @@ function ddw_tbex_aoitems_elementorforms() {
 		if ( $forms ) {
 
 			/** Add group */
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-elementorforms-entries',
-					'parent' => 'ao-elementorforms'
+					'parent' => 'ao-elementorforms',
 				)
 			);
 
@@ -71,7 +71,7 @@ function ddw_tbex_aoitems_elementorforms() {
 				$form_title = esc_attr( $form->form_title );
 				$form_url   = urlencode( $form_title );
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'ao-elementorforms-form-' . $form_id,
 						'parent' => 'group-elementorforms-entries',
@@ -79,7 +79,7 @@ function ddw_tbex_aoitems_elementorforms() {
 						'href'   => esc_url( admin_url( 'admin.php?page=eforms-list.php&title=' . $form_url ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'Form Entries', 'toolbar-extras' ) . ': ' . $form_title
+							'title'  => esc_attr__( 'Form Entries', 'toolbar-extras' ) . ': ' . $form_title,
 						)
 					)
 				);
@@ -88,7 +88,7 @@ function ddw_tbex_aoitems_elementorforms() {
 
 		}  // end if
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-elementorforms-entries-all',
 				'parent' => 'ao-elementorforms',
@@ -96,12 +96,12 @@ function ddw_tbex_aoitems_elementorforms() {
 				'href'   => esc_url( admin_url( 'admin.php?page=eforms-list.php' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'All Entries', 'toolbar-extras' )
+					'title'  => esc_attr__( 'All Entries', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-elementorforms-settings',
 				'parent' => 'ao-elementorforms',
@@ -109,12 +109,12 @@ function ddw_tbex_aoitems_elementorforms() {
 				'href'   => esc_url( admin_url( 'admin.php?page=ef_settings_page' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-elementorforms-license',
 				'parent' => 'ao-elementorforms',
@@ -122,7 +122,7 @@ function ddw_tbex_aoitems_elementorforms() {
 				'href'   => esc_url( admin_url( 'admin.php?page=elementor-forms-license' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'License', 'toolbar-extras' )
+					'title'  => esc_attr__( 'License', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -130,11 +130,11 @@ function ddw_tbex_aoitems_elementorforms() {
 		/** Group: Resources for plugin */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-elementorforms-resources',
 					'parent' => 'ao-elementorforms',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 
@@ -157,6 +157,14 @@ function ddw_tbex_aoitems_elementorforms() {
 				'elementorforms-youtube-tutorials',
 				'group-elementorforms-resources',
 				'https://www.youtube.com/channel/UCP6jncVaPNuPmC0ecwDN5aQ/videos'
+			);
+
+			ddw_tbex_resource_item(
+				'changelog',
+				'elementorforms-changelog',
+				'group-elementorforms-resources',
+				'https://elementorforms.com/changelog/',
+				ddw_tbex_string_version_history( 'addon' )
 			);
 
 			ddw_tbex_resource_item(

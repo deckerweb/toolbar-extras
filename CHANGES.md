@@ -14,8 +14,68 @@
 
 ## Changelog of the Plugin
 
+### ⚡ 1.4.7 - 2019-09-20
+
+* New: Brand new **Import/ Export feature** to export or import the plugin's own settings via a .json file - including (official) Add-Ons, if these are currently active --- this feature allows you to easily transfer/ migrate the plugin's settings over to new installs or just make personal backups
+* New: Added **group of "Website Settings" items/ sub items to the Site Group** - this pretty much covers all official/ default WordPress settings pages under "Settings" - now you have handy shortcuts for those important settings (for example *Permalinks*) from the frontend AND the admin! 😁
+* New: **"What Template?" feature** - adds a new top-level item to the Toolbar showing you the file name of the current used Template for the currently displayed page/ document, plus template parts, relative path and Parent/ Child Theme name -- ***Note:** currently this can only be enabled with Dev Mode active and `add_theme_support( 'tbex-show-current-template' );` added via [Code Snippet](https://wordpress.org/plugins/code-snippet/) or your (Child) Theme's `functions.php` (in a next plugin major version this gets even better settings integration, yeah!)*
+* Tweak: For "Release Notes" under WordPress About (Logo) item, added logic to completely exclude alpha, beta and RC versions; added ClassicPress compat
+* Tweak: For "Elementor" Core plugin support, added new resource item (Developer Blog)
+* Tweak: For "Astra" theme support, added full compatibility with Astra 2.0+, including for the Pro Add-On - the Astra 1.x versions are still supported as well :)
+* Tweak: For "JetEngine" plugin support, added new items since plugin version 2.0.0 or higher, and refined some existing ones; plus more improvements
+* Tweak: For "HappyForms" plugin support, tweaked existing items, added support for Pro version, plus "Builder Template Categories" integration
+* Tweak: For "Rank Math SEO" plugin support, added WooCommerce items, plus, far better module detection logic
+* Tweak: For "ToolKit for Elementor" plugin support, re-positioned New Content item
+* Tweak: For "Block Lab" plugin support, added new "Settings" item, plus lots more external resources
+* Tweak: For "Element Pack" plugin support, implemented support for brand new lite version of this plugin, plus, added changelog items
+* Tweak: Refined support for all "Twenty" default themes, especially for the Customizer deep links
+* Tweak: Subtle improvements to our Elementor Finder integration
+* Tweak: Migrated almost all our styles to proper enqueuing and/or the usage of wp_add_inline_style() - this is our first part of styling improvements throughout the plugin
+* Tweak: Some globally used functions (within the plugin) and files were re-organized for better maintenance
+* Tweak: On settings page implemented better semantic markup, as recommended for WP 5.2+
+* Tweak: Improved internal resources for Add-Ons; added lots of new helper functions
+* Tweak: Updated bundled library DDWlib Plugin Installer Recommendations to latest version (v1.4.2) - code improvements, fixes
+* Tweak: Updated `.pot` file plus all German translations (formal, informal) and language packs
+* Tweak: Added new screenshots for the newly added features
+* Fix: Fixed styling of color picker container, plus Dashicons appearance in our help tabs and other occurrences - all caused by changes in WP 5.2.3+
+* Fix: Fixed wrong function name for "Duplicator Pro" plugin support
+* Fix: Fixed notices for "Login Designer" plugin support
+
+**New, 1.4.7:** *Extended the Theme support for:*
+
+* Twenty Twenty (free, by the WordPress.org team) - *Note: the new default theme for 2020 and WordPress 5.3+*
+* Neve (free, by ThemeIsle), including plugins: *Neve Pro Addon (Premium)* and *Neve Hooks (free)* (both by ThemeIsle)
+* Zakra (free, by ThemeGrill), including plugin *ThemeGrill Demo Importer (free)* (both by ThemeGrill)
+* Responsive (free), including plugin *Responsive Add Ons (free)* (both by CyberChimps)
+* Airi (free, by athemes)
+
+**New, 1.4.7:** *Extended the Plugin support for Elementor Add-Ons:*
+
+* MetForm (free, by WpMet) - *Form Builder for Elementor*
+* Element Pack Lite (free, by BdThemes)
+* Elements Kit Lite/Pro (free/Premium, by WpMet)
+* HT Builder (free, by HasThemes/ HT Plugins)
+* HT Builder Pro (Premium, by HasThemes/ HT Plugins)
+* The Pack Addons (Premium, by XLDevelopment/ Web Angon/ Ashraf)
+
+**New, 1.4.7:** *Extended the general Plugin support for:*
+
+* HappyForms Pro (Premium, by The Theme Foundry)
+* SEO for WooCommerce (free, by Rank Math)
+* Flo Forms (free, by Flothemes)
+* WP Crontrol (free, by John Blackbourn & crontributors) - *for Dev Mode*
+* Advanced Cron Manager (free, by BracketSpace) - *for Dev Mode*
+
+**New, 1.4.7:** *Extended Plugin support for Block Editor Add-Ons (Gutenberg):*
+
+* Block Areas (free, by The WP Rig Contributors)
+* BlockyPage Gutenberg Blocks (free, by BlockyPage Team)
+* Gutentor (free, by Gutentor)
+
+
 ### ⚡ 1.4.6 - 2019-08-12
 
+* New: [Brand new Add-On for Give Donations (GiveWP) released!](https://wordpress.org/plugins/toolbar-extras-givewp/)
 * New: For all changes see version 1.4.5 below 😁
 * Tweak: Hot fix for update issue
 
@@ -58,6 +118,7 @@
 
 ### ⚡ 1.4.4 - 2019-07-04
 
+* New: [Brand new Add-On for MainWP Dashboard released!](https://wordpress.org/plugins/toolbar-extras-mainwp/)
 * New: Added 31 new Dashicons from WordPress 5.2+ to our list of Dashicons icon picker (on our settings page) - only if your install runs WordPress 5.2 or higher
 * New: New resource for "Genesis Customizer" theme - Facebook Group
 * New: Added optional "StudioPress/ Genesis Blue" color item for settings color picker palettes (optional, if Genesis is active)
@@ -95,6 +156,7 @@
 
 * *New: Successfully tested with WordPress 5.2*
 * *New: Successfully tested with ClassicPress 1.0.1*
+* New: [Brand new Add-On for Oxygen Builder released!](https://wordpress.org/plugins/toolbar-extras-oxygen/)
 * New: Theme support for "Genesis Customizer" (free, by SEO Themes), including plugins: *Genesis Customizer Core (free)* and *Genesis Customizer Pro (Premium)* (both by SEO Themes) -- *Note: This is an awesome special Child Theme for the Genesis Framework perfectly suited for Non-Coder Designers, Non-Techies and Site Builders! ;-)*
 * New: Added plugin support for additional 4 extensions of "Mai Themes for Genesis" - *Mai Favorites*, *Mai Testimonials*, *Mai Styles*, *Mai Ads & Extra Content* (all Premium, by Mike Hemberger, BizBudding Inc.)
 * New: Added plugin support for Suki Sites Import (free, by SukiWP/ David Rozando)

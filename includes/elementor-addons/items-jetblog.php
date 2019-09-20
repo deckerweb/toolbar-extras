@@ -20,15 +20,15 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_jetblog', 100 );
  *
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_jetblog() {
+function ddw_tbex_aoitems_jetblog( $admin_bar ) {
 
 	/** Use Add-On hook place */
 	add_filter( 'tbex_filter_is_addon', '__return_empty_string' );
 
 	/** JetBlog Settings */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'ao-jetblog',
 			'parent' => 'tbex-addons',
@@ -36,12 +36,12 @@ function ddw_tbex_aoitems_jetblog() {
 			'href'   => esc_url( admin_url( 'admin.php?page=jet-blog-settings' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_premium_addon_title_attr( __( 'JetBlog', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_premium_addon_title_attr( __( 'JetBlog', 'toolbar-extras' ) ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-jetblog-settings',
 				'parent' => 'ao-jetblog',
@@ -49,12 +49,12 @@ function ddw_tbex_aoitems_jetblog() {
 				'href'   => esc_url( admin_url( 'admin.php?page=jet-blog-settings' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-jetblog-posts',
 				'parent' => 'ao-jetblog',
@@ -62,7 +62,7 @@ function ddw_tbex_aoitems_jetblog() {
 				'href'   => esc_url( admin_url( 'edit.php' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Edit Blog Posts', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Edit Blog Posts', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -70,11 +70,11 @@ function ddw_tbex_aoitems_jetblog() {
 		/** Group: Resources for JetBlog */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-jetblog-resources',
 					'parent' => 'ao-jetblog',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 
@@ -96,7 +96,8 @@ function ddw_tbex_aoitems_jetblog() {
 				'changelog',
 				'jetblog-changelog',
 				'group-jetblog-resources',
-				'http://documentation.zemez.io/wordpress/index.php?project=jetblog&lang=en&section=jetblog-changelog'
+				'http://documentation.zemez.io/wordpress/index.php?project=jetblog&lang=en&section=jetblog-changelog',
+				ddw_tbex_string_version_history( 'addon' )
 			);
 			
 			ddw_tbex_resource_item(

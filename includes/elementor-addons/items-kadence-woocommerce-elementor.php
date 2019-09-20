@@ -313,17 +313,17 @@ add_action( 'tbex_new_content_before_nav_menu', 'ddw_tbex_new_content_kadence_wo
  *
  * @since 1.3.0
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_new_content_kadence_woocommerce_elementor() {
+function ddw_tbex_new_content_kadence_woocommerce_elementor( $admin_bar ) {
 
 	/** Bail early if items display is not wanted */
 	if ( ! ddw_tbex_display_items_new_content() ) {
-		return;
+		return $admin_bar;
 	}
 
 	/** (Single) Product Templates */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'new-ele-product-template',
 			'parent' => 'new-content',
@@ -338,7 +338,7 @@ function ddw_tbex_new_content_kadence_woocommerce_elementor() {
 
 		if ( \Elementor\User::is_current_user_can_edit_post_type( 'ele-product-template' ) ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'kdcwcel-product-with-builder',
 					'parent' => 'new-ele-product-template',
@@ -357,7 +357,7 @@ function ddw_tbex_new_content_kadence_woocommerce_elementor() {
 	if ( ddw_tbex_is_kwce_pro_active() ) {
 
 		/** Product Archives Templates */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'new-ele-p-arch-template',
 				'parent' => 'new-content',
@@ -372,7 +372,7 @@ function ddw_tbex_new_content_kadence_woocommerce_elementor() {
 
 			if ( \Elementor\User::is_current_user_can_edit_post_type( 'ele-p-arch-template' ) ) {
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'kdcwcel-archive-with-builder',
 						'parent' => 'new-ele-p-arch-template',
@@ -388,7 +388,7 @@ function ddw_tbex_new_content_kadence_woocommerce_elementor() {
 			}  // end if
 
 		/** Shop Checkout Templates */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'new-ele-check-template',
 				'parent' => 'new-content',
@@ -403,7 +403,7 @@ function ddw_tbex_new_content_kadence_woocommerce_elementor() {
 
 			if ( \Elementor\User::is_current_user_can_edit_post_type( 'ele-check-template' ) ) {
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'kdcwcel-checkout-with-builder',
 						'parent' => 'new-ele-check-template',

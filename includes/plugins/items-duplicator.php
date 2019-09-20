@@ -20,11 +20,11 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_duplicator', 10 );
  *
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar']
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_duplicator() {
+function ddw_tbex_site_items_duplicator( $admin_bar ) {
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'duplicator',
 			'parent' => 'tbex-sitegroup-tools',
@@ -32,12 +32,12 @@ function ddw_tbex_site_items_duplicator() {
 			'href'   => esc_url( admin_url( 'admin.php?page=duplicator' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Duplicator', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Duplicator', 'toolbar-extras' ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'duplicator-archives',
 				'parent' => 'duplicator',
@@ -45,12 +45,12 @@ function ddw_tbex_site_items_duplicator() {
 				'href'   => esc_url( admin_url( 'admin.php?page=duplicator' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'All Archives', 'toolbar-extras' )
+					'title'  => esc_attr__( 'All Archives', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'duplicator-new',
 				'parent' => 'duplicator',
@@ -58,12 +58,12 @@ function ddw_tbex_site_items_duplicator() {
 				'href'   => esc_url( admin_url( 'admin.php?page=duplicator&tab=new1' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'New Archive', 'toolbar-extras' )
+					'title'  => esc_attr__( 'New Archive', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'duplicator-tools',
 				'parent' => 'duplicator',
@@ -71,12 +71,12 @@ function ddw_tbex_site_items_duplicator() {
 				'href'   => esc_url( admin_url( 'admin.php?page=duplicator-tools' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Tools &amp; Logs', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Tools &amp; Logs', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'duplicator-settings',
 				'parent' => 'duplicator',
@@ -84,7 +84,7 @@ function ddw_tbex_site_items_duplicator() {
 				'href'   => esc_url( admin_url( 'admin.php?page=duplicator-settings' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -92,11 +92,11 @@ function ddw_tbex_site_items_duplicator() {
 		/** Group: Resources for Duplicator */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-duplicator-resources',
 					'parent' => 'duplicator',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 
@@ -112,6 +112,14 @@ function ddw_tbex_site_items_duplicator() {
 				'duplicator-docs',
 				'group-duplicator-resources',
 				'https://snapcreek.com/duplicator/docs/'
+			);
+
+			ddw_tbex_resource_item(
+				'changelog',
+				'duplicator-changelog',
+				'group-duplicator-resources',
+				'https://snapcreek.com/duplicator/docs/changelog/',
+				ddw_tbex_string_version_history( 'plugin' )
 			);
 
 			ddw_tbex_resource_item(
@@ -139,18 +147,18 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_new_content_duplicator', 100 );
  *
  * @since 1.3.2
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_new_content_duplicator() {
+function ddw_tbex_aoitems_new_content_duplicator( $admin_bar ) {
 
 	/** Bail early if items display is not wanted */
 	if ( ! ddw_tbex_display_items_new_content() || is_network_admin() ) {
-		return;
+		return $admin_bar;
 	}
 
 	if ( ddw_tbex_display_items_dev_mode() ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'tbex-duplicator-package',
 				'parent' => 'new-content',
@@ -158,7 +166,7 @@ function ddw_tbex_aoitems_new_content_duplicator() {
 				'href'   => esc_url( admin_url( 'admin.php?page=duplicator&tab=new1' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => ddw_tbex_string_add_new_item( __( 'Duplicator Archive', 'toolbar-extras' ) )
+					'title'  => ddw_tbex_string_add_new_item( __( 'Duplicator Archive', 'toolbar-extras' ) ),
 				)
 			)
 		);

@@ -211,11 +211,11 @@ add_action( 'tbex_new_content_before_nav_menu', 'ddw_tbex_new_content_rabbitbuil
  *
  * @uses ddw_tbex_string_cpt()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_new_content_rabbitbuilder_js_css() {
+function ddw_tbex_new_content_rabbitbuilder_js_css( $admin_bar ) {
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'tbex-new-rabbitbuilder-code',
 			'parent' => 'new-content',
@@ -228,7 +228,7 @@ function ddw_tbex_new_content_rabbitbuilder_js_css() {
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'tbex-new-rabbitbuilder-code-css',
 				'parent' => 'tbex-new-rabbitbuilder-code',
@@ -241,7 +241,7 @@ function ddw_tbex_new_content_rabbitbuilder_js_css() {
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'tbex-new-rabbitbuilder-code-js',
 				'parent' => 'tbex-new-rabbitbuilder-code',
@@ -254,7 +254,7 @@ function ddw_tbex_new_content_rabbitbuilder_js_css() {
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'tbex-new-rabbitbuilder-code-html',
 				'parent' => 'tbex-new-rabbitbuilder-code',

@@ -46,7 +46,7 @@ function ddw_tbex_aoitems_uael( $admin_bar ) {
 			'href'   => esc_url( admin_url( 'options-general.php?page=uae' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => $uael_title_attr
+				'title'  => $uael_title_attr,
 			)
 		)
 	);
@@ -59,7 +59,7 @@ function ddw_tbex_aoitems_uael( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'options-general.php?page=uae' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Activate Widgets', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Activate Widgets', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -77,7 +77,7 @@ function ddw_tbex_aoitems_uael( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'options-general.php?page=uae&action=integration' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Google Map Settings', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Google Map Settings', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -97,7 +97,7 @@ function ddw_tbex_aoitems_uael( $admin_bar ) {
 						'href'   => esc_url( admin_url( 'options-general.php?page=uae&action=branding' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'Whitelabel Settings', 'toolbar-extras' )
+							'title'  => esc_attr__( 'Whitelabel Settings', 'toolbar-extras' ),
 						)
 					)
 				);
@@ -113,7 +113,7 @@ function ddw_tbex_aoitems_uael( $admin_bar ) {
 				array(
 					'id'     => 'group-uael-resources',
 					'parent' => 'ao-uael',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

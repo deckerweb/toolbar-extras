@@ -12,7 +12,7 @@
  * Plugin Name:       Toolbar Extras
  * Plugin URI:        https://toolbarextras.com/
  * Description:       This plugins adds a lot of quick jump links to the WordPress Toolbar helpful for Site Builders who use Elementor and its ecosystem of add-ons and from the theme space.
- * Version:           1.4.6
+ * Version:           1.4.7
  * Author:            David Decker - DECKERWEB
  * Author URI:        https://toolbarextras.com/
  * License:           GPL-2.0-or-later
@@ -39,7 +39,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 1.0.0
  */
 /** Plugin version */
-define( 'TBEX_PLUGIN_VERSION', '1.4.6' );
+define( 'TBEX_PLUGIN_VERSION', '1.4.7' );
 
 /** Plugin directory */
 define( 'TBEX_PLUGIN_DIR', trailingslashit( dirname( __FILE__ ) ) );
@@ -133,6 +133,8 @@ function ddw_tbex_load_translations() {
 
 /** Include global functions */
 require_once TBEX_PLUGIN_DIR . 'includes/functions-global.php';
+require_once TBEX_PLUGIN_DIR . 'includes/functions-global-info.php';
+require_once TBEX_PLUGIN_DIR . 'includes/functions-global-customizer.php';
 
 /** Include (global) conditionals functions */
 require_once TBEX_PLUGIN_DIR . 'includes/functions-conditionals.php';
@@ -151,6 +153,9 @@ add_action( 'init', 'ddw_tbex_setup_plugin', 1 );
  * Finally setup the plugin for the main tasks.
  *
  * @since 1.0.0
+ *
+ * @uses ddw_tbex_show_toolbar_items()
+ * @uses \PAnD()
  */
 function ddw_tbex_setup_plugin() {
 
@@ -296,6 +301,11 @@ function ddw_tbex_setup_plugin() {
 
 		}  // end if
 
+		/** Load optional "Show Current Template" feature */
+		if ( ddw_tbex_display_items_dev_mode() && current_theme_supports( 'tbex-show-current-template' ) ) {
+			require_once TBEX_PLUGIN_DIR . 'includes/tools/items-show-current-template.php';
+		}
+
 	}  // end if ddw_tbex_show_toolbar_items() check
 
 	/** Only register & add additional toolbar menu for super admins */
@@ -331,7 +341,7 @@ function ddw_tbex_setup_plugin() {
 
 	/** Add some more tools */
 	require_once TBEX_PLUGIN_DIR . 'includes/tools/dark-mode-automatic.php';
-	
+
 }  // end function
 
 
@@ -340,37 +350,38 @@ function ddw_tbex_setup_plugin() {
  *   Set additional action hooks to enable custom groups.
  *
  * @since 1.0.0
+ * @since 1.4.7 Added param $admin_bar (object) to action hooks.
  *
  * @see ddw_tbex_setup_plugin() Hooked-in conditionally there.
  *
  * @uses ddw_tbex_id_main_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar']
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_creative_items_base_groups() {
+function ddw_tbex_creative_items_base_groups( $admin_bar ) {
 
 	/** Group: Creative Content (Library, Fonts, etc.) */
-	$GLOBALS[ 'wp_admin_bar' ]->add_group(
+	$admin_bar->add_group(
 		array(
 			'id'     => 'group-creative-content',
 			'parent' => ddw_tbex_id_main_item()
 		)
 	);
 
-	do_action( 'tbex_after_group_content' );
+	do_action( 'tbex_after_group_content', $admin_bar );
 
 	/** Group: Active Theme (only supported ones) */
-	$GLOBALS[ 'wp_admin_bar' ]->add_group(
+	$admin_bar->add_group(
 		array(
 			'id'     => 'group-active-theme',
 			'parent' => ddw_tbex_id_main_item()
 		)
 	);
 
-	do_action( 'tbex_after_group_theme' );
+	do_action( 'tbex_after_group_theme', $admin_bar );
 
 	/** Group: Demos import */
-	$GLOBALS[ 'wp_admin_bar' ]->add_group(
+	$admin_bar->add_group(
 		array(
 			'id'     => 'group-demo-import',
 			'parent' => ddw_tbex_id_main_item(),
@@ -378,22 +389,22 @@ function ddw_tbex_creative_items_base_groups() {
 		)
 	);
 
-	do_action( 'tbex_after_group_demos' );
+	do_action( 'tbex_after_group_demos', $admin_bar );
 
 	/** Group: Page Builder Options */
-	$GLOBALS[ 'wp_admin_bar' ]->add_group(
+	$admin_bar->add_group(
 		array(
 			'id'     => 'group-pagebuilder-options',
 			'parent' => ddw_tbex_id_main_item()
 		)
 	);
 
-	do_action( 'tbex_after_group_options' );
+	do_action( 'tbex_after_group_options', $admin_bar );
 
 	/** Group: Page Builder Resources (Docs, Support, Community, etc.) */
 	$pb_resources_top = has_filter( 'tbex_filter_is_addon' ) ? '' : ' tbex-no-addons-border';
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_group(
+	$admin_bar->add_group(
 		array(
 			'id'     => 'group-pagebuilder-resources',
 			'parent' => ddw_tbex_id_main_item(),
@@ -401,7 +412,7 @@ function ddw_tbex_creative_items_base_groups() {
 		)
 	);
 
-	do_action( 'tbex_after_group_resources' );
+	do_action( 'tbex_after_group_resources', $admin_bar );
 
 }  // end function
 

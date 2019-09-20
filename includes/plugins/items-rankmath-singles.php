@@ -18,8 +18,10 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_rankmath_singles', 100 );
  *   - Schema Markup Rich Snippets by Rank Math (free, by Rank Math)
  *   - 404 Monitor by Rank Math (free, by Rank Math)
  *   - Redirections by Rank Math (free, by Rank Math)
+ *   - SEO for WooCommerce (free, by Rank Math)
  *
  * @since 1.4.5
+ * @since 1.4.7 Added support for "SEO for WooCommerce" single plugin.
  *
  * @uses ddw_tbex_resource_item()
  *
@@ -28,6 +30,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_rankmath_singles', 100 );
 function ddw_tbex_site_items_rankmath_singles( $admin_bar ) {
 
 	$rm_dashboard = get_transient( 'rank_math_first_submenu_id' );
+
 	$admin_bar->add_node(
 		array(
 			'id'     => 'tbex-rankmath-singles',
@@ -56,7 +59,7 @@ function ddw_tbex_site_items_rankmath_singles( $admin_bar ) {
 		);
 
 		/** General settings */
-		if ( class_exists( 'RankMath_Monitor' ) || class_exists( 'RankMath_Redirections' ) ) {
+		if ( class_exists( 'RankMath_Monitor' ) || class_exists( 'RankMath_Redirections' ) || class_exists( 'RankMath_Woocommerce' ) ) {
 
 			$admin_bar->add_node(
 				array(

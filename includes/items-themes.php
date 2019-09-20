@@ -191,6 +191,17 @@ if ( ( 'Suki' == wp_get_theme() && class_exists( 'Suki' ) )	// Suki w/o child th
 
 
 /**
+ * Theme: Neve (free, by ThemeIsle)
+ * @since 1.4.7
+ */
+if ( ( 'Neve' == wp_get_theme() && defined( 'NEVE_VERSION' ) )	// Neve w/o child theme
+	|| ( 'neve' === wp_basename( get_template_directory() ) && defined( 'NEVE_VERSION' ) )		// Neve w/ child theme
+) {
+	require_once TBEX_PLUGIN_DIR . 'includes/themes/items-neve.php';
+}
+
+
+/**
  * Theme: FuturioWP (free, by FuturioWP)
  * @since 1.4.2
  */
@@ -400,6 +411,39 @@ if ( ( 'Chaplin' == wp_get_theme() && function_exists( 'chaplin_theme_support' )
 	|| ( 'chaplin' === wp_basename( get_template_directory() ) && function_exists( 'chaplin_theme_support' ) )		// Chaplin w/ child theme
 ) {
 	require_once TBEX_PLUGIN_DIR . 'includes/themes/items-chaplin.php';
+}
+
+
+/**
+ * Theme: Zakra (free, by ThemeGrill)
+ * @since 1.4.7
+ */
+if ( ( 'Zakra' == wp_get_theme() && function_exists( 'zakra_setup' ) )	// Zakra w/o child theme
+	|| ( 'zakra' === wp_basename( get_template_directory() ) && function_exists( 'zakra_setup' ) )		// Zakra w/ child theme
+) {
+	require_once TBEX_PLUGIN_DIR . 'includes/themes/items-zakra.php';
+}
+
+
+/**
+ * Theme: Airi (free, by athemes)
+ * @since 1.4.7
+ */
+if ( ( 'Airi' == wp_get_theme() && function_exists( 'airi_setup' ) )	// Airi w/o child theme
+	|| ( 'airi' === wp_basename( get_template_directory() ) && function_exists( 'airi_setup' ) )		// Airi w/ child theme
+) {
+	require_once TBEX_PLUGIN_DIR . 'includes/themes/items-airi.php';
+}
+
+
+/**
+ * Theme: Responsive (free, by CyberChimps)
+ * @since 1.4.7
+ */
+if ( ( 'Responsive' == wp_get_theme() && defined( 'RESPONSIVE_THEME_VERSION' ) )	// Responsive w/o child theme
+	|| ( 'responsive' === wp_basename( get_template_directory() ) && defined( 'RESPONSIVE_THEME_VERSION' ) )		// Responsive w/ child theme
+) {
+	require_once TBEX_PLUGIN_DIR . 'includes/themes/items-responsive.php';
 }
 
 

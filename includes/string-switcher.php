@@ -310,6 +310,96 @@ function ddw_tbex_string_elementor_developers() {
 
 
 /**
+ * Build All/ New strings for post type content.
+ *
+ * @since 1.0.0
+ *
+ * @param string $type    Type of content
+ * @param string $element Name of content element
+ * @return string Translated string for post type content.
+ */
+function ddw_tbex_string_cpt( $type = '', $element = '' ) {
+
+	$string = '';
+	
+	/** Check type for the 2 possible values */
+	switch ( sanitize_key( $type ) ) {
+
+		case 'all':
+			$string = sprintf(
+				esc_attr__( 'All %s', 'toolbar-extras' ),
+				esc_attr( $element )
+			);
+			break;
+
+		case 'new':
+			$string = sprintf(
+				esc_attr__( 'New %s', 'toolbar-extras' ),
+				esc_attr( $element )
+			);
+			break;
+
+	}  // end switch
+
+	return $string;
+
+}  // end function
+
+
+/**
+ * Build current active Theme string with the Theme name from Theme header
+ *   declaration (in style.css).
+ *
+ *   Optional param can be set to use the title of child theme.
+ *
+ *   Also, a custom theme name can be set - this one will be used only if there
+ *   is no child theme in use.
+ *
+ * @since 1.0.0
+ * @since 1.4.0 Optimized and added third param for custom theme name.
+ *
+ * @uses is_child_theme()
+ *
+ * @param string $title_attr  Helper, to enable output for title attribute.
+ * @param string $child       Helper, to optionally get Name of Child Theme.
+ * @param string $custom_name Optionally use a custom theme name.
+ * @return string Translatable, escaped string for use as link title or link
+ *                title attribute.
+ */
+function ddw_tbex_string_theme_title( $title_attr = '', $child = '', $custom_name = '' ) {
+
+	/** Optionally use Child Theme Name, otherwise fallback to Parent Theme Name (Template) */
+	$type = ( 'child' === strtolower( esc_attr( $child ) ) ) ? '' : get_template();
+
+	$default_name = wp_get_theme( $type )->get( 'Name' );
+
+	$name = ( isset( $custom_name ) && ! empty( $custom_name ) && ! is_child_theme() ) ? esc_attr( $custom_name ) : $default_name;
+
+	/** Build regular link title: */
+	$theme_title = sprintf(
+		/* translators: %s - Name of current active Theme or Parent Theme (static!) */
+		esc_attr__( 'Theme: %s', 'toolbar-extras' ),
+		$name
+	);
+
+	/** Optional build link title attribute */
+	if ( 'attr' === sanitize_key( $title_attr ) ) {
+
+		$theme_title = sprintf(
+			/* translators: %s - Name of current active Theme or Parent Theme (static!) */
+			esc_html__( 'Active Theme: %s', 'toolbar-extras' ),
+			$name
+		);
+
+	}  // end if
+
+	/** Return the string */
+	return $theme_title;
+
+}  // end function
+
+
+/**
  * Allow for string switching of the "Block Editor" label.
  *
  * @since 1.4.0
@@ -1169,6 +1259,7 @@ function ddw_tbex_string_debug_diagnostic( $source = 'tbex' ) {
  * Build string: "{Item} Version History"
  *
  * @since 1.4.4
+ * @since 1.4.7 Added new types.
  *
  * @param string $type Type of item.
  * @return string Translatable string based on given type string.
@@ -1183,8 +1274,20 @@ function ddw_tbex_string_version_history( $type = '' ) {
 			$item = __( 'Plugin', 'toolbar-extras' );
 			break;
 
+		case 'pro-plugin':
+			$item = __( 'Pro Plugin', 'toolbar-extras' );
+			break;
+
 		case 'addon':
 			$item = __( 'Add-On', 'toolbar-extras' );
+			break;
+
+		case 'pro-addon':
+			$item = __( 'Pro Add-On', 'toolbar-extras' );
+			break;
+
+		case 'extension':
+			$item = __( 'Extension', 'toolbar-extras' );
 			break;
 
 		case 'theme':
@@ -1195,6 +1298,10 @@ function ddw_tbex_string_version_history( $type = '' ) {
 			$item = __( 'Child Theme', 'toolbar-extras' );
 			break;
 
+		case 'framework':
+			$item = __( 'Framework', 'toolbar-extras' );
+			break;
+
 	}  // end switch
 
 	return sprintf(
@@ -1202,6 +1309,20 @@ function ddw_tbex_string_version_history( $type = '' ) {
 		esc_attr__( '%s Version History', 'toolbar-extras' ),
 		esc_attr( $item )
 	);
+
+}  // end function
+
+
+/**
+ * Build string for "Official Theme Documentation".
+ *
+ * @since 1.4.7
+ *
+ * @return string Translateable string.
+ */
+function ddw_tbex_string_official_theme_documentation() {
+
+	return esc_attr__( 'Official Theme Documentation', 'toolbar-extras' );
 
 }  // end function
 
@@ -1219,6 +1340,7 @@ function ddw_tbex_string_test_current_page_url() {
 
 }  // end function
 
+
 /**
  * Build string for Web Group: "Test Home URL"
  *
@@ -1229,5 +1351,325 @@ function ddw_tbex_string_test_current_page_url() {
 function ddw_tbex_string_test_home_url() {
 
 	return esc_attr__( 'Test Home URL', 'toolbar-extras' );
+
+}  // end function
+
+
+/**
+ * Build help content string for headline of the Add-On - for re-use, especially
+ *   for Add-Ons.
+ *
+ * @since 1.4.7
+ *
+ * @param string $addon_name   Name of the specific Toolbar Extras Add-On this
+ *                             headline is for.
+ * @param string $addon_prefix Unique key from the Add-On (prefix).
+ */
+function ddw_tbex_string_help_content_addon_headline( $addon_name = '', $addon_prefix ) {
+
+	$addon_prefix = sanitize_key( $addon_prefix );
+
+	$output = sprintf(
+		'<h3>%1$s: %2$s <small class="tbex%3$s-help-version">v%4$s</small></h3>',
+		__( 'Add-On', 'toolbar-extras' ),
+		esc_attr( $addon_name ),
+		$addon_prefix,
+		constant( strtoupper( 'TBEX' . $addon_prefix ) . '_PLUGIN_VERSION' )
+	);
+
+	/** Render the help content */
+	echo $output;
+
+}  // end function
+
+
+/**
+ * Build help content string for Product Name setting - for re-use, especially
+ *   for Add-Ons.
+ *
+ * @since 1.4.7
+ *
+ * @param string $product_name Name of the original (third-party) product the
+ *                             Add-On is made for.
+ */
+function ddw_tbex_string_help_content_product_name( $product_name ) {
+
+	$product_name = esc_attr( $product_name );
+
+	$headline_string = sprintf(
+		/* translators: %s - name of the original third-party product, for example "Give Donations (GiveWP)" */
+		__( 'Setting %s Name', 'toolbar-extras' ),
+		$product_name
+	);
+
+	$info_string = sprintf(
+		/* translators: %s - name of the original third-party product, for example "Give Donations (GiveWP)" */
+		__( 'This affects the %s name in various instances of the Toolbar and the Admin area.', 'toolbar-extras' ),
+		$product_name
+	);
+
+	$output = sprintf(
+		'<h5>%s</h5>',
+		$headline_string
+	);
+
+	$output .= sprintf(
+		'<p class="tbex-help-info">%s</p>',
+		$info_string
+	);
+
+	/** Render the help content */
+	echo $output;
+
+}  // end function
+
+
+/**
+ * Build help content string for Tooltips/ Links behavior of Toolbar items - for
+ *   re-use, especially for Add-Ons.
+ *
+ * @since 1.4.7
+ *
+ * @uses ddw_tbex_meta_target()
+ * @uses ddw_tbex_meta_rel()
+ */
+function ddw_tbex_string_help_content_tooltips() {
+
+	/** Tooltips/ Links behavior */
+	$links_url = sprintf(
+		'<a href="%1$s" target="%3$s" rel="%4$s">%2$s</a>',
+		esc_url( admin_url( 'options-general.php?page=toolbar-extras&tab=general#tbex-settings-link-behavior' ) ),
+		__( 'Settings > Toolbar Extras > Tab: General > Section: Links Behavior', 'toolbar-extras' ),
+		ddw_tbex_meta_target(),
+		ddw_tbex_meta_rel()
+	);
+
+	$output = sprintf(
+		'<h5>%s</h5>',
+		__( 'How can I disable the link attributes (tooltips)?', 'toolbar-extras' )
+	);
+
+	$output .= sprintf(
+		'<p class="tbex-help-info"><strong>%1$s:</strong> <code style="font-size: 90%;">%2$s</code></p>',
+		__( 'Go to', 'toolbar-extras' ),
+		$links_url
+	);
+
+	/** Render the help content */
+	echo $output;
+
+}  // end function
+
+
+/**
+ * Build help content string for Support Notice - for re-use, especially for
+ *   Add-Ons.
+ *
+ * @since 1.4.7
+ *
+ * @param string $addon_name   Name of the specific Toolbar Extras Add-On this
+ *                             notice is for.
+ * @param string $company_name Name of the company/ team/ author of the original
+ *                             third-party product/ plugin.
+ * @param string $product_name Name of the original (third-party) product the
+ *                             Add-On is made for.
+ */
+function ddw_tbex_string_help_content_support_notice( $addon_name = '', $company_name = '', $product_name = '' ) {
+
+	$output = sprintf(
+		'<h5>%s</h5>',
+		__( 'Add-On Support Info', 'toolbar-extras' )
+	);
+
+	$output .= sprintf(
+		/* translators: 1 - plugin name, for example "Toolbar Extras for Give Nonations" / 2 - company name, for example "GiveWP/ Impress.org, LLC" / 3 - product name, for example "Give Donations (GiveWP)" */
+		'<p class="tbex-help-info description">' . __( 'Please note, the %1$s Add-On plugin is not officially endorsed by %2$s. It is an independently developed solution by the community for the community. Therefore our support is connected to the Add-On itself, to the Toolbar and the things around it, not the inner meanings of %3$s.', 'toolbar-extras' ) . '</p>',
+		'<span class="noitalic">' . esc_attr( $addon_name ) . '</span>',
+		'<span class="noitalic">' . esc_attr( $company_name ) . '</span>',
+		'<span class="noitalic">' . esc_attr( $product_name ) . '</span>'
+	);
+
+	/** Render the help content */
+	echo $output;
+
+}  // end function
+
+
+/**
+ * Build help content string for "Important Plugin Links" - for re-use,
+ *   especially for Add-Ons.
+ *
+ * @since 1.4.7
+ *
+ * @uses ddw_tbex_info_values()
+ * @uses ddw_tbex_get_info_link()
+ *
+ * @param array  $args   Array of arguments for the link building.
+ * @param string $render Flag string to optionally echo string (not returning).
+ * @return string Returning or echoing the translatable string and markup.
+ */
+function ddw_tbex_string_help_content_plugin_links( array $args, $render = '' ) {
+
+	$labels = apply_filters(
+		'tbex_filter_labels_help_plugin_links',
+		array(
+			'url_plugin'      => esc_html__( 'Plugin website', 'toolbar-extras' ),
+			'url_plugin_faq'  => esc_html_x( 'FAQ', 'Help tab info', 'toolbar-extras' ),
+			'url_wporg_forum' => esc_html_x( 'Support', 'Help tab info', 'toolbar-extras' ),
+			'url_fb_group'    => esc_html_x( 'Facebook Group', 'Help tab info', 'toolbar-extras' ),
+			'url_translate'   => esc_html_x( 'Translations', 'Help tab info', 'toolbar-extras' ),
+			'url_donate'      => esc_html_x( 'Donate', 'Help tab info', 'toolbar-extras' ),
+			'url_newsletter'  => esc_html_x( 'Join our Newsletter', 'Help tab info', 'toolbar-extras' ),
+		)
+	);
+
+	$label      = '';
+	$class_list = '';
+	$classes    = '';
+	$source     = '';
+
+	/** Build the output strings and markup */
+	$output = ddw_tbex_info_values()[ 'space_helper' ];
+
+	$output .= sprintf(
+		'<h4 style="font-size: 1.1em;" class="tbex-help-footer">%s</h4>',
+		__( 'Important plugin links:', 'toolbar-extras' )
+	);
+
+	/** Loop through all link keys from the $args array */
+	foreach ( $args as $link_key => $link_data ) {
+		
+		$link_key = sanitize_key( $link_key );
+
+		$label = ( isset( $link_data[ 'label' ] ) && ! empty( $link_data[ 'label' ] ) ) ? $link_data[ 'label' ] : $labels[ $link_key ];
+
+		$class_list = array_map( 'sanitize_html_class', $link_data[ 'class' ] );
+		$classes    = sprintf(
+			'button %s',
+			implode( ' ', $class_list )
+		);
+
+		$source = ( ! isset( $link_data[ 'source' ] ) || empty( $link_data[ 'source' ] ) ) ? 'tbex' : sanitize_key( $link_data[ 'source' ] );
+
+		$output .= sprintf(
+			'%1$s' . ddw_tbex_get_info_link( $link_key, $label, $classes, $source ),
+			( 'yes' === $link_data[ 'first' ] ) ? '' : '&nbsp;&nbsp;'
+		);
+
+	}  // end foreach
+
+	/** Render the output */
+	if ( 'echo' === sanitize_key( $render ) ) {
+		echo $output;
+	}
+
+	return $output;
+
+}  // end function
+
+
+/**
+ * Build help content string for footer copyright of plugin/ Add-On - for re-use,
+ *   especially useful for Add-Ons.
+ *
+ * @since 1.4.7
+ *
+ * @uses ddw_tbex_get_info_url()
+ * @uses ddw_tbex_info_values()
+ * @uses ddw_tbex_coding_years()
+ *
+ * @param string $plugin_key Unique string of a specific TBEX Plugin/ Add-On.
+ * @param string $render     Flag string to optionally echo string (not returning).
+ * @return string Returning or echoing the translatable string and markup.
+ */
+function ddw_tbex_string_help_content_copyright( $plugin_key = '', $render = '' ) {
+
+	$tbex_info = (array) ddw_tbex_info_values();
+
+	$output = sprintf(
+		'<p><a href="%1$s" target="_blank" rel="nofollow noopener noreferrer" title="%2$s">%2$s</a> &#x000A9; %3$s <a href="%4$s" target="_blank" rel="noopener noreferrer" title="%5$s">%5$s</a></p>',
+		ddw_tbex_get_info_url( 'url_license' ),
+		esc_attr( $tbex_info[ 'license' ] ),
+		ddw_tbex_coding_years( '', sanitize_key( $plugin_key ) ),
+		esc_url( $tbex_info[ 'author_uri' ] ),
+		esc_html( $tbex_info[ 'author' ] )
+	);
+
+	/** Render the output */
+	if ( 'echo' === sanitize_key( $render ) ) {
+		echo $output;
+	}
+
+	return $output;
+
+}  // end function
+
+
+/**
+ * Build string for "Base plugin".
+ *
+ * @since 1.4.7
+ *
+ * @param string $render Flag string to optionally echo string (not returning).
+ * @return string Returning or echoing the translatable string and markup.
+ */
+function ddw_tbex_string_base_plugin( $render = '' ) {
+
+	$string = _x( 'Base plugin', 'Plugin settings page: listing of items to export', 'toolbar-extras' );
+
+	if ( 'echo' === sanitize_key( $render ) ) {
+		echo $string;
+	}
+
+	return $string;
+
+}  // end function
+
+
+
+/**
+ * Build string for "Add-On".
+ *
+ * @since 1.4.7
+ *
+ * @param string $render Flag string to optionally echo string (not returning).
+ * @return string Returning or echoing the translatable string and markup.
+ */
+function ddw_tbex_string_addon( $render = '' ) {
+
+	$string = __( 'Add-On', 'Plugin settings page: listing of items to export', 'toolbar-extras' );
+
+	if ( 'echo' === sanitize_key( $render ) ) {
+		echo $string;
+	}
+
+	return $string;
+
+}  // end function
+
+
+/**
+ * Build string for ".json" within <abbr> and <code> tags.
+ *
+ * @since 1.4.7
+ *
+ * @uses ddw_tbex_abbr()
+ * @uses ddw_tbex_code()
+ *
+ * @param string $render Flag string to optionally echo string (not returning).
+ * @return string Returning or echoing the string and markup.
+ */
+function ddw_tbex_string_json( $render = '' ) {
+
+	$string = ddw_tbex_abbr(
+		'JavaScript Object Notation',
+		ddw_tbex_code( '.json' )
+	);
+
+	if ( 'echo' === sanitize_key( $render ) ) {
+		echo $string;
+	}
+
+	return $string;
 
 }  // end function
