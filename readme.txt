@@ -1438,7 +1438,7 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 == Upgrade Notice =
 
 = 1.4.7 =
-??
+Import/Export feature. Optional "What Template?" feature. 18 additional plugins and 5 new Themes supported! New items for "Website Settings" in Site Group. Lots of refinements and improvements. - **Update highly recommended.**
 
 = 1.4.6 =
 9 additional Plugins and 1 new Theme supported! New items for optional Web Group. Elementor 2.6+ support. Lots of refinements and improvements. - **Update highly recommended.**
