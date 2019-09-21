@@ -849,7 +849,7 @@ function ddw_tbex_resource_item( $type = '', $id = '', $parent = '', $url = '', 
  * @param string $product    Product type, 'plugin' (default) or 'theme'.
  * @param string $title_attr Optional, individual title attribute string.
  * @param string $lang       Optional, lang attribute for WordPress.org subdomain.
- * @return string URL, markup and translateable text for an external resource
+ * @return string URL, markup and translatable text for an external resource
  *                item for a WordPress.org plugin or theme.
  */
 function ddw_tbex_resource_item_wporg( $type = '', $slug = '', $id = '', $parent = '', $product = 'plugin' , $title_attr = '', $lang = '' ) {

@@ -1318,7 +1318,7 @@ function ddw_tbex_string_version_history( $type = '' ) {
  *
  * @since 1.4.7
  *
- * @return string Translateable string.
+ * @return string Translatable string.
  */
 function ddw_tbex_string_official_theme_documentation() {
 

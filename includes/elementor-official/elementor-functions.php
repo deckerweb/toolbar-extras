@@ -62,7 +62,7 @@ function ddw_tbex_elementor_addnew_parent() {
  *
  * @uses ddw_tbex_string_elementor()
  *
- * @return string Translateable string for "Elementor Template".
+ * @return string Translatable string for "Elementor Template".
  */
 function ddw_tbex_string_elementor_template() {
 
@@ -83,7 +83,7 @@ function ddw_tbex_string_elementor_template() {
  *
  * @uses ddw_tbex_string_elementor()
  *
- * @return string Translateable string for "New Elementor Template".
+ * @return string Translatable string for "New Elementor Template".
  */
 function ddw_tbex_string_elementor_template_new() {
 
