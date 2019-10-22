@@ -41,6 +41,7 @@
 * Fix: Fixed loading for "Pretty Chic" Child Theme support
 
 **New, 1.4.8:** *Extended the Theme support for:*
+
 * Course Maker Pro (Premium, by brandiD), a Child Theme for Genesis
 * Cafe Pro (Premium, by StudioPress), a Child Theme for Genesis
 * Pretty Creative (Premium, by Lindsey Riel), a Child Theme for Genesis
