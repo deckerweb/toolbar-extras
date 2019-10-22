@@ -15,6 +15,10 @@
  * @since 1.4.0
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 if ( ! class_exists( 'Astra_Notices' ) ) :
 
 	/**
@@ -31,7 +35,7 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 		 * @var array Notices.
 		 * @since 1.4.0
 		 */
-		private static $version = '1.1.2';
+		private static $version = '1.1.4';
 
 		/**
 		 * Notices
@@ -173,6 +177,7 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 				'class'                      => '',      // Optional, Additional notice wrapper class.
 				'priority'                   => 10,      // Priority of the notice.
 				'display-with-other-notices' => true,    // Should the notice be displayed if other notices  are being displayed from Astra_Notices.
+				'is_dismissible'             => true,
 			);
 
 			// Count for the notices that are rendered.
@@ -218,29 +223,23 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 
 			wp_enqueue_script( 'astra-notices' );
 
+			do_action( 'astra_notice_before_markup' );
+
+			do_action( "astra_notice_before_markup_{$notice['id']}" );
+
 			?>
 			<div id="<?php echo esc_attr( $notice['id'] ); ?>" class="<?php echo esc_attr( $notice['classes'] ); ?>" data-repeat-notice-after="<?php echo esc_attr( $notice['repeat-notice-after'] ); ?>">
 				<div class="notice-container">
+					<?php do_action( "astra_notice_inside_markup_{$notice['id']}" ); ?>
 					<?php echo wp_kses_post( $notice['message'] ); ?>
 				</div>
 			</div>
 			<?php
-		}
 
-		/**
-		 * Function to check if the notice is expired or not.
-		 *
-		 * Pass Notice ID to this function to check if the notice is expired or not.
-		 *
-		 * @since 1.7.0
-		 * @param  array $id Notice id.
-		 * @return boolean
-		 */
-		public static function is_notice_expired( $id ) {
-			if ( self::is_expired( $id ) ) {
-				return true;
-			}
-			return false;
+			do_action( "astra_notice_after_markup_{$notice['id']}" );
+
+			do_action( 'astra_notice_after_markup' );
+
 		}
 
 		/**
@@ -252,7 +251,12 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 		 * @return array       Notice wrapper classes.
 		 */
 		private static function get_wrap_classes( $notice ) {
-			$classes   = array( 'astra-notice', 'notice', 'is-dismissible' );
+			$classes = array( 'astra-notice', 'notice' );
+
+			if ( $notice['is_dismissible'] ) {
+				$classes[] = 'is-dismissible';
+			}
+
 			$classes[] = $notice['class'];
 			if ( isset( $notice['type'] ) && '' !== $notice['type'] ) {
 				$classes[] = 'notice-' . $notice['type'];

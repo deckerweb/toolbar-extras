@@ -19,21 +19,21 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_devmode_log_viewer', 50 );
  *
  * @since 1.3.2
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_devmode_log_viewer() {
+function ddw_tbex_site_items_devmode_log_viewer( $admin_bar ) {
 
 	add_filter( 'tbex_filter_is_dev_mode', '__return_empty_string' );
 
 	/** Group */
-	$GLOBALS[ 'wp_admin_bar' ]->add_group(
+	$admin_bar->add_group(
 		array(
 			'id'     => 'group-logviewer',
-			'parent' => 'rapid-dev'
+			'parent' => 'rapid-dev',
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'log-viewer-elements',
 			'parent' => 'group-logviewer',
@@ -41,7 +41,7 @@ function ddw_tbex_site_items_devmode_log_viewer() {
 			'href'   => esc_url( admin_url( 'tools.php?page=log_viewer_files_view' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'View Log Files', 'toolbar-extras' )
+				'title'  => esc_attr__( 'View Log Files', 'toolbar-extras' ),
 			)
 		)
 	);

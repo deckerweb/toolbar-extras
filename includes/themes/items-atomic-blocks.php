@@ -37,7 +37,7 @@ function ddw_tbex_themeitems_atomic_blocks( $admin_bar ) {
 			'href'   => ddw_tbex_customizer_start(),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_theme_title( 'attr', 'child' )
+				'title'  => ddw_tbex_string_theme_title( 'attr', 'child' ),
 			)
 		)
 	);
@@ -101,7 +101,7 @@ function ddw_tbex_themeitems_atomic_blocks_resources( $admin_bar ) {
 
 	/** Bail early if no resources display active */
 	if ( ! ddw_tbex_display_items_resources() ) {
-		return;
+		return $admin_bar;
 	}
 
 	/** Group: Resources for Atomic Blocks */
@@ -109,7 +109,7 @@ function ddw_tbex_themeitems_atomic_blocks_resources( $admin_bar ) {
 		array(
 			'id'     => 'group-theme-resources',
 			'parent' => 'theme-creative',
-			'meta'   => array( 'class' => 'ab-sub-secondary' )
+			'meta'   => array( 'class' => 'ab-sub-secondary' ),
 		)
 	);
 

@@ -20,14 +20,14 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_gutenbegone', 10 );
  *
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar']
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_gutenbegone() {
+function ddw_tbex_aoitems_gutenbegone( $admin_bar ) {
 
 	/** Use Add-On hook place */
 	add_filter( 'tbex_filter_is_addon', '__return_empty_string' );
-	
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+
+	$admin_bar->add_node(
 		array(
 			'id'     => 'tbex-gutenbegone',
 			'parent' => 'group-tbex-addons-blockeditor',
@@ -35,12 +35,12 @@ function ddw_tbex_aoitems_gutenbegone() {
 			'href'   => esc_url( admin_url( 'options-general.php?page=GBG_block-settings' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_free_addon_title_attr( esc_attr__( 'GutenBeGone', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_free_addon_title_attr( esc_attr__( 'GutenBeGone', 'toolbar-extras' ) ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'gutenbegone-common-blocks',
 				'parent' => 'tbex-gutenbegone',
@@ -48,12 +48,12 @@ function ddw_tbex_aoitems_gutenbegone() {
 				'href'   => esc_url( admin_url( 'options-general.php?page=GBG_block-settings&tab=common_blocks' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Common Blocks', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Common Blocks', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'gutenbegone-formatting',
 				'parent' => 'tbex-gutenbegone',
@@ -61,12 +61,12 @@ function ddw_tbex_aoitems_gutenbegone() {
 				'href'   => esc_url( admin_url( 'options-general.php?page=GBG_block-settings&tab=formatting' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Formatting', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Formatting', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'gutenbegone-layout-elements',
 				'parent' => 'tbex-gutenbegone',
@@ -74,12 +74,12 @@ function ddw_tbex_aoitems_gutenbegone() {
 				'href'   => esc_url( admin_url( 'options-general.php?page=GBG_block-settings&tab=layout_blocks' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Layout Elements', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Layout Elements', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'gutenbegone-widgets',
 				'parent' => 'tbex-gutenbegone',
@@ -87,12 +87,12 @@ function ddw_tbex_aoitems_gutenbegone() {
 				'href'   => esc_url( admin_url( 'options-general.php?page=GBG_block-settings&tab=widgets' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Widgets', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Widgets', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'gutenbegone-embeds',
 				'parent' => 'tbex-gutenbegone',
@@ -100,7 +100,7 @@ function ddw_tbex_aoitems_gutenbegone() {
 				'href'   => esc_url( admin_url( 'options-general.php?page=GBG_block-settings&tab=embeds' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Embeds', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Embeds', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -108,11 +108,11 @@ function ddw_tbex_aoitems_gutenbegone() {
 		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-gutenbegone-resources',
 					'parent' => 'tbex-gutenbegone',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

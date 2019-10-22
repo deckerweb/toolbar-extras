@@ -23,12 +23,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_freelancer', 100 );
  * @uses ddw_tbex_customizer_focus()
  * @uses ddw_tbex_item_theme_creative_customize()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_freelancer() {
+function ddw_tbex_themeitems_freelancer( $admin_bar ) {
 
 	/** Freelancer creative */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'theme-creative',
 			'parent' => 'group-active-theme',
@@ -44,7 +44,7 @@ function ddw_tbex_themeitems_freelancer() {
 		/** Freelancer customize */
 		ddw_tbex_item_theme_creative_customize();
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'theme-creative-settings',
 				'parent' => 'theme-creative',
@@ -57,7 +57,7 @@ function ddw_tbex_themeitems_freelancer() {
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'theme-creative-license',
 				'parent' => 'theme-creative',
@@ -108,16 +108,18 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_freelancer_resources', 120 );
  *
  * @uses ddw_tbex_display_items_resources()
  * @uses ddw_tbex_resource_item()
+ *
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_freelancer_resources() {
+function ddw_tbex_themeitems_freelancer_resources( $admin_bar ) {
 
 	/** Bail early if no resources display active */
 	if ( ! ddw_tbex_display_items_resources() ) {
-		return;
+		return $admin_bar;
 	}
 
 	/** Group: Resources for Freelancer Theme */
-	$GLOBALS[ 'wp_admin_bar' ]->add_group(
+	$admin_bar->add_group(
 		array(
 			'id'     => 'group-theme-resources',
 			'parent' => 'theme-creative',

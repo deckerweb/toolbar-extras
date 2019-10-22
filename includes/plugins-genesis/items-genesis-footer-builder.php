@@ -18,12 +18,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_genesis_footer_builder', 115 );
  *
  * @since 1.3.7
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_genesis_footer_builder() {
+function ddw_tbex_aoitems_genesis_footer_builder( $admin_bar ) {
 
 	/** For: Genesis Creative items */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'genesis-footer-builder',
 			'parent' => 'group-genesisplugins-creative',
@@ -31,7 +31,7 @@ function ddw_tbex_aoitems_genesis_footer_builder() {
 			'href'   => esc_url( admin_url( 'admin.php?page=genesis-footer-builder' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Genesis Footer Builder', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Genesis Footer Builder', 'toolbar-extras' ),
 			)
 		)
 	);

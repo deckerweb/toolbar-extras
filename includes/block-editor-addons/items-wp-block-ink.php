@@ -21,12 +21,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_wp_block_ink', 110 );
  * @uses ddw_tbex_resources_color_wheel()
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_wp_block_ink() {
+function ddw_tbex_aoitems_wp_block_ink( $admin_bar ) {
 
 	/** Plugin's settings */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'ao-wpblockink',
 			'parent' => 'group-active-theme',
@@ -34,12 +34,12 @@ function ddw_tbex_aoitems_wp_block_ink() {
 			'href'   => esc_url( admin_url( 'themes.php?page=wp-block-ink' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_addon_title_attr( __( 'WP Block Ink', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_addon_title_attr( __( 'WP Block Ink', 'toolbar-extras' ) ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-wpblockink-set-colors',
 				'parent' => 'ao-wpblockink',
@@ -48,12 +48,12 @@ function ddw_tbex_aoitems_wp_block_ink() {
 				'meta'   => array(
 					'target' => ddw_tbex_meta_target(),
 					'rel'    => ddw_tbex_meta_rel(),
-					'title'  => esc_attr__( 'Define Colors', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Define Colors', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-wpblockink-style-guide',
 				'parent' => 'ao-wpblockink',
@@ -61,12 +61,12 @@ function ddw_tbex_aoitems_wp_block_ink() {
 				'href'   => esc_url( admin_url( 'themes.php?page=wp-block-ink&tab=style-guide' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Style Guide', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Style Guide', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-wpblockink-css-reference',
 				'parent' => 'ao-wpblockink',
@@ -74,12 +74,12 @@ function ddw_tbex_aoitems_wp_block_ink() {
 				'href'   => esc_url( admin_url( 'themes.php?page=wp-block-ink&tab=css' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'CSS Reference', 'toolbar-extras' )
+					'title'  => esc_attr__( 'CSS Reference', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-wpblockink-status',
 				'parent' => 'ao-wpblockink',
@@ -87,22 +87,22 @@ function ddw_tbex_aoitems_wp_block_ink() {
 				'href'   => esc_url( admin_url( 'themes.php?page=wp-block-ink&tab=status' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Status', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Status', 'toolbar-extras' ),
 				)
 			)
 		);
 
 		/** Color Wheel Resources */
-		ddw_tbex_resources_color_wheel( 'wpblockink', 'ao-wpblockink' );
+		ddw_tbex_resources_color_wheel( $admin_bar, 'wpblockink', 'ao-wpblockink' );
 
 		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-wpblockink-resources',
 					'parent' => 'ao-wpblockink',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

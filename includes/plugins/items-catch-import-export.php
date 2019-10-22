@@ -20,12 +20,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_customize_catch_import_export', 
  *
  * @uses ddw_tbex_customizer_focus()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_customize_catch_import_export() {
+function ddw_tbex_aoitems_customize_catch_import_export( $admin_bar ) {
 
 	/** Theme Creative Group */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'aocmz-catch-importexport',
 			'parent' => 'theme-creative-customize',
@@ -34,13 +34,13 @@ function ddw_tbex_aoitems_customize_catch_import_export() {
 			'href'   => ddw_tbex_customizer_focus( 'section', 'cie-section' ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => esc_attr__( 'Export &amp; Import Customizer Options', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Export &amp; Import Customizer Options', 'toolbar-extras' ),
 			)
 		)
 	);
 
 	/** Frontend: Customizer sub item */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'customize-catch-importexport',
 			'parent' => 'customize',
@@ -49,7 +49,7 @@ function ddw_tbex_aoitems_customize_catch_import_export() {
 			'href'   => ddw_tbex_customizer_focus( 'section', 'cie-section' ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => esc_attr__( 'Export &amp; Import Customizer Options', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Export &amp; Import Customizer Options', 'toolbar-extras' ),
 			)
 		)
 	);
@@ -65,12 +65,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_catch_import_export', 110 );
  *
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_catch_import_export() {
+function ddw_tbex_aoitems_catch_import_export( $admin_bar ) {
 
 	/** Plugin's items */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'ao-catch-importexport',
 			'parent' => 'group-active-theme',
@@ -78,12 +78,12 @@ function ddw_tbex_aoitems_catch_import_export() {
 			'href'   => esc_url( admin_url( 'admin.php?page=catch-import-export' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_addon_title_attr( __( 'Catch Import Export', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_addon_title_attr( __( 'Catch Import Export', 'toolbar-extras' ) ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-catch-importexport-action',
 				'parent' => 'ao-catch-importexport',
@@ -91,12 +91,12 @@ function ddw_tbex_aoitems_catch_import_export() {
 				'href'   => esc_url( admin_url( 'admin.php?page=catch-import-export#dashboard' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Export &amp; Import Customizer Options', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Export &amp; Import Customizer Options', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-catch-importexport-features',
 				'parent' => 'ao-catch-importexport',
@@ -104,7 +104,7 @@ function ddw_tbex_aoitems_catch_import_export() {
 				'href'   => esc_url( admin_url( 'admin.php?page=catch-import-export#features' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Features', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Features', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -112,11 +112,11 @@ function ddw_tbex_aoitems_catch_import_export() {
 		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-catchimportexport-resources',
 					'parent' => 'ao-catch-importexport',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

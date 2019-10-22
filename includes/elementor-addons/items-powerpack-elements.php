@@ -22,9 +22,9 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_powerpack_elements', 100 );
  * @uses \PowerpackElements\Classes\PP_Admin_Settings::get_settings()
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_powerpack_elements() {
+function ddw_tbex_aoitems_powerpack_elements( $admin_bar ) {
 
 	/** Use Add-On hook place */
 	add_filter( 'tbex_filter_is_addon', '__return_empty_string' );
@@ -45,7 +45,7 @@ function ddw_tbex_aoitems_powerpack_elements() {
 	$pp_name = ( '' == trim( $pp_settings[ 'plugin_name' ] ) ) ? 'PowerPack' : trim( $pp_settings[ 'plugin_name' ] );
 
 	/** PowerPack Settings */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'ao-powerpack',
 			'parent' => 'tbex-addons',
@@ -55,12 +55,12 @@ function ddw_tbex_aoitems_powerpack_elements() {
 			'meta'   => array(
 				'target' => '',
 				/* translators: %s - Name of the Add-On plugin ("PowerPack") */
-				'title'  => ddw_tbex_string_premium_addon_title_attr( sprintf( __( '%s Elements', 'toolbar-extras' ), $pp_name ) )
+				'title'  => ddw_tbex_string_premium_addon_title_attr( sprintf( __( '%s Elements', 'toolbar-extras' ), $pp_name ) ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-powerpack-elements',
 				'parent' => 'ao-powerpack',
@@ -68,7 +68,7 @@ function ddw_tbex_aoitems_powerpack_elements() {
 				'href'   => esc_url( admin_url( 'admin.php?page=powerpack-settings&tab=modules' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Activate Elements', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Activate Elements', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -76,7 +76,7 @@ function ddw_tbex_aoitems_powerpack_elements() {
 		/** Show White Label settings only if not hidden */
 		if ( 'off' === $pp_settings[ 'hide_wl_settings' ] ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ao-powerpack-whitelabel',
 					'parent' => 'ao-powerpack',
@@ -84,14 +84,14 @@ function ddw_tbex_aoitems_powerpack_elements() {
 					'href'   => esc_url( admin_url( 'admin.php?page=powerpack-settings&tab=white-label' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'White Label Branding', 'toolbar-extras' )
+						'title'  => esc_attr__( 'White Label Branding', 'toolbar-extras' ),
 					)
 				)
 			);
 
 		}  // end if
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-powerpack-general',
 				'parent' => 'ao-powerpack',
@@ -99,7 +99,7 @@ function ddw_tbex_aoitems_powerpack_elements() {
 				'href'   => esc_url( admin_url( 'admin.php?page=powerpack-settings&tab=general' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'General Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'General Settings', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -107,11 +107,11 @@ function ddw_tbex_aoitems_powerpack_elements() {
 		/** Group: Resources for PowerPack Elements */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-powerpack-resources',
 					'parent' => 'ao-powerpack',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

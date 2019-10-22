@@ -20,12 +20,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_custom_importer_exporter', 10
  *
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar']
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_custom_importer_exporter() {
+function ddw_tbex_site_items_custom_importer_exporter( $admin_bar ) {
 
 	/** Plugin's settings */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'custom-export-import',
 			'parent' => 'tbex-sitegroup-tools',
@@ -33,12 +33,12 @@ function ddw_tbex_site_items_custom_importer_exporter() {
 			'href'   => esc_url( admin_url( 'admin.php?page=term_io' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Custom Export &amp; Import', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Custom Export &amp; Import', 'toolbar-extras' ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'custom-export-import-terms',
 				'parent' => 'custom-export-import',
@@ -46,12 +46,12 @@ function ddw_tbex_site_items_custom_importer_exporter() {
 				'href'   => esc_url( admin_url( 'admin.php?page=term_io' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Taxonomy Terms', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Taxonomy Terms', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'custom-export-import-post-types',
 				'parent' => 'custom-export-import',
@@ -59,7 +59,7 @@ function ddw_tbex_site_items_custom_importer_exporter() {
 				'href'   => esc_url( admin_url( 'admin.php?page=post_type_io' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Post Types', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Post Types', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -67,11 +67,11 @@ function ddw_tbex_site_items_custom_importer_exporter() {
 		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-custom-exportimport-resources',
 					'parent' => 'custom-export-import',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

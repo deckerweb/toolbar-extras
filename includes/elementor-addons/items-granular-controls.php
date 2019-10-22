@@ -20,15 +20,15 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_granularcontrols', 100 );
  *
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_granularcontrols() {
+function ddw_tbex_aoitems_granularcontrols( $admin_bar ) {
 
 	/** Use Add-On hook place */
 	add_filter( 'tbex_filter_is_addon', '__return_empty_string' );
 
 	/** Granular Controls Settings */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'ao-granularcontrols',
 			'parent' => 'tbex-addons',
@@ -36,12 +36,12 @@ function ddw_tbex_aoitems_granularcontrols() {
 			'href'   => esc_url( admin_url( 'admin.php?page=granular_controls' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_addon_title_attr( __( 'Granular Controls for Elementor', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_addon_title_attr( __( 'Granular Controls for Elementor', 'toolbar-extras' ) ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-granularcontrols-general',
 				'parent' => 'ao-granularcontrols',
@@ -49,12 +49,12 @@ function ddw_tbex_aoitems_granularcontrols() {
 				'href'   => esc_url( admin_url( 'admin.php?page=granular_controls#granular_general_settings' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'General Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'General Settings', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-granularcontrols-editor',
 				'parent' => 'ao-granularcontrols',
@@ -62,12 +62,12 @@ function ddw_tbex_aoitems_granularcontrols() {
 					'href'   => esc_url( admin_url( 'admin.php?page=granular_controls#granular_editor_settings' ) ),
 					'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Editor Options', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Editor Options', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-granularcontrols-advanced',
 				'parent' => 'ao-granularcontrols',
@@ -75,7 +75,7 @@ function ddw_tbex_aoitems_granularcontrols() {
 				'href'   => esc_url( admin_url( 'admin.php?page=granular_controls#granular_advanced_settings' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Advanced Options', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Advanced Options', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -83,11 +83,11 @@ function ddw_tbex_aoitems_granularcontrols() {
 		/** Group: Resources for Granular Controls */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-granularcontrols-resources',
 					'parent' => 'ao-granularcontrols',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

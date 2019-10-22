@@ -18,12 +18,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_hesham_schema' );
  *
  * @since 1.3.2
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_hesham_schema() {
+function ddw_tbex_site_items_hesham_schema( $admin_bar ) {
 
 	/** For: Elements */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'heshamschema',
 			'parent' => 'tbex-sitegroup-elements',
@@ -31,7 +31,7 @@ function ddw_tbex_site_items_hesham_schema() {
 			'href'   => esc_url( admin_url( 'admin.php?page=schema' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Schema', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Schema', 'toolbar-extras' ),
 			)
 		)
 	);
@@ -50,12 +50,12 @@ function ddw_tbex_site_items_hesham_schema() {
 
 		/** Proceed only if there are any Schemas */
 		if ( $schemas ) {
-			
+
 			/** Add group */
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-heshamschema-edit-schema',
-					'parent' => 'heshamschema'
+					'parent' => 'heshamschema',
 				)
 			);
 
@@ -65,7 +65,7 @@ function ddw_tbex_site_items_hesham_schema() {
 				$schema_title = esc_attr( $schema->post_title );
 
 				/** Add item per form */
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'heshamschema-edit-schema-' . $schema_id,
 						'parent' => 'group-heshamschema-edit-schema',
@@ -73,7 +73,7 @@ function ddw_tbex_site_items_hesham_schema() {
 						'href'   => esc_url( admin_url( 'post.php?post=' . $schema_id . '&action=edit' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'Edit Schema', 'toolbar-extras' ) . ': ' . $schema_title
+							'title'  => esc_attr__( 'Edit Schema', 'toolbar-extras' ) . ': ' . $schema_title,
 						)
 					)
 				);
@@ -83,14 +83,14 @@ function ddw_tbex_site_items_hesham_schema() {
 		}  // end if
 
 		/** Group: Schemas (post type) */
-		$GLOBALS[ 'wp_admin_bar' ]->add_group(
+		$admin_bar->add_group(
 			array(
 				'id'     => 'group-heshamschema-schemas',
-				'parent' => 'heshamschema'
+				'parent' => 'heshamschema',
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'heshamschema-schemas-all',
 				'parent' => 'group-heshamschema-schemas',
@@ -98,12 +98,12 @@ function ddw_tbex_site_items_hesham_schema() {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=schema' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'All Schemas', 'toolbar-extras' )
+					'title'  => esc_attr__( 'All Schemas', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'heshamschema-schemas-new',
 				'parent' => 'group-heshamschema-schemas',
@@ -111,20 +111,20 @@ function ddw_tbex_site_items_hesham_schema() {
 				'href'   => esc_url( admin_url( 'post-new.php?post_type=schema' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'New Schema', 'toolbar-extras' )
+					'title'  => esc_attr__( 'New Schema', 'toolbar-extras' ),
 				)
 			)
 		);
 
 		/** Group: Settings */
-		$GLOBALS[ 'wp_admin_bar' ]->add_group(
+		$admin_bar->add_group(
 			array(
 				'id'     => 'group-heshamschema-settings',
-				'parent' => 'heshamschema'
+				'parent' => 'heshamschema',
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'heshamschema-settings-general',
 				'parent' => 'group-heshamschema-settings',
@@ -132,12 +132,12 @@ function ddw_tbex_site_items_hesham_schema() {
 				'href'   => esc_url( admin_url( 'admin.php?page=schema' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'General Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'General Settings', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'heshamschema-knowledge-graph',
 				'parent' => 'group-heshamschema-settings',
@@ -145,12 +145,12 @@ function ddw_tbex_site_items_hesham_schema() {
 				'href'   => esc_url( admin_url( 'admin.php?page=schema&tab=knowledge_graph' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Knowledge Graph', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Knowledge Graph', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'heshamschema-schemas',
 				'parent' => 'group-heshamschema-settings',
@@ -158,12 +158,12 @@ function ddw_tbex_site_items_hesham_schema() {
 				'href'   => esc_url( admin_url( 'admin.php?page=schema&tab=schemas' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Schemas', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Schemas', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'heshamschema-settings-advanced',
 				'parent' => 'group-heshamschema-settings',
@@ -171,20 +171,20 @@ function ddw_tbex_site_items_hesham_schema() {
 				'href'   => esc_url( admin_url( 'admin.php?page=schema&tab=advanced' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Advanced Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Advanced Settings', 'toolbar-extras' ),
 				)
 			)
 		);
 
 		/** Group: Setup (Wizard) */
-		$GLOBALS[ 'wp_admin_bar' ]->add_group(
+		$admin_bar->add_group(
 			array(
 				'id'     => 'group-heshamschema-setup',
-				'parent' => 'heshamschema'
+				'parent' => 'heshamschema',
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'heshamschema-setup-wizard',
 				'parent' => 'group-heshamschema-setup',
@@ -192,12 +192,12 @@ function ddw_tbex_site_items_hesham_schema() {
 				'href'   => esc_url( admin_url( 'admin.php?page=schema-setup' ) ),
 				'meta'   => array(
 					'target' => ddw_tbex_meta_target( 'builder' ),
-					'title'  => esc_attr__( 'Setup Wizard', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Setup Wizard', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'heshamschema-getting-started',
 				'parent' => 'group-heshamschema-setup',
@@ -205,19 +205,19 @@ function ddw_tbex_site_items_hesham_schema() {
 				'href'   => esc_url( admin_url( 'index.php?page=schema-wp-getting-started' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Getting Started', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Getting Started', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		/** Group: Resources for Schema */
+		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-heshamschema-resources',
 					'parent' => 'heshamschema',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

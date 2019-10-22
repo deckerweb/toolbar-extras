@@ -71,7 +71,7 @@ function ddw_tbex_is_genesis_settings_active( $genesis_handle = '' ) {
 
 	$current_user = wp_get_current_user();
 
-	return ( current_theme_supports( $options ) && get_the_author_meta( $user_meta, $current_user->ID ) ) ? TRUE : FALSE;
+	return ( current_theme_supports( $options ) && get_the_author_meta( $user_meta, $current_user->ID ) );
 
 }  // end function
 
@@ -89,14 +89,14 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_genesis', 100 );
  * @uses ddw_tbex_item_theme_creative_customize()
  * @uses ddw_tbex_customizer_start()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_genesis() {
+function ddw_tbex_themeitems_genesis( $admin_bar ) {
 
-	$genesis_customizer = version_compare( PARENT_THEME_VERSION, '2.10.0', '>=' ) ? TRUE : FALSE;
+	$genesis_customizer = version_compare( PARENT_THEME_VERSION, '2.10.0', '>=' );
 
 	/** Genesis creative */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'theme-creative',
 			'parent' => 'group-active-theme',
@@ -104,7 +104,7 @@ function ddw_tbex_themeitems_genesis() {
 			'href'   => ddw_tbex_is_genesis_settings_active( 'settings' ) ? esc_url( admin_url( 'admin.php?page=genesis' ) ) : ddw_tbex_customizer_start(),
 			'meta'   => array(
 				'target' => $genesis_customizer ? ddw_tbex_meta_target() : '',
-				'title'  => ddw_tbex_string_theme_title( 'attr', 'child' )
+				'title'  => ddw_tbex_string_theme_title( 'attr', 'child' ),
 			)
 		)
 	);
@@ -113,7 +113,7 @@ function ddw_tbex_themeitems_genesis() {
 		ddw_tbex_item_theme_creative_customize();
 
 		/** Add optional child theme group */
-		$GLOBALS[ 'wp_admin_bar' ]->add_group(
+		$admin_bar->add_group(
 			array(
 				'id'     => 'group-genesischild-creative',
 				'parent' => 'theme-creative',
@@ -123,7 +123,7 @@ function ddw_tbex_themeitems_genesis() {
 			/** Optional Onboarding item */
 			if ( ddw_tbex_is_genesis_onboarding_active() ) {
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'gen-child-onboarding',
 						'parent' => 'theme-creative',	//'group-genesischild-creative',
@@ -131,7 +131,7 @@ function ddw_tbex_themeitems_genesis() {
 						'href'   => esc_url( admin_url( 'admin.php?page=genesis-getting-started' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'Getting Started: Import Demo Content &amp; Layouts', 'toolbar-extras' )
+							'title'  => esc_attr__( 'Getting Started: Import Demo Content &amp; Layouts', 'toolbar-extras' ),
 						)
 					)
 				);
@@ -139,7 +139,7 @@ function ddw_tbex_themeitems_genesis() {
 			}  // end if
 
 		/** Add optional plugins group */
-		$GLOBALS[ 'wp_admin_bar' ]->add_group(
+		$admin_bar->add_group(
 			array(
 				'id'     => 'group-genesisplugins-creative',
 				'parent' => 'theme-creative',
@@ -147,7 +147,7 @@ function ddw_tbex_themeitems_genesis() {
 		);
 
 	/** Genesis settings */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'theme-settings',
 			'parent' => 'group-active-theme',
@@ -155,14 +155,14 @@ function ddw_tbex_themeitems_genesis() {
 			'href'   => ddw_tbex_is_genesis_settings_active( 'settings' ) ? esc_url( admin_url( 'admin.php?page=genesis' ) ) : ddw_tbex_customizer_start(),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Genesis Settings', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Genesis Settings', 'toolbar-extras' ),
 			)
 		)
 	);
 
 		if ( ddw_tbex_is_genesis_settings_active( 'settings' ) ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'gen-theme',
 					'parent' => 'theme-settings',
@@ -171,7 +171,7 @@ function ddw_tbex_themeitems_genesis() {
 					'href'   => esc_url( admin_url( 'admin.php?page=genesis' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'General Theme Settings', 'toolbar-extras' )
+						'title'  => esc_attr__( 'General Theme Settings', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -180,7 +180,7 @@ function ddw_tbex_themeitems_genesis() {
 
 		if ( ddw_tbex_is_genesis_settings_active( 'seo' ) ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'gen-seo',
 					'parent' => 'theme-settings',
@@ -188,7 +188,7 @@ function ddw_tbex_themeitems_genesis() {
 					'href'   => esc_url( admin_url( 'admin.php?page=seo-settings' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'General Theme Settings', 'toolbar-extras' )
+						'title'  => esc_attr__( 'General Theme Settings', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -197,7 +197,7 @@ function ddw_tbex_themeitems_genesis() {
 
 		if ( ddw_tbex_is_genesis_settings_active( 'export' ) ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'gen-export',
 					'parent' => 'theme-settings',
@@ -205,14 +205,14 @@ function ddw_tbex_themeitems_genesis() {
 					'href'   => esc_url( admin_url( 'admin.php?page=genesis-import-export' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Import &amp; Export', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Import &amp; Export', 'toolbar-extras' ),
 					)
 				)
 			);
 
 		}  // end if
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'gen-whatsnew',
 				'parent' => 'theme-settings',
@@ -220,7 +220,7 @@ function ddw_tbex_themeitems_genesis() {
 				'href'   => esc_url( admin_url( 'admin.php?page=genesis-upgraded' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'What\'s New &amp; Version Info', 'toolbar-extras' )
+					'title'  => esc_attr__( 'What\'s New &amp; Version Info', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -274,13 +274,13 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_genesis_resources', 130 );
  * @uses ddw_tbex_resource_item()
  * @uses ddw_tbex_display_items_dev_mode()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_genesis_resources() {
+function ddw_tbex_themeitems_genesis_resources( $admin_bar ) {
 
 	/** Bail early if no resources display active */
 	if ( ! ddw_tbex_display_items_resources() ) {
-		return;
+		return $admin_bar;
 	}
 
 	$resources_place = 'theme-settings';
@@ -293,11 +293,11 @@ function ddw_tbex_themeitems_genesis_resources() {
 	}
 
 	/** Group: Resources for Genesis Framework */
-	$GLOBALS[ 'wp_admin_bar' ]->add_group(
+	$admin_bar->add_group(
 		array(
 			'id'     => 'group-theme-resources',
 			'parent' => $resources_place,
-			'meta'   => array( 'class' => 'ab-sub-secondary' )
+			'meta'   => array( 'class' => 'ab-sub-secondary' ),
 		)
 	);
 
@@ -340,7 +340,7 @@ function ddw_tbex_themeitems_genesis_resources() {
 		esc_attr__( 'Tutorials (Premim Membership Site)', 'toolbar-extras' )
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'theme-beginners',
 			'parent' => 'group-theme-resources',
@@ -349,7 +349,7 @@ function ddw_tbex_themeitems_genesis_resources() {
 			'meta'   => array(
 				'rel'    => ddw_tbex_meta_rel(),
 				'target' => ddw_tbex_meta_target(),
-				'title'  => esc_attr__( 'Genesis for Beginners', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Genesis for Beginners', 'toolbar-extras' ),
 			)
 		)
 	);
@@ -372,7 +372,7 @@ function ddw_tbex_themeitems_genesis_resources() {
 			'https://studiopress.github.io/genesis/'
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'genesis-beblog-dev-resource',
 				'parent' => 'group-theme-resources',
@@ -381,7 +381,7 @@ function ddw_tbex_themeitems_genesis_resources() {
 				'meta'   => array(
 					'rel'    => ddw_tbex_meta_rel(),
 					'target' => ddw_tbex_meta_target(),
-					'title'  => esc_attr__( 'Bill Erickson Blog: Development with Genesis Framework', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Bill Erickson Blog: Development with Genesis Framework', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -405,14 +405,16 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_genesis_cpt_archives', 80 );
  * @uses ddw_tbex_meta_target()
  *
  * @see plugin file /includes/items-edit-content.php
+ *
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_genesis_cpt_archives() {
-	
+function ddw_tbex_themeitems_genesis_cpt_archives( $admin_bar ) {
+
 	/** Bail early if proper context is not met */
 	if ( ( is_admin() && 'edit.php' !== $GLOBALS[ 'pagenow' ] )		// admin && edit.php pagenow
 		|| ( ! is_admin() && ! is_post_type_archive() )				// frontend && post type archive
 	) {
-		return;
+		return $admin_bar;
 	}
 
 	/** Get the current post type */
@@ -420,7 +422,7 @@ function ddw_tbex_themeitems_genesis_cpt_archives() {
 
 	/** Bail early if Genesis CPT Archive Settings is not supported */
 	if ( ! post_type_supports( $post_type, 'genesis-cpt-archives-settings' ) ) {
-		return;
+		return $admin_bar;
 	}
 
 	/** The Customizer link node arguments for reusage */
@@ -447,7 +449,7 @@ function ddw_tbex_themeitems_genesis_cpt_archives() {
 		//$post_type      = $current_screen->post_type;
 
 		/** For: Post type list table view */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'tbex-genesis-cpt-archive-' . $post_type,
 				'parent' => 'archive',		// Original item by WordPress Core
@@ -476,7 +478,7 @@ function ddw_tbex_themeitems_genesis_cpt_archives() {
 				$post_type_object->labels->name
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'cpt-archive-settings',		// same as Genesis original
 					'title'  => ddw_tbex_item_title_with_icon( $build_title ),
@@ -489,7 +491,7 @@ function ddw_tbex_themeitems_genesis_cpt_archives() {
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node( $customizer_node );
+			$admin_bar->add_node( $customizer_node );
 
 		}  // end if
 
@@ -500,7 +502,7 @@ function ddw_tbex_themeitems_genesis_cpt_archives() {
 
 		// $post_type_object = get_post_type_object( $wp_query->query_vars[ 'post_type' ] );
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node( $customizer_node );
+		$admin_bar->add_node( $customizer_node );
 
 	}  // end if
 

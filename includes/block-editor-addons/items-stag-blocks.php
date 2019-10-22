@@ -26,7 +26,7 @@ function ddw_tbex_aoitems_stag_blocks( $admin_bar ) {
 
 	/** Use Add-On hook place */
 	add_filter( 'tbex_filter_is_addon', '__return_empty_string' );
-	
+
 	$admin_bar->add_node(
 		array(
 			'id'     => 'tbex-stagblocks',
@@ -35,7 +35,7 @@ function ddw_tbex_aoitems_stag_blocks( $admin_bar ) {
 			'href'   => esc_url( admin_url( 'options-general.php?page=stag-blocks' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_free_addon_title_attr( esc_attr__( 'Stag Blocks', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_free_addon_title_attr( esc_attr__( 'Stag Blocks', 'toolbar-extras' ) ),
 			)
 		)
 	);
@@ -48,7 +48,7 @@ function ddw_tbex_aoitems_stag_blocks( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'options-general.php?page=stag-blocks' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -60,7 +60,7 @@ function ddw_tbex_aoitems_stag_blocks( $admin_bar ) {
 				array(
 					'id'     => 'group-stagblocks-resources',
 					'parent' => 'tbex-stagblocks',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

@@ -89,7 +89,7 @@ function ddw_tbex_site_items_duplicator( $admin_bar ) {
 			)
 		);
 
-		/** Group: Resources for Duplicator */
+		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
 			$admin_bar->add_group(

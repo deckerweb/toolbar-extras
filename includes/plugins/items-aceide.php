@@ -19,21 +19,21 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_devmode_aceide' );
  *
  * @since 1.0.0
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_devmode_aceide() {
+function ddw_tbex_site_items_devmode_aceide( $admin_bar ) {
 
 	add_filter( 'tbex_filter_is_dev_mode', '__return_empty_string' );
 
 	/** Group */
-	$GLOBALS[ 'wp_admin_bar' ]->add_group(
+	$admin_bar->add_group(
 		array(
 			'id'     => 'group-aceide',
-			'parent' => 'rapid-dev'
+			'parent' => 'rapid-dev',
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'aceide',
 			'parent' => 'group-aceide',
@@ -42,7 +42,7 @@ function ddw_tbex_site_items_devmode_aceide() {
 			'meta'   => array(
 				'rel'    => ddw_tbex_meta_rel(),
 				'target' => ddw_tbex_meta_target(),
-				'title'  => esc_attr__( 'AceIDE (Code Editor)', 'toolbar-extras' )
+				'title'  => esc_attr__( 'AceIDE (Code Editor)', 'toolbar-extras' ),
 			)
 		)
 	);

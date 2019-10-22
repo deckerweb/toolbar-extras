@@ -77,7 +77,7 @@ function ddw_tbex_help_content_super_admin_menu() {
 		) . ':</h2>';
 
 	/** Build the content */
-	$output .= '<p>' . __( 'All menu items via a Custom Menu here - and at all other places in the Toolbar (a.k.a. Admin Bar) - are only visible and accessable for Super Admins. That means in a Multisite Environment all Admins who can manage the Network. In regular WordPress (single) installs these are users with the Administrator user role.', 'toolbar-extras' ) . '</p>';
+	$output .= '<p>' . __( 'All menu items via a Custom Menu here - and at all other places in the Toolbar (a.k.a. Admin Bar) - are only visible and accessible for Super Admins. That means in a Multisite Environment all Admins who can manage the Network. In regular WordPress (single) installs these are users with the Administrator user role.', 'toolbar-extras' ) . '</p>';
 
 	$output .= '<h5>' . sprintf(
 		/* translators: %s - String "Super Admins" (for Multisite) or "Admins" */

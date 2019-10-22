@@ -49,7 +49,7 @@ function ddw_tbex_themeitems_customify( $admin_bar ) {
 			'href'   => esc_url( admin_url( 'themes.php?page=customify' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_theme_title( 'attr' )
+				'title'  => ddw_tbex_string_theme_title( 'attr' ),
 			)
 		)
 	);
@@ -276,7 +276,7 @@ function ddw_tbex_themeitems_customify_pro( $admin_bar ) {
 			'href'   => esc_url( admin_url( 'themes.php?page=customify' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Customify Pro Settings', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Customify Pro Settings', 'toolbar-extras' ),
 			)
 		)
 	);
@@ -289,7 +289,7 @@ function ddw_tbex_themeitems_customify_pro( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'themes.php?page=customify' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Activate Modules', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Activate Modules', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -302,7 +302,7 @@ function ddw_tbex_themeitems_customify_pro( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'admin.php?page=customify&tab=changelog' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Changelog', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Changelog', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -313,7 +313,7 @@ function ddw_tbex_themeitems_customify_pro( $admin_bar ) {
 		$admin_bar->add_group(
 			array(
 				'id'     => 'group-customify-fonts',
-				'parent' => 'theme-creative'
+				'parent' => 'theme-creative',
 			)
 		);
 
@@ -325,7 +325,7 @@ function ddw_tbex_themeitems_customify_pro( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'edit.php?post_type=font' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'All Custom Fonts', 'toolbar-extras' )
+						'title'  => esc_attr__( 'All Custom Fonts', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -338,7 +338,7 @@ function ddw_tbex_themeitems_customify_pro( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'post-new.php?post_type=font' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'New Custom Font', 'toolbar-extras' )
+						'title'  => esc_attr__( 'New Custom Font', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -351,7 +351,7 @@ function ddw_tbex_themeitems_customify_pro( $admin_bar ) {
 		$admin_bar->add_group(
 			array(
 				'id'     => 'group-customify-hooks',
-				'parent' => 'theme-creative'
+				'parent' => 'theme-creative',
 			)
 		);
 
@@ -365,7 +365,7 @@ function ddw_tbex_themeitems_customify_pro( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'edit.php?post_type=' . $type ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Customify Hooks', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Customify Hooks', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -378,7 +378,7 @@ function ddw_tbex_themeitems_customify_pro( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'post-new.php?post_type=' . $type ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'New Hook', 'toolbar-extras' )
+						'title'  => esc_attr__( 'New Hook', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -393,7 +393,7 @@ function ddw_tbex_themeitems_customify_pro( $admin_bar ) {
 						'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( $type ) ),
 						'meta'   => array(
 							'target' => ddw_tbex_meta_target( 'builder' ),
-							'title'  => esc_attr__( 'New Hook Builder', 'toolbar-extras' )
+							'title'  => esc_attr__( 'New Hook Builder', 'toolbar-extras' ),
 						)
 					)
 				);
@@ -406,7 +406,7 @@ function ddw_tbex_themeitems_customify_pro( $admin_bar ) {
 						'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( $type ) ),
 						'meta'   => array(
 							'target' => ddw_tbex_meta_target( 'builder' ),
-							'title'  => ddw_tbex_string_newcontent_create_with_builder()
+							'title'  => ddw_tbex_string_newcontent_create_with_builder(),
 						)
 					)
 				);
@@ -424,7 +424,7 @@ function ddw_tbex_themeitems_customify_pro( $admin_bar ) {
 						'href'   => esc_url( admin_url( 'edit-tags.php?taxonomy=builder-template-category&post_type=' . $type ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_html( ddw_btc_string_template( 'hook' ) )
+							'title'  => esc_html( ddw_btc_string_template( 'hook' ) ),
 						)
 					)
 				);
@@ -499,7 +499,7 @@ function ddw_tbex_themeitems_customify_sites_import( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'themes.php?page=customify-sites' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Import Customify Sites', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Import Customify Sites', 'toolbar-extras' ),
 				)
 			)
 		);

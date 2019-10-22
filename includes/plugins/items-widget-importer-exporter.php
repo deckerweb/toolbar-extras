@@ -18,12 +18,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_widget_importer_exporter' );
  *
  * @since 1.0.0
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_widget_importer_exporter() {
+function ddw_tbex_site_items_widget_importer_exporter( $admin_bar ) {
 
 	/** For: WP-Widgets */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'widget-importexport',
 			'parent' => 'wpwidgets',
@@ -31,7 +31,7 @@ function ddw_tbex_site_items_widget_importer_exporter() {
 			'href'   => esc_url( admin_url( 'tools.php?page=widget-importer-exporter' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Import &amp; Export', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Import &amp; Export', 'toolbar-extras' ),
 			)
 		)
 	);

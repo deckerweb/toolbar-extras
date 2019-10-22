@@ -36,7 +36,7 @@ function ddw_tbex_aoitems_advamentor( $admin_bar ) {
 			'href'   => esc_url( admin_url( 'admin.php?page=advamentor' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => 'Advamentor',
+				'title'  => ddw_tbex_string_free_addon_title_attr( 'Advamentor' ),
 			)
 		)
 	);

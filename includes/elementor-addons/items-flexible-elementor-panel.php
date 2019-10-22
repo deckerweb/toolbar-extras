@@ -36,7 +36,7 @@ function ddw_tbex_aoitems_flexible_elementor_panel( $admin_bar ) {
 			'href'   => esc_url( admin_url( 'admin.php?page=fep-options' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_free_addon_title_attr( __( 'Flexible Elementor Panel', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_free_addon_title_attr( __( 'Flexible Elementor Panel', 'toolbar-extras' ) ),
 			)
 		)
 	);
@@ -49,7 +49,7 @@ function ddw_tbex_aoitems_flexible_elementor_panel( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'admin.php?page=fep-options#fep_how_to_configure' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Overview - Get Help', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Overview - Get Help', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -62,7 +62,7 @@ function ddw_tbex_aoitems_flexible_elementor_panel( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'admin.php?page=fep-options#fep_divers' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Reset Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Reset Settings', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -75,7 +75,7 @@ function ddw_tbex_aoitems_flexible_elementor_panel( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'admin.php?page=fep-options#fep_informations' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Plugin Info', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Plugin Info', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -87,7 +87,7 @@ function ddw_tbex_aoitems_flexible_elementor_panel( $admin_bar ) {
 				array(
 					'id'     => 'group-flexiblepanel-resources',
 					'parent' => 'ao-flexiblepanel',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

@@ -18,12 +18,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_genesis_layout_extras', 115 );
  *
  * @since 1.3.5
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_genesis_layout_extras() {
+function ddw_tbex_aoitems_genesis_layout_extras( $admin_bar ) {
 
 	/** For: Genesis Creative items */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'genesis-layout-extras',
 			'parent' => 'group-genesisplugins-creative',
@@ -31,7 +31,7 @@ function ddw_tbex_aoitems_genesis_layout_extras() {
 			'href'   => esc_url( admin_url( 'admin.php?page=gle-layout-extras' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Genesis Layout Extras', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Genesis Layout Extras', 'toolbar-extras' ),
 			)
 		)
 	);

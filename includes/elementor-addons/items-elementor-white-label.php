@@ -36,9 +36,9 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_elementor_white_label', 100 );
  *
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_elementor_white_label() {
+function ddw_tbex_aoitems_elementor_white_label( $admin_bar ) {
 
 	/** Get the plugin's settings */
 	$ewl_settings = get_option( 'ewl_settings' );
@@ -46,7 +46,7 @@ function ddw_tbex_aoitems_elementor_white_label() {
 	/** Bail early if plugin's admin settings are hidden */
 	if ( ddw_tbex_is_elementor_whitelabel_pro_active()
 		&& 'on' === $ewl_settings[ 'hide_ewl_setting_page' ] ) {
-		return;
+		return $admin_bar;
 	}
 
 	/** Use Add-On hook place */
@@ -63,7 +63,7 @@ function ddw_tbex_aoitems_elementor_white_label() {
 	}  // end if
 
 	/** Plugin's settings */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'ao-elewl',
 			'parent' => 'tbex-addons',
@@ -71,12 +71,12 @@ function ddw_tbex_aoitems_elementor_white_label() {
 			'href'   => esc_url( admin_url( $url ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => $title
+				'title'  => $title,
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-elewl-settings',
 				'parent' => 'ao-elewl',
@@ -84,7 +84,7 @@ function ddw_tbex_aoitems_elementor_white_label() {
 				'href'   => esc_url( admin_url( $url ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -92,11 +92,11 @@ function ddw_tbex_aoitems_elementor_white_label() {
 		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-elewl-resources',
 					'parent' => 'ao-elewl',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

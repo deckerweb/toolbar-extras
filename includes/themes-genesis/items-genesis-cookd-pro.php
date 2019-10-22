@@ -62,16 +62,16 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_cookd_pro', 100 );
  *
  * @since 1.2.0
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_cookd_pro() {
+function ddw_tbex_themeitems_cookd_pro( $admin_bar ) {
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'cookdpro-theme-info',
 			'parent' => 'theme-creative',
 			'title'  => esc_attr__( 'Theme Info', 'toolbar-extras' ),
-			'href'   => esc_url( admin_url( 'admin.php?page=cookd-dashboard' ) ),
+			'href'   => esc_url( admin_url( 'admin.php?page=feast-dashboard' ) ),
 			'meta'   => array(
 				'target' => '',
 				'title'  => esc_attr__( 'Theme Info', 'toolbar-extras' ),

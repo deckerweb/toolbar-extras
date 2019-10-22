@@ -42,7 +42,7 @@ function ddw_tbex_site_items_rankmath( $admin_bar ) {
 			'href'   => esc_url( admin_url( 'admin.php?page=rank-math' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Rank Math SEO Options', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Rank Math SEO Options', 'toolbar-extras' ),
 			)
 		)
 	);
@@ -56,7 +56,7 @@ function ddw_tbex_site_items_rankmath( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'admin.php?page=rank-math' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Dashboard and Module Setup', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Dashboard and Module Setup', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -70,7 +70,7 @@ function ddw_tbex_site_items_rankmath( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'admin.php?page=rank-math-wizard' ) ),
 				'meta'   => array(
 					'target' => ddw_tbex_meta_target(),
-					'title'  => esc_attr__( 'Start Setup Wizard', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Start Setup Wizard', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -83,7 +83,7 @@ function ddw_tbex_site_items_rankmath( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'admin.php?page=rank-math-wizard&step=yoursite' ) ),
 					'meta'   => array(
 						'target' => ddw_tbex_meta_target(),
-						'title'  => esc_attr__( 'Step 1: Your Website', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Step 1: Your Website', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -96,7 +96,7 @@ function ddw_tbex_site_items_rankmath( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'admin.php?page=rank-math-wizard&step=searchconsole' ) ),
 					'meta'   => array(
 						'target' => ddw_tbex_meta_target(),
-						'title'  => esc_attr__( 'Step 2: Google Search Console', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Step 2: Google Search Console', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -109,7 +109,7 @@ function ddw_tbex_site_items_rankmath( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'admin.php?page=rank-math-wizard&step=sitemaps' ) ),
 					'meta'   => array(
 						'target' => ddw_tbex_meta_target(),
-						'title'  => esc_attr__( 'Step 3: Sitemaps', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Step 3: Sitemaps', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -122,7 +122,7 @@ function ddw_tbex_site_items_rankmath( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'admin.php?page=rank-math-wizard&step=optimization' ) ),
 					'meta'   => array(
 						'target' => ddw_tbex_meta_target(),
-						'title'  => esc_attr__( 'Step 4: Optimization &amp; SEO Tweaks', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Step 4: Optimization &amp; SEO Tweaks', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -135,7 +135,7 @@ function ddw_tbex_site_items_rankmath( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'admin.php?page=rank-math-wizard&step=ready' ) ),
 					'meta'   => array(
 						'target' => ddw_tbex_meta_target(),
-						'title'  => esc_attr__( 'Step 5: Ready Check', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Step 5: Ready Check', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -148,7 +148,7 @@ function ddw_tbex_site_items_rankmath( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'admin.php?page=rank-math-wizard&step=role' ) ),
 					'meta'   => array(
 						'target' => ddw_tbex_meta_target(),
-						'title'  => esc_attr__( 'Advanced 1: Role Manager', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Advanced 1: Role Manager', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -161,7 +161,7 @@ function ddw_tbex_site_items_rankmath( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'admin.php?page=rank-math-wizard&step=redirection' ) ),
 					'meta'   => array(
 						'target' => ddw_tbex_meta_target(),
-						'title'  => esc_attr__( 'Advanced 2: 404 &amp; Redirections', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Advanced 2: 404 &amp; Redirections', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -174,7 +174,7 @@ function ddw_tbex_site_items_rankmath( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'admin.php?page=rank-math-wizard&step=misc' ) ),
 					'meta'   => array(
 						'target' => ddw_tbex_meta_target(),
-						'title'  => esc_attr__( 'Advanced 3: Miscellaneous Options', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Advanced 3: Miscellaneous Options', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -188,7 +188,7 @@ function ddw_tbex_site_items_rankmath( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'admin.php?page=rank-math-options-general' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'General Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'General Settings', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -201,7 +201,7 @@ function ddw_tbex_site_items_rankmath( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'admin.php?page=rank-math-options-general#setting-panel-links' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Links', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Links', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -214,7 +214,7 @@ function ddw_tbex_site_items_rankmath( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'admin.php?page=rank-math-options-general#setting-panel-images' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Images', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Images', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -227,7 +227,7 @@ function ddw_tbex_site_items_rankmath( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'admin.php?page=rank-math-options-general#setting-panel-breadcrumbs' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Breadcrumbs', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Breadcrumbs', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -240,7 +240,7 @@ function ddw_tbex_site_items_rankmath( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'admin.php?page=rank-math-options-general#setting-panel-webmaster' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Webmaster Tools', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Webmaster Tools', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -253,7 +253,7 @@ function ddw_tbex_site_items_rankmath( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'admin.php?page=rank-math-options-general#setting-panel-robots' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Edit WordPress virtual robots.txt file', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Edit WordPress virtual robots.txt file', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -266,7 +266,7 @@ function ddw_tbex_site_items_rankmath( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'admin.php?page=rank-math-options-general#setting-panel-htaccess' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Edit the .htaccess file of this installation', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Edit the .htaccess file of this installation', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -307,7 +307,7 @@ function ddw_tbex_site_items_rankmath( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'admin.php?page=rank-math-options-general#setting-panel-others' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Other Settings', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Other Settings', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -321,7 +321,7 @@ function ddw_tbex_site_items_rankmath( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'admin.php?page=rank-math-options-titles' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Titles &amp; Meta', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Titles &amp; Meta', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -334,7 +334,7 @@ function ddw_tbex_site_items_rankmath( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'admin.php?page=rank-math-options-titles#setting-panel-global' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Global Meta', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Global Meta', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -347,7 +347,7 @@ function ddw_tbex_site_items_rankmath( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'admin.php?page=rank-math-options-titles#setting-panel-local' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Local Meta', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Local Meta', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -360,7 +360,7 @@ function ddw_tbex_site_items_rankmath( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'admin.php?page=rank-math-options-titles#setting-panel-social' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Social Meta', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Social Meta', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -373,7 +373,7 @@ function ddw_tbex_site_items_rankmath( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'admin.php?page=rank-math-options-titles#setting-panel-homepage' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Homepage Title &amp; Meta Data', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Homepage Title &amp; Meta Data', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -386,7 +386,7 @@ function ddw_tbex_site_items_rankmath( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'admin.php?page=rank-math-options-titles#setting-panel-author' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Authors', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Authors', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -399,7 +399,7 @@ function ddw_tbex_site_items_rankmath( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'admin.php?page=rank-math-options-titles#setting-panel-misc' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Misc Pages', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Misc Pages', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -420,7 +420,7 @@ function ddw_tbex_site_items_rankmath( $admin_bar ) {
 						'href'   => esc_url( admin_url( 'admin.php?page=rank-math-options-titles#setting-panel-post-type-post' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'Post Type: Posts', 'toolbar-extras' )
+							'title'  => esc_attr__( 'Post Type: Posts', 'toolbar-extras' ),
 						)
 					)
 				);
@@ -433,7 +433,7 @@ function ddw_tbex_site_items_rankmath( $admin_bar ) {
 						'href'   => esc_url( admin_url( 'admin.php?page=rank-math-options-titles#setting-panel-post-type-page' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'Post Type: Pages', 'toolbar-extras' )
+							'title'  => esc_attr__( 'Post Type: Pages', 'toolbar-extras' ),
 						)
 					)
 				);
@@ -446,7 +446,7 @@ function ddw_tbex_site_items_rankmath( $admin_bar ) {
 						'href'   => esc_url( admin_url( 'admin.php?page=rank-math-options-titles#setting-panel-post-type-attachment' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'Post Type: Attachments (Media)', 'toolbar-extras' )
+							'title'  => esc_attr__( 'Post Type: Attachments (Media)', 'toolbar-extras' ),
 						)
 					)
 				);
@@ -461,7 +461,7 @@ function ddw_tbex_site_items_rankmath( $admin_bar ) {
 							'href'   => esc_url( admin_url( 'admin.php?page=rank-math-options-titles#setting-panel-post-type-product' ) ),
 							'meta'   => array(
 								'target' => '',
-								'title'  => esc_attr__( 'Post Type: Products', 'toolbar-extras' )
+								'title'  => esc_attr__( 'Post Type: Products', 'toolbar-extras' ),
 							)
 						)
 					);
@@ -484,7 +484,7 @@ function ddw_tbex_site_items_rankmath( $admin_bar ) {
 						'href'   => esc_url( admin_url( 'admin.php?page=rank-math-options-titles#setting-panel-taxonomy-category' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'Taxonomy: Categories', 'toolbar-extras' )
+							'title'  => esc_attr__( 'Taxonomy: Categories', 'toolbar-extras' ),
 						)
 					)
 				);
@@ -497,7 +497,7 @@ function ddw_tbex_site_items_rankmath( $admin_bar ) {
 						'href'   => esc_url( admin_url( 'admin.php?page=rank-math-options-titles#setting-panel-taxonomy-post_tag' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'Taxonomy: Tags', 'toolbar-extras' )
+							'title'  => esc_attr__( 'Taxonomy: Tags', 'toolbar-extras' ),
 						)
 					)
 				);
@@ -512,7 +512,7 @@ function ddw_tbex_site_items_rankmath( $admin_bar ) {
 							'href'   => esc_url( admin_url( 'admin.php?page=rank-math-options-titles#setting-panel-taxonomy-product_cat' ) ),
 							'meta'   => array(
 								'target' => '',
-								'title'  => esc_attr__( 'Taxonomy: Product Categories', 'toolbar-extras' )
+								'title'  => esc_attr__( 'Taxonomy: Product Categories', 'toolbar-extras' ),
 							)
 						)
 					);
@@ -525,7 +525,7 @@ function ddw_tbex_site_items_rankmath( $admin_bar ) {
 							'href'   => esc_url( admin_url( 'admin.php?page=rank-math-options-titles#setting-panel-taxonomy-product_tag' ) ),
 							'meta'   => array(
 								'target' => '',
-								'title'  => esc_attr__( 'Taxonomy: Product Tags', 'toolbar-extras' )
+								'title'  => esc_attr__( 'Taxonomy: Product Tags', 'toolbar-extras' ),
 							)
 						)
 					);
@@ -543,7 +543,7 @@ function ddw_tbex_site_items_rankmath( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'admin.php?page=rank-math-options-sitemap' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Sitemap Settings', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Sitemap Settings', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -556,7 +556,7 @@ function ddw_tbex_site_items_rankmath( $admin_bar ) {
 						'href'   => esc_url( admin_url( 'admin.php?page=rank-math-options-sitemap#setting-panel-general' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'General', 'toolbar-extras' )
+							'title'  => esc_attr__( 'General', 'toolbar-extras' ),
 						)
 					)
 				);
@@ -574,7 +574,7 @@ function ddw_tbex_site_items_rankmath( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'admin.php?page=rank-math-role-manager' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Role Manager', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Role Manager', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -592,7 +592,7 @@ function ddw_tbex_site_items_rankmath( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'admin.php?page=rank-math-404-monitor' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( '404 Monitor', 'toolbar-extras' )
+						'title'  => esc_attr__( '404 Monitor', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -610,7 +610,7 @@ function ddw_tbex_site_items_rankmath( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'admin.php?page=rank-math-redirections' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Setup Redirections', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Setup Redirections', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -631,7 +631,7 @@ function ddw_tbex_site_items_rankmath( $admin_bar ) {
 							'href'   => esc_url( admin_url( 'admin.php?page=rank-math-redirections&status=all' ) ),
 							'meta'   => array(
 								'target' => '',
-								'title'  => esc_attr__( 'All Redirections', 'toolbar-extras' )
+								'title'  => esc_attr__( 'All Redirections', 'toolbar-extras' ),
 							)
 						)
 					);
@@ -644,7 +644,7 @@ function ddw_tbex_site_items_rankmath( $admin_bar ) {
 							'href'   => esc_url( admin_url( 'admin.php?page=rank-math-redirections&new=1' ) ),
 							'meta'   => array(
 								'target' => '',
-								'title'  => esc_attr__( 'Add new Redirection', 'toolbar-extras' )
+								'title'  => esc_attr__( 'Add new Redirection', 'toolbar-extras' ),
 							)
 						)
 					);
@@ -665,7 +665,7 @@ function ddw_tbex_site_items_rankmath( $admin_bar ) {
 							'href'   => esc_url( admin_url( 'admin.php?page=rank-math-redirections&export=apache' ) ),
 							'meta'   => array(
 								'target' => '',
-								'title'  => esc_attr__( 'Export Redirections to .htaccess file (Apache Server)', 'toolbar-extras' )
+								'title'  => esc_attr__( 'Export Redirections to .htaccess file (Apache Server)', 'toolbar-extras' ),
 							)
 						)
 					);
@@ -678,7 +678,7 @@ function ddw_tbex_site_items_rankmath( $admin_bar ) {
 							'href'   => esc_url( admin_url( 'admin.php?page=rank-math-redirections&export=nginx' ) ),
 							'meta'   => array(
 								'target' => '',
-								'title'  => esc_attr__( 'Export Redirections to Nginx config file (Nginx Server)', 'toolbar-extras' )
+								'title'  => esc_attr__( 'Export Redirections to Nginx config file (Nginx Server)', 'toolbar-extras' ),
 							)
 						)
 					);
@@ -691,7 +691,7 @@ function ddw_tbex_site_items_rankmath( $admin_bar ) {
 							'href'   => esc_url( admin_url( 'admin.php?page=rank-math-options-general#setting-panel-redirections' ) ),
 							'meta'   => array(
 								'target' => '',
-								'title'  => esc_attr__( 'Settings for Redirections', 'toolbar-extras' )
+								'title'  => esc_attr__( 'Settings for Redirections', 'toolbar-extras' ),
 							)
 						)
 					);
@@ -704,7 +704,7 @@ function ddw_tbex_site_items_rankmath( $admin_bar ) {
 							'href'   => 'https://rankmath.com/kb/setting-up-redirections/',
 							'meta'   => array(
 								'target' => ddw_tbex_meta_target(),
-								'title'  => esc_attr__( 'Learn More - Help', 'toolbar-extras' )
+								'title'  => esc_attr__( 'Learn More - Help', 'toolbar-extras' ),
 							)
 						)
 					);
@@ -722,7 +722,7 @@ function ddw_tbex_site_items_rankmath( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'admin.php?page=rank-math-search-console' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Google Search Console', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Google Search Console', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -735,7 +735,7 @@ function ddw_tbex_site_items_rankmath( $admin_bar ) {
 						'href'   => esc_url( admin_url( 'admin.php?page=rank-math-search-console&view=overview' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'Overview', 'toolbar-extras' )
+							'title'  => esc_attr__( 'Overview', 'toolbar-extras' ),
 						)
 					)
 				);
@@ -748,7 +748,7 @@ function ddw_tbex_site_items_rankmath( $admin_bar ) {
 						'href'   => esc_url( admin_url( 'admin.php?page=rank-math-search-console&view=analytics' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'Search Analytics', 'toolbar-extras' )
+							'title'  => esc_attr__( 'Search Analytics', 'toolbar-extras' ),
 						)
 					)
 				);
@@ -761,7 +761,7 @@ function ddw_tbex_site_items_rankmath( $admin_bar ) {
 						'href'   => esc_url( admin_url( 'admin.php?page=rank-math-search-console&view=sitemaps' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'Sitemaps', 'toolbar-extras' )
+							'title'  => esc_attr__( 'Sitemaps', 'toolbar-extras' ),
 						)
 					)
 				);
@@ -774,7 +774,7 @@ function ddw_tbex_site_items_rankmath( $admin_bar ) {
 						'href'   => esc_url( admin_url( 'admin.php?page=rank-math-search-console&view=tracker' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'Keyword Tracker', 'toolbar-extras' )
+							'title'  => esc_attr__( 'Keyword Tracker', 'toolbar-extras' ),
 						)
 					)
 				);
@@ -792,12 +792,55 @@ function ddw_tbex_site_items_rankmath( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'admin.php?page=rank-math-seo-analysis' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'SEO Analysis', 'toolbar-extras' )
+						'title'  => esc_attr__( 'SEO Analysis', 'toolbar-extras' ),
 					)
 				)
 			);
 
 		}  // end if
+
+		/** Let more Add-Ons hook in */
+		do_action( 'tbex_hookplace_rankmath', $admin_bar );
+
+		/** Status & Tools */
+		$admin_bar->add_node(
+			array(
+				'id'     => 'tbex-rankmath-status-tools',
+				'parent' => 'tbex-rankmath',
+				'title'  => esc_attr__( 'Status &amp; Tools', 'toolbar-extras' ),
+				'href'   => esc_url( admin_url( 'admin.php?page=rank-math-status' ) ),
+				'meta'   => array(
+					'target' => '',
+					'title'  => esc_attr__( 'Status &amp; Tools', 'toolbar-extras' ),
+				)
+			)
+		);
+
+			$admin_bar->add_node(
+				array(
+					'id'     => 'tbex-rankmath-status-tools-system',
+					'parent' => 'tbex-rankmath-status-tools',
+					'title'  => esc_attr__( 'System Status', 'toolbar-extras' ),
+					'href'   => esc_url( admin_url( 'admin.php?page=rank-math-status' ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => esc_attr__( 'System Status', 'toolbar-extras' ),
+					)
+				)
+			);
+
+			$admin_bar->add_node(
+				array(
+					'id'     => 'tbex-rankmath-status-tools-tools',
+					'parent' => 'tbex-rankmath-status-tools',
+					'title'  => esc_attr__( 'Tools', 'toolbar-extras' ),
+					'href'   => esc_url( admin_url( 'admin.php?page=rank-math-status&view=tools' ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => esc_attr__( 'Tools', 'toolbar-extras' ),
+					)
+				)
+			);
 
 		/** Import & Export */
 		$admin_bar->add_node(
@@ -808,7 +851,7 @@ function ddw_tbex_site_items_rankmath( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'admin.php?page=rank-math-import-export' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Import &amp; Export', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Import &amp; Export', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -822,7 +865,7 @@ function ddw_tbex_site_items_rankmath( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'admin.php?page=rank-math-help' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Help &amp; Support', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Help &amp; Support', 'toolbar-extras' ),
 				)
 			)
 		);

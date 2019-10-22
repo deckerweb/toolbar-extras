@@ -21,12 +21,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_ct_exodus', 100 );
  * @uses ddw_tbex_string_theme_title()
  * @uses ddw_tbex_customizer_start()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_ct_exodus() {
+function ddw_tbex_themeitems_ct_exodus( $admin_bar ) {
 
 	/** Theme creative */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'theme-creative',
 			'parent' => 'group-active-theme',
@@ -34,12 +34,12 @@ function ddw_tbex_themeitems_ct_exodus() {
 			'href'   => esc_url( admin_url( 'themes.php?page=theme-license' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_theme_title( 'attr' )
+				'title'  => ddw_tbex_string_theme_title( 'attr' ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'theme-creative-customize',
 				'parent' => 'theme-creative',
@@ -47,7 +47,7 @@ function ddw_tbex_themeitems_ct_exodus() {
 				'href'   => ddw_tbex_customizer_start(),
 				'meta'   => array(
 					'target' => ddw_tbex_meta_target(),
-					'title'  => esc_attr__( 'Customize Design', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Customize Design', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -61,11 +61,11 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_ct_exodus_license', 111 );
  *
  * @since 1.3.0
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_ct_exodus_license() {
+function ddw_tbex_themeitems_ct_exodus_license( $admin_bar ) {
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'theme-creative-churchthemes-license',
 			'parent' => 'theme-creative',
@@ -73,7 +73,7 @@ function ddw_tbex_themeitems_ct_exodus_license() {
 			'href'   => esc_url( admin_url( 'themes.php?page=theme-license' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Theme License', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Theme License', 'toolbar-extras' ),
 			)
 		)
 	);
@@ -90,11 +90,11 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_ct_exodus_customize', 100 );
  * @uses ddw_tbex_customizer_focus()
  * @uses ddw_tbex_string_customize_attr()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_ct_exodus_customize() {
+function ddw_tbex_themeitems_ct_exodus_customize( $admin_bar ) {
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'exoduscmz-colors-styling',
 			'parent' => 'theme-creative-customize',
@@ -103,12 +103,12 @@ function ddw_tbex_themeitems_ct_exodus_customize() {
 			'href'   => ddw_tbex_customizer_focus( 'section', 'colors' ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Colors &amp; Styling', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_customize_attr( __( 'Colors &amp; Styling', 'toolbar-extras' ) ),
 			)
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'exoduscmz-google-fonts',
 			'parent' => 'theme-creative-customize',
@@ -117,12 +117,12 @@ function ddw_tbex_themeitems_ct_exodus_customize() {
 			'href'   => ddw_tbex_customizer_focus( 'section', 'exodus_fonts' ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Google Fonts', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_customize_attr( __( 'Google Fonts', 'toolbar-extras' ) ),
 			)
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'exoduscmz-top-bar',
 			'parent' => 'theme-creative-customize',
@@ -131,12 +131,12 @@ function ddw_tbex_themeitems_ct_exodus_customize() {
 			'href'   => ddw_tbex_customizer_focus( 'section', 'exodus_top' ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Top Bar', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_customize_attr( __( 'Top Bar', 'toolbar-extras' ) ),
 			)
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'exoduscmz-header-logo',
 			'parent' => 'theme-creative-customize',
@@ -145,12 +145,12 @@ function ddw_tbex_themeitems_ct_exodus_customize() {
 			'href'   => ddw_tbex_customizer_focus( 'section', 'exodus_header' ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Header &amp; Logo', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_customize_attr( __( 'Header &amp; Logo', 'toolbar-extras' ) ),
 			)
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'exoduscmz-footer-content',
 			'parent' => 'theme-creative-customize',
@@ -159,12 +159,12 @@ function ddw_tbex_themeitems_ct_exodus_customize() {
 			'href'   => ddw_tbex_customizer_focus( 'section', 'exodus_footer' ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Footer', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_customize_attr( __( 'Footer', 'toolbar-extras' ) ),
 			)
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'exoduscmz-homepage-slider',
 			'parent' => 'theme-creative-customize',
@@ -173,12 +173,12 @@ function ddw_tbex_themeitems_ct_exodus_customize() {
 			'href'   => ddw_tbex_customizer_focus( 'section', 'exodus_slider' ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Homepage Slider', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_customize_attr( __( 'Homepage Slider', 'toolbar-extras' ) ),
 			)
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'exoduscmz-social-media-icons',
 			'parent' => 'theme-creative-customize',
@@ -187,12 +187,12 @@ function ddw_tbex_themeitems_ct_exodus_customize() {
 			'href'   => ddw_tbex_customizer_focus( 'section', 'exodus_icons' ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Social Media Icons', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_customize_attr( __( 'Social Media Icons', 'toolbar-extras' ) ),
 			)
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'exoduscmz-site-identity',
 			'parent' => 'theme-creative-customize',
@@ -201,7 +201,7 @@ function ddw_tbex_themeitems_ct_exodus_customize() {
 			'href'   => ddw_tbex_customizer_focus( 'section', 'title_tagline' ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Site Identity', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_customize_attr( __( 'Site Identity', 'toolbar-extras' ) ),
 			)
 		)
 	);
@@ -218,20 +218,22 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_ct_exodus_resources', 120 );
  *
  * @uses ddw_tbex_display_items_resources()
  * @uses ddw_tbex_resource_item()
+ *
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_ct_exodus_resources() {
+function ddw_tbex_themeitems_ct_exodus_resources( $admin_bar ) {
 
 	/** Bail early if no resources display active */
 	if ( ! ddw_tbex_display_items_resources() ) {
-		return;
+		return $admin_bar;
 	}
 
 	/** Group: Resources for Exodus Theme */
-	$GLOBALS[ 'wp_admin_bar' ]->add_group(
+	$admin_bar->add_group(
 		array(
 			'id'     => 'group-theme-resources',
 			'parent' => 'theme-creative',
-			'meta'   => array( 'class' => 'ab-sub-secondary' )
+			'meta'   => array( 'class' => 'ab-sub-secondary' ),
 		)
 	);
 

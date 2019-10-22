@@ -31,13 +31,14 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_contact_form_7' );
  * Items for Plugin: Contact Form 7 (free, by Takayuki Miyoshi)
  *
  * @since 1.3.1
+ * @since 1.4.8 Security enhancements.
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_contact_form_7() {
+function ddw_tbex_site_items_contact_form_7( $admin_bar ) {
 
 	/** For: Forms */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'forms-cf7',
 			'parent' => 'tbex-sitegroup-forms',
@@ -45,7 +46,7 @@ function ddw_tbex_site_items_contact_form_7() {
 			'href'   => esc_url( admin_url( 'admin.php?page=wpcf7' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Contact Form 7', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Contact Form 7', 'toolbar-extras' ),
 			)
 		)
 	);
@@ -66,25 +67,29 @@ function ddw_tbex_site_items_contact_form_7() {
 		if ( $forms ) {
 
 			/** Add group */
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-cf7-edit-forms',
-					'parent' => 'forms-cf7'
+					'parent' => 'forms-cf7',
 				)
 			);
 
 			foreach ( $forms as $form ) {
 
+				$form_id   = absint( $form->ID );
+				$form_name = esc_attr( $form->post_title );
+				$form_slug = sanitize_key( $form->post_name );
+
 				/** Add item per form */
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
-						'id'     => 'forms-cf7-form-' . $form->ID,
+						'id'     => 'forms-cf7-form-' . $form_id,
 						'parent' => 'group-cf7-edit-forms',
-						'title'  => $form->post_title,
-						'href'   => esc_url( admin_url( 'admin.php?page=wpcf7&post=' . $form->ID . '&action=edit' ) ),
+						'title'  => $form_name,
+						'href'   => esc_url( admin_url( 'admin.php?page=wpcf7&post=' . $form_id . '&action=edit' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'Edit Form', 'toolbar-extras' ) . ': ' . $form->post_title
+							'title'  => esc_attr__( 'Edit Form', 'toolbar-extras' ) . ': ' . $form_name,
 						)
 					)
 				);
@@ -92,28 +97,28 @@ function ddw_tbex_site_items_contact_form_7() {
 				/** If Flamingo Add-On active display additional sub-items */
 				if ( ddw_tbex_is_flamingo_active() ) {
 
-					$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					$admin_bar->add_node(
 						array(
-							'id'     => 'forms-cf7-form-' . $form->ID . '-builder',
-							'parent' => 'forms-cf7-form-' . $form->ID,
+							'id'     => 'forms-cf7-form-' . $form_id . '-builder',
+							'parent' => 'forms-cf7-form-' . $form_id,
 							'title'  => esc_attr__( 'Form Builder', 'toolbar-extras' ),
-							'href'   => esc_url( admin_url( 'admin.php?page=wpcf7&post=' . $form->ID . '&action=edit' ) ),
+							'href'   => esc_url( admin_url( 'admin.php?page=wpcf7&post=' . $form_id . '&action=edit' ) ),
 							'meta'   => array(
 								'target' => '',
-								'title'  => esc_attr__( 'Form Builder', 'toolbar-extras' )
+								'title'  => esc_attr__( 'Form Builder', 'toolbar-extras' ),
 							)
 						)
 					);
 
-					$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					$admin_bar->add_node(
 						array(
-							'id'     => 'forms-cf7-form-' . $form->ID . '-entries',
-							'parent' => 'forms-cf7-form-' . $form->ID,
+							'id'     => 'forms-cf7-form-' . $form_id . '-entries',
+							'parent' => 'forms-cf7-form-' . $form_id,
 							'title'  => esc_attr__( 'Entries', 'toolbar-extras' ),
-							'href'   => esc_url( admin_url( 'admin.php?page=flamingo_inbound&channel=' . $form->post_name ) ),
+							'href'   => esc_url( admin_url( 'admin.php?page=flamingo_inbound&channel=' . $form_slug ) ),
 							'meta'   => array(
 								'target' => '',
-								'title'  => esc_attr__( 'Entries', 'toolbar-extras' )
+								'title'  => esc_attr__( 'Entries', 'toolbar-extras' ),
 							)
 						)
 					);
@@ -125,7 +130,7 @@ function ddw_tbex_site_items_contact_form_7() {
 		}  // end if
 
 		/** General CF7 items */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-cf7-all-forms',
 				'parent' => 'forms-cf7',
@@ -133,12 +138,12 @@ function ddw_tbex_site_items_contact_form_7() {
 				'href'   => esc_url( admin_url( 'admin.php?page=wpcf7' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'All Forms', 'toolbar-extras' )
+					'title'  => esc_attr__( 'All Forms', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-cf7-new-form',
 				'parent' => 'forms-cf7',
@@ -146,7 +151,7 @@ function ddw_tbex_site_items_contact_form_7() {
 				'href'   => esc_url( admin_url( 'admin.php?page=wpcf7-new' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'New Form', 'toolbar-extras' )
+					'title'  => esc_attr__( 'New Form', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -154,7 +159,7 @@ function ddw_tbex_site_items_contact_form_7() {
 		/** If Flamingo Add-On active display additional items */
 		if ( ddw_tbex_is_flamingo_active() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-cf7-flamingo',
 					'parent' => 'forms-cf7',
@@ -162,12 +167,12 @@ function ddw_tbex_site_items_contact_form_7() {
 					'href'   => esc_url( admin_url( 'admin.php?page=flamingo_inbound' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Entries', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Entries', 'toolbar-extras' ),
 					)
 				)
 			);
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'forms-cf7-flamingo-all',
 						'parent' => 'forms-cf7-flamingo',
@@ -175,12 +180,12 @@ function ddw_tbex_site_items_contact_form_7() {
 						'href'   => esc_url( admin_url( 'admin.php?page=flamingo_inbound' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'All Entries', 'toolbar-extras' )
+							'title'  => esc_attr__( 'All Entries', 'toolbar-extras' ),
 						)
 					)
 				);
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'forms-cf7-flamingo-addressbook',
 						'parent' => 'forms-cf7-flamingo',
@@ -188,14 +193,14 @@ function ddw_tbex_site_items_contact_form_7() {
 						'href'   => esc_url( admin_url( 'admin.php?page=flamingo' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'Address Book', 'toolbar-extras' )
+							'title'  => esc_attr__( 'Address Book', 'toolbar-extras' ),
 						)
 					)
 				);
 
 		}  // end if Flamingo check
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-cf7-integrations',
 				'parent' => 'forms-cf7',
@@ -203,25 +208,25 @@ function ddw_tbex_site_items_contact_form_7() {
 				'href'   => esc_url( admin_url( 'admin.php?page=wpcf7-integration' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Integrations', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Integrations', 'toolbar-extras' ),
 				)
 			)
 		);
 
 		/** Optionally, let other CF7 Add-Ons hook in */
-		do_action( 'tbex_after_cf7_settings' );
+		do_action( 'tbex_after_cf7_settings', $admin_bar );
 
 		/** Group: Resources for CF7 */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-cf7-resources',
 					'parent' => 'forms-cf7',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
-			
+
 			ddw_tbex_resource_item(
 				'support-forum',
 				'cf7-support',
@@ -261,16 +266,16 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_new_content_cf7_form', 80 );
  *
  * @since 1.3.1
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
 function ddw_tbex_aoitems_new_content_cf7_form() {
 
 	/** Bail early if items display is not wanted */
 	if ( ! ddw_tbex_display_items_new_content() ) {
-		return;
+		return $admin_bar;
 	}
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'tbex-cf7-form',
 			'parent' => 'new-content',
@@ -278,7 +283,7 @@ function ddw_tbex_aoitems_new_content_cf7_form() {
 			'href'   => esc_url( admin_url( 'admin.php?page=wpcf7-new' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_add_new_item( ddw_tbex_string_new_form( 'CF7' ) )
+				'title'  => ddw_tbex_string_add_new_item( ddw_tbex_string_new_form( 'CF7' ) ),
 			)
 		)
 	);

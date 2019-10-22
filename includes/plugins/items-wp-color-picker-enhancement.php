@@ -34,7 +34,7 @@ function ddw_tbex_aoitems_wp_color_picker_enhancement( $admin_bar ) {
 			'href'   => esc_url( admin_url( 'options-general.php?page=d2l-wp-colorpicker' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_addon_title_attr( __( 'WP Color Picker Enhancement', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_addon_title_attr( __( 'WP Color Picker Enhancement', 'toolbar-extras' ) ),
 			)
 		)
 	);
@@ -47,13 +47,13 @@ function ddw_tbex_aoitems_wp_color_picker_enhancement( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'options-general.php?page=d2l-wp-colorpicker' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Define Colors', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Define Colors', 'toolbar-extras' ),
 				)
 			)
 		);
 
 		/** Color Wheel Resources */
-		ddw_tbex_resources_color_wheel( 'wpcolorpicker', 'ao-wpcolorpicker' );
+		ddw_tbex_resources_color_wheel( $admin_bar, 'wpcolorpicker', 'ao-wpcolorpicker' );
 
 		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
@@ -62,7 +62,7 @@ function ddw_tbex_aoitems_wp_color_picker_enhancement( $admin_bar ) {
 				array(
 					'id'     => 'group-wpcolorpicker-resources',
 					'parent' => 'ao-wpcolorpicker',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

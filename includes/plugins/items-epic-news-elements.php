@@ -20,14 +20,14 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_epic_news_elements', 150 );
  *
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_epic_news_elements() {
+function ddw_tbex_aoitems_epic_news_elements( $admin_bar ) {
 
 	$type_post    = 'custom-post-template';
 	$type_archive = 'archive-template';
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'ao-epicnewsel',
 			'parent' => 'group-creative-content',
@@ -36,13 +36,13 @@ function ddw_tbex_aoitems_epic_news_elements() {
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
 				'rel'    => ddw_tbex_meta_rel(),
-				'title'  => esc_attr__( 'Epic News Elements', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Epic News Elements', 'toolbar-extras' ),
 			)
 		)
 	);
 
 		/** Post Template Builder */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-epicnewsel-posttemplate',
 				'parent' => 'ao-epicnewsel',
@@ -50,12 +50,12 @@ function ddw_tbex_aoitems_epic_news_elements() {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=' . $type_post ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Post Templates', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Post Templates', 'toolbar-extras' ),
 				)
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ao-epicnewsel-posttemplate-all',
 					'parent' => 'ao-epicnewsel-posttemplate',
@@ -63,12 +63,12 @@ function ddw_tbex_aoitems_epic_news_elements() {
 					'href'   => esc_url( admin_url( 'edit.php?post_type=' . $type_post ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'All Post Templates', 'toolbar-extras' )
+						'title'  => esc_attr__( 'All Post Templates', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ao-epicnewsel-posttemplate-new',
 					'parent' => 'ao-epicnewsel-posttemplate',
@@ -76,14 +76,14 @@ function ddw_tbex_aoitems_epic_news_elements() {
 					'href'   => esc_url( admin_url( 'post-new.php?post_type=' . $type_post ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'New Post Template', 'toolbar-extras' )
+						'title'  => esc_attr__( 'New Post Template', 'toolbar-extras' ),
 					)
 				)
 			);
 
 			if ( ddw_tbex_is_elementor_active() && \Elementor\User::is_current_user_can_edit_post_type( $type_post ) ) {
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'ao-epicnewsel-posttemplate-builder',
 						'parent' => 'ao-epicnewsel-posttemplate',
@@ -91,7 +91,7 @@ function ddw_tbex_aoitems_epic_news_elements() {
 						'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( $type_post ) ),
 						'meta'   => array(
 							'target' => ddw_tbex_meta_target( 'builder' ),
-							'title'  => esc_attr__( 'New Post Template Builder', 'toolbar-extras' )
+							'title'  => esc_attr__( 'New Post Template Builder', 'toolbar-extras' ),
 						)
 					)
 				);
@@ -101,7 +101,7 @@ function ddw_tbex_aoitems_epic_news_elements() {
 			/** Post Template categories, via BTC plugin */
 			if ( ddw_tbex_is_btcplugin_active() ) {
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'ao-epicnewsel-posttemplate-categories',
 						'parent' => 'ao-epicnewsel-posttemplate',
@@ -109,7 +109,7 @@ function ddw_tbex_aoitems_epic_news_elements() {
 						'href'   => esc_url( admin_url( 'edit-tags.php?taxonomy=builder-template-category&post_type=' . $type_post ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_html( ddw_btc_string_template( 'template' ) )
+							'title'  => esc_html( ddw_btc_string_template( 'template' ) ),
 						)
 					)
 				);
@@ -117,7 +117,7 @@ function ddw_tbex_aoitems_epic_news_elements() {
 			}  // end if
 
 		/** Archive Template Builder */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-epicnewsel-archivetemplate',
 				'parent' => 'ao-epicnewsel',
@@ -125,12 +125,12 @@ function ddw_tbex_aoitems_epic_news_elements() {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=' . $type_archive ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Archive Templates', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Archive Templates', 'toolbar-extras' ),
 				)
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ao-epicnewsel-archivetemplate-all',
 					'parent' => 'ao-epicnewsel-archivetemplate',
@@ -138,12 +138,12 @@ function ddw_tbex_aoitems_epic_news_elements() {
 					'href'   => esc_url( admin_url( 'edit.php?post_type=' . $type_archive ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'All Archive Templates', 'toolbar-extras' )
+						'title'  => esc_attr__( 'All Archive Templates', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ao-epicnewsel-archivetemplate-new',
 					'parent' => 'ao-epicnewsel-archivetemplate',
@@ -151,14 +151,14 @@ function ddw_tbex_aoitems_epic_news_elements() {
 					'href'   => esc_url( admin_url( 'post-new.php?post_type=' . $type_archive ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'New Archive Template', 'toolbar-extras' )
+						'title'  => esc_attr__( 'New Archive Template', 'toolbar-extras' ),
 					)
 				)
 			);
 
 			if ( ddw_tbex_is_elementor_active() && \Elementor\User::is_current_user_can_edit_post_type( $type_archive ) ) {
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'ao-epicnewsel-archivetemplate-builder',
 						'parent' => 'ao-epicnewsel-archivetemplate',
@@ -166,7 +166,7 @@ function ddw_tbex_aoitems_epic_news_elements() {
 						'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( $type_archive ) ),
 						'meta'   => array(
 							'target' => ddw_tbex_meta_target( 'builder' ),
-							'title'  => esc_attr__( 'New Archive Template Builder', 'toolbar-extras' )
+							'title'  => esc_attr__( 'New Archive Template Builder', 'toolbar-extras' ),
 						)
 					)
 				);
@@ -176,7 +176,7 @@ function ddw_tbex_aoitems_epic_news_elements() {
 			/** Archive Template categories, via BTC plugin */
 			if ( ddw_tbex_is_btcplugin_active() ) {
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'ao-epicnewsel-archivetemplate-categories',
 						'parent' => 'ao-epicnewsel-archivetemplate',
@@ -184,7 +184,7 @@ function ddw_tbex_aoitems_epic_news_elements() {
 						'href'   => esc_url( admin_url( 'edit-tags.php?taxonomy=builder-template-category&post_type=' . $type_archive ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_html( ddw_btc_string_template( 'template' ) )
+							'title'  => esc_html( ddw_btc_string_template( 'template' ) ),
 						)
 					)
 				);
@@ -192,7 +192,7 @@ function ddw_tbex_aoitems_epic_news_elements() {
 			}  // end if
 
 		/** Module Options */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-epicnewsel-moduleoptions',
 				'parent' => 'ao-epicnewsel',
@@ -201,12 +201,12 @@ function ddw_tbex_aoitems_epic_news_elements() {
 				'meta'   => array(
 					'target' => ddw_tbex_meta_target(),
 					'rel'    => ddw_tbex_meta_rel(),
-					'title'  => esc_attr__( 'Module Element Options', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Module Element Options', 'toolbar-extras' ),
 				)
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ao-epicnewsel-moduleoptions-image',
 					'parent' => 'ao-epicnewsel-moduleoptions',
@@ -215,12 +215,12 @@ function ddw_tbex_aoitems_epic_news_elements() {
 					'meta'   => array(
 						'target' => ddw_tbex_meta_target(),
 						'rel'    => ddw_tbex_meta_rel(),
-						'title'  => esc_attr__( 'Module Image Setting', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Module Image Setting', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ao-epicnewsel-moduleoptions-loader',
 					'parent' => 'ao-epicnewsel-moduleoptions',
@@ -229,12 +229,12 @@ function ddw_tbex_aoitems_epic_news_elements() {
 					'meta'   => array(
 						'target' => ddw_tbex_meta_target(),
 						'rel'    => ddw_tbex_meta_rel(),
-						'title'  => esc_attr__( 'Module Loader', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Module Loader', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ao-epicnewsel-moduleoptions-meta',
 					'parent' => 'ao-epicnewsel-moduleoptions',
@@ -243,12 +243,12 @@ function ddw_tbex_aoitems_epic_news_elements() {
 					'meta'   => array(
 						'target' => ddw_tbex_meta_target(),
 						'rel'    => ddw_tbex_meta_rel(),
-						'title'  => esc_attr__( 'Module Meta Option', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Module Meta Option', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ao-epicnewsel-moduleoptions-widget',
 					'parent' => 'ao-epicnewsel-moduleoptions',
@@ -257,12 +257,12 @@ function ddw_tbex_aoitems_epic_news_elements() {
 					'meta'   => array(
 						'target' => ddw_tbex_meta_target(),
 						'rel'    => ddw_tbex_meta_rel(),
-						'title'  => esc_attr__( 'Module Widget', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Module Widget', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ao-epicnewsel-moduleoptions-cpt',
 					'parent' => 'ao-epicnewsel-moduleoptions',
@@ -271,12 +271,12 @@ function ddw_tbex_aoitems_epic_news_elements() {
 					'meta'   => array(
 						'target' => ddw_tbex_meta_target(),
 						'rel'    => ddw_tbex_meta_rel(),
-						'title'  => esc_attr__( 'Module Custom Post Type', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Module Custom Post Type', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ao-epicnewsel-moduleoptions-font',
 					'parent' => 'ao-epicnewsel-moduleoptions',
@@ -285,13 +285,13 @@ function ddw_tbex_aoitems_epic_news_elements() {
 					'meta'   => array(
 						'target' => ddw_tbex_meta_target(),
 						'rel'    => ddw_tbex_meta_rel(),
-						'title'  => esc_attr__( 'Module Global Font', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Module Global Font', 'toolbar-extras' ),
 					)
 				)
 			);
 
 		/** Custom Template Options */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-epicnewsel-templateoptions',
 				'parent' => 'ao-epicnewsel',
@@ -300,12 +300,12 @@ function ddw_tbex_aoitems_epic_news_elements() {
 				'meta'   => array(
 					'target' => ddw_tbex_meta_target(),
 					'rel'    => ddw_tbex_meta_rel(),
-					'title'  => esc_attr__( 'Custom Template Options', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Custom Template Options', 'toolbar-extras' ),
 				)
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ao-epicnewsel-templateoptions-single',
 					'parent' => 'ao-epicnewsel-templateoptions',
@@ -314,12 +314,12 @@ function ddw_tbex_aoitems_epic_news_elements() {
 					'meta'   => array(
 						'target' => ddw_tbex_meta_target(),
 						'rel'    => ddw_tbex_meta_rel(),
-						'title'  => esc_attr__( 'Single Post Template', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Single Post Template', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ao-epicnewsel-templateoptions-archive',
 					'parent' => 'ao-epicnewsel-templateoptions',
@@ -328,13 +328,13 @@ function ddw_tbex_aoitems_epic_news_elements() {
 					'meta'   => array(
 						'target' => ddw_tbex_meta_target(),
 						'rel'    => ddw_tbex_meta_rel(),
-						'title'  => esc_attr__( 'Single Archive Template', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Single Archive Template', 'toolbar-extras' ),
 					)
 				)
 			);
 
 		/** System Status */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-epicnewsel-system-status',
 				'parent' => 'ao-epicnewsel',
@@ -342,13 +342,13 @@ function ddw_tbex_aoitems_epic_news_elements() {
 				'href'   => esc_url( admin_url( 'admin.php?page=epic_system' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'System Status', 'toolbar-extras' )
+					'title'  => esc_attr__( 'System Status', 'toolbar-extras' ),
 				)
 			)
 		);
 
 		/** License */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-epicnewsel-license',
 				'parent' => 'ao-epicnewsel',
@@ -356,7 +356,7 @@ function ddw_tbex_aoitems_epic_news_elements() {
 				'href'   => esc_url( admin_url( 'admin.php?page=epic' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'License', 'toolbar-extras' )
+					'title'  => esc_attr__( 'License', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -364,11 +364,11 @@ function ddw_tbex_aoitems_epic_news_elements() {
 		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-epicnewsel-resources',
 					'parent' => 'ao-epicnewsel',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 
@@ -404,9 +404,9 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_new_content_epic_news_elements' 
  *
  * @since 1.4.0
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_new_content_epic_news_elements() {
+function ddw_tbex_aoitems_new_content_epic_news_elements( $admin_bar ) {
 
 	$type_post    = 'custom-post-template';
 	$type_archive = 'archive-template';
@@ -416,10 +416,10 @@ function ddw_tbex_aoitems_new_content_epic_news_elements() {
 		|| ! \Elementor\User::is_current_user_can_edit_post_type( $type_post )
 		|| ! \Elementor\User::is_current_user_can_edit_post_type( $type_archive )
 	) {
-		return;
+		return $admin_bar;
 	}
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'epicnewsel-' . $type_post . '-with-builder',
 			'parent' => 'new-' . $type_post,
@@ -427,12 +427,12 @@ function ddw_tbex_aoitems_new_content_epic_news_elements() {
 			'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( $type_post ) ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target( 'builder' ),
-				'title'  => ddw_tbex_string_add_new_item( esc_attr__( 'Post Template Builder', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_add_new_item( esc_attr__( 'Post Template Builder', 'toolbar-extras' ) ),
 			)
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'epicnewsel-' . $type_archive . '-with-builder',
 			'parent' => 'new-' . $type_archive,
@@ -440,7 +440,7 @@ function ddw_tbex_aoitems_new_content_epic_news_elements() {
 			'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( $type_archive ) ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target( 'builder' ),
-				'title'  => ddw_tbex_string_add_new_item( esc_attr__( 'Archive Template Builder', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_add_new_item( esc_attr__( 'Archive Template Builder', 'toolbar-extras' ) ),
 			)
 		)
 	);

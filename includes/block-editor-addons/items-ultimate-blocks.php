@@ -27,7 +27,7 @@ function ddw_tbex_aoitems_ultimate_blocks( $admin_bar ) {
 
 	/** Use Add-On hook place */
 	add_filter( 'tbex_filter_is_addon', '__return_empty_string' );
-	
+
 	$admin_bar->add_node(
 		array(
 			'id'     => 'tbex-ultimateblocks',
@@ -36,7 +36,7 @@ function ddw_tbex_aoitems_ultimate_blocks( $admin_bar ) {
 			'href'   => esc_url( admin_url( 'admin.php?page=ultimate-blocks-settings' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_free_addon_title_attr( esc_attr__( 'Ultimate Blocks', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_free_addon_title_attr( esc_attr__( 'Ultimate Blocks', 'toolbar-extras' ) ),
 			)
 		)
 	);
@@ -49,7 +49,7 @@ function ddw_tbex_aoitems_ultimate_blocks( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'admin.php?page=ultimate-blocks-settings' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Manage Blocks', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Manage Blocks', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -62,7 +62,7 @@ function ddw_tbex_aoitems_ultimate_blocks( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'admin.php?page=ultimate-blocks-help' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Plugin Info', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Plugin Info', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -74,7 +74,7 @@ function ddw_tbex_aoitems_ultimate_blocks( $admin_bar ) {
 				array(
 					'id'     => 'group-ultimateblocks-resources',
 					'parent' => 'tbex-ultimateblocks',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

@@ -20,15 +20,15 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_genesis_coming_soon_page', 130 )
  *
  * @uses ddw_tbex_meta_target()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_genesis_coming_soon_page() {
+function ddw_tbex_aoitems_genesis_coming_soon_page( $admin_bar ) {
 
 	/** For: Genesis Creative items */
-	$GLOBALS[ 'wp_admin_bar' ]->add_group(
+	$admin_bar->add_group(
 		array(
 			'id'     => 'gcs-page',
-			'parent' => 'group-genesisplugins-creative'
+			'parent' => 'group-genesisplugins-creative',
 		)
 	);
 
@@ -41,7 +41,7 @@ function ddw_tbex_aoitems_genesis_coming_soon_page() {
 	);
 
 	/** Settings page */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'gcs-page-edit',
 			'parent' => 'gcs-page',
@@ -49,13 +49,13 @@ function ddw_tbex_aoitems_genesis_coming_soon_page() {
 			'href'   => esc_url( admin_url( 'admin.php?page=genesis-coming-soon' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => $page_title
+				'title'  => $page_title,
 			)
 		)
 	);
 
 	/** Live testing */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'gcs-page-live',
 			'parent' => 'gcs-page',
@@ -63,7 +63,7 @@ function ddw_tbex_aoitems_genesis_coming_soon_page() {
 			'href'   => esc_url( get_site_url() . '/?gcs_preview=true' ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => esc_attr__( 'Live Test', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Live Test', 'toolbar-extras' ),
 			)
 		)
 	);

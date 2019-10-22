@@ -20,11 +20,11 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_aiowpm', 10 );
  *
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar']
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_aiowpm() {
+function ddw_tbex_site_items_aiowpm( $admin_bar ) {
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'aiowpm',
 			'parent' => 'tbex-sitegroup-tools',
@@ -32,12 +32,12 @@ function ddw_tbex_site_items_aiowpm() {
 			'href'   => esc_url( admin_url( 'admin.php?page=site-migration-export' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'All-in-One WP Migration', 'toolbar-extras' )
+				'title'  => esc_attr__( 'All-in-One WP Migration', 'toolbar-extras' ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'aiowpm-export',
 				'parent' => 'aiowpm',
@@ -45,12 +45,12 @@ function ddw_tbex_site_items_aiowpm() {
 				'href'   => esc_url( admin_url( 'admin.php?page=site-migration-export' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Export', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Export', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'aiowpm-import',
 				'parent' => 'aiowpm',
@@ -58,12 +58,12 @@ function ddw_tbex_site_items_aiowpm() {
 				'href'   => esc_url( admin_url( 'admin.php?page=site-migration-import' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Import', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Import', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'aiowpm-backups',
 				'parent' => 'aiowpm',
@@ -71,19 +71,19 @@ function ddw_tbex_site_items_aiowpm() {
 				'href'   => esc_url( admin_url( 'admin.php?page=site-migration-backups' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Browse Backups', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Browse Backups', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		/** Group: Resources for AIO WP Migration */
+		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-aiowpm-resources',
 					'parent' => 'aiowpm',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

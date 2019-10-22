@@ -42,9 +42,9 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_pbf', 100 );
  * @uses ddw_tbex_customizer_focus()
  * @uses ddw_tbex_item_theme_creative_customize()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_pbf() {
+function ddw_tbex_themeitems_pbf( $admin_bar ) {
 
 	/** Get Premium White Label settings */
 	$wpbf_settings = get_option( 'wpbf_settings' );
@@ -53,7 +53,7 @@ function ddw_tbex_themeitems_pbf() {
 	$title = ( ddw_tbex_is_wpbf_premium_active() && ! empty( $wpbf_settings[ 'wpbf_theme_name' ] ) ) ? esc_attr( $wpbf_settings[ 'wpbf_theme_name' ] ) : '';
 
 	/** Page Builder Framework creative */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'theme-creative',
 			'parent' => 'group-active-theme',
@@ -61,7 +61,7 @@ function ddw_tbex_themeitems_pbf() {
 			'href'   => ddw_tbex_customizer_focus( 'panel', 'layout_panel' ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_theme_title( 'attr', 'child', $title )
+				'title'  => ddw_tbex_string_theme_title( 'attr', 'child', $title ),
 			)
 		)
 	);
@@ -169,7 +169,7 @@ function ddw_tbex_themeitems_pbf_resources( $admin_bar ) {
 		array(
 			'id'     => 'group-theme-resources',
 			'parent' => ddw_tbex_is_wpbf_premium_active() ? 'theme-settings' : 'theme-creative',
-			'meta'   => array( 'class' => 'ab-sub-secondary' )
+			'meta'   => array( 'class' => 'ab-sub-secondary' ),
 		)
 	);
 
@@ -282,7 +282,7 @@ function ddw_tbex_themeitems_wpbf_premium( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'themes.php?page=wpbf-premium' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Global Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Global Settings', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -295,7 +295,7 @@ function ddw_tbex_themeitems_wpbf_premium( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'themes.php?page=wpbf-premium&tab=license' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'License', 'toolbar-extras' )
+					'title'  => esc_attr__( 'License', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -306,7 +306,7 @@ function ddw_tbex_themeitems_wpbf_premium( $admin_bar ) {
 		$admin_bar->add_group(
 			array(
 				'id'     => 'wpbf-sections',
-				'parent' => 'theme-creative'
+				'parent' => 'theme-creative',
 			)
 		);
 
@@ -320,7 +320,7 @@ function ddw_tbex_themeitems_wpbf_premium( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'edit.php?post_type=' . $type ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Custom Sections', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Custom Sections', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -333,7 +333,7 @@ function ddw_tbex_themeitems_wpbf_premium( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'post-new.php?post_type=' . $type ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'New Section', 'toolbar-extras' )
+						'title'  => esc_attr__( 'New Section', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -348,7 +348,7 @@ function ddw_tbex_themeitems_wpbf_premium( $admin_bar ) {
 						'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( $type ) ),
 						'meta'   => array(
 							'target' => ddw_tbex_meta_target( 'builder' ),
-							'title'  => esc_attr__( 'New Section Builder', 'toolbar-extras' )
+							'title'  => esc_attr__( 'New Section Builder', 'toolbar-extras' ),
 						)
 					)
 				);
@@ -366,7 +366,7 @@ function ddw_tbex_themeitems_wpbf_premium( $admin_bar ) {
 						'href'   => esc_url( admin_url( 'edit-tags.php?taxonomy=builder-template-category&post_type=' . $type ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_html( ddw_btc_string_template( 'section' ) )
+							'title'  => esc_html( ddw_btc_string_template( 'section' ) ),
 						)
 					)
 				);

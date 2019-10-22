@@ -21,7 +21,7 @@ add_filter( 'tbex_filter_elementor_template_types', 'ddw_tbex_add_elementor_temp
  * @return array Filtered, enhanced array of template types.
  */
 function ddw_tbex_add_elementor_template_type_ecsloop( array $template_types ) {
-	
+
 	$template_types[] = 'loop';
 
 	return $template_types;
@@ -57,7 +57,7 @@ function ddw_tbex_aoitems_ele_custom_skin( $admin_bar ) {
 			'href'   => esc_url( admin_url( 'edit.php?post_type=elementor_library&elementor_library_type=loop' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Template Type: Loop Sections', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Template Type: Loop Sections', 'toolbar-extras' ),
 			)
 		)
 	);
@@ -70,7 +70,7 @@ function ddw_tbex_aoitems_ele_custom_skin( $admin_bar ) {
 			'href'   => ddw_tbex_get_elementor_template_add_new_url( 'loop' ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Loop', 'Elementor Template type', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Loop', 'Elementor Template type', 'toolbar-extras' ) ),
 			)
 		)
 	);
@@ -107,7 +107,7 @@ function ddw_tbex_items_ele_custom_skin_new_content( $admin_bar ) {
 				'href'   => ddw_tbex_get_elementor_template_add_new_url( 'loop' ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Loop', 'Elementor Template type', 'toolbar-extras' ) )
+					'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Loop', 'Elementor Template type', 'toolbar-extras' ) ),
 				)
 			)
 		);

@@ -27,7 +27,7 @@ function ddw_tbex_themeitems_brunch_pro_customize( array $items ) {
 
 	/** Declare child theme's items */
 	$brunchpro_items = array(
-		'fonts' => array(
+		'typography' => array(
 			'type'  => 'panel',
 			'title' => esc_attr__( 'Typography', 'toolbar-extras' ),
 			'id'    => 'brunchpro-typography',
@@ -62,16 +62,16 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_brunch_pro', 100 );
  *
  * @since 1.2.0
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_brunch_pro() {
+function ddw_tbex_themeitems_brunch_pro( $admin_bar ) {
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'brunchpro-theme-info',
 			'parent' => 'theme-creative',
 			'title'  => esc_attr__( 'Theme Info', 'toolbar-extras' ),
-			'href'   => esc_url( admin_url( 'admin.php?page=brunch-pro-dashboard' ) ),
+			'href'   => esc_url( admin_url( 'admin.php?page=feast-dashboard' ) ),
 			'meta'   => array(
 				'target' => '',
 				'title'  => esc_attr__( 'Theme Info', 'toolbar-extras' ),

@@ -19,21 +19,21 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_devmode_log_deprecated_notice
  *
  * @since 1.3.2
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_devmode_log_deprecated_notices() {
+function ddw_tbex_site_items_devmode_log_deprecated_notices( $admin_bar ) {
 
 	add_filter( 'tbex_filter_is_dev_mode', '__return_empty_string' );
 
 	/** Group */
-	$GLOBALS[ 'wp_admin_bar' ]->add_group(
+	$admin_bar->add_group(
 		array(
 			'id'     => 'group-logdctn',
-			'parent' => 'rapid-dev'
+			'parent' => 'rapid-dev',
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'log-deprecated-notices',
 			'parent' => 'group-logdctn',
@@ -41,12 +41,12 @@ function ddw_tbex_site_items_devmode_log_deprecated_notices() {
 			'href'   => esc_url( admin_url( 'edit.php?post_type=deprecated_log' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Deprecated Notices', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Deprecated Notices', 'toolbar-extras' ),
 			)
 		)
 	);
 
-	/** Plugin's Resources */
+	/** Plugin's resources */
 	if ( ddw_tbex_display_items_resources() ) {
 
 		ddw_tbex_resource_item(
@@ -72,5 +72,5 @@ add_action( 'wp_before_admin_bar_render', 'ddw_tbex_remove_items_log_deprecated_
 function ddw_tbex_remove_items_log_deprecated_notices() {
 
 	$GLOBALS[ 'wp_admin_bar' ]->remove_node( 'new-deprecated_log' );
-	
+
 }  // end function

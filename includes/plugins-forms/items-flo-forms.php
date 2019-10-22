@@ -139,6 +139,24 @@ function ddw_tbex_site_items_flo_forms( $admin_bar ) {
 			)
 		);
 
+		/** Form categories, via BTC plugin */
+		if ( ddw_tbex_is_btcplugin_active() ) {
+
+			$admin_bar->add_node(
+				array(
+					'id'     => 'forms-floforms-categories',
+					'parent' => 'forms-floforms',
+					'title'  => ddw_btc_string_template( 'form' ),
+					'href'   => esc_url( admin_url( 'edit-tags.php?taxonomy=builder-template-category&post_type=' . $type ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => esc_html( ddw_btc_string_template( 'form' ) )
+					)
+				)
+			);
+
+		}  // end if
+
 		/** All Entries */
 		$admin_bar->add_node(
 			array(
@@ -194,7 +212,7 @@ function ddw_tbex_site_items_flo_forms( $admin_bar ) {
 			);
 
 		/** Optionally, let other Flo Forms Add-Ons hook in */
-		do_action( 'tbex_after_floforms_settings' );
+		do_action( 'tbex_after_floforms_settings', $admin_bar );
 
 		/** Group: Resources for floforms */
 		if ( ddw_tbex_display_items_resources() ) {
@@ -206,7 +224,7 @@ function ddw_tbex_site_items_flo_forms( $admin_bar ) {
 					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
-			
+
 			ddw_tbex_resource_item(
 				'support-forum',
 				'floforms-support',
@@ -247,8 +265,6 @@ add_filter( 'admin_bar_menu', 'ddw_tbex_aoitems_new_content_flo_form', 80 );
  *
  * @since 1.4.2
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
- *
  * @param object $admin_bar Holds all nodes of the Toolbar.
  */
 function ddw_tbex_aoitems_new_content_flo_form( $admin_bar ) {
@@ -264,7 +280,7 @@ function ddw_tbex_aoitems_new_content_flo_form( $admin_bar ) {
 			'parent' => 'new-content',
 			'title'  => ddw_tbex_string_new_form( 'Flo' ),
 			'meta'   => array(
-				'title'  => ddw_tbex_string_add_new_item( ddw_tbex_string_new_form( 'Flo' ) )
+				'title'  => ddw_tbex_string_add_new_item( ddw_tbex_string_new_form( 'Flo' ) ),
 			)
 		)
 	);

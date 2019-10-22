@@ -18,12 +18,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_genesis_simple_hooks', 115 );
  *
  * @since 1.0.0
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_genesis_simple_hooks() {
+function ddw_tbex_aoitems_genesis_simple_hooks( $admin_bar ) {
 
 	/** For: Genesis Creative items */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'genesis-simple-hooks',
 			'parent' => 'group-genesisplugins-creative',
@@ -31,7 +31,7 @@ function ddw_tbex_aoitems_genesis_simple_hooks() {
 			'href'   => esc_url( admin_url( 'admin.php?page=simplehooks' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Genesis Hook Locations', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Genesis Hook Locations', 'toolbar-extras' ),
 			)
 		)
 	);

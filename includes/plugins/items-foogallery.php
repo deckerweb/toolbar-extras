@@ -18,12 +18,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_foogallery', 15 );
  *
  * @since 1.1.0
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_foogallery() {
+function ddw_tbex_site_items_foogallery( $admin_bar ) {
 
 	/** For: Manage Content */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'foogallery',
 			'parent' => 'gallery-slider-addons',
@@ -31,12 +31,12 @@ function ddw_tbex_site_items_foogallery() {
 			'href'   => esc_url( admin_url( 'edit.php?post_type=foogallery' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'FooGallery', 'toolbar-extras' )
+				'title'  => esc_attr__( 'FooGallery', 'toolbar-extras' ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'foogallery-all',
 				'parent' => 'foogallery',
@@ -44,12 +44,12 @@ function ddw_tbex_site_items_foogallery() {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=foogallery' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'All Galleries', 'toolbar-extras' )
+					'title'  => esc_attr__( 'All Galleries', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'foogallery-new',
 				'parent' => 'foogallery',
@@ -57,12 +57,12 @@ function ddw_tbex_site_items_foogallery() {
 				'href'   => esc_url( admin_url( 'post-new.php?post_type=foogallery' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'New Gallery', 'toolbar-extras' )
+					'title'  => esc_attr__( 'New Gallery', 'toolbar-extras' ),
 				)
 			)
 		);
-			
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+
+		$admin_bar->add_node(
 			array(
 				'id'     => 'foogallery-settings',
 				'parent' => 'foogallery',
@@ -70,12 +70,12 @@ function ddw_tbex_site_items_foogallery() {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=foogallery&page=foogallery-settings' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'foogallery-extensions',
 				'parent' => 'foogallery',
@@ -83,12 +83,12 @@ function ddw_tbex_site_items_foogallery() {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=foogallery&page=foogallery-extensions' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Activate/ Deactivate Extensions', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Activate/ Deactivate Extensions', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'foogallery-info',
 				'parent' => 'foogallery',
@@ -96,19 +96,19 @@ function ddw_tbex_site_items_foogallery() {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=foogallery&page=foogallery-systeminfo' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'System Info', 'toolbar-extras' )
+					'title'  => esc_attr__( 'System Info', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		/** Group: Resources for FooGallery */
+		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-foogallery-resources',
 					'parent' => 'foogallery',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

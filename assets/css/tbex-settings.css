@@ -7,7 +7,8 @@
  * @since 1.4.2 Added styles for Add-On tab; further general improvements.
  */
 
-.settings_page_toolbar-extras #wpbody-content .wrap {
+.settings_page_toolbar-extras #wpbody-content .wrap,
+.security_page_toolbar-extras #wpbody-content .wrap {
 	width: 70vw;
 }
 
@@ -80,6 +81,31 @@
 .tbex-sub-setting th {
 	margin-left: 30px;
 	display: inline-block;
+}
+
+.tbex-sub-description {
+	margin-bottom: 20px;
+	margin-left: 30px;
+	display: block;
+}
+
+.tbex-security-info.dashicons-before:before {
+	color: #c56cd7;
+	font-size: 68px;
+	opacity: .5;
+	padding-bottom: 40px;
+}
+
+.tbex-security-info.dashicons-info:before {
+	clear: left;
+	float: left;
+	padding-right: 60px;
+}
+
+.tbex-security-info.dashicons-editor-code:before {
+	clear: right;
+	float: right;
+	padding-left: 10px;
 }
 
 .tbex-settingsfields-block {
@@ -216,6 +242,11 @@
 .tbex-setting-field-first th {
 	margin-top: 60px;  /* 50px; */
 	display: inline-block;
+}
+
+.tbex-settings-page p,
+.tbex-intro p {
+	max-width: 800px;
 }
 
 /* Settings General: Main/Fallback logic */
@@ -650,7 +681,8 @@ iframe #plugin-information-title.with-banner {
 
 @media only screen and (max-width: 1500px) {
 
-	.settings_page_toolbar-extras #wpbody-content .wrap {
+	.settings_page_toolbar-extras #wpbody-content .wrap,
+	.security_page_toolbar-extras #wpbody-content .wrap {
 		width: 75vw;
 	}
 	
@@ -666,7 +698,8 @@ iframe #plugin-information-title.with-banner {
 
 @media only screen and (max-width: 960px) {
 
-	.settings_page_toolbar-extras #wpbody-content .wrap {
+	.settings_page_toolbar-extras #wpbody-content .wrap,
+	.security_page_toolbar-extras #wpbody-content .wrap {
 		width: 85vw;
 	}
 	

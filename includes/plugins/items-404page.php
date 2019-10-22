@@ -20,21 +20,21 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_404page', 140 );
  *
  * @uses ddw_tbex_meta_target()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_404page() {
+function ddw_tbex_aoitems_404page( $admin_bar ) {
 
 	/** For: Theme Creative items */
-	$GLOBALS[ 'wp_admin_bar' ]->add_group(
+	$admin_bar->add_group(
 		array(
 			'id'     => 'pr-404page',
-			'parent' => 'theme-creative'
+			'parent' => 'theme-creative',
 		)
 	);
 
 	$pr_404page = get_option( '404page_page_id' );
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'pr-404page-edit',
 			'parent' => 'pr-404page',
@@ -42,12 +42,12 @@ function ddw_tbex_aoitems_404page() {
 			'href'   => get_edit_post_link( absint( $pr_404page ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Edit 404 Page', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Edit 404 Page', 'toolbar-extras' ),
 			)
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'pr-404page-live',
 			'parent' => 'pr-404page',
@@ -55,12 +55,12 @@ function ddw_tbex_aoitems_404page() {
 			'href'   => esc_url( get_site_url() . '/404page-test-' . md5( mt_rand() ) ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => esc_attr__( '404 Live Test', 'toolbar-extras' )
+				'title'  => esc_attr__( '404 Live Test', 'toolbar-extras' ),
 			)
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'pr-404page-settings',
 			'parent' => 'pr-404page',
@@ -68,7 +68,7 @@ function ddw_tbex_aoitems_404page() {
 			'href'   => esc_url( admin_url( 'themes.php?page=404pagesettings' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( '404 Page Settings', 'toolbar-extras' )
+				'title'  => esc_attr__( '404 Page Settings', 'toolbar-extras' ),
 			)
 		)
 	);

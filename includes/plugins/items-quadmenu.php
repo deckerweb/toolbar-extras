@@ -20,12 +20,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_quadmenu', 15 );
  *
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_quadmenu() {
+function ddw_tbex_site_items_quadmenu( $admin_bar ) {
 
 	/** For: Site Group */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'quadmenu',
 			'parent' => 'tbex-sitegroup-elements',	// below 'Nav Menus/ Widgets' items
@@ -33,12 +33,12 @@ function ddw_tbex_site_items_quadmenu() {
 			'href'   => esc_url( admin_url( 'admin.php?page=quadmenu_options' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'QuadMenu', 'toolbar-extras' )
+				'title'  => esc_attr__( 'QuadMenu', 'toolbar-extras' ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'quadmenu-manage-menus',
 				'parent' => 'quadmenu',
@@ -46,12 +46,12 @@ function ddw_tbex_site_items_quadmenu() {
 				'href'   => esc_url( admin_url( 'nav-menus.php' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Manage Mega Menus', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Manage Mega Menus', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'quadmenu-options',
 				'parent' => 'quadmenu',
@@ -59,12 +59,12 @@ function ddw_tbex_site_items_quadmenu() {
 				'href'   => esc_url( admin_url( 'admin.php?page=quadmenu_options' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Options', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Options', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'quadmenu-system-status',
 				'parent' => 'quadmenu',
@@ -72,7 +72,7 @@ function ddw_tbex_site_items_quadmenu() {
 				'href'   => esc_url( admin_url( 'admin.php?page=quadmenu_system_status' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'System Status', 'toolbar-extras' )
+					'title'  => esc_attr__( 'System Status', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -80,11 +80,11 @@ function ddw_tbex_site_items_quadmenu() {
 		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-quadmenu-resources',
 					'parent' => 'quadmenu',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

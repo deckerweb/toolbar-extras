@@ -20,12 +20,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_customizer_export_import', 999 )
  *
  * @uses ddw_tbex_customizer_focus()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_customizer_export_import() {
+function ddw_tbex_aoitems_customizer_export_import( $admin_bar ) {
 
 	/** Theme Creative Group */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'ao-cei',
 			'parent' => 'theme-creative-customize',
@@ -34,13 +34,13 @@ function ddw_tbex_aoitems_customizer_export_import() {
 			'href'   => ddw_tbex_customizer_focus( 'section', 'cei-section' ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => esc_attr__( 'Export &amp; Import Customizer Options', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Export &amp; Import Customizer Options', 'toolbar-extras' ),
 			)
 		)
 	);
 
 	/** Frontend: Customizer sub item */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'customize-cei',
 			'parent' => 'customize',
@@ -49,7 +49,7 @@ function ddw_tbex_aoitems_customizer_export_import() {
 			'href'   => ddw_tbex_customizer_focus( 'section', 'cei-section' ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => esc_attr__( 'Export &amp; Import Customizer Options', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Export &amp; Import Customizer Options', 'toolbar-extras' ),
 			)
 		)
 	);

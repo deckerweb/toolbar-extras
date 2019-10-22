@@ -22,11 +22,11 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_simple_custom_css', 105 );
  * @uses ddw_tbex_customizer_focus()
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_simple_custom_css() {
+function ddw_tbex_aoitems_simple_custom_css( $admin_bar ) {
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'ao-sccss',
 			'parent' => 'group-active-theme',
@@ -34,12 +34,12 @@ function ddw_tbex_aoitems_simple_custom_css() {
 			'href'   => esc_url( admin_url( 'themes.php?page=simple-custom-css.php' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_addon_title_attr( __( 'Simple Custom CSS', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_addon_title_attr( __( 'Simple Custom CSS', 'toolbar-extras' ) ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-sccss-admin',
 				'parent' => 'ao-sccss',
@@ -47,14 +47,14 @@ function ddw_tbex_aoitems_simple_custom_css() {
 				'href'   => esc_url( admin_url( 'themes.php?page=simple-custom-css.php' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Edit CSS in WP-Admin Dashboard (big CSS-Editor)', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Edit CSS in WP-Admin Dashboard (big CSS-Editor)', 'toolbar-extras' ),
 				)
 			)
 		);
 
 		$query_simplecss[ 'autofocus[section]' ] = 'simple_css_section';
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-sccss-customizer',
 				'parent' => 'ao-sccss',
@@ -63,19 +63,19 @@ function ddw_tbex_aoitems_simple_custom_css() {
 				'meta'   => array(
 					'rel'    => ddw_tbex_meta_rel(),
 					'target' => ddw_tbex_meta_target(),
-					'title'  => esc_attr__( 'Edit CSS with Live Preview in Customizer', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Edit CSS with Live Preview in Customizer', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		/** Group: Resources for Simple Custom CSS */
+		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-sccss-resources',
 					'parent' => 'ao-sccss',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 
@@ -113,11 +113,11 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_sccss_customize', 15 );
  *
  * @uses ddw_tbex_customizer_focus()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_sccss_customize() {
+function ddw_tbex_site_items_sccss_customize( $admin_bar ) {
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'customize-sccss',
 			'parent' => 'customize',
@@ -125,7 +125,7 @@ function ddw_tbex_site_items_sccss_customize() {
 			'href'   => ddw_tbex_customizer_focus( 'control', 'sccss_editor' ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Customize Simple Custom CSS with Live Preview', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Customize Simple Custom CSS with Live Preview', 'toolbar-extras' ),
 			)
 		)
 	);

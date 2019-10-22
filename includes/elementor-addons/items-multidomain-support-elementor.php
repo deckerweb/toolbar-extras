@@ -36,7 +36,7 @@ function ddw_tbex_aoitems_multidomain_support_elementor( $admin_bar ) {
 			'href'   => esc_url( admin_url( 'admin.php?page=multidomain-support-for-elementor-settings' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_free_addon_title_attr( __( 'Multidomain Support for Elementor with Polylang or WPML', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_free_addon_title_attr( __( 'Multidomain Support for Elementor with Polylang or WPML', 'toolbar-extras' ) ),
 			)
 		)
 	);
@@ -49,7 +49,7 @@ function ddw_tbex_aoitems_multidomain_support_elementor( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'admin.php?page=multidomain-support-for-elementor-settings#tab-general' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'General', 'toolbar-extras' )
+					'title'  => esc_attr__( 'General', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -62,7 +62,7 @@ function ddw_tbex_aoitems_multidomain_support_elementor( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'admin.php?page=multidomain-support-for-elementor-settings#tab-server' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Server', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Server', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -74,7 +74,7 @@ function ddw_tbex_aoitems_multidomain_support_elementor( $admin_bar ) {
 				array(
 					'id'     => 'group-mdsupportfel-resources',
 					'parent' => 'ao-mdsupportfel',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

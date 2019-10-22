@@ -21,11 +21,11 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_genesis_devkit', 140 );
  * @uses ddw_tbex_display_items_resources()
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_genesis_devkit() {
+function ddw_tbex_aoitems_genesis_devkit( $admin_bar ) {
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'genesis-devkit',
 			'parent' => 'group-active-theme',
@@ -33,16 +33,16 @@ function ddw_tbex_aoitems_genesis_devkit() {
 			'href'   => esc_url( admin_url( 'admin.php?page=genesis-devkit-dashboard' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_premium_addon_title_attr( __( 'Genesis DevKit', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_premium_addon_title_attr( __( 'Genesis DevKit', 'toolbar-extras' ) ),
 			)
 		)
 	);
 
 		/** For DevKit specific child themes include the design settings etc. */
 		if ( file_exists( get_stylesheet_directory() . '/devkit-init.php' ) ) {
-			
+
 			/** Custom design */
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'genesis-devkit-design',
 					'parent' => 'genesis-devkit',
@@ -50,12 +50,12 @@ function ddw_tbex_aoitems_genesis_devkit() {
 					'href'   => esc_url( admin_url( 'admin.php?page=genesis-devkit-design-options' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Design Options', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Design Options', 'toolbar-extras' ),
 					)
 				)
 			);
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'genesis-devkit-design-customize',
 						'parent' => 'genesis-devkit-design',
@@ -63,12 +63,12 @@ function ddw_tbex_aoitems_genesis_devkit() {
 						'href'   => esc_url( admin_url( 'admin.php?page=genesis-devkit-design-options' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'Customize Design', 'toolbar-extras' )
+							'title'  => esc_attr__( 'Customize Design', 'toolbar-extras' ),
 						)
 					)
 				);
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'genesis-devkit-design-fullview',
 						'parent' => 'genesis-devkit-design',
@@ -76,13 +76,13 @@ function ddw_tbex_aoitems_genesis_devkit() {
 						'href'   => esc_url( admin_url( 'admin.php?page=genesis-devkit-design-options&iframe=expanded' ) ),
 						'meta'   => array(
 							'target' => ddw_tbex_meta_target(),
-							'title'  => esc_attr__( 'Full View', 'toolbar-extras' )
+							'title'  => esc_attr__( 'Full View', 'toolbar-extras' ),
 						)
 					)
 				);
 
 			/** Custom options */
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'genesis-devkit-custom',
 					'parent' => 'genesis-devkit',
@@ -90,12 +90,12 @@ function ddw_tbex_aoitems_genesis_devkit() {
 					'href'   => esc_url( admin_url( 'admin.php?page=genesis-devkit-custom-options' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Custom Options', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Custom Options', 'toolbar-extras' ),
 					)
 				)
 			);
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'genesis-devkit-custom-code',
 						'parent' => 'genesis-devkit-custom',
@@ -103,12 +103,12 @@ function ddw_tbex_aoitems_genesis_devkit() {
 						'href'   => esc_url( admin_url( 'admin.php?page=genesis-devkit-custom-options' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'Custom CSS, JS, Code', 'toolbar-extras' )
+							'title'  => esc_attr__( 'Custom CSS, JS, Code', 'toolbar-extras' ),
 						)
 					)
 				);
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'genesis-devkit-custom-fullview',
 						'parent' => 'genesis-devkit-custom',
@@ -116,13 +116,13 @@ function ddw_tbex_aoitems_genesis_devkit() {
 						'href'   => esc_url( admin_url( 'admin.php?page=genesis-devkit-custom-options&iframe=expanded' ) ),
 						'meta'   => array(
 							'target' => ddw_tbex_meta_target(),
-							'title'  => esc_attr__( 'Full View', 'toolbar-extras' )
+							'title'  => esc_attr__( 'Full View', 'toolbar-extras' ),
 						)
 					)
 				);
 
 			/** Image manager */
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'genesis-devkit-images',
 					'parent' => 'genesis-devkit',
@@ -130,7 +130,7 @@ function ddw_tbex_aoitems_genesis_devkit() {
 					'href'   => esc_url( admin_url( 'admin.php?page=genesis-devkit-image-manager' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Image Manager', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Image Manager', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -138,7 +138,7 @@ function ddw_tbex_aoitems_genesis_devkit() {
 		}  // end if
 
 		/** Theme creator */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'genesis-devkit-creator',
 				'parent' => 'genesis-devkit',
@@ -146,13 +146,13 @@ function ddw_tbex_aoitems_genesis_devkit() {
 				'href'   => esc_url( admin_url( 'admin.php?page=genesis-devkit-export' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Child Theme Creator', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Child Theme Creator', 'toolbar-extras' ),
 				)
 			)
 		);
 
 		/** General settings */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'genesis-devkit-settings',
 				'parent' => 'genesis-devkit',
@@ -160,13 +160,13 @@ function ddw_tbex_aoitems_genesis_devkit() {
 				'href'   => esc_url( admin_url( 'admin.php?page=genesis-devkit-dashboard' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
 				)
 			)
 		);
 
 		/** Help videos */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'genesis-devkit-helpvideos',
 				'parent' => 'genesis-devkit',
@@ -174,7 +174,7 @@ function ddw_tbex_aoitems_genesis_devkit() {
 				'href'   => esc_url( admin_url( 'admin.php?page=genesis-devkit-docs' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Help Videos (Inline)', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Help Videos (Inline)', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -182,11 +182,11 @@ function ddw_tbex_aoitems_genesis_devkit() {
 		/** Group: Resources for Genesis DevKit */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-gendevkit-resources',
 					'parent' => 'genesis-devkit',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

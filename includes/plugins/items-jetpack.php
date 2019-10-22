@@ -31,13 +31,17 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_jetpack', 10 );
  *
  * @since 1.4.2
  *
+ * @uses Jetpack::is_module_active()
+ * @uses ddw_tbex_display_items_resources()
  * @uses ddw_tbex_resource_item()
+ * @uses ddw_tbex_is_german()
+ * @uses ddw_tbex_display_items_dev_mode()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar']
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_jetpack() {
+function ddw_tbex_site_items_jetpack( $admin_bar ) {
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'tbex-jetpack',
 			'parent' => 'tbex-sitegroup-tools',
@@ -53,14 +57,14 @@ function ddw_tbex_site_items_jetpack() {
 		/** Group: Contact Form */
 		if ( Jetpack::is_module_active( 'contact-form' ) ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-jetpack-contactform',
 					'parent' => 'tbex-jetpack',
 				)
 			);
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'tbex-jetpack-contactform',
 						'parent' => 'group-jetpack-contactform',
@@ -68,7 +72,7 @@ function ddw_tbex_site_items_jetpack() {
 						'href'   => esc_url( admin_url( 'edit.php?post_type=feedback' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'Contact Form: Feedback', 'toolbar-extras' )
+							'title'  => esc_attr__( 'Contact Form: Feedback', 'toolbar-extras' ),
 						)
 					)
 				);
@@ -81,7 +85,7 @@ function ddw_tbex_site_items_jetpack() {
 
 		if ( '1' === $jetpack_portfolio || '1' === $jetpack_testimonials ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-jetpack-posttypes',
 					'parent' => 'tbex-jetpack',
@@ -93,7 +97,7 @@ function ddw_tbex_site_items_jetpack() {
 
 					$jp_type_portfolio = 'jetpack-portfolio';
 
-					$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					$admin_bar->add_node(
 						array(
 							'id'     => 'tbex-jetpack-portfolio',
 							'parent' => 'group-jetpack-posttypes',
@@ -101,12 +105,12 @@ function ddw_tbex_site_items_jetpack() {
 							'href'   => esc_url( admin_url( 'edit.php?post_type=' . $jp_type_portfolio ) ),
 							'meta'   => array(
 								'target' => '',
-								'title'  => esc_attr_x( 'Portfolio', 'Jetpack Portfolio', 'toolbar-extras' )
+								'title'  => esc_attr_x( 'Portfolio', 'Jetpack Portfolio', 'toolbar-extras' ),
 							)
 						)
 					);
 
-						$GLOBALS[ 'wp_admin_bar' ]->add_node(
+						$admin_bar->add_node(
 							array(
 								'id'     => 'tbex-jetpack-portfolio-all',
 								'parent' => 'tbex-jetpack-portfolio',
@@ -114,12 +118,12 @@ function ddw_tbex_site_items_jetpack() {
 								'href'   => esc_url( admin_url( 'edit.php?post_type=' . $jp_type_portfolio ) ),
 								'meta'   => array(
 									'target' => '',
-									'title'  => esc_attr_x( 'All Projects', 'Jetpack Portfolio', 'toolbar-extras' )
+									'title'  => esc_attr_x( 'All Projects', 'Jetpack Portfolio', 'toolbar-extras' ),
 								)
 							)
 						);
 
-						$GLOBALS[ 'wp_admin_bar' ]->add_node(
+						$admin_bar->add_node(
 							array(
 								'id'     => 'tbex-jetpack-portfolio-new',
 								'parent' => 'tbex-jetpack-portfolio',
@@ -127,13 +131,13 @@ function ddw_tbex_site_items_jetpack() {
 								'href'   => esc_url( admin_url( 'post-new.php?post_type=jetpack-portfolio' ) ),
 								'meta'   => array(
 									'target' => '',
-									'title'  => esc_attr_x( 'New Project', 'Jetpack Portfolio', 'toolbar-extras' )
+									'title'  => esc_attr_x( 'New Project', 'Jetpack Portfolio', 'toolbar-extras' ),
 								)
 							)
 						);
 
 						/** For: Manage Content */
-						$GLOBALS[ 'wp_admin_bar' ]->add_node(
+						$admin_bar->add_node(
 							array(
 								'id'     => 'manage-content-jetpack-portfolio',
 								'parent' => 'manage-content',
@@ -141,7 +145,7 @@ function ddw_tbex_site_items_jetpack() {
 								'href'   => esc_url( admin_url( 'edit.php?post_type=' . $jp_type_portfolio ) ),
 								'meta'   => array(
 									'target' => '',
-									'title'  => esc_attr_x( 'Edit Projects', 'Jetpack Portfolio', 'toolbar-extras' )
+									'title'  => esc_attr_x( 'Edit Projects', 'Jetpack Portfolio', 'toolbar-extras' ),
 								)
 							)
 						);
@@ -149,7 +153,7 @@ function ddw_tbex_site_items_jetpack() {
 						/** Elementor builder */
 						if ( ddw_tbex_is_elementor_active() && \Elementor\User::is_current_user_can_edit_post_type( $jp_type_portfolio ) ) {
 
-							$GLOBALS[ 'wp_admin_bar' ]->add_node(
+							$admin_bar->add_node(
 								array(
 									'id'     => 'tbex-jetpack-portfolio-builder',
 									'parent' => 'tbex-jetpack-portfolio',
@@ -157,14 +161,14 @@ function ddw_tbex_site_items_jetpack() {
 									'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( $jp_type_portfolio ) ),
 									'meta'   => array(
 										'target' => ddw_tbex_meta_target( 'builder' ),
-										'title'  => esc_attr_x( 'New Portfolio Builder', 'Jetpack Portfolio', 'toolbar-extras' )
+										'title'  => esc_attr_x( 'New Portfolio Builder', 'Jetpack Portfolio', 'toolbar-extras' ),
 									)
 								)
 							);
 
 							if ( ddw_tbex_display_items_new_content() ) {
 
-								$GLOBALS[ 'wp_admin_bar' ]->add_node(
+								$admin_bar->add_node(
 									array(
 										'id'     => 'new-jpportfolio-with-builder',
 										'parent' => 'new-' . $jp_type_portfolio,
@@ -188,7 +192,7 @@ function ddw_tbex_site_items_jetpack() {
 
 					$jp_type_testimonial = 'jetpack-testimonial';
 
-					$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					$admin_bar->add_node(
 						array(
 							'id'     => 'tbex-jetpack-testimonials',
 							'parent' => 'group-jetpack-posttypes',
@@ -196,12 +200,12 @@ function ddw_tbex_site_items_jetpack() {
 							'href'   => esc_url( admin_url( 'edit.php?post_type=' . $jp_type_testimonial ) ),
 							'meta'   => array(
 								'target' => '',
-								'title'  => esc_attr__( 'Testimonials', 'toolbar-extras' )
+								'title'  => esc_attr__( 'Testimonials', 'toolbar-extras' ),
 							)
 						)
 					);
 
-						$GLOBALS[ 'wp_admin_bar' ]->add_node(
+						$admin_bar->add_node(
 							array(
 								'id'     => 'tbex-jetpack-testimonials-all',
 								'parent' => 'tbex-jetpack-testimonials',
@@ -209,12 +213,12 @@ function ddw_tbex_site_items_jetpack() {
 								'href'   => esc_url( admin_url( 'edit.php?post_type=' . $jp_type_testimonial ) ),
 								'meta'   => array(
 									'target' => '',
-									'title'  => esc_attr__( 'All Testimonials', 'toolbar-extras' )
+									'title'  => esc_attr__( 'All Testimonials', 'toolbar-extras' ),
 								)
 							)
 						);
 
-						$GLOBALS[ 'wp_admin_bar' ]->add_node(
+						$admin_bar->add_node(
 							array(
 								'id'     => 'tbex-jetpack-testimonials-new',
 								'parent' => 'tbex-jetpack-testimonials',
@@ -222,13 +226,13 @@ function ddw_tbex_site_items_jetpack() {
 								'href'   => esc_url( admin_url( 'post-new.php?post_type=' . $jp_type_testimonial ) ),
 								'meta'   => array(
 									'target' => '',
-									'title'  => esc_attr__( 'New Testimonial', 'toolbar-extras' )
+									'title'  => esc_attr__( 'New Testimonial', 'toolbar-extras' ),
 								)
 							)
 						);
 
 						/** For: Manage Content */
-						$GLOBALS[ 'wp_admin_bar' ]->add_node(
+						$admin_bar->add_node(
 							array(
 								'id'     => 'manage-content-jetpack-testimonial',
 								'parent' => 'manage-content',
@@ -236,7 +240,7 @@ function ddw_tbex_site_items_jetpack() {
 								'href'   => esc_url( admin_url( 'edit.php?post_type=' . $jp_type_testimonial ) ),
 								'meta'   => array(
 									'target' => '',
-									'title'  => esc_attr__( 'Edit Testimonials', 'toolbar-extras' )
+									'title'  => esc_attr__( 'Edit Testimonials', 'toolbar-extras' ),
 								)
 							)
 						);
@@ -244,7 +248,7 @@ function ddw_tbex_site_items_jetpack() {
 						/** Elementor builder */
 						if ( ddw_tbex_is_elementor_active() && \Elementor\User::is_current_user_can_edit_post_type( $jp_type_testimonial ) ) {
 
-							$GLOBALS[ 'wp_admin_bar' ]->add_node(
+							$admin_bar->add_node(
 								array(
 									'id'     => 'tbex-jetpack-testimonials-builder',
 									'parent' => 'tbex-jetpack-testimonials',
@@ -252,14 +256,14 @@ function ddw_tbex_site_items_jetpack() {
 									'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( $jp_type_testimonial ) ),
 									'meta'   => array(
 										'target' => ddw_tbex_meta_target( 'builder' ),
-										'title'  => esc_attr__( 'New Testimonial Builder', 'toolbar-extras' )
+										'title'  => esc_attr__( 'New Testimonial Builder', 'toolbar-extras' ),
 									)
 								)
 							);
 
 							if ( ddw_tbex_display_items_new_content() ) {
 
-								$GLOBALS[ 'wp_admin_bar' ]->add_node(
+								$admin_bar->add_node(
 									array(
 										'id'     => 'new-jptestimonial-with-builder',
 										'parent' => 'new-' . $jp_type_testimonial,
@@ -281,7 +285,7 @@ function ddw_tbex_site_items_jetpack() {
 		}  // end if Jetpack Module check
 
 		/** Group: General */
-		$GLOBALS[ 'wp_admin_bar' ]->add_group(
+		$admin_bar->add_group(
 			array(
 				'id'     => 'group-jetpack-general',
 				'parent' => 'tbex-jetpack',
@@ -289,7 +293,7 @@ function ddw_tbex_site_items_jetpack() {
 		);
 
 			/** Overview/ Dashboard */
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'tbex-jetpack-overview',
 					'parent' => 'group-jetpack-general',
@@ -297,13 +301,13 @@ function ddw_tbex_site_items_jetpack() {
 					'href'   => esc_url( admin_url( 'admin.php?page=jetpack#/dashboard' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Overview', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Overview', 'toolbar-extras' ),
 					)
 				)
 			);
 
 			/** Stats */
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'tbex-jetpack-stats',
 					'parent' => 'group-jetpack-general',
@@ -311,7 +315,7 @@ function ddw_tbex_site_items_jetpack() {
 					'href'   => esc_url( admin_url( 'admin.php?page=stats' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Statistics', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Statistics', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -319,7 +323,7 @@ function ddw_tbex_site_items_jetpack() {
 			/** Sharing buttons */
 			if ( Jetpack::is_module_active( 'sharedaddy' ) ) {
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'tbex-jetpack-sharing-buttons',
 						'parent' => 'group-jetpack-general',
@@ -327,7 +331,7 @@ function ddw_tbex_site_items_jetpack() {
 						'href'   => esc_url( admin_url( 'options-general.php?page=sharing' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'Sharing Buttons', 'toolbar-extras' )
+							'title'  => esc_attr__( 'Sharing Buttons', 'toolbar-extras' ),
 						)
 					)
 				);
@@ -335,7 +339,7 @@ function ddw_tbex_site_items_jetpack() {
 			}  // end if
 
 		/** Group: Settings */
-		$GLOBALS[ 'wp_admin_bar' ]->add_group(
+		$admin_bar->add_group(
 			array(
 				'id'     => 'group-jetpack-settings',
 				'parent' => 'tbex-jetpack',
@@ -343,7 +347,7 @@ function ddw_tbex_site_items_jetpack() {
 		);
 
 			/** Settings - Modules/ Features */
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'tbex-jetpack-settings',
 					'parent' => 'group-jetpack-settings',
@@ -351,12 +355,12 @@ function ddw_tbex_site_items_jetpack() {
 					'href'   => esc_url( admin_url( 'admin.php?page=jetpack#/settings' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Modules &amp; Features', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Modules &amp; Features', 'toolbar-extras' ),
 					)
 				)
 			);
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'tbex-jetpack-settings-modules',
 						'parent' => 'tbex-jetpack-settings',
@@ -364,19 +368,19 @@ function ddw_tbex_site_items_jetpack() {
 						'href'   => esc_url( admin_url( 'admin.php?page=jetpack_modules' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'Full Modules List', 'toolbar-extras' )
+							'title'  => esc_attr__( 'Full Modules List', 'toolbar-extras' ),
 						)
 					)
 				);
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_group(
+				$admin_bar->add_group(
 					array(
 						'id'     => 'group-jetpack-categories',
 						'parent' => 'tbex-jetpack-settings',
 					)
 				);
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'tbex-jetpack-settings-performance',
 						'parent' => 'group-jetpack-categories',
@@ -384,12 +388,12 @@ function ddw_tbex_site_items_jetpack() {
 						'href'   => esc_url( admin_url( 'admin.php?page=jetpack#performance' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'Performance', 'toolbar-extras' )
+							'title'  => esc_attr__( 'Performance', 'toolbar-extras' ),
 						)
 					)
 				);
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'tbex-jetpack-settings-writing',
 						'parent' => 'group-jetpack-categories',
@@ -397,12 +401,12 @@ function ddw_tbex_site_items_jetpack() {
 						'href'   => esc_url( admin_url( 'admin.php?page=jetpack#writing' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'Writing', 'toolbar-extras' )
+							'title'  => esc_attr__( 'Writing', 'toolbar-extras' ),
 						)
 					)
 				);
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'tbex-jetpack-settings-sharing',
 						'parent' => 'group-jetpack-categories',
@@ -410,12 +414,12 @@ function ddw_tbex_site_items_jetpack() {
 						'href'   => esc_url( admin_url( 'admin.php?page=jetpack#sharing' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'Sharing', 'toolbar-extras' )
+							'title'  => esc_attr__( 'Sharing', 'toolbar-extras' ),
 						)
 					)
 				);
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'tbex-jetpack-settings-discussion',
 						'parent' => 'group-jetpack-categories',
@@ -423,12 +427,12 @@ function ddw_tbex_site_items_jetpack() {
 						'href'   => esc_url( admin_url( 'admin.php?page=jetpack#discussion' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'Discussion', 'toolbar-extras' )
+							'title'  => esc_attr__( 'Discussion', 'toolbar-extras' ),
 						)
 					)
 				);
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'tbex-jetpack-settings-traffic',
 						'parent' => 'group-jetpack-categories',
@@ -436,12 +440,12 @@ function ddw_tbex_site_items_jetpack() {
 						'href'   => esc_url( admin_url( 'admin.php?page=jetpack#traffic' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'Traffic', 'toolbar-extras' )
+							'title'  => esc_attr__( 'Traffic', 'toolbar-extras' ),
 						)
 					)
 				);
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'tbex-jetpack-settings-security',
 						'parent' => 'group-jetpack-categories',
@@ -449,12 +453,12 @@ function ddw_tbex_site_items_jetpack() {
 						'href'   => esc_url( admin_url( 'admin.php?page=jetpack#security' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'Security', 'toolbar-extras' )
+							'title'  => esc_attr__( 'Security', 'toolbar-extras' ),
 						)
 					)
 				);
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'tbex-jetpack-settings-privacy',
 						'parent' => 'group-jetpack-categories',
@@ -462,13 +466,13 @@ function ddw_tbex_site_items_jetpack() {
 						'href'   => esc_url( admin_url( 'admin.php?page=jetpack#privacy' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'Privacy', 'toolbar-extras' )
+							'title'  => esc_attr__( 'Privacy', 'toolbar-extras' ),
 						)
 					)
 				);
 
 			/** Settings: WordPress.com */
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'tbex-jetpack-settings-wpcom',
 					'parent' => 'group-jetpack-settings',
@@ -476,13 +480,13 @@ function ddw_tbex_site_items_jetpack() {
 					'href'   => 'https://wordpress.com/settings/',
 					'meta'   => array(
 						'target' => ddw_tbex_meta_target(),
-						'title'  => esc_attr__( 'WordPress.com Settings', 'toolbar-extras' )
+						'title'  => esc_attr__( 'WordPress.com Settings', 'toolbar-extras' ),
 					)
 				)
 			);
 
 			/** Settings: Debugging Center */
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'tbex-jetpack-debugging-center',
 					'parent' => 'group-jetpack-settings',
@@ -490,7 +494,7 @@ function ddw_tbex_site_items_jetpack() {
 					'href'   => esc_url( admin_url( 'admin.php?page=jetpack-debugger' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Debugging Center', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Debugging Center', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -498,11 +502,11 @@ function ddw_tbex_site_items_jetpack() {
 		/** Group: Resources for Jetpack */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-jetpack-resources',
 					'parent' => 'tbex-jetpack',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

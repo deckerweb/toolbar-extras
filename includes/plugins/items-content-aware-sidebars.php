@@ -18,18 +18,18 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_content_aware_sidebars' );
  *
  * @since 1.3.1
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_content_aware_sidebars() {
+function ddw_tbex_site_items_content_aware_sidebars( $admin_bar ) {
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_group(
+	$admin_bar->add_group(
 		array(
 			'id'     => 'group-cas-sidebars',
-			'parent' => 'wpwidgets'
+			'parent' => 'wpwidgets',
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'widget-content-aware-sidebars',
 			'parent' => 'group-cas-sidebars',
@@ -37,12 +37,12 @@ function ddw_tbex_site_items_content_aware_sidebars() {
 			'href'   => esc_url( admin_url( 'admin.php?page=wpcas' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Content Aware Sidebars', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Content Aware Sidebars', 'toolbar-extras' ),
 			)
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'widget-cas-new-sidebar',
 			'parent' => 'group-cas-sidebars',
@@ -50,7 +50,7 @@ function ddw_tbex_site_items_content_aware_sidebars() {
 			'href'   => esc_url( admin_url( 'admin.php?page=wpcas-edit' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'New Sidebar', 'toolbar-extras' )
+				'title'  => esc_attr__( 'New Sidebar', 'toolbar-extras' ),
 			)
 		)
 	);

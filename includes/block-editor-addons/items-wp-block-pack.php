@@ -20,14 +20,14 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_wpblockpack', 10 );
  *
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar']
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_wpblockpack() {
+function ddw_tbex_aoitems_wpblockpack( $admin_bar ) {
 
 	/** Use Add-On hook place */
 	add_filter( 'tbex_filter_is_addon', '__return_empty_string' );
-	
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+
+	$admin_bar->add_node(
 		array(
 			'id'     => 'tbex-wpblockpack',
 			'parent' => 'group-tbex-addons-blockeditor',
@@ -35,12 +35,12 @@ function ddw_tbex_aoitems_wpblockpack() {
 			'href'   => esc_url( admin_url( 'options-general.php?page=wp-block-pack' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_free_addon_title_attr( esc_attr__( 'WP Block Pack', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_free_addon_title_attr( esc_attr__( 'WP Block Pack', 'toolbar-extras' ) ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'wpblockpack-settings',
 				'parent' => 'tbex-wpblockpack',
@@ -48,7 +48,7 @@ function ddw_tbex_aoitems_wpblockpack() {
 				'href'   => esc_url( admin_url( 'options-general.php?page=wp-block-pack' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -56,11 +56,11 @@ function ddw_tbex_aoitems_wpblockpack() {
 		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-wpblockpack-resources',
 					'parent' => 'tbex-wpblockpack',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

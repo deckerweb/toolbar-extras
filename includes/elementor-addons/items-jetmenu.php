@@ -20,15 +20,15 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_jetmenu', 100 );
  *
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_jetmenu() {
+function ddw_tbex_aoitems_jetmenu( $admin_bar ) {
 
 	/** Use Add-On hook place */
 	add_filter( 'tbex_filter_is_addon', '__return_empty_string' );
 
 	/** JetMenu Settings */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'ao-jetmenu',
 			'parent' => 'tbex-addons',
@@ -36,12 +36,12 @@ function ddw_tbex_aoitems_jetmenu() {
 			'href'   => esc_url( admin_url( 'admin.php?page=jet-menu' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_premium_addon_title_attr( __( 'JetMenu', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_premium_addon_title_attr( __( 'JetMenu', 'toolbar-extras' ) ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-jetmenu-settings',
 				'parent' => 'ao-jetmenu',
@@ -49,12 +49,12 @@ function ddw_tbex_aoitems_jetmenu() {
 				'href'   => esc_url( admin_url( 'admin.php?page=jet-menu' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-jetmenu-megamenus',
 				'parent' => 'ao-jetmenu',
@@ -62,7 +62,7 @@ function ddw_tbex_aoitems_jetmenu() {
 				'href'   => esc_url( admin_url( 'nav-menus.php' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Edit Mega Menus', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Edit Mega Menus', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -70,11 +70,11 @@ function ddw_tbex_aoitems_jetmenu() {
 		/** Group: Resources for JetMenu */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-jetmenu-resources',
 					'parent' => 'ao-jetmenu',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 
@@ -96,9 +96,10 @@ function ddw_tbex_aoitems_jetmenu() {
 				'changelog',
 				'jetmenu-changelog',
 				'group-jetmenu-resources',
-				'http://documentation.zemez.io/wordpress/index.php?project=jetmenu&lang=en&section=jetmenu-changelog'
+				'http://documentation.zemez.io/wordpress/index.php?project=jetmenu&lang=en&section=jetmenu-changelog',
+				ddw_tbex_string_version_history( 'addon' )
 			);
-			
+
 			ddw_tbex_resource_item(
 				'official-site',
 				'jetmenu-site',

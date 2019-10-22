@@ -20,11 +20,11 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_genesis_super_customizer', 105 )
  *
  * @uses ddw_tbex_customizer_start()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_genesis_super_customizer() {
+function ddw_tbex_aoitems_genesis_super_customizer( $admin_bar ) {
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'genesis-super-customizer',
 			'parent' => 'theme-creative',
@@ -32,7 +32,7 @@ function ddw_tbex_aoitems_genesis_super_customizer() {
 			'href'   => ddw_tbex_customizer_start(),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Genesis Super Customizer', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Genesis Super Customizer', 'toolbar-extras' ),
 			)
 		)
 	);
@@ -40,11 +40,11 @@ function ddw_tbex_aoitems_genesis_super_customizer() {
 		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-gsupercmzr-resources',
 					'parent' => 'genesis-super-customizer',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

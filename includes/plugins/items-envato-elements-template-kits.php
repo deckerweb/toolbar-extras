@@ -84,7 +84,7 @@ function ddw_tbex_aoitems_envato_elements_template_kits( $admin_bar ) {
 
 	/** Bail early if no supported default Page Builder set */
 	if ( 'none' === $types[ 'builder' ] ) {
-		return;
+		return $admin_bar;
 	}
 
 	/** Template import */
@@ -254,7 +254,7 @@ function ddw_tbex_items_new_content_installer_envato_elements( $admin_bar ) {
 
 	/** Bail early if no supported default Page Builder set */
 	if ( 'none' === $types[ 'builder' ] ) {
-		return;
+		return $admin_bar;
 	}
 
 	$admin_bar->add_node(
@@ -265,7 +265,7 @@ function ddw_tbex_items_new_content_installer_envato_elements( $admin_bar ) {
 			'href'   => esc_url( admin_url( 'admin.php?page=envato-elements' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Install Envato Elements', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Install Envato Elements', 'toolbar-extras' ),
 			)
 		)
 	);

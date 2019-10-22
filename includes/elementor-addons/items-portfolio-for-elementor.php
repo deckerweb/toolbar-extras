@@ -21,12 +21,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_portfolio_for_elementor', 100 );
  * @uses ddw_tbex_display_items_resources()
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_portfolio_for_elementor() {
+function ddw_tbex_aoitems_portfolio_for_elementor( $admin_bar ) {
 
 	/** Portfolio Items */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'ao-pffel',
 			'parent' => 'group-creative-content',
@@ -34,12 +34,12 @@ function ddw_tbex_aoitems_portfolio_for_elementor() {
 			'href'   => esc_url( admin_url( 'edit.php?post_type=elemenfolio' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_addon_title_attr( __( 'Portfolio for Elementor', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_addon_title_attr( __( 'Portfolio for Elementor', 'toolbar-extras' ) ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-pffel-all',
 				'parent' => 'ao-pffel',
@@ -47,12 +47,12 @@ function ddw_tbex_aoitems_portfolio_for_elementor() {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=elemenfolio' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'All Items', 'toolbar-extras' )
+					'title'  => esc_attr__( 'All Items', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-pffel-new',
 				'parent' => 'ao-pffel',
@@ -60,14 +60,14 @@ function ddw_tbex_aoitems_portfolio_for_elementor() {
 				'href'   => esc_url( admin_url( 'post-new.php?post_type=elemenfolio' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'New Portfolio', 'toolbar-extras' )
+					'title'  => esc_attr__( 'New Portfolio', 'toolbar-extras' ),
 				)
 			)
 		);
 
 		if ( ddw_tbex_is_elementor_active() && \Elementor\User::is_current_user_can_edit_post_type( 'elemenfolio' ) ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ao-pffel-builder',
 					'parent' => 'ao-pffel',
@@ -75,14 +75,14 @@ function ddw_tbex_aoitems_portfolio_for_elementor() {
 					'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'elemenfolio' ) ),
 					'meta'   => array(
 						'target' => ddw_tbex_meta_target( 'builder' ),
-						'title'  => esc_attr__( 'New Portfolio Builder', 'toolbar-extras' )
+						'title'  => esc_attr__( 'New Portfolio Builder', 'toolbar-extras' ),
 					)
 				)
 			);
 
 		}  // end if
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-pffel-settings',
 				'parent' => 'ao-pffel',
@@ -90,7 +90,7 @@ function ddw_tbex_aoitems_portfolio_for_elementor() {
 				'href'   => esc_url( admin_url( 'admin.php?page=elementor_portfolio' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -98,11 +98,11 @@ function ddw_tbex_aoitems_portfolio_for_elementor() {
 		/** Group: Resources for Portfolio for Elementor */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-pffel-resources',
 					'parent' => 'ao-pffel',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 
@@ -131,16 +131,16 @@ add_action( 'admin_bar_menu', 'ddw_tbex_new_content_elemenfolio' );
  *
  * @since 1.0.0
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_new_content_elemenfolio() {
+function ddw_tbex_new_content_elemenfolio( $admin_bar ) {
 
 	/** Bail early if items display is not wanted */
 	if ( ! ddw_tbex_display_items_new_content() || ! \Elementor\User::is_current_user_can_edit_post_type( 'elemenfolio' ) ) {
-		return;
+		return $admin_bar;
 	}
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'elemenfolio-with-builder',
 			'parent' => 'new-elemenfolio',
@@ -148,7 +148,7 @@ function ddw_tbex_new_content_elemenfolio() {
 			'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'elemenfolio' ) ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target( 'builder' ),
-				'title'  => ddw_tbex_string_newcontent_create_with_builder()
+				'title'  => ddw_tbex_string_newcontent_create_with_builder(),
 			)
 		)
 	);

@@ -12,60 +12,34 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 
-add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_maker_pro_customize', 90 );
+add_filter( 'tbex_filter_items_theme_customizer_deep', 'ddw_tbex_themeitems_maker_pro_customize', 90 );
 /**
  * Customize items for Genesis Child Theme:
  *   Maker Pro (Premium, by JT Grauke/ Design by Bloom)
  *
  * @since 1.2.0
+ * @since 1.4.8 Refactored using filter/array declaration.
  *
- * @uses ddw_tbex_customizer_focus()
- * @uses ddw_tbex_string_customize_attr()
- *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param array $items Existing array of params for creating Toolbar nodes.
+ * @return array Tweaked array of params for creating Toolbar nodes.
  */
-function ddw_tbex_themeitems_maker_pro_customize() {
-	
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
-		array(
-			'id'     => 'makerpro-colors',
-			'parent' => 'theme-creative-customize',
-			/* translators: Autofocus section in the Customizer */
-			'title'  => esc_attr__( 'Colors', 'toolbar-extras' ),
-			'href'   => ddw_tbex_customizer_focus( 'section', 'colors' ),
-			'meta'   => array(
-				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Colors', 'toolbar-extras' ) )
-			)
-		)
+function ddw_tbex_themeitems_maker_pro_customize( array $items ) {
+
+	/** Declare child theme's items */
+	$makerpro_items = array(
+		'colors' => array(
+			'type'  => 'section',
+			'title' => __( 'Colors', 'toolbar-extras' ),
+			'id'    => 'makerpro-colors',
+		),
+		'header_image' => array(
+			'type'  => 'section',
+			'title' => __( 'Header Image', 'toolbar-extras' ),
+			'id'    => 'makerpro-header-image',
+		),
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
-		array(
-			'id'     => 'makerpro-header-image',
-			'parent' => 'theme-creative-customize',
-			/* translators: Autofocus section in the Customizer */
-			'title'  => esc_attr__( 'Header Image', 'toolbar-extras' ),
-			'href'   => ddw_tbex_customizer_focus( 'section', 'header_image' ),
-			'meta'   => array(
-				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Header Image', 'toolbar-extras' ) )
-			)
-		)
-	);
-
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
-		array(
-			'id'     => 'makerpro-site-identity',
-			'parent' => 'theme-creative-customize',
-			/* translators: Autofocus section in the Customizer */
-			'title'  => esc_attr__( 'Site Identity', 'toolbar-extras' ),
-			'href'   => ddw_tbex_customizer_focus( 'section', 'title_tagline' ),
-			'meta'   => array(
-				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Site Identity', 'toolbar-extras' ) )
-			)
-		)
-	);
+	/** Merge and return with all items */
+	return array_merge( $items, $makerpro_items );
 
 }  // end function

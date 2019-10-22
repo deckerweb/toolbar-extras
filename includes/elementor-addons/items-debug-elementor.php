@@ -53,7 +53,7 @@ function ddw_tbex_site_items_devmode_debug_elementor() {
 			'meta'   => array(
 				'rel'    => ddw_tbex_meta_rel(),
 				'target' => ddw_tbex_meta_target(),
-				'title'  => $debug_title_attr
+				'title'  => $debug_title_attr,
 			)
 		)
 	);

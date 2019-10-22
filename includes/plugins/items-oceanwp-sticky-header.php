@@ -18,18 +18,18 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_oceanwp_sticky_header', 200 );
  *
  * @since 1.3.0
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_oceanwp_sticky_header() {
+function ddw_tbex_aoitems_oceanwp_sticky_header( $admin_bar ) {
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_group(
+	$admin_bar->add_group(
 		array(
 			'id'     => 'group-ao-owpsh',
-			'parent' => 'theme-creative'
+			'parent' => 'theme-creative',
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'ao-oceanwp-sticky-header',
 			'parent' => 'group-ao-owpsh',
@@ -37,7 +37,7 @@ function ddw_tbex_aoitems_oceanwp_sticky_header() {
 			'href'   => esc_url( admin_url( 'options-general.php?page=sticky-header-oceanwp' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_free_addon_title_attr( __( 'Sticky Header', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_free_addon_title_attr( __( 'Sticky Header', 'toolbar-extras' ) ),
 			)
 		)
 	);

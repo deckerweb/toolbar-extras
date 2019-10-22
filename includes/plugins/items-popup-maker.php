@@ -18,12 +18,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_popup_maker', 15 );
  *
  * @since 1.0.0
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_popup_maker() {
+function ddw_tbex_site_items_popup_maker( $admin_bar ) {
 
 	/** For: Manage Content */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'manage-content-popups',
 			'parent' => 'manage-content',
@@ -31,7 +31,7 @@ function ddw_tbex_site_items_popup_maker() {
 			'href'   => esc_url( admin_url( 'edit.php?post_type=popup' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Edit Popups', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Edit Popups', 'toolbar-extras' ),
 			)
 		)
 	);
@@ -39,7 +39,7 @@ function ddw_tbex_site_items_popup_maker() {
 	/** For: New Content */
 	if ( ddw_tbex_is_elementor_active() && \Elementor\User::is_current_user_can_edit_post_type( 'popup' ) ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'popup-with-builder',
 				'parent' => 'new-popup',
@@ -47,7 +47,7 @@ function ddw_tbex_site_items_popup_maker() {
 				'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'popup' ) ),
 				'meta'   => array(
 					'target' => ddw_tbex_meta_target( 'builder' ),
-					'title'  => ddw_tbex_string_newcontent_create_with_builder()
+					'title'  => ddw_tbex_string_newcontent_create_with_builder(),
 				)
 			)
 		);

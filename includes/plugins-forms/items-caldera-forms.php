@@ -19,13 +19,14 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_caldera_forms' );
  * @since 1.3.1
  * @since 1.4.2 Security enhancements.
  *
- * @global mixed  $GLOBALS[ 'wp_admin_bar' ]
  * @global object global $wpdb
+ *
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_caldera_forms() {
+function ddw_tbex_site_items_caldera_forms( $admin_bar ) {
 
 	/** For: Forms */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'forms-calderaforms',
 			'parent' => 'tbex-sitegroup-forms',
@@ -33,7 +34,7 @@ function ddw_tbex_site_items_caldera_forms() {
 			'href'   => esc_url( admin_url( 'admin.php?page=caldera-forms' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_forms_system( 'Caldera' )
+				'title'  => ddw_tbex_string_forms_system( 'Caldera' ),
 			)
 		)
 	);
@@ -50,10 +51,10 @@ function ddw_tbex_site_items_caldera_forms() {
 		if ( $forms ) {
 
 			/** Add group */
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-calderaforms-edit-forms',
-					'parent' => 'forms-calderaforms'
+					'parent' => 'forms-calderaforms',
 				)
 			);
 
@@ -64,7 +65,7 @@ function ddw_tbex_site_items_caldera_forms() {
 				$form_id     = esc_attr( $form->form_id );
 
 				/** Add item per form */
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'forms-calderaforms-form-' . $form_id,
 						'parent' => 'group-calderaforms-edit-forms',
@@ -72,12 +73,12 @@ function ddw_tbex_site_items_caldera_forms() {
 						'href'   => esc_url( admin_url( 'admin.php?edit=' . $form_id . '&page=caldera-forms' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'Edit Form', 'toolbar-extras' ) . ': ' . $form_title
+							'title'  => esc_attr__( 'Edit Form', 'toolbar-extras' ) . ': ' . $form_title,
 						)
 					)
 				);
 
-					$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					$admin_bar->add_node(
 						array(
 							'id'     => 'forms-calderaforms-form-' . $form_id . '-builder',
 							'parent' => 'forms-calderaforms-form-' . $form_id,
@@ -85,12 +86,12 @@ function ddw_tbex_site_items_caldera_forms() {
 							'href'   => esc_url( admin_url( 'admin.php?edit=' . $form_id . '&page=caldera-forms' ) ),
 							'meta'   => array(
 								'target' => '',
-								'title'  => esc_attr__( 'Form Builder', 'toolbar-extras' )
+								'title'  => esc_attr__( 'Form Builder', 'toolbar-extras' ),
 							)
 						)
 					);
 
-					$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					$admin_bar->add_node(
 						array(
 							'id'     => 'forms-calderaforms-form-' . $form_id . '-preview',
 							'parent' => 'forms-calderaforms-form-' . $form_id,
@@ -98,7 +99,7 @@ function ddw_tbex_site_items_caldera_forms() {
 							'href'   => esc_url( site_url( '/?cf_preview=' . $form_id ) ),
 							'meta'   => array(
 								'target' => ddw_tbex_meta_target(),
-								'title'  => esc_attr__( 'Preview', 'toolbar-extras' )
+								'title'  => esc_attr__( 'Preview', 'toolbar-extras' ),
 							)
 						)
 					);
@@ -108,7 +109,7 @@ function ddw_tbex_site_items_caldera_forms() {
 		}  // end if
 
 		/** General Caldera Forms items */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-calderaforms-all-forms',
 				'parent' => 'forms-calderaforms',
@@ -116,12 +117,12 @@ function ddw_tbex_site_items_caldera_forms() {
 				'href'   => esc_url( admin_url( 'admin.php?page=caldera-forms' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'All Forms', 'toolbar-extras' )
+					'title'  => esc_attr__( 'All Forms', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-calderaforms-privacy-settings',
 				'parent' => 'forms-calderaforms',
@@ -129,25 +130,25 @@ function ddw_tbex_site_items_caldera_forms() {
 				'href'   => esc_url( admin_url( 'admin.php?page=caldera-forms-privacy' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Privacy Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Privacy Settings', 'toolbar-extras' ),
 				)
 			)
 		);
 
 		/** Optionally, let other Caldera Forms Add-Ons hook in */
-		do_action( 'tbex_after_calderaforms_settings' );
+		do_action( 'tbex_after_calderaforms_settings', $admin_bar );
 
 		/** Group: Resources for Caldera Forms */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-calderaforms-resources',
 					'parent' => 'forms-calderaforms',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
-			
+
 			ddw_tbex_resource_item(
 				'support-forum',
 				'calderaforms-support',

@@ -19,21 +19,21 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_devmode_instantide' );
  *
  * @since 1.0.0
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_devmode_instantide() {
+function ddw_tbex_site_items_devmode_instantide( $admin_bar ) {
 
 	add_filter( 'tbex_filter_is_dev_mode', '__return_empty_string' );
 
 	/** Group */
-	$GLOBALS[ 'wp_admin_bar' ]->add_group(
+	$admin_bar->add_group(
 		array(
 			'id'     => 'group-instant-ide',
-			'parent' => 'rapid-dev'
+			'parent' => 'rapid-dev',
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'iide',
 			'parent' => 'group-instant-ide',
@@ -42,12 +42,12 @@ function ddw_tbex_site_items_devmode_instantide() {
 			'meta'   => array(
 				'rel'    => ddw_tbex_meta_rel(),
 				'target' => ddw_tbex_meta_target(),
-				'title'  => esc_attr__( 'Instant IDE (Code Editor)', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Instant IDE (Code Editor)', 'toolbar-extras' ),
 			)
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'iide-preview',
 			'parent' => 'group-instant-ide',
@@ -56,7 +56,7 @@ function ddw_tbex_site_items_devmode_instantide() {
 			'meta'   => array(
 				'rel'    => ddw_tbex_meta_rel(),
 				'target' => ddw_tbex_meta_target(),
-				'title'  => esc_attr__( 'Instant IDE - Site Preview', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Instant IDE - Site Preview', 'toolbar-extras' ),
 			)
 		)
 	);

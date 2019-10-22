@@ -36,13 +36,14 @@ function ddw_tbex_is_pafe_pro_active() {
  *
  * @param string $suffix String for suffix for Toolbar node ID and group ID.
  * @param string $parent String for Toolbar parent node.
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_piotnet_addons_resources( $suffix = '', $parent = '' ) {
+function ddw_tbex_aoitems_piotnet_addons_resources( $admin_bar, $suffix = '', $parent = '' ) {
 
 	/** Set suffix */
 	$suffix = '-' . sanitize_key( $suffix );
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_group(
+	$admin_bar->add_group(
 		array(
 			'id'     => 'group-piotnet-addons-resources' . $suffix,
 			'parent' => sanitize_key( $parent ),	//'ao-piotnet-addons',
@@ -122,7 +123,9 @@ function ddw_tbex_aoitems_piotnet_addons( $admin_bar ) {
 			'href'   => esc_url( admin_url( 'admin.php?page=piotnet-addons-for-elementor' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_is_pafe_pro_active() ? ddw_tbex_string_premium_addon_title_attr( __( 'Piotnet Addons Pro', 'toolbar-extras' ) ) : ddw_tbex_string_free_addon_title_attr( __( 'Piotnet Addons', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_is_pafe_pro_active()
+					? ddw_tbex_string_premium_addon_title_attr( __( 'Piotnet Addons Pro', 'toolbar-extras' ) )
+					: ddw_tbex_string_free_addon_title_attr( __( 'Piotnet Addons', 'toolbar-extras' ) ),
 			)
 		)
 	);
@@ -137,7 +140,7 @@ function ddw_tbex_aoitems_piotnet_addons( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'edit.php?post_type=pafe-form-database' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Form Database', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Form Database', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -152,14 +155,14 @@ function ddw_tbex_aoitems_piotnet_addons( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'admin.php?page=piotnet-addons-for-elementor' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
 				)
 			)
 		);
 
 		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
-			ddw_tbex_aoitems_piotnet_addons_resources( 'aoplace', 'ao-piotnet-addons' );
+			ddw_tbex_aoitems_piotnet_addons_resources( $admin_bar, 'aoplace', 'ao-piotnet-addons' );
 		}
 
 }  // end function
@@ -209,7 +212,7 @@ function ddw_tbex_site_items_piotnet_addons_forms( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=pafe-form-database' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Form Database', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Form Database', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -222,14 +225,14 @@ function ddw_tbex_site_items_piotnet_addons_forms( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'admin.php?page=piotnet-addons-for-elementor' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
 				)
 			)
 		);
 
 		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
-			ddw_tbex_aoitems_piotnet_addons_resources( 'formsplace', 'pafe-formsbuilder' );
+			ddw_tbex_aoitems_piotnet_addons_resources( $admin_bar, 'formsplace', 'pafe-formsbuilder' );
 		}
 
 }  // end function

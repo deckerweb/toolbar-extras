@@ -34,7 +34,7 @@ function ddw_tbex_site_items_wp_security_audit_log( $admin_bar ) {
 			'href'   => esc_url( admin_url( 'admin.php?page=wsal-auditlog' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'WP Security Audit Log', 'toolbar-extras' )
+				'title'  => esc_attr__( 'WP Security Audit Log', 'toolbar-extras' ),
 			)
 		)
 	);
@@ -48,7 +48,7 @@ function ddw_tbex_site_items_wp_security_audit_log( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'admin.php?page=wsal-auditlog' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Activity Logs', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Activity Logs', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -62,7 +62,7 @@ function ddw_tbex_site_items_wp_security_audit_log( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'admin.php?page=wsal-togglealerts' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Enable/ Disable Events', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Enable/ Disable Events', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -75,7 +75,7 @@ function ddw_tbex_site_items_wp_security_audit_log( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'admin.php?page=wsal-togglealerts#tab-users-profiles---activity' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'User Profiles &amp; Activity', 'toolbar-extras' )
+						'title'  => esc_attr__( 'User Profiles &amp; Activity', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -88,7 +88,7 @@ function ddw_tbex_site_items_wp_security_audit_log( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'admin.php?page=wsal-togglealerts#tab-content---comments' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Content &amp; Comments', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Content &amp; Comments', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -101,7 +101,7 @@ function ddw_tbex_site_items_wp_security_audit_log( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'admin.php?page=wsal-togglealerts#tab-wordpress-install' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'WordPress Install', 'toolbar-extras' )
+						'title'  => esc_attr__( 'WordPress Install', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -116,7 +116,7 @@ function ddw_tbex_site_items_wp_security_audit_log( $admin_bar ) {
 						'href'   => esc_url( admin_url( 'admin.php?page=wsal-togglealerts#tab-multisite-network' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'Multisite Network', 'toolbar-extras' )
+							'title'  => esc_attr__( 'Multisite Network', 'toolbar-extras' ),
 						)
 					)
 				);
@@ -131,7 +131,7 @@ function ddw_tbex_site_items_wp_security_audit_log( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'admin.php?page=wsal-togglealerts#tab-third-party-plugins' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Third Party Plugins', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Third Party Plugins', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -145,7 +145,7 @@ function ddw_tbex_site_items_wp_security_audit_log( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'admin.php?page=wsal-settings' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -158,7 +158,7 @@ function ddw_tbex_site_items_wp_security_audit_log( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'admin.php?page=wsal-settings&tab=general' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'General', 'toolbar-extras' )
+						'title'  => esc_attr__( 'General', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -171,7 +171,7 @@ function ddw_tbex_site_items_wp_security_audit_log( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'admin.php?page=wsal-settings&tab=audit-log' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Activity Log', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Activity Log', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -184,7 +184,7 @@ function ddw_tbex_site_items_wp_security_audit_log( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'admin.php?page=wsal-settings&tab=file-changes' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'File Integrity Scan', 'toolbar-extras' )
+						'title'  => esc_attr__( 'File Integrity Scan', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -197,7 +197,7 @@ function ddw_tbex_site_items_wp_security_audit_log( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'admin.php?page=wsal-settings&tab=exclude-objects' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Exclude Objects', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Exclude Objects', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -210,7 +210,7 @@ function ddw_tbex_site_items_wp_security_audit_log( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'admin.php?page=wsal-settings&tab=import-settings' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Export &amp; Import', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Export &amp; Import', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -223,7 +223,7 @@ function ddw_tbex_site_items_wp_security_audit_log( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'admin.php?page=wsal-settings&tab=advanced-settings' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Advanced Settings', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Advanced Settings', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -237,7 +237,7 @@ function ddw_tbex_site_items_wp_security_audit_log( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'admin.php?page=wsal-help#tab-system-info' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'System Info', 'toolbar-extras' )
+					'title'  => esc_attr__( 'System Info', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -249,7 +249,7 @@ function ddw_tbex_site_items_wp_security_audit_log( $admin_bar ) {
 				array(
 					'id'     => 'group-wpsecurityauditlog-resources',
 					'parent' => 'wp-security-auditlog',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 
@@ -267,6 +267,14 @@ function ddw_tbex_site_items_wp_security_audit_log( $admin_bar ) {
 				'https://www.wpsecurityauditlog.com/support-documentation/'
 			);
 
+			ddw_tbex_resource_item(
+				'changelog',
+				'wpsecurityauditlog-changelogs',
+				'group-wpsecurityauditlog-resources',
+				'https://www.wpsecurityauditlog.com/support-documentation/plugin-changelog/',
+				ddw_tbex_string_version_history( 'plugin' )
+			);
+			
 			ddw_tbex_resource_item(
 				'translations-community',
 				'wpsecurityauditlog-translate',

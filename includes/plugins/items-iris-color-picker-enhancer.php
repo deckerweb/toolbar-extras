@@ -34,7 +34,7 @@ function ddw_tbex_aoitems_iris_color_picker_enhancer( $admin_bar ) {
 			'href'   => esc_url( admin_url( 'options-general.php?page=iris-color-picker-enhancer' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_addon_title_attr( __( 'Iris Color Picker Enhancer', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_addon_title_attr( __( 'Iris Color Picker Enhancer', 'toolbar-extras' ) ),
 			)
 		)
 	);
@@ -47,13 +47,13 @@ function ddw_tbex_aoitems_iris_color_picker_enhancer( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'options-general.php?page=iris-color-picker-enhancer' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Define Colors', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Define Colors', 'toolbar-extras' ),
 				)
 			)
 		);
 
 		/** Color Wheel Resources */
-		ddw_tbex_resources_color_wheel( 'irisenhancer', 'ao-irisenhancer' );
+		ddw_tbex_resources_color_wheel( $admin_bar, 'irisenhancer', 'ao-irisenhancer' );
 
 		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
@@ -62,7 +62,7 @@ function ddw_tbex_aoitems_iris_color_picker_enhancer( $admin_bar ) {
 				array(
 					'id'     => 'group-irisenhancer-resources',
 					'parent' => 'ao-irisenhancer',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

@@ -503,7 +503,6 @@ function ddw_tbex_hide_astra_whitelabel() {
  */
 function ddw_tbex_hide_uael_whitelabel() {
 
-	//return ( defined( 'WP_UAEL_WL' ) && TRUE === WP_UAEL_WL ) ? TRUE : FALSE;
 	return defined( 'WP_UAEL_WL' ) ? WP_UAEL_WL : FALSE;
 
 }  // end function
@@ -1113,5 +1112,33 @@ function ddw_tbex_is_acf_extended_active() {
 function ddw_tbex_is_export_import_menus_active() {
 
 	return class_exists( 'DspExportImportMenus' );
+
+}  // end function
+
+
+/**
+ * Is the Rank Math SEO plugin active or not?
+ *
+ * @since 1.4.8
+ *
+ * @return bool TRUE if plugin is active, FALSE otherwise.
+ */
+function ddw_tbex_is_rankmath_seo_active() {
+
+	return class_exists( 'RankMath' );
+
+}  // end function
+
+
+/**
+ * Is the Rank Math Instant Indexing for Google plugin active or not?
+ *
+ * @since 1.4.8
+ *
+ * @return bool TRUE if plugin is active, FALSE otherwise.
+ */
+function ddw_tbex_is_rm_instant_indexing_active() {
+
+	return class_exists( 'RM_GIAPI' );
 
 }  // end function

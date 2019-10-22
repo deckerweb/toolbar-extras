@@ -249,6 +249,7 @@
 	color: inherit !important;
 }
 
+
 /* Icon Label Fixes */
 #wp-admin-bar-customize-sccss .ab-label,
 #wp-admin-bar-group-demo-import .ab-label,
@@ -270,6 +271,13 @@
 /* .tbex-elementor-inspector > .ab-empty-item {
 	display: none !important;
 } */
+
+
+/* General helper */
+.tbex-pointer,
+.tbex-pointer .ab-item {
+	cursor: pointer !important;
+}
 
 
 /* Media Queries */

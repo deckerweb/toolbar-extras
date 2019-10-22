@@ -12,7 +12,7 @@
  * Plugin Name:       Toolbar Extras
  * Plugin URI:        https://toolbarextras.com/
  * Description:       This plugins adds a lot of quick jump links to the WordPress Toolbar helpful for Site Builders who use Elementor and its ecosystem of add-ons and from the theme space.
- * Version:           1.4.7
+ * Version:           1.4.8
  * Author:            David Decker - DECKERWEB
  * Author URI:        https://toolbarextras.com/
  * License:           GPL-2.0-or-later
@@ -39,7 +39,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 1.0.0
  */
 /** Plugin version */
-define( 'TBEX_PLUGIN_VERSION', '1.4.7' );
+define( 'TBEX_PLUGIN_VERSION', '1.4.8' );
 
 /** Plugin directory */
 define( 'TBEX_PLUGIN_DIR', trailingslashit( dirname( __FILE__ ) ) );
@@ -89,9 +89,10 @@ add_action( 'init', 'ddw_tbex_load_translations', 1 );
  * Load the text domain for translation of the plugin.
  *
  * @since 1.0.0
+ * @since 1.4.8 Use determine_locale() if available.
  *
+ * @uses determine_locale()
  * @uses get_user_locale()
- * @uses get_locale()
  * @uses load_textdomain() To load translations first from WP_LANG_DIR sub folder.
  * @uses load_plugin_textdomain() To additionally load default translations from plugin folder (default).
  */
@@ -100,11 +101,13 @@ function ddw_tbex_load_translations() {
 	/** Set unique textdomain string */
 	$tbex_textdomain = 'toolbar-extras';
 
+	$locale = function_exists( 'determine_locale' ) ? determine_locale() : get_user_locale();
+
 	/** The 'plugin_locale' filter is also used by default in load_plugin_textdomain() */
 	$locale = esc_attr(
 		apply_filters(
 			'plugin_locale',
-			get_user_locale(),	//is_admin() ? get_user_locale() : get_locale(),
+			$locale,
 			$tbex_textdomain
 		)
 	);
@@ -200,7 +203,7 @@ function ddw_tbex_setup_plugin() {
 		if ( ddw_tbex_display_items_new_content() ) {
 			require_once TBEX_PLUGIN_DIR . 'includes/items-new-content.php';
 		}
-		
+
 		/** Include items for WP Edit/View Content section */
 		if ( ddw_tbex_display_items_edit_content() ) {
 			require_once TBEX_PLUGIN_DIR . 'includes/items-edit-content.php';
@@ -276,9 +279,11 @@ function ddw_tbex_setup_plugin() {
 			require_once TBEX_PLUGIN_DIR . 'includes/items-user.php';
 		}
 
-		/** Load Web Group items */
+		/** Load Web Group items, optionally WP About additions */
 		if ( ddw_tbex_display_items_webgroup() ) {
 			require_once TBEX_PLUGIN_DIR . 'includes/items-web-group.php';
+		} elseif ( ! ddw_tbex_use_tweak_wplogo() ) {
+			require_once TBEX_PLUGIN_DIR . 'includes/items-wpabout.php';
 		}
 
 		/** Load Comments items */
@@ -301,6 +306,11 @@ function ddw_tbex_setup_plugin() {
 
 		}  // end if
 
+		/** Load optional "Tools" Group top-level item */
+		if ( ddw_tbex_display_tools_toplevel() && ! is_network_admin() ) {
+			require_once TBEX_PLUGIN_DIR . 'includes/items-tools-group.php';
+		}
+
 		/** Load optional "Show Current Template" feature */
 		if ( ddw_tbex_display_items_dev_mode() && current_theme_supports( 'tbex-show-current-template' ) ) {
 			require_once TBEX_PLUGIN_DIR . 'includes/tools/items-show-current-template.php';
@@ -315,7 +325,7 @@ function ddw_tbex_setup_plugin() {
 
 	/** Restrict access to the above custom super admin menu */
 	add_action( 'admin_menu', 'ddw_tbex_restrict_super_admin_menu_access', 1 );
-		
+
 	/** Include admin helper functions */
 	if ( is_admin() ) {
 		require_once TBEX_PLUGIN_DIR . 'includes/admin/admin-extras.php';
@@ -472,7 +482,7 @@ register_activation_hook( __FILE__, 'ddw_tbex_run_plugin_activation', 10, 1 );
 function ddw_tbex_run_plugin_activation( $network_wide ) {
 
 	/** 1st case: Network-wide activation in a Multisite Network */
-    if ( is_multisite() && $network_wide ) { 
+    if ( is_multisite() && $network_wide ) {
 
     	$site_ids = get_sites( array( 'fields' => 'ids', 'network_id' => get_current_network_id() ) );
 

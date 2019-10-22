@@ -20,22 +20,21 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_revolution_for_elementor', 100 )
  *
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_revolution_for_elementor() {
+function ddw_tbex_aoitems_revolution_for_elementor( $admin_bar ) {
 
 	/** Check for premium version */
-	$is_premium = is_plugin_active( 'revolution-for-elementor-premium/revolution-for-elementor.php' ) ? TRUE : FALSE;
+	$is_premium = is_plugin_active( 'revolution-for-elementor-premium/revolution-for-elementor.php' );
 
 	$rfe_adv_options = get_option( 'jt_revolution_for_elementor_advanced' );
-
 
 	/**
 	 * 1) Creative items:
 	 */
 	if ( 'yes' === $rfe_adv_options[ 'enable_taxonomy_related' ] ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-rfe-taxrelated',
 				'parent' => 'group-creative-content',
@@ -43,12 +42,12 @@ function ddw_tbex_aoitems_revolution_for_elementor() {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=rfe_taxonomy_related' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Revolution for Elementor: Taxonomy Related Content', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Revolution for Elementor: Taxonomy Related Content', 'toolbar-extras' ),
 				)
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ao-rfe-taxrelated-all',
 					'parent' => 'ao-rfe-taxrelated',
@@ -56,12 +55,12 @@ function ddw_tbex_aoitems_revolution_for_elementor() {
 					'href'   => esc_url( admin_url( 'edit.php?post_type=rfe_taxonomy_related' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'All Taxonomy Related Content', 'toolbar-extras' )
+						'title'  => esc_attr__( 'All Taxonomy Related Content', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ao-rfe-taxrelated-new',
 					'parent' => 'ao-rfe-taxrelated',
@@ -69,14 +68,14 @@ function ddw_tbex_aoitems_revolution_for_elementor() {
 					'href'   => esc_url( admin_url( 'post-new.php?post_type=rfe_taxonomy_related' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'New Tax Related Content', 'toolbar-extras' )
+						'title'  => esc_attr__( 'New Tax Related Content', 'toolbar-extras' ),
 					)
 				)
 			);
 
 			if ( ddw_tbex_is_elementor_active() && \Elementor\User::is_current_user_can_edit_post_type( 'rfe_taxonomy_related' ) ) {
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'ao-rfe-taxrelated-builder',
 						'parent' => 'ao-rfe-taxrelated',
@@ -84,13 +83,13 @@ function ddw_tbex_aoitems_revolution_for_elementor() {
 						'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'rfe_taxonomy_related' ) ),
 						'meta'   => array(
 							'target' => ddw_tbex_meta_target( 'builder' ),
-							'title'  => esc_attr__( 'New Tax Related Builder', 'toolbar-extras' )
+							'title'  => esc_attr__( 'New Tax Related Builder', 'toolbar-extras' ),
 						)
 					)
 				);
 
 			}  // end if
-				
+
 	}  // end if
 
 
@@ -102,7 +101,7 @@ function ddw_tbex_aoitems_revolution_for_elementor() {
 	add_filter( 'tbex_filter_is_addon', '__return_empty_string' );
 
 	/** Plugin's Settings */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'ao-rfe',
 			'parent' => 'tbex-addons',
@@ -110,7 +109,7 @@ function ddw_tbex_aoitems_revolution_for_elementor() {
 			'href'   => esc_url( admin_url( 'admin.php?page=revolution-for-elementor' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_addon_title_attr( __( 'Revolution for Elementor', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_addon_title_attr( __( 'Revolution for Elementor', 'toolbar-extras' ) ),
 			)
 		)
 	);
@@ -119,14 +118,14 @@ function ddw_tbex_aoitems_revolution_for_elementor() {
 		if ( 'yes' === $rfe_adv_options[ 'enable_taxonomy_related' ] ) {
 
 			/** Items for Post Type "Taxonomy Related" */
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-rfep-tax-related',
-					'parent' => 'ao-rfe'
+					'parent' => 'ao-rfe',
 				)
 			);
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'ao-rfep-taxrel-all',
 						'parent' => 'group-rfep-tax-related',
@@ -134,12 +133,12 @@ function ddw_tbex_aoitems_revolution_for_elementor() {
 						'href'   => esc_url( admin_url( 'edit.php?post_type=rfe_taxonomy_related' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'All Taxonomy Related Content', 'toolbar-extras' )
+							'title'  => esc_attr__( 'All Taxonomy Related Content', 'toolbar-extras' ),
 						)
 					)
 				);
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'ao-rfep-taxrel-new',
 						'parent' => 'group-rfep-tax-related',
@@ -147,14 +146,14 @@ function ddw_tbex_aoitems_revolution_for_elementor() {
 						'href'   => esc_url( admin_url( 'post-new.php?post_type=rfe_taxonomy_related' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'New Tax Related Content', 'toolbar-extras' )
+							'title'  => esc_attr__( 'New Tax Related Content', 'toolbar-extras' ),
 						)
 					)
 				);
 
 				if ( ddw_tbex_is_elementor_active() && \Elementor\User::is_current_user_can_edit_post_type( 'rfe_taxonomy_related' ) ) {
 
-					$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					$admin_bar->add_node(
 						array(
 							'id'     => 'ao-rfep-taxrel-builder',
 							'parent' => 'group-rfep-tax-related',
@@ -162,7 +161,7 @@ function ddw_tbex_aoitems_revolution_for_elementor() {
 							'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'rfe_taxonomy_related' ) ),
 							'meta'   => array(
 								'target' => ddw_tbex_meta_target( 'builder' ),
-								'title'  => esc_attr__( 'New Tax Related Builder', 'toolbar-extras' )
+								'title'  => esc_attr__( 'New Tax Related Builder', 'toolbar-extras' ),
 							)
 						)
 					);
@@ -172,7 +171,7 @@ function ddw_tbex_aoitems_revolution_for_elementor() {
 		}  // end if Tax Related
 
 		/** Plugin's settings */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-rfe-widgets',
 				'parent' => 'ao-rfe',
@@ -180,12 +179,12 @@ function ddw_tbex_aoitems_revolution_for_elementor() {
 				'href'   => esc_url( admin_url( 'admin.php?page=revolution-for-elementor#jt_revolution_for_elementor_widgets' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Activate Widgets', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Activate Widgets', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-rfe-extensions',
 				'parent' => 'ao-rfe',
@@ -193,7 +192,7 @@ function ddw_tbex_aoitems_revolution_for_elementor() {
 				'href'   => esc_url( admin_url( 'admin.php?page=revolution-for-elementor#jt_revolution_for_elementor_extensions' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Activate Extensions', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Activate Extensions', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -201,7 +200,7 @@ function ddw_tbex_aoitems_revolution_for_elementor() {
 		/** Show only when Premium version is active */
 		if ( $is_premium ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ao-rfe-advanced',
 					'parent' => 'ao-rfe',
@@ -209,12 +208,12 @@ function ddw_tbex_aoitems_revolution_for_elementor() {
 					'href'   => esc_url( admin_url( 'admin.php?page=revolution-for-elementor#jt_revolution_for_elementor_advanced' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Advanced', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Advanced', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ao-rfe-account',
 					'parent' => 'ao-rfe',
@@ -222,7 +221,7 @@ function ddw_tbex_aoitems_revolution_for_elementor() {
 					'href'   => esc_url( admin_url( 'admin.php?page=revolution-for-elementor-account' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'My Account', 'toolbar-extras' )
+						'title'  => esc_attr__( 'My Account', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -232,11 +231,11 @@ function ddw_tbex_aoitems_revolution_for_elementor() {
 		/** Group: Plugin's Resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-rfe-resources',
 					'parent' => 'ao-rfe',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 
@@ -287,18 +286,18 @@ add_action( 'admin_bar_menu', 'ddw_tbex_items_rfe_premium_new_content', 140 );
  * @uses ddw_tbex_string_newcontent_with_builder()
  * @uses ddw_tbex_string_newcontent_create_with_builder()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_items_rfe_premium_new_content() {
+function ddw_tbex_items_rfe_premium_new_content( $admin_bar ) {
 
 	/** Bail early if items display is not wanted */
 	if ( ! ddw_tbex_display_items_new_content() ) {
-		return;
+		return $admin_bar;
 	}
 
 	if ( \Elementor\User::is_current_user_can_edit_post_type( 'rfe_taxonomy_related' ) ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'rfep-tax-related-with-builder',
 				'parent' => 'new-rfe_taxonomy_related',
@@ -306,7 +305,7 @@ function ddw_tbex_items_rfe_premium_new_content() {
 				'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'rfe_taxonomy_related' ) ),
 				'meta'   => array(
 					'target' => ddw_tbex_meta_target( 'builder' ),
-					'title'  => ddw_tbex_string_newcontent_create_with_builder()
+					'title'  => ddw_tbex_string_newcontent_create_with_builder(),
 				)
 			)
 		);

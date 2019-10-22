@@ -18,12 +18,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_maxgalleria', 15 );
  *
  * @since 1.1.0
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_maxgalleria() {
+function ddw_tbex_site_items_maxgalleria( $admin_bar ) {
 
 	/** For: Manage Content */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'maxgalleria',
 			'parent' => 'gallery-slider-addons',
@@ -31,12 +31,12 @@ function ddw_tbex_site_items_maxgalleria() {
 			'href'   => esc_url( admin_url( 'edit.php?post_type=maxgallery' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'MaxGalleria', 'toolbar-extras' )
+				'title'  => esc_attr__( 'MaxGalleria', 'toolbar-extras' ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'maxgalleria-all',
 				'parent' => 'maxgalleria',
@@ -44,12 +44,12 @@ function ddw_tbex_site_items_maxgalleria() {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=maxgallery' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'All Galleries', 'toolbar-extras' )
+					'title'  => esc_attr__( 'All Galleries', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'maxgalleria-new',
 				'parent' => 'maxgalleria',
@@ -57,12 +57,12 @@ function ddw_tbex_site_items_maxgalleria() {
 				'href'   => esc_url( admin_url( 'post-new.php?post_type=maxgallery' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'New Gallery', 'toolbar-extras' )
+					'title'  => esc_attr__( 'New Gallery', 'toolbar-extras' ),
 				)
 			)
 		);
-			
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+
+		$admin_bar->add_node(
 			array(
 				'id'     => 'maxgalleria-settings',
 				'parent' => 'maxgalleria',
@@ -70,12 +70,12 @@ function ddw_tbex_site_items_maxgalleria() {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=maxgallery&page=maxgalleria-settings' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'maxgalleria-info',
 				'parent' => 'maxgalleria',
@@ -83,7 +83,7 @@ function ddw_tbex_site_items_maxgalleria() {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=maxgallery&page=maxgalleria-support' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'System Info', 'toolbar-extras' )
+					'title'  => esc_attr__( 'System Info', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -91,7 +91,7 @@ function ddw_tbex_site_items_maxgalleria() {
 		/** Optional NextGen Importer */
 		if ( class_exists( 'C_NextGEN_Bootstrap' ) ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'maxgalleria-nggimport',
 					'parent' => 'maxgalleria',
@@ -99,21 +99,21 @@ function ddw_tbex_site_items_maxgalleria() {
 					'href'   => esc_url( admin_url( 'edit.php?post_type=maxgallery&page=maxgalleria-nextgen-importer' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'NextGen Gallery Importer', 'toolbar-extras' )
+						'title'  => esc_attr__( 'NextGen Gallery Importer', 'toolbar-extras' ),
 					)
 				)
 			);
 
 		}  // end if
 
-		/** Group: Resources for MaxGalleria */
+		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-maxgalleria-resources',
 					'parent' => 'maxgalleria',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

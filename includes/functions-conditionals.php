@@ -169,7 +169,7 @@ function ddw_tbex_display_items() {
  */
 function ddw_tbex_display_items_resources() {
 
-	return ( 'yes' === ddw_tbex_get_option( 'general', 'display_items_resources' ) ) ? TRUE : FALSE;
+	return ( 'yes' === ddw_tbex_get_option( 'general', 'display_items_resources' ) );
 
 }  // end function
 
@@ -190,7 +190,7 @@ function ddw_tbex_display_items_themes() {
 		return FALSE;
 	}
 
-	return ( 'yes' === ddw_tbex_get_option( 'general', 'display_items_theme' ) ) ? TRUE : FALSE;
+	return ( 'yes' === ddw_tbex_get_option( 'general', 'display_items_theme' ) );
 
 }  // end function
 
@@ -206,7 +206,7 @@ function ddw_tbex_display_items_themes() {
  */
 function ddw_tbex_display_items_plugins() {
 
-	return ( 'yes' === ddw_tbex_get_option( 'general', 'display_items_plugins' ) ) ? TRUE : FALSE;
+	return ( 'yes' === ddw_tbex_get_option( 'general', 'display_items_plugins' ) );
 
 }  // end function
 
@@ -222,7 +222,7 @@ function ddw_tbex_display_items_plugins() {
  */
 function ddw_tbex_display_items_addons() {
 
-	return ( 'yes' === ddw_tbex_get_option( 'general', 'display_items_addons' ) ) ? TRUE : FALSE;
+	return ( 'yes' === ddw_tbex_get_option( 'general', 'display_items_addons' ) );
 
 }  // end function
 
@@ -238,7 +238,7 @@ function ddw_tbex_display_items_addons() {
  */
 function ddw_tbex_display_items_new_content() {
 
-	return ( 'yes' === ddw_tbex_get_option( 'general', 'display_items_new_content' ) ) ? TRUE : FALSE;
+	return ( 'yes' === ddw_tbex_get_option( 'general', 'display_items_new_content' ) );
 
 }  // end function
 
@@ -254,7 +254,7 @@ function ddw_tbex_display_items_new_content() {
  */
 function ddw_tbex_display_items_site() {
 
-	return ( 'yes' === ddw_tbex_get_option( 'general', 'display_items_site_group' ) ) ? TRUE : FALSE;
+	return ( 'yes' === ddw_tbex_get_option( 'general', 'display_items_site_group' ) );
 
 }  // end function
 
@@ -270,7 +270,7 @@ function ddw_tbex_display_items_site() {
  */
 function ddw_tbex_display_items_edit_content() {
 
-	return ( 'yes' === ddw_tbex_get_option( 'general', 'display_items_edit_content' ) ) ? TRUE : FALSE;
+	return ( 'yes' === ddw_tbex_get_option( 'general', 'display_items_edit_content' ) );
 
 }  // end function
 
@@ -286,7 +286,7 @@ function ddw_tbex_display_items_edit_content() {
  */
 function ddw_tbex_display_items_edit_nav_menus() {
 
-	return ( 'yes' === ddw_tbex_get_option( 'general', 'display_items_edit_menus' ) ) ? TRUE : FALSE;
+	return ( 'yes' === ddw_tbex_get_option( 'general', 'display_items_edit_menus' ) );
 
 }  // end function
 
@@ -317,7 +317,7 @@ function ddw_tbex_display_items_super_admin_nav_menu() {
  */
 function ddw_tbex_display_items_plugin_settings() {
 
-	return ( 'yes' === ddw_tbex_get_option( 'general', 'display_items_tbex_settings' ) ) ? TRUE : FALSE;
+	return ( 'yes' === ddw_tbex_get_option( 'general', 'display_items_tbex_settings' ) );
 
 }  // end function
 
@@ -334,7 +334,7 @@ function ddw_tbex_display_items_plugin_settings() {
  */
 function ddw_tbex_display_link_title_attributes() {
 
-	return ( 'yes' === ddw_tbex_get_option( 'general', 'display_title_attributes' ) ) ? TRUE : FALSE;
+	return ( 'yes' === ddw_tbex_get_option( 'general', 'display_title_attributes' ) );
 
 }  // end function
 
@@ -350,9 +350,7 @@ function ddw_tbex_display_link_title_attributes() {
  */
 function ddw_tbex_display_items_dev_mode() {
 
-	//return ( defined( 'TBEX_DISPLAY_DEV_MODE' ) && TBEX_DISPLAY_DEV_MODE ) ? TRUE : FALSE;
-
-	return ( 'yes' === ddw_tbex_get_option( 'development', 'use_dev_mode' ) ) ? TRUE : FALSE;
+	return ( 'yes' === ddw_tbex_get_option( 'development', 'use_dev_mode' ) );
 
 }  // end function
 
@@ -368,7 +366,7 @@ function ddw_tbex_display_items_dev_mode() {
  */
 function ddw_tbex_display_items_demo_import() {
 
-	return ( 'yes' === ddw_tbex_get_option( 'general', 'display_items_demo_import' ) ) ? TRUE : FALSE;
+	return ( 'yes' === ddw_tbex_get_option( 'general', 'display_items_demo_import' ) );
 
 }  // end function
 
@@ -384,7 +382,7 @@ function ddw_tbex_display_items_demo_import() {
  */
 function ddw_tbex_display_items_users() {
 
-	return ( 'yes' === ddw_tbex_get_option( 'general', 'display_items_user_group' ) ) ? TRUE : FALSE;
+	return ( 'yes' === ddw_tbex_get_option( 'general', 'display_items_user_group' ) );
 
 }  // end function
 
@@ -400,7 +398,7 @@ function ddw_tbex_display_items_users() {
  */
 function ddw_tbex_display_items_webgroup() {
 
-	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'use_web_group' ) ) ? TRUE : FALSE;
+	return ( 'yes' === ddw_tbex_get_option( 'tweaks', 'use_web_group' ) );
 
 }  // end function
 
@@ -409,6 +407,7 @@ function ddw_tbex_display_items_webgroup() {
  * Display optional WP Comments items at all or not?
  *
  * @since 1.4.0
+ * @since 1.4.8 Added integration with "Disable Comments" plugin.
  *
  * @uses ddw_tbex_get_option()
  *
@@ -416,7 +415,21 @@ function ddw_tbex_display_items_webgroup() {
  */
 function ddw_tbex_display_items_wpcomments() {
 
-	return ( 'yes' === ddw_tbex_get_option( 'general', 'display_items_wpcomments' ) ) ? TRUE : FALSE;
+	if ( 'yes' === ddw_tbex_get_option( 'general', 'display_items_wpcomments' ) ) {
+		return TRUE;
+	}
+
+	if ( class_exists( 'Disable_Comments' ) ) {
+
+		$dc_options = get_option( 'disable_comments_options' );
+
+		if ( $dc_options[ 'remove_everywhere' ] ) {
+			return FALSE;
+		}
+
+	}  // end if
+	
+	return FALSE;
 
 }  // end function
 
@@ -497,7 +510,6 @@ function ddw_tbex_in_local_environment() {
  */
 function ddw_tbex_use_smart_tweaks() {
 
-	//return ( defined( 'TBEX_USE_SMART_TWEAKS' ) && TBEX_USE_SMART_TWEAKS ) ? TRUE : FALSE;
 	return defined( 'TBEX_USE_SMART_TWEAKS' ) ? TBEX_USE_SMART_TWEAKS : FALSE;
 
 }  // end function
@@ -516,13 +528,11 @@ function ddw_tbex_use_smart_tweaks() {
  */
 function ddw_tbex_use_block_editor_support() {
 
-	//return ( defined( 'TBEX_USE_BLOGK_EDITOR_SUPPORT' ) ) ? TBEX_USE_BLOGK_EDITOR_SUPPORT : FALSE;
-
 	if ( defined( 'TBEX_USE_BLOGK_EDITOR_SUPPORT' ) ) {
 		return (bool) TBEX_USE_BLOGK_EDITOR_SUPPORT;
 	}
 
-	return ( 'yes' === ddw_tbex_get_option( 'general', 'use_blockeditor_support' ) ) ? TRUE : FALSE;
+	return ( 'yes' === ddw_tbex_get_option( 'general', 'use_blockeditor_support' ) );
 
 }  // end function
 
@@ -539,7 +549,7 @@ function ddw_tbex_use_block_editor_support() {
  */
 function ddw_tbex_use_block_editor_addons_support() {
 
-	return ( 'yes' === ddw_tbex_get_option( 'general', 'display_blockeditor_addons' ) ) ? TRUE : FALSE;
+	return ( 'yes' === ddw_tbex_get_option( 'general', 'display_blockeditor_addons' ) );
 
 }  // end function
 
@@ -551,12 +561,10 @@ function ddw_tbex_use_block_editor_addons_support() {
  *
  * @since 1.3.2
  *
- * @global string $GLOBALS[ 'wp_version' ] 
+ * @global string $GLOBALS[ 'wp_version' ]
  * @return bool TRUE if Block Editor available, FALSE otherwise.
  */
 function ddw_tbex_is_block_editor_active() {
-
-	//return ( defined( 'GUTENBERG_VERSION' ) ) ? TRUE : FALSE;
 
 	if ( version_compare( $GLOBALS[ 'wp_version' ], '5.0.0', '>=' )
 		|| defined( 'GUTENBERG_VERSION' )
@@ -779,7 +787,7 @@ function ddw_tbex_is_translations_unloading_allowed() {
  */
 function ddw_tbex_use_devmode_element_ids() {
 
-	return ( 'yes' === ddw_tbex_get_option( 'development', 'use_element_ids' ) ) ? TRUE : FALSE;
+	return ( 'yes' === ddw_tbex_get_option( 'development', 'use_element_ids' ) );
 
 }  // end function
 
@@ -796,7 +804,7 @@ function ddw_tbex_use_devmode_element_ids() {
  */
 function ddw_tbex_use_devmode_uploader_menus() {
 
-	return ( 'yes' === ddw_tbex_get_option( 'development', 'use_uploader_menus' ) ) ? TRUE : FALSE;
+	return ( 'yes' === ddw_tbex_get_option( 'development', 'use_uploader_menus' ) );
 
 }  // end function
 
@@ -829,6 +837,60 @@ function ddw_tbex_is_notice_review_allowed( $current_screen ) {
 	}
 
 	/** By default let return TRUE (notice will appear) */
+	return TRUE;
+
+}  // end function
+
+
+/**
+ * Display an additional "Tools" Group top-level item or not?
+ *
+ * @since 1.4.8
+ *
+ * @uses ddw_tbex_get_option()
+ *
+ * @return bool TRUE if items display wanted, FALSE otherwise.
+ */
+function ddw_tbex_display_tools_toplevel() {
+
+	//return ( 'yes' === ddw_tbex_get_option( 'general', 'display_tools_toplevel' ) );
+
+	return TRUE;
+
+}  // end function
+
+
+/**
+ * Display various settings shortcuts within the (Network) Admin area or not?
+ *
+ * @since 1.4.8
+ *
+ * @return bool TRUE if shortcuts display wanted, FALSE otherwise.
+ */
+function ddw_tbex_display_settings_shortcuts() {
+
+	if ( defined( 'TBEX_DISPLAY_SETTINGS_SHORTCUTS' ) ) {
+		return (bool) TBEX_DISPLAY_SETTINGS_SHORTCUTS;
+	}
+
+	return TRUE;
+
+}  // end function
+
+
+/**
+ * Display various additions of this plugin within the Dashboard or not?
+ *
+ * @since 1.4.8
+ *
+ * @return bool TRUE if additions display wanted, FALSE otherwise.
+ */
+function ddw_tbex_display_dashboard_additions() {
+
+	if ( defined( 'TBEX_DISPLAY_DASHBOARD_ADDITIONS' ) ) {
+		return (bool) TBEX_DISPLAY_DASHBOARD_ADDITIONS;
+	}
+
 	return TRUE;
 
 }  // end function

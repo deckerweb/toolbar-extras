@@ -21,12 +21,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_ct_risen', 100 );
  * @uses ddw_tbex_string_theme_title()
  * @uses ddw_tbex_customizer_start()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_ct_risen() {
+function ddw_tbex_themeitems_ct_risen( $admin_bar ) {
 
 	/** Theme creative */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'theme-creative',
 			'parent' => 'group-active-theme',
@@ -34,12 +34,12 @@ function ddw_tbex_themeitems_ct_risen() {
 			'href'   => function_exists( 'optionsframework_init' ) ? esc_url( admin_url( 'themes.php?page=options-framework' ) ) : '',
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_theme_title( 'attr' )
+				'title'  => ddw_tbex_string_theme_title( 'attr' ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'theme-creative-customize',
 				'parent' => 'theme-creative',
@@ -47,12 +47,12 @@ function ddw_tbex_themeitems_ct_risen() {
 				'href'   => ddw_tbex_customizer_start(),
 				'meta'   => array(
 					'target' => ddw_tbex_meta_target(),
-					'title'  => esc_attr__( 'Customize Design', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Customize Design', 'toolbar-extras' ),
 				)
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'risencmz-site-identity',
 					'parent' => 'theme-creative-customize',
@@ -61,7 +61,7 @@ function ddw_tbex_themeitems_ct_risen() {
 					'href'   => ddw_tbex_customizer_focus( 'section', 'title_tagline' ),
 					'meta'   => array(
 						'target' => ddw_tbex_meta_target(),
-						'title'  => ddw_tbex_string_customize_attr( __( 'Site Identity', 'toolbar-extras' ) )
+						'title'  => ddw_tbex_string_customize_attr( __( 'Site Identity', 'toolbar-extras' ) ),
 					)
 				)
 			);
@@ -78,16 +78,16 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_ct_risen_settings', 100 );
  * @uses ddw_tbex_string_theme_title()
  * @uses ddw_tbex_customizer_start()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_ct_risen_settings() {
+function ddw_tbex_themeitems_ct_risen_settings( $admin_bar ) {
 
 	/** Bail early if Options Framework doesn't exist */
 	if ( ! function_exists( 'optionsframework_init' ) ) {
-		return;
+		return $admin_bar;
 	}
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'theme-settings',
 			'parent' => 'group-active-theme',
@@ -95,12 +95,12 @@ function ddw_tbex_themeitems_ct_risen_settings() {
 			'href'   => esc_url( admin_url( 'themes.php?page=options-framework' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Risen Settings', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Risen Settings', 'toolbar-extras' ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'theme-settings-styles',
 				'parent' => 'theme-settings',
@@ -108,12 +108,12 @@ function ddw_tbex_themeitems_ct_risen_settings() {
 				'href'   => esc_url( admin_url( 'themes.php?page=options-framework#options-group-1' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Styles', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Styles', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'theme-settings-header',
 				'parent' => 'theme-settings',
@@ -121,12 +121,12 @@ function ddw_tbex_themeitems_ct_risen_settings() {
 				'href'   => esc_url( admin_url( 'themes.php?page=options-framework#options-group-2' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Header', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Header', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'theme-settings-footer',
 				'parent' => 'theme-settings',
@@ -134,12 +134,12 @@ function ddw_tbex_themeitems_ct_risen_settings() {
 				'href'   => esc_url( admin_url( 'themes.php?page=options-framework#options-group-3' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Footer', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Footer', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'theme-settings-homepage',
 				'parent' => 'theme-settings',
@@ -147,12 +147,12 @@ function ddw_tbex_themeitems_ct_risen_settings() {
 				'href'   => esc_url( admin_url( 'themes.php?page=options-framework#options-group-4' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Homepage', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Homepage', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'theme-settings-blog',
 				'parent' => 'theme-settings',
@@ -160,12 +160,12 @@ function ddw_tbex_themeitems_ct_risen_settings() {
 				'href'   => esc_url( admin_url( 'themes.php?page=options-framework#options-group-8' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Blog', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Blog', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'theme-settings-contact-form',
 				'parent' => 'theme-settings',
@@ -173,12 +173,12 @@ function ddw_tbex_themeitems_ct_risen_settings() {
 				'href'   => esc_url( admin_url( 'themes.php?page=options-framework#options-group-9' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Contact Form', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Contact Form', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'theme-settings-other',
 				'parent' => 'theme-settings',
@@ -186,7 +186,7 @@ function ddw_tbex_themeitems_ct_risen_settings() {
 				'href'   => esc_url( admin_url( 'themes.php?page=options-framework#options-group-10' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Other Options', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Other Options', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -203,20 +203,22 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_ct_risen_resources', 120 );
  *
  * @uses ddw_tbex_display_items_resources()
  * @uses ddw_tbex_resource_item()
+ *
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_ct_risen_resources() {
+function ddw_tbex_themeitems_ct_risen_resources( $admin_bar ) {
 
 	/** Bail early if no resources display active */
 	if ( ! ddw_tbex_display_items_resources() ) {
-		return;
+		return $admin_bar;
 	}
 
 	/** Group: Resources for Risen Theme */
-	$GLOBALS[ 'wp_admin_bar' ]->add_group(
+	$admin_bar->add_group(
 		array(
 			'id'     => 'group-theme-resources',
 			'parent' => function_exists( 'optionsframework_init' ) ? 'theme-settings' : 'theme-creative',
-			'meta'   => array( 'class' => 'ab-sub-secondary' )
+			'meta'   => array( 'class' => 'ab-sub-secondary' ),
 		)
 	);
 
@@ -250,22 +252,22 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_ct_risen_post_types', 110 );
  *
  * @since 1.3.0
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_ct_risen_post_types() {
+function ddw_tbex_aoitems_ct_risen_post_types( $admin_bar ) {
 
 	/** For: Theme Creative */
-	$GLOBALS[ 'wp_admin_bar' ]->add_group(
+	$admin_bar->add_group(
 		array(
 			'id'     => 'group-ao-risencpt',
-			'parent' => 'theme-creative'
+			'parent' => 'theme-creative',
 		)
 	);
 
 	/** Sermons */
 	if ( post_type_exists( 'risen_multimedia' ) ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ct-risencpt-sermons',
 				'parent' => 'group-ao-risencpt',
@@ -273,12 +275,12 @@ function ddw_tbex_aoitems_ct_risen_post_types() {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=risen_multimedia' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Sermons', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Sermons', 'toolbar-extras' ),
 				)
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ct-risencpt-sermons-all',
 					'parent' => 'ct-risencpt-sermons',
@@ -286,12 +288,12 @@ function ddw_tbex_aoitems_ct_risen_post_types() {
 					'href'   => esc_url( admin_url( 'edit.php?post_type=risen_multimedia' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'All Sermons', 'toolbar-extras' )
+						'title'  => esc_attr__( 'All Sermons', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ct-risencpt-sermons-new',
 					'parent' => 'ct-risencpt-sermons',
@@ -299,14 +301,14 @@ function ddw_tbex_aoitems_ct_risen_post_types() {
 					'href'   => esc_url( admin_url( 'post-new.php?post_type=risen_multimedia' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'New Sermon', 'toolbar-extras' )
+						'title'  => esc_attr__( 'New Sermon', 'toolbar-extras' ),
 					)
 				)
 			);
 
 			if ( ddw_tbex_is_elementor_active() && \Elementor\User::is_current_user_can_edit_post_type( 'risen_multimedia' ) ) {
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'ct-risencpt-sermons-builder',
 						'parent' => 'ct-risencpt-sermons',
@@ -314,7 +316,7 @@ function ddw_tbex_aoitems_ct_risen_post_types() {
 						'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'risen_multimedia' ) ),
 						'meta'   => array(
 							'target' => ddw_tbex_meta_target( 'builder' ),
-							'title'  => esc_attr__( 'New Sermon Builder', 'toolbar-extras' )
+							'title'  => esc_attr__( 'New Sermon Builder', 'toolbar-extras' ),
 						)
 					)
 				);
@@ -323,7 +325,7 @@ function ddw_tbex_aoitems_ct_risen_post_types() {
 
 			if ( function_exists( 'optionsframework_init' ) ) {
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'ct-risencpt-sermons-settings',
 						'parent' => 'ct-risencpt-sermons',
@@ -331,7 +333,7 @@ function ddw_tbex_aoitems_ct_risen_post_types() {
 						'href'   => esc_url( admin_url( 'themes.php?page=options-framework#options-group-5' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
+							'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
 						)
 					)
 				);
@@ -343,7 +345,7 @@ function ddw_tbex_aoitems_ct_risen_post_types() {
 	/** Gallery */
 	if ( post_type_exists( 'risen_gallery' ) ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ct-risencpt-gallery',
 				'parent' => 'group-ao-risencpt',
@@ -351,12 +353,12 @@ function ddw_tbex_aoitems_ct_risen_post_types() {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=risen_gallery' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Gallery', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Gallery', 'toolbar-extras' ),
 				)
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ct-risencpt-gallery-all',
 					'parent' => 'ct-risencpt-gallery',
@@ -364,12 +366,12 @@ function ddw_tbex_aoitems_ct_risen_post_types() {
 					'href'   => esc_url( admin_url( 'edit.php?post_type=risen_gallery' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'All Galleries', 'toolbar-extras' )
+						'title'  => esc_attr__( 'All Galleries', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ct-risencpt-gallery-new',
 					'parent' => 'ct-risencpt-gallery',
@@ -377,14 +379,14 @@ function ddw_tbex_aoitems_ct_risen_post_types() {
 					'href'   => esc_url( admin_url( 'post-new.php?post_type=risen_gallery' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'New Gallery', 'toolbar-extras' )
+						'title'  => esc_attr__( 'New Gallery', 'toolbar-extras' ),
 					)
 				)
 			);
 
 			if ( ddw_tbex_is_elementor_active() && \Elementor\User::is_current_user_can_edit_post_type( 'risen_multimedia' ) ) {
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'ct-risencpt-gallery-builder',
 						'parent' => 'ct-risencpt-gallery',
@@ -392,7 +394,7 @@ function ddw_tbex_aoitems_ct_risen_post_types() {
 						'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'risen_gallery' ) ),
 						'meta'   => array(
 							'target' => ddw_tbex_meta_target( 'builder' ),
-							'title'  => esc_attr__( 'New Gallery Builder', 'toolbar-extras' )
+							'title'  => esc_attr__( 'New Gallery Builder', 'toolbar-extras' ),
 						)
 					)
 				);
@@ -401,7 +403,7 @@ function ddw_tbex_aoitems_ct_risen_post_types() {
 
 			if ( function_exists( 'optionsframework_init' ) ) {
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'ct-risencpt-gallery-settings',
 						'parent' => 'ct-risencpt-gallery',
@@ -409,7 +411,7 @@ function ddw_tbex_aoitems_ct_risen_post_types() {
 						'href'   => esc_url( admin_url( 'themes.php?page=options-framework#options-group-6' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
+							'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
 						)
 					)
 				);
@@ -421,7 +423,7 @@ function ddw_tbex_aoitems_ct_risen_post_types() {
 	/** Events */
 	if ( post_type_exists( 'risen_event' ) ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ct-risencpt-events',
 				'parent' => 'group-ao-risencpt',
@@ -429,12 +431,12 @@ function ddw_tbex_aoitems_ct_risen_post_types() {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=risen_event' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Events', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Events', 'toolbar-extras' ),
 				)
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ct-risencpt-events-all',
 					'parent' => 'ct-risencpt-events',
@@ -442,12 +444,12 @@ function ddw_tbex_aoitems_ct_risen_post_types() {
 					'href'   => esc_url( admin_url( 'edit.php?post_type=risen_event' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'All Events', 'toolbar-extras' )
+						'title'  => esc_attr__( 'All Events', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ct-risencpt-events-new',
 					'parent' => 'ct-risencpt-events',
@@ -455,14 +457,14 @@ function ddw_tbex_aoitems_ct_risen_post_types() {
 					'href'   => esc_url( admin_url( 'post-new.php?post_type=risen_event' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'New Event', 'toolbar-extras' )
+						'title'  => esc_attr__( 'New Event', 'toolbar-extras' ),
 					)
 				)
 			);
 
 			if ( ddw_tbex_is_elementor_active() && \Elementor\User::is_current_user_can_edit_post_type( 'risen_event' ) ) {
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'ct-risencpt-events-builder',
 						'parent' => 'ct-risencpt-events',
@@ -470,7 +472,7 @@ function ddw_tbex_aoitems_ct_risen_post_types() {
 						'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'risen_event' ) ),
 						'meta'   => array(
 							'target' => ddw_tbex_meta_target( 'builder' ),
-							'title'  => esc_attr__( 'New Event Builder', 'toolbar-extras' )
+							'title'  => esc_attr__( 'New Event Builder', 'toolbar-extras' ),
 						)
 					)
 				);
@@ -479,7 +481,7 @@ function ddw_tbex_aoitems_ct_risen_post_types() {
 
 			if ( function_exists( 'optionsframework_init' ) ) {
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'ct-risencpt-events-settings',
 						'parent' => 'ct-risencpt-events',
@@ -487,7 +489,7 @@ function ddw_tbex_aoitems_ct_risen_post_types() {
 						'href'   => esc_url( admin_url( 'themes.php?page=options-framework#options-group-7' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
+							'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
 						)
 					)
 				);
@@ -499,7 +501,7 @@ function ddw_tbex_aoitems_ct_risen_post_types() {
 	/** Staff (Persons/ People) */
 	if ( post_type_exists( 'risen_staff' ) ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ct-risencpt-staff',
 				'parent' => 'group-ao-risencpt',
@@ -507,12 +509,12 @@ function ddw_tbex_aoitems_ct_risen_post_types() {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=risen_staff' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Staff', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Staff', 'toolbar-extras' ),
 				)
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ct-risencpt-staff-all',
 					'parent' => 'ct-risencpt-staff',
@@ -520,12 +522,12 @@ function ddw_tbex_aoitems_ct_risen_post_types() {
 					'href'   => esc_url( admin_url( 'edit.php?post_type=risen_staff' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'All Persons', 'toolbar-extras' )
+						'title'  => esc_attr__( 'All Persons', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ct-risencpt-staff-new',
 					'parent' => 'ct-risencpt-staff',
@@ -533,14 +535,14 @@ function ddw_tbex_aoitems_ct_risen_post_types() {
 					'href'   => esc_url( admin_url( 'post-new.php?post_type=risen_staff' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'New Person', 'toolbar-extras' )
+						'title'  => esc_attr__( 'New Person', 'toolbar-extras' ),
 					)
 				)
 			);
 
 			if ( ddw_tbex_is_elementor_active() && \Elementor\User::is_current_user_can_edit_post_type( 'risen_staff' ) ) {
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'ct-risencpt-staff-builder',
 						'parent' => 'ct-risencpt-staff',
@@ -548,7 +550,7 @@ function ddw_tbex_aoitems_ct_risen_post_types() {
 						'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'risen_staff' ) ),
 						'meta'   => array(
 							'target' => ddw_tbex_meta_target( 'builder' ),
-							'title'  => esc_attr__( 'New Person Builder', 'toolbar-extras' )
+							'title'  => esc_attr__( 'New Person Builder', 'toolbar-extras' ),
 						)
 					)
 				);
@@ -560,7 +562,7 @@ function ddw_tbex_aoitems_ct_risen_post_types() {
 	/** Locations */
 	if ( post_type_exists( 'risen_location' ) ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ct-risencpt-locations',
 				'parent' => 'group-ao-risencpt',
@@ -568,12 +570,12 @@ function ddw_tbex_aoitems_ct_risen_post_types() {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=risen_location' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Locations', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Locations', 'toolbar-extras' ),
 				)
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ct-risencpt-locations-all',
 					'parent' => 'ct-risencpt-locations',
@@ -581,12 +583,12 @@ function ddw_tbex_aoitems_ct_risen_post_types() {
 					'href'   => esc_url( admin_url( 'edit.php?post_type=risen_location' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'All Locations', 'toolbar-extras' )
+						'title'  => esc_attr__( 'All Locations', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ct-risencpt-locations-new',
 					'parent' => 'ct-risencpt-locations',
@@ -594,14 +596,14 @@ function ddw_tbex_aoitems_ct_risen_post_types() {
 					'href'   => esc_url( admin_url( 'post-new.php?post_type=risen_location' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'New Location', 'toolbar-extras' )
+						'title'  => esc_attr__( 'New Location', 'toolbar-extras' ),
 					)
 				)
 			);
 
 			if ( ddw_tbex_is_elementor_active() && \Elementor\User::is_current_user_can_edit_post_type( 'risen_location' ) ) {
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'ct-risencpt-locations-builder',
 						'parent' => 'ct-risencpt-locations',
@@ -609,7 +611,7 @@ function ddw_tbex_aoitems_ct_risen_post_types() {
 						'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'risen_location' ) ),
 						'meta'   => array(
 							'target' => ddw_tbex_meta_target( 'builder' ),
-							'title'  => esc_attr__( 'New Location Builder', 'toolbar-extras' )
+							'title'  => esc_attr__( 'New Location Builder', 'toolbar-extras' ),
 						)
 					)
 				);
@@ -627,22 +629,22 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_ct_risen_post_types', 15 );
  *
  * @since 1.3.0
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_ct_risen_post_types() {
+function ddw_tbex_site_items_ct_risen_post_types( $admin_bar ) {
 
 	/** For: Manage Content */
-	$GLOBALS[ 'wp_admin_bar' ]->add_group(
+	$admin_bar->add_group(
 		array(
 			'id'     => 'group-risen-posttype-content',
-			'parent' => 'manage-content'
+			'parent' => 'manage-content',
 		)
 	);
 
 	/** Sermons */
 	if ( post_type_exists( 'risen_multimedia' ) ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ct-risen-posttype-content-sermons-edit',
 				'parent' => 'group-risen-posttype-content',
@@ -650,7 +652,7 @@ function ddw_tbex_site_items_ct_risen_post_types() {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=risen_multimedia' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Edit Sermons', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Edit Sermons', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -660,7 +662,7 @@ function ddw_tbex_site_items_ct_risen_post_types() {
 	/** Gallery */
 	if ( post_type_exists( 'risen_gallery' ) ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ct-risen-posttype-content-gallery-edit',
 				'parent' => 'group-risen-posttype-content',
@@ -668,7 +670,7 @@ function ddw_tbex_site_items_ct_risen_post_types() {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=risen_gallery' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Edit Gallery', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Edit Gallery', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -678,7 +680,7 @@ function ddw_tbex_site_items_ct_risen_post_types() {
 	/** Events */
 	if ( post_type_exists( 'risen_events' ) ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ct-risen-posttype-content-events-edit',
 				'parent' => 'group-risen-posttype-content',
@@ -686,7 +688,7 @@ function ddw_tbex_site_items_ct_risen_post_types() {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=risen_event' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Edit Events', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Edit Events', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -696,7 +698,7 @@ function ddw_tbex_site_items_ct_risen_post_types() {
 	/** Persons */
 	if ( post_type_exists( 'risen_staff' ) ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ct-risen-posttype-content-staff-edit',
 				'parent' => 'group-risen-posttype-content',
@@ -704,7 +706,7 @@ function ddw_tbex_site_items_ct_risen_post_types() {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=risen_staff' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Edit Persons', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Edit Persons', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -714,7 +716,7 @@ function ddw_tbex_site_items_ct_risen_post_types() {
 	/** Locations */
 	if ( post_type_exists( 'risen_location' ) ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ct-risen-posttype-content-locations-edit',
 				'parent' => 'group-risen-posttype-content',
@@ -722,7 +724,7 @@ function ddw_tbex_site_items_ct_risen_post_types() {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=risen_location' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Edit Locations', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Edit Locations', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -732,7 +734,7 @@ function ddw_tbex_site_items_ct_risen_post_types() {
 	/** Plugin settings */
 	if ( function_exists( 'optionsframework_init' ) ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ct-risen-posttype-content-plugin-settings',
 				'parent' => 'group-risen-posttype-content',
@@ -740,12 +742,12 @@ function ddw_tbex_site_items_ct_risen_post_types() {
 				'href'   => esc_url( admin_url( 'themes.php?page=options-framework' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
 				)
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ct-risen-posttype-content-plugin-settings-sermons',
 					'parent' => 'ct-risen-posttype-content-plugin-settings',
@@ -753,12 +755,12 @@ function ddw_tbex_site_items_ct_risen_post_types() {
 					'href'   => esc_url( admin_url( 'themes.php?page=options-framework#options-group-5' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Sermons', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Sermons', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ct-risen-posttype-content-plugin-settings-gallery',
 					'parent' => 'ct-risen-posttype-content-plugin-settings',
@@ -766,12 +768,12 @@ function ddw_tbex_site_items_ct_risen_post_types() {
 					'href'   => esc_url( admin_url( 'themes.php?page=options-framework#options-group-6' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Gallery', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Gallery', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ct-risen-posttype-content-plugin-settings-events',
 					'parent' => 'ct-risen-posttype-content-plugin-settings',
@@ -779,7 +781,7 @@ function ddw_tbex_site_items_ct_risen_post_types() {
 					'href'   => esc_url( admin_url( 'themes.php?page=options-framework#options-group-7' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Events', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Events', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -796,21 +798,21 @@ add_action( 'admin_bar_menu', 'ddw_tbex_new_content_ct_risen_post_types' );
  *
  * @since 1.3.0
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_new_content_ct_risen_post_types() {
+function ddw_tbex_new_content_ct_risen_post_types( $admin_bar ) {
 
 	/** Bail early if items display is not wanted or possible */
 	if ( ! ddw_tbex_display_items_new_content()
 		|| ! ddw_tbex_is_elementor_active()
 	) {
-		return;
+		return $admin_bar;
 	}
 
 	/** Sermons */
 	if ( post_type_exists( 'risen_multimedia' ) && \Elementor\User::is_current_user_can_edit_post_type( 'risen_multimedia' ) ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ct-risencpt-sermons-with-builder',
 				'parent' => 'new-risen_multimedia',
@@ -818,7 +820,7 @@ function ddw_tbex_new_content_ct_risen_post_types() {
 				'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'risen_multimedia' ) ),
 				'meta'   => array(
 					'target' => ddw_tbex_meta_target( 'builder' ),
-					'title'  => ddw_tbex_string_newcontent_create_with_builder()
+					'title'  => ddw_tbex_string_newcontent_create_with_builder(),
 				)
 			)
 		);
@@ -828,7 +830,7 @@ function ddw_tbex_new_content_ct_risen_post_types() {
 	/** Gallery */
 	if ( post_type_exists( 'risen_gallery' ) && \Elementor\User::is_current_user_can_edit_post_type( 'risen_gallery' ) ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ct-risencpt-gallery-with-builder',
 				'parent' => 'new-risen_gallery',
@@ -836,7 +838,7 @@ function ddw_tbex_new_content_ct_risen_post_types() {
 				'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'risen_gallery' ) ),
 				'meta'   => array(
 					'target' => ddw_tbex_meta_target( 'builder' ),
-					'title'  => ddw_tbex_string_newcontent_create_with_builder()
+					'title'  => ddw_tbex_string_newcontent_create_with_builder(),
 				)
 			)
 		);
@@ -846,7 +848,7 @@ function ddw_tbex_new_content_ct_risen_post_types() {
 	/** Events */
 	if ( post_type_exists( 'risen_event' ) && \Elementor\User::is_current_user_can_edit_post_type( 'risen_event' ) ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ct-risencpt-events-with-builder',
 				'parent' => 'new-risen_event',
@@ -854,7 +856,7 @@ function ddw_tbex_new_content_ct_risen_post_types() {
 				'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'risen_event' ) ),
 				'meta'   => array(
 					'target' => ddw_tbex_meta_target( 'builder' ),
-					'title'  => ddw_tbex_string_newcontent_create_with_builder()
+					'title'  => ddw_tbex_string_newcontent_create_with_builder(),
 				)
 			)
 		);
@@ -864,7 +866,7 @@ function ddw_tbex_new_content_ct_risen_post_types() {
 	/** Locations */
 	if ( post_type_exists( 'risen_location' ) && \Elementor\User::is_current_user_can_edit_post_type( 'risen_location' ) ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ct-risencpt-locations-with-builder',
 				'parent' => 'new-risen_location',
@@ -872,7 +874,7 @@ function ddw_tbex_new_content_ct_risen_post_types() {
 				'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'risen_location' ) ),
 				'meta'   => array(
 					'target' => ddw_tbex_meta_target( 'builder' ),
-					'title'  => ddw_tbex_string_newcontent_create_with_builder()
+					'title'  => ddw_tbex_string_newcontent_create_with_builder(),
 				)
 			)
 		);
@@ -882,7 +884,7 @@ function ddw_tbex_new_content_ct_risen_post_types() {
 	/** Staff (Persons/ People) */
 	if ( post_type_exists( 'risen_staff' ) && \Elementor\User::is_current_user_can_edit_post_type( 'risen_staff' ) ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ct-risencpt-staff-with-builder',
 				'parent' => 'new-risen_staff',
@@ -890,7 +892,7 @@ function ddw_tbex_new_content_ct_risen_post_types() {
 				'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'risen_staff' ) ),
 				'meta'   => array(
 					'target' => ddw_tbex_meta_target( 'builder' ),
-					'title'  => ddw_tbex_string_newcontent_create_with_builder()
+					'title'  => ddw_tbex_string_newcontent_create_with_builder(),
 				)
 			)
 		);

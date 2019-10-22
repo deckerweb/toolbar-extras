@@ -69,7 +69,7 @@ function ddw_tbex_site_items_advanced_forms( $admin_bar ) {
 
 				$form_data = af_get_form( $form_id );
 				//$form_key  = af_get_form_field_groups( $form_data[ 'key' ] );
-               
+
 				// Get field groups for the current form
 				//$field_groups = af_get_form_field_groups( $form_data[ 'key' ] );
 
@@ -82,7 +82,7 @@ function ddw_tbex_site_items_advanced_forms( $admin_bar ) {
 						'href'   => esc_url( admin_url( 'post.php?post=' . $form_id . '&action=edit&classic-editor' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'Edit Form', 'toolbar-extras' ) . ': ' . $form_name
+							'title'  => esc_attr__( 'Edit Form', 'toolbar-extras' ) . ': ' . $form_name,
 						)
 					)
 				);
@@ -95,7 +95,7 @@ function ddw_tbex_site_items_advanced_forms( $admin_bar ) {
 							'href'   => esc_url( admin_url( 'post.php?post=' . $form_id . '&action=edit&classic-editor' ) ),
 							'meta'   => array(
 								'target' => '',
-								'title'  => esc_attr__( 'Form Settings', 'toolbar-extras' )
+								'title'  => esc_attr__( 'Form Settings', 'toolbar-extras' ),
 							)
 						)
 					);
@@ -108,7 +108,7 @@ function ddw_tbex_site_items_advanced_forms( $admin_bar ) {
 							'href'   => esc_url( admin_url( 'admin.php?page=af_preview_form&form_id=' . $form_id ) ),	//esc_url( site_url( '/forms/' . $form_slug . '/' ) ),
 							'meta'   => array(
 								'target' => '',
-								'title'  => esc_attr__( 'Preview', 'toolbar-extras' )
+								'title'  => esc_attr__( 'Preview', 'toolbar-extras' ),
 							)
 						)
 					);
@@ -123,7 +123,7 @@ function ddw_tbex_site_items_advanced_forms( $admin_bar ) {
 								'href'   => esc_url( admin_url( 'edit.php?post_type=af_entry&entry_form=' . $form_data[ 'key' ] ) ),
 								'meta'   => array(
 									'target' => '',
-									'title'  => esc_attr__( 'Entries', 'toolbar-extras' )
+									'title'  => esc_attr__( 'Entries', 'toolbar-extras' ),
 								)
 							)
 						);
@@ -143,7 +143,7 @@ function ddw_tbex_site_items_advanced_forms( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=' . $type ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'All Forms', 'toolbar-extras' )
+					'title'  => esc_attr__( 'All Forms', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -157,7 +157,7 @@ function ddw_tbex_site_items_advanced_forms( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'post-new.php?post_type=' . $type ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'New Form', 'toolbar-extras' )
+					'title'  => esc_attr__( 'New Form', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -171,7 +171,7 @@ function ddw_tbex_site_items_advanced_forms( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=af_entry' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'All Entries', 'toolbar-extras' )
+					'title'  => esc_attr__( 'All Entries', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -185,13 +185,13 @@ function ddw_tbex_site_items_advanced_forms( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=acf-field-group' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Field Groups', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Field Groups', 'toolbar-extras' ),
 				)
 			)
 		);
 
 		/** Optionally, let other Advanced Forms Add-Ons hook in */
-		do_action( 'tbex_after_advancedforms_settings' );
+		do_action( 'tbex_after_advancedforms_settings', $admin_bar );
 
 		/** Group: Resources for Advanced Forms */
 		if ( ddw_tbex_display_items_resources() ) {
@@ -200,10 +200,10 @@ function ddw_tbex_site_items_advanced_forms( $admin_bar ) {
 				array(
 					'id'     => 'group-advancedforms-resources',
 					'parent' => 'forms-advancedforms',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
-			
+
 			ddw_tbex_resource_item(
 				'support-forum',
 				'advancedforms-support',
@@ -268,7 +268,7 @@ function ddw_tbex_aoitems_new_content_advanced_form( $admin_bar ) {
 			'title'  => ddw_tbex_string_new_form( esc_attr__( 'Advanced', 'toolbar-extras' ) ),
 			'href'   => esc_url( admin_url( 'post-new.php?post_type=' . $type ) ),
 			'meta'   => array(
-				'title'  => ddw_tbex_string_add_new_item( ddw_tbex_string_new_form( esc_attr__( 'Advanced', 'toolbar-extras' ) ) )
+				'title'  => ddw_tbex_string_add_new_item( ddw_tbex_string_new_form( esc_attr__( 'Advanced', 'toolbar-extras' ) ) ),
 			)
 		)
 	);

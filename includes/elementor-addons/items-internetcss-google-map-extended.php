@@ -20,15 +20,15 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_icss_egmext', 100 );
  *
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_icss_egmext() {
+function ddw_tbex_aoitems_icss_egmext( $admin_bar ) {
 
 	/** Use Add-On hook place */
 	add_filter( 'tbex_filter_is_addon', '__return_empty_string' );
 
 	/** Plugin's Settings */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'ao-icss-egmext',
 			'parent' => 'tbex-addons',
@@ -36,12 +36,12 @@ function ddw_tbex_aoitems_icss_egmext() {
 			'href'   => esc_url( admin_url( 'admin.php?page=eb_google_map_setting' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_addon_title_attr( __( 'Google Map Extended', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_addon_title_attr( __( 'Google Map Extended', 'toolbar-extras' ) ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-icss-egmext-settings',
 				'parent' => 'ao-icss-egmext',
@@ -49,7 +49,7 @@ function ddw_tbex_aoitems_icss_egmext() {
 				'href'   => esc_url( admin_url( 'admin.php?page=eb_google_map_setting' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -57,11 +57,11 @@ function ddw_tbex_aoitems_icss_egmext() {
 		/** Group: Plugin's Resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-icss-egmext-resources',
 					'parent' => 'ao-icss-egmext',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 
@@ -78,7 +78,7 @@ function ddw_tbex_aoitems_icss_egmext() {
 				'group-icss-egmext-resources',
 				'https://www.facebook.com/groups/1181404975268306/'
 			);
-			
+
 			ddw_tbex_resource_item(
 				'translations-community',
 				'icss-egmext-translate',

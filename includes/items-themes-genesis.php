@@ -399,6 +399,15 @@ if ( function_exists( 'bid_hello_pro_theme_defaults' ) ) {
 
 
 /**
+ * Course Maker Pro (Premium, by brandiD)
+ * @since 1.4.8
+ */
+if ( function_exists( 'course_maker_gutenberg_functions' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-course-maker-pro.php';
+}
+
+
+/**
  * Kreativ Pro (Premium, by ThemeSquare)
  * @since 1.4.2
  */
@@ -429,6 +438,24 @@ if ( function_exists( 'divine_theme_defaults' ) ) {
  * Pretty Chic (Premium, by Lindsey Riel)
  * @since 1.4.2
  */
-if ( function_exists( 'divine_theme_defaults' ) ) {
-	require_once TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-divine.php';
+if ( function_exists( 'prettychic_after_entry_widget' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-pretty-chic.php';
+}
+
+
+/**
+ * Cafe Pro (Premium, by StudioPress)
+ * @since 1.4.8
+ */
+if ( function_exists( 'cafe_theme_defaults' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-cafe-pro.php';
+}
+
+
+/**
+ * Pretty Creative (Premium, by Lindsey Riel)
+ * @since 1.4.8
+ */
+if ( function_exists( 'prettycreative_remove_comment_form_allowed_tags' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-pretty-creative.php';
 }

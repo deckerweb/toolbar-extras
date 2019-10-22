@@ -21,12 +21,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_stag_blocks', 100 );
  * @uses ddw_tbex_string_theme_title()
  * @uses ddw_tbex_customizer_start()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_stag_blocks() {
+function ddw_tbex_themeitems_stag_blocks( $admin_bar ) {
 
 	/** Theme creative */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'theme-creative',
 			'parent' => 'group-active-theme',
@@ -95,20 +95,22 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_stag_blocks_resources', 120 )
  *
  * @uses ddw_tbex_display_items_resources()
  * @uses ddw_tbex_resource_item()
+ *
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_stag_blocks_resources() {
+function ddw_tbex_themeitems_stag_blocks_resources( $admin_bar ) {
 
 	/** Bail early if no resources display active */
 	if ( ! ddw_tbex_display_items_resources() ) {
-		return;
+		return $admin_bar;
 	}
 
 	/** Group: Resources for Stag Blocks */
-	$GLOBALS[ 'wp_admin_bar' ]->add_group(
+	$admin_bar->add_group(
 		array(
 			'id'     => 'group-theme-resources',
 			'parent' => 'theme-creative',
-			'meta'   => array( 'class' => 'ab-sub-secondary' )
+			'meta'   => array( 'class' => 'ab-sub-secondary' ),
 		)
 	);
 

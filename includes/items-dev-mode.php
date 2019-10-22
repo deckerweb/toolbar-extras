@@ -25,7 +25,7 @@ add_action( 'tbex_before_site_group_content', 'ddw_tbex_site_items_dev_mode' );
 function ddw_tbex_site_items_dev_mode( $admin_bar ) {
 
 	if ( ! has_filter( 'tbex_filter_is_dev_mode' ) ) {
-		return;
+		return $admin_bar;
 	}
 
 	/** Group: Rapid Dev (Dev Mode) */
@@ -177,39 +177,31 @@ function ddw_tbex_site_items_devmode_plugin_status( $admin_bar ) {
 		|| ( is_network_admin() && current_user_can( 'manage_network_plugins' ) )
 	) {
 
-		//if ( apply_filters( 'show_advanced_plugins', TRUE, 'mustuse' ) ) {
-
-			$admin_bar->add_node(
-				array(
-					'id'     => 'wpplugins-mustuse',
-					'parent' => 'wpplugins',
-					'title'  => esc_attr__( 'Must Use (MU)', 'toolbar-extras' ),
-					'href'   => esc_url( network_admin_url( 'plugins.php?plugin_status=mustuse' ) ),
-					'meta'   => array(
-						'target' => '',
-						'title'  => esc_attr__( 'Must Use - MU Plugins', 'toolbar-extras' )
-					)
+		$admin_bar->add_node(
+			array(
+				'id'     => 'wpplugins-mustuse',
+				'parent' => 'wpplugins',
+				'title'  => esc_attr__( 'Must Use (MU)', 'toolbar-extras' ),
+				'href'   => esc_url( network_admin_url( 'plugins.php?plugin_status=mustuse' ) ),
+				'meta'   => array(
+					'target' => '',
+					'title'  => esc_attr__( 'Must Use - MU Plugins', 'toolbar-extras' )
 				)
-			);
+			)
+		);
 
-		//}  // end if
-
-		//if ( apply_filters( 'show_advanced_plugins', TRUE, 'dropins' ) ) {
-
-			$admin_bar->add_node(
-				array(
-					'id'     => 'wpplugins-dropins',
-					'parent' => 'wpplugins',
-					'title'  => esc_attr__( 'Drop-ins', 'toolbar-extras' ),
-					'href'   => esc_url( network_admin_url( 'plugins.php?plugin_status=dropins' ) ),
-					'meta'   => array(
-						'target' => '',
-						'title'  => esc_attr__( 'Drop-ins - Special Plugins', 'toolbar-extras' )
-					)
+		$admin_bar->add_node(
+			array(
+				'id'     => 'wpplugins-dropins',
+				'parent' => 'wpplugins',
+				'title'  => esc_attr__( 'Drop-ins', 'toolbar-extras' ),
+				'href'   => esc_url( network_admin_url( 'plugins.php?plugin_status=dropins' ) ),
+				'meta'   => array(
+					'target' => '',
+					'title'  => esc_attr__( 'Drop-ins - Special Plugins', 'toolbar-extras' )
 				)
-			);
-
-		//}  // end if
+			)
+		);
 
 	}  // end if
 
@@ -432,114 +424,137 @@ function ddw_tbex_site_items_devmode_resources( $admin_bar ) {
 
 
 /**
- * Load plugin support:
+ * Load plugin support for Dev Mode:
  * @since 1.0.0
+ * @since 1.4.8 Added capability check conditional.
  * -----------------------------------------------------------------------------
  */
 
-/**
- * Dev Add-On: Debug Elementor (free, by Rami Yushuvaev)
- * @since 1.0.0
- */
-if ( class_exists( 'Debug_Elementor' ) && ddw_tbex_is_elementor_active() ) {
-	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-debug-elementor.php';
-}
+if ( current_user_can( 'manage_options' ) ) :
+
+	/**
+	 * Dev Add-On: Debug Elementor (free, by Rami Yushuvaev)
+	 * @since 1.0.0
+	 */
+	if ( class_exists( 'Debug_Elementor' ) && ddw_tbex_is_elementor_active() ) {
+		require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-debug-elementor.php';
+	}
 
 
-/**
- * Dev Add-On: AceIDE (free, by AceIDE)
- * @since 1.0.0
- */
-if ( class_exists( '\AceIDE\Editor\IDE' ) ) {
-	require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-aceide.php';
-}
+	/**
+	 * Dev Add-On: AceIDE (free, by AceIDE)
+	 * @since 1.0.0
+	 */
+	if ( class_exists( '\AceIDE\Editor\IDE' ) ) {
+		require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-aceide.php';
+	}
 
 
-/**
- * Dev Add-On: Instant IDE (Premium, by Cobalt Apps)
- * @since 1.0.0
- */
-if ( defined( 'IIDE_CURRENT_VERSION' ) ) {
-	require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-cobalt-instant-ide.php';
-}
+	/**
+	 * Dev Add-On: Instant IDE (Premium, by Cobalt Apps)
+	 * @since 1.0.0
+	 */
+	if ( defined( 'IIDE_CURRENT_VERSION' ) ) {
+		require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-cobalt-instant-ide.php';
+	}
 
 
-/**
- * Dev Add-On: Theme Switcha (free, by Jeff Starr)
- * @since 1.0.0
- */
-if ( class_exists( 'Theme_Switcha' ) ) {
-	require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-theme-switcha.php';
-}
+	/**
+	 * Dev Add-On: Theme Switcha (free, by Jeff Starr)
+	 * @since 1.0.0
+	 */
+	if ( class_exists( 'Theme_Switcha' ) ) {
+		require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-theme-switcha.php';
+	}
 
 
-/**
- * Dev Add-On: Log Viewer (free, by Markus Fischbacher)
- * @since 1.3.2
- */
-if ( in_array( 'log-viewer/log-viewer.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
-	require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-log-viewer.php';
-}
+	/**
+	 * Dev Add-On: Log Viewer (free, by Markus Fischbacher)
+	 * @since 1.3.2
+	 */
+	if ( in_array( 'log-viewer/log-viewer.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
+		require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-log-viewer.php';
+	}
 
 
-/**
- * Dev Add-On: Error Log Viewer (free, by BestWebSoft)
- * @since 1.4.0
- */
-if ( function_exists( 'rrrlgvwr_init' ) ) {
-	require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-error-log-viewer.php';
-}
+	/**
+	 * Dev Add-On: Error Log Viewer (free, by BestWebSoft)
+	 * @since 1.4.0
+	 */
+	if ( function_exists( 'rrrlgvwr_init' ) ) {
+		require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-error-log-viewer.php';
+	}
 
 
-/**
- * Dev Add-On: Log Deprecated Notices (free, by Andrew Nacin)
- * @since 1.3.2
- */
-if ( class_exists( 'Deprecated_Log' ) ) {
-	require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-log-deprecated-notices.php';
-}
+	/**
+	 * Dev Add-On: Log Deprecated Notices (free, by Andrew Nacin)
+	 * @since 1.3.2
+	 */
+	if ( class_exists( 'Deprecated_Log' ) ) {
+		require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-log-deprecated-notices.php';
+	}
 
 
-/**
- * Dev Add-On: Transients Manager (free, by Pippin Williamson)
- * @since 1.3.8
- */
-if ( class_exists( 'PW_Transients_Manager' ) ) {
-	require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-transients-manager.php';
-}
+	/**
+	 * Dev Add-On: Transients Manager (free, by Pippin Williamson)
+	 * @since 1.3.8
+	 */
+	if ( class_exists( 'PW_Transients_Manager' ) ) {
+		require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-transients-manager.php';
+	}
 
 
-/**
- * Dev Add-On: WP Synchro (free, by WPSynchro)
- * @since 1.3.2
- */
-if ( defined( 'WPSYNCHRO_VERSION' ) ) {
-	require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-wpsynchro.php';
-}
+	/**
+	 * Dev Add-On: Delete Expired Transients (free, by WebAware)
+	 * @since 1.4.8
+	 */
+	if ( defined( 'DELXTRANS_PLUGIN_VERSION' ) ) {
+		require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-delete-expired-transients.php';
+	}
 
 
-/**
- * Dev Add-On: WP Migrate DB (Pro) (free/Premium, by Delicious Brains)
- * @since 1.0.0
- */
-if ( function_exists( 'wp_migrate_db' ) || function_exists( 'wp_migrate_db_pro_loaded' ) ) {
-	require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-wp-db-migrate.php';
-}
+	/**
+	 * Dev Add-On: Transient Cleaner (free, by David Artiss)
+	 * @since 1.4.8
+	 */
+	if ( function_exists( 'tc_get_options' ) ) {
+		require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-transient-cleaner.php';
+	}
 
 
-/**
- * Dev Add-On: WP Crontrol (free, by John Blackbourn & crontributors)
- * @since 1.4.7
- */
-if ( class_exists( 'Crontrol' ) ) {
-	require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-wp-crontrol.php';
-}
+	/**
+	 * Dev Add-On: WP Synchro (free, by WPSynchro)
+	 * @since 1.3.2
+	 */
+	if ( defined( 'WPSYNCHRO_VERSION' ) ) {
+		require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-wpsynchro.php';
+	}
 
 
-/**
- * Dev Add-On: Advanced Cron Manager (free, by BracketSpace)
- * @since 1.4.7
- */
-if ( function_exists( 'acm_check_old_plugins' ) ) {
-	require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-advanced-cron-manager.php';
-}
+	/**
+	 * Dev Add-On: WP Migrate DB (Pro) (free/Premium, by Delicious Brains)
+	 * @since 1.0.0
+	 */
+	if ( function_exists( 'wp_migrate_db' ) || function_exists( 'wp_migrate_db_pro_loaded' ) ) {
+		require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-wp-db-migrate.php';
+	}
+
+
+	/**
+	 * Dev Add-On: WP Crontrol (free, by John Blackbourn & crontributors)
+	 * @since 1.4.7
+	 */
+	if ( class_exists( 'Crontrol' ) ) {
+		require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-wp-crontrol.php';
+	}
+
+
+	/**
+	 * Dev Add-On: Advanced Cron Manager (free, by BracketSpace)
+	 * @since 1.4.7
+	 */
+	if ( function_exists( 'acm_check_old_plugins' ) ) {
+		require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-advanced-cron-manager.php';
+	}
+
+endif;	// cap check

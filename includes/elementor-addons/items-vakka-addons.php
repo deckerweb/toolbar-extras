@@ -20,12 +20,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_vakka_addons', 100 );
  *
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_vakka_addons() {
+function ddw_tbex_aoitems_vakka_addons( $admin_bar ) {
 
 	/** JetReviews Settings */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'ao-vakka-addons',
 			'parent' => 'group-creative-content',
@@ -33,20 +33,20 @@ function ddw_tbex_aoitems_vakka_addons() {
 			'href'   => esc_url( admin_url( 'admin.php?page=vakka_options' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_premium_addon_title_attr( __( 'Vakka Content', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_premium_addon_title_attr( __( 'Vakka Content', 'toolbar-extras' ) ),
 			)
 		)
 	);
 
 		/** Tabs */
-		$GLOBALS[ 'wp_admin_bar' ]->add_group(
+		$admin_bar->add_group(
 			array(
 				'id'     => 'group-vakka-tabs',
-				'parent' => 'ao-vakka-addons'
+				'parent' => 'ao-vakka-addons',
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ao-vakka-tabs-all',
 					'parent' => 'group-vakka-tabs',
@@ -54,12 +54,12 @@ function ddw_tbex_aoitems_vakka_addons() {
 					'href'   => esc_url( admin_url( 'edit.php?post_type=vakka_tab' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'All Tabs', 'toolbar-extras' )
+						'title'  => esc_attr__( 'All Tabs', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ao-vakka-tabs-new',
 					'parent' => 'group-vakka-tabs',
@@ -67,14 +67,14 @@ function ddw_tbex_aoitems_vakka_addons() {
 					'href'   => esc_url( admin_url( 'post-new.php?post_type=vakka_tab' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'New Tab', 'toolbar-extras' )
+						'title'  => esc_attr__( 'New Tab', 'toolbar-extras' ),
 					)
 				)
 			);
 
 			if ( ddw_tbex_is_elementor_active() && \Elementor\User::is_current_user_can_edit_post_type( 'vakka_tab' ) ) {
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'ao-vakka-tabs-builder',
 						'parent' => 'group-vakka-tabs',
@@ -89,7 +89,7 @@ function ddw_tbex_aoitems_vakka_addons() {
 
 				if ( ddw_tbex_display_items_new_content() ) {
 
-					$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					$admin_bar->add_node(
 						array(
 							'id'     => 'vakka-tab-with-builder',
 							'parent' => 'new-vakka_tab',
@@ -97,7 +97,7 @@ function ddw_tbex_aoitems_vakka_addons() {
 							'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'vakka_tab' ) ),
 							'meta'   => array(
 								'target' => ddw_tbex_meta_target( 'builder' ),
-								'title'  => ddw_tbex_string_newcontent_create_with_builder()
+								'title'  => ddw_tbex_string_newcontent_create_with_builder(),
 							)
 						)
 					);
@@ -107,14 +107,14 @@ function ddw_tbex_aoitems_vakka_addons() {
 			}  // end if
 
 		/** Sliders */
-		$GLOBALS[ 'wp_admin_bar' ]->add_group(
+		$admin_bar->add_group(
 			array(
 				'id'     => 'group-vakka-sliders',
-				'parent' => 'ao-vakka-addons'
+				'parent' => 'ao-vakka-addons',
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ao-vakka-sliders-all',
 					'parent' => 'group-vakka-sliders',
@@ -122,12 +122,12 @@ function ddw_tbex_aoitems_vakka_addons() {
 					'href'   => esc_url( admin_url( 'edit.php?post_type=vakka_slider' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'All Sliders', 'toolbar-extras' )
+						'title'  => esc_attr__( 'All Sliders', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ao-vakka-sliders-new',
 					'parent' => 'group-vakka-sliders',
@@ -135,14 +135,14 @@ function ddw_tbex_aoitems_vakka_addons() {
 					'href'   => esc_url( admin_url( 'post-new.php?post_type=vakka_slider' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'New Slider', 'toolbar-extras' )
+						'title'  => esc_attr__( 'New Slider', 'toolbar-extras' ),
 					)
 				)
 			);
 
 			if ( ddw_tbex_is_elementor_active() && \Elementor\User::is_current_user_can_edit_post_type( 'vakka_slider' ) ) {
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'ao-vakka-sliders-builder',
 						'parent' => 'group-vakka-sliders',
@@ -150,14 +150,14 @@ function ddw_tbex_aoitems_vakka_addons() {
 						'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'vakka_slider' ) ),
 						'meta'   => array(
 							'target' => ddw_tbex_meta_target( 'builder' ),
-							'title'  => esc_attr__( 'New Slider Builder', 'toolbar-extras' )
+							'title'  => esc_attr__( 'New Slider Builder', 'toolbar-extras' ),
 						)
 					)
 				);
 
 				if ( ddw_tbex_display_items_new_content() ) {
 
-					$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					$admin_bar->add_node(
 						array(
 							'id'     => 'vakka-slider-with-builder',
 							'parent' => 'new-vakka_slider',
@@ -165,7 +165,7 @@ function ddw_tbex_aoitems_vakka_addons() {
 							'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'vakka_slider' ) ),
 							'meta'   => array(
 								'target' => ddw_tbex_meta_target( 'builder' ),
-								'title'  => ddw_tbex_string_newcontent_create_with_builder()
+								'title'  => ddw_tbex_string_newcontent_create_with_builder(),
 							)
 						)
 					);
@@ -175,14 +175,14 @@ function ddw_tbex_aoitems_vakka_addons() {
 			}  // end if
 
 		/** Galleries */
-		$GLOBALS[ 'wp_admin_bar' ]->add_group(
+		$admin_bar->add_group(
 			array(
 				'id'     => 'group-vakka-galleries',
-				'parent' => 'ao-vakka-addons'
+				'parent' => 'ao-vakka-addons',
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ao-vakka-galleries-all',
 					'parent' => 'group-vakka-galleries',
@@ -190,12 +190,12 @@ function ddw_tbex_aoitems_vakka_addons() {
 					'href'   => esc_url( admin_url( 'edit.php?post_type=vakka_gallery' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'All Galleries', 'toolbar-extras' )
+						'title'  => esc_attr__( 'All Galleries', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ao-vakka-galleries-new',
 					'parent' => 'group-vakka-galleries',
@@ -203,20 +203,20 @@ function ddw_tbex_aoitems_vakka_addons() {
 					'href'   => esc_url( admin_url( 'post-new.php?post_type=vakka_gallery' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'New Gallery', 'toolbar-extras' )
+						'title'  => esc_attr__( 'New Gallery', 'toolbar-extras' ),
 					)
 				)
 			);
 
 		/** Vakka Addons Settings etc. */
-		$GLOBALS[ 'wp_admin_bar' ]->add_group(
+		$admin_bar->add_group(
 			array(
 				'id'     => 'group-vakka-settings',
-				'parent' => 'ao-vakka-addons'
+				'parent' => 'ao-vakka-addons',
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ao-vakka-settings-elements',
 					'parent' => 'group-vakka-settings',
@@ -224,7 +224,7 @@ function ddw_tbex_aoitems_vakka_addons() {
 					'href'   => esc_url( admin_url( 'admin.php?page=vakka_options' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -232,11 +232,11 @@ function ddw_tbex_aoitems_vakka_addons() {
 		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-vakka-resources',
 					'parent' => 'ao-vakka-addons',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

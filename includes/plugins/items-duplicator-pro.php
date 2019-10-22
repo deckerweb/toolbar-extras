@@ -58,7 +58,7 @@ function ddw_tbex_site_items_duplicator_pro( $admin_bar ) {
 	 *   Reason: Duplicator Pro can only be activated on Main Site of a Network
 	 *   when not activated Network-wide. Activation on Sub Sites in a Network
 	 *   is possible but makes all plugin settings etc. disappearing (that means
-	 *   unaccessable).
+	 *   inaccessible).
 	 */
 	if ( is_multisite()
 		&& ! is_main_site()
@@ -367,7 +367,7 @@ function ddw_tbex_site_items_duplicator_pro( $admin_bar ) {
 				)
 			);
 
-		/** Group: Resources for Duplicator Pro */
+		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
 			$admin_bar->add_group(

@@ -20,12 +20,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_export_import_menus', 10 );
  *
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar']
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_export_import_menus() {
+function ddw_tbex_site_items_export_import_menus( $admin_bar ) {
 
 	/** Plugin's settings */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'tbex-export-import-menus',
 			'parent' => 'wpmenus',
@@ -33,7 +33,7 @@ function ddw_tbex_site_items_export_import_menus() {
 			'href'   => esc_url( admin_url( 'themes.php?page=dsp_export_import_menus' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Export &amp; Import Menus', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Export &amp; Import Menus', 'toolbar-extras' ),
 			)
 		)
 	);

@@ -78,7 +78,7 @@ function ddw_tbex_site_items_advanced_custom_fields( $admin_bar ) {
 		/** Field categories, via BTC plugin */
 		if ( ddw_tbex_is_btcplugin_active() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'advanced-custom-fields-categories',
 					'parent' => 'group-acf-fields',
@@ -191,7 +191,7 @@ function ddw_tbex_site_items_advanced_custom_fields( $admin_bar ) {
 				'https://www.advancedcustomfields.com/changelog/',
 				ddw_tbex_string_version_history( 'plugin' )
 			);
-			
+
 			ddw_tbex_resource_item(
 				'translations-community',
 				'acfplugin-translate',

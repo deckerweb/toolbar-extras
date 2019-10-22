@@ -24,7 +24,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function ddw_tbex_is_generatepress_premium_active() {
 
-	return ( defined( 'GP_PREMIUM_VERSION' ) ) ? TRUE : FALSE;
+	return ( defined( 'GP_PREMIUM_VERSION' ) );
 
 }  // end function
 
@@ -52,7 +52,7 @@ function ddw_tbex_themeitems_generatepress( $admin_bar ) {
 			'href'   => esc_url( admin_url( 'themes.php?page=generate-options' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_theme_title( 'attr', 'child' )
+				'title'  => ddw_tbex_string_theme_title( 'attr', 'child' ),
 			)
 		)
 	);
@@ -195,7 +195,7 @@ function ddw_tbex_themeitems_generatepress_resources( $admin_bar ) {
 		array(
 			'id'     => 'group-theme-resources',
 			'parent' => ddw_tbex_is_generatepress_premium_active() ? 'theme-settings' : 'theme-creative',
-			'meta'   => array( 'class' => 'ab-sub-secondary' )
+			'meta'   => array( 'class' => 'ab-sub-secondary' ),
 		)
 	);
 
@@ -273,7 +273,7 @@ function ddw_tbex_themeitems_generatepress_premium( $admin_bar ) {
 		$admin_bar->add_group(
 			array(
 				'id'     => 'generatepress-elements',
-				'parent' => 'theme-creative'
+				'parent' => 'theme-creative',
 			)
 		);
 
@@ -285,7 +285,7 @@ function ddw_tbex_themeitems_generatepress_premium( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'edit.php?post_type=gp_elements' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Elements', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Elements', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -298,7 +298,7 @@ function ddw_tbex_themeitems_generatepress_premium( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'post-new.php?post_type=gp_elements' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'New Element', 'toolbar-extras' )
+						'title'  => esc_attr__( 'New Element', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -314,7 +314,7 @@ function ddw_tbex_themeitems_generatepress_premium( $admin_bar ) {
 						'href'   => esc_url( admin_url( 'edit-tags.php?taxonomy=builder-template-category&post_type=gp_elements' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_html( ddw_btc_string_template( 'element' ) )
+							'title'  => esc_html( ddw_btc_string_template( 'element' ) ),
 						)
 					)
 				);
@@ -329,7 +329,7 @@ function ddw_tbex_themeitems_generatepress_premium( $admin_bar ) {
 		$admin_bar->add_group(
 			array(
 				'id'     => 'generatepress-pheaders',
-				'parent' => 'theme-creative'
+				'parent' => 'theme-creative',
 			)
 		);
 
@@ -341,7 +341,7 @@ function ddw_tbex_themeitems_generatepress_premium( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'edit.php?post_type=generate_page_header' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Page Headers', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Page Headers', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -354,7 +354,7 @@ function ddw_tbex_themeitems_generatepress_premium( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'post-new.php?post_type=generate_page_header' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'New Header', 'toolbar-extras' )
+						'title'  => esc_attr__( 'New Header', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -367,7 +367,7 @@ function ddw_tbex_themeitems_generatepress_premium( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'edit.php?post_type=generate_page_header&page=page-header-global-locations' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Global Page Header Locations', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Global Page Header Locations', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -380,7 +380,7 @@ function ddw_tbex_themeitems_generatepress_premium( $admin_bar ) {
 		$admin_bar->add_group(
 			array(
 				'id'     => 'generatepress-hooks',
-				'parent' => 'theme-creative'
+				'parent' => 'theme-creative',
 			)
 		);
 
@@ -392,7 +392,7 @@ function ddw_tbex_themeitems_generatepress_premium( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'themes.php?page=gp_hooks_settings' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'GeneratePress Hook Locations', 'toolbar-extras' )
+						'title'  => esc_attr__( 'GeneratePress Hook Locations', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -408,7 +408,7 @@ function ddw_tbex_themeitems_generatepress_premium( $admin_bar ) {
 			'href'   => esc_url( admin_url( 'themes.php?page=generate-options' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'GeneratePress Premium Settings', 'toolbar-extras' )
+				'title'  => esc_attr__( 'GeneratePress Premium Settings', 'toolbar-extras' ),
 			)
 		)
 	);
@@ -421,7 +421,7 @@ function ddw_tbex_themeitems_generatepress_premium( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'themes.php?page=generate-options' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Activate Modules', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Activate Modules', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -488,7 +488,7 @@ function ddw_tbex_themeitems_new_content_generatepress_premium( $admin_bar ) {
 			'href'   => esc_url( admin_url( 'post-new.php?post_type=gp_elements' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_add_new_item( __( 'GeneratePress Element', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_add_new_item( __( 'GeneratePress Element', 'toolbar-extras' ) ),
 			)
 		)
 	);
@@ -532,7 +532,7 @@ function ddw_tbex_themeitems_generatepress_sites_import( $admin_bar ) {
 				'href'   => esc_url( $gp_sites_url ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Import Sites', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Import Sites', 'toolbar-extras' ),
 				)
 			)
 		);

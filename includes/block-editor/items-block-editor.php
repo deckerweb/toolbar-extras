@@ -61,9 +61,11 @@ add_action( 'admin_menu', 'ddw_tbex_wpblock_posttype_add_menu' );
  *
  * @uses add_menu_page()
  * @uses add_submenu_page()
+ *
+ * @global array $GLOBALS[ 'admin_page_hooks' ]
  */
 function ddw_tbex_wpblock_posttype_add_menu() {
-	
+
 	/**
 	 * Bail early if the same stuff as below was already added by other plugins.
 	 */
@@ -247,7 +249,7 @@ function ddw_tbex_items_block_editor_resources( $admin_bar ) {
 	if ( ! ddw_tbex_display_items_resources()
 		|| 'block-editor' !== ddw_tbex_get_default_pagebuilder()
 	) {
-		return;
+		return $admin_bar;
 	}
 
 	$admin_bar->add_node(
@@ -307,7 +309,7 @@ function ddw_tbex_items_block_editor_resources( $admin_bar ) {
 		);
 
 	/** Action Hook: After Block Editor Resources */
-	do_action( 'tbex_after_block_editor_resources' );
+	do_action( 'tbex_after_block_editor_resources', $admin_bar );
 
 	/** Block Editor Community */
 	$admin_bar->add_node(

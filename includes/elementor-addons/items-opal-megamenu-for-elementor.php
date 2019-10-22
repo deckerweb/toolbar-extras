@@ -32,7 +32,7 @@ function ddw_tbex_aoitems_opal_megamenu_for_elementor( $admin_bar ) {
 			'href'   => esc_url( admin_url( 'nav-menus.php' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Opal Megamenu', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Opal Megamenu', 'toolbar-extras' ),
 			)
 		)
 	);
@@ -45,7 +45,7 @@ function ddw_tbex_aoitems_opal_megamenu_for_elementor( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=opal_menu_item' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'All Mega Items', 'toolbar-extras' )
+					'title'  => esc_attr__( 'All Mega Items', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -58,7 +58,7 @@ function ddw_tbex_aoitems_opal_megamenu_for_elementor( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'nav-menus.php' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Add &amp; Edit Menus as Mega Menu', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Add &amp; Edit Menus as Mega Menu', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -71,7 +71,7 @@ function ddw_tbex_aoitems_opal_megamenu_for_elementor( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'admin.php?page=dashboard' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Megamenu Template', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Megamenu Template', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -83,7 +83,7 @@ function ddw_tbex_aoitems_opal_megamenu_for_elementor( $admin_bar ) {
 				array(
 					'id'     => 'group-opalmegamenu-resources',
 					'parent' => 'ao-opalmegamenu',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

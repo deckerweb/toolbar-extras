@@ -106,7 +106,7 @@ function ddw_tbex_aoitems_new_content_shortcode( $admin_bar ) {
 
 	/** Bail early if items display is not wanted */
 	if ( ! ddw_tbex_display_items_new_content() ) {
-		return;
+		return $admin_bar;
 	}
 
 	$admin_bar->add_node(

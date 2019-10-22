@@ -19,25 +19,24 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @uses ddw_tbex_resource_item()
  *
- * @param string $suffix String for suffix for Toolbar node ID and group ID.
- * @param string $parent String for Toolbar parent node.
- *
- * @global object $GLOBALS[ 'wp_admin_bar' ] object to build new Toolbar nodes.
+ * @param string $suffix    String for suffix for Toolbar node ID and group ID.
+ * @param string $parent    String for Toolbar parent node.
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_site_health_tool_manager( $suffix = '', $parent = '' ) {
+function ddw_tbex_aoitems_site_health_tool_manager( $admin_bar, $suffix = '', $parent = '' ) {
 
 	/** Set suffix */
 	$suffix = '-' . sanitize_key( $suffix );
 
 	/** Group: Site Health Tool Manager */
-	$GLOBALS[ 'wp_admin_bar' ]->add_group(
+	$admin_bar->add_group(
 		array(
 			'id'     => 'group-sitehealth-toolmanager' . $suffix,
 			'parent' => sanitize_key( $parent ),
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'tbex-sitehealth-toolmanager' . $suffix,
 			'parent' => 'group-sitehealth-toolmanager' . $suffix,
@@ -50,7 +49,7 @@ function ddw_tbex_aoitems_site_health_tool_manager( $suffix = '', $parent = '' )
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'tbex-sitehealth-toolmanager' . $suffix . '-status',
 				'parent' => 'tbex-sitehealth-toolmanager' . $suffix,
@@ -66,7 +65,7 @@ function ddw_tbex_aoitems_site_health_tool_manager( $suffix = '', $parent = '' )
 		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-sitehealth-toolmanager-resources' . $suffix,
 					'parent' => 'tbex-sitehealth-toolmanager' . $suffix,
@@ -102,8 +101,10 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_maybe_site_health_tool_manage
  * @uses ddw_tbex_is_wp52_install()
  * @uses ddw_tbex_aoitems_site_health_tool_manager()
  * @uses ddw_tbex_is_addon_mainwp_active()
+ *
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_maybe_site_health_tool_manager() {
+function ddw_tbex_site_items_maybe_site_health_tool_manager( $admin_bar ) {
 
 	/** Bail early if conditions not met */
 	if ( ! ddw_tbex_is_wp52_install()
@@ -111,15 +112,15 @@ function ddw_tbex_site_items_maybe_site_health_tool_manager() {
 		|| ( ! is_multisite() && ! current_user_can( 'install_plugins' ) )
 		|| ( is_multisite() && ! current_user_can( 'setup_network' ) )
 	) {
-		return;
+		return $admin_bar;
 	}
 
 	/** For place: WP Core Site Health (Site Group) */
-	ddw_tbex_aoitems_site_health_tool_manager( 'wpcoresh', 'wp-sitehealth' );
+	ddw_tbex_aoitems_site_health_tool_manager( $admin_bar, 'wpcoresh', 'wp-sitehealth' );
 
 	/** Optional: For MainWP Add-On (Server Info Group) */
 	if ( ddw_tbex_is_addon_mainwp_active() ) {
-		ddw_tbex_aoitems_site_health_tool_manager( 'mwpserverinfo', 'tbexmwp-server-sitehealth' );
+		ddw_tbex_aoitems_site_health_tool_manager( $admin_bar, 'mwpserverinfo', 'tbexmwp-server-sitehealth' );
 	}
 
 }  // end function

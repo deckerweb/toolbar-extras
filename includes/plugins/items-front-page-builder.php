@@ -20,11 +20,11 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_front_page_builder', 900 );
  *
  * @uses ddw_tbex_customizer_focus()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_front_page_builder() {
+function ddw_tbex_aoitems_front_page_builder( $admin_bar ) {
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'ao-front-page-builder',
 			'parent' => 'theme-creative-customize',
@@ -33,7 +33,7 @@ function ddw_tbex_aoitems_front_page_builder() {
 			'href'   => ddw_tbex_customizer_focus( 'panel', 'homepage', site_url( '/' ) ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Front Page Builder Settings', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_customize_attr( __( 'Front Page Builder Settings', 'toolbar-extras' ) ),
 			)
 		)
 	);

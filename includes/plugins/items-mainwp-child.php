@@ -36,12 +36,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_mainwp_child', 100 );
  * @uses ddw_tbex_meta_target()
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar']
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_mainwp_child() {
+function ddw_tbex_site_items_mainwp_child( $admin_bar ) {
 
 	/** Plugin's items */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'mainwp-child',
 			'parent' => 'tbex-sitegroup-tools',
@@ -49,7 +49,7 @@ function ddw_tbex_site_items_mainwp_child() {
 			'href'   => esc_url( admin_url( 'options-general.php?page=mainwp_child_tab' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'MainWP Child Site', 'toolbar-extras' )
+				'title'  => esc_attr__( 'MainWP Child Site', 'toolbar-extras' ),
 			)
 		)
 	);
@@ -69,7 +69,7 @@ function ddw_tbex_site_items_mainwp_child() {
 				$mainwp_dashboard_url . 'admin.php'
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'mainwp-child-mwp-dashboard',
 					'parent' => 'mainwp-child',
@@ -78,7 +78,7 @@ function ddw_tbex_site_items_mainwp_child() {
 					'meta'   => array(
 						'rel'    => ddw_tbex_meta_rel(),
 						'target' => ddw_tbex_meta_target(),
-						'title'  => esc_attr__( 'MainWP Dashboard Server', 'toolbar-extras' ) . ' &ndash; ' . $mainwp_dashboard_url
+						'title'  => esc_attr__( 'MainWP Dashboard Server', 'toolbar-extras' ) . ' &ndash; ' . $mainwp_dashboard_url,
 					)
 				)
 			);
@@ -86,7 +86,7 @@ function ddw_tbex_site_items_mainwp_child() {
 		}  // end if
 
 		/** Settings */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'mainwp-child-settings',
 				'parent' => 'mainwp-child',
@@ -94,12 +94,12 @@ function ddw_tbex_site_items_mainwp_child() {
 				'href'   => esc_url( admin_url( 'options-general.php?page=mainwp_child_tab&tab=settings' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'mainwp-child-restore',
 				'parent' => 'mainwp-child',
@@ -107,12 +107,12 @@ function ddw_tbex_site_items_mainwp_child() {
 				'href'   => esc_url( admin_url( 'options-general.php?page=mainwp_child_tab&tab=restore-clone' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Restore', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Restore', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'mainwp-child-serverinfo',
 				'parent' => 'mainwp-child',
@@ -120,12 +120,12 @@ function ddw_tbex_site_items_mainwp_child() {
 				'href'   => esc_url( admin_url( 'options-general.php?page=mainwp_child_tab&tab=server-info' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Server Info (for this Child Site)', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Server Info (for this Child Site)', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'mainwp-child-connection',
 				'parent' => 'mainwp-child',
@@ -133,7 +133,7 @@ function ddw_tbex_site_items_mainwp_child() {
 				'href'   => esc_url( admin_url( 'options-general.php?page=mainwp_child_tab&tab=connection-detail' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Connection Details', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Connection Details', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -141,7 +141,7 @@ function ddw_tbex_site_items_mainwp_child() {
 		/** Child Reports Add-On */
 		if ( ddw_tbex_is_mainwp_child_reports_active() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'mainwp-child-reports',
 					'parent' => 'mainwp-child',
@@ -149,12 +149,12 @@ function ddw_tbex_site_items_mainwp_child() {
 					'href'   => esc_url( admin_url( 'options-general.php?page=mainwp-reports-page' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Child Reports', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Child Reports', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'mainwp-child-reports-settings',
 					'parent' => 'mainwp-child',
@@ -162,7 +162,7 @@ function ddw_tbex_site_items_mainwp_child() {
 					'href'   => esc_url( admin_url( 'options-general.php?page=mainwp-reports-settings' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Child Reports Settings', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Child Reports Settings', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -172,11 +172,11 @@ function ddw_tbex_site_items_mainwp_child() {
 		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-mwpchild-resources',
 					'parent' => 'mainwp-child',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

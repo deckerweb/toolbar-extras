@@ -21,12 +21,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_hestia', 100 );
  * @uses ddw_tbex_string_theme_title()
  * @uses ddw_tbex_customizer_start()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_hestia() {
+function ddw_tbex_themeitems_hestia( $admin_bar ) {
 
 	/** Hestia creative */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'theme-creative',
 			'parent' => 'group-active-theme',
@@ -34,12 +34,12 @@ function ddw_tbex_themeitems_hestia() {
 			'href'   => esc_url( admin_url( 'themes.php?page=hestia-welcome' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_theme_title( 'attr', 'child' )
+				'title'  => ddw_tbex_string_theme_title( 'attr', 'child' ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'theme-creative-customize',
 				'parent' => 'theme-creative',
@@ -47,7 +47,7 @@ function ddw_tbex_themeitems_hestia() {
 				'href'   => ddw_tbex_customizer_start(),
 				'meta'   => array(
 					'target' => ddw_tbex_meta_target(),
-					'title'  => esc_attr__( 'Customize Design', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Customize Design', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -64,11 +64,11 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_hestia_customize', 100 );
  * @uses ddw_tbex_customizer_focus()
  * @uses ddw_tbex_string_customize_attr()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_hestia_customize() {
+function ddw_tbex_themeitems_hestia_customize( $admin_bar ) {
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'hestiacmz-appearance',
 			'parent' => 'theme-creative-customize',
@@ -77,7 +77,7 @@ function ddw_tbex_themeitems_hestia_customize() {
 			'href'   => ddw_tbex_customizer_focus( 'panel', 'hestia_appearance_settings' ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Appearance Settings', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_customize_attr( __( 'Appearance Settings', 'toolbar-extras' ) ),
 			)
 		)
 	);
@@ -86,7 +86,7 @@ function ddw_tbex_themeitems_hestia_customize() {
 
 	if ( in_array( get_stylesheet(), $hestia_supported ) ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'hestiacmz-frontpage',
 				'parent' => 'theme-creative-customize',
@@ -95,12 +95,12 @@ function ddw_tbex_themeitems_hestia_customize() {
 				'href'   => ddw_tbex_customizer_focus( 'panel', 'hestia_frontpage_sections' ),
 				'meta'   => array(
 					'target' => ddw_tbex_meta_target(),
-					'title'  => ddw_tbex_string_customize_attr( __( 'Frontpage Sections', 'toolbar-extras' ) )
+					'title'  => ddw_tbex_string_customize_attr( __( 'Frontpage Sections', 'toolbar-extras' ) ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'hestiacmz-blog',
 				'parent' => 'theme-creative-customize',
@@ -109,14 +109,14 @@ function ddw_tbex_themeitems_hestia_customize() {
 				'href'   => ddw_tbex_customizer_focus( 'section', 'hestia_blog_layout', get_post_type_archive_link( 'post' ) ),
 				'meta'   => array(
 					'target' => ddw_tbex_meta_target(),
-					'title'  => ddw_tbex_string_customize_attr( __( 'Blog Settings', 'toolbar-extras' ) )
+					'title'  => ddw_tbex_string_customize_attr( __( 'Blog Settings', 'toolbar-extras' ) ),
 				)
 			)
 		);
 
 	}  // end if
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'hestiacmz-header',
 			'parent' => 'theme-creative-customize',
@@ -125,7 +125,7 @@ function ddw_tbex_themeitems_hestia_customize() {
 			'href'   => ddw_tbex_customizer_focus( 'section', 'header_image' ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Header Settings', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_customize_attr( __( 'Header Settings', 'toolbar-extras' ) ),
 			)
 		)
 	);
@@ -142,20 +142,22 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_hestia_resources', 120 );
  *
  * @uses ddw_tbex_display_items_resources()
  * @uses ddw_tbex_resource_item()
+ *
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_hestia_resources() {
+function ddw_tbex_themeitems_hestia_resources( $admin_bar ) {
 
 	/** Bail early if no resources display active */
 	if ( ! ddw_tbex_display_items_resources() ) {
-		return;
+		return $admin_bar;
 	}
 
 	/** Group: Resources for Hestia Theme */
-	$GLOBALS[ 'wp_admin_bar' ]->add_group(
+	$admin_bar->add_group(
 		array(
 			'id'     => 'group-theme-resources',
 			'parent' => 'theme-creative',
-			'meta'   => array( 'class' => 'ab-sub-secondary' )
+			'meta'   => array( 'class' => 'ab-sub-secondary' ),
 		)
 	);
 

@@ -22,12 +22,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_jupiterx', 100 );
  * @uses ddw_tbex_customizer_start()
  * @uses ddw_tbex_meta_target()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_jupiterx() {
+function ddw_tbex_themeitems_jupiterx( $admin_bar ) {
 
 	/** Theme creative */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'theme-creative',
 			'parent' => 'group-active-theme',
@@ -35,7 +35,7 @@ function ddw_tbex_themeitems_jupiterx() {
 			'href'   => esc_url( admin_url( 'admin.php?page=jupiterx' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_theme_title( 'attr', 'child' )
+				'title'  => ddw_tbex_string_theme_title( 'attr', 'child' ),
 			)
 		)
 	);
@@ -44,7 +44,7 @@ function ddw_tbex_themeitems_jupiterx() {
 		ddw_tbex_item_theme_creative_customize();
 
 		/** Setup Wizard */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'theme-creative-setup-wizard',
 				'parent' => 'theme-creative',
@@ -122,10 +122,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_jupiterx_settings', 120 );
  *
  * @uses ddw_tbex_display_items_resources()
  * @uses ddw_tbex_resource_item()
+ *
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_jupiterx_settings() {
+function ddw_tbex_themeitems_jupiterx_settings( $admin_bar ) {
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'theme-settings',
 			'parent' => 'group-active-theme',
@@ -138,7 +140,7 @@ function ddw_tbex_themeitems_jupiterx_settings() {
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'theme-settings-control-panel',
 				'parent' => 'theme-settings',
@@ -151,7 +153,7 @@ function ddw_tbex_themeitems_jupiterx_settings() {
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'theme-settings-install-plugins',
 				'parent' => 'theme-settings',
@@ -164,7 +166,7 @@ function ddw_tbex_themeitems_jupiterx_settings() {
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'theme-settings-install-templates',
 				'parent' => 'theme-settings',
@@ -177,7 +179,7 @@ function ddw_tbex_themeitems_jupiterx_settings() {
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'theme-settings-image-sizes',
 				'parent' => 'theme-settings',
@@ -190,7 +192,7 @@ function ddw_tbex_themeitems_jupiterx_settings() {
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'theme-settings-system-status',
 				'parent' => 'theme-settings',
@@ -203,7 +205,7 @@ function ddw_tbex_themeitems_jupiterx_settings() {
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'theme-settings-updates',
 				'parent' => 'theme-settings',
@@ -216,7 +218,7 @@ function ddw_tbex_themeitems_jupiterx_settings() {
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'theme-settings-settings',
 				'parent' => 'theme-settings',
@@ -241,20 +243,22 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_jupiterx_resources', 120 );
  *
  * @uses ddw_tbex_display_items_resources()
  * @uses ddw_tbex_resource_item()
+ *
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_jupiterx_resources() {
+function ddw_tbex_themeitems_jupiterx_resources( $admin_bar ) {
 
 	/** Bail early if no resources display active */
 	if ( ! ddw_tbex_display_items_resources() ) {
-		return;
+		return $admin_bar;
 	}
 
 	/** Group: Resources for Jupiter X */
-	$GLOBALS[ 'wp_admin_bar' ]->add_group(
+	$admin_bar->add_group(
 		array(
 			'id'     => 'group-theme-resources',
 			'parent' => 'theme-settings',
-			'meta'   => array( 'class' => 'ab-sub-secondary' )
+			'meta'   => array( 'class' => 'ab-sub-secondary' ),
 		)
 	);
 
@@ -315,16 +319,16 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_jupiterx_import_templates', 1
  * @uses ddw_tbex_item_title_with_settings_icon()
  * @uses ddw_tbex_meta_target()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_jupiterx_import_templates() {
+function ddw_tbex_themeitems_jupiterx_import_templates( $admin_bar ) {
 
 	/** Bail early if no display of Demo Import items */
 	if ( ! ddw_tbex_display_items_demo_import() ) {
-		return;
+		return $admin_bar;
 	}
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => ddw_tbex_id_sites_browser(),
 			'parent' => 'group-demo-import',
@@ -336,7 +340,7 @@ function ddw_tbex_themeitems_jupiterx_import_templates() {
 			'href'   => esc_url( admin_url( 'admin.php?page=jupiterx#install-templates' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Import Templates', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Import Templates', 'toolbar-extras' ),
 			)
 		)
 	);

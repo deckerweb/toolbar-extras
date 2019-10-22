@@ -65,14 +65,14 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_dynamik_website_builder', 10 
  *
  * @uses ddw_tbex_is_dynamik_settings_hidden()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_dynamik_website_builder() {
+function ddw_tbex_themeitems_dynamik_website_builder( $admin_bar ) {
 
 	$is_new = ( defined( 'CHILD_THEME_VERSION' ) && version_compare( CHILD_THEME_VERSION, '2.4.0', '>=' ) ) ? TRUE : FALSE;
 
 	/** Add theme group */
-	$GLOBALS[ 'wp_admin_bar' ]->add_group(
+	$admin_bar->add_group(
 		array(
 			'id'     => 'group-gendynamik-creative',
 			'parent' => 'theme-creative',
@@ -82,7 +82,7 @@ function ddw_tbex_themeitems_dynamik_website_builder() {
 	/** For: Dynamik creative (sub items!) */
 	if ( ! ddw_tbex_is_dynamik_settings_hidden( 'design' ) ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'theme-creative-dynamik-design',
 				'parent' => 'group-genesischild-creative',
@@ -90,12 +90,12 @@ function ddw_tbex_themeitems_dynamik_website_builder() {
 				'href'   => esc_url( admin_url( 'admin.php?page=dynamik-design' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Design Options', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Design Options', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'theme-creative-dynamik-design-preview',
 				'parent' => 'group-genesischild-creative',
@@ -104,7 +104,7 @@ function ddw_tbex_themeitems_dynamik_website_builder() {
 				'meta'   => array(
 					'target' => ddw_tbex_meta_target(),
 					'rel'    => ddw_tbex_meta_rel(),
-					'title'  => esc_attr__( 'Design: Full View', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Design: Full View', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -113,7 +113,7 @@ function ddw_tbex_themeitems_dynamik_website_builder() {
 
 	if ( ! ddw_tbex_is_dynamik_settings_hidden( 'custom' ) ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'theme-creative-dynamik-custom',
 				'parent' => 'group-genesischild-creative',
@@ -121,12 +121,12 @@ function ddw_tbex_themeitems_dynamik_website_builder() {
 				'href'   => esc_url( admin_url( 'admin.php?page=dynamik-custom' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Custom Options: CSS, Code etc.', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Custom Options: CSS, Code etc.', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'theme-creative-dynamik-custom-preview',
 				'parent' => 'group-genesischild-creative',
@@ -135,7 +135,7 @@ function ddw_tbex_themeitems_dynamik_website_builder() {
 				'meta'   => array(
 					'target' => ddw_tbex_meta_target(),
 					'rel'    => ddw_tbex_meta_rel(),
-					'title'  => esc_attr__( 'Custom CSS &amp; Code: Full View', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Custom CSS &amp; Code: Full View', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -144,7 +144,7 @@ function ddw_tbex_themeitems_dynamik_website_builder() {
 
 	if ( ! ddw_tbex_is_dynamik_settings_hidden( 'images' ) ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'theme-creative-dynamik-images',
 				'parent' => 'group-genesischild-creative',
@@ -152,7 +152,7 @@ function ddw_tbex_themeitems_dynamik_website_builder() {
 				'href'   => esc_url( admin_url( 'admin.php?page=dynamik-image-manager' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Image Manager', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Image Manager', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -163,7 +163,7 @@ function ddw_tbex_themeitems_dynamik_website_builder() {
 
 		$settings_url = $is_new ? admin_url( 'admin.php?page=dynamik-dashboard&activetab=dynamik-theme-settings-nav-general' ) : admin_url( 'admin.php?page=dynamik-settings&activetab=dynamik-theme-settings-nav-general' );
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'theme-creative-dynamik-settings',
 				'parent' => 'group-genesischild-creative',
@@ -171,12 +171,12 @@ function ddw_tbex_themeitems_dynamik_website_builder() {
 				'href'   => esc_url( $settings_url ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
 				)
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'theme-creative-dynamik-general',
 					'parent' => 'theme-creative-dynamik-settings',
@@ -184,12 +184,12 @@ function ddw_tbex_themeitems_dynamik_website_builder() {
 					'href'   => esc_url( $settings_url ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'General Options', 'toolbar-extras' )
+						'title'  => esc_attr__( 'General Options', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'theme-creative-dynamik-importexport',
 					'parent' => 'theme-creative-dynamik-settings',
@@ -197,14 +197,14 @@ function ddw_tbex_themeitems_dynamik_website_builder() {
 					'href'   => $is_new ? esc_url( admin_url( 'admin.php?page=dynamik-dashboard&activetab=dynamik-theme-settings-nav-import-export' ) ) : esc_url( admin_url( 'admin.php?page=dynamik-settings&activetab=dynamik-theme-settings-nav-import-export' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Import &amp; Export', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Import &amp; Export', 'toolbar-extras' ),
 					)
 				)
 			);
 
 			if ( ! ddw_tbex_is_dynamik_settings_hidden( 'license' ) ) {
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'theme-creative-dynamik-license',
 						'parent' => 'theme-creative-dynamik-settings',
@@ -212,7 +212,7 @@ function ddw_tbex_themeitems_dynamik_website_builder() {
 						'href'   => esc_url( admin_url( 'themes.php?page=dynamik_gen-license' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'License', 'toolbar-extras' )
+							'title'  => esc_attr__( 'License', 'toolbar-extras' ),
 						)
 					)
 				);
@@ -233,20 +233,22 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_dynamik_resources', 120 );
  *
  * @uses ddw_tbex_display_items_resources()
  * @uses ddw_tbex_resource_item()
+ *
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_dynamik_resources() {
+function ddw_tbex_themeitems_dynamik_resources( $admin_bar ) {
 
 	/** Bail early if no resources display active */
 	if ( ! ddw_tbex_display_items_resources() ) {
-		return;
+		return $admin_bar;
 	}
 
 	/** Group: Resources for Freelancer Theme */
-	$GLOBALS[ 'wp_admin_bar' ]->add_group(
+	$admin_bar->add_group(
 		array(
 			'id'     => 'group-dynamik-resources',
 			'parent' => 'theme-creative',
-			'meta'   => array( 'class' => 'ab-sub-secondary' )
+			'meta'   => array( 'class' => 'ab-sub-secondary' ),
 		)
 	);
 

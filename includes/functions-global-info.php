@@ -32,6 +32,25 @@ function ddw_tbex_get_option( $type = '', $option_key = '' ) {
 
 
 /**
+ * ???
+ *
+ * @since 1.4.8
+ */
+function ddw_tbex_pm_min_versions() {
+
+	$versions = array(
+		'builder-template-categories' => '1.7.0',
+		'wp-asset-clean-up'           => '1.3.4.6',
+		'code-snippets'               => '2.13.3',
+		'members'                     => '2.2.0',
+	);
+
+	return $versions;
+
+}  // end function
+
+
+/**
  * Setting internal plugin helper values.
  *
  * @since 1.0.0
@@ -63,6 +82,7 @@ function ddw_tbex_info_values() {
 		'url_fb_group'        => 'https://www.facebook.com/groups/ToolbarExtras/',
 		'url_ddw_series'      => 'https://wordpress.org/plugins/tags/ddwtoolbar',
 		'url_snippets'        => 'https://toolbarextras.com/docs-category/custom-code-snippets/',
+		'url_snippet_user'    => 'https://toolbarextras.com/docs/remove-toolbar-items-for-certain-users/',
 
 		'author'              => __( 'David Decker - DECKERWEB', 'toolbar-extras' ),
 		'author_uri'          => 'https://deckerweb.de/',
@@ -89,6 +109,7 @@ function ddw_tbex_info_values() {
 		'url_plugin_changes'  => 'https://toolbarextras.com/changelogs/toolbar-extras/',
 		'url_tbex_timeline'   => 'https://toolbarextras.com/version-timeline/',
 		'url_milestones'      => 'https://toolbarextras.com/milestones/',
+		'url_blog'            => 'https://toolbarextras.com/blog/',
 
 		'url_video_intro'     => 'https://www.youtube.com/watch?v=fdDG19Sk0is',
 		'url_video_tour'      => '//www.youtube-nocookie.com/embed/fdDG19Sk0is?rel=0&TB_iframe=true&width=1024&height=576',	// for Thickbox, embed version, no cookies!

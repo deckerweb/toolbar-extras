@@ -130,6 +130,15 @@ if ( defined( 'HAPPYFORMS_VERSION' ) ) {
 
 
 /**
+ * Plugin: weForms (free, by weDevs)
+ * @since 1.4.8
+ */
+if ( class_exists( 'WeForms' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins-forms/items-weforms.php';
+}
+
+
+/**
  * Plugin: Form Maker (free, by WebDorado Form Builder Team)
  * @since 1.4.0
  */
@@ -153,6 +162,15 @@ if ( ddw_tbex_is_acf_pro_active() && class_exists( 'AF' ) ) {
  */
 if ( class_exists( 'Flo_Forms_Loader' ) ) {
 	require_once TBEX_PLUGIN_DIR . 'includes/plugins-forms/items-flo-forms.php';
+}
+
+
+/**
+ * Plugin: Fluent Forms (free, by WP Fluent Forms)
+ * @since 1.4.8
+ */
+if ( defined( 'FLUENTFORM_VERSION' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins-forms/items-fluent-forms.php';
 }
 
 
@@ -236,6 +254,15 @@ if ( class_exists( 'WYSIJA' ) ) {
  */
 if ( class_exists( 'OMAPI' ) ) {
 	require_once TBEX_PLUGIN_DIR . 'includes/plugins-forms/items-optinmonster.php';
+}
+
+
+/**
+ * Plugin: MailOptin Lite (free, by MailOptin Team)
+ * @since 1.4.8
+ */
+if ( defined( 'MAILOPTIN_VERSION_NUMBER' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins-forms/items-mailoptin.php';
 }
 
 

@@ -301,7 +301,7 @@ if ( defined( 'TOOLKIT_FOR_ELEMENTOR_VERSION' ) ) {
 
 
 /**
- * Add-On: ElementsKit Lite (Premium, by wpmet)
+ * Add-On: ElementsKit Lite/Pro (free/Premium, by wpmet)
  * @since 1.4.7
  */
 if ( class_exists( 'ElementsKit' ) ) {
@@ -378,6 +378,15 @@ if ( defined( 'UAEL_FILE' ) ) {
  */
 if ( defined( 'BDTEP_VER' ) ) {
 	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-bdthemes-element-pack.php';
+}
+
+
+/**
+ * Add-On: Prime Slider Lite (free, by BdThemes)
+ * @since 1.4.8
+ */
+if ( defined( 'BDTEP_VER' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-bdthemes-prime-slider.php';
 }
 
 
@@ -939,6 +948,24 @@ if ( class_exists( 'Social_Elementor_Loader' ) ) {
  */
 if ( function_exists( 'advamentor_init' ) ) {
 	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-advamentor.php';
+}
+
+
+/**
+ * Add-On: Ruvuv Extension for Elementor (free, by Ruvuv)
+ * @since 1.4.8
+ */
+if ( defined( 'RUVUV_EXPAND_VERSION' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-ruvuv-extension-for-elementor.php';
+}
+
+
+/**
+ * Add-On: Happy Elementor Addons (free, by HappyMonster/ weDevs)
+ * @since 1.4.8
+ */
+if ( defined( 'HAPPY_ADDONS_VERSION' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-happy-addons.php';
 }
 
 

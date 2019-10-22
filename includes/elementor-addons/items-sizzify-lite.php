@@ -14,21 +14,22 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_sizzify_lite', 100 );
 /**
- * Items for Add-On: Elementor Addons & Templates – Sizzify Lite (free, by Themeisle)
+ * Items for Add-On:
+ *   Elementor Addons & Templates – Sizzify Lite (free, by Themeisle)
  *
  * @since 1.1.0
  *
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_sizzify_lite() {
+function ddw_tbex_aoitems_sizzify_lite( $admin_bar ) {
 
 	/** Use Add-On hook place */
 	add_filter( 'tbex_filter_is_addon', '__return_empty_string' );
 
 	/** Sizzify Lite Settings */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'ao-sizzifylite',
 			'parent' => 'tbex-addons',
@@ -36,12 +37,12 @@ function ddw_tbex_aoitems_sizzify_lite() {
 			'href'   => esc_url( admin_url( 'admin.php?page=sizzify_template_dir' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_addon_title_attr( __( 'Sizzify Lite', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_addon_title_attr( __( 'Sizzify Lite', 'toolbar-extras' ) ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-sizzifylite-templates',
 				'parent' => 'ao-sizzifylite',
@@ -49,7 +50,7 @@ function ddw_tbex_aoitems_sizzify_lite() {
 				'href'   => esc_url( admin_url( 'admin.php?page=sizzify_template_dir' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Template Import', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Template Import', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -57,11 +58,11 @@ function ddw_tbex_aoitems_sizzify_lite() {
 		/** Group: Resources for Sizzy Lite */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-sizzifylite-resources',
 					'parent' => 'ao-sizzifylite',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

@@ -33,6 +33,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_wpstaging', 10 );
  * @since 1.0.0
  * @since 1.3.4 Added list of clones as items.
  *
+ * @uses ddw_tbex_is_wpstaging_pro_active()
  * @uses ddw_tbex_resource_item()
  *
  * @param object $admin_bar Object of Toolbar nodes.
@@ -49,7 +50,7 @@ function ddw_tbex_site_items_wpstaging( $admin_bar ) {
 			'href'   => esc_url( admin_url( 'admin.php?page=wpstg_clone' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => $wpstaging_title
+				'title'  => $wpstaging_title,
 			)
 		)
 	);
@@ -67,7 +68,7 @@ function ddw_tbex_site_items_wpstaging( $admin_bar ) {
 			$admin_bar->add_group(
 				array(
 					'id'     => 'group-wpstaging-clones',
-					'parent' => 'wpstaging'
+					'parent' => 'wpstaging',
 				)
 			);
 
@@ -85,7 +86,7 @@ function ddw_tbex_site_items_wpstaging( $admin_bar ) {
 						'href'   => esc_url( $clone_data[ 'url' ] . '/?' ),
 						'meta'   => array(
 							'target' => ddw_tbex_meta_target(),
-							'title'  => esc_attr__( 'Open Clone', 'toolbar-extras' ) . ': ' . $clone_title
+							'title'  => esc_attr__( 'Open Clone', 'toolbar-extras' ) . ': ' . $clone_title,
 						)
 					)
 				);
@@ -98,7 +99,7 @@ function ddw_tbex_site_items_wpstaging( $admin_bar ) {
 							'href'   => esc_url( $clone_data[ 'url' ] . '/?' ),
 							'meta'   => array(
 								'target' => ddw_tbex_meta_target(),
-								'title'  => esc_attr__( 'Open', 'toolbar-extras' )
+								'title'  => esc_attr__( 'Open', 'toolbar-extras' ),
 							)
 						)
 					);
@@ -111,7 +112,7 @@ function ddw_tbex_site_items_wpstaging( $admin_bar ) {
 							'href'   => esc_url( $clone_data[ 'url' ] . '/wp-login.php' ),
 							'meta'   => array(
 								'target' => ddw_tbex_meta_target(),
-								'title'  => esc_attr__( 'Admin Login', 'toolbar-extras' )
+								'title'  => esc_attr__( 'Admin Login', 'toolbar-extras' ),
 							)
 						)
 					);
@@ -128,7 +129,7 @@ function ddw_tbex_site_items_wpstaging( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'admin.php?page=wpstg_clone' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Create Staging Clone', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Create Staging Clone', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -141,7 +142,7 @@ function ddw_tbex_site_items_wpstaging( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'admin.php?page=wpstg-settings' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -154,7 +155,7 @@ function ddw_tbex_site_items_wpstaging( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'admin.php?page=wpstg-tools' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Tools', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Tools', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -169,7 +170,7 @@ function ddw_tbex_site_items_wpstaging( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'admin.php?page=wpstg-license' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'License', 'toolbar-extras' )
+						'title'  => esc_attr__( 'License', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -183,7 +184,7 @@ function ddw_tbex_site_items_wpstaging( $admin_bar ) {
 				array(
 					'id'     => 'group-wpstaging-resources',
 					'parent' => 'wpstaging',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 
@@ -204,6 +205,18 @@ function ddw_tbex_site_items_wpstaging( $admin_bar ) {
 				'group-wpstaging-resources',
 				'https://wp-staging.com/docs/install-wp-staging/'
 			);
+
+			if ( ddw_tbex_is_wpstaging_pro_active() ) {
+
+				ddw_tbex_resource_item(
+					'changelog',
+					'wpstaging-changelog-pro',
+					'group-wpstaging-resources',
+					'https://wp-staging.com/wp-staging-pro-changelog/',
+					ddw_tbex_string_version_history( 'pro-plugin' )
+				);
+
+			}  // end if
 
 			if ( ! ddw_tbex_is_wpstaging_pro_active() ) {
 

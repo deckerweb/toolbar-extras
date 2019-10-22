@@ -21,12 +21,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_custom_swatches_iris', 110 );
  * @uses ddw_tbex_resources_color_wheel()
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_custom_swatches_iris() {
+function ddw_tbex_aoitems_custom_swatches_iris( $admin_bar ) {
 
 	/** Plugin's items */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'ao-csfiriscp',
 			'parent' => 'group-active-theme',
@@ -34,12 +34,12 @@ function ddw_tbex_aoitems_custom_swatches_iris() {
 			'href'   => esc_url( admin_url( 'options-general.php?page=iceberg_iris_color' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_addon_title_attr( __( 'Custom Swatches for Iris Color Picker', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_addon_title_attr( __( 'Custom Swatches for Iris Color Picker', 'toolbar-extras' ) ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-csfiriscp-edit',
 				'parent' => 'ao-csfiriscp',
@@ -47,22 +47,22 @@ function ddw_tbex_aoitems_custom_swatches_iris() {
 				'href'   => esc_url( admin_url( 'options-general.php?page=iceberg_iris_color' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Define Colors', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Define Colors', 'toolbar-extras' ),
 				)
 			)
 		);
 
 		/** Color Wheel Resources */
-		ddw_tbex_resources_color_wheel( 'csfiriscp', 'ao-csfiriscp' );
+		ddw_tbex_resources_color_wheel($admin_bar, 'csfiriscp', 'ao-csfiriscp' );
 
 		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-csfiriscp-resources',
 					'parent' => 'ao-csfiriscp',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

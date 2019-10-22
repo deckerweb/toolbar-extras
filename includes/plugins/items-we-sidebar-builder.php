@@ -72,7 +72,7 @@ function ddw_tbex_aoitems_reusable_templates( $admin_bar ) {
 
 		if ( ddw_tbex_is_elementor_active() && \Elementor\User::is_current_user_can_edit_post_type( $type ) ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ao-reusabletemplates-elementor',
 					'parent' => 'ao-reusabletemplates',
@@ -155,7 +155,7 @@ function ddw_tbex_new_content_reusable_template( $admin_bar ) {
 
 	/** Bail early if items display is not wanted */
 	if ( ! ddw_tbex_display_items_new_content() ) {
-		return;
+		return $admin_bar;
 	}
 
 	$type = 'we-sidebar-builder';

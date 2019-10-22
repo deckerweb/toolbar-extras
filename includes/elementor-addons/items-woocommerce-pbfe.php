@@ -36,7 +36,7 @@ function ddw_tbex_aoitems_woo_pbfe( $admin_bar ) {
 			'href'   => esc_url( admin_url( 'edit.php?post_type=' . $type ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_premium_addon_title_attr( __( 'WooCommerce Page Builder for Elementor', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_premium_addon_title_attr( __( 'WooCommerce Page Builder for Elementor', 'toolbar-extras' ) ),
 			)
 		)
 	);
@@ -50,7 +50,7 @@ function ddw_tbex_aoitems_woo_pbfe( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=' . $type ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'All Shop Templates', 'toolbar-extras' )
+					'title'  => esc_attr__( 'All Shop Templates', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -64,7 +64,7 @@ function ddw_tbex_aoitems_woo_pbfe( $admin_bar ) {
 				'href'   => FALSE,
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'WooCommerce Shop Template Types', 'toolbar-extras' )
+					'title'  => esc_attr__( 'WooCommerce Shop Template Types', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -77,7 +77,7 @@ function ddw_tbex_aoitems_woo_pbfe( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'edit.php?post_type=' . $type . '&dtwcbe_woo_library_type=product' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Single Product', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Single Product', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -90,7 +90,7 @@ function ddw_tbex_aoitems_woo_pbfe( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'edit.php?post_type=' . $type . '&dtwcbe_woo_library_type=product-archive' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Product Archive', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Product Archive', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -103,7 +103,7 @@ function ddw_tbex_aoitems_woo_pbfe( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'edit.php?post_type=' . $type . '&dtwcbe_woo_library_type=cart-page' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Cart Page', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Cart Page', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -116,7 +116,7 @@ function ddw_tbex_aoitems_woo_pbfe( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'edit.php?post_type=' . $type . '&dtwcbe_woo_library_type=checkout-page' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Product Archive', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Product Archive', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -129,7 +129,7 @@ function ddw_tbex_aoitems_woo_pbfe( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'edit.php?post_type=' . $type . '&dtwcbe_woo_library_type=thankyou' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Thank You Page', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Thank You Page', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -142,7 +142,7 @@ function ddw_tbex_aoitems_woo_pbfe( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'edit.php?post_type=' . $type . '&dtwcbe_woo_library_type=my-account' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'My Account Page', 'toolbar-extras' )
+						'title'  => esc_attr__( 'My Account Page', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -156,7 +156,7 @@ function ddw_tbex_aoitems_woo_pbfe( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=' . $type . '#add_new' ) ),
 				'meta'   => array(
 					'target' => ddw_tbex_meta_target( 'builder' ),
-					'title'  => esc_attr__( 'New Shop Template', 'toolbar-extras' )
+					'title'  => esc_attr__( 'New Shop Template', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -172,7 +172,7 @@ function ddw_tbex_aoitems_woo_pbfe( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'edit-tags.php?taxonomy=builder-template-category&post_type=' . $type ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_html( ddw_btc_string_template( 'template' ) )
+						'title'  => esc_html( ddw_btc_string_template( 'template' ) ),
 					)
 				)
 			);
@@ -186,7 +186,7 @@ function ddw_tbex_aoitems_woo_pbfe( $admin_bar ) {
 				array(
 					'id'     => 'group-dtwoopbfe-resources',
 					'parent' => 'ao-dtwoopbfe',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

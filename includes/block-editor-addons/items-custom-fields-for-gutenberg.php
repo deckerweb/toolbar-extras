@@ -20,14 +20,14 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_custom_fields_for_gutenberg', 10
  *
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar']
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_custom_fields_for_gutenberg() {
+function ddw_tbex_aoitems_custom_fields_for_gutenberg( $admin_bar ) {
 
 	/** Use Add-On hook place */
 	add_filter( 'tbex_filter_is_addon', '__return_empty_string' );
-	
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+
+	$admin_bar->add_node(
 		array(
 			'id'     => 'customfields-gutenberg',
 			'parent' => 'group-tbex-addons-blockeditor',
@@ -35,12 +35,12 @@ function ddw_tbex_aoitems_custom_fields_for_gutenberg() {
 			'href'   => esc_url( admin_url( 'options-general.php?page=g7g-cfg' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_free_addon_title_attr( esc_attr__( 'Custom Fields for Block Editor (Gutenberg)', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_free_addon_title_attr( esc_attr__( 'Custom Fields for Block Editor (Gutenberg)', 'toolbar-extras' ) ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'customfields-gutenberg-settings',
 				'parent' => 'customfields-gutenberg',
@@ -48,7 +48,7 @@ function ddw_tbex_aoitems_custom_fields_for_gutenberg() {
 				'href'   => esc_url( admin_url( 'options-general.php?page=g7g-cfg' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -56,11 +56,11 @@ function ddw_tbex_aoitems_custom_fields_for_gutenberg() {
 		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-cffgb-resources',
 					'parent' => 'customfields-gutenberg',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

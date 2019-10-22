@@ -20,15 +20,15 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_dcfe', 100 );
  *
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_dcfe() {
+function ddw_tbex_aoitems_dcfe( $admin_bar ) {
 
 	/** Use Add-On hook place */
 	add_filter( 'tbex_filter_is_addon', '__return_empty_string' );
 
 	/** Granular Controls Settings */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'ao-dcfe',
 			'parent' => 'tbex-addons',
@@ -36,12 +36,12 @@ function ddw_tbex_aoitems_dcfe() {
 			'href'   => esc_url( admin_url( 'admin.php?page=dce_opt' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_premium_addon_title_attr( __( 'Dynamic Content for Elementor', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_premium_addon_title_attr( __( 'Dynamic Content for Elementor', 'toolbar-extras' ) ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-dcfe-settings',
 				'parent' => 'ao-dcfe',
@@ -49,12 +49,12 @@ function ddw_tbex_aoitems_dcfe() {
 				'href'   => esc_url( admin_url( 'admin.php?page=dce_opt&tab=settings' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-dcfe-widgets',
 				'parent' => 'ao-dcfe',
@@ -62,12 +62,12 @@ function ddw_tbex_aoitems_dcfe() {
 					'href'   => esc_url( admin_url( 'admin.php?page=dce_opt&tab=widgets' ) ),
 					'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Activate Widgets', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Activate Widgets', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-dcfe-license',
 				'parent' => 'ao-dcfe',
@@ -75,7 +75,7 @@ function ddw_tbex_aoitems_dcfe() {
 				'href'   => esc_url( admin_url( 'admin.php?page=dce_opt&tab=license' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'License', 'toolbar-extras' )
+					'title'  => esc_attr__( 'License', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -83,11 +83,11 @@ function ddw_tbex_aoitems_dcfe() {
 		/** Group: Resources for Dynamic Content for Elementor */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-dcfe-resources',
 					'parent' => 'ao-dcfe',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

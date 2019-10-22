@@ -36,7 +36,7 @@ function ddw_tbex_aoitems_jettabs( $admin_bar ) {
 			'href'   => esc_url( admin_url( 'admin.php?page=jet-tabs-settings' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_premium_addon_title_attr( __( 'JetTabs', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_premium_addon_title_attr( __( 'JetTabs', 'toolbar-extras' ) ),
 			)
 		)
 	);
@@ -49,7 +49,7 @@ function ddw_tbex_aoitems_jettabs( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'admin.php?page=jet-tabs-settings' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -61,7 +61,7 @@ function ddw_tbex_aoitems_jettabs( $admin_bar ) {
 				array(
 					'id'     => 'group-jettabs-resources',
 					'parent' => 'ao-jettabs',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 
@@ -83,7 +83,8 @@ function ddw_tbex_aoitems_jettabs( $admin_bar ) {
 				'changelog',
 				'jettabs-changelog',
 				'group-jettabs-resources',
-				'https://documentation.zemez.io/wordpress/index.php?project=jettabs&lang=en&section=jettabs-changelog'
+				'https://documentation.zemez.io/wordpress/index.php?project=jettabs&lang=en&section=jettabs-changelog',
+				ddw_tbex_string_version_history( 'addon' )
 			);
 
 			ddw_tbex_resource_item(

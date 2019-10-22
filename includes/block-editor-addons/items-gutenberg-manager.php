@@ -20,14 +20,14 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_gutenberg_manager', 10 );
  *
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar']
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_gutenberg_manager() {
+function ddw_tbex_aoitems_gutenberg_manager( $admin_bar ) {
 
 	/** Use Add-On hook place */
 	add_filter( 'tbex_filter_is_addon', '__return_empty_string' );
-	
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+
+	$admin_bar->add_node(
 		array(
 			'id'     => 'tbex-gutenberg-manager',
 			'parent' => 'group-tbex-addons-blockeditor',
@@ -35,12 +35,12 @@ function ddw_tbex_aoitems_gutenberg_manager() {
 			'href'   => esc_url( admin_url( 'admin.php?page=gutenberg-manager' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_free_addon_title_attr( esc_attr__( 'Gutenberg Manager', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_free_addon_title_attr( esc_attr__( 'Gutenberg Manager', 'toolbar-extras' ) ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'gutenberg-manager-settings',
 				'parent' => 'tbex-gutenberg-manager',
@@ -48,12 +48,12 @@ function ddw_tbex_aoitems_gutenberg_manager() {
 				'href'   => esc_url( admin_url( 'admin.php?page=gutenberg-manager&tab=settings' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'gutenberg-manager-default-blocks',
 				'parent' => 'tbex-gutenberg-manager',
@@ -61,12 +61,12 @@ function ddw_tbex_aoitems_gutenberg_manager() {
 				'href'   => esc_url( admin_url( 'admin.php?page=gutenberg-manager&tab=default-blocks' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Default Blocks', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Default Blocks', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'gutenberg-manager-additional-blocks',
 				'parent' => 'tbex-gutenberg-manager',
@@ -74,12 +74,12 @@ function ddw_tbex_aoitems_gutenberg_manager() {
 				'href'   => esc_url( admin_url( 'admin.php?page=gutenberg-manager&tab=additional-blocks' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Additional Blocks', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Additional Blocks', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'gutenberg-manager-api-hooks',
 				'parent' => 'tbex-gutenberg-manager',
@@ -87,7 +87,7 @@ function ddw_tbex_aoitems_gutenberg_manager() {
 				'href'   => esc_url( admin_url( 'admin.php?page=gutenberg-manager&tab=api-hooks' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'API / Hooks', 'toolbar-extras' )
+					'title'  => esc_attr__( 'API / Hooks', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -95,11 +95,11 @@ function ddw_tbex_aoitems_gutenberg_manager() {
 		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-gutenberg-manager-resources',
 					'parent' => 'tbex-gutenberg-manager',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

@@ -35,15 +35,15 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_wp_document_revisions', 20 );
  * @uses ddw_wpdrsd_get_options()
  * @uses ddw_tbex_is_wpdr_simple_downloads_active()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_wp_document_revisions() {
+function ddw_tbex_site_items_wp_document_revisions( $admin_bar ) {
 
 	/** For: Manage Content */
-	$GLOBALS[ 'wp_admin_bar' ]->add_group(
+	$admin_bar->add_group(
 		array(
 			'id'     => 'group-document-revisions',
-			'parent' => 'manage-content'
+			'parent' => 'manage-content',
 		)
 	);
 
@@ -57,7 +57,7 @@ function ddw_tbex_site_items_wp_document_revisions() {
 		$content_label = __( 'Downloads', 'toolbar-extras' );
 	}
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'wpdr-documents-edit',
 			'parent' => 'group-document-revisions',
@@ -73,14 +73,14 @@ function ddw_tbex_site_items_wp_document_revisions() {
 					/* translators: %s - post type label, "Documents" OR "Downloads" */
 					esc_attr__( 'Edit %s &amp; Revisions', 'toolbar-extras' ),
 					$content_label
-				)
+				),
 			)
 		)
 	);
 
 	if ( ddw_tbex_is_wpdr_simple_downloads_active() ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'wpdr-download-settings',
 				'parent' => 'group-document-revisions',
@@ -88,14 +88,14 @@ function ddw_tbex_site_items_wp_document_revisions() {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=document&page=wpdrsd-settings' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Downloads Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Downloads Settings', 'toolbar-extras' ),
 				)
 			)
 		);
 
 	}  // end if
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'wpdr-media-settings',
 			'parent' => 'group-document-revisions',
@@ -103,7 +103,7 @@ function ddw_tbex_site_items_wp_document_revisions() {
 			'href'   => esc_url( admin_url( 'options-media.php' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'File Settings', 'toolbar-extras' )
+				'title'  => esc_attr__( 'File Settings', 'toolbar-extras' ),
 			)
 		)
 	);

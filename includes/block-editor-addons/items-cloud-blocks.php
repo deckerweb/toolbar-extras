@@ -20,14 +20,14 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_cloudblocks', 10 );
  *
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar']
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_cloudblocks() {
+function ddw_tbex_aoitems_cloudblocks( $admin_bar ) {
 
 	/** Use Add-On hook place */
 	add_filter( 'tbex_filter_is_addon', '__return_empty_string' );
-	
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+
+	$admin_bar->add_node(
 		array(
 			'id'     => 'tbex-cloud-blocks',
 			'parent' => 'group-tbex-addons-blockeditor',
@@ -35,12 +35,12 @@ function ddw_tbex_aoitems_cloudblocks() {
 			'href'   => esc_url( admin_url( 'admin.php?page=cloud-blocks' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_free_addon_title_attr( esc_attr__( 'Editor Blocks', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_free_addon_title_attr( esc_attr__( 'Editor Blocks', 'toolbar-extras' ) ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'cloud-blocks-installer',
 				'parent' => 'tbex-cloud-blocks',
@@ -48,12 +48,12 @@ function ddw_tbex_aoitems_cloudblocks() {
 				'href'   => esc_url( admin_url( 'admin.php?page=cloud-blocks' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Install Blocks', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Install Blocks', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'cloud-blocks-tools',
 				'parent' => 'tbex-cloud-blocks',
@@ -61,7 +61,7 @@ function ddw_tbex_aoitems_cloudblocks() {
 				'href'   => esc_url( admin_url( 'admin.php?page=gutenberg-cloud-tools' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Import &amp; Export', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Import &amp; Export', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -69,11 +69,11 @@ function ddw_tbex_aoitems_cloudblocks() {
 		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-cloudblocks-resources',
 					'parent' => 'tbex-cloud-blocks',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 
@@ -117,11 +117,11 @@ add_action( 'admin_bar_menu', 'ddw_tbex_items_new_content_installer_cloudblocks'
  *
  * @since 1.4.0
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_items_new_content_installer_cloudblocks() {
+function ddw_tbex_items_new_content_installer_cloudblocks( $admin_bar ) {
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 			array(
 			'id'     => 'cloudblocks-installer',
 			'parent' => 'tbex-installer',
@@ -129,12 +129,12 @@ function ddw_tbex_items_new_content_installer_cloudblocks() {
 			'href'   => esc_url( admin_url( 'admin.php?page=cloud-blocks' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Install Cloud Blocks - Search via GutenbergCloud.org', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Install Cloud Blocks - Search via GutenbergCloud.org', 'toolbar-extras' ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 				array(
 				'id'     => 'cloudblocks-installer-latest',
 				'parent' => 'cloudblocks-installer',
@@ -142,12 +142,12 @@ function ddw_tbex_items_new_content_installer_cloudblocks() {
 				'href'   => esc_url( admin_url( 'admin.php?page=cloud-blocks&browse=latest' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Newest Blocks added on GutenbergCloud.org', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Newest Blocks added on GutenbergCloud.org', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 				array(
 				'id'     => 'cloudblocks-installer-popular',
 				'parent' => 'cloudblocks-installer',
@@ -155,12 +155,12 @@ function ddw_tbex_items_new_content_installer_cloudblocks() {
 				'href'   => esc_url( admin_url( 'admin.php?page=cloud-blocks&browse=popular' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Popular Blocks on GutenbergCloud.org', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Popular Blocks on GutenbergCloud.org', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 				array(
 				'id'     => 'cloudblocks-installer-installed',
 				'parent' => 'cloudblocks-installer',
@@ -168,12 +168,12 @@ function ddw_tbex_items_new_content_installer_cloudblocks() {
 				'href'   => esc_url( admin_url( 'admin.php?page=cloud-blocks&browse=installed' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Currently Installed Blocks', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Currently Installed Blocks', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 				array(
 				'id'     => 'cloudblocks-installer-importexport',
 				'parent' => 'cloudblocks-installer',
@@ -181,7 +181,7 @@ function ddw_tbex_items_new_content_installer_cloudblocks() {
 				'href'   => esc_url( admin_url( 'admin.php?page=gutenberg-cloud-tools' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Upload &amp; Export Blocks', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Upload &amp; Export Blocks', 'toolbar-extras' ),
 				)
 			)
 		);

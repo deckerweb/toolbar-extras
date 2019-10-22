@@ -9,9 +9,9 @@
 **Donate link:** https://www.paypal.me/deckerweb  
 **Tags:** toolbar, adminbar, admin bar, elementor, page builder, themes, menu, links, settings, usability, deckerweb, ddwtoolbar  
 **Requires at least:** 4.7  
-**Tested up to:** 5.2  
+**Tested up to:** 5.3  
 **Requires PHP:** 5.6  
-**Stable tag:** 1.4.7  
+**Stable tag:** 1.4.8  
 **License:** GPL-2.0-or-later  
 **License URI:** https://opensource.org/licenses/GPL-2.0  
 
@@ -518,7 +518,62 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 ([For the full changelog of this plugin visit its website at ToolbarExtras.com](https://toolbarextras.com/changelog/))
 
 
+### ⚡ 1.4.8 - 2019-10-22 
+
+* New: Added "News & Updates" Dashboard widget - only viewable for (Super) Admins, can easily be disabled via "Screen Options" (top right corner) - Note: settings integration will follow, though
+* New: Added way more specific, helpful resources within the WordPress Logo/ About group (finishing the work that began with plugin version 1.4.5)
+* New: Added shortcut to plugin's settings in Multisite Network Admin (only to the main site of the Network, though)
+* New: Added shortcuts to plugin's settings tabs on the Elementor "General Settings" admin page (as extra tab there)
+* New: For [ClassicPress](https://www.classicpress.net/) installs added new "Toolbar Extras" info page under "Security" admin menu (for ClassicPress v1.1.0+)
+* New: You can now also leverage "WPCore Plugin Manager" plugin to bulk install plugins - if active, new item and sub items appear within the "New Content" Group
+* Tweak: Extended "WP About" sub items with more stuff when *Dev Mode* is enabled
+* Tweak: Refined "Mailster" plugin support, added new sub items (Setup Wizard, Tests) and one new resource item (Changelog)
+* Tweak: Refined "Formidable Forms" plugin support, added new sub items for Pro version and 2 Pro Add-Ons, plus one new resource item (Changelog)
+* Tweak: Improved readability of settings page description texts - now they have an enforced `max-width` of 800px (much better on bigger screens/ viewports...!)
+* Tweak: Refinements for the Plugin Manager for Add-Ons - info screens, minimum version management, descriptions
+* Tweak: Updated bundled library DDWlib Plugin Installer Recommendations to latest version (v1.5.0) - better performance due to the use of transients
+* Tweak: Updated bundled library Astra Notices to latest version (v1.1.4)
+* Tweak: Properly enqueued inline styles also for Local Dev Environment feature
+* Tweak: Properly enqueued inline styles also for "Gravity Forms" plugin support
+* Tweak: Minor security improvement for settings page
+* Tweak: Minor enhancements throughout the plugin
+* Tweak: Where possible, migrated all the plugin's Toolbar items over from Global usage to `$admin_bar` object to be more in line with WP standards
+* Tweak: Updated `.pot` file plus all German translations (formal, informal) and language packs
+* Tweak: If available, use new WP 5.0+ function `determine_locale()` for even better (user) locale detection
+* Fix: CSS issue on Plugins page - info & update action links from other plugins are no longer hidden
+* Fix: Fixed admin URL for Genesis Child Themes "Brunch Pro", "Cook'd Pro" and "Foodie Pro"
+* Fix: Fixed loading for "Pretty Chic" Child Theme support
+
+**New, 1.4.8:** *Extended the Theme support for:*
+* Course Maker Pro (Premium, by brandiD), a Child Theme for Genesis
+* Cafe Pro (Premium, by StudioPress), a Child Theme for Genesis
+* Pretty Creative (Premium, by Lindsey Riel), a Child Theme for Genesis
+
+**New, 1.4.8:** *Extended the Plugin support for Elementor Add-Ons:*
+
+* Prime Slider Lite Addons for Elementor (free, by BdThemes)
+* Happy Elementor Addons (free, by HappyMonster/ weDevs)
+* Ruvuv Extension for Elementor (free, by Ruvuv)
+
+**New, 1.4.8:** *Extended the general Plugin support for:*
+
+* Options for Twenty Nineteen (free, by webd.uk) - *Adds additional Customizer options for the "Twenty Nineteen" theme*
+* Options for Twenty Seventeen (free, by webd.uk) - *Adds additional Customizer options for the "Twenty Seventeen" theme*
+* Customize Twenty Seventeen (free, by BoldThemes) - *Adds additional Customizer options for the "Twenty Seventeen" theme*
+* Customize Twenty Sixteen (free, by BoldThemes) - *Adds additional Customizer options for the "Twenty Sixteen" theme*
+* Advanced Twenty Seventeen (free, by saturnplugins) - *Adds additional Customizer options for the "Twenty Seventeen" theme*
+* Instant Indexing for Google (free, by Rank Math)
+* weForms (free, by weDevs)
+* Fluent Forms (Pro) (free/Premium, by WP Fluent Forms)
+* MailOptin Lite (free, by MailOptin Team)
+* WPCore Plugin Manager (free, by Stuart Starr)
+* Delete Expired Transients (free, by WebAware) - *for Dev Mode*
+* Transient Cleaner (free, by David Artiss) - *for Dev Mode*
+
+
+
 ### ⚡ 1.4.7 - 2019-09-20 
+
 * New: Brand new **Import/ Export feature** to export or import the plugin's own settings via a .json file - including (official) Add-Ons, if these are currently active --- this feature allows you to easily transfer/ migrate the plugin's settings over to new installs or just make personal backups
 * New: Added **group of "Website Settings" items/ sub items to the Site Group** - this pretty much covers all official/ default WordPress settings pages under "Settings" - now you have handy shortcuts for those important settings (for example *Permalinks*) from the frontend AND the admin! 😁
 * New: **"What Template?" feature** - adds a new top-level item to the Toolbar showing you the file name of the current used Template for the currently displayed page/ document, plus template parts, relative path and Parent/ Child Theme name -- ***Note:** currently this can only be enabled with Dev Mode active and `add_theme_support( 'tbex-show-current-template' );` added via [Code Snippet](https://wordpress.org/plugins/code-snippet/) or your (Child) Theme's `functions.php` (in a next plugin major version this gets even better settings integration, yeah!)*
@@ -576,13 +631,17 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 * Gutentor (free, by Gutentor)
 
 
+
 ### ⚡ 1.4.6 - 2019-08-12
+
 * New: [Brand new Add-On for Give Donations (GiveWP) released!](https://wordpress.org/plugins/toolbar-extras-givewp/)
 * New: For all changes see version 1.4.5 below 😁
 * Tweak: Hot fix for update issue
 
 
+
 ### ⚡ 1.4.5 - 2019-08-12
+
 * New: Added support for Elementor Pro v2.6+ where needed ("Custom Icons" for example)
 * New: Added very useful "Changelog" resource item to some supported plugins and themes, including Elementor (free) and Elementor Pro
 * New: For optional "Web Group" added new 6 new services for live testing URLs - Facebook Debugger, plus 5 more Google Services!
@@ -617,7 +676,9 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 * Schema Markup Rich Snippets (free, by Rank Math)
 
 
+
 ### ⚡ 1.4.4 - 2019-07-04
+
 * New: [Brand new Add-On for MainWP Dashboard released!](https://wordpress.org/plugins/toolbar-extras-mainwp/)
 * New: Added 31 new Dashicons from WordPress 5.2+ to our list of Dashicons icon picker (on our settings page) - only if your install runs WordPress 5.2 or higher
 * New: New resource for "Genesis Customizer" theme - Facebook Group
@@ -652,7 +713,9 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 * WPvivid Backup Plugin (free, by WPvivid Team)
 
 
+
 ### ⚡ 1.4.3 - 2019-05-14
+
 * *New: Successfully tested with WordPress 5.2*
 * *New: Successfully tested with ClassicPress 1.0.1*
 * New: [Brand new Add-On for Oxygen Builder released!](https://wordpress.org/plugins/toolbar-extras-oxygen/)
@@ -736,7 +799,9 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 * Add RichText Toolbar Button (free, by Technote)
 
 
+
 ### ⚡ 1.4.2 - 2019-03-31
+
 * New: Added "Add-Ons" tab to plugin's settings page, featuring official, supported and recommended Add-Ons -- preparing for first official Add-On release(s) ;-)
 * New: Lots of additions and refinements under the hood to make official Add-Ons work smarter (extends the groundwork from v1.4.0)
 * New: Tweaks and additions for (optional) post type archive items, plus new sub items, including special support for Genesis CPT Archive Settings
@@ -854,7 +919,9 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 * Guten-bubble (free, by Chronoir.net)
 
 
+
 ### ⚡ 1.4.1 - 2019-03-05
+
 * *New: Successfully tested with WordPress 5.1*
 * Tweak: Added new resource link for "Elementor Extras" (by Namogo) plugin support
 * Tweak: Added new developer resource link for "WPForms" plugin support
@@ -864,7 +931,9 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 * Fix: Removing of WordPress Widgets from Elementor Live Editor (panel) now works again, especially with Elementor 2.5.0 or higher - thanks to user feedback ([Topic](https://wordpress.org/support/topic/remove-wordpress-widgets-incompatible-with-elementor-2-5/))
 
 
+
 ### 🎉 1.4.0 - 2019-01-14
+
 * New: Full support for WordPress 5.0+ new Block Editor (Gutenberg) - set as default "Page Builder" integration (for Toolbar); also supported are popular plugins "Classic Editor" and "Disable Gutenberg" plugins
 * New: Lots of additional resource links for Block Editor (Gutenberg) added (can be disabled like other resources)
 * New: Support for dozens of Block Editor specific Gutenberg Add-On plugins and themes now built-in - see appropriate changelog sections below -- the add-on support can be disabled via plugin's settings
@@ -1575,6 +1644,10 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 
 ## Upgrade Notice 
 
+
+
+### 1.4.8
+16 additional Plugins supported! Plus, new Dashboard widget, new settings shortcuts, lots of new external resources, even more refinements, tweaks and fixes. - **Update highly recommended.**
 
 
 ### 1.4.7

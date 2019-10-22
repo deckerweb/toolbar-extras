@@ -18,12 +18,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_optinmonster', 20 );
  *
  * @since 1.2.0
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_optinmonster() {
+function ddw_tbex_site_items_optinmonster( $admin_bar ) {
 
 	/** For: Forms */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'forms-optinmonster',
 			'parent' => 'tbex-sitegroup-forms',
@@ -31,13 +31,13 @@ function ddw_tbex_site_items_optinmonster() {
 			'href'   => esc_url( admin_url( 'admin.php?page=optin-monster-api-settings' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'OptinMonster', 'toolbar-extras' )
+				'title'  => esc_attr__( 'OptinMonster', 'toolbar-extras' ),
 			)
 		)
 	);
 
 		/** Campaigns/ Optins */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-optinmonster-campagins-optins',
 				'parent' => 'forms-optinmonster',
@@ -45,13 +45,13 @@ function ddw_tbex_site_items_optinmonster() {
 				'href'   => esc_url( admin_url( 'admin.php?page=optin-monster-api-settings&optin_monster_api_view=optins' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Campaigns &amp; Optins', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Campaigns &amp; Optins', 'toolbar-extras' ),
 				)
 			)
 		);
 
 		/** New Campaign */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-optinmonster-new-campagin',
 				'parent' => 'forms-optinmonster',
@@ -59,13 +59,13 @@ function ddw_tbex_site_items_optinmonster() {
 				'href'   => 'https://app.optinmonster.com/campaigns/new/',
 				'meta'   => array(
 					'target' => ddw_tbex_meta_target(),
-					'title'  => esc_attr__( 'Create New Campaign', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Create New Campaign', 'toolbar-extras' ),
 				)
 			)
 		);
 
 		/** API Credentials */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-optinmonster-api',
 				'parent' => 'forms-optinmonster',
@@ -73,13 +73,13 @@ function ddw_tbex_site_items_optinmonster() {
 				'href'   => esc_url( admin_url( 'admin.php?page=optin-monster-api-settings&optin_monster_api_view=api' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'API Credentials', 'toolbar-extras' )
+					'title'  => esc_attr__( 'API Credentials', 'toolbar-extras' ),
 				)
 			)
 		);
 
 		/** Account */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-optinmonster-account',
 				'parent' => 'forms-optinmonster',
@@ -87,12 +87,12 @@ function ddw_tbex_site_items_optinmonster() {
 				'href'   => 'https://app.optinmonster.com/account/',
 				'meta'   => array(
 					'target' => ddw_tbex_meta_target(),
-					'title'  => esc_attr__( 'Account', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Account', 'toolbar-extras' ),
 				)
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-optinmonster-account-overview',
 					'parent' => 'forms-optinmonster-account',
@@ -100,12 +100,12 @@ function ddw_tbex_site_items_optinmonster() {
 					'href'   => 'https://app.optinmonster.com/account/',
 					'meta'   => array(
 						'target' => ddw_tbex_meta_target(),
-						'title'  => esc_attr__( 'Overview', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Overview', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-optinmonster-account-integrations',
 					'parent' => 'forms-optinmonster-account',
@@ -113,12 +113,12 @@ function ddw_tbex_site_items_optinmonster() {
 					'href'   => 'https://app.optinmonster.com/integrations/',
 					'meta'   => array(
 						'target' => ddw_tbex_meta_target(),
-						'title'  => esc_attr__( 'Integrations', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Integrations', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-optinmonster-account-sites',
 					'parent' => 'forms-optinmonster-account',
@@ -126,7 +126,7 @@ function ddw_tbex_site_items_optinmonster() {
 					'href'   => 'https://app.optinmonster.com/sites/',
 					'meta'   => array(
 						'target' => ddw_tbex_meta_target(),
-						'title'  => esc_attr__( 'Manage Sites', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Manage Sites', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -134,14 +134,14 @@ function ddw_tbex_site_items_optinmonster() {
 		/** Group: Resources for OptinMonster */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-optinmonster-resources',
 					'parent' => 'forms-optinmonster',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
-			
+
 			ddw_tbex_resource_item(
 				'support-contact',
 				'optinmonster-contact',

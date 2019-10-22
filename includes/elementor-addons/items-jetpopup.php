@@ -20,14 +20,14 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_jetpopup', 100 );
  *
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_jetpopup() {
+function ddw_tbex_aoitems_jetpopup( $admin_bar ) {
 
 	$post_type = 'jet-popup';
 
 	/** Plugin's settings */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'ao-jetpopup',
 			'parent' => 'group-creative-content',
@@ -35,12 +35,12 @@ function ddw_tbex_aoitems_jetpopup() {
 			'href'   => esc_url( admin_url( 'edit.php?post_type=' . $post_type ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_premium_addon_title_attr( __( 'JetPopup', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_premium_addon_title_attr( __( 'JetPopup', 'toolbar-extras' ) ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-jetpopup-all',
 				'parent' => 'ao-jetpopup',
@@ -48,12 +48,12 @@ function ddw_tbex_aoitems_jetpopup() {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=' . $post_type ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'All Popups', 'toolbar-extras' )
+					'title'  => esc_attr__( 'All Popups', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-jetpopup-new',
 				'parent' => 'ao-jetpopup',
@@ -61,14 +61,14 @@ function ddw_tbex_aoitems_jetpopup() {
 				'href'   => esc_url( admin_url( 'post-new.php?post_type=' . $post_type ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'New Popup', 'toolbar-extras' )
+					'title'  => esc_attr__( 'New Popup', 'toolbar-extras' ),
 				)
 			)
 		);
 
 		if ( ddw_tbex_is_elementor_active() && \Elementor\User::is_current_user_can_edit_post_type( $post_type ) ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ao-jetpopup-builder',
 					'parent' => 'ao-jetpopup',
@@ -76,7 +76,7 @@ function ddw_tbex_aoitems_jetpopup() {
 					'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( $post_type ) ),
 					'meta'   => array(
 						'target' => ddw_tbex_meta_target( 'builder' ),
-						'title'  => esc_attr__( 'New Popup Builder', 'toolbar-extras' )
+						'title'  => esc_attr__( 'New Popup Builder', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -86,7 +86,7 @@ function ddw_tbex_aoitems_jetpopup() {
 		/** Popup categories, via BTC plugin */
 		if ( ddw_tbex_is_btcplugin_active() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ao-jetpopup-categories',
 					'parent' => 'ao-jetpopup',
@@ -94,14 +94,14 @@ function ddw_tbex_aoitems_jetpopup() {
 					'href'   => esc_url( admin_url( 'edit-tags.php?taxonomy=builder-template-category&post_type=' . $post_type ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_html( ddw_btc_string_template( 'popup' ) )
+						'title'  => esc_html( ddw_btc_string_template( 'popup' ) ),
 					)
 				)
 			);
 
 		}  // end if
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-jetpopup-library',
 				'parent' => 'ao-jetpopup',
@@ -109,12 +109,12 @@ function ddw_tbex_aoitems_jetpopup() {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=' . $post_type . '&page=jet-popup-library' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Popup Library', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Popup Library', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-jetpopup-settings',
 				'parent' => 'ao-jetpopup',
@@ -122,7 +122,7 @@ function ddw_tbex_aoitems_jetpopup() {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=' . $post_type . '&page=jet-popup-settings' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -130,11 +130,11 @@ function ddw_tbex_aoitems_jetpopup() {
 		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-jetpopup-resources',
 					'parent' => 'ao-jetpopup',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 
@@ -163,9 +163,10 @@ function ddw_tbex_aoitems_jetpopup() {
 				'changelog',
 				'jetpopup-changelog',
 				'group-jetpopup-resources',
-				'http://documentation.zemez.io/wordpress/index.php?project=jetpopup&lang=en&section=jetpopup-changelog'
+				'http://documentation.zemez.io/wordpress/index.php?project=jetpopup&lang=en&section=jetpopup-changelog',
+				ddw_tbex_string_version_history( 'addon' )
 			);
-			
+
 			ddw_tbex_resource_item(
 				'official-site',
 				'jetpopup-site',
@@ -184,16 +185,16 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_new_content_jetpopup' );
  *
  * @since 1.4.0
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_new_content_jetpopup() {
+function ddw_tbex_aoitems_new_content_jetpopup( $admin_bar ) {
 
 	/** Bail early if items display is not wanted */
 	if ( ! ddw_tbex_display_items_new_content() || ! \Elementor\User::is_current_user_can_edit_post_type( 'jet-popup' ) ) {
-		return;
+		return $admin_bar;
 	}
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'jetpopup-with-builder',
 			'parent' => 'new-jet-popup',

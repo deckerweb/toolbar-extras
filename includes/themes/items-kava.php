@@ -37,12 +37,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_kava', 100 );
  * @uses ddw_tbex_customizer_focus()
  * @uses ddw_tbex_customizer_start()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_kava() {
+function ddw_tbex_themeitems_kava( $admin_bar ) {
 
 	/** Kava Theme creative */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'theme-creative',
 			'parent' => 'group-active-theme',
@@ -50,12 +50,12 @@ function ddw_tbex_themeitems_kava() {
 			'href'   => ddw_tbex_customizer_focus( 'panel', 'kava_general_settings' ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_theme_title( 'attr', 'child' )
+				'title'  => ddw_tbex_string_theme_title( 'attr', 'child' ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'theme-creative-customize',
 				'parent' => 'theme-creative',
@@ -63,7 +63,7 @@ function ddw_tbex_themeitems_kava() {
 				'href'   => ddw_tbex_customizer_start(),
 				'meta'   => array(
 					'target' => ddw_tbex_meta_target(),
-					'title'  => esc_attr__( 'Customize Design', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Customize Design', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -80,11 +80,11 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_kava_customize', 100 );
  * @uses ddw_tbex_customizer_focus()
  * @uses ddw_tbex_string_customize_attr()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
 function ddw_tbex_themeitems_kava_customize() {
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'kavacmz-site-general',
 			'parent' => 'theme-creative-customize',
@@ -93,12 +93,12 @@ function ddw_tbex_themeitems_kava_customize() {
 			'href'   => ddw_tbex_customizer_focus( 'panel', 'kava_general_settings' ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'General Site Settings', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_customize_attr( __( 'General Site Settings', 'toolbar-extras' ) ),
 			)
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'kavacmz-colorscheme',
 			'parent' => 'theme-creative-customize',
@@ -107,12 +107,12 @@ function ddw_tbex_themeitems_kava_customize() {
 			'href'   => ddw_tbex_customizer_focus( 'section', 'kava_color_scheme' ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Color Scheme', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_customize_attr( __( 'Color Scheme', 'toolbar-extras' ) ),
 			)
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'kavacmz-typography',
 			'parent' => 'theme-creative-customize',
@@ -121,12 +121,12 @@ function ddw_tbex_themeitems_kava_customize() {
 			'href'   => ddw_tbex_customizer_focus( 'panel', 'kava_typography' ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Typography', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_customize_attr( __( 'Typography', 'toolbar-extras' ) ),
 			)
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'kavacmz-header',
 			'parent' => 'theme-creative-customize',
@@ -135,12 +135,12 @@ function ddw_tbex_themeitems_kava_customize() {
 			'href'   => ddw_tbex_customizer_focus( 'panel', 'kava_header_options' ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Header', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_customize_attr( __( 'Header', 'toolbar-extras' ) ),
 			)
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'kavacmz-footer',
 			'parent' => 'theme-creative-customize',
@@ -149,7 +149,7 @@ function ddw_tbex_themeitems_kava_customize() {
 			'href'   => ddw_tbex_customizer_focus( 'section', 'kava_footer_options' ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Footer', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_customize_attr( __( 'Footer', 'toolbar-extras' ) ),
 			)
 		)
 	);
@@ -164,7 +164,7 @@ function ddw_tbex_themeitems_kava_customize() {
 	 *   Note 2: We use the Customizer *section* 'kava_blog' since the the panel
 	 *           before only constists of this one section yet.
 	 */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'kavacmz-blog',
 			'parent' => 'theme-creative-customize',
@@ -173,12 +173,12 @@ function ddw_tbex_themeitems_kava_customize() {
 			'href'   => ddw_tbex_customizer_focus( 'section', 'kava_blog', get_post_type_archive_link( 'post' ) ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Blog Settings', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_customize_attr( __( 'Blog Settings', 'toolbar-extras' ) ),
 			)
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'kavacmz-site-identity',
 			'parent' => 'theme-creative-customize',
@@ -187,7 +187,7 @@ function ddw_tbex_themeitems_kava_customize() {
 			'href'   => ddw_tbex_customizer_focus( 'section', 'title_tagline' ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Site Identity', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_customize_attr( __( 'Site Identity', 'toolbar-extras' ) ),
 			)
 		)
 	);
@@ -204,20 +204,22 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_kava_resources', 120 );
  *
  * @uses ddw_tbex_display_items_resources()
  * @uses ddw_tbex_resource_item()
+ *
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_kava_resources() {
+function ddw_tbex_themeitems_kava_resources( $admin_bar ) {
 
 	/** Bail early if no resources display active */
 	if ( ! ddw_tbex_display_items_resources() ) {
-		return;
+		return $admin_bar;
 	}
 
 	/** Group: Resources for Kava Theme */
-	$GLOBALS[ 'wp_admin_bar' ]->add_group(
+	$admin_bar->add_group(
 		array(
 			'id'     => 'group-theme-resources',
 			'parent' => ( ddw_tbex_is_addon_jetthemecore() || ddw_tbex_is_addon_kava_extra() ) ? 'theme-settings' : 'theme-creative',
-			'meta'   => array( 'class' => 'ab-sub-secondary' )
+			'meta'   => array( 'class' => 'ab-sub-secondary' ),
 		)
 	);
 
@@ -269,19 +271,19 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_kava_pro_settings', 100 );
  * @uses ddw_tbex_is_addon_jetthemecore()
  * @uses ddw_tbex_is_addon_kava_extra()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
 function ddw_tbex_themeitems_kava_pro_settings() {
 
 	/** Bail early if Kava Premium extensions are not active */
 	if ( ! ddw_tbex_is_addon_jetthemecore() && ! ddw_tbex_is_addon_kava_extra() ) {
-		return;
+		return $admin_bar;
 	}
 
 	/** Case I: only Kava Extra active */
 	if ( ddw_tbex_is_addon_kava_extra() && ! ddw_tbex_is_addon_jetthemecore() ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'theme-settings',
 				'parent' => 'group-active-theme',
@@ -289,12 +291,12 @@ function ddw_tbex_themeitems_kava_pro_settings() {
 				'href'   => esc_url( admin_url( 'admin.php?page=kava-extra-settings' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Kava Pro Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Kava Pro Settings', 'toolbar-extras' ),
 				)
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'theme-settings-kava-extra',
 					'parent' => 'theme-settings',
@@ -302,7 +304,7 @@ function ddw_tbex_themeitems_kava_pro_settings() {
 					'href'   => esc_url( admin_url( 'admin.php?page=kava-extra-settings' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Kava Extra', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Kava Extra', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -312,7 +314,7 @@ function ddw_tbex_themeitems_kava_pro_settings() {
 	/** Case II: JetThemeCore and/or Kava Extra active */
 	if ( ddw_tbex_is_addon_jetthemecore() ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'theme-settings',
 				'parent' => 'group-active-theme',
@@ -320,12 +322,12 @@ function ddw_tbex_themeitems_kava_pro_settings() {
 				'href'   => esc_url( admin_url( 'admin.php?page=jet-theme-core&tab=theme' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'CrocoBlock Options', 'toolbar-extras' )
+					'title'  => esc_attr__( 'CrocoBlock Options', 'toolbar-extras' ),
 				)
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'theme-settings-kava-info',
 					'parent' => 'theme-settings',
@@ -333,12 +335,12 @@ function ddw_tbex_themeitems_kava_pro_settings() {
 					'href'   => esc_url( admin_url( 'admin.php?page=jet-theme-core&tab=theme' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Theme Info', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Theme Info', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'theme-settings-kava-settings',
 					'parent' => 'theme-settings',
@@ -346,12 +348,12 @@ function ddw_tbex_themeitems_kava_pro_settings() {
 					'href'   => esc_url( admin_url( 'admin.php?page=jet-theme-core&tab=settings' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Theme Settings', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Theme Settings', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'theme-settings-theme-update',
 					'parent' => 'theme-settings',
@@ -359,12 +361,12 @@ function ddw_tbex_themeitems_kava_pro_settings() {
 					'href'   => esc_url( admin_url( 'admin.php?page=jet-theme-core&tab=skins' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Skin Demos &amp; Install', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Skin Demos &amp; Install', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'theme-settings-jet-plugins-info',
 					'parent' => 'theme-settings',
@@ -372,13 +374,13 @@ function ddw_tbex_themeitems_kava_pro_settings() {
 					'href'   => esc_url( admin_url( 'admin.php?page=jet-theme-core&tab=plugins' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Jet Plugins Info', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Jet Plugins Info', 'toolbar-extras' ),
 					)
 				)
 			);
 
 			/** Update checker/ sync etc. */
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'theme-settings-update-checks',
 					'parent' => 'theme-settings',
@@ -386,12 +388,12 @@ function ddw_tbex_themeitems_kava_pro_settings() {
 					'href'   => '',
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Update Checks', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Update Checks', 'toolbar-extras' ),
 					)
 				)
 			);
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'updates-check-kava-pro',
 						'parent' => 'theme-settings-update-checks',
@@ -399,12 +401,12 @@ function ddw_tbex_themeitems_kava_pro_settings() {
 						'href'   => esc_url( admin_url( 'admin.php?jet_action=theme&handle=check_updates' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'Check Kava Pro', 'toolbar-extras' )
+							'title'  => esc_attr__( 'Check Kava Pro', 'toolbar-extras' ),
 						)
 					)
 				);
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'updates-check-sync-skins',
 						'parent' => 'theme-settings-update-checks',
@@ -412,12 +414,12 @@ function ddw_tbex_themeitems_kava_pro_settings() {
 						'href'   => esc_url( admin_url( 'admin.php?jet_action=skins&handle=synch_skins' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'Synchronize Skins', 'toolbar-extras' )
+							'title'  => esc_attr__( 'Synchronize Skins', 'toolbar-extras' ),
 						)
 					)
 				);
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'updates-check-jet-plugins',
 						'parent' => 'theme-settings-update-checks',
@@ -425,12 +427,12 @@ function ddw_tbex_themeitems_kava_pro_settings() {
 						'href'   => esc_url( admin_url( 'admin.php?jet_action=plugins&handle=check_updates' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'Check Jet Plugins', 'toolbar-extras' )
+							'title'  => esc_attr__( 'Check Jet Plugins', 'toolbar-extras' ),
 						)
 					)
 				);
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'updates-check-new-jet-plugins',
 						'parent' => 'theme-settings-update-checks',
@@ -438,7 +440,7 @@ function ddw_tbex_themeitems_kava_pro_settings() {
 						'href'   => esc_url( admin_url( 'admin.php?jet_action=plugins&handle=check_for_plugins' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'New Jet Plugins', 'toolbar-extras' )
+							'title'  => esc_attr__( 'New Jet Plugins', 'toolbar-extras' ),
 						)
 					)
 				);
@@ -461,21 +463,21 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_kava_pro_sites_import', 100 )
  * @uses ddw_tbex_id_sites_browser()
  * @uses ddw_tbex_item_title_with_settings_icon()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_kava_pro_sites_import() {
+function ddw_tbex_themeitems_kava_pro_sites_import( $admin_bar ) {
 
 	/** Bail early if no display/import of Demo Import items possible */
 	if ( ! ddw_tbex_display_items_demo_import()
 		|| ! class_exists( 'Jet_Data_Importer' )
 		|| ! class_exists( 'Jet_Plugins_Wizard' )
 	) {
-		return;
+		return $admin_bar;
 	}
 
 	$sites_title = esc_attr__( 'Import Demos &amp; Skins', 'toolbar-extras' );
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => ddw_tbex_id_sites_browser(),
 			'parent' => 'group-demo-import',
@@ -483,12 +485,12 @@ function ddw_tbex_themeitems_kava_pro_sites_import() {
 			'href'   => esc_url( admin_url( 'admin.php?page=jet-plugins-wizard' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => $sites_title
+				'title'  => $sites_title,
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'jet-wizard-import-sites',
 				'parent' => ddw_tbex_id_sites_browser(),
@@ -496,12 +498,12 @@ function ddw_tbex_themeitems_kava_pro_sites_import() {
 				'href'   => esc_url( admin_url( 'admin.php?page=jet-plugins-wizard' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Import Sites &amp; Skins', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Import Sites &amp; Skins', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'jet-wizard-import-content-data',
 				'parent' => ddw_tbex_id_sites_browser(),
@@ -509,12 +511,12 @@ function ddw_tbex_themeitems_kava_pro_sites_import() {
 				'href'   => esc_url( admin_url( 'admin.php?page=jet-demo-content&tab=import' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Import Content Data', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Import Content Data', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'jet-wizard-export-content-data',
 				'parent' => ddw_tbex_id_sites_browser(),
@@ -522,7 +524,7 @@ function ddw_tbex_themeitems_kava_pro_sites_import() {
 				'href'   => esc_url( admin_url( 'admin.php?page=jet-demo-content&tab=export' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Export Content Data', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Export Content Data', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -537,29 +539,29 @@ function ddw_tbex_themeitems_kava_pro_sites_import() {
  *
  * @uses ddw_tbex_is_addon_jetthemecore()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
 if ( ddw_tbex_is_addon_jetthemecore() ) {
 	add_filter( 'tbex_filter_is_update_addon', '__return_empty_string' );
 }
 
 add_action( 'admin_bar_menu', 'ddw_tbex_site_items_crocoblock_updates', 30 );
-function ddw_tbex_site_items_crocoblock_updates() {
+function ddw_tbex_site_items_crocoblock_updates( $admin_bar ) {
 
 	/** Bail early if JetThemeCore extensions is not active */
 	if ( ! ddw_tbex_is_addon_jetthemecore() ) {
-		return;
+		return $admin_bar;
 	}
 
 	/** Group: CrocoBlock Update Checks */
-	$GLOBALS[ 'wp_admin_bar' ]->add_group(
+	$admin_bar->add_group(
 		array(
 			'id'     => 'group-crocoblock-updates',
-			'parent' => 'update-check'
+			'parent' => 'update-check',
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'crocoblock-updates-check-kava-pro',
 				'parent' => 'group-crocoblock-updates',
@@ -567,12 +569,12 @@ function ddw_tbex_site_items_crocoblock_updates() {
 				'href'   => esc_url( admin_url( 'admin.php?jet_action=theme&handle=check_updates' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Check Kava Pro', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Check Kava Pro', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'crocoblock-updates-check-sync-skins',
 				'parent' => 'group-crocoblock-updates',
@@ -580,12 +582,12 @@ function ddw_tbex_site_items_crocoblock_updates() {
 				'href'   => esc_url( admin_url( 'admin.php?jet_action=skins&handle=synch_skins' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Synchronize Skins', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Synchronize Skins', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'crocoblock-updates-check-jet-plugins',
 				'parent' => 'group-crocoblock-updates',
@@ -593,12 +595,12 @@ function ddw_tbex_site_items_crocoblock_updates() {
 				'href'   => esc_url( admin_url( 'admin.php?jet_action=plugins&handle=check_updates' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Check Jet Plugins', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Check Jet Plugins', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'crocoblock-updates-check-new-jet-plugins',
 				'parent' => 'group-crocoblock-updates',
@@ -606,7 +608,7 @@ function ddw_tbex_site_items_crocoblock_updates() {
 				'href'   => esc_url( admin_url( 'admin.php?jet_action=plugins&handle=check_for_plugins' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'New Jet Plugins', 'toolbar-extras' )
+					'title'  => esc_attr__( 'New Jet Plugins', 'toolbar-extras' ),
 				)
 			)
 		);

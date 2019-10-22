@@ -18,14 +18,14 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_torro_forms' );
  *
  * @since 1.4.2
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_torro_forms() {
+function ddw_tbex_site_items_torro_forms( $admin_bar ) {
 
 	$type = 'torro_form';
 
 	/** For: Forms */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'forms-torroforms',
 			'parent' => 'tbex-sitegroup-forms',
@@ -54,10 +54,10 @@ function ddw_tbex_site_items_torro_forms() {
 		if ( $forms ) {
 
 			/** Add group */
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-torroforms-edit-forms',
-					'parent' => 'forms-torroforms'
+					'parent' => 'forms-torroforms',
 				)
 			);
 
@@ -68,7 +68,7 @@ function ddw_tbex_site_items_torro_forms() {
 				$form_slug = sanitize_key( $form->post_name );
 
 				/** Add item per form */
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'forms-torroforms-form-' . $form_id,
 						'parent' => 'group-torroforms-edit-forms',
@@ -76,12 +76,12 @@ function ddw_tbex_site_items_torro_forms() {
 						'href'   => esc_url( admin_url( 'post.php?post=' . $form_id . '&action=edit&classic-editor' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'Edit Form', 'toolbar-extras' ) . ': ' . $form_name
+							'title'  => esc_attr__( 'Edit Form', 'toolbar-extras' ) . ': ' . $form_name,
 						)
 					)
 				);
 
-					$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					$admin_bar->add_node(
 						array(
 							'id'     => 'forms-torroforms-form-' . $form_id . '-builder',
 							'parent' => 'forms-torroforms-form-' . $form_id,
@@ -89,12 +89,12 @@ function ddw_tbex_site_items_torro_forms() {
 							'href'   => esc_url( admin_url( 'post.php?post=' . $form_id . '&action=edit&classic-editor' ) ),
 							'meta'   => array(
 								'target' => '',
-								'title'  => esc_attr__( 'Form Builder', 'toolbar-extras' )
+								'title'  => esc_attr__( 'Form Builder', 'toolbar-extras' ),
 							)
 						)
 					);
 
-					$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					$admin_bar->add_node(
 						array(
 							'id'     => 'forms-torroforms-form-' . $form_id . '-preview',
 							'parent' => 'forms-torroforms-form-' . $form_id,
@@ -102,12 +102,12 @@ function ddw_tbex_site_items_torro_forms() {
 							'href'   => esc_url( site_url( '/forms/' . $form_slug . '/' ) ),
 							'meta'   => array(
 								'target' => ddw_tbex_meta_target(),
-								'title'  => esc_attr__( 'Preview', 'toolbar-extras' )
+								'title'  => esc_attr__( 'Preview', 'toolbar-extras' ),
 							)
 						)
 					);
 
-					$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					$admin_bar->add_node(
 						array(
 							'id'     => 'forms-torroforms-form-' . $form_id . '-entries',
 							'parent' => 'forms-torroforms-form-' . $form_id,
@@ -115,7 +115,7 @@ function ddw_tbex_site_items_torro_forms() {
 							'href'   => esc_url( admin_url( 'edit.php?post_type=' . $type . '&page=torro_list_submissions&form_id=' . $form_id ) ),
 							'meta'   => array(
 								'target' => '',
-								'title'  => esc_attr__( 'Entries', 'toolbar-extras' )
+								'title'  => esc_attr__( 'Entries', 'toolbar-extras' ),
 							)
 						)
 					);
@@ -125,7 +125,7 @@ function ddw_tbex_site_items_torro_forms() {
 		}  // end if
 
 		/** All Forms */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-torroforms-all-forms',
 				'parent' => 'forms-torroforms',
@@ -133,13 +133,13 @@ function ddw_tbex_site_items_torro_forms() {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=' . $type ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'All Forms', 'toolbar-extras' )
+					'title'  => esc_attr__( 'All Forms', 'toolbar-extras' ),
 				)
 			)
 		);
 
 		/** New Form */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-torroforms-new-form',
 				'parent' => 'forms-torroforms',
@@ -147,13 +147,13 @@ function ddw_tbex_site_items_torro_forms() {
 				'href'   => esc_url( admin_url( 'post-new.php?post_type=' . $type ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'New Form', 'toolbar-extras' )
+					'title'  => esc_attr__( 'New Form', 'toolbar-extras' ),
 				)
 			)
 		);
 
 		/** All Entries */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-torroforms-all-entries',
 				'parent' => 'forms-torroforms',
@@ -161,13 +161,13 @@ function ddw_tbex_site_items_torro_forms() {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=' . $type . '&page=torro_list_submissions' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'All Entries', 'toolbar-extras' )
+					'title'  => esc_attr__( 'All Entries', 'toolbar-extras' ),
 				)
 			)
 		);
 
 		/** Settings */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-torroforms-settings',
 				'parent' => 'forms-torroforms',
@@ -175,12 +175,12 @@ function ddw_tbex_site_items_torro_forms() {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=' . $type . '&page=torro_form_settings' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
 				)
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-torroforms-settings-general',
 					'parent' => 'forms-torroforms-settings',
@@ -188,12 +188,12 @@ function ddw_tbex_site_items_torro_forms() {
 					'href'   => esc_url( admin_url( 'edit.php?post_type=' . $type . '&page=torro_form_settings&tab=torro_general_settings' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'General', 'toolbar-extras' )
+						'title'  => esc_attr__( 'General', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-torroforms-settings-access-controls',
 					'parent' => 'forms-torroforms-settings',
@@ -201,12 +201,12 @@ function ddw_tbex_site_items_torro_forms() {
 					'href'   => esc_url( admin_url( 'edit.php?post_type=' . $type . '&page=torro_form_settings&tab=torro_module_access_controls' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Access Controls', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Access Controls', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-torroforms-settings-protectors',
 					'parent' => 'forms-torroforms-settings',
@@ -214,25 +214,25 @@ function ddw_tbex_site_items_torro_forms() {
 					'href'   => esc_url( admin_url( 'edit.php?post_type=' . $type . '&page=torro_form_settings&tab=torro_module_protectors' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Protectors', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Protectors', 'toolbar-extras' ),
 					)
 				)
 			);
 
 		/** Optionally, let other Torro Forms Add-Ons hook in */
-		do_action( 'tbex_after_torroforms_settings' );
+		do_action( 'tbex_after_torroforms_settings', $admin_bar );
 
 		/** Group: Resources for torroforms */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-torroforms-resources',
 					'parent' => 'forms-torroforms',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
-			
+
 			ddw_tbex_resource_item(
 				'support-forum',
 				'torroforms-support',
@@ -280,8 +280,6 @@ add_filter( 'admin_bar_menu', 'ddw_tbex_aoitems_new_content_torro_form', 80 );
  *
  * @since 1.4.2
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
- *
  * @param object $wp_admin_bar Holds all nodes of the Toolbar.
  */
 function ddw_tbex_aoitems_new_content_torro_form( $wp_admin_bar ) {
@@ -291,13 +289,13 @@ function ddw_tbex_aoitems_new_content_torro_form( $wp_admin_bar ) {
 		return $wp_admin_bar;
 	}
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$wp_admin_bar->add_node(
 		array(
 			'id'     => 'new-torro_form',	// same as original!
 			'parent' => 'new-content',
 			'title'  => ddw_tbex_string_new_form( 'Torro' ),
 			'meta'   => array(
-				'title'  => ddw_tbex_string_add_new_item( ddw_tbex_string_new_form( 'Torro' ) )
+				'title'  => ddw_tbex_string_add_new_item( ddw_tbex_string_new_form( 'Torro' ) ),
 			)
 		)
 	);

@@ -18,12 +18,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_custom_css', 107 );
  *
  * @since 1.0.0
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_custom_css() {
+function ddw_tbex_aoitems_custom_css( $admin_bar ) {
 
 	/** SO Custom CSS */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'ao-siteorigincss',
 			'parent' => 'group-active-theme',
@@ -31,7 +31,7 @@ function ddw_tbex_aoitems_custom_css() {
 			'href'   => esc_url( admin_url( 'themes.php?page=so_custom_css' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_addon_title_attr( __( 'SiteOrigin CSS', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_addon_title_attr( __( 'SiteOrigin CSS', 'toolbar-extras' ) ),
 			)
 		)
 	);

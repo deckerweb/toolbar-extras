@@ -18,11 +18,11 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_backwpup' );
  *
  * @since 1.3.2
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_backwpup() {
+function ddw_tbex_site_items_backwpup( $admin_bar ) {
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'tools-backwpup',
 			'parent' => 'tbex-sitegroup-tools',
@@ -30,7 +30,7 @@ function ddw_tbex_site_items_backwpup() {
 			'href'   => esc_url( network_admin_url( 'admin.php?page=backwpupjobs' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'BackWPup', 'toolbar-extras' )
+				'title'  => esc_attr__( 'BackWPup', 'toolbar-extras' ),
 			)
 		)
 	);
@@ -45,10 +45,10 @@ function ddw_tbex_site_items_backwpup() {
 		if ( $jobs ) {
 
 			/** Add group */
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-backwpup-jobs',
-					'parent' => 'tools-backwpup'
+					'parent' => 'tools-backwpup',
 				)
 			);
 
@@ -57,7 +57,7 @@ function ddw_tbex_site_items_backwpup() {
 				$job_title = esc_attr( BackWPup_Option::get( $job_id, 'name' ) );
 
 				/** Add item per install */
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'backwpup-job-' . $job_id,
 						'parent' => 'group-backwpup-jobs',
@@ -65,12 +65,12 @@ function ddw_tbex_site_items_backwpup() {
 						'href'   => wp_nonce_url( network_admin_url( 'admin.php?page=backwpupeditjob&jobid=' . $job_id ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'Edit Job', 'toolbar-extras' ) . ': ' . $job_title
+							'title'  => esc_attr__( 'Edit Job', 'toolbar-extras' ) . ': ' . $job_title,
 						)
 					)
 				);
 
-					$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					$admin_bar->add_node(
 						array(
 							'id'     => 'backwpup-job-' . $job_id . '-edit',
 							'parent' => 'backwpup-job-' . $job_id,
@@ -78,12 +78,12 @@ function ddw_tbex_site_items_backwpup() {
 							'href'   => wp_nonce_url( network_admin_url( 'admin.php?page=backwpupeditjob&jobid=' . $job_id ) ),
 							'meta'   => array(
 								'target' => '',
-								'title'  => esc_attr__( 'Edit', 'toolbar-extras' )
+								'title'  => esc_attr__( 'Edit', 'toolbar-extras' ),
 							)
 						)
 					);
 
-					$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					$admin_bar->add_node(
 						array(
 							'id'     => 'backwpup-job-' . $job_id . '-run',
 							'parent' => 'backwpup-job-' . $job_id,
@@ -91,7 +91,7 @@ function ddw_tbex_site_items_backwpup() {
 							'href'   => wp_nonce_url( network_admin_url( 'admin.php?jobid=' . $job_id . '&page=backwpupjobs&action=runnow' ) ),
 							'meta'   => array(
 								'target' => '',
-								'title'  => esc_attr__( 'Run Now', 'toolbar-extras' )
+								'title'  => esc_attr__( 'Run Now', 'toolbar-extras' ),
 							)
 						)
 					);
@@ -101,7 +101,7 @@ function ddw_tbex_site_items_backwpup() {
 		}  // end if
 
 		/** Backup Jobs */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'backwpup-jobs',
 				'parent' => 'tools-backwpup',
@@ -109,12 +109,12 @@ function ddw_tbex_site_items_backwpup() {
 				'href'   => esc_url( network_admin_url( 'admin.php?page=backwpupjobs' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Backup Jobs', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Backup Jobs', 'toolbar-extras' ),
 				)
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'backwpup-jobs-all',
 					'parent' => 'backwpup-jobs',
@@ -122,12 +122,12 @@ function ddw_tbex_site_items_backwpup() {
 					'href'   => esc_url( network_admin_url( 'admin.php?page=backwpupjobs' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'All Jobs', 'toolbar-extras' )
+						'title'  => esc_attr__( 'All Jobs', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'backwpup-jobs-new',
 					'parent' => 'backwpup-jobs',
@@ -135,13 +135,13 @@ function ddw_tbex_site_items_backwpup() {
 					'href'   => esc_url( network_admin_url( 'admin.php?page=backwpupeditjob' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'New Job', 'toolbar-extras' )
+						'title'  => esc_attr__( 'New Job', 'toolbar-extras' ),
 					)
 				)
 			);
 
 		/** Backup Downloads */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'backwpup-backups',
 				'parent' => 'tools-backwpup',
@@ -149,13 +149,13 @@ function ddw_tbex_site_items_backwpup() {
 				'href'   => esc_url( network_admin_url( 'admin.php?page=backwpupbackups' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'All Backups', 'toolbar-extras' )
+					'title'  => esc_attr__( 'All Backups', 'toolbar-extras' ),
 				)
 			)
 		);
 
 		/** Log Files */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'backwpup-logs',
 				'parent' => 'tools-backwpup',
@@ -163,13 +163,13 @@ function ddw_tbex_site_items_backwpup() {
 				'href'   => esc_url( network_admin_url( 'admin.php?page=backwpuplogs' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'All Log Files', 'toolbar-extras' )
+					'title'  => esc_attr__( 'All Log Files', 'toolbar-extras' ),
 				)
 			)
 		);
 
 		/** Settings */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'backwpup-settings',
 				'parent' => 'tools-backwpup',
@@ -177,12 +177,12 @@ function ddw_tbex_site_items_backwpup() {
 				'href'   => esc_url( network_admin_url( 'admin.php?page=backwpupsettings' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
 				)
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'backwpup-settings-general',
 					'parent' => 'backwpup-settings',
@@ -190,12 +190,12 @@ function ddw_tbex_site_items_backwpup() {
 					'href'   => esc_url( network_admin_url( 'admin.php?page=backwpupsettings#backwpup-tab-general' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'General', 'toolbar-extras' )
+						'title'  => esc_attr__( 'General', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'backwpup-settings-jobs',
 					'parent' => 'backwpup-settings',
@@ -203,12 +203,12 @@ function ddw_tbex_site_items_backwpup() {
 					'href'   => esc_url( network_admin_url( 'admin.php?page=backwpupsettings#backwpup-tab-job' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Jobs', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Jobs', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'backwpup-settings-logs',
 					'parent' => 'backwpup-settings',
@@ -216,12 +216,12 @@ function ddw_tbex_site_items_backwpup() {
 					'href'   => esc_url( network_admin_url( 'admin.php?page=backwpupsettings#backwpup-tab-log' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Log Files', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Log Files', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'backwpup-settings-network',
 					'parent' => 'backwpup-settings',
@@ -229,12 +229,12 @@ function ddw_tbex_site_items_backwpup() {
 					'href'   => esc_url( network_admin_url( 'admin.php?page=backwpupsettings#backwpup-tab-net' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Network', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Network', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'backwpup-settings-api',
 					'parent' => 'backwpup-settings',
@@ -242,12 +242,12 @@ function ddw_tbex_site_items_backwpup() {
 					'href'   => esc_url( network_admin_url( 'admin.php?page=backwpupsettings#backwpup-tab-apikey' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'API Keys', 'toolbar-extras' )
+						'title'  => esc_attr__( 'API Keys', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'backwpup-settings-systeminfo',
 					'parent' => 'backwpup-settings',
@@ -255,13 +255,13 @@ function ddw_tbex_site_items_backwpup() {
 					'href'   => esc_url( network_admin_url( 'admin.php?page=backwpupsettings#backwpup-tab-information' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'System Info', 'toolbar-extras' )
+						'title'  => esc_attr__( 'System Info', 'toolbar-extras' ),
 					)
 				)
 			);
 
 		/** Plugin Info (Dashboard) */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'backwpup-info',
 				'parent' => 'tools-backwpup',
@@ -269,7 +269,7 @@ function ddw_tbex_site_items_backwpup() {
 				'href'   => esc_url( network_admin_url( 'admin.php?page=backwpup' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Plugin Info', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Plugin Info', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -280,11 +280,11 @@ function ddw_tbex_site_items_backwpup() {
 		/** Group: Resources for BackWPup */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-backwpup-resources',
 					'parent' => 'tools-backwpup',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 
@@ -334,18 +334,18 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_new_content_backwpup', 100 );
  *
  * @since 1.3.2
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_new_content_backwpup() {
+function ddw_tbex_aoitems_new_content_backwpup( $admin_bar ) {
 
 	/** Bail early if items display is not wanted */
 	if ( ! ddw_tbex_display_items_new_content() ) {
-		return;
+		return $admin_bar;
 	}
 
 	if ( ddw_tbex_display_items_dev_mode() ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'tbex-backwpup-job',
 				'parent' => 'new-content',
@@ -353,7 +353,7 @@ function ddw_tbex_aoitems_new_content_backwpup() {
 				'href'   => esc_url( network_admin_url( 'admin.php?page=backwpupeditjob' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => ddw_tbex_string_add_new_item( __( 'BackWPup Job', 'toolbar-extras' ) )
+					'title'  => ddw_tbex_string_add_new_item( __( 'BackWPup Job', 'toolbar-extras' ) ),
 				)
 			)
 		);

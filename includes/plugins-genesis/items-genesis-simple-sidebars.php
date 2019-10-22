@@ -18,12 +18,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_genesis_simple_sidebars', 115 );
  *
  * @since 1.0.0
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_genesis_simple_sidebars() {
+function ddw_tbex_aoitems_genesis_simple_sidebars( $admin_bar ) {
 
 	/** For: Genesis Creative items */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'genesis-simple-sidebars',
 			'parent' => 'group-genesisplugins-creative',
@@ -31,13 +31,13 @@ function ddw_tbex_aoitems_genesis_simple_sidebars() {
 			'href'   => esc_url( admin_url( 'admin.php?page=simple-sidebars' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Manage Genesis Sidebars', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Manage Genesis Sidebars', 'toolbar-extras' ),
 			)
 		)
 	);
 
 	/** For: Manage Widgets */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'gen-simple-sidebars',
 			'parent' => 'wpwidgets',
@@ -45,7 +45,7 @@ function ddw_tbex_aoitems_genesis_simple_sidebars() {
 			'href'   => esc_url( admin_url( 'admin.php?page=simple-sidebars' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Manage Genesis Sidebars', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Manage Genesis Sidebars', 'toolbar-extras' ),
 			)
 		)
 	);

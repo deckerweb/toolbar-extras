@@ -32,14 +32,14 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_hummingbird', 10 );
  *
  * @since 1.4.0
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_hummingbird() {
+function ddw_tbex_site_items_hummingbird( $admin_bar ) {
 
 	$title = ddw_tbex_is_hummingbird_pro_active() ? esc_attr__( 'Hummingbird Pro', 'toolbar-extras' ) : esc_attr__( 'Hummingbird', 'toolbar-extras' );
 
 	/** For: Tools */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'hummingbird-pso',
 			'parent' => 'tbex-sitegroup-tools',
@@ -47,13 +47,13 @@ function ddw_tbex_site_items_hummingbird() {
 			'href'   => esc_url( admin_url( 'admin.php?page=wphb' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => $title
+				'title'  => $title,
 			)
 		)
 	);
 
 		/** Dashboard */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'hummingbird-pso-dashboard',
 				'parent' => 'hummingbird-pso',
@@ -61,13 +61,13 @@ function ddw_tbex_site_items_hummingbird() {
 				'href'   => esc_url( admin_url( 'admin.php?page=wphb' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Dashboard', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Dashboard', 'toolbar-extras' ),
 				)
 			)
 		);
 
 		/** Performance Test */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'hummingbird-pso-performance',
 				'parent' => 'hummingbird-pso',
@@ -75,14 +75,14 @@ function ddw_tbex_site_items_hummingbird() {
 				'href'   => esc_url( admin_url( 'admin.php?page=wphb-performance' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Performance Test', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Performance Test', 'toolbar-extras' ),
 				)
 			)
 		);
 
 			if ( ddw_tbex_is_hummingbird_pro_active() ) {
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'hummingbird-pso-performance-improve',
 						'parent' => 'hummingbird-pso-performance',
@@ -90,12 +90,12 @@ function ddw_tbex_site_items_hummingbird() {
 						'href'   => esc_url( admin_url( 'admin.php?page=wphb-performance&view=main' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'Improvements', 'toolbar-extras' )
+							'title'  => esc_attr__( 'Improvements', 'toolbar-extras' ),
 						)
 					)
 				);
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'hummingbird-pso-performance-reports',
 						'parent' => 'hummingbird-pso-performance',
@@ -103,7 +103,7 @@ function ddw_tbex_site_items_hummingbird() {
 						'href'   => esc_url( admin_url( 'admin.php?page=wphb-performance&view=reports' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'Reports', 'toolbar-extras' )
+							'title'  => esc_attr__( 'Reports', 'toolbar-extras' ),
 						)
 					)
 				);
@@ -111,7 +111,7 @@ function ddw_tbex_site_items_hummingbird() {
 			}  // end if
 
 		/** Caching */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'hummingbird-pso-caching',
 				'parent' => 'hummingbird-pso',
@@ -119,12 +119,12 @@ function ddw_tbex_site_items_hummingbird() {
 				'href'   => esc_url( admin_url( 'admin.php?page=wphb-caching' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Caching', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Caching', 'toolbar-extras' ),
 				)
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'hummingbird-pso-caching-page',
 					'parent' => 'hummingbird-pso-caching',
@@ -132,12 +132,12 @@ function ddw_tbex_site_items_hummingbird() {
 					'href'   => esc_url( admin_url( 'admin.php?page=wphb-caching&view=main' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Page Caching', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Page Caching', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'hummingbird-pso-caching-browser',
 					'parent' => 'hummingbird-pso-caching',
@@ -145,12 +145,12 @@ function ddw_tbex_site_items_hummingbird() {
 					'href'   => esc_url( admin_url( 'admin.php?page=wphb-caching&view=caching' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Browser Caching', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Browser Caching', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'hummingbird-pso-caching-gravatar',
 					'parent' => 'hummingbird-pso-caching',
@@ -158,12 +158,12 @@ function ddw_tbex_site_items_hummingbird() {
 					'href'   => esc_url( admin_url( 'admin.php?page=wphb-caching&view=gravatar' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Gravatar Caching', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Gravatar Caching', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'hummingbird-pso-caching-rss',
 					'parent' => 'hummingbird-pso-caching',
@@ -171,13 +171,13 @@ function ddw_tbex_site_items_hummingbird() {
 					'href'   => esc_url( admin_url( 'admin.php?page=wphb-caching&view=rss' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'RSS Caching', 'toolbar-extras' )
+						'title'  => esc_attr__( 'RSS Caching', 'toolbar-extras' ),
 					)
 				)
 			);
 
 		/** GZIP */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'hummingbird-pso-gzip',
 				'parent' => 'hummingbird-pso',
@@ -185,13 +185,13 @@ function ddw_tbex_site_items_hummingbird() {
 				'href'   => esc_url( admin_url( 'admin.php?page=wphb-gzip' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Gzip Compression', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Gzip Compression', 'toolbar-extras' ),
 				)
 			)
 		);
 
 		/** Asset Optimization */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'hummingbird-pso-assets',
 				'parent' => 'hummingbird-pso',
@@ -199,12 +199,12 @@ function ddw_tbex_site_items_hummingbird() {
 				'href'   => esc_url( admin_url( 'admin.php?page=wphb-minification' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Asset Optimization', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Asset Optimization', 'toolbar-extras' ),
 				)
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'hummingbird-pso-assets-files',
 					'parent' => 'hummingbird-pso-assets',
@@ -212,12 +212,12 @@ function ddw_tbex_site_items_hummingbird() {
 					'href'   => esc_url( admin_url( 'admin.php?page=wphb-minification&view=files' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Assets/ Files', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Assets/ Files', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'hummingbird-pso-assets-tools',
 					'parent' => 'hummingbird-pso-assets',
@@ -225,12 +225,12 @@ function ddw_tbex_site_items_hummingbird() {
 					'href'   => esc_url( admin_url( 'admin.php?page=wphb-minification&view=tools' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Tools', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Tools', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'hummingbird-pso-assets-settings',
 					'parent' => 'hummingbird-pso-assets',
@@ -238,13 +238,13 @@ function ddw_tbex_site_items_hummingbird() {
 					'href'   => esc_url( admin_url( 'admin.php?page=wphb-minification&view=settings' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
 					)
 				)
 			);
 
 		/** Advanced Tools */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'hummingbird-pso-tools',
 				'parent' => 'hummingbird-pso',
@@ -252,12 +252,12 @@ function ddw_tbex_site_items_hummingbird() {
 				'href'   => esc_url( admin_url( 'admin.php?page=wphb-advanced' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Advanced Tools', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Advanced Tools', 'toolbar-extras' ),
 				)
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'hummingbird-pso-tools-general',
 					'parent' => 'hummingbird-pso-tools',
@@ -265,12 +265,12 @@ function ddw_tbex_site_items_hummingbird() {
 					'href'   => esc_url( admin_url( 'admin.php?page=wphb-advanced&view=main' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'General', 'toolbar-extras' )
+						'title'  => esc_attr__( 'General', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'hummingbird-pso-tools-database',
 					'parent' => 'hummingbird-pso-tools',
@@ -278,12 +278,12 @@ function ddw_tbex_site_items_hummingbird() {
 					'href'   => esc_url( admin_url( 'admin.php?page=wphb-advanced&view=db' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Database Cleanup', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Database Cleanup', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'hummingbird-pso-tools-system',
 					'parent' => 'hummingbird-pso-tools',
@@ -291,7 +291,7 @@ function ddw_tbex_site_items_hummingbird() {
 					'href'   => esc_url( admin_url( 'admin.php?page=wphb-advanced&view=system' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'System Information', 'toolbar-extras' )
+						'title'  => esc_attr__( 'System Information', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -299,7 +299,7 @@ function ddw_tbex_site_items_hummingbird() {
 		/** Uptime */
 		if ( ddw_tbex_is_hummingbird_pro_active() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'hummingbird-pso-uptime',
 					'parent' => 'hummingbird-pso',
@@ -307,12 +307,12 @@ function ddw_tbex_site_items_hummingbird() {
 					'href'   => esc_url( admin_url( 'admin.php?page=wphb-uptime' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Uptime Monitoring', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Uptime Monitoring', 'toolbar-extras' ),
 					)
 				)
 			);
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'hummingbird-pso-uptime-response',
 						'parent' => 'hummingbird-pso-uptime',
@@ -320,12 +320,12 @@ function ddw_tbex_site_items_hummingbird() {
 						'href'   => esc_url( admin_url( 'admin.php?page=wphb-uptime&view=main' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'Response Time', 'toolbar-extras' )
+							'title'  => esc_attr__( 'Response Time', 'toolbar-extras' ),
 						)
 					)
 				);
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'hummingbird-pso-uptime-downtime',
 						'parent' => 'hummingbird-pso-uptime',
@@ -333,12 +333,12 @@ function ddw_tbex_site_items_hummingbird() {
 						'href'   => esc_url( admin_url( 'admin.php?page=wphb-uptime&view=downtime' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'Downtime', 'toolbar-extras' )
+							'title'  => esc_attr__( 'Downtime', 'toolbar-extras' ),
 						)
 					)
 				);
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'hummingbird-pso-uptime-settings',
 						'parent' => 'hummingbird-pso-uptime',
@@ -346,7 +346,7 @@ function ddw_tbex_site_items_hummingbird() {
 						'href'   => esc_url( admin_url( 'admin.php?page=wphb-uptime&view=settings' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
+							'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
 						)
 					)
 				);
@@ -354,7 +354,7 @@ function ddw_tbex_site_items_hummingbird() {
 		}  // end if
 
 		/** Advanced Tools */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'hummingbird-pso-settings',
 				'parent' => 'hummingbird-pso',
@@ -362,7 +362,7 @@ function ddw_tbex_site_items_hummingbird() {
 				'href'   => esc_url( admin_url( 'admin.php?page=wphb-settings' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -370,14 +370,14 @@ function ddw_tbex_site_items_hummingbird() {
 		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-hummingbird-resources',
 					'parent' => 'hummingbird-pso',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
-			
+
 			ddw_tbex_resource_item(
 				'support-forum',
 				'hummingbird-support',

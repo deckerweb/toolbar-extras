@@ -35,11 +35,11 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_updraftplus', 10 );
  *
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar']
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_updraftplus() {
+function ddw_tbex_site_items_updraftplus( $admin_bar ) {
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'updraftplus',
 			'parent' => 'tbex-sitegroup-tools',
@@ -47,12 +47,12 @@ function ddw_tbex_site_items_updraftplus() {
 			'href'   => ddw_tbex_is_updraftplus_multisite() ? esc_url( network_admin_url( 'settings.php?page=updraftplus' ) ) : esc_url( admin_url( 'options-general.php?page=updraftplus' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'UpdraftPlus', 'toolbar-extras' )
+				'title'  => esc_attr__( 'UpdraftPlus', 'toolbar-extras' ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'updraftplus-status',
 				'parent' => 'updraftplus',
@@ -60,12 +60,12 @@ function ddw_tbex_site_items_updraftplus() {
 				'href'   => ddw_tbex_is_updraftplus_multisite() ? esc_url( network_admin_url( 'settings.php?page=updraftplus&tab=status' ) ) : esc_url( admin_url( 'options-general.php?page=updraftplus&tab=status' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Backup Now', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Backup Now', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'updraftplus-archive',
 				'parent' => 'updraftplus',
@@ -73,12 +73,12 @@ function ddw_tbex_site_items_updraftplus() {
 				'href'   => ddw_tbex_is_updraftplus_multisite() ? esc_url( network_admin_url( 'settings.php?page=updraftplus&tab=backups' ) ) : esc_url( admin_url( 'options-general.php?page=updraftplus&tab=backups' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Backup Archive', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Backup Archive', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'updraftplus-settings',
 				'parent' => 'updraftplus',
@@ -86,12 +86,12 @@ function ddw_tbex_site_items_updraftplus() {
 				'href'   => ddw_tbex_is_updraftplus_multisite() ? esc_url( network_admin_url( 'settings.php?page=updraftplus&tab=settings' ) ) : esc_url( admin_url( 'options-general.php?page=updraftplus&tab=settings' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'updraftplus-tools',
 				'parent' => 'updraftplus',
@@ -99,7 +99,7 @@ function ddw_tbex_site_items_updraftplus() {
 				'href'   => ddw_tbex_is_updraftplus_multisite() ? esc_url( network_admin_url( 'settings.php?page=updraftplus&tab=expert' ) ) : esc_url( admin_url( 'options-general.php?page=updraftplus&tab=expert' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Advanced Tools', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Advanced Tools', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -107,11 +107,11 @@ function ddw_tbex_site_items_updraftplus() {
 		/** Group: Resources for UpdraftPlus */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-updraftplus-resources',
 					'parent' => 'updraftplus',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

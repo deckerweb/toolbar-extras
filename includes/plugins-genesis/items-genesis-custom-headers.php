@@ -18,12 +18,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_genesis_custom_headers', 115 );
  *
  * @since 1.3.9
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_genesis_custom_headers() {
+function ddw_tbex_aoitems_genesis_custom_headers( $admin_bar ) {
 
 	/** For: Genesis Creative items */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'genesis-custom-headers',
 			'parent' => 'group-genesisplugins-creative',
@@ -31,7 +31,7 @@ function ddw_tbex_aoitems_genesis_custom_headers() {
 			'href'   => esc_url( admin_url( 'themes.php?page=genesis-custom-header' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Genesis Custom Headers', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Genesis Custom Headers', 'toolbar-extras' ),
 			)
 		)
 	);

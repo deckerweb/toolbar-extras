@@ -211,6 +211,13 @@ function ddw_tbex_aoitems_metform( $admin_bar ) {
 				'https://translate.wordpress.org/projects/wp-plugins/metform'
 			);
 
+			ddw_tbex_resource_item(
+				'official-site',
+				'metform-site',
+				'group-metform-resources',
+				'https://products.wpmet.com/metform/'
+			);
+
 		}  // end if
 
 }  // end function

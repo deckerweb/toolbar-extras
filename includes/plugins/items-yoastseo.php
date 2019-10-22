@@ -43,7 +43,7 @@ function ddw_tbex_is_yoastseo_toolbar_active() {
 }  // end function
 
 
-add_filter( 'wp_before_admin_bar_render', 'ddw_tbex_site_items_rehook_yoastseo' );
+add_action( 'wp_before_admin_bar_render', 'ddw_tbex_site_items_rehook_yoastseo' );
 /**
  * Items for Plugin: Yoast SEO (free, by Team Yoast)
  *   If tweak setting is active then re-hook from the top to the tools hook
@@ -55,14 +55,13 @@ add_filter( 'wp_before_admin_bar_render', 'ddw_tbex_site_items_rehook_yoastseo' 
  * @uses ddw_tbex_is_yoastseo_toolbar_active()
  * @uses ddw_tbex_use_tweak_yoastseo()
  *
- * @global mixed  $GLOBALS[ 'wp_admin_bar' ]
- * @param object $wp_admin_bar Holds all nodes of the Toolbar.
+ * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
-function ddw_tbex_site_items_rehook_yoastseo( $wp_admin_bar ) {
+function ddw_tbex_site_items_rehook_yoastseo() {
 
 	/** Bail early if Yoast Toolbar deactivated */
 	if ( ! ddw_tbex_is_yoastseo_toolbar_active() ) {
-		return $wp_admin_bar;
+		return;
 	}
 
 	/** Re-hook for: Site Group (Yoast's main item!) */
@@ -75,7 +74,7 @@ function ddw_tbex_site_items_rehook_yoastseo( $wp_admin_bar ) {
 				'title'  => esc_attr__( 'Yoast SEO', 'toolbar-extras' ),
 				'meta'   => array(
 					'class'  => 'tbex-yoastseo',
-					'title'  => esc_attr__( 'Yoast SEO', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Yoast SEO', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -88,7 +87,7 @@ function ddw_tbex_site_items_rehook_yoastseo( $wp_admin_bar ) {
 			'id'     => 'wpseo-configuration-wizard',			// same as original!
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => esc_attr__( 'Yoast Quick Setup', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Yoast Quick Setup', 'toolbar-extras' ),
 			)
 		)
 	);
@@ -99,7 +98,7 @@ function ddw_tbex_site_items_rehook_yoastseo( $wp_admin_bar ) {
 			'id'     => 'wpseo-settings',			// same as original!
 			'href'   => esc_url( admin_url( 'admin.php?page=wpseo_dashboard' ) ),
 			'meta'   => array(
-				'title'  => esc_attr__( 'Yoast SEO Dashboard', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Yoast SEO Dashboard', 'toolbar-extras' ),
 			)
 		)
 	);
@@ -116,23 +115,23 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_yoastseo', 100 );
  * @uses ddw_tbex_is_yoastseo_toolbar_active()
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar']
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_yoastseo() {
+function ddw_tbex_site_items_yoastseo( $admin_bar ) {
 
 	/** Bail early if Yoast Toolbar deactivated */
 	if ( ! ddw_tbex_is_yoastseo_toolbar_active() ) {
-		return;
+		return $admin_bar;
 	}
 
 	/** Group: Resources for Yoast SEO */
 	if ( ddw_tbex_display_items_resources() ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_group(
+		$admin_bar->add_group(
 			array(
 				'id'     => 'group-yoastseo-resources',
 				'parent' => 'wpseo-menu',	// same as original
-				'meta'   => array( 'class' => 'ab-sub-secondary' )
+				'meta'   => array( 'class' => 'ab-sub-secondary' ),
 			)
 		);
 
@@ -155,6 +154,14 @@ function ddw_tbex_site_items_yoastseo() {
 			'yoastseo-videos',
 			'group-yoastseo-resources',
 			'https://www.youtube.com/user/yoastcom/videos'
+		);
+
+		ddw_tbex_resource_item(
+			'changelog',
+			'yoastseo-changelog',
+			'group-yoastseo-resources',
+			'https://yoast.com/wordpress/plugins/seo/change-log-wordpress-seo/',
+			ddw_tbex_string_version_history( 'plugin' )
 		);
 
 		ddw_tbex_resource_item(
@@ -194,17 +201,17 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_yoastseo_premium', 100 );
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
-function ddw_tbex_site_items_yoastseo_premium() {
+function ddw_tbex_site_items_yoastseo_premium( $admin_bar ) {
 
 	/** Bail early if premium version not active */
 	if ( ! ddw_tbex_is_yoastseo_premium_active()
 		|| is_network_admin()
 	) {
-		return;
+		return $admin_bar;
 	}
 
 	/** Add premium-only "Redirects" items */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'tbex-yoastseo-redirects',
 			'parent' => 'wpseo-menu',	// same as original
@@ -212,12 +219,12 @@ function ddw_tbex_site_items_yoastseo_premium() {
 			'href'   => esc_url( admin_url( 'admin.php?page=wpseo_redirects' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_add_new_item( __( 'Redirect', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_add_new_item( __( 'Redirect', 'toolbar-extras' ) ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'tbex-yoastseo-redirects-plain',
 				'parent' => 'tbex-yoastseo-redirects',
@@ -225,12 +232,12 @@ function ddw_tbex_site_items_yoastseo_premium() {
 				'href'   => esc_url( admin_url( 'admin.php?page=wpseo_redirects&tab=plain' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => ddw_tbex_string_add_new_item( __( 'Plain Redirect', 'toolbar-extras' ) )
+					'title'  => ddw_tbex_string_add_new_item( __( 'Plain Redirect', 'toolbar-extras' ) ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'tbex-yoastseo-redirects-regex',
 				'parent' => 'tbex-yoastseo-redirects',
@@ -238,12 +245,12 @@ function ddw_tbex_site_items_yoastseo_premium() {
 				'href'   => esc_url( admin_url( 'admin.php?page=wpseo_redirects&tab=regex' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => ddw_tbex_string_add_new_item( __( 'Regex Redirect', 'toolbar-extras' ) )
+					'title'  => ddw_tbex_string_add_new_item( __( 'Regex Redirect', 'toolbar-extras' ) ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'tbex-yoastseo-redirects-settings',
 				'parent' => 'tbex-yoastseo-redirects',
@@ -251,7 +258,7 @@ function ddw_tbex_site_items_yoastseo_premium() {
 				'href'   => esc_url( admin_url( 'admin.php?page=wpseo_redirects&tab=settings' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -266,7 +273,7 @@ add_action( 'wp_before_admin_bar_render', 'ddw_tbex_maybe_remove_items_yoastseo'
  * @since 1.4.0
  *
  * @uses ddw_tbex_is_yoastseo_toolbar_active()
- * @uses ddw_tbex_is_yoastseo_premium_active() 
+ * @uses ddw_tbex_is_yoastseo_premium_active()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
@@ -280,5 +287,5 @@ function ddw_tbex_maybe_remove_items_yoastseo() {
 	if ( ! ddw_tbex_is_yoastseo_premium_active() ) {
 		$GLOBALS[ 'wp_admin_bar' ]->remove_node( 'wpseo-licenses' );
 	}
-	
+
 }  // end function

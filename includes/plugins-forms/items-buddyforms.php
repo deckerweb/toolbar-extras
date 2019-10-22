@@ -18,14 +18,14 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_buddyforms' );
  *
  * @since 1.4.2
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_buddyforms() {
+function ddw_tbex_site_items_buddyforms( $admin_bar ) {
 
 	$type = 'buddyforms';
 
 	/** For: Forms */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'forms-buddyforms',
 			'parent' => 'tbex-sitegroup-forms',
@@ -54,10 +54,10 @@ function ddw_tbex_site_items_buddyforms() {
 		if ( $forms ) {
 
 			/** Add group */
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-buddyforms-edit-forms',
-					'parent' => 'forms-buddyforms'
+					'parent' => 'forms-buddyforms',
 				)
 			);
 
@@ -68,7 +68,7 @@ function ddw_tbex_site_items_buddyforms() {
 				$form_slug = sanitize_key( $form->post_name );
 
 				/** Add item per form */
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'forms-buddyforms-form-' . $form_id,
 						'parent' => 'group-buddyforms-edit-forms',
@@ -76,12 +76,12 @@ function ddw_tbex_site_items_buddyforms() {
 						'href'   => esc_url( admin_url( 'post.php?post=' . $form_id . '&action=edit&classic-editor' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'Edit Form', 'toolbar-extras' ) . ': ' . $form_name
+							'title'  => esc_attr__( 'Edit Form', 'toolbar-extras' ) . ': ' . $form_name,
 						)
 					)
 				);
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'forms-buddyforms-form-' . $form_id . '-fields',
 						'parent' => 'forms-buddyforms-form-' . $form_id,
@@ -89,14 +89,14 @@ function ddw_tbex_site_items_buddyforms() {
 						'href'   => esc_url( admin_url( 'post.php?post=' . $form_id . '&action=edit&classic-editor' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'Form Builder', 'toolbar-extras' )
+							'title'  => esc_attr__( 'Form Builder', 'toolbar-extras' ),
 						)
 					)
 				);
 
 				$preview_page_id = get_option( 'buddyforms_preview_page', true );
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'forms-buddyforms-form-' . $form_id . '-preview',
 						'parent' => 'forms-buddyforms-form-' . $form_id,
@@ -104,12 +104,12 @@ function ddw_tbex_site_items_buddyforms() {
 						'href'   => esc_url( site_url( '/?page_id=' . $preview_page_id . '&preview=true&form_slug=' . $form_slug ) ),
 						'meta'   => array(
 							'target' => ddw_tbex_meta_target(),
-							'title'  => esc_attr__( 'Preview', 'toolbar-extras' )
+							'title'  => esc_attr__( 'Preview', 'toolbar-extras' ),
 						)
 					)
 				);
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'forms-buddyforms-form-' . $form_id . '-entries',
 						'parent' => 'forms-buddyforms-form-' . $form_id,
@@ -117,12 +117,12 @@ function ddw_tbex_site_items_buddyforms() {
 						'href'   => esc_url( admin_url( 'edit.php?post_type=' . $type . '&page=buddyforms_submissions&form_slug=' . $form_slug ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'Entries', 'toolbar-extras' )
+							'title'  => esc_attr__( 'Entries', 'toolbar-extras' ),
 						)
 					)
 				);
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'forms-buddyforms-form-' . $form_id . '-export',
 						'parent' => 'forms-buddyforms-form-' . $form_id,
@@ -130,7 +130,7 @@ function ddw_tbex_site_items_buddyforms() {
 						'href'   => esc_url( admin_url( 'edit.php?post_type=' . $type . '&post_id=' . $form_id . '&my_action=export_form' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'Export', 'toolbar-extras' )
+							'title'  => esc_attr__( 'Export', 'toolbar-extras' ),
 						)
 					)
 				);
@@ -140,7 +140,7 @@ function ddw_tbex_site_items_buddyforms() {
 		}  // end if
 
 		/** All Forms */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-buddyforms-all-forms',
 				'parent' => 'forms-buddyforms',
@@ -148,13 +148,13 @@ function ddw_tbex_site_items_buddyforms() {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=' . $type ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'All Forms', 'toolbar-extras' )
+					'title'  => esc_attr__( 'All Forms', 'toolbar-extras' ),
 				)
 			)
 		);
 
 		/** New Form */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-buddyforms-new-form',
 				'parent' => 'forms-buddyforms',
@@ -162,13 +162,13 @@ function ddw_tbex_site_items_buddyforms() {
 				'href'   => esc_url( admin_url( 'post-new.php?post_type=' . $type ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'New Form', 'toolbar-extras' )
+					'title'  => esc_attr__( 'New Form', 'toolbar-extras' ),
 				)
 			)
 		);
 
 		/** All Entries */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-buddyforms-all-entries',
 				'parent' => 'forms-buddyforms',
@@ -176,13 +176,13 @@ function ddw_tbex_site_items_buddyforms() {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=' . $type . '&page=buddyforms_submissions' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'All Entries', 'toolbar-extras' )
+					'title'  => esc_attr__( 'All Entries', 'toolbar-extras' ),
 				)
 			)
 		);
 
 		/** Settings */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-buddyforms-settings',
 				'parent' => 'forms-buddyforms',
@@ -190,12 +190,12 @@ function ddw_tbex_site_items_buddyforms() {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=' . $type . '&page=buddyforms_settings' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
 				)
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-buddyforms-settings-general',
 					'parent' => 'forms-buddyforms-settings',
@@ -203,12 +203,12 @@ function ddw_tbex_site_items_buddyforms() {
 					'href'   => esc_url( admin_url( 'edit.php?post_type=' . $type . '&page=buddyforms_settings&tab=general' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'General', 'toolbar-extras' )
+						'title'  => esc_attr__( 'General', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-buddyforms-settings-password-strength',
 					'parent' => 'forms-buddyforms-settings',
@@ -216,12 +216,12 @@ function ddw_tbex_site_items_buddyforms() {
 					'href'   => esc_url( admin_url( 'edit.php?post_type=' . $type . '&page=buddyforms_settings&tab=password_strength' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Password Strength', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Password Strength', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-buddyforms-settings-import',
 					'parent' => 'forms-buddyforms-settings',
@@ -229,12 +229,12 @@ function ddw_tbex_site_items_buddyforms() {
 					'href'   => esc_url( admin_url( 'edit.php?post_type=' . $type . '&page=buddyforms_settings&tab=import' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Import Forms', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Import Forms', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-buddyforms-settings-gdpr',
 					'parent' => 'forms-buddyforms-settings',
@@ -242,13 +242,13 @@ function ddw_tbex_site_items_buddyforms() {
 					'href'   => esc_url( admin_url( 'edit.php?post_type=' . $type . '&page=buddyforms_settings&tab=gdpr' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'GDPR (Privacy)', 'toolbar-extras' )
+						'title'  => esc_attr__( 'GDPR (Privacy)', 'toolbar-extras' ),
 					)
 				)
 			);
 
 		/** Getting Started */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-buddyforms-start',
 				'parent' => 'forms-buddyforms',
@@ -256,12 +256,12 @@ function ddw_tbex_site_items_buddyforms() {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=' . $type . '&page=buddyforms_welcome_screen' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Getting Started', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Getting Started', 'toolbar-extras' ),
 				)
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-buddyforms-start-wizard',
 					'parent' => 'forms-buddyforms-start',
@@ -269,12 +269,12 @@ function ddw_tbex_site_items_buddyforms() {
 					'href'   => esc_url( admin_url( 'post-new.php?post_type=' . $type . '&wizard=1' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Form Wizard', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Form Wizard', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-buddyforms-start-info',
 					'parent' => 'forms-buddyforms-start',
@@ -282,12 +282,12 @@ function ddw_tbex_site_items_buddyforms() {
 					'href'   => esc_url( admin_url( 'edit.php?post_type=' . $type . '&page=buddyforms_welcome_screen' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Plugin Info', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Plugin Info', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-buddyforms-start-addons',
 					'parent' => 'forms-buddyforms-start',
@@ -295,25 +295,25 @@ function ddw_tbex_site_items_buddyforms() {
 					'href'   => esc_url( admin_url( 'edit.php?post_type=' . $type . '&page=buddyforms-addons' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Add-Ons', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Add-Ons', 'toolbar-extras' ),
 					)
 				)
 			);
 
 		/** Optionally, let other BuddyForms Add-Ons hook in */
-		do_action( 'tbex_after_buddyforms_settings' );
+		do_action( 'tbex_after_buddyforms_settings', $admin_bar );
 
 		/** Group: Resources for buddyforms */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-buddyforms-resources',
 					'parent' => 'forms-buddyforms',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
-			
+
 			ddw_tbex_resource_item(
 				'support-forum',
 				'buddyforms-support',

@@ -18,12 +18,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_seo_redirection', 40 );
  *
  * @since 1.4.0
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_seo_redirection() {
+function ddw_tbex_site_items_seo_redirection( $admin_bar ) {
 
 	/** For: Tools */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'seo-redirection',
 			'parent' => 'tbex-sitegroup-tools',
@@ -31,12 +31,12 @@ function ddw_tbex_site_items_seo_redirection() {
 			'href'   => esc_url( admin_url( 'options-general.php?page=seo-redirection.php' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr_x( 'SEO Redirection', 'A plugin name', 'toolbar-extras' )
+				'title'  => esc_attr_x( 'SEO Redirection', 'A plugin name', 'toolbar-extras' ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'seo-redirection-custom-redirects',
 				'parent' => 'seo-redirection',
@@ -44,12 +44,12 @@ function ddw_tbex_site_items_seo_redirection() {
 				'href'   => esc_url( admin_url( 'options-general.php?page=seo-redirection.php&tab=cutom' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Custom Redirects', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Custom Redirects', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'seo-redirection-post-redirects',
 				'parent' => 'seo-redirection',
@@ -57,12 +57,12 @@ function ddw_tbex_site_items_seo_redirection() {
 				'href'   => esc_url( admin_url( 'options-general.php?page=seo-redirection.php&tab=posts' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Post Redirects', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Post Redirects', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'seo-redirection-history',
 				'parent' => 'seo-redirection',
@@ -70,12 +70,12 @@ function ddw_tbex_site_items_seo_redirection() {
 				'href'   => esc_url( admin_url( 'options-general.php?page=seo-redirection.php&tab=history' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'History', 'toolbar-extras' )
+					'title'  => esc_attr__( 'History', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'seo-redirection-export-import',
 				'parent' => 'seo-redirection',
@@ -83,12 +83,12 @@ function ddw_tbex_site_items_seo_redirection() {
 				'href'   => esc_url( admin_url( 'options-general.php?page=seo-redirection.php&tab=export_import' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Export &amp; Import', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Export &amp; Import', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'seo-redirection-options',
 				'parent' => 'seo-redirection',
@@ -96,7 +96,7 @@ function ddw_tbex_site_items_seo_redirection() {
 				'href'   => esc_url( admin_url( 'options-general.php?page=seo-redirection.php&tab=goptions' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Options', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Options', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -104,14 +104,14 @@ function ddw_tbex_site_items_seo_redirection() {
 		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-seoredirection-resources',
 					'parent' => 'seo-redirection',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
-			
+
 			ddw_tbex_resource_item(
 				'support-forum',
 				'seoredirection-support',

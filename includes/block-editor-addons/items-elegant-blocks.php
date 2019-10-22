@@ -20,13 +20,13 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_elegant_blocks', 150 );
  *
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar']
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_elegant_blocks() {
-	
+function ddw_tbex_aoitems_elegant_blocks( $admin_bar ) {
+
 	$string_elegant_blocks = esc_attr__( 'Elegant Blocks', 'toolbar-extras' );
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'tbex-elegantblocks',
 			'parent' => 'group-creative-content',
@@ -34,13 +34,13 @@ function ddw_tbex_aoitems_elegant_blocks() {
 			'href'   => esc_url( admin_url( 'admin.php?page=elegant-blocks-settings' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_free_addon_title_attr( $string_elegant_blocks )
+				'title'  => ddw_tbex_string_free_addon_title_attr( $string_elegant_blocks ),
 			)
 		)
 	);
 
 		/** Group for the post type stuff */
-		$GLOBALS[ 'wp_admin_bar' ]->add_group(
+		$admin_bar->add_group(
 			array(
 				'id'     => 'group-elegantblocks-creative',
 				'parent' => 'tbex-elegantblocks',
@@ -48,7 +48,7 @@ function ddw_tbex_aoitems_elegant_blocks() {
 		);
 
 		/** Services */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'elegantblocks-services',
 				'parent' => 'group-elegantblocks-creative',
@@ -56,12 +56,12 @@ function ddw_tbex_aoitems_elegant_blocks() {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=cp_services' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => $string_elegant_blocks . ': ' . esc_attr__( 'Services', 'toolbar-extras' )
+					'title'  => $string_elegant_blocks . ': ' . esc_attr__( 'Services', 'toolbar-extras' ),
 				)
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'elegantblocks-services-all',
 					'parent' => 'elegantblocks-services',
@@ -69,12 +69,12 @@ function ddw_tbex_aoitems_elegant_blocks() {
 					'href'   => esc_url( admin_url( 'edit.php?post_type=cp_services' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'All Services', 'toolbar-extras' )
+						'title'  => esc_attr__( 'All Services', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'elegantblocks-services-new',
 					'parent' => 'elegantblocks-services',
@@ -82,13 +82,13 @@ function ddw_tbex_aoitems_elegant_blocks() {
 					'href'   => esc_url( admin_url( 'post-new.php?post_type=cp_services' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'New Service', 'toolbar-extras' )
+						'title'  => esc_attr__( 'New Service', 'toolbar-extras' ),
 					)
 				)
 			);
 
 		/** Teams */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'elegantblocks-teams',
 				'parent' => 'group-elegantblocks-creative',
@@ -96,12 +96,12 @@ function ddw_tbex_aoitems_elegant_blocks() {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=ct_teams' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => $string_elegant_blocks . ': ' . esc_attr__( 'Teams', 'toolbar-extras' )
+					'title'  => $string_elegant_blocks . ': ' . esc_attr__( 'Teams', 'toolbar-extras' ),
 				)
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'elegantblocks-teams-all',
 					'parent' => 'elegantblocks-teams',
@@ -109,12 +109,12 @@ function ddw_tbex_aoitems_elegant_blocks() {
 					'href'   => esc_url( admin_url( 'edit.php?post_type=ct_teams' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'All Teams', 'toolbar-extras' )
+						'title'  => esc_attr__( 'All Teams', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'elegantblocks-teams-new',
 					'parent' => 'elegantblocks-teams',
@@ -122,13 +122,13 @@ function ddw_tbex_aoitems_elegant_blocks() {
 					'href'   => esc_url( admin_url( 'post-new.php?post_type=ct_teams' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'New Team', 'toolbar-extras' )
+						'title'  => esc_attr__( 'New Team', 'toolbar-extras' ),
 					)
 				)
 			);
 
 		/** Sliders */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'elegantblocks-sliders',
 				'parent' => 'group-elegantblocks-creative',
@@ -136,12 +136,12 @@ function ddw_tbex_aoitems_elegant_blocks() {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=ct_slider' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => $string_elegant_blocks . ': ' . esc_attr__( 'Sliders', 'toolbar-extras' )
+					'title'  => $string_elegant_blocks . ': ' . esc_attr__( 'Sliders', 'toolbar-extras' ),
 				)
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'elegantblocks-sliders-all',
 					'parent' => 'elegantblocks-sliders',
@@ -149,12 +149,12 @@ function ddw_tbex_aoitems_elegant_blocks() {
 					'href'   => esc_url( admin_url( 'edit.php?post_type=ct_slider' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'All Sliders', 'toolbar-extras' )
+						'title'  => esc_attr__( 'All Sliders', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'elegantblocks-sliders-new',
 					'parent' => 'elegantblocks-sliders',
@@ -162,13 +162,13 @@ function ddw_tbex_aoitems_elegant_blocks() {
 					'href'   => esc_url( admin_url( 'post-new.php?post_type=ct_slider' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'New Slider', 'toolbar-extras' )
+						'title'  => esc_attr__( 'New Slider', 'toolbar-extras' ),
 					)
 				)
 			);
 
 		/** Testimonials */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'elegantblocks-testmonials',
 				'parent' => 'group-elegantblocks-creative',
@@ -176,12 +176,12 @@ function ddw_tbex_aoitems_elegant_blocks() {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=ct_testmonial' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => $string_elegant_blocks . ': ' . esc_attr__( 'Testimonials', 'toolbar-extras' )
+					'title'  => $string_elegant_blocks . ': ' . esc_attr__( 'Testimonials', 'toolbar-extras' ),
 				)
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'elegantblocks-testmonials-all',
 					'parent' => 'elegantblocks-testmonials',
@@ -189,12 +189,12 @@ function ddw_tbex_aoitems_elegant_blocks() {
 					'href'   => esc_url( admin_url( 'edit.php?post_type=ct_testmonial' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'All Testimonials', 'toolbar-extras' )
+						'title'  => esc_attr__( 'All Testimonials', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'elegantblocks-testmonials-new',
 					'parent' => 'elegantblocks-testmonials',
@@ -202,13 +202,13 @@ function ddw_tbex_aoitems_elegant_blocks() {
 					'href'   => esc_url( admin_url( 'post-new.php?post_type=ct_testmonial' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'New Testimonial', 'toolbar-extras' )
+						'title'  => esc_attr__( 'New Testimonial', 'toolbar-extras' ),
 					)
 				)
 			);
 
 		/** Galleries */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'elegantblocks-galleries',
 				'parent' => 'group-elegantblocks-creative',
@@ -216,12 +216,12 @@ function ddw_tbex_aoitems_elegant_blocks() {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=ct_gallery' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => $string_elegant_blocks . ': ' . esc_attr__( 'Galleries', 'toolbar-extras' )
+					'title'  => $string_elegant_blocks . ': ' . esc_attr__( 'Galleries', 'toolbar-extras' ),
 				)
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'elegantblocks-galleries-all',
 					'parent' => 'elegantblocks-galleries',
@@ -229,12 +229,12 @@ function ddw_tbex_aoitems_elegant_blocks() {
 					'href'   => esc_url( admin_url( 'edit.php?post_type=ct_gallery' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'All Galleries', 'toolbar-extras' )
+						'title'  => esc_attr__( 'All Galleries', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'elegantblocks-galleries-new',
 					'parent' => 'elegantblocks-galleries',
@@ -242,13 +242,13 @@ function ddw_tbex_aoitems_elegant_blocks() {
 					'href'   => esc_url( admin_url( 'post-new.php?post_type=ct_gallery' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'New Gallery', 'toolbar-extras' )
+						'title'  => esc_attr__( 'New Gallery', 'toolbar-extras' ),
 					)
 				)
 			);
 
 		/** Settings */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'elegantblocks-settings',
 				'parent' => 'tbex-elegantblocks',
@@ -256,7 +256,7 @@ function ddw_tbex_aoitems_elegant_blocks() {
 				'href'   => esc_url( admin_url( 'admin.php?page=elegant-blocks-settings' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -264,11 +264,11 @@ function ddw_tbex_aoitems_elegant_blocks() {
 		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-elegantblocks-resources',
 					'parent' => 'tbex-elegantblocks',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

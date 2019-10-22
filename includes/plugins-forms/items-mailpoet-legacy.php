@@ -20,12 +20,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_mailpoet_legacy' );
  *
  * @uses WYSIJA::get()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_mailpoet_legacy() {
+function ddw_tbex_site_items_mailpoet_legacy( $admin_bar ) {
 
 	/** For: Forms hook place */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'forms-mailpoetlegacy',
 			'parent' => 'tbex-sitegroup-forms',
@@ -33,21 +33,21 @@ function ddw_tbex_site_items_mailpoet_legacy() {
 			'href'   => esc_url( admin_url( 'admin.php?page=wysija_campaigns' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'MailPoet', 'toolbar-extras' ) . ' ' . esc_attr__( '(Version 2, Legacy)', 'toolbar-extras' )
+				'title'  => esc_attr__( 'MailPoet', 'toolbar-extras' ) . ' ' . esc_attr__( '(Version 2, Legacy)', 'toolbar-extras' ),
 			)
 		)
 	);
 
 		/** MailPoet dynamics - add group */
-		$GLOBALS[ 'wp_admin_bar' ]->add_group(
+		$admin_bar->add_group(
 			array(
 				'id'     => 'group-mailpoetlegacy-dynamic',
-				'parent' => 'forms-mailpoetlegacy'
+				'parent' => 'forms-mailpoetlegacy',
 			)
 		);
 
 		/** Newsletters (Emails/ Campaigns) */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'mailpoetlegacy-newsletters-overview',
 				'parent' => 'group-mailpoetlegacy-dynamic',
@@ -55,7 +55,7 @@ function ddw_tbex_site_items_mailpoet_legacy() {
 				'href'   => esc_url( admin_url( 'admin.php?page=wysija_campaigns' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'E-Mail Newsletters', 'toolbar-extras' )
+					'title'  => esc_attr__( 'E-Mail Newsletters', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -81,7 +81,7 @@ function ddw_tbex_site_items_mailpoet_legacy() {
 					}
 
 					/** Add item per newsletter */
-					$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					$admin_bar->add_node(
 						array(
 							'id'     => 'mailpoetlegacy-newsletter-' . $newsletter_id,
 							'parent' => 'mailpoetlegacy-newsletters-overview',
@@ -89,12 +89,12 @@ function ddw_tbex_site_items_mailpoet_legacy() {
 							'href'   => esc_url( admin_url( 'admin.php?page=wysija_campaigns&id=' . $newsletter_id . '&action=edit' ) ),
 							'meta'   => array(
 								'target' => '',
-								'title'  => esc_attr__( 'Edit Newsletter', 'toolbar-extras' ) . ': ' . $newsletter_title
+								'title'  => esc_attr__( 'Edit Newsletter', 'toolbar-extras' ) . ': ' . $newsletter_title,
 							)
 						)
 					);
 
-						$GLOBALS[ 'wp_admin_bar' ]->add_node(
+						$admin_bar->add_node(
 							array(
 								'id'     => 'mailpoetlegacy-newsletter-' . $newsletter_id . '-edit',
 								'parent' => 'mailpoetlegacy-newsletter-' . $newsletter_id,
@@ -102,12 +102,12 @@ function ddw_tbex_site_items_mailpoet_legacy() {
 								'href'   => esc_url( admin_url( 'admin.php?page=wysija_campaigns&id=' . $newsletter_id . '&action=edit' ) ),
 								'meta'   => array(
 									'target' => '',
-									'title'  => esc_attr__( 'Edit Newsletter', 'toolbar-extras' ) . ': ' . $newsletter_title
+									'title'  => esc_attr__( 'Edit Newsletter', 'toolbar-extras' ) . ': ' . $newsletter_title,
 								)
 							)
 						);
 
-						$GLOBALS[ 'wp_admin_bar' ]->add_node(
+						$admin_bar->add_node(
 							array(
 								'id'     => 'mailpoetlegacy-newsletter-' . $newsletter_id . '-preview',
 								'parent' => 'mailpoetlegacy-newsletter-' . $newsletter_id,
@@ -115,7 +115,7 @@ function ddw_tbex_site_items_mailpoet_legacy() {
 								'href'   => esc_url( site_url( '/?wysija-page=1&controller=email&action=view&email_id=' . $newsletter_id . '&wysijap=subscriptions' ) ),
 								'meta'   => array(
 									'target' => ddw_tbex_meta_target(),
-									'title'  => esc_attr__( 'Preview', 'toolbar-extras' )
+									'title'  => esc_attr__( 'Preview', 'toolbar-extras' ),
 								)
 							)
 						);
@@ -125,7 +125,7 @@ function ddw_tbex_site_items_mailpoet_legacy() {
 			}  // end if
 
 		/** Forms */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'mailpoetlegacy-forms-overview',
 				'parent' => 'group-mailpoetlegacy-dynamic',
@@ -133,7 +133,7 @@ function ddw_tbex_site_items_mailpoet_legacy() {
 				'href'   => esc_url( admin_url( 'admin.php?page=wysija_config#tab-forms' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Forms', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Forms', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -154,7 +154,7 @@ function ddw_tbex_site_items_mailpoet_legacy() {
 					$form_id    = (int) $form[ 'form_id' ];
 
 					/** Add item per form */
-					$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					$admin_bar->add_node(
 						array(
 							'id'     => 'mailpoetlegacy-form-' . $form_id,
 							'parent' => 'mailpoetlegacy-forms-overview',
@@ -162,7 +162,7 @@ function ddw_tbex_site_items_mailpoet_legacy() {
 							'href'   => esc_url( admin_url( 'admin.php?page=wysija_config&action=form_edit&id=' . $form_id ) ),
 							'meta'   => array(
 								'target' => '',
-								'title'  => esc_attr__( 'Edit Form', 'toolbar-extras' ) . ': ' . $form_title
+								'title'  => esc_attr__( 'Edit Form', 'toolbar-extras' ) . ': ' . $form_title,
 							)
 						)
 					);
@@ -172,7 +172,7 @@ function ddw_tbex_site_items_mailpoet_legacy() {
 			}  // end if
 
 		/** Lists */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'mailpoetlegacy-lists-overview',
 				'parent' => 'group-mailpoetlegacy-dynamic',
@@ -180,7 +180,7 @@ function ddw_tbex_site_items_mailpoet_legacy() {
 				'href'   => esc_url( admin_url( 'admin.php?page=wysija_subscribers&action=lists' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Lists', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Lists', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -202,7 +202,7 @@ function ddw_tbex_site_items_mailpoet_legacy() {
 					$list_id    = (int) $list[ 'list_id' ];
 
 					/** Add item per list */
-					$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					$admin_bar->add_node(
 						array(
 							'id'     => 'mailpoetlegacy-list-' . $list_id,
 							'parent' => 'mailpoetlegacy-lists-overview',
@@ -210,7 +210,7 @@ function ddw_tbex_site_items_mailpoet_legacy() {
 							'href'   => esc_url( admin_url( 'admin.php?page=wysija_subscribers&id=' . $list_id . '&action=editlist' ) ),
 							'meta'   => array(
 								'target' => '',
-								'title'  => esc_attr__( 'Edit List', 'toolbar-extras' ) . ': ' . $list_title
+								'title'  => esc_attr__( 'Edit List', 'toolbar-extras' ) . ': ' . $list_title,
 							)
 						)
 					);
@@ -220,7 +220,7 @@ function ddw_tbex_site_items_mailpoet_legacy() {
 			}  // end if
 
 		/** Newsletters (general) */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-mailpoetlegacy-all-newsletters',
 				'parent' => 'forms-mailpoetlegacy',
@@ -228,12 +228,12 @@ function ddw_tbex_site_items_mailpoet_legacy() {
 				'href'   => esc_url( admin_url( 'admin.php?page=wysija_campaigns&link_filter=all' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'All Newsletters', 'toolbar-extras' )
+					'title'  => esc_attr__( 'All Newsletters', 'toolbar-extras' ),
 				)
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-mailpoetlegacy-standard-newsletters',
 					'parent' => 'forms-mailpoetlegacy-all-newsletters',
@@ -241,12 +241,12 @@ function ddw_tbex_site_items_mailpoet_legacy() {
 					'href'   => esc_url( admin_url( 'admin.php?page=wysija_campaigns&link_filter=type-regular' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Standard Newsletters', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Standard Newsletters', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-mailpoetlegacy-auto-newsletters',
 					'parent' => 'forms-mailpoetlegacy-all-newsletters',
@@ -254,12 +254,12 @@ function ddw_tbex_site_items_mailpoet_legacy() {
 					'href'   => esc_url( admin_url( 'admin.php?page=wysija_campaigns&link_filter=type-autonl' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Auto Newsletters', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Auto Newsletters', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-mailpoetlegacy-drafts',
 					'parent' => 'forms-mailpoetlegacy-all-newsletters',
@@ -267,12 +267,12 @@ function ddw_tbex_site_items_mailpoet_legacy() {
 					'href'   => esc_url( admin_url( 'admin.php?page=wysija_campaigns&link_filter=status-draft' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Drafts', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Drafts', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-mailpoetlegacy-new-newsletter',
 					'parent' => 'forms-mailpoetlegacy-all-newsletters',
@@ -280,13 +280,13 @@ function ddw_tbex_site_items_mailpoet_legacy() {
 					'href'   => esc_url( admin_url( 'admin.php?page=wysija_campaigns&action=add' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'New Newsletter', 'toolbar-extras' )
+						'title'  => esc_attr__( 'New Newsletter', 'toolbar-extras' ),
 					)
 				)
 			);
 
 		/** Forms (general) */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-mailpoetlegacy-all-forms',
 				'parent' => 'forms-mailpoetlegacy',
@@ -294,12 +294,12 @@ function ddw_tbex_site_items_mailpoet_legacy() {
 				'href'   => esc_url( admin_url( 'admin.php?page=wysija_config#tab-forms' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'All Forms', 'toolbar-extras' )
+					'title'  => esc_attr__( 'All Forms', 'toolbar-extras' ),
 				)
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-mailpoetlegacy-forms',
 					'parent' => 'forms-mailpoetlegacy-all-forms',
@@ -307,12 +307,12 @@ function ddw_tbex_site_items_mailpoet_legacy() {
 					'href'   => esc_url( admin_url( 'admin.php?page=wysija_config#tab-forms' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Forms', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Forms', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-mailpoetlegacy-new-form',
 					'parent' => 'forms-mailpoetlegacy-all-forms',
@@ -320,13 +320,13 @@ function ddw_tbex_site_items_mailpoet_legacy() {
 					'href'   => esc_url( admin_url( 'admin.php?page=wysija_config&action=form_add&_wpnonce=' . wp_create_nonce( 'wysija_config-action_form_add' ) ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'New Form', 'toolbar-extras' )
+						'title'  => esc_attr__( 'New Form', 'toolbar-extras' ),
 					)
 				)
 			);
 
 		/** Subscribers (general) */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-mailpoetlegacy-all-subsribers',
 				'parent' => 'forms-mailpoetlegacy',
@@ -334,12 +334,12 @@ function ddw_tbex_site_items_mailpoet_legacy() {
 				'href'   => esc_url( admin_url( 'admin.php?page=wysija_subscribers' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'All Subscribers', 'toolbar-extras' )
+					'title'  => esc_attr__( 'All Subscribers', 'toolbar-extras' ),
 				)
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-mailpoetlegacy-subsribers',
 					'parent' => 'forms-mailpoetlegacy-all-subsribers',
@@ -347,12 +347,12 @@ function ddw_tbex_site_items_mailpoet_legacy() {
 					'href'   => esc_url( admin_url( 'admin.php?page=wysija_subscribers&link_filter=subscribed' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Subscribers', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Subscribers', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-mailpoetlegacy-new-subsriber',
 					'parent' => 'forms-mailpoetlegacy-all-subsribers',
@@ -360,12 +360,12 @@ function ddw_tbex_site_items_mailpoet_legacy() {
 					'href'   => esc_url( admin_url( 'admin.php?page=wysija_subscribers&action=add' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'New Subscriber', 'toolbar-extras' )
+						'title'  => esc_attr__( 'New Subscriber', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-mailpoetlegacy-import-subscribers',
 					'parent' => 'forms-mailpoetlegacy-all-subsribers',
@@ -373,12 +373,12 @@ function ddw_tbex_site_items_mailpoet_legacy() {
 					'href'   => esc_url( admin_url( 'admin.php?page=wysija_subscribers&action=import' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Import', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Import', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-mailpoetlegacy-export-subscribers',
 					'parent' => 'forms-mailpoetlegacy-all-subsribers',
@@ -386,13 +386,13 @@ function ddw_tbex_site_items_mailpoet_legacy() {
 					'href'   => esc_url( admin_url( 'admin.php?page=wysija_subscribers&action=export' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Export', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Export', 'toolbar-extras' ),
 					)
 				)
 			);
 
 		/** Lists (general) */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-mailpoetlegacy-all-lists',
 				'parent' => 'forms-mailpoetlegacy',
@@ -400,12 +400,12 @@ function ddw_tbex_site_items_mailpoet_legacy() {
 				'href'   => esc_url( admin_url( 'admin.php?page=wysija_subscribers&action=lists' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'All Lists', 'toolbar-extras' )
+					'title'  => esc_attr__( 'All Lists', 'toolbar-extras' ),
 				)
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-mailpoetlegacy-lists',
 					'parent' => 'forms-mailpoetlegacy-all-lists',
@@ -413,12 +413,12 @@ function ddw_tbex_site_items_mailpoet_legacy() {
 					'href'   => esc_url( admin_url( 'admin.php?page=wysija_subscribers&action=lists' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Lists', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Lists', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-mailpoetlegacy-new-list',
 					'parent' => 'forms-mailpoetlegacy-all-lists',
@@ -426,13 +426,13 @@ function ddw_tbex_site_items_mailpoet_legacy() {
 					'href'   => esc_url( admin_url( 'admin.php?page=wysija_subscribers&action=addlist' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'New List', 'toolbar-extras' )
+						'title'  => esc_attr__( 'New List', 'toolbar-extras' ),
 					)
 				)
 			);
 
 		/** Settings */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-mailpoetlegacy-settings',
 				'parent' => 'forms-mailpoetlegacy',
@@ -440,12 +440,12 @@ function ddw_tbex_site_items_mailpoet_legacy() {
 				'href'   => esc_url( admin_url( 'admin.php?page=wysija_config' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
 				)
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-mailpoetlegacy-settings-basics',
 					'parent' => 'forms-mailpoetlegacy-settings',
@@ -453,12 +453,12 @@ function ddw_tbex_site_items_mailpoet_legacy() {
 					'href'   => esc_url( admin_url( 'admin.php?page=wysija_config#basics' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Basics', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Basics', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-mailpoetlegacy-settings-signup',
 					'parent' => 'forms-mailpoetlegacy-settings',
@@ -466,12 +466,12 @@ function ddw_tbex_site_items_mailpoet_legacy() {
 					'href'   => esc_url( admin_url( 'admin.php?page=wysija_config#tab-signupconfirmation' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Sign-up Confirmation', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Sign-up Confirmation', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-mailpoetlegacy-settings-send-with',
 					'parent' => 'forms-mailpoetlegacy-settings',
@@ -479,12 +479,12 @@ function ddw_tbex_site_items_mailpoet_legacy() {
 					'href'   => esc_url( admin_url( 'admin.php?page=wysija_config#tab-sendingmethod' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Send with ...', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Send with ...', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-mailpoetlegacy-settings-advanced',
 					'parent' => 'forms-mailpoetlegacy-settings',
@@ -492,22 +492,22 @@ function ddw_tbex_site_items_mailpoet_legacy() {
 					'href'   => esc_url( admin_url( 'admin.php?page=wysija_config#tab-advanced' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Advanced', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Advanced', 'toolbar-extras' ),
 					)
 				)
 			);
 
 		/** Optionally, let other MailPoet Add-Ons hook in */
-		do_action( 'tbex_after_mailpoetlegacy_settings' );
+		do_action( 'tbex_after_mailpoetlegacy_settings', $admin_bar );
 
 		/** Group: Resources for Quform */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-mailpoetlegacy-resources',
 					'parent' => 'forms-mailpoetlegacy',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 
@@ -550,16 +550,16 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_new_content_mailpoet_legacy', 80
  *
  * @since 1.4.0
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_new_content_mailpoet_legacy() {
+function ddw_tbex_aoitems_new_content_mailpoet_legacy( $admin_bar ) {
 
 	/** Bail early if items display is not wanted */
 	if ( ! ddw_tbex_display_items_new_content() || is_network_admin() ) {
-		return;
+		return $admin_bar;
 	}
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'tbex-mailpoetlegacy-dynamic',
 			'parent' => 'new-content',
@@ -567,12 +567,12 @@ function ddw_tbex_aoitems_new_content_mailpoet_legacy() {
 			'href'   => esc_url( admin_url( 'admin.php?page=wysija_campaigns&action=add' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Add New MailPoet Campaign Data', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Add New MailPoet Campaign Data', 'toolbar-extras' ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'mailpoetlegacy-new-newsletter',
 				'parent' => 'tbex-mailpoetlegacy-dynamic',
@@ -580,12 +580,12 @@ function ddw_tbex_aoitems_new_content_mailpoet_legacy() {
 				'href'   => esc_url( admin_url( 'admin.php?page=wysija_campaigns&action=add' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Add New MailPoet Newsletter', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Add New MailPoet Newsletter', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'mailpoetlegacy-new-form',
 				'parent' => 'tbex-mailpoetlegacy-dynamic',
@@ -593,12 +593,12 @@ function ddw_tbex_aoitems_new_content_mailpoet_legacy() {
 				'href'   => esc_url( admin_url( 'admin.php?page=wysija_config&action=form_add&_wpnonce=' . wp_create_nonce( 'wysija_config-action_form_add' ) ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Add New MailPoet Form', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Add New MailPoet Form', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'mailpoetlegacy-new-list',
 				'parent' => 'tbex-mailpoetlegacy-dynamic',
@@ -606,12 +606,12 @@ function ddw_tbex_aoitems_new_content_mailpoet_legacy() {
 				'href'   => esc_url( admin_url( 'admin.php?page=wysija_subscribers&action=addlist' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Add New MailPoet List (Segment)', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Add New MailPoet List (Segment)', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'mailpoetlegacy-new-subsriber',
 				'parent' => 'tbex-mailpoetlegacy-dynamic',
@@ -619,7 +619,7 @@ function ddw_tbex_aoitems_new_content_mailpoet_legacy() {
 				'href'   => esc_url( admin_url( 'admin.php?page=wysija_subscribers&action=add' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Add New Subscriber in MailPoet', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Add New Subscriber in MailPoet', 'toolbar-extras' ),
 				)
 			)
 		);

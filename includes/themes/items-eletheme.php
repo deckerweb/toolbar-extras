@@ -21,12 +21,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_eletheme', 100 );
  * @uses ddw_tbex_string_theme_title()
  * @uses ddw_tbex_customizer_start()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_eletheme() {
+function ddw_tbex_themeitems_eletheme( $admin_bar ) {
 
 	/** Eletheme creative */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'theme-creative',
 			'parent' => 'group-active-theme',
@@ -34,12 +34,12 @@ function ddw_tbex_themeitems_eletheme() {
 			'href'   => ddw_tbex_customizer_start(),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_theme_title( 'attr' )
+				'title'  => ddw_tbex_string_theme_title( 'attr' ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'theme-creative-customize',
 				'parent' => 'theme-creative',
@@ -47,12 +47,12 @@ function ddw_tbex_themeitems_eletheme() {
 				'href'   => ddw_tbex_customizer_start(),
 				'meta'   => array(
 					'target' => ddw_tbex_meta_target(),
-					'title'  => esc_attr__( 'Customize Design', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Customize Design', 'toolbar-extras' ),
 				)
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'elethemecmz-site-identity',
 					'parent' => 'theme-creative-customize',
@@ -61,7 +61,7 @@ function ddw_tbex_themeitems_eletheme() {
 					'href'   => ddw_tbex_customizer_focus( 'section', 'title_tagline' ),
 					'meta'   => array(
 						'target' => ddw_tbex_meta_target(),
-						'title'  => ddw_tbex_string_customize_attr( __( 'Site Identity', 'toolbar-extras' ) )
+						'title'  => ddw_tbex_string_customize_attr( __( 'Site Identity', 'toolbar-extras' ) ),
 					)
 				)
 			);
@@ -79,20 +79,22 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_eletheme_resources', 120 );
  * @uses ddw_tbex_is_startwp_extended_active()
  * @uses ddw_tbex_display_items_resources()
  * @uses ddw_tbex_resource_item()
+ *
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_eletheme_resources() {
+function ddw_tbex_themeitems_eletheme_resources( $admin_bar ) {
 
 	/** Bail early if no resources display active */
 	if ( ! ddw_tbex_display_items_resources() ) {
-		return;
+		return $admin_bar;
 	}
 
 	/** Group: Resources for Eletheme */
-	$GLOBALS[ 'wp_admin_bar' ]->add_group(
+	$admin_bar->add_group(
 		array(
 			'id'     => 'group-theme-resources',
 			'parent' => 'theme-creative',
-			'meta'   => array( 'class' => 'ab-sub-secondary' )
+			'meta'   => array( 'class' => 'ab-sub-secondary' ),
 		)
 	);
 

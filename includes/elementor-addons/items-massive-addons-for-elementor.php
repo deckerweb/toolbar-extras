@@ -36,7 +36,7 @@ function ddw_tbex_aoitems_mafe( $admin_bar ) {
 			'href'   => esc_url( admin_url( 'admin.php?page=massive-addons' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_free_addon_title_attr( __( 'Massive Addons for Elementor', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_free_addon_title_attr( __( 'Massive Addons for Elementor', 'toolbar-extras' ) ),
 			)
 		)
 	);
@@ -49,7 +49,7 @@ function ddw_tbex_aoitems_mafe( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'admin.php?page=massive-addons#mae-addons' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Activate Elements', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Activate Elements', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -62,7 +62,7 @@ function ddw_tbex_aoitems_mafe( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'admin.php?page=massive-addons#mae-maps' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Google Maps API', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Google Maps API', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -74,7 +74,7 @@ function ddw_tbex_aoitems_mafe( $admin_bar ) {
 				array(
 					'id'     => 'group-mafe-resources',
 					'parent' => 'ao-mafe',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

@@ -18,16 +18,16 @@ add_action( 'admin_bar_menu', 'ddw_tbex_user_items_members', 25 );
  *
  * @since 1.0.0
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_user_items_members() {
+function ddw_tbex_user_items_members( $admin_bar ) {
 
 	/** Bail early if in Network Admin - "Members" only adds to Sites/ Sub Sites */
 	if ( is_network_admin() ) {
-		return;
+		return $admin_bar;
 	}
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'roles-all',
 			'parent' => 'group-user-roles',
@@ -36,12 +36,12 @@ function ddw_tbex_user_items_members() {
 			'meta'   => array(
 				'class'  => 'tbex-users',
 				'target' => '',
-				'title'  => esc_attr__( 'User Roles', 'toolbar-extras' )
+				'title'  => esc_attr__( 'User Roles', 'toolbar-extras' ),
 			)
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'roles-new',
 			'parent' => 'group-user-roles',
@@ -50,7 +50,7 @@ function ddw_tbex_user_items_members() {
 			'meta'   => array(
 				'class'  => 'tbex-users',
 				'target' => '',
-				'title'  => esc_attr__( 'New Role', 'toolbar-extras' )
+				'title'  => esc_attr__( 'New Role', 'toolbar-extras' ),
 			)
 		)
 	);

@@ -110,19 +110,6 @@ function ddw_tbex_plugin_links( $tbex_links, $tbex_file ) {
 	/** List additional links only for this plugin */
 	if ( $tbex_file === TBEX_PLUGIN_BASEDIR . 'toolbar-extras.php' ) {
 
-		/*
-		?>
-			<style type="text/css">
-				tr[data-plugin="<?php echo $tbex_file; ?>"] .plugin-version-author-uri a.dashicons-before:before {
-					font-size: 17px;
-					margin-right: 2px;
-					opacity: .85;
-					vertical-align: sub;
-				}
-			</style>
-		<?php
-		*/
-
 		/* translators: Plugins page listing */
 		$tbex_links[] = ddw_tbex_get_info_link(
 			'url_wporg_forum',
@@ -204,9 +191,7 @@ function ddw_tbex_inline_styles_plugins_page() {
 
 		.tbex-update-message p:before,
 		.update-message.notice p:empty,
-		.update-message.updating-message > p,
-		.update-message.notice-success > p,
-		.update-message.notice-error > p {
+		.update-message.tbex-update-message p:empty {
 			display: none !important;
 		}',
 		$tbex_file
@@ -241,6 +226,7 @@ function ddw_tbex_admin_footer_text( $footer_text ) {
 	$tbex_tabs  = array( 'general', 'smart-tweaks', 'development', 'addons', 'import-export', 'about-support', 'default' );
 
 	if ( ( 'settings_page_toolbar-extras' === $current_screen->id && in_array( $active_tab, $tbex_tabs ) )
+		|| ( 'security_page_toolbar-extras' === $current_screen->id )
 		|| ( 'plugins_page_toolbar-extras-suggested-plugins' === $current_screen->id )
 	) {
 
@@ -273,6 +259,9 @@ add_filter( 'update_right_now_text', 'ddw_tbex_dashboard_plugin_version_info', 1
  *
  * @since 1.3.8
  *
+ * @uses ddw_tbex_show_toolbar_items()
+ * @uses ddw_tbex_display_dashboard_additions()
+ *
  * @param string $content Existing Right Now text in "At a Glance" Widget.
  * @return string Amended Right Now text.
  */
@@ -282,7 +271,7 @@ function ddw_tbex_dashboard_plugin_version_info( $content ) {
 	 * Bail early if no Toolbar items wanted (and therefore no hint to the
 	 *   plugin)
 	 */
-	if ( ! ddw_tbex_show_toolbar_items() ) {
+	if ( ! ddw_tbex_show_toolbar_items() || ! ddw_tbex_display_dashboard_additions() ) {
 		return $content;
 	}
 
@@ -304,19 +293,22 @@ add_action( 'mu_rightnow_end', 'ddw_tbex_dashboard_plugin_update_check' );
  *   including for Multisite Network Admin.
  *
  * @since 1.4.4
+ *
+ * @uses ddw_tbex_display_dashboard_additions()
  */
 function ddw_tbex_dashboard_plugin_update_check() {
 
 	/** Bail early if not enough permissions */
 	if ( ( ! is_multisite() && ! current_user_can( 'activate_plugins' ) )
 		|| ( is_multisite() && ! current_user_can( 'manage_network' ) )
+		|| ! ddw_tbex_display_dashboard_additions()
 	) {
 		return;
 	}
 
 	/** Create button markup */
 	$output = sprintf(
-		'<div class="tbex-dashboard-updates">
+		'<div class="tbex-dashboard-updates" style="margin-bottom: 15px;">
 			<a class="button" href="%1$s" title="%2$s">%3$s</a>
 		</div>',
 		is_multisite() ? esc_url( network_admin_url( 'update-core.php?force-check=1' ) ) : esc_url( admin_url( 'update-core.php?force-check=1' ) ),
@@ -339,6 +331,8 @@ add_filter( 'debug_information', 'ddw_tbex_site_health_add_debug_info', 5 );
  *
  * @since 1.4.3
  * @since 1.4.7 Added new items: What Template feature; TBEX.com API.
+ * @since 1.4.8 Added new items: TBEX_DISPLAY_SETTINGS_SHORTCUTS and
+ *              TBEX_DISPLAY_DASHBOARD_ADDITIONS constants.
  *
  * @uses ddw_tbex_string_debug_diagnostic()
  * @uses ddw_tbex_string_undefined()
@@ -461,6 +455,14 @@ function ddw_tbex_site_health_add_debug_info( $debug_info ) {
 				'label' => 'TBEX_USE_BLOCK_EDITOR_SUPPORT',
 				'value' => ( ! defined( 'TBEX_USE_BLOCK_EDITOR_SUPPORT' ) ? ddw_tbex_string_undefined() : ( TBEX_USE_BLOCK_EDITOR_SUPPORT ? ddw_tbex_string_enabled() : ddw_tbex_string_disabled() ) ),
 			),
+			'TBEX_DISPLAY_SETTINGS_SHORTCUTS' => array(
+				'label' => 'TBEX_DISPLAY_SETTINGS_SHORTCUTS',
+				'value' => ( ! defined( 'TBEX_DISPLAY_SETTINGS_SHORTCUTS' ) ? ddw_tbex_string_undefined() : ( TBEX_DISPLAY_SETTINGS_SHORTCUTS ? ddw_tbex_string_enabled() : ddw_tbex_string_disabled() ) ),
+			),
+			'TBEX_DISPLAY_DASHBOARD_ADDITIONS' => array(
+				'label' => 'TBEX_DISPLAY_DASHBOARD_ADDITIONS',
+				'value' => ( ! defined( 'TBEX_DISPLAY_DASHBOARD_ADDITIONS' ) ? ddw_tbex_string_undefined() : ( TBEX_DISPLAY_DASHBOARD_ADDITIONS ? ddw_tbex_string_enabled() : ddw_tbex_string_disabled() ) ),
+			),
 
 			/** Elementor constants */
 			'ELEMENTOR_VERSION' => array(
@@ -540,8 +542,9 @@ if ( ! function_exists( 'ddw_wp_site_health_remove_percentage' ) ) :
 
 		?>
 			<style type="text/css">
+				.site-health-progress-wrapper,
 				.site-health-progress {
-					display: none;
+					display: none !important;
 				}
 			</style>
 		<?php
@@ -644,7 +647,7 @@ add_filter( 'ddwlib_plir/filter/plugins', 'ddw_tbex_register_extra_plugin_recomm
  * @return array Filtered and merged array of all plugin recommendations.
  */
 function ddw_tbex_register_extra_plugin_recommendations( array $plugins ) {
-  
+
 	/** Remove our own slug when we are already active :) */
 	if ( isset( $plugins[ 'toolbar-extras' ] ) ) {
 		$plugins[ 'toolbar-extras' ] = null;
@@ -652,6 +655,12 @@ function ddw_tbex_register_extra_plugin_recommendations( array $plugins ) {
 
   	/** Add new keys to recommendations */
   	$plugins[ 'custom-css-js' ] = array(
+		'featured'    => 'yes',
+		'recommended' => 'yes',
+		'popular'     => 'no',
+	);
+
+  	$plugins[ 'wpcore' ] = array(
 		'featured'    => 'yes',
 		'recommended' => 'yes',
 		'popular'     => 'no',
@@ -704,6 +713,11 @@ function ddw_tbex_register_extra_plugin_recommendations( array $plugins ) {
 				'popular'     => 'yes',
 			),
 			'block-options' => array(
+				'featured'    => 'yes',
+				'recommended' => 'yes',
+				'popular'     => 'no',
+			),
+			'reusable-blocks-extended' => array(
 				'featured'    => 'yes',
 				'recommended' => 'yes',
 				'popular'     => 'no',
@@ -774,7 +788,7 @@ function ddw_tbex_register_extra_plugin_recommendations( array $plugins ) {
 
 	/** Merge with the existing recommendations and return */
 	return array_merge( $plugins, $plugins_elementor, $plugins_block_editor, $plugins_dev_mode );
-  
+
 }  // end function
 
 /** Optionally add string translations for the library */
@@ -823,6 +837,7 @@ if ( ! function_exists( 'ddwlib_plir_strings_plugin_installer' ) ) :
 		$strings[ 'tab_slogan' ] = __( 'Great helper tools for Site Builders to save time and get more productive', 'toolbar-extras' );
 
 		$strings[ 'tab_info' ] = sprintf(
+			/* translators: %s - label, "deckerweb Plugins" */
 			__( 'You can use any of our free plugins or premium plugins from %s', 'toolbar-extras' ),
 			'<a href="https://deckerweb-plugins.com/" target="_blank" rel="nofollow noopener noreferrer">' . $strings[ 'tab_title' ] . '</a>'
 		);

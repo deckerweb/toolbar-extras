@@ -20,15 +20,15 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_rife_extensions_templates', 100 
  *
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_rife_extensions_templates() {
+function ddw_tbex_aoitems_rife_extensions_templates( $admin_bar ) {
 
 	/** Use Add-On hook place */
 	add_filter( 'tbex_filter_is_addon', '__return_empty_string' );
 
 	/** Plugin's Settings */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'ao-rifeet',
 			'parent' => 'tbex-addons',
@@ -36,12 +36,12 @@ function ddw_tbex_aoitems_rife_extensions_templates() {
 			'href'   => esc_url( admin_url( 'admin.php?page=rife-templates' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_free_addon_title_attr( __( 'Rife Extensions &amp; Templates', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_free_addon_title_attr( __( 'Rife Extensions &amp; Templates', 'toolbar-extras' ) ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-rifeet-import-templates',
 				'parent' => 'ao-rifeet',
@@ -49,12 +49,12 @@ function ddw_tbex_aoitems_rife_extensions_templates() {
 				'href'   => esc_url( admin_url( 'admin.php?page=rife-templates#tab-import' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Import Templates', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Import Templates', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-rifeet-instructions',
 				'parent' => 'ao-rifeet',
@@ -62,7 +62,7 @@ function ddw_tbex_aoitems_rife_extensions_templates() {
 				'href'   => esc_url( admin_url( 'admin.php?page=rife-templates#tab-instructions' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Instructions', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Instructions', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -70,11 +70,11 @@ function ddw_tbex_aoitems_rife_extensions_templates() {
 		/** Group: Plugin's Resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-rifeet-resources',
 					'parent' => 'ao-rifeet',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

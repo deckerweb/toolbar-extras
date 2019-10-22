@@ -18,21 +18,21 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_genesis_testimonial_slider', 115
  *
  * @since 1.0.0
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_genesis_testimonial_slider() {
+function ddw_tbex_aoitems_genesis_testimonial_slider( $admin_bar ) {
 
 	$type = 'testimonial';
 
 	/** For: Genesis Creative items */
-	$GLOBALS[ 'wp_admin_bar' ]->add_group(
+	$admin_bar->add_group(
 		array(
 			'id'     => 'group-genesis-testimonialslider',
-			'parent' => 'group-genesisplugins-creative'
+			'parent' => 'group-genesisplugins-creative',
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'gts-all',
 			'parent' => 'group-genesis-testimonialslider',
@@ -40,12 +40,12 @@ function ddw_tbex_aoitems_genesis_testimonial_slider() {
 			'href'   => esc_url( admin_url( 'edit.php?post_type=' . $type ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'All Testimonials', 'toolbar-extras' )
+				'title'  => esc_attr__( 'All Testimonials', 'toolbar-extras' ),
 			)
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'gts-new',
 			'parent' => 'group-genesis-testimonialslider',
@@ -53,14 +53,14 @@ function ddw_tbex_aoitems_genesis_testimonial_slider() {
 			'href'   => esc_url( admin_url( 'post-new.php?post_type=' . $type ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'New Testimonial', 'toolbar-extras' )
+				'title'  => esc_attr__( 'New Testimonial', 'toolbar-extras' ),
 			)
 		)
 	);
 
 	if ( ddw_tbex_is_elementor_active() && \Elementor\User::is_current_user_can_edit_post_type( $type ) ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'gts-builder',
 				'parent' => 'group-genesis-testimonialslider',
@@ -68,13 +68,13 @@ function ddw_tbex_aoitems_genesis_testimonial_slider() {
 				'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( $type ) ),
 				'meta'   => array(
 					'target' => ddw_tbex_meta_target( 'builder' ),
-					'title'  => esc_attr__( 'New Testimonial Builder', 'toolbar-extras' )
+					'title'  => esc_attr__( 'New Testimonial Builder', 'toolbar-extras' ),
 				)
 			)
 		);
 
 		/** For: WordPress "New Content" section within the Toolbar */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'gts-with-builder',
 				'parent' => 'new-' . $type,
@@ -82,14 +82,14 @@ function ddw_tbex_aoitems_genesis_testimonial_slider() {
 				'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( $type ) ),
 				'meta'   => array(
 					'target' => ddw_tbex_meta_target( 'builder' ),
-					'title'  => ddw_tbex_string_newcontent_create_with_builder()
+					'title'  => ddw_tbex_string_newcontent_create_with_builder(),
 				)
 			)
 		);
 
 	}  // end if
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'gts-settings',
 			'parent' => 'group-genesis-testimonialslider',
@@ -97,13 +97,13 @@ function ddw_tbex_aoitems_genesis_testimonial_slider() {
 			'href'   => esc_url( admin_url( 'admin.php?page=genesis-testimonials' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
 			)
 		)
 	);
 
 	/** For: Manage Content in Site Group */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'manage-content-genesis-testimonial-slider',
 			'parent' => 'manage-content',
@@ -111,7 +111,7 @@ function ddw_tbex_aoitems_genesis_testimonial_slider() {
 			'href'   => esc_url( admin_url( 'edit.php?post_type=' . $type ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Edit Testimonials', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Edit Testimonials', 'toolbar-extras' ),
 			)
 		)
 	);
@@ -119,7 +119,7 @@ function ddw_tbex_aoitems_genesis_testimonial_slider() {
 }  // end function
 
 
-add_filter( 'wp_before_admin_bar_render', 'ddw_tbex_site_items_genesis_testimonial_slider' );
+add_action( 'wp_before_admin_bar_render', 'ddw_tbex_site_items_genesis_testimonial_slider' );
 /**
  * Tweak original Testimonial post type label in "New Content" group.
  *   Note: Existing Toolbar node gets filtered.
@@ -130,7 +130,7 @@ add_filter( 'wp_before_admin_bar_render', 'ddw_tbex_site_items_genesis_testimoni
  *
  * @param object $wp_admin_bar Holds all nodes of the Toolbar.
  */
-function ddw_tbex_site_items_genesis_testimonial_slider( $wp_admin_bar ) {
+function ddw_tbex_site_items_genesis_testimonial_slider() {
 
 	$GLOBALS[ 'wp_admin_bar' ]->add_node(
 		array(

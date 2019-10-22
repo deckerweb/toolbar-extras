@@ -18,12 +18,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_edd', 15 );
  *
  * @since 1.0.0
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_edd() {
+function ddw_tbex_site_items_edd( $admin_bar ) {
 
 	/** For: Manage Content */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'manage-content-edd',
 			'parent' => 'manage-content',
@@ -31,7 +31,7 @@ function ddw_tbex_site_items_edd() {
 			'href'   => esc_url( admin_url( 'edit.php?post_type=download' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Edit Download Products', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Edit Download Products', 'toolbar-extras' ),
 			)
 		)
 	);
@@ -39,7 +39,7 @@ function ddw_tbex_site_items_edd() {
 	/** For: New Content */
 	if ( ddw_tbex_is_elementor_active() && \Elementor\User::is_current_user_can_edit_post_type( 'download' ) ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'edd-with-builder',
 				'parent' => 'new-download',
@@ -47,7 +47,7 @@ function ddw_tbex_site_items_edd() {
 				'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'download' ) ),
 				'meta'   => array(
 					'target' => ddw_tbex_meta_target( 'builder' ),
-					'title'  => ddw_tbex_string_newcontent_create_with_builder()
+					'title'  => ddw_tbex_string_newcontent_create_with_builder(),
 				)
 			)
 		);
@@ -63,16 +63,16 @@ add_action( 'admin_bar_menu', 'ddw_tbex_user_items_edd_shopuser', 15 );
  *
  * @since 1.0.0
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_user_items_edd_shopuser() {
+function ddw_tbex_user_items_edd_shopuser( $admin_bar ) {
 
 	/** Optional: Shop Worker Users (EDD) */
 	$edd_shop_worker = get_users( array( 'role' => 'shop_worker' ) );
 
 	if ( ! empty( $edd_shop_worker ) ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'user-eddshopworker',
 				'parent' => 'group-tbex-users',
@@ -81,7 +81,7 @@ function ddw_tbex_user_items_edd_shopuser() {
 				'meta'   => array(
 					'class'  => 'tbex-users',
 					'target' => '',
-					'title'  => esc_attr__( 'Shop Workers', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Shop Workers', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -93,7 +93,7 @@ function ddw_tbex_user_items_edd_shopuser() {
 
 	if ( ! empty( $edd_shop_vendor ) ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'user-eddshopvendor',
 				'parent' => 'group-tbex-users',
@@ -102,7 +102,7 @@ function ddw_tbex_user_items_edd_shopuser() {
 				'meta'   => array(
 					'class'  => 'tbex-users',
 					'target' => '',
-					'title'  => esc_attr__( 'Shop Vendors', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Shop Vendors', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -114,7 +114,7 @@ function ddw_tbex_user_items_edd_shopuser() {
 
 	if ( ! empty( $edd_shop_accountant ) ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'user-eddshopaccountant',
 				'parent' => 'group-tbex-users',
@@ -123,7 +123,7 @@ function ddw_tbex_user_items_edd_shopuser() {
 				'meta'   => array(
 					'class'  => 'tbex-users',
 					'target' => '',
-					'title'  => esc_attr__( 'Shop Accountants', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Shop Accountants', 'toolbar-extras' ),
 				)
 			)
 		);

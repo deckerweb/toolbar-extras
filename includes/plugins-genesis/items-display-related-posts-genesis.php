@@ -22,9 +22,9 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_customize_genesis_related_pos
  *
  * @uses ddw_tbex_customizer_focus()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_customize_genesis_related_posts() {
+function ddw_tbex_themeitems_customize_genesis_related_posts( $admin_bar ) {
 
 	/** Setup for getting the latest public post (ID) */
 	$params = array(
@@ -33,14 +33,14 @@ function ddw_tbex_themeitems_customize_genesis_related_posts() {
 		'post_status' => 'publish',
 		'offset'      => 0,
 	);
-	
+
 	$latest = wp_get_recent_posts( $params );
 	$maybe_latest_post_url = ! isset( $latest[ '0' ] ) ? '' : esc_url( get_permalink( $latest[ '0' ][ 'ID' ] ) );
 
 	wp_reset_query();
 
 	/** Add Toolbar item */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'ao-drpg-plugin',
 			'parent' => 'theme-creative-customize',
@@ -49,7 +49,7 @@ function ddw_tbex_themeitems_customize_genesis_related_posts() {
 			'href'   => ddw_tbex_customizer_focus( 'section', 'display_related_posts_for_genesis', $maybe_latest_post_url ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Display Related Posts', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_customize_attr( __( 'Display Related Posts', 'toolbar-extras' ) ),
 			)
 		)
 	);

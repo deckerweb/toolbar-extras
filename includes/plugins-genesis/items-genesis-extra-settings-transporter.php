@@ -18,17 +18,17 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_genesis_extra_settings_transport
  *
  * @since 1.3.9
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_genesis_extra_settings_transporter() {
+function ddw_tbex_aoitems_genesis_extra_settings_transporter( $admin_bar ) {
 
 	/** Bail early if no access to Genesis Exporter */
 	if ( ! ddw_tbex_is_genesis_settings_active( 'export' ) ) {
-		return;
+		return $admin_bar;
 	}
 
 	/** For: Genesis Creative items */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'genesis-extra-settings-transporter',
 			'parent' => 'group-genesisplugins-creative',
@@ -36,7 +36,7 @@ function ddw_tbex_aoitems_genesis_extra_settings_transporter() {
 			'href'   => esc_url( admin_url( 'admin.php?page=genesis-import-export' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Genesis Extra Settings Transporter', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Genesis Extra Settings Transporter', 'toolbar-extras' ),
 			)
 		)
 	);

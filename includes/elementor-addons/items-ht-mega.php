@@ -21,14 +21,14 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_htmega', 100 );
  *
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_htmega() {
+function ddw_tbex_aoitems_htmega( $admin_bar ) {
 
 	/** Use Add-On hook place */
 	add_filter( 'tbex_filter_is_addon', '__return_empty_string' );
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'ao-htmega-addons',
 			'parent' => 'tbex-addons',
@@ -41,7 +41,7 @@ function ddw_tbex_aoitems_htmega() {
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-htmega-addons-general',
 				'parent' => 'ao-htmega-addons',
@@ -49,12 +49,12 @@ function ddw_tbex_aoitems_htmega() {
 				'href'   => esc_url( admin_url( 'admin.php?page=htmega_addons_options#htmega_general_tabs' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'General Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'General Settings', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-htmega-addons-elements',
 				'parent' => 'ao-htmega-addons',
@@ -62,12 +62,12 @@ function ddw_tbex_aoitems_htmega() {
 				'href'   => esc_url( admin_url( 'admin.php?page=htmega_addons_options#htmega_element_tabs' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Activate Elements', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Activate Elements', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-htmega-addons-thirdparty',
 				'parent' => 'ao-htmega-addons',
@@ -75,7 +75,7 @@ function ddw_tbex_aoitems_htmega() {
 				'href'   => esc_url( admin_url( 'admin.php?page=htmega_addons_options#htmega_thirdparty_element_tabs' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Third Party', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Third Party', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -83,11 +83,11 @@ function ddw_tbex_aoitems_htmega() {
 		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-htmega-resources',
 					'parent' => 'ao-htmega-addons',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

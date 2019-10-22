@@ -22,9 +22,10 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_easy_login_styler_pro', 105 )
  * @uses ddw_tbex_customizer_focus()
  *
  * @global string $GLOBALS[ 'easy_login_styler' ] From ELS plugin.
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ *
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_easy_login_styler_pro() {
+function ddw_tbex_site_items_easy_login_styler_pro( $admin_bar ) {
 
 	$customizer_url = ddw_tbex_customizer_focus(
 		'panel',
@@ -35,7 +36,7 @@ function ddw_tbex_site_items_easy_login_styler_pro() {
 	$title = esc_attr__( 'Easy Login Styler', 'toolbar-extras' );
 
 	/** For: Active Theme Group */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'phpbits-easy-login-styler',
 			'parent' => 'group-active-theme',
@@ -43,13 +44,13 @@ function ddw_tbex_site_items_easy_login_styler_pro() {
 			'href'   => $customizer_url,
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => $title
+				'title'  => $title,
 			)
 		)
 	);
 
 	/** For: Front Customizer */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'customize-easyloginstyler-pro',
 			'parent' => 'customize',
@@ -57,7 +58,7 @@ function ddw_tbex_site_items_easy_login_styler_pro() {
 			'href'   => $customizer_url,
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => $title
+				'title'  => $title,
 			)
 		)
 	);
@@ -65,11 +66,11 @@ function ddw_tbex_site_items_easy_login_styler_pro() {
 	/** Group: Plugin's resources */
 	if ( ddw_tbex_display_items_resources() ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_group(
+		$admin_bar->add_group(
 			array(
 				'id'     => 'group-easyloginstyler-resources',
 				'parent' => 'phpbits-easy-login-styler',
-				'meta'   => array( 'class' => 'ab-sub-secondary' )
+				'meta'   => array( 'class' => 'ab-sub-secondary' ),
 			)
 		);
 

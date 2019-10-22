@@ -11,11 +11,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit( 'Sorry, you are not allowed to access this file directly.' );
 }
 
+/*
+	add_filter( 'wp_before_admin_bar_render', 'ddw_tbex_items_view_singular' );
+	function ddw_tbex_items_view_singular( $wp_admin_bar ) {
 
-add_filter( 'wp_before_admin_bar_render', 'ddw_tbex_items_view_singular' );
-function ddw_tbex_items_view_singular( $wp_admin_bar ) {
-
-}  // end function
+	}  // end function
+*/
 
 
 add_action( 'admin_bar_menu', 'ddw_tbex_items_edit_content_customize' );
@@ -60,7 +61,7 @@ function ddw_tbex_items_edit_content_customize( $admin_bar ) {
 }  // end function
 
 
-add_filter( 'wp_before_admin_bar_render', 'ddw_tbex_items_view_archives' );
+add_action( 'wp_before_admin_bar_render', 'ddw_tbex_items_view_archives' );
 /**
  * Tweak the Post Type archive item in the Toolbar (which appears only under
  *   certain conditions, controlled by WordPress Core). Tweak the title of the
@@ -75,16 +76,14 @@ add_filter( 'wp_before_admin_bar_render', 'ddw_tbex_items_view_archives' );
  * @uses ddw_tbex_meta_target()
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
- *
- * @param object $wp_admin_bar Holds all nodes of the Toolbar.
  */
-function ddw_tbex_items_view_archives( $wp_admin_bar ) {
+function ddw_tbex_items_view_archives() {
 
 	/** Bail early if items should not be displayed */
 	if ( ! is_admin()
 		|| ( is_admin() && ! in_array( get_current_screen()->base, array( 'edit' ) ) )
 	) {
-		return $wp_admin_bar;
+		return;
 	}
 
 	/** Get post type */

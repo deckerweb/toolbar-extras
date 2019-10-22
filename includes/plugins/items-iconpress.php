@@ -34,15 +34,15 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_iconpress', 105 );
  *
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_iconpress() {
+function ddw_tbex_aoitems_iconpress( $admin_bar ) {
 
 	$title = ddw_tbex_is_iconpress_pro_active() ? esc_attr__( 'IconPress', 'toolbar-extras' ) : esc_attr__( 'IconPress Lite', 'toolbar-extras' );
 	$type  = ddw_tbex_is_iconpress_pro_active() ? '' : 'lite';
 
 	/** Plugin's items */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'ao-iconpress',
 			'parent' => 'group-active-theme',
@@ -50,12 +50,12 @@ function ddw_tbex_aoitems_iconpress() {
 			'href'   => esc_url( admin_url( 'admin.php?page=iconpress' . $type ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_addon_title_attr( $title )
+				'title'  => ddw_tbex_string_addon_title_attr( $title ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-iconpress-select-icons',
 				'parent' => 'ao-iconpress',
@@ -63,12 +63,12 @@ function ddw_tbex_aoitems_iconpress() {
 				'href'   => esc_url( admin_url( 'admin.php?page=iconpress' . $type ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Select Icons from Library', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Select Icons from Library', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-iconpress-my-collection',
 				'parent' => 'ao-iconpress',
@@ -76,14 +76,14 @@ function ddw_tbex_aoitems_iconpress() {
 				'href'   => esc_url( admin_url( 'admin.php?page=iconpress' . $type . '_my_collection' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'My Collection', 'toolbar-extras' )
+					'title'  => esc_attr__( 'My Collection', 'toolbar-extras' ),
 				)
 			)
 		);
 
 		if ( ddw_tbex_is_iconpress_pro_active() && \IconPress\Dashboard\Base::isConnected() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ao-iconpress-upload-icons',
 					'parent' => 'ao-iconpress',
@@ -91,14 +91,14 @@ function ddw_tbex_aoitems_iconpress() {
 					'href'   => esc_url( admin_url( 'admin.php?page=iconpress_upload' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Upload Icons', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Upload Icons', 'toolbar-extras' ),
 					)
 				)
 			);
 
 		}  // end if
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-iconpress-options',
 				'parent' => 'ao-iconpress',
@@ -106,12 +106,12 @@ function ddw_tbex_aoitems_iconpress() {
 				'href'   => esc_url( admin_url( 'admin.php?page=iconpress' . $type . '_options' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Options', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Options', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-iconpress-integrations',
 				'parent' => 'ao-iconpress',
@@ -119,7 +119,7 @@ function ddw_tbex_aoitems_iconpress() {
 				'href'   => esc_url( admin_url( 'admin.php?page=iconpress_integrations' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Integrations', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Integrations', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -127,11 +127,11 @@ function ddw_tbex_aoitems_iconpress() {
 		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-iconpress-resources',
 					'parent' => 'ao-iconpress',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

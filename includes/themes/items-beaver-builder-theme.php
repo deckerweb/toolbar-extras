@@ -36,7 +36,7 @@ function ddw_tbex_themeitems_bbtheme( $admin_bar ) {
 			'href'   => ddw_tbex_customizer_focus( 'panel', 'theme_styles' ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_theme_title( 'attr', 'child' )
+				'title'  => ddw_tbex_string_theme_title( 'attr', 'child' ),
 			)
 		)
 	);
@@ -141,7 +141,7 @@ function ddw_tbex_themeitems_bbtheme_resources( $admin_bar ) {
 		array(
 			'id'     => 'group-theme-resources',
 			'parent' => 'theme-creative',
-			'meta'   => array( 'class' => 'ab-sub-secondary' )
+			'meta'   => array( 'class' => 'ab-sub-secondary' ),
 		)
 	);
 
@@ -159,7 +159,7 @@ function ddw_tbex_themeitems_bbtheme_resources( $admin_bar ) {
 		'https://www.wpbeaverbuilder.com/change-logs/#change-logs-2',
 		ddw_tbex_string_version_history( 'theme' )
 	);
-	
+
 	ddw_tbex_resource_item(
 		'official-site',
 		'theme-site',

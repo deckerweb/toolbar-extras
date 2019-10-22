@@ -22,7 +22,9 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_rankmath_singles', 100 );
  *
  * @since 1.4.5
  * @since 1.4.7 Added support for "SEO for WooCommerce" single plugin.
+ * @since 1.4.8 Added support for "Instant Indexing for Google" single plugin.
  *
+ * @uses ddw_tbex_is_rm_instant_indexing_active()
  * @uses ddw_tbex_resource_item()
  *
  * @param object $admin_bar Object of Toolbar nodes.
@@ -31,32 +33,44 @@ function ddw_tbex_site_items_rankmath_singles( $admin_bar ) {
 
 	$rm_dashboard = get_transient( 'rank_math_first_submenu_id' );
 
-	$admin_bar->add_node(
-		array(
-			'id'     => 'tbex-rankmath-singles',
-			'parent' => 'tbex-sitegroup-tools',
-			'title'  => esc_attr__( 'Rank Math SEO', 'toolbar-extras' ),
-			'href'   => esc_url( admin_url( 'admin.php?page=' . $rm_dashboard ) ),
-			'meta'   => array(
-				'target' => '',
-				'title'  => esc_attr__( 'Rank Math SEO Options', 'toolbar-extras' )
-			)
-		)
-	);
+	/** Main item */
+	if ( class_exists( 'RankMath_Monitor' ) || class_exists( 'RankMath_Redirections' ) || class_exists( 'RankMath_Woocommerce' ) || class_exists( 'RANKMATH_SCHEMA' ) ) {
 
-		/** Dashboard */
 		$admin_bar->add_node(
 			array(
-				'id'     => 'tbex-rankmath-singles-dashboard',
-				'parent' => 'tbex-rankmath-singles',
-				'title'  => esc_attr__( 'Activate Modules', 'toolbar-extras' ),
+				'id'     => 'tbex-rankmath-singles',
+				'parent' => 'tbex-sitegroup-tools',
+				'title'  => esc_attr__( 'Rank Math SEO', 'toolbar-extras' ),
 				'href'   => esc_url( admin_url( 'admin.php?page=' . $rm_dashboard ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Dashboard and Module Setup', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Rank Math SEO Options', 'toolbar-extras' ),
 				)
 			)
 		);
+
+			/** Dashboard */
+			$admin_bar->add_node(
+				array(
+					'id'     => 'tbex-rankmath-singles-dashboard',
+					'parent' => 'tbex-rankmath-singles',
+					'title'  => esc_attr__( 'Activate Modules', 'toolbar-extras' ),
+					'href'   => esc_url( admin_url( 'admin.php?page=' . $rm_dashboard ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => esc_attr__( 'Dashboard and Module Setup', 'toolbar-extras' ),
+					)
+				)
+			);
+
+	}  // end if Main item ("Rank Math SEO")
+
+	elseif ( ddw_tbex_is_rm_instant_indexing_active() ) {
+
+		//
+
+	}  // end elseif Instant Indexing Main item
+
 
 		/** General settings */
 		if ( class_exists( 'RankMath_Monitor' ) || class_exists( 'RankMath_Redirections' ) || class_exists( 'RankMath_Woocommerce' ) ) {
@@ -69,7 +83,7 @@ function ddw_tbex_site_items_rankmath_singles( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'admin.php?page=rank-math-options-general' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'General Settings', 'toolbar-extras' )
+						'title'  => esc_attr__( 'General Settings', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -84,7 +98,7 @@ function ddw_tbex_site_items_rankmath_singles( $admin_bar ) {
 							'href'   => esc_url( admin_url( 'admin.php?page=rank-math-options-general#setting-panel-404-monitor' ) ),
 							'meta'   => array(
 								'target' => '',
-								'title'  => esc_attr__( '404 Monitor', 'toolbar-extras' )
+								'title'  => esc_attr__( '404 Monitor', 'toolbar-extras' ),
 							)
 						)
 					);
@@ -101,14 +115,14 @@ function ddw_tbex_site_items_rankmath_singles( $admin_bar ) {
 							'href'   => esc_url( admin_url( 'admin.php?page=rank-math-options-general#setting-panel-redirections' ) ),
 							'meta'   => array(
 								'target' => '',
-								'title'  => esc_attr__( 'Redirections', 'toolbar-extras' )
+								'title'  => esc_attr__( 'Redirections', 'toolbar-extras' ),
 							)
 						)
 					);
 
 				}  // end if
 
-		}  // end if
+		}  // end if General settings
 
 		/** Rich Snippets/ Schema (otherwise Titles & Meta) */
 		if ( class_exists( 'RANKMATH_SCHEMA' ) ) {
@@ -121,7 +135,7 @@ function ddw_tbex_site_items_rankmath_singles( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'admin.php?page=rank-math-options-titles' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Titles &amp; Meta', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Titles &amp; Meta', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -134,7 +148,7 @@ function ddw_tbex_site_items_rankmath_singles( $admin_bar ) {
 						'href'   => esc_url( admin_url( 'admin.php?page=rank-math-options-titles#setting-panel-local' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'Local SEO', 'toolbar-extras' )
+							'title'  => esc_attr__( 'Local SEO', 'toolbar-extras' ),
 						)
 					)
 				);
@@ -147,7 +161,7 @@ function ddw_tbex_site_items_rankmath_singles( $admin_bar ) {
 						'href'   => esc_url( admin_url( 'admin.php?page=rank-math-options-titles#setting-panel-social' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'Social Meta', 'toolbar-extras' )
+							'title'  => esc_attr__( 'Social Meta', 'toolbar-extras' ),
 						)
 					)
 				);
@@ -168,7 +182,7 @@ function ddw_tbex_site_items_rankmath_singles( $admin_bar ) {
 							'href'   => esc_url( admin_url( 'admin.php?page=rank-math-options-titles#setting-panel-post-type-post' ) ),
 							'meta'   => array(
 								'target' => '',
-								'title'  => esc_attr__( 'Post Type: Posts', 'toolbar-extras' )
+								'title'  => esc_attr__( 'Post Type: Posts', 'toolbar-extras' ),
 							)
 						)
 					);
@@ -181,7 +195,7 @@ function ddw_tbex_site_items_rankmath_singles( $admin_bar ) {
 							'href'   => esc_url( admin_url( 'admin.php?page=rank-math-options-titles#setting-panel-post-type-page' ) ),
 							'meta'   => array(
 								'target' => '',
-								'title'  => esc_attr__( 'Post Type: Pages', 'toolbar-extras' )
+								'title'  => esc_attr__( 'Post Type: Pages', 'toolbar-extras' ),
 							)
 						)
 					);
@@ -194,7 +208,7 @@ function ddw_tbex_site_items_rankmath_singles( $admin_bar ) {
 							'href'   => esc_url( admin_url( 'admin.php?page=rank-math-options-titles#setting-panel-post-type-attachment' ) ),
 							'meta'   => array(
 								'target' => '',
-								'title'  => esc_attr__( 'Post Type: Attachments (Media)', 'toolbar-extras' )
+								'title'  => esc_attr__( 'Post Type: Attachments (Media)', 'toolbar-extras' ),
 							)
 						)
 					);
@@ -215,7 +229,7 @@ function ddw_tbex_site_items_rankmath_singles( $admin_bar ) {
 							'href'   => esc_url( admin_url( 'admin.php?page=rank-math-options-titles#setting-panel-taxonomy-category' ) ),
 							'meta'   => array(
 								'target' => '',
-								'title'  => esc_attr__( 'Taxonomy: Categories', 'toolbar-extras' )
+								'title'  => esc_attr__( 'Taxonomy: Categories', 'toolbar-extras' ),
 							)
 						)
 					);
@@ -228,12 +242,12 @@ function ddw_tbex_site_items_rankmath_singles( $admin_bar ) {
 							'href'   => esc_url( admin_url( 'admin.php?page=rank-math-options-titles#setting-panel-taxonomy-post_tag' ) ),
 							'meta'   => array(
 								'target' => '',
-								'title'  => esc_attr__( 'Taxonomy: Tags', 'toolbar-extras' )
+								'title'  => esc_attr__( 'Taxonomy: Tags', 'toolbar-extras' ),
 							)
 						)
 					);
 
-		}  // end if
+		}  // end if Schema
 
 		/** Redirections */
 		if ( class_exists( 'RankMath_Redirections' ) ) {
@@ -246,7 +260,7 @@ function ddw_tbex_site_items_rankmath_singles( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'admin.php?page=rank-math-redirections' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Setup Redirections', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Setup Redirections', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -267,7 +281,7 @@ function ddw_tbex_site_items_rankmath_singles( $admin_bar ) {
 							'href'   => esc_url( admin_url( 'admin.php?page=rank-math-redirections&status=all' ) ),
 							'meta'   => array(
 								'target' => '',
-								'title'  => esc_attr__( 'All Redirections', 'toolbar-extras' )
+								'title'  => esc_attr__( 'All Redirections', 'toolbar-extras' ),
 							)
 						)
 					);
@@ -280,7 +294,7 @@ function ddw_tbex_site_items_rankmath_singles( $admin_bar ) {
 							'href'   => esc_url( admin_url( 'admin.php?page=rank-math-redirections&new=1' ) ),
 							'meta'   => array(
 								'target' => '',
-								'title'  => esc_attr__( 'Add new Redirection', 'toolbar-extras' )
+								'title'  => esc_attr__( 'Add new Redirection', 'toolbar-extras' ),
 							)
 						)
 					);
@@ -301,7 +315,7 @@ function ddw_tbex_site_items_rankmath_singles( $admin_bar ) {
 							'href'   => esc_url( admin_url( 'admin.php?page=rank-math-redirections&export=apache' ) ),
 							'meta'   => array(
 								'target' => '',
-								'title'  => esc_attr__( 'Export Redirections to .htaccess file (Apache Server)', 'toolbar-extras' )
+								'title'  => esc_attr__( 'Export Redirections to .htaccess file (Apache Server)', 'toolbar-extras' ),
 							)
 						)
 					);
@@ -314,7 +328,7 @@ function ddw_tbex_site_items_rankmath_singles( $admin_bar ) {
 							'href'   => esc_url( admin_url( 'admin.php?page=rank-math-redirections&export=nginx' ) ),
 							'meta'   => array(
 								'target' => '',
-								'title'  => esc_attr__( 'Export Redirections to Nginx config file (Nginx Server)', 'toolbar-extras' )
+								'title'  => esc_attr__( 'Export Redirections to Nginx config file (Nginx Server)', 'toolbar-extras' ),
 							)
 						)
 					);
@@ -327,7 +341,7 @@ function ddw_tbex_site_items_rankmath_singles( $admin_bar ) {
 							'href'   => esc_url( admin_url( 'admin.php?page=rank-math-options-general#setting-panel-redirections' ) ),
 							'meta'   => array(
 								'target' => '',
-								'title'  => esc_attr__( 'Settings for Redirections', 'toolbar-extras' )
+								'title'  => esc_attr__( 'Settings for Redirections', 'toolbar-extras' ),
 							)
 						)
 					);
@@ -340,12 +354,12 @@ function ddw_tbex_site_items_rankmath_singles( $admin_bar ) {
 							'href'   => 'https://rankmath.com/kb/setting-up-redirections/',
 							'meta'   => array(
 								'target' => ddw_tbex_meta_target(),
-								'title'  => esc_attr__( 'Learn More - Help', 'toolbar-extras' )
+								'title'  => esc_attr__( 'Learn More - Help', 'toolbar-extras' ),
 							)
 						)
 					);
 
-		}  // end if
+		}  // end if Redirections
 
 		/** 404 Monitor */
 		if ( class_exists( 'RankMath_Monitor' ) ) {
@@ -358,91 +372,160 @@ function ddw_tbex_site_items_rankmath_singles( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'admin.php?page=rank-math-404-monitor' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( '404 Monitor', 'toolbar-extras' )
+						'title'  => esc_attr__( '404 Monitor', 'toolbar-extras' ),
 					)
 				)
 			);
 
 		}  // end if
 
-		/** Import & Export */
-		$admin_bar->add_node(
-			array(
-				'id'     => 'tbex-rankmath-singles-import-export',
-				'parent' => 'tbex-rankmath-singles',
-				'title'  => esc_attr__( 'Import &amp; Export', 'toolbar-extras' ),
-				'href'   => esc_url( admin_url( 'admin.php?page=rank-math-import-export' ) ),
-				'meta'   => array(
-					'target' => '',
-					'title'  => esc_attr__( 'Import &amp; Export', 'toolbar-extras' )
+		/** Instant Indexing */
+		if ( class_exists( 'RM_GIAPI' ) ) {
+
+			$admin_bar->add_node(
+				array(
+					'id'     => 'tbex-rankmath-singles-instant-indexing',
+					'parent' => 'tbex-rankmath-singles',
+					'title'  => esc_attr__( 'Instant Indexing', 'toolbar-extras' ),
+					'href'   => esc_url( admin_url( 'admin.php?page=instant-indexing' ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => esc_attr__( 'Instant Indexing for Google', 'toolbar-extras' ),
+					)
 				)
-			)
-		);
+			);
 
-		/** Help & Support */
-		$admin_bar->add_node(
-			array(
-				'id'     => 'tbex-rankmath-singles-help-support',
-				'parent' => 'tbex-rankmath-singles',
-				'title'  => esc_attr__( 'Help &amp; Support', 'toolbar-extras' ),
-				'href'   => esc_url( admin_url( 'admin.php?page=rank-math-help' ) ),
-				'meta'   => array(
-					'target' => '',
-					'title'  => esc_attr__( 'Help &amp; Support', 'toolbar-extras' )
+				$admin_bar->add_node(
+					array(
+						'id'     => 'tbex-rankmath-singles-instant-indexing-settings',
+						'parent' => 'tbex-rankmath-singles-instant-indexing',
+						'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
+						'href'   => esc_url( admin_url( 'admin.php?page=instant-indexing&tab=settings' ) ),
+						'meta'   => array(
+							'target' => '',
+							'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
+						)
+					)
+				);
+
+				$admin_bar->add_node(
+					array(
+						'id'     => 'tbex-rankmath-singles-instant-indexing-console',
+						'parent' => 'tbex-rankmath-singles-instant-indexing',
+						'title'  => esc_attr__( 'Console', 'toolbar-extras' ),
+						'href'   => esc_url( admin_url( 'admin.php?page=instant-indexing&tab=console' ) ),
+						'meta'   => array(
+							'target' => '',
+							'title'  => esc_attr__( 'Console', 'toolbar-extras' ),
+						)
+					)
+				);
+
+				$admin_bar->add_node(
+					array(
+						'id'     => 'tbex-rankmath-singles-instant-indexing-setup-guide',
+						'parent' => 'tbex-rankmath-singles-instant-indexing',
+						'title'  => esc_attr__( 'Setup Guide', 'toolbar-extras' ),
+						'href'   => 'https://rankmath.com/blog/google-indexing-api/',
+						'meta'   => array(
+							'class'  => 'ab-sub-secondary',
+							'target' => ddw_tbex_meta_target(),
+							'title'  => esc_attr__( 'Setup Guide', 'toolbar-extras' ),
+						)
+					)
+				);
+
+		}  // end if
+
+		/** Import & Export (not for Instant Indexing!) */
+		if ( ! class_exists( 'RM_GIAPI' ) ) {
+
+			$admin_bar->add_node(
+				array(
+					'id'     => 'tbex-rankmath-singles-import-export',
+					'parent' => 'tbex-rankmath-singles',
+					'title'  => esc_attr__( 'Import &amp; Export', 'toolbar-extras' ),
+					'href'   => esc_url( admin_url( 'admin.php?page=rank-math-import-export' ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => esc_attr__( 'Import &amp; Export', 'toolbar-extras' ),
+					)
 				)
-			)
-		);
+			);
 
-			if ( class_exists( 'RankMath_Monitor' ) ) {
+		}  // end if
 
-				$admin_bar->add_node(
-					array(
-						'id'     => 'tbex-rankmath-singles-help-support-404monitor',
-						'parent' => 'tbex-rankmath-singles-help-support',
-						'title'  => esc_attr__( '404 Monitor', 'toolbar-extras' ),
-						'href'   => esc_url( admin_url( 'admin.php?page=rank-math-help#help-panel-404-monitor' ) ),
-						'meta'   => array(
-							'target' => '',
-							'title'  => esc_attr__( '404 Monitor', 'toolbar-extras' )
-						)
+		/** Help & Support (not for Instant Indexing!) */
+		if ( ! class_exists( 'RM_GIAPI' ) ) {
+
+			$admin_bar->add_node(
+				array(
+					'id'     => 'tbex-rankmath-singles-help-support',
+					'parent' => 'tbex-rankmath-singles',
+					'title'  => esc_attr__( 'Help &amp; Support', 'toolbar-extras' ),
+					'href'   => esc_url( admin_url( 'admin.php?page=rank-math-help' ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => esc_attr__( 'Help &amp; Support', 'toolbar-extras' ),
 					)
-				);
+				)
+			);
 
-			}  // end if
+				if ( class_exists( 'RankMath_Monitor' ) ) {
 
-			if ( class_exists( 'RankMath_Redirections' ) ) {
-
-				$admin_bar->add_node(
-					array(
-						'id'     => 'tbex-rankmath-singles-help-support-redirections',
-						'parent' => 'tbex-rankmath-singles-help-support',
-						'title'  => esc_attr__( 'Redirections', 'toolbar-extras' ),
-						'href'   => esc_url( admin_url( 'admin.php?page=rank-math-help#help-panel-redirect' ) ),
-						'meta'   => array(
-							'target' => '',
-							'title'  => esc_attr__( 'Redirections', 'toolbar-extras' )
+					$admin_bar->add_node(
+						array(
+							'id'     => 'tbex-rankmath-singles-help-support-404monitor',
+							'parent' => 'tbex-rankmath-singles-help-support',
+							'title'  => esc_attr__( '404 Monitor', 'toolbar-extras' ),
+							'href'   => esc_url( admin_url( 'admin.php?page=rank-math-help#help-panel-404-monitor' ) ),
+							'meta'   => array(
+								'target' => '',
+								'title'  => esc_attr__( '404 Monitor', 'toolbar-extras' ),
+							)
 						)
-					)
-				);
+					);
 
-			}  // end if
+				}  // end if
 
-			if ( class_exists( 'RANKMATH_SCHEMA' ) ) {
+				if ( class_exists( 'RankMath_Redirections' ) ) {
 
-				$admin_bar->add_node(
-					array(
-						'id'     => 'tbex-rankmath-singles-help-support-rich-snippet',
-						'parent' => 'tbex-rankmath-singles-help-support',
-						'title'  => esc_attr__( 'Rich Snippet', 'toolbar-extras' ),
-						'href'   => esc_url( admin_url( 'admin.php?page=rank-math-help#help-panel-rich-snippet' ) ),
-						'meta'   => array(
-							'target' => '',
-							'title'  => esc_attr__( 'Rich Snippet', 'toolbar-extras' )
+					$admin_bar->add_node(
+						array(
+							'id'     => 'tbex-rankmath-singles-help-support-redirections',
+							'parent' => 'tbex-rankmath-singles-help-support',
+							'title'  => esc_attr__( 'Redirections', 'toolbar-extras' ),
+							'href'   => esc_url( admin_url( 'admin.php?page=rank-math-help#help-panel-redirect' ) ),
+							'meta'   => array(
+								'target' => '',
+								'title'  => esc_attr__( 'Redirections', 'toolbar-extras' ),
+							)
 						)
-					)
-				);
+					);
 
-			}  // end if
+				}  // end if
+
+				if ( class_exists( 'RANKMATH_SCHEMA' ) ) {
+
+					$admin_bar->add_node(
+						array(
+							'id'     => 'tbex-rankmath-singles-help-support-rich-snippet',
+							'parent' => 'tbex-rankmath-singles-help-support',
+							'title'  => esc_attr__( 'Rich Snippet', 'toolbar-extras' ),
+							'href'   => esc_url( admin_url( 'admin.php?page=rank-math-help#help-panel-rich-snippet' ) ),
+							'meta'   => array(
+								'target' => '',
+								'title'  => esc_attr__( 'Rich Snippet', 'toolbar-extras' ),
+							)
+						)
+					);
+
+				}  // end if
+
+		}  // end if
+
+	/** Let more Add-Ons hook in */
+	do_action( 'tbex_hookplace_rankmath', $admin_bar );
 
 	/** Group: Plugin's resources */
 	if ( ddw_tbex_display_items_resources() ) {
@@ -500,7 +583,7 @@ function ddw_tbex_aoitems_new_content_rankmath_singles( $admin_bar ) {
 
 	/** Bail early if items display is not wanted */
 	if ( ! ddw_tbex_display_items_new_content() || is_network_admin() ) {
-		return;
+		return $admin_bar;
 	}
 
 	if ( ddw_tbex_display_items_dev_mode()

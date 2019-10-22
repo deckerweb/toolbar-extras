@@ -26,7 +26,6 @@ add_action( 'admin_bar_menu', 'ddw_tbex_items_new_content_types', 71 );
  * @uses ddw_tbex_is_block_editor_user_switch()
  * @uses ddw_tbex_is_classic_editor_plugin_active()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  * @param object $admin_bar Object of Toolbar nodes.
  */
 function ddw_tbex_items_new_content_types( $admin_bar ) {
@@ -36,7 +35,7 @@ function ddw_tbex_items_new_content_types( $admin_bar ) {
 
 		/**
 		 * Root item for "New Elementor Template" in "New Content" Group.
-		 *   This is only used for Elementor v2.3.x or lower. For Elementor 
+		 *   This is only used for Elementor v2.3.x or lower. For Elementor
 		 *   2.4.0+ the core item gets filtered and used as hook-place.
 		 * @since 1.0.0
 		 * @since 1.4.0 Overhauled for Elementor v2.4.0 or higher.
@@ -116,7 +115,7 @@ function ddw_tbex_items_new_content_types( $admin_bar ) {
 	 * @see ddw_tbex_is_block_editor_user_switch() in /includes/functions-conditionals.php
 	 */
 	if ( ddw_tbex_is_block_editor_user_switch() ) {
-		
+
 		$classic_forget = ddw_tbex_is_classic_editor_plugin_active() ? '&classic-editor__forget' : '';
 
 		/** Posts */
@@ -220,7 +219,7 @@ function ddw_tbex_theme_installer_upload_tab( array $tabs ) {
 add_action( 'install_themes_pre_tbex-upload', 'ddw_tbex_theme_installer_pre_upload_tab' );
 /**
  * Necessary inbetween step to set a value for the global $paged variable.
- *   This is needed to avoid any PHP errors/notices.
+ *   This is needed to avoid any PHP errors/ notices.
  *
  * @since 1.3.5
  *
@@ -244,7 +243,7 @@ add_action( 'install_themes_tbex-upload', 'ddw_tbex_theme_installer_upload_tab_c
  *            does not work in this case here!
  *
  * @since 1.3.0
- * @since 1.3.5 Added missing $paged variable to avoid errors/notices.
+ * @since 1.3.5 Added missing $paged variable to avoid errors/ notices.
  *
  * @see ddw_tbex_inline_styles_theme_uploader_page()
  *
@@ -260,7 +259,8 @@ function ddw_tbex_theme_installer_upload_tab_content( $paged ) {
 			div.theme-browser.content-filterable,
 			.wp-filter.hide-if-no-js,
 			button.upload-view-toggle,
-			span.spinner {
+			span.spinner,
+			p.no-themes {
 				display: none !important;
 			}
 		</style>
@@ -270,7 +270,7 @@ function ddw_tbex_theme_installer_upload_tab_content( $paged ) {
 	echo '<div class="show-upload-view"><div class="upload-theme">';
 		install_themes_upload();
 	echo '</div></div>';
-	
+
 }  // end function
 
 
@@ -307,7 +307,7 @@ function ddw_tbex_add_installer_upload_pages() {
 			'edit_theme_options',
 			network_admin_url( 'theme-install.php?tab=tbex-upload' )
 		);
-		
+
 	}  // end if
 
 	/** Plugin ZIP uploader */
@@ -321,7 +321,7 @@ function ddw_tbex_add_installer_upload_pages() {
 			'install_plugins',
 			network_admin_url( 'plugin-install.php?tab=upload' )
 		);
-		
+
 	}  // end if
 
 }  // end function
@@ -446,7 +446,7 @@ function ddw_tbex_items_new_content_installer( $admin_bar ) {
 			);
 
 		}  // end if
-		
+
 		$admin_bar->add_node(
 			array(
 				'id'     => 'upload-plugin-zip',
@@ -570,7 +570,7 @@ function ddw_tbex_items_new_content_installer( $admin_bar ) {
 			);
 
 		}  // end if
-		
+
 		if ( ! ddw_tbex_is_classicpress_install() ) {
 
 			$admin_bar->add_node(

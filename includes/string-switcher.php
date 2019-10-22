@@ -16,12 +16,20 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Build string "Toolbar Extras".
  *
  * @since 1.4.0
+ * @since 1.4.8 Added param to optionally 'echo' instead of returning.
  *
- * @return string Translatable string for reusage.
+ * @param string $render Flag string to optionally echo string (not returning).
+ * @return string Returning or echoing the translatable string for reusage.
  */
-function ddw_tbex_string_toolbar_extras() {
+function ddw_tbex_string_toolbar_extras( $render = '' ) {
 
-	return __( 'Toolbar Extras', 'toolbar-extras' );
+	$string = __( 'Toolbar Extras', 'toolbar-extras' );
+
+	if ( 'echo' === sanitize_key( $render ) ) {
+		echo $string;
+	}
+
+	return $string;
 
 }  // end function
 
@@ -321,7 +329,7 @@ function ddw_tbex_string_elementor_developers() {
 function ddw_tbex_string_cpt( $type = '', $element = '' ) {
 
 	$string = '';
-	
+
 	/** Check type for the 2 possible values */
 	switch ( sanitize_key( $type ) ) {
 
@@ -872,16 +880,19 @@ function ddw_tbex_string_new_form( $form_system = '', $type = '' ) {
 
 
 /**
- * Build string for Form Builder Plugin name.
+ * Build string for a Form Builder Plugin system name.
  *
  * @since 1.3.2
+ * @since 1.4.8 Added additional $is_pro param.
  *
  * @param string $form_system Name of used form plugin (unique name).
- * @return string Complete string for name of Forms Plugin.
+ * @param string $is_pro      Flag param to mark a "Pro" forms system name.
+ * @return string Complete, translatable string for name of Forms Plugin.
  */
-function ddw_tbex_string_forms_system( $form_system = '' ) {
+function ddw_tbex_string_forms_system( $form_system = '', $is_pro = '' ) {
 
-	return sprintf(
+	/** Create the regular output */
+	$output = sprintf(
 		/* translators: %s - Name of Form System (for example: Formidable, Ninja, Caldera etc.) */
 		esc_attr_x(
 			'%s Forms',
@@ -890,6 +901,20 @@ function ddw_tbex_string_forms_system( $form_system = '' ) {
 		),
 		esc_html( $form_system )
 	);
+
+	/** Add an optional "Pro" label */
+	if ( 'pro' === sanitize_key( $is_pro ) ) {
+
+		$output = sprintf(
+			/* translators: %s - label for a form system, for example "Fluent Forms" */
+			esc_html__( '%s Pro', 'toolbar-extras' ),
+			$output
+		);
+
+	}  // end if
+
+	/** Return the final output */
+	return $output;
 
 }  // end function
 
@@ -1213,7 +1238,7 @@ function ddw_tbex_string_debug_info_link( $type = '', $source = 'tbex' ) {
 			$url   = ddw_tbex_get_info_url( 'url_wporg_forum', sanitize_key( $source ) );
 			$label = __( 'Support', 'toolbar-extras' );
 			break;
-		
+
 		case 'usergroup':
 			$url   = ddw_tbex_get_info_url( 'url_fb_group' );
 			$label = __( 'User Group', 'toolbar-extras' );
@@ -1538,7 +1563,7 @@ function ddw_tbex_string_help_content_plugin_links( array $args, $render = '' ) 
 
 	/** Loop through all link keys from the $args array */
 	foreach ( $args as $link_key => $link_data ) {
-		
+
 		$link_key = sanitize_key( $link_key );
 
 		$label = ( isset( $link_data[ 'label' ] ) && ! empty( $link_data[ 'label' ] ) ) ? $link_data[ 'label' ] : $labels[ $link_key ];
@@ -1637,7 +1662,7 @@ function ddw_tbex_string_base_plugin( $render = '' ) {
  */
 function ddw_tbex_string_addon( $render = '' ) {
 
-	$string = __( 'Add-On', 'Plugin settings page: listing of items to export', 'toolbar-extras' );
+	$string = _x( 'Add-On', 'Plugin settings page: listing of items to export', 'toolbar-extras' );
 
 	if ( 'echo' === sanitize_key( $render ) ) {
 		echo $string;

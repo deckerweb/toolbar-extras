@@ -50,7 +50,7 @@ function ddw_tbex_toolbar_main_item( $admin_bar ) {
 		&& 'default-none' !== $default_builder
 		&& apply_filters( 'tbex_filter_set_builder_is_active', TRUE )
 	) {
-		
+
 		/** Get all registered Page Builders */
 		$all_builders = (array) ddw_tbex_get_pagebuilders();
 
@@ -68,7 +68,7 @@ function ddw_tbex_toolbar_main_item( $admin_bar ) {
 					'class'  => 'tbex-main',
 					'target' => sanitize_key( $link_target ),
 					'rel'    => ddw_tbex_meta_rel(),
-					'title'  => ddw_tbex_string_main_item()
+					'title'  => ddw_tbex_string_main_item(),
 				)
 			)
 		);
@@ -89,7 +89,7 @@ function ddw_tbex_toolbar_main_item( $admin_bar ) {
 					'class'  => 'tbex-main',
 					'target' => sanitize_key( $link_target ),		// empty( $fallback_url ) ? '' : ddw_tbex_meta_target(),
 					'rel'    => ddw_tbex_meta_rel(),
-					'title'  => ddw_tbex_string_fallback_item()
+					'title'  => ddw_tbex_string_fallback_item(),
 				)
 			)
 		);

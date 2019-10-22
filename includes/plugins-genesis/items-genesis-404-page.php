@@ -18,20 +18,20 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_genesis_404_page', 140 );
  *
  * @since 1.0.0
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_genesis_404_page() {
+function ddw_tbex_aoitems_genesis_404_page( $admin_bar ) {
 
 	/** For: Genesis Creative items */
-	$GLOBALS[ 'wp_admin_bar' ]->add_group(
+	$admin_bar->add_group(
 		array(
 			'id'     => 'be-404page',
-			'parent' => 'group-genesisplugins-creative'
+			'parent' => 'group-genesisplugins-creative',
 		)
 	);
 
 	/** Settings page */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'be-404page-edit',
 			'parent' => 'be-404page',
@@ -39,13 +39,13 @@ function ddw_tbex_aoitems_genesis_404_page() {
 			'href'   => esc_url( admin_url( 'admin.php?page=genesis-404' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Edit 404 Page', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Edit 404 Page', 'toolbar-extras' ),
 			)
 		)
 	);
-	
+
 	/** Live testing */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'be-404page-live',
 			'parent' => 'be-404page',
@@ -53,7 +53,7 @@ function ddw_tbex_aoitems_genesis_404_page() {
 			'href'   => esc_url( get_site_url() . '/404page-test-' . md5( mt_rand() ) ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => esc_attr__( '404 Live Test', 'toolbar-extras' )
+				'title'  => esc_attr__( '404 Live Test', 'toolbar-extras' ),
 			)
 		)
 	);

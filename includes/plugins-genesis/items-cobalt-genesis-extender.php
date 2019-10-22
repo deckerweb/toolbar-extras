@@ -21,13 +21,13 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_genesis_extender', 102 );
  * @uses ddw_tbex_display_items_resources()
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_genesis_extender() {
+function ddw_tbex_aoitems_genesis_extender( $admin_bar ) {
 
 	$is_new = ( defined( 'GENEXT_VERSION' ) && version_compare( GENEXT_VERSION, '1.9.0', '>=' ) ) ? TRUE : FALSE;
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'ca-gextender',
 			'parent' => 'group-active-theme',
@@ -35,12 +35,12 @@ function ddw_tbex_aoitems_genesis_extender() {
 			'href'   => $is_new ? esc_url( admin_url( 'admin.php?page=genesis-extender-dashboard' ) ) : esc_url( admin_url( 'admin.php?page=genesis-extender-settings' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Genesis Extender', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Genesis Extender', 'toolbar-extras' ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ca-gextender-custom',
 				'parent' => 'ca-gextender',
@@ -48,12 +48,12 @@ function ddw_tbex_aoitems_genesis_extender() {
 				'href'   => $is_new ? esc_url( admin_url( 'admin.php?page=genesis-extender-custom' ) ) : esc_url( admin_url( 'admin.php?page=genesis-extender-custom' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Custom CSS &amp; Code', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Custom CSS &amp; Code', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ca-gextender-image-manager',
 				'parent' => 'ca-gextender',
@@ -61,12 +61,12 @@ function ddw_tbex_aoitems_genesis_extender() {
 				'href'   => $is_new ? esc_url( admin_url( 'admin.php?page=genesis-extender-image-manager' ) ) : esc_url( admin_url( 'admin.php?page=genesis-extender-custom&activetab=genesis-extender-custom-options-nav-image-uploader' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Image Manager', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Image Manager', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ca-gextender-import-export',
 				'parent' => 'ca-gextender',
@@ -74,12 +74,12 @@ function ddw_tbex_aoitems_genesis_extender() {
 				'href'   => $is_new ? esc_url( admin_url( 'admin.php?page=genesis-extender-dashboard#genesis-extender-settings-nav-import-export' ) ) : esc_url( admin_url( 'admin.php?page=genesis-extender-settings&activetab=genesis-extender-settings-nav-import-export' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Import &amp; Export', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Import &amp; Export', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ca-gextender-general',
 				'parent' => 'ca-gextender',
@@ -87,7 +87,7 @@ function ddw_tbex_aoitems_genesis_extender() {
 				'href'   => $is_new ? esc_url( admin_url( 'admin.php?page=genesis-extender-dashboard#genesis-extender-settings-nav-general' ) ) : esc_url( admin_url( 'admin.php?page=genesis-extender-settings&activetab=genesis-extender-settings-nav-general' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'General Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'General Settings', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -95,11 +95,11 @@ function ddw_tbex_aoitems_genesis_extender() {
 		/** Group: Resources for Genesis Extender */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-gextender-resources',
 					'parent' => 'ca-gextender',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

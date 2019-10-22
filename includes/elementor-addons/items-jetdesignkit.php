@@ -14,21 +14,22 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_jetdesignkit', 100 );
 /**
- * Items for Add-On: JetDesignKit for Elementor (Premium, by Zemez Jet/ CrocoBlock)
+ * Items for Add-On:
+ *   JetDesignKit for Elementor (Premium, by Zemez Jet/ CrocoBlock)
  *
  * @since 1.4.0
  *
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_jetdesignkit() {
+function ddw_tbex_aoitems_jetdesignkit( $admin_bar ) {
 
 	/** Use Add-On hook place */
 	add_filter( 'tbex_filter_is_addon', '__return_empty_string' );
 
 	/** Plugin's settings */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'ao-jetdesignkit',
 			'parent' => 'tbex-addons',
@@ -36,12 +37,12 @@ function ddw_tbex_aoitems_jetdesignkit() {
 			'href'   => esc_url( admin_url( 'admin.php?page=jet-design-kit' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_premium_addon_title_attr( __( 'JetDesignKit', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_premium_addon_title_attr( __( 'JetDesignKit', 'toolbar-extras' ) ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-jetdesignkit-settings',
 				'parent' => 'ao-jetdesignkit',
@@ -49,7 +50,7 @@ function ddw_tbex_aoitems_jetdesignkit() {
 				'href'   => esc_url( admin_url( 'admin.php?page=jet-design-kit' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -57,11 +58,11 @@ function ddw_tbex_aoitems_jetdesignkit() {
 		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-jetdesignkit-resources',
 					'parent' => 'ao-jetdesignkit',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 
@@ -98,18 +99,20 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_jetdesignkit_updates', 30 );
  * Items for Site Group: JetDesignKit Updates/ Sync
  *
  * @since 1.4.0
+ *
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_jetdesignkit_updates() {
+function ddw_tbex_site_items_jetdesignkit_updates( $admin_bar ) {
 
 	/** Group: JetDesignKit Update Checks */
-	$GLOBALS[ 'wp_admin_bar' ]->add_group(
+	$admin_bar->add_group(
 		array(
 			'id'     => 'group-jetdesignkit-updates',
-			'parent' => 'update-check'
+			'parent' => 'update-check',
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'jetdesignkit-sync-library',
 				'parent' => 'group-jetdesignkit-updates',
@@ -117,7 +120,7 @@ function ddw_tbex_site_items_jetdesignkit_updates() {
 				'href'   => esc_url( admin_url( 'admin.php?page=jet-design-kit' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Synchronize JetDesignKit Templates Library', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Synchronize JetDesignKit Templates Library', 'toolbar-extras' ),
 				)
 			)
 		);

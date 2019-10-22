@@ -20,14 +20,14 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_caxton', 10 );
  *
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar']
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_caxton() {
+function ddw_tbex_aoitems_caxton( $admin_bar ) {
 
 	/** Use Add-On hook place */
 	add_filter( 'tbex_filter_is_addon', '__return_empty_string' );
-	
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+
+	$admin_bar->add_node(
 		array(
 			'id'     => 'tbex-caxton',
 			'parent' => 'group-tbex-addons-blockeditor',
@@ -35,12 +35,12 @@ function ddw_tbex_aoitems_caxton() {
 			'href'   => esc_url( admin_url( 'admin.php?page=caxton' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_free_addon_title_attr( 'Caxton' )
+				'title'  => ddw_tbex_string_free_addon_title_attr( 'Caxton' ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'caxton-plugin-info',
 				'parent' => 'tbex-caxton',
@@ -48,7 +48,7 @@ function ddw_tbex_aoitems_caxton() {
 				'href'   => esc_url( admin_url( 'admin.php?page=caxton' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Plugin Info', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Plugin Info', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -56,11 +56,11 @@ function ddw_tbex_aoitems_caxton() {
 		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-caxton-resources',
 					'parent' => 'tbex-caxton',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

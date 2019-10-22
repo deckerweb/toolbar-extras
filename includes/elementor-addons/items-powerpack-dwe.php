@@ -20,15 +20,15 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_dashboard_welcome_elementor', 10
  *
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_dashboard_welcome_elementor() {
+function ddw_tbex_aoitems_dashboard_welcome_elementor( $admin_bar ) {
 
 	/** Use Add-On hook place */
 	add_filter( 'tbex_filter_is_addon', '__return_empty_string' );
 
 	/** Dashboard Welcome for Elementor Settings */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'ao-dashboardwelcome',
 			'parent' => 'tbex-addons',
@@ -36,12 +36,12 @@ function ddw_tbex_aoitems_dashboard_welcome_elementor() {
 			'href'   => esc_url( admin_url( 'options-general.php?page=dwe-settings' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_free_addon_title_attr( __( 'Dashboard Welcome for Elementor', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_free_addon_title_attr( __( 'Dashboard Welcome for Elementor', 'toolbar-extras' ) ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-dashboardwelcome-templates',
 				'parent' => 'ao-dashboardwelcome',
@@ -49,7 +49,7 @@ function ddw_tbex_aoitems_dashboard_welcome_elementor() {
 				'href'   => esc_url( admin_url( 'options-general.php?page=dwe-settings' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Select Templates', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Select Templates', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -57,11 +57,11 @@ function ddw_tbex_aoitems_dashboard_welcome_elementor() {
 		/** Group: Resources for Dashboard Welcome for Elementor */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-dashboardwelcome-resources',
 					'parent' => 'ao-dashboardwelcome',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

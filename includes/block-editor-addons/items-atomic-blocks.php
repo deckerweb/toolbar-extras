@@ -28,7 +28,7 @@ function ddw_tbex_aoitems_atomic_blocks( $admin_bar ) {
 
 	/** Use Add-On hook place */
 	add_filter( 'tbex_filter_is_addon', '__return_empty_string' );
-	
+
 	$admin_bar->add_node(
 		array(
 			'id'     => 'tbex-atomic-blocks',
@@ -37,7 +37,7 @@ function ddw_tbex_aoitems_atomic_blocks( $admin_bar ) {
 			'href'   => esc_url( admin_url( 'admin.php?page=atomic-blocks' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_free_addon_title_attr( esc_attr__( 'Atomic Blocks', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_free_addon_title_attr( esc_attr__( 'Atomic Blocks', 'toolbar-extras' ) ),
 			)
 		)
 	);
@@ -50,7 +50,7 @@ function ddw_tbex_aoitems_atomic_blocks( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'admin.php?page=atomic-blocks-plugin-settings' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -63,7 +63,7 @@ function ddw_tbex_aoitems_atomic_blocks( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'admin.php?page=atomic-blocks' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Plugin Info', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Plugin Info', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -75,7 +75,7 @@ function ddw_tbex_aoitems_atomic_blocks( $admin_bar ) {
 				array(
 					'id'     => 'group-atomicblocks-resources',
 					'parent' => 'tbex-atomic-blocks',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function ddw_tbex_is_phlox_core_active() {
 
-	return ( class_exists( 'Auxin_Plugin_Requirements' ) ) ? TRUE : FALSE;
+	return ( class_exists( 'Auxin_Plugin_Requirements' ) );
 
 }  // end function
 
@@ -35,12 +35,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_phlox', 100 );
  * @uses ddw_tbex_string_customize_design()
  * @uses ddw_tbex_customizer_start()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_phlox() {
+function ddw_tbex_themeitems_phlox( $admin_bar ) {
 
 	/** Theme creative */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'theme-creative',
 			'parent' => 'group-active-theme',
@@ -48,12 +48,12 @@ function ddw_tbex_themeitems_phlox() {
 			'href'   => ddw_tbex_is_phlox_core_active() ? esc_url( admin_url( 'admin.php?page=auxin-welcome' ) ) : esc_url( admin_url( 'themes.php?page=auxin-welcome' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_theme_title( 'attr' )
+				'title'  => ddw_tbex_string_theme_title( 'attr' ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'theme-creative-customize',
 				'parent' => 'theme-creative',
@@ -61,7 +61,7 @@ function ddw_tbex_themeitems_phlox() {
 				'href'   => ddw_tbex_customizer_start(),
 				'meta'   => array(
 					'target' => ddw_tbex_meta_target(),
-					'title'  => ddw_tbex_string_customize_design()
+					'title'  => ddw_tbex_string_customize_design(),
 				)
 			)
 		);
@@ -78,11 +78,11 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_phlox_customize', 100 );
  * @uses ddw_tbex_customizer_focus()
  * @uses ddw_tbex_string_customize_attr()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_phlox_customize() {
+function ddw_tbex_themeitems_phlox_customize( $admin_bar ) {
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'phloxcmz-general',
 			'parent' => 'theme-creative-customize',
@@ -96,7 +96,7 @@ function ddw_tbex_themeitems_phlox_customize() {
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'phloxcmz-appearance',
 			'parent' => 'theme-creative-customize',
@@ -110,7 +110,7 @@ function ddw_tbex_themeitems_phlox_customize() {
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'phloxcmz-header',
 			'parent' => 'theme-creative-customize',
@@ -124,7 +124,7 @@ function ddw_tbex_themeitems_phlox_customize() {
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'phloxcmz-footer',
 			'parent' => 'theme-creative-customize',
@@ -138,7 +138,7 @@ function ddw_tbex_themeitems_phlox_customize() {
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'phloxcmz-blog',
 			'parent' => 'theme-creative-customize',
@@ -152,7 +152,7 @@ function ddw_tbex_themeitems_phlox_customize() {
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'phloxcmz-page',
 			'parent' => 'theme-creative-customize',
@@ -166,7 +166,7 @@ function ddw_tbex_themeitems_phlox_customize() {
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'phloxcmz-extras',
 			'parent' => 'theme-creative-customize',
@@ -183,7 +183,7 @@ function ddw_tbex_themeitems_phlox_customize() {
 	/** Phlox Portfolio Add-On: Portfolios */
 	if ( defined( 'AUXPFO_VERSION' ) ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'phloxcmz-portfolios',
 				'parent' => 'theme-creative-customize',
@@ -212,17 +212,17 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_phlox_resources', 120 );
  * @uses ddw_tbex_display_items_resources()
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_phlox_resources() {
+function ddw_tbex_themeitems_phlox_resources( $admin_bar ) {
 
 	/** Bail early if no resources display active */
 	if ( ! ddw_tbex_display_items_resources() ) {
-		return;
+		return $admin_bar;
 	}
 
 	/** Group: Resources for Phlox Theme */
-	$GLOBALS[ 'wp_admin_bar' ]->add_group(
+	$admin_bar->add_group(
 		array(
 			'id'     => 'group-theme-resources',
 			'parent' => ddw_tbex_is_phlox_core_active() ? 'theme-settings' : 'theme-creative',
@@ -277,17 +277,17 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_phlox_core_elements', 100 );
  *
  * @uses ddw_tbex_is_phlox_core_active()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_phlox_core_elements() {
+function ddw_tbex_themeitems_phlox_core_elements( $admin_bar ) {
 
 	/** Bail early if Add-On version is not active */
 	if ( ! ddw_tbex_is_phlox_core_active() ) {
-		return;
+		return $admin_bar;
 	}
 
 	/** Theme settings */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'theme-settings',
 			'parent' => 'group-active-theme',
@@ -295,12 +295,12 @@ function ddw_tbex_themeitems_phlox_core_elements() {
 			'href'   => esc_url( admin_url( 'admin.php?page=auxin-welcome' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Phlox Settings', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Phlox Settings', 'toolbar-extras' ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'theme-settings-dashboard',
 				'parent' => 'theme-settings',
@@ -308,12 +308,12 @@ function ddw_tbex_themeitems_phlox_core_elements() {
 				'href'   => esc_url( admin_url( 'admin.php?page=auxin-welcome' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'General Info', 'toolbar-extras' )
+					'title'  => esc_attr__( 'General Info', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'theme-settings-plugins-wizard',
 				'parent' => 'theme-settings',
@@ -321,12 +321,12 @@ function ddw_tbex_themeitems_phlox_core_elements() {
 				'href'   => esc_url( admin_url( 'admin.php?page=auxin-welcome&tab=plugins' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Plugin Installer', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Plugin Installer', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'theme-settings-system-info',
 				'parent' => 'theme-settings',
@@ -334,7 +334,7 @@ function ddw_tbex_themeitems_phlox_core_elements() {
 				'href'   => esc_url( admin_url( 'admin.php?page=auxin-welcome&tab=status' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'System Info', 'toolbar-extras' )
+					'title'  => esc_attr__( 'System Info', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -352,16 +352,16 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_phlox_demos_import', 100 );
  * @uses ddw_tbex_id_sites_browser()
  * @uses ddw_tbex_item_title_with_settings_icon()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_phlox_demos_import() {
+function ddw_tbex_themeitems_phlox_demos_import( $admin_bar ) {
 
 	/** Bail early if no display of Demo Import items */
 	if ( ! ddw_tbex_display_items_demo_import() || ! ddw_tbex_is_phlox_core_active() ) {
-		return;
+		return $admin_bar;
 	}
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => ddw_tbex_id_sites_browser(),
 			'parent' => 'group-demo-import',
@@ -373,7 +373,7 @@ function ddw_tbex_themeitems_phlox_demos_import() {
 			'href'   => esc_url( admin_url( 'admin.php?page=auxin-welcome&tab=importer' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Import Phlox Demos', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Import Phlox Demos', 'toolbar-extras' ),
 			)
 		)
 	);

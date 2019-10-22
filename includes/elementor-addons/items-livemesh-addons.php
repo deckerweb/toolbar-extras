@@ -20,9 +20,9 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_livemesh_addons', 100 );
  *
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_livemesh_addons() {
+function ddw_tbex_aoitems_livemesh_addons( $admin_bar ) {
 
 	/** Use Add-On hook place */
 	add_filter( 'tbex_filter_is_addon', '__return_empty_string' );
@@ -45,7 +45,7 @@ function ddw_tbex_aoitems_livemesh_addons() {
 	);
 
 	/** Livemesh Settings */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'ao-livemeshaddons',
 			'parent' => 'tbex-addons',
@@ -53,12 +53,12 @@ function ddw_tbex_aoitems_livemesh_addons() {
 			'href'   => esc_url( admin_url( 'admin.php?page=livemesh_el_addons' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => $livemesh_title_attr
+				'title'  => $livemesh_title_attr,
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-livemeshaddons-elements',
 				'parent' => 'ao-livemeshaddons',
@@ -66,12 +66,12 @@ function ddw_tbex_aoitems_livemesh_addons() {
 				'href'   => esc_url( admin_url( 'admin.php?page=livemesh_el_addons' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Elements &amp; Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Elements &amp; Settings', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-livemeshaddons-inline-docs',
 				'parent' => 'ao-livemeshaddons',
@@ -79,7 +79,7 @@ function ddw_tbex_aoitems_livemesh_addons() {
 				'href'   => esc_url( admin_url( 'admin.php?page=livemesh_el_addons_documentation' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Inline Documentation', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Inline Documentation', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -87,7 +87,7 @@ function ddw_tbex_aoitems_livemesh_addons() {
 		/** For older versions of Pro */
 		if ( class_exists( '\LivemeshAddons\Livemesh_Elementor_Addons_Pro' ) ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ao-livemeshaddons-license',
 					'parent' => 'ao-livemeshaddons',
@@ -95,7 +95,7 @@ function ddw_tbex_aoitems_livemesh_addons() {
 					'href'   => esc_url( admin_url( 'admin.php?page=livemesh_el_addons_license' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'License', 'toolbar-extras' )
+						'title'  => esc_attr__( 'License', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -105,11 +105,11 @@ function ddw_tbex_aoitems_livemesh_addons() {
 		/** Group: Resources for Livemesh Addons */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-livemeshaddons-resources',
 					'parent' => 'ao-livemeshaddons',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

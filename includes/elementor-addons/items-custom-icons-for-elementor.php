@@ -36,7 +36,7 @@ function ddw_tbex_aoitems_custom_icons_for_elementor( $admin_bar ) {
 			'href'   => esc_url( admin_url( 'admin.php?page=elementor-custom-icons' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_free_addon_title_attr( __( 'Custom Icons for Elementor', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_free_addon_title_attr( __( 'Custom Icons for Elementor', 'toolbar-extras' ) ),
 			)
 		)
 	);
@@ -49,7 +49,7 @@ function ddw_tbex_aoitems_custom_icons_for_elementor( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'admin.php?page=elementor-custom-icons' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -62,7 +62,7 @@ function ddw_tbex_aoitems_custom_icons_for_elementor( $admin_bar ) {
 				'href'   => 'http://fontello.com/',
 				'meta'   => array(
 					'target' => ddw_tbex_meta_target(),
-					'title'  => esc_attr__( 'Fontello Icons', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Fontello Icons', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -74,7 +74,7 @@ function ddw_tbex_aoitems_custom_icons_for_elementor( $admin_bar ) {
 				array(
 					'id'     => 'group-ciconsfe-resources',
 					'parent' => 'ao-ciconsfe',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

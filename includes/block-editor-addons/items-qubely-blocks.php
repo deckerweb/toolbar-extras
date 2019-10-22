@@ -27,7 +27,7 @@ function ddw_tbex_aoitems_qubely_blocks( $admin_bar ) {
 
 	/** Use Add-On hook place */
 	add_filter( 'tbex_filter_is_addon', '__return_empty_string' );
-	
+
 	$admin_bar->add_node(
 		array(
 			'id'     => 'qubelyblocks',
@@ -36,7 +36,7 @@ function ddw_tbex_aoitems_qubely_blocks( $admin_bar ) {
 			'href'   => esc_url( admin_url( 'admin.php?page=qubely-settings' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_free_addon_title_attr( esc_attr__( 'Qubely Blocks - Gutenberg Toolkit', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_free_addon_title_attr( esc_attr__( 'Qubely Blocks - Gutenberg Toolkit', 'toolbar-extras' ) ),
 			)
 		)
 	);
@@ -49,7 +49,7 @@ function ddw_tbex_aoitems_qubely_blocks( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'admin.php?page=qubely-settings' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Activate Blocks', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Activate Blocks', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -61,7 +61,7 @@ function ddw_tbex_aoitems_qubely_blocks( $admin_bar ) {
 				array(
 					'id'     => 'group-qubelyblocks-resources',
 					'parent' => 'qubelyblocks',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

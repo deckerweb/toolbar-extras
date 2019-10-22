@@ -20,9 +20,9 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_powerpack_wlbfe', 100 );
  *
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_powerpack_wlbfe() {
+function ddw_tbex_aoitems_powerpack_wlbfe( $admin_bar ) {
 
 	/** Get the plugin's settings */
 	$wlbfe_settings = get_option( '_el_whitelabel' );
@@ -36,7 +36,7 @@ function ddw_tbex_aoitems_powerpack_wlbfe() {
 	add_filter( 'tbex_filter_is_addon', '__return_empty_string' );
 
 	/** White Label Branding for Elementor Settings */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'ao-wlbfe',
 			'parent' => 'tbex-addons',
@@ -44,12 +44,12 @@ function ddw_tbex_aoitems_powerpack_wlbfe() {
 			'href'   => esc_url( admin_url( 'admin.php?page=el-wl-settings' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_premium_addon_title_attr( __( 'White Label', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_premium_addon_title_attr( __( 'White Label', 'toolbar-extras' ) ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-wlbfe-branding',
 				'parent' => 'ao-wlbfe',
@@ -57,12 +57,12 @@ function ddw_tbex_aoitems_powerpack_wlbfe() {
 				'href'   => esc_url( admin_url( 'admin.php?page=el-wl-settings#el-wl-branding' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Branding', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Branding', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-wlbfe-adminlinks',
 				'parent' => 'ao-wlbfe',
@@ -70,12 +70,12 @@ function ddw_tbex_aoitems_powerpack_wlbfe() {
 				'href'   => esc_url( admin_url( 'admin.php?page=el-wl-settings#el-wl-admin-links' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Admin Links', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Admin Links', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-wlbfe-ghostmode',
 				'parent' => 'ao-wlbfe',
@@ -83,12 +83,12 @@ function ddw_tbex_aoitems_powerpack_wlbfe() {
 				'href'   => esc_url( admin_url( 'admin.php?page=el-wl-settings#el-wl-ghost-mode' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Ghost Mode', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Ghost Mode', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-wlbfe-license',
 				'parent' => 'ao-wlbfe',
@@ -96,7 +96,7 @@ function ddw_tbex_aoitems_powerpack_wlbfe() {
 				'href'   => esc_url( admin_url( 'admin.php?page=el-wl-settings#el-wl-license' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'License', 'toolbar-extras' )
+					'title'  => esc_attr__( 'License', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -104,11 +104,11 @@ function ddw_tbex_aoitems_powerpack_wlbfe() {
 		/** Group: Resources for White Label Branding for Elementor */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-wlbfe-resources',
 					'parent' => 'ao-wlbfe',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

@@ -20,20 +20,20 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_display_featured_image_genesis',
  *
  * @uses ddw_tbex_meta_target()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_display_featured_image_genesis() {
+function ddw_tbex_aoitems_display_featured_image_genesis( $admin_bar ) {
 
 	/** For: Genesis Creative items */
-	$GLOBALS[ 'wp_admin_bar' ]->add_group(
+	$admin_bar->add_group(
 		array(
 			'id'     => 'group-genesis-featured-image',
-			'parent' => 'group-genesisplugins-creative'
+			'parent' => 'group-genesisplugins-creative',
 		)
 	);
 
 	/** Settings page */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'dfig-settings',
 			'parent' => 'group-genesis-featured-image',
@@ -41,12 +41,12 @@ function ddw_tbex_aoitems_display_featured_image_genesis() {
 			'href'   => esc_url( admin_url( 'themes.php?page=displayfeaturedimagegenesis' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Display Featured Image', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Display Featured Image', 'toolbar-extras' ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'dfig-settings-main',
 				'parent' => 'dfig-settings',
@@ -54,12 +54,12 @@ function ddw_tbex_aoitems_display_featured_image_genesis() {
 				'href'   => esc_url( admin_url( 'themes.php?page=displayfeaturedimagegenesis&tab=main' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Main Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Main Settings', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'dfig-settings-backstretch-output',
 				'parent' => 'dfig-settings',
@@ -67,12 +67,12 @@ function ddw_tbex_aoitems_display_featured_image_genesis() {
 				'href'   => esc_url( admin_url( 'themes.php?page=displayfeaturedimagegenesis&tab=style' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Backstretch Output', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Backstretch Output', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'dfig-settings-content-types',
 				'parent' => 'dfig-settings',
@@ -80,12 +80,12 @@ function ddw_tbex_aoitems_display_featured_image_genesis() {
 				'href'   => esc_url( admin_url( 'themes.php?page=displayfeaturedimagegenesis&tab=cpt' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Content Types', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Content Types', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'dfig-settings-advanced',
 				'parent' => 'dfig-settings',
@@ -93,7 +93,7 @@ function ddw_tbex_aoitems_display_featured_image_genesis() {
 				'href'   => esc_url( admin_url( 'themes.php?page=displayfeaturedimagegenesis&tab=advanced' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Advanced', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Advanced', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -109,11 +109,11 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_customize_genesis_featured_im
  *
  * @uses ddw_tbex_customizer_focus()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_customize_genesis_featured_image() {
+function ddw_tbex_themeitems_customize_genesis_featured_image( $admin_bar ) {
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'ao-dfig-plugin',
 			'parent' => 'theme-creative-customize',
@@ -122,7 +122,7 @@ function ddw_tbex_themeitems_customize_genesis_featured_image() {
 			'href'   => ddw_tbex_customizer_focus( 'panel', 'displayfeaturedimagegenesis', get_post_type_archive_link( 'post' ) ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Display Featured Image', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_customize_attr( __( 'Display Featured Image', 'toolbar-extras' ) ),
 			)
 		)
 	);

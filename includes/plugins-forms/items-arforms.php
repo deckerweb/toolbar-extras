@@ -18,12 +18,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_arforms' );
  *
  * @since 1.3.2
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_arforms() {
+function ddw_tbex_site_items_arforms( $admin_bar ) {
 
 	/** For: Forms */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'forms-arforms',
 			'parent' => 'tbex-sitegroup-forms',
@@ -47,10 +47,10 @@ function ddw_tbex_site_items_arforms() {
 		if ( $forms ) {
 
 			/** Add group */
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-arforms-edit-forms',
-					'parent' => 'forms-arforms'
+					'parent' => 'forms-arforms',
 				)
 			);
 
@@ -59,7 +59,7 @@ function ddw_tbex_site_items_arforms() {
 				$form_title  = $form->name;
 
 				/** Add item per form */
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'forms-arforms-form-' . $form->id,
 						'parent' => 'group-arforms-edit-forms',
@@ -67,12 +67,12 @@ function ddw_tbex_site_items_arforms() {
 						'href'   => esc_url( admin_url( 'admin.php?page=ARForms&arfaction=edit&id=' . $form->id ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'Edit Form', 'toolbar-extras' ) . ': ' . $form_title
+							'title'  => esc_attr__( 'Edit Form', 'toolbar-extras' ) . ': ' . $form_title,
 						)
 					)
 				);
 
-					$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					$admin_bar->add_node(
 						array(
 							'id'     => 'forms-arforms-form-' . $form->id . '-builder',
 							'parent' => 'forms-arforms-form-' . $form->id,
@@ -80,12 +80,12 @@ function ddw_tbex_site_items_arforms() {
 							'href'   => esc_url( admin_url( 'admin.php?page=ARForms&arfaction=edit&id=' . $form->id ) ),
 							'meta'   => array(
 								'target' => '',
-								'title'  => esc_attr__( 'Form Builder', 'toolbar-extras' )
+								'title'  => esc_attr__( 'Form Builder', 'toolbar-extras' ),
 							)
 						)
 					);
 
-					$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					$admin_bar->add_node(
 						array(
 							'id'     => 'forms-arforms-form-' . $form->id . '-entries',
 							'parent' => 'forms-arforms-form-' . $form->id,
@@ -93,7 +93,7 @@ function ddw_tbex_site_items_arforms() {
 							'href'   => esc_url( admin_url( 'admin.php?page=ARForms-entries&form=' . $form->id ) ),
 							'meta'   => array(
 								'target' => '',
-								'title'  => esc_attr__( 'Entries', 'toolbar-extras' )
+								'title'  => esc_attr__( 'Entries', 'toolbar-extras' ),
 							)
 						)
 					);
@@ -103,7 +103,7 @@ function ddw_tbex_site_items_arforms() {
 		}  // end if
 
 		/** General ARForms items */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-arforms-all-forms',
 				'parent' => 'forms-arforms',
@@ -111,12 +111,12 @@ function ddw_tbex_site_items_arforms() {
 				'href'   => esc_url( admin_url( 'admin.php?page=ARForms' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'All Forms', 'toolbar-extras' )
+					'title'  => esc_attr__( 'All Forms', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-arforms-new-form',
 				'parent' => 'forms-arforms',
@@ -124,12 +124,12 @@ function ddw_tbex_site_items_arforms() {
 				'href'   => esc_url( admin_url( 'admin.php?page=ARForms&arfaction=new&isp=1' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'New Form', 'toolbar-extras' )
+					'title'  => esc_attr__( 'New Form', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-arforms-entries-analytics',
 				'parent' => 'forms-arforms',
@@ -137,7 +137,7 @@ function ddw_tbex_site_items_arforms() {
 				'href'   => esc_url( admin_url( 'admin.php?page=ARForms-entries' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Entries &amp; Analytics', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Entries &amp; Analytics', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -145,7 +145,7 @@ function ddw_tbex_site_items_arforms() {
 		/** Optional Add-On: User Signup & Registration */
 		if ( defined( 'ARF_USER_REGISTRATION_DIR' ) ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-arforms-user-signup-registration',
 					'parent' => 'forms-arforms',
@@ -153,14 +153,14 @@ function ddw_tbex_site_items_arforms() {
 					'href'   => esc_url( admin_url( 'admin.php?page=ARForms-user-registration' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'User Signup &amp; Registration', 'toolbar-extras' )
+						'title'  => esc_attr__( 'User Signup &amp; Registration', 'toolbar-extras' ),
 					)
 				)
 			);
 
 		}  // end if
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-arforms-import-export',
 				'parent' => 'forms-arforms',
@@ -168,12 +168,12 @@ function ddw_tbex_site_items_arforms() {
 				'href'   => esc_url( admin_url( 'admin.php?page=ARForms-import-export' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Import &amp; Export', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Import &amp; Export', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-arforms-settings',
 				'parent' => 'forms-arforms',
@@ -181,12 +181,12 @@ function ddw_tbex_site_items_arforms() {
 				'href'   => esc_url( admin_url( 'admin.php?page=ARForms-settings' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'General Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'General Settings', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-arforms-license',
 				'parent' => 'forms-arforms',
@@ -194,22 +194,22 @@ function ddw_tbex_site_items_arforms() {
 				'href'   => esc_url( admin_url( 'admin.php?page=ARForms-license' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'License', 'toolbar-extras' )
+					'title'  => esc_attr__( 'License', 'toolbar-extras' ),
 				)
 			)
 		);
 
 		/** Optionally, let other ARForms Forms Add-Ons hook in */
-		do_action( 'tbex_after_arforms_settings' );
+		do_action( 'tbex_after_arforms_settings', $admin_bar );
 
 		/** Group: Resources for ARForms */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-arforms-resources',
 					'parent' => 'forms-arforms',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 
@@ -245,16 +245,16 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_new_content_arforms', 80 );
  *
  * @since 1.3.2
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_new_content_arforms() {
+function ddw_tbex_aoitems_new_content_arforms( $admin_bar ) {
 
 	/** Bail early if items display is not wanted */
 	if ( ! ddw_tbex_display_items_new_content() || is_network_admin() ) {
-		return;
+		return $admin_bar;
 	}
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'tbex-arforms-form',
 			'parent' => 'new-content',
@@ -262,7 +262,7 @@ function ddw_tbex_aoitems_new_content_arforms() {
 			'href'   => esc_url( admin_url( 'admin.php?page=ARForms&arfaction=new&isp=1' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_add_new_item( ddw_tbex_string_new_form( 'ARForms' ) )
+				'title'  => ddw_tbex_string_add_new_item( ddw_tbex_string_new_form( 'ARForms' ) ),
 			)
 		)
 	);

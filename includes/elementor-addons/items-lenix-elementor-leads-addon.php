@@ -22,9 +22,9 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_lenix_leads', 100 );
  * @uses ddw_tbex_display_items_resources()
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_lenix_leads() {
+function ddw_tbex_aoitems_lenix_leads( $admin_bar ) {
 
 	$title = sprintf(
 		/* translators: %s - Name of Elementor page builder */
@@ -33,7 +33,7 @@ function ddw_tbex_aoitems_lenix_leads() {
 	);
 
 	/** For: Forms */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'ao-lenixleads',
 			'parent' => 'tbex-sitegroup-forms',
@@ -46,7 +46,7 @@ function ddw_tbex_aoitems_lenix_leads() {
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-lenixleads-all',
 				'parent' => 'ao-lenixleads',
@@ -54,7 +54,7 @@ function ddw_tbex_aoitems_lenix_leads() {
 				'href'   => esc_url( admin_url( 'admin.php?page=elementor-leads' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'All Leads', 'toolbar-extras' )
+					'title'  => esc_attr__( 'All Leads', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -62,11 +62,11 @@ function ddw_tbex_aoitems_lenix_leads() {
 		/** Group: Resources for plugin */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-lenixleads-resources',
 					'parent' => 'ao-lenixleads',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

@@ -22,12 +22,12 @@ add_action( 'tbex_after_site_group_update_check', 'ddw_tbex_site_items_health_ch
  *
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_health_check() {
+function ddw_tbex_site_items_health_check( $admin_bar ) {
 
 	/** For: "Tools" */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'health-check',
 			'parent' => 'tbex-sitegroup-tools',
@@ -35,12 +35,12 @@ function ddw_tbex_site_items_health_check() {
 			'href'   => esc_url( admin_url( 'index.php?page=health-check' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Health Check', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Health Check', 'toolbar-extras' ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'health-check-system',
 				'parent' => 'health-check',
@@ -48,12 +48,12 @@ function ddw_tbex_site_items_health_check() {
 				'href'   => esc_url( admin_url( 'index.php?page=health-check&tab=site-status' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'System Info', 'toolbar-extras' )
+					'title'  => esc_attr__( 'System Info', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'health-check-debug',
 				'parent' => 'health-check',
@@ -61,12 +61,12 @@ function ddw_tbex_site_items_health_check() {
 				'href'   => esc_url( admin_url( 'index.php?page=health-check&tab=debug' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Debugging Info', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Debugging Info', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'health-check-php',
 				'parent' => 'health-check',
@@ -74,12 +74,12 @@ function ddw_tbex_site_items_health_check() {
 				'href'   => esc_url( admin_url( 'index.php?page=health-check&tab=phpinfo' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'PHP Info', 'toolbar-extras' )
+					'title'  => esc_attr__( 'PHP Info', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'health-check-troubleshoot',
 				'parent' => 'health-check',
@@ -87,12 +87,12 @@ function ddw_tbex_site_items_health_check() {
 				'href'   => esc_url( admin_url( 'index.php?page=health-check&tab=troubleshoot' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Troubleshooting', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Troubleshooting', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'health-check-tools',
 				'parent' => 'health-check',
@@ -100,19 +100,19 @@ function ddw_tbex_site_items_health_check() {
 				'href'   => esc_url( admin_url( 'index.php?page=health-check&tab=tools' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Tools', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Tools', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		/** Group: Resources for Health Check */
+		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-healthcheck-resources',
 					'parent' => 'health-check',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 
@@ -142,7 +142,7 @@ function ddw_tbex_site_items_health_check() {
 				'healthcheck-github',
 				'group-healthcheck-resources',
 				'https://github.com/WordPress/health-check'
-			);			
+			);
 
 		}  // end if
 

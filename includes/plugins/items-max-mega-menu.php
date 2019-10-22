@@ -20,12 +20,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_maxmegamenu', 15 );
  *
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_maxmegamenu() {
+function ddw_tbex_site_items_maxmegamenu( $admin_bar ) {
 
 	/** For: Site Group */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'maxmegamenu',
 			'parent' => 'tbex-sitegroup-elements',	// below 'Nav Menus/ Widgets' items
@@ -33,12 +33,12 @@ function ddw_tbex_site_items_maxmegamenu() {
 			'href'   => esc_url( admin_url( 'admin.php?page=maxmegamenu' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Max Mega Menu', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Max Mega Menu', 'toolbar-extras' ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'maxmegamenu-manage-menus',
 				'parent' => 'maxmegamenu',
@@ -46,12 +46,12 @@ function ddw_tbex_site_items_maxmegamenu() {
 				'href'   => esc_url( admin_url( 'nav-menus.php' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Manage Mega Menus', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Manage Mega Menus', 'toolbar-extras' ),
 				)
 			)
 		);
-		
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+
+		$admin_bar->add_node(
 			array(
 				'id'     => 'maxmegamenu-general-settings',
 				'parent' => 'maxmegamenu',
@@ -59,12 +59,12 @@ function ddw_tbex_site_items_maxmegamenu() {
 				'href'   => esc_url( admin_url( 'admin.php?page=mobile-menu-options&tab=header' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'General Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'General Settings', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'maxmegamenu-menu-themes',
 				'parent' => 'maxmegamenu',
@@ -72,12 +72,12 @@ function ddw_tbex_site_items_maxmegamenu() {
 				'href'   => esc_url( admin_url( 'admin.php?page=maxmegamenu_theme_editor' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Menu Themes', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Menu Themes', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'maxmegamenu-menu-locations',
 				'parent' => 'maxmegamenu',
@@ -85,12 +85,12 @@ function ddw_tbex_site_items_maxmegamenu() {
 				'href'   => esc_url( admin_url( 'admin.php?page=maxmegamenu_menu_locations' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Menu Locations', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Menu Locations', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'maxmegamenu-tools',
 				'parent' => 'maxmegamenu',
@@ -98,7 +98,7 @@ function ddw_tbex_site_items_maxmegamenu() {
 				'href'   => esc_url( admin_url( 'admin.php?page=maxmegamenu_tools' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Tools', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Tools', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -106,11 +106,11 @@ function ddw_tbex_site_items_maxmegamenu() {
 		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-maxmegamenu-resources',
 					'parent' => 'maxmegamenu',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

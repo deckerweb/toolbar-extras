@@ -41,12 +41,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_quform' );
  *
  * @uses Quform_Repository
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_quform() {
+function ddw_tbex_site_items_quform( $admin_bar ) {
 
 	/** For: Forms */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'forms-quform',
 			'parent' => 'tbex-sitegroup-forms',
@@ -54,7 +54,7 @@ function ddw_tbex_site_items_quform() {
 			'href'   => esc_url( admin_url( 'admin.php?page=quform.dashboard' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Quform', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Quform', 'toolbar-extras' ),
 			)
 		)
 	);
@@ -70,10 +70,10 @@ function ddw_tbex_site_items_quform() {
 		if ( $forms ) {
 
 			/** Add group */
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-quform-edit-forms',
-					'parent' => 'forms-quform'
+					'parent' => 'forms-quform',
 				)
 			);
 
@@ -83,7 +83,7 @@ function ddw_tbex_site_items_quform() {
 				$form_id    = absint( $form[ 'id' ] );
 
 				/** Add item per form */
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'forms-quform-form-' . $form_id,
 						'parent' => 'group-quform-edit-forms',
@@ -91,12 +91,12 @@ function ddw_tbex_site_items_quform() {
 						'href'   => esc_url( admin_url( 'admin.php?page=quform.forms&sp=edit&id=' . $form_id ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'Edit Form', 'toolbar-extras' ) . ': ' . $form_title
+							'title'  => esc_attr__( 'Edit Form', 'toolbar-extras' ) . ': ' . $form_title,
 						)
 					)
 				);
 
-					$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					$admin_bar->add_node(
 						array(
 							'id'     => 'forms-quform-form-' . $form_id . '-builder',
 							'parent' => 'forms-quform-form-' . $form_id,
@@ -104,12 +104,12 @@ function ddw_tbex_site_items_quform() {
 							'href'   => esc_url( admin_url( 'admin.php?page=quform.forms&sp=edit&id=' . $form_id ) ),
 							'meta'   => array(
 								'target' => '',
-								'title'  => esc_attr__( 'Form Builder', 'toolbar-extras' )
+								'title'  => esc_attr__( 'Form Builder', 'toolbar-extras' ),
 							)
 						)
 					);
 
-					$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					$admin_bar->add_node(
 						array(
 							'id'     => 'forms-quform-form-' . $form_id . '-entries',
 							'parent' => 'forms-quform-form-' . $form_id,
@@ -117,7 +117,7 @@ function ddw_tbex_site_items_quform() {
 							'href'   => esc_url( admin_url( 'admin.php?page=quform.entries&id=' . $form_id ) ),
 							'meta'   => array(
 								'target' => '',
-								'title'  => esc_attr__( 'Entries', 'toolbar-extras' )
+								'title'  => esc_attr__( 'Entries', 'toolbar-extras' ),
 							)
 						)
 					);
@@ -127,7 +127,7 @@ function ddw_tbex_site_items_quform() {
 		}  // end if
 
 		/** General Quform items */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-quform-all-forms',
 				'parent' => 'forms-quform',
@@ -135,12 +135,12 @@ function ddw_tbex_site_items_quform() {
 				'href'   => esc_url( admin_url( 'admin.php?page=quform.forms' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'All Forms', 'toolbar-extras' )
+					'title'  => esc_attr__( 'All Forms', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-quform-new-form',
 				'parent' => 'forms-quform',
@@ -148,12 +148,12 @@ function ddw_tbex_site_items_quform() {
 				'href'   => esc_url( admin_url( 'admin.php?page=quform.forms&sp=add' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'New Form', 'toolbar-extras' )
+					'title'  => esc_attr__( 'New Form', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-quform-all-entries',
 				'parent' => 'forms-quform',
@@ -161,13 +161,13 @@ function ddw_tbex_site_items_quform() {
 				'href'   => esc_url( admin_url( 'admin.php?page=quform.entries' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'All Entries', 'toolbar-extras' )
+					'title'  => esc_attr__( 'All Entries', 'toolbar-extras' ),
 				)
 			)
 		);
 
 		/** Tools */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-quform-tools',
 				'parent' => 'forms-quform',
@@ -175,12 +175,12 @@ function ddw_tbex_site_items_quform() {
 				'href'   => esc_url( admin_url( 'admin.php?page=quform.tools' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Tools', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Tools', 'toolbar-extras' ),
 				)
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-quform-tools-export-entries',
 					'parent' => 'forms-quform-tools',
@@ -188,12 +188,12 @@ function ddw_tbex_site_items_quform() {
 					'href'   => esc_url( admin_url( 'admin.php?page=quform.tools&sp=export.entries' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Export Entries', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Export Entries', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-quform-tools-export-forms',
 					'parent' => 'forms-quform-tools',
@@ -201,12 +201,12 @@ function ddw_tbex_site_items_quform() {
 					'href'   => esc_url( admin_url( 'admin.php?page=quform.tools&sp=export.form' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Export Form', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Export Form', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-quform-tools-import-form',
 					'parent' => 'forms-quform-tools',
@@ -214,12 +214,12 @@ function ddw_tbex_site_items_quform() {
 					'href'   => esc_url( admin_url( 'admin.php?page=quform.tools&sp=import.form' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Import Form', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Import Form', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-quform-tools-migrate',
 					'parent' => 'forms-quform-tools',
@@ -227,13 +227,13 @@ function ddw_tbex_site_items_quform() {
 					'href'   => esc_url( admin_url( 'admin.php?page=quform.tools&sp=migrate' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Migrate', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Migrate', 'toolbar-extras' ),
 					)
 				)
 			);
 
 		/** Settings */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-quform-settings',
 				'parent' => 'forms-quform',
@@ -241,25 +241,25 @@ function ddw_tbex_site_items_quform() {
 				'href'   => esc_url( admin_url( 'admin.php?page=quform.settings' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
 				)
 			)
 		);
 
 		/** Optionally, let other Quform Add-Ons hook in */
-		do_action( 'tbex_after_quform_settings' );
+		do_action( 'tbex_after_quform_settings', $admin_bar );
 
 		/** Group: Resources for Quform */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-quform-resources',
 					'parent' => 'forms-quform',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
-			
+
 			ddw_tbex_resource_item(
 				'support-forum',
 				'quform-support',
@@ -317,16 +317,16 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_new_content_quform', 80 );
  *
  * @since 1.3.1
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_new_content_quform() {
+function ddw_tbex_aoitems_new_content_quform( $admin_bar ) {
 
 	/** Bail early if items display is not wanted */
 	if ( ! ddw_tbex_display_items_new_content() || is_network_admin() ) {
-		return;
+		return $admin_bar;
 	}
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'tbex-quform-form',
 			'parent' => 'new-content',
@@ -334,7 +334,7 @@ function ddw_tbex_aoitems_new_content_quform() {
 			'href'   => esc_url( admin_url( 'admin.php?page=quform.forms&sp=add' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_add_new_item( ddw_tbex_string_new_form( 'Quform' ) )
+				'title'  => ddw_tbex_string_add_new_item( ddw_tbex_string_new_form( 'Quform' ) ),
 			)
 		)
 	);

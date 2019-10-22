@@ -19,11 +19,11 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_genesis_widgetized_notfound', 14
  *
  * @since 1.3.5
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_genesis_widgetized_notfound() {
+function ddw_tbex_aoitems_genesis_widgetized_notfound( $admin_bar ) {
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'genesis-widgetized-notfound',
 			'parent' => 'group-genesisplugins-creative',
@@ -31,20 +31,20 @@ function ddw_tbex_aoitems_genesis_widgetized_notfound() {
 			'href'   => esc_url( admin_url( 'widgets.php#gwnf-404-widget' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Not Found &amp; 404 Page', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Not Found &amp; 404 Page', 'toolbar-extras' ),
 			)
 		)
 	);
 
 		/** For: 404 Page */
-		$GLOBALS[ 'wp_admin_bar' ]->add_group(
+		$admin_bar->add_group(
 			array(
 				'id'     => 'group-gwnf-404page',
-				'parent' => 'genesis-widgetized-notfound'
+				'parent' => 'genesis-widgetized-notfound',
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'gwnf-404page-live-preview',
 					'parent' => 'group-gwnf-404page',
@@ -52,12 +52,12 @@ function ddw_tbex_aoitems_genesis_widgetized_notfound() {
 					'href'   => ddw_tbex_customizer_focus( 'section', 'sidebar-widgets-gwnf-404-widget', get_site_url() . '/404page-test-' . md5( mt_rand() ) ),
 					'meta'   => array(
 						'target' => ddw_tbex_meta_target(),
-						'title'  => esc_attr__( 'Edit 404 Page Live Preview', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Edit 404 Page Live Preview', 'toolbar-extras' ),
 					)
 				)
 			);
-		
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+
+			$admin_bar->add_node(
 				array(
 					'id'     => 'gwnf-404page-widget-admin',
 					'parent' => 'group-gwnf-404page',
@@ -65,12 +65,12 @@ function ddw_tbex_aoitems_genesis_widgetized_notfound() {
 					'href'   => esc_url( admin_url( 'widgets.php#gwnf-404-widget' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Edit 404 Page Widget Admin', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Edit 404 Page Widget Admin', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'gwnf-404page-live-test',
 					'parent' => 'group-gwnf-404page',
@@ -78,20 +78,20 @@ function ddw_tbex_aoitems_genesis_widgetized_notfound() {
 					'href'   => esc_url( get_site_url() . '/404page-test-' . md5( mt_rand() ) ),
 					'meta'   => array(
 						'target' => ddw_tbex_meta_target(),
-						'title'  => esc_attr__( '404 Live Test', 'toolbar-extras' )
+						'title'  => esc_attr__( '404 Live Test', 'toolbar-extras' ),
 					)
 				)
 			);
 
 		/** For: Search Not Found Page */
-		$GLOBALS[ 'wp_admin_bar' ]->add_group(
+		$admin_bar->add_group(
 			array(
 				'id'     => 'group-gwnf-search-notfound',
-				'parent' => 'genesis-widgetized-notfound'
+				'parent' => 'genesis-widgetized-notfound',
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'gwnf-search-notfound-live-preview',
 					'parent' => 'group-gwnf-search-notfound',
@@ -99,12 +99,12 @@ function ddw_tbex_aoitems_genesis_widgetized_notfound() {
 					'href'   => ddw_tbex_customizer_focus( 'section', 'sidebar-widgets-gwnf-notfound-widget', get_site_url() . '/?s=' . md5( mt_rand() ) ),
 					'meta'   => array(
 						'target' => ddw_tbex_meta_target(),
-						'title'  => esc_attr__( 'Edit Not Found Page Live Preview', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Edit Not Found Page Live Preview', 'toolbar-extras' ),
 					)
 				)
 			);
-		
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+
+			$admin_bar->add_node(
 				array(
 					'id'     => 'gwnf-search-notfound-widget-admin',
 					'parent' => 'group-gwnf-search-notfound',
@@ -112,12 +112,12 @@ function ddw_tbex_aoitems_genesis_widgetized_notfound() {
 					'href'   => esc_url( admin_url( 'widgets.php#gwnf-notfound-widget' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Edit Not Found Page Widget Admin', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Edit Not Found Page Widget Admin', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'gwnf-search-notfound-live-test',
 					'parent' => 'group-gwnf-search-notfound',
@@ -125,7 +125,7 @@ function ddw_tbex_aoitems_genesis_widgetized_notfound() {
 					'href'   => esc_url( get_site_url() . '/?s=' . md5( mt_rand() ) ),
 					'meta'   => array(
 						'target' => ddw_tbex_meta_target(),
-						'title'  => esc_attr__( 'Search Not Found Live Test', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Search Not Found Live Test', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -133,11 +133,11 @@ function ddw_tbex_aoitems_genesis_widgetized_notfound() {
 		/** Group: Resources for Genesis Widgetized Not Found & 404 */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-gwnf-resources',
 					'parent' => 'genesis-widgetized-notfound',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

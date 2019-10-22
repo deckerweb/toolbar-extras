@@ -20,15 +20,15 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_formentor', 100 );
  *
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_formentor() {
+function ddw_tbex_aoitems_formentor( $admin_bar ) {
 
 	/** Use Add-On hook place */
 	add_filter( 'tbex_filter_is_addon', '__return_empty_string' );
 
 	/** Plugin's settings */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'ao-formentor',
 			'parent' => 'tbex-addons',
@@ -36,12 +36,12 @@ function ddw_tbex_aoitems_formentor() {
 			'href'   => esc_url( admin_url( 'admin.php?page=formentor-elementor-form-plus%2Foption_page.php' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_free_addon_title_attr( __( 'Formentor Forms Plus', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_free_addon_title_attr( __( 'Formentor Forms Plus', 'toolbar-extras' ) ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-formentor-options',
 				'parent' => 'ao-formentor',
@@ -49,7 +49,7 @@ function ddw_tbex_aoitems_formentor() {
 				'href'   => esc_url( admin_url( 'admin.php?page=formentor-elementor-form-plus%2Foption_page.php' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Options', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Options', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -57,11 +57,11 @@ function ddw_tbex_aoitems_formentor() {
 		/** Group: Plugin's Resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-formentor-resources',
 					'parent' => 'ao-formentor',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

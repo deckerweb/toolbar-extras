@@ -20,12 +20,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_easy_genesis', 115 );
  *
  * @since 1.4.0
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_easy_genesis() {
+function ddw_tbex_aoitems_easy_genesis( $admin_bar ) {
 
 	/** For: Genesis Creative items */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'dy-easy-genesis',
 			'parent' => 'group-genesisplugins-creative',
@@ -33,12 +33,12 @@ function ddw_tbex_aoitems_easy_genesis() {
 			'href'   => esc_url( admin_url( 'admin.php?page=egwp_easy_genesis' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Easy Genesis', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Easy Genesis', 'toolbar-extras' ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'dy-easy-genesis-settings',
 				'parent' => 'dy-easy-genesis',
@@ -46,7 +46,7 @@ function ddw_tbex_aoitems_easy_genesis() {
 				'href'   => esc_url( admin_url( 'admin.php?page=egwp_easy_genesis' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -54,7 +54,7 @@ function ddw_tbex_aoitems_easy_genesis() {
 		/** Extension: Pages */
 		if ( function_exists( 'egwp_activation_pages' ) ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'dy-easy-genesis-pages',
 					'parent' => 'dy-easy-genesis',
@@ -62,14 +62,14 @@ function ddw_tbex_aoitems_easy_genesis() {
 					'href'   => esc_url( admin_url( 'admin.php?page=egwp_easy_genesis#egwp_page_setting_section_nav' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Settings for Pages', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Settings for Pages', 'toolbar-extras' ),
 					)
 				)
 			);
 
 		}  // end if
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'dy-easy-genesis-import-export',
 				'parent' => 'dy-easy-genesis',
@@ -77,7 +77,7 @@ function ddw_tbex_aoitems_easy_genesis() {
 				'href'   => esc_url( admin_url( 'admin.php?page=egwp_easy_genesis#egwp_import_export_setting_section_nav' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Import &amp; Export', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Import &amp; Export', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -85,11 +85,11 @@ function ddw_tbex_aoitems_easy_genesis() {
 		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-easygenesis-resources',
 					'parent' => 'dy-easy-genesis',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

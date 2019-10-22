@@ -20,21 +20,21 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_local_development', 20 );
  *
  * @since 1.0.0
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar']
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_local_development() {
+function ddw_tbex_site_items_local_development( $admin_bar ) {
 
 	add_filter( 'tbex_filter_is_dev_mode', '__return_empty_string' );
 
 	/** Group */
-	$GLOBALS[ 'wp_admin_bar' ]->add_group(
+	$admin_bar->add_group(
 		array(
 			'id'     => 'group-local-development',
-			'parent' => 'rapid-dev'
+			'parent' => 'rapid-dev',
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'ldv-plugins',
 			'parent' => 'group-local-development',
@@ -42,12 +42,12 @@ function ddw_tbex_site_items_local_development() {
 			'href'   => is_multisite() ? esc_url( network_admin_url( 'settings.php?page=local-development&tab=local_dev_settings_plugins' ) ) : esc_url( admin_url( 'options-general.php?page=local-development&tab=local_dev_settings_plugins' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_plugin_local_dev( __( 'Plugins', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_plugin_local_dev( __( 'Plugins', 'toolbar-extras' ) ),
 			)
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'ldv-themes',
 			'parent' => 'group-local-development',
@@ -55,12 +55,12 @@ function ddw_tbex_site_items_local_development() {
 			'href'   => is_multisite() ? esc_url( network_admin_url( 'settings.php?page=local-development&tab=local_dev_settings_themes' ) ) : esc_url( admin_url( 'options-general.php?page=local-development&tab=local_dev_settings_themes' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_plugin_local_dev( __( 'Themes', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_plugin_local_dev( __( 'Themes', 'toolbar-extras' ) ),
 			)
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'ldv-extras',
 			'parent' => 'group-local-development',
@@ -68,7 +68,7 @@ function ddw_tbex_site_items_local_development() {
 			'href'   => is_multisite() ? esc_url( network_admin_url( 'settings.php?page=local-development&tab=local_dev_settings_extras' ) ) : esc_url( admin_url( 'options-general.php?page=local-development&tab=local_dev_settings_extras' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_plugin_local_dev( __( 'Extras', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_plugin_local_dev( __( 'Extras', 'toolbar-extras' ) ),
 			)
 		)
 	);

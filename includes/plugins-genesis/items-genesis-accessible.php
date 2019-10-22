@@ -18,12 +18,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_genesis_accessible', 115 );
  *
  * @since 1.3.7
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_genesis_accessible() {
+function ddw_tbex_aoitems_genesis_accessible( $admin_bar ) {
 
 	/** For: Genesis Creative items */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'genesis-accessible',
 			'parent' => 'group-genesisplugins-creative',
@@ -31,7 +31,7 @@ function ddw_tbex_aoitems_genesis_accessible() {
 			'href'   => esc_url( admin_url( 'admin.php?page=genesis-accessible' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Genesis Accessible', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Genesis Accessible', 'toolbar-extras' ),
 			)
 		)
 	);

@@ -49,77 +49,87 @@ function ddw_tbex_local_dev_environment( $admin_bar ) {
 }  // end function
 
 
-add_action( 'wp_head', 'ddw_tbex_local_dev_toolbar_styles' );
-add_action( 'admin_head', 'ddw_tbex_local_dev_toolbar_styles' );
+add_action( 'wp_enqueue_scripts', 'ddw_tbex_local_dev_toolbar_styles' );
+add_action( 'admin_enqueue_scripts', 'ddw_tbex_local_dev_toolbar_styles' );
 /**
  * Add the styles for new Local Dev Environment Text.
- * 
+ *
  * @since 1.0.0
+ * @since 1.4.8 Reworked to make use of proper inline styles - all enqueued via
+ *              WP standards, plus proper dependency declarations.
  *
  * @uses ddw_tbex_get_option()
+ * @uses TBEX_LOCAL_DEV_COLOR
+ * @uses TBEX_LOCAL_DEV_VIEWPORT,
+ * @uses wp_add_inline_style()
  */
 function ddw_tbex_local_dev_toolbar_styles() {
-	
+
 	/** Set color */
 	$environment_color = ddw_tbex_get_option( 'development', 'local_dev_bg_color' );
 
 	if ( defined( 'TBEX_LOCAL_DEV_COLOR' ) && TBEX_LOCAL_DEV_COLOR ) {
-		$environment_color = sanitize_hex_color( TBEX_LOCAL_DEV_COLOR );
+		$environment_color = TBEX_LOCAL_DEV_COLOR;
 	}
 
 	/** Set minimum viewport width */
 	$min_vieport = ddw_tbex_get_option( 'development', 'local_dev_viewport' );		// '1030';
 
 	if ( defined( 'TBEX_LOCAL_DEV_VIEWPORT' ) && TBEX_LOCAL_DEV_VIEWPORT ) {
-		$min_vieport = absint( TBEX_LOCAL_DEV_VIEWPORT );
+		$min_vieport = TBEX_LOCAL_DEV_VIEWPORT;
 	}
 
-	/** Inline CSS styles */
-	?>
-		<!-- TBEX Local Dev Admin Bar Notice -->
-		<style type='text/css'>
-			#wp-admin-bar-tbex-local-dev-text > div,
-			#wpadminbar {
-				background-color: <?php echo $environment_color; ?> !important;
+	/**
+     * For WordPress Toolbar Area
+     *   Style handle: 'tbex-toolbar-styles' (TBEX Core)
+     */
+    $inline_css = sprintf(
+    	'
+		#wp-admin-bar-tbex-local-dev-text > div,
+		#wpadminbar {
+			background-color: %1$s !important;
+		}
+
+		#wp-admin-bar-tbex-local-dev-text {
+			display: none;
+		}
+
+		@media only screen and (min-width: %2$spx) {
+
+			#wpadminbar #wp-admin-bar-tbex-local-dev-text .ab-icon:before {
+				top: 2px;
 			}
 
 			#wp-admin-bar-tbex-local-dev-text {
-				display: none;
+				display: block;
+				text-decoration: none !important;
 			}
 
-			@media only screen and (min-width: <?php echo $min_vieport; ?>px) {
-
-				#wpadminbar #wp-admin-bar-tbex-local-dev-text .ab-icon:before {
-					top: 2px;
-				}
-
-				#wp-admin-bar-tbex-local-dev-text {
-					display: block;
-					text-decoration: none !important;
-				}
-
-				#wp-admin-bar-tbex-local-dev-text .ab-label,
-				#wp-admin-bar-tbex-local-dev-text {
-					font-size: 115% !important;
-				}
-
-				#wp-admin-bar-tbex-local-dev-text .ab-icon:before,
-				#wp-admin-bar-tbex-local-dev-text .ab-label {
-					color: #eee !important;
-				}
-
-				#wp-admin-bar-tbex-local-dev-text:hover {
-					color: inherit !important;
-				}
-
+			#wp-admin-bar-tbex-local-dev-text .ab-label,
+			#wp-admin-bar-tbex-local-dev-text {
+				font-size: 115% !important;
 			}
 
-			#adminbarsearch:before,
-			.ab-icon:before,
-			.ab-item:before {
+			#wp-admin-bar-tbex-local-dev-text .ab-icon:before,
+			#wp-admin-bar-tbex-local-dev-text .ab-label {
 				color: #eee !important;
 			}
-		</style>
-	<?php
+
+			#wp-admin-bar-tbex-local-dev-text:hover {
+				color: inherit !important;
+			}
+
+		}
+
+		#adminbarsearch:before,
+		.ab-icon:before,
+		.ab-item:before {
+			color: #eee !important;
+		}',
+		sanitize_hex_color( $environment_color ),
+		absint( $min_vieport )
+	);
+
+    wp_add_inline_style( 'tbex-toolbar-styles', $inline_css );
 
 }  // end function

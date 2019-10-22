@@ -246,7 +246,7 @@ if ( class_exists( 'ACF' ) && defined( 'ACF' ) && defined( 'ACF_VERSION' ) && ve
 	if ( ddw_tbex_is_acf_extended_active() ) {
 		require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-acf-extended.php';
 	}
-	
+
 }  // end if
 
 
@@ -450,6 +450,55 @@ if ( defined( 'ENVATO_ELEMENTS_VER' ) ) {
 }
 
 
+/**
+ * Plugin: Options for Twenty Nineteen (free, by webd.uk)
+ * @since 1.4.8
+ */
+if ( class_exists( 'options_for_twenty_nineteen_class' ) && 'twentynineteen' === wp_basename( get_template_directory() ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-options-for-twentynineteen.php';
+}
+
+
+if ( 'twentyseventeen' === wp_basename( get_template_directory() ) ) :
+
+	/**
+	 * Plugin: Options for Twenty Seventeen (free, by webd.uk)
+	 * @since 1.4.8
+	 */
+	if ( class_exists( 'options_for_twenty_seventeen_class' ) ) {
+		require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-options-for-twentyseventeen.php';
+	}
+
+
+	/**
+	 * Plugin: Customize Twenty Seventeen (free, by BoldThemes)
+	 * @since 1.4.8
+	 */
+	if ( function_exists( 'boldthemes_2017_enqueue' ) ) {
+		require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-customize-twentyseventeen.php';
+	}
+
+
+	/**
+	 * Plugin: Advanced Twenty Seventeen (free, by saturnplugins)
+	 * @since 1.4.8
+	 */
+	if ( class_exists( 'AdvancedTwentySeventeen' ) ) {
+		require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-advanced-twentyseventeen.php';
+	}
+
+endif;
+
+
+/**
+ * Plugin: Customize Twenty Sixteen (free, by BoldThemes)
+ * @since 1.4.8
+ */
+if ( function_exists( 'boldthemes_2016_enqueue' ) && 'twentysixteen' === wp_basename( get_template_directory() ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-customize-twentysixteen.php';
+}
+
+
 
 /**
  * 2nd GROUP: Builder-related stuff
@@ -492,6 +541,18 @@ if ( ddw_tbex_is_wp52_install()
 	&& ( class_exists( 'Health_Check' ) || defined( 'HEALTH_CHECK_PLUGIN_VERSION' ) )
 ) {
 	require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-health-check.php';
+}
+
+
+/**
+ * Plugin: WPCore Plugin Manager (free, by Stuart Starr)
+ * @since 1.4.8
+ */
+if ( ! is_network_admin()
+	&& current_user_can( 'install_plugins' )
+	&& class_exists( 'WPCore' )
+) {
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-wpcore.php';
 }
 
 
@@ -872,52 +933,60 @@ if ( defined( 'WPSEO_VERSION' ) ) {
 
 
 /**
+ * Detect some Rank Math specific single plugins.
+ *
+ * @since 1.4.5
+ *
+ * @uses ddw_tbex_detect_plugin()
+ *
+ * @return bool TRUE if a plugin exists, or FALSE if no plugin constant, class
+ *              or function detected.
+ */
+function ddw_tbex_detect_rankmath_single_plugins() {
+
+	return ddw_tbex_detect_plugin(
+
+		array(
+
+			/** Classes to detect */
+			'classes' => array(
+				'RANKMATH_SCHEMA',
+				'RankMath_Monitor',
+				'RankMath_Redirections',
+				'RankMath_Woocommerce',
+			),
+
+		)  // end array
+
+	);
+
+}  // end function
+
+/**
  * Plugin: Rank Math SEO (free, by Rank Math)
  * Plugins: Rank Math single feature plugins (all free, by Rank Math)
  * @since 1.4.5
  */
-if ( class_exists( 'RankMath' ) ) {
+if ( ddw_tbex_is_rankmath_seo_active() ) {
 
 	require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-rankmath.php';
 
 } else {
-
-	/**
-	 * Detect some Rank Math specific single plugins.
-	 *
-	 * @since 1.4.5
-	 *
-	 * @uses ddw_tbex_detect_plugin()
-	 *
-	 * @return bool TRUE if a plugin exists, or FALSE if no plugin constant, class
-	 *              or function detected.
-	 */
-	function ddw_tbex_detect_rankmath_single_plugins() {
-
-		return ddw_tbex_detect_plugin(
-
-			array(
-
-				/** Classes to detect */
-				'classes'   => array(
-					'RANKMATH_SCHEMA',
-					'RankMath_Monitor',
-					'RankMath_Redirections',
-					'RankMath_Woocommerce',
-					
-				),
-
-			)  // end array
-
-		);
-
-	}  // end function
 
 	if ( ddw_tbex_detect_rankmath_single_plugins() ) {
 		require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-rankmath-singles.php';
 	}
 
 }  // end if
+
+
+/**
+ * Plugin: Instant Indexing for Google (free, by Rank Math)
+ * @since 1.4.8
+ */
+if ( ddw_tbex_is_rm_instant_indexing_active() ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins/items-rankmath-instant-indexing.php';
+}
 
 
 /**

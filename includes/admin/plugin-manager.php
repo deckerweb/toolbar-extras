@@ -24,7 +24,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 function ddw_tbex_pm_badge( $type = '' ) {
 
 	$label = '';
-	
+
 	switch ( sanitize_key( $type ) ) {
 
 		case 'required':
@@ -111,9 +111,12 @@ add_action( 'after_setup_theme', 'ddw_tbex_plugin_manager' );
  * plugins.
  *
  * @since 1.4.2
+ * @since 1.4.8 Refinements for labels, descriptions and minimum versions.
  *
  * @see DDW_Toolbar_Extras_Plugin_Manager
  * @link http://mypluginmanager.com
+ *
+ * @uses ddw_tbex_pm_min_versions()
  */
 function ddw_tbex_plugin_manager() {
 
@@ -165,12 +168,32 @@ function ddw_tbex_plugin_manager() {
 		)  // end array
 	);
 
+
+	/** Get required minimum versions */
+	$min_versions = ddw_tbex_pm_min_versions();
+
+	/** "Members" plugin specifics */
+	$info_string_members = ddw_tbex_pmstring_info( __( 'Recommended - allows you to manage user roles and capabilities, and optionally make your site only accessible via login', 'toolbar-extras' ) );
+
+	if ( ddw_tbex_is_addon_mainwp_active() ) {
+
+		$info_string_members = ddw_tbex_pmstring_info(
+			sprintf(
+				/* translators: %s - label for "MainWP" */
+				__( 'Recommended - allows you to make your %s Dashboard Site only accessible via login', 'toolbar-extras' ),
+				'MainWP'
+			)
+		);
+
+	}  // end if
+
+
 	/** These plugins always at the end */
 	$plugins_end = array(
 		array(
 			'name'    => _x( 'Builder Template Categories', 'Plugin Name', 'toolbar-extras' ),
 			'slug'    => 'builder-template-categories',
-			'version' => '1.6.0+',
+			'version' => $min_versions[ 'builder-template-categories' ] . '+',
 			'notice' => array(
 				'message' => ddw_tbex_pm_badge( 'recommended' ) .
 					ddw_tbex_pmstring_for(
@@ -188,7 +211,7 @@ function ddw_tbex_plugin_manager() {
 		array(
 			'name'    => _x( 'Asset CleanUp: Page Speed Booster', 'Plugin Name', 'toolbar-extras' ),
 			'slug'    => 'wp-asset-clean-up',
-			'version' => '1.3.4.3+',
+			'version' => $min_versions[ 'wp-asset-clean-up' ] . '+',
 			'notice' => array(
 				'message' => ddw_tbex_pm_badge( 'useful' ) .
 					ddw_tbex_pmstring_for( ddw_tbex_pmstring_for_general() ) .
@@ -199,7 +222,7 @@ function ddw_tbex_plugin_manager() {
 		array(
 			'name'    => _x( 'Code Snippets', 'Plugin Name', 'toolbar-extras' ),
 			'slug'    => 'code-snippets',
-			'version' => '2.13.3+',
+			'version' => $min_versions[ 'code-snippets' ] . '+',
 			'notice' => array(
 				'message' => ddw_tbex_pm_badge( 'useful' ) .
 					ddw_tbex_pmstring_for( ddw_tbex_pmstring_for_general() ) .
@@ -210,11 +233,11 @@ function ddw_tbex_plugin_manager() {
 		array(
 			'name'    => _x( 'Members', 'Plugin Name', 'toolbar-extras' ),
 			'slug'    => 'members',
-			'version' => '2.2.0+',
+			'version' => $min_versions[ 'members' ] . '+',
 			'notice'  => array(
 				'message' => ddw_tbex_pm_badge( 'useful' ) .
 					ddw_tbex_pmstring_for( ddw_tbex_pmstring_for_general() ) .
-					ddw_tbex_pmstring_info( __( 'Recommended - allows you to make your Dashboard Site only accessable via login', 'toolbar-extras' ) ),
+					$info_string_members,
 				'class'   => $class,
 			),
 		),

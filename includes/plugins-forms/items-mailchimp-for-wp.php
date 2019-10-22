@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 add_action( 'admin_bar_menu', 'ddw_tbex_site_items_mc4wp_forms' );
 /**
- * Items for Plugin: MailChimp for WordPress (free, by ibericode)
+ * Items for Plugin: Mailchimp for WordPress (free, by ibericode)
  *
  * @since 1.3.2
  * @since 1.4.3 Added more integrations.
@@ -28,11 +28,11 @@ function ddw_tbex_site_items_mc4wp_forms( $admin_bar ) {
 		array(
 			'id'     => 'forms-mc4wp',
 			'parent' => 'tbex-sitegroup-forms',
-			'title'  => ddw_tbex_string_forms_system( 'MailChimp' ),
+			'title'  => ddw_tbex_string_forms_system( 'Mailchimp' ),
 			'href'   => esc_url( admin_url( 'admin.php?page=mailchimp-for-wp-forms' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_forms_system( 'MailChimp' ),
+				'title'  => ddw_tbex_string_forms_system( 'Mailchimp' ),
 			)
 		)
 	);
@@ -56,7 +56,7 @@ function ddw_tbex_site_items_mc4wp_forms( $admin_bar ) {
 			$admin_bar->add_group(
 				array(
 					'id'     => 'group-mc4wp-edit-forms',
-					'parent' => 'forms-mc4wp'
+					'parent' => 'forms-mc4wp',
 				)
 			);
 
@@ -87,7 +87,7 @@ function ddw_tbex_site_items_mc4wp_forms( $admin_bar ) {
 						'href'   => esc_url( admin_url( 'admin.php?page=mailchimp-for-wp-forms&view=edit-form&form_id=' . $form_id . '&tab=fields' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'Form Builder', 'toolbar-extras' )
+							'title'  => esc_attr__( 'Form Builder', 'toolbar-extras' ),
 						)
 					)
 				);
@@ -100,7 +100,7 @@ function ddw_tbex_site_items_mc4wp_forms( $admin_bar ) {
 						'href'   => esc_url( admin_url( 'admin.php?page=mailchimp-for-wp-forms&view=edit-form&form_id=' . $form_id . '&tab=messages' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'Messages', 'toolbar-extras' )
+							'title'  => esc_attr__( 'Messages', 'toolbar-extras' ),
 						)
 					)
 				);
@@ -113,7 +113,7 @@ function ddw_tbex_site_items_mc4wp_forms( $admin_bar ) {
 						'href'   => esc_url( admin_url( 'admin.php?page=mailchimp-for-wp-forms&view=edit-form&form_id=' . $form_id . '&tab=settings' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
+							'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
 						)
 					)
 				);
@@ -126,7 +126,7 @@ function ddw_tbex_site_items_mc4wp_forms( $admin_bar ) {
 						'href'   => esc_url( admin_url( 'admin.php?page=mailchimp-for-wp-forms&view=edit-form&form_id=' . $form_id . '&tab=appearance' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'Appearance', 'toolbar-extras' )
+							'title'  => esc_attr__( 'Appearance', 'toolbar-extras' ),
 						)
 					)
 				);
@@ -144,7 +144,7 @@ function ddw_tbex_site_items_mc4wp_forms( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'admin.php?page=mailchimp-for-wp-integrations' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Integrations', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Integrations', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -157,7 +157,7 @@ function ddw_tbex_site_items_mc4wp_forms( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'admin.php?page=mailchimp-for-wp-integrations' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Overview', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Overview', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -166,7 +166,7 @@ function ddw_tbex_site_items_mc4wp_forms( $admin_bar ) {
 			$admin_bar->add_group(
 				array(
 					'id'     => 'group-mc4wp-integrations-custom',
-					'parent' => 'forms-mc4wp-integrations'
+					'parent' => 'forms-mc4wp-integrations',
 				)
 			);
 
@@ -178,7 +178,7 @@ function ddw_tbex_site_items_mc4wp_forms( $admin_bar ) {
 						'href'   => esc_url( admin_url( 'admin.php?page=mailchimp-for-wp-integrations&integration=custom' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'Custom', 'toolbar-extras' )
+							'title'  => esc_attr__( 'Custom', 'toolbar-extras' ),
 						)
 					)
 				);
@@ -187,7 +187,7 @@ function ddw_tbex_site_items_mc4wp_forms( $admin_bar ) {
 			$admin_bar->add_group(
 				array(
 					'id'     => 'group-mc4wp-integrations-wpdefaults',
-					'parent' => 'forms-mc4wp-integrations'
+					'parent' => 'forms-mc4wp-integrations',
 				)
 			);
 
@@ -199,7 +199,7 @@ function ddw_tbex_site_items_mc4wp_forms( $admin_bar ) {
 						'href'   => esc_url( admin_url( 'admin.php?page=mailchimp-for-wp-integrations&integration=wp-comment-form' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'Comment Form', 'toolbar-extras' )
+							'title'  => esc_attr__( 'Comment Form', 'toolbar-extras' ),
 						)
 					)
 				);
@@ -212,7 +212,7 @@ function ddw_tbex_site_items_mc4wp_forms( $admin_bar ) {
 						'href'   => esc_url( admin_url( 'admin.php?page=mailchimp-for-wp-integrations&integration=wp-registration-form' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'Registration Form', 'toolbar-extras' )
+							'title'  => esc_attr__( 'Registration Form', 'toolbar-extras' ),
 						)
 					)
 				);
@@ -221,7 +221,7 @@ function ddw_tbex_site_items_mc4wp_forms( $admin_bar ) {
 			$admin_bar->add_group(
 				array(
 					'id'     => 'group-mc4wp-integrations-thirdparty',
-					'parent' => 'forms-mc4wp-integrations'
+					'parent' => 'forms-mc4wp-integrations',
 				)
 			);
 
@@ -344,7 +344,7 @@ function ddw_tbex_site_items_mc4wp_forms( $admin_bar ) {
 							'href'   => esc_url( admin_url( 'admin.php?page=mailchimp-for-wp-integrations&integration=give' ) ),
 							'meta'   => array(
 								'target' => '',
-								'title'  => esc_attr__( 'Give Donations', 'toolbar-extras' )
+								'title'  => esc_attr__( 'Give Donations', 'toolbar-extras' ),
 							)
 						)
 					);
@@ -398,7 +398,7 @@ function ddw_tbex_site_items_mc4wp_forms( $admin_bar ) {
 							'href'   => esc_url( admin_url( 'admin.php?page=mailchimp-for-wp-integrations&integration=events-manager' ) ),
 							'meta'   => array(
 								'target' => '',
-								'title'  => esc_attr__( 'Events Manager', 'toolbar-extras' )
+								'title'  => esc_attr__( 'Events Manager', 'toolbar-extras' ),
 							)
 						)
 					);
@@ -416,7 +416,7 @@ function ddw_tbex_site_items_mc4wp_forms( $admin_bar ) {
 							'href'   => esc_url( admin_url( 'admin.php?page=mailchimp-for-wp-integrations&integration=buddypress' ) ),
 							'meta'   => array(
 								'target' => '',
-								'title'  => 'BuddyPresss',
+								'title'  => 'BuddyPress',
 							)
 						)
 					);
@@ -434,7 +434,7 @@ function ddw_tbex_site_items_mc4wp_forms( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'admin.php?page=mailchimp-for-wp-top-bar' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Top Bar', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Top Bar', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -447,7 +447,7 @@ function ddw_tbex_site_items_mc4wp_forms( $admin_bar ) {
 						'href'   => esc_url( admin_url( 'admin.php?page=mailchimp-for-wp-top-bar&tab=settings' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'Bar Setting', 'toolbar-extras' )
+							'title'  => esc_attr__( 'Bar Setting', 'toolbar-extras' ),
 						)
 					)
 				);
@@ -460,7 +460,7 @@ function ddw_tbex_site_items_mc4wp_forms( $admin_bar ) {
 						'href'   => esc_url( admin_url( 'admin.php?page=mailchimp-for-wp-top-bar&tab=appearance' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'Appearance', 'toolbar-extras' )
+							'title'  => esc_attr__( 'Appearance', 'toolbar-extras' ),
 						)
 					)
 				);
@@ -473,7 +473,7 @@ function ddw_tbex_site_items_mc4wp_forms( $admin_bar ) {
 						'href'   => esc_url( admin_url( 'admin.php?page=mailchimp-for-wp-top-bar&tab=messages' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'Messages', 'toolbar-extras' )
+							'title'  => esc_attr__( 'Messages', 'toolbar-extras' ),
 						)
 					)
 				);
@@ -486,7 +486,7 @@ function ddw_tbex_site_items_mc4wp_forms( $admin_bar ) {
 						'href'   => esc_url( admin_url( 'admin.php?page=mailchimp-for-wp-top-bar&tab=advanced' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'Advanced', 'toolbar-extras' )
+							'title'  => esc_attr__( 'Advanced', 'toolbar-extras' ),
 						)
 					)
 				);
@@ -504,7 +504,7 @@ function ddw_tbex_site_items_mc4wp_forms( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'admin.php?page=mailchimp-for-wp-sync' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'User Sync', 'toolbar-extras' )
+						'title'  => esc_attr__( 'User Sync', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -520,27 +520,27 @@ function ddw_tbex_site_items_mc4wp_forms( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'admin.php?page=mailchimp-for-wp-other' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		/** MailChimp Setup */
+		/** Mailchimp Setup */
 		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-mc4wp-flamingo',
 				'parent' => 'forms-mc4wp',
-				'title'  => esc_attr__( 'MailChimp Setup', 'toolbar-extras' ),
+				'title'  => esc_attr__( 'Mailchimp Setup', 'toolbar-extras' ),
 				'href'   => esc_url( admin_url( 'admin.php?page=mailchimp-for-wp' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'MailChimp Setup', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Mailchimp Setup', 'toolbar-extras' ),
 				)
 			)
 		);
 
 		/** Optionally, let other MC4WP Add-Ons hook in */
-		do_action( 'tbex_after_mc4wp_settings' );
+		do_action( 'tbex_after_mc4wp_settings', $admin_bar );
 
 		/** Group: Resources for MC4WP */
 		if ( ddw_tbex_display_items_resources() ) {
@@ -549,10 +549,10 @@ function ddw_tbex_site_items_mc4wp_forms( $admin_bar ) {
 				array(
 					'id'     => 'group-mc4wp-resources',
 					'parent' => 'forms-mc4wp',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
-			
+
 			ddw_tbex_resource_item(
 				'support-forum',
 				'mc4wp-support',

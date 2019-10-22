@@ -20,13 +20,13 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_block_templates', 150 );
  *
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar']
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_block_templates() {
+function ddw_tbex_aoitems_block_templates( $admin_bar ) {
 
 	$post_type = 'gutenberg-template';
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'blocktemplates',
 			'parent' => 'group-creative-content',
@@ -34,12 +34,12 @@ function ddw_tbex_aoitems_block_templates() {
 			'href'   => esc_url( admin_url( 'edit.php?post_type=' . $post_type ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_free_addon_title_attr( __( 'Block Templates', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_free_addon_title_attr( __( 'Block Templates', 'toolbar-extras' ) ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'blocktemplates-all',
 				'parent' => 'blocktemplates',
@@ -47,12 +47,12 @@ function ddw_tbex_aoitems_block_templates() {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=' . $post_type ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'All Block Templates', 'toolbar-extras' )
+					'title'  => esc_attr__( 'All Block Templates', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'blocktemplates-new',
 				'parent' => 'blocktemplates',
@@ -60,7 +60,7 @@ function ddw_tbex_aoitems_block_templates() {
 				'href'   => esc_url( admin_url( 'post-new.php?post_type=' . $post_type ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'New Block Template', 'toolbar-extras' )
+					'title'  => esc_attr__( 'New Block Template', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -68,7 +68,7 @@ function ddw_tbex_aoitems_block_templates() {
 		/** Template categories, via BTC plugin */
 		if ( ddw_tbex_is_btcplugin_active() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'blocktemplates-categories',
 					'parent' => 'blocktemplates',
@@ -76,7 +76,7 @@ function ddw_tbex_aoitems_block_templates() {
 					'href'   => esc_url( admin_url( 'edit-tags.php?taxonomy=builder-template-category&post_type=' . $post_type ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_html( ddw_btc_string_template( 'template' ) )
+						'title'  => esc_html( ddw_btc_string_template( 'template' ) ),
 					)
 				)
 			);
@@ -86,11 +86,11 @@ function ddw_tbex_aoitems_block_templates() {
 		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-blocktemplates-resources',
 					'parent' => 'blocktemplates',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

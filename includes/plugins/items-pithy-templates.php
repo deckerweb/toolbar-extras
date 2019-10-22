@@ -30,7 +30,7 @@ function ddw_tbex_aoitems_pithy_templates( $admin_bar ) {
 
 	/** Currently the templates are only for Elementor, so check for it */
 	if ( ! ddw_tbex_is_elementor_active() ) {
-		return;
+		return $admin_bar;
 	}
 
 	$admin_bar->add_node(

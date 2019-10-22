@@ -21,12 +21,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_header_footer_builder', 100 );
  *
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_header_footer_builder() {
+function ddw_tbex_aoitems_header_footer_builder( $admin_bar ) {
 
 	/** Header Footer for Elementor */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'ao-hfbuilder',
 			'parent' => 'group-creative-content',
@@ -34,12 +34,12 @@ function ddw_tbex_aoitems_header_footer_builder() {
 			'href'   => esc_url( admin_url( 'edit.php?post_type=elementor-hf' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_addon_title_attr( __( 'Header Footer Builder for Elementor', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_addon_title_attr( __( 'Header Footer Builder for Elementor', 'toolbar-extras' ) ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-hfbuilder-all',
 				'parent' => 'ao-hfbuilder',
@@ -47,12 +47,12 @@ function ddw_tbex_aoitems_header_footer_builder() {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=elementor-hf' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'All Templates', 'toolbar-extras' )
+					'title'  => esc_attr__( 'All Templates', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-hfbuilder-new',
 				'parent' => 'ao-hfbuilder',
@@ -60,14 +60,14 @@ function ddw_tbex_aoitems_header_footer_builder() {
 				'href'   => esc_url( admin_url( 'post-new.php?post_type=elementor-hf' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'New Template', 'toolbar-extras' )
+					'title'  => esc_attr__( 'New Template', 'toolbar-extras' ),
 				)
 			)
 		);
 
 		if ( ddw_tbex_is_elementor_active() && \Elementor\User::is_current_user_can_edit_post_type( 'elementor-hf' ) ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ao-hfbuilder-builder',
 					'parent' => 'ao-hfbuilder',
@@ -75,7 +75,7 @@ function ddw_tbex_aoitems_header_footer_builder() {
 					'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'elementor-hf' ) ),
 					'meta'   => array(
 						'target' => ddw_tbex_meta_target( 'builder' ),
-						'title'  => esc_attr__( 'New Template Builder', 'toolbar-extras' )
+						'title'  => esc_attr__( 'New Template Builder', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -85,7 +85,7 @@ function ddw_tbex_aoitems_header_footer_builder() {
 		/** Template categories, via BTC plugin */
 		if ( ddw_tbex_is_btcplugin_active() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ao-hfbuilder-categories',
 					'parent' => 'ao-hfbuilder',
@@ -93,7 +93,7 @@ function ddw_tbex_aoitems_header_footer_builder() {
 					'href'   => esc_url( admin_url( 'edit-tags.php?taxonomy=builder-template-category&post_type=elementor-hf' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_html( ddw_btc_string_template( 'template' ) )
+						'title'  => esc_html( ddw_btc_string_template( 'template' ) ),
 					)
 				)
 			);
@@ -103,11 +103,11 @@ function ddw_tbex_aoitems_header_footer_builder() {
 		/** Group: Resources for Header Footer Builder */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-hfbuilder-resources',
 					'parent' => 'ao-hfbuilder',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

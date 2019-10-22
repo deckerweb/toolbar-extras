@@ -100,7 +100,7 @@ function ddw_tbex_site_items_website_settings( $admin_bar ) {
 				)
 			)
 		);
-		
+
 		/** Writing & Publishing */
 		$admin_bar->add_node(
 			array(
@@ -330,6 +330,8 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_base_groups', 99 );
  *
  * @since 1.0.0
  * @since 1.4.7 Added param $admin_bar (object) to action hooks.
+ *
+ * @uses ddw_tbex_parent_id_site_group()
  *
  * @param object $admin_bar Object of Toolbar nodes.
  */
@@ -657,9 +659,9 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_more_stuff', 20 );
  *
  * @since 1.0.0
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_more_stuff() {
+function ddw_tbex_site_items_more_stuff( $admin_bar ) {
 
 	/** Force Check Updates */
 	if ( current_user_can( 'update_core' )
@@ -668,7 +670,7 @@ function ddw_tbex_site_items_more_stuff() {
 		|| current_user_can( 'update_languages' )
 	) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'update-check',
 				'parent' => 'tbex-sitegroup-stuff',
@@ -683,7 +685,7 @@ function ddw_tbex_site_items_more_stuff() {
 
 			if ( has_filter( 'tbex_filter_is_update_addon' ) ) {
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'update-check-core-all',
 						'parent' => 'update-check',
@@ -701,10 +703,10 @@ function ddw_tbex_site_items_more_stuff() {
 	}  // end if
 
 	/** Hook place for extending... */
-	do_action( 'tbex_after_site_group_update_check' );
+	do_action( 'tbex_after_site_group_update_check', $admin_bar );
 
 	/** WP-Plugins stuff */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'wpplugins',
 			'parent' => 'tbex-sitegroup-stuff',
@@ -719,7 +721,7 @@ function ddw_tbex_site_items_more_stuff() {
 
 		if ( current_user_can( 'activate_plugins' ) ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'wpplugins-all',
 					'parent' => 'wpplugins',
@@ -732,7 +734,7 @@ function ddw_tbex_site_items_more_stuff() {
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'wpplugins-active',
 					'parent' => 'wpplugins',
@@ -745,7 +747,7 @@ function ddw_tbex_site_items_more_stuff() {
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'wpplugins-inactive',
 					'parent' => 'wpplugins',
@@ -762,7 +764,7 @@ function ddw_tbex_site_items_more_stuff() {
 
 		if ( has_action( 'after_setup_theme', 'ddw_tbex_plugin_manager' ) && current_user_can( 'install_plugins' ) ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'wpplugins-suggested',
 					'parent' => 'wpplugins',
@@ -900,166 +902,5 @@ function ddw_tbex_site_items_customizer( $admin_bar ) {
 			)
 		)
 	);
-
-}  // end function
-
-
-add_action( 'admin_bar_menu', 'ddw_tbex_wpitems_about_additions', 100 );
-/**
- * More Items: Sub items for "WordPress About".
- *
- * @since 1.4.5
- * @since 1.4.7 Further tweaks; improved ClassicPress compatibility.
- *
- * @uses ddw_tbex_is_classicpress_install()
- * @uses ddw_tbex_is_wp52_install()
- *
- * @global string $GLOBALS[ 'wp_version' ]
- *
- * @param object $admin_bar Object of Toolbar nodes.
- */
-function ddw_tbex_wpitems_about_additions( $admin_bar ) {
-
-	$cleanup = array( '-beta', '-rc', '-alpha' );
-
-	$wpversion_raw   = str_replace ( $cleanup, '', $GLOBALS[ 'wp_version' ] );
-	$wpversion_clean = $wpversion_raw;
-
-	if ( strpos( $wpversion_raw, '-' ) !== FALSE ) {
-		$wpversion_clean = substr_replace( $wpversion_raw, '', -6 );
-	}
-
-	$wpversion_dash  = str_replace( '.', '-', $wpversion_clean );
-	$version_url_wp  = sprintf(
-		'https://wordpress.org/support/wordpress-version/version-%s/',
-		$wpversion_dash
-	);
-	$version_url_cp  = 'https://forums.classicpress.net/c/announcements/release-notes';
-
-	// https://wordpress.org/support/wordpress-version/version-4-0/
-	// https://wordpress.org/support/wordpress-version/version-5-2-2/
-
-	$title_attr_wp = sprintf(
-		/* translators: %s - current WordPress version, for example 5.2.2 */
-		esc_attr__( 'Release Notes for WordPress Version %s', 'toolbar-extras' ),
-		$GLOBALS[ 'wp_version' ]
-	);
-	$title_attr_cp = esc_attr__( 'Release Notes for ClassicPress Versions', 'toolbar-extras' );
-
-	/** Version & system info */
-	$admin_bar->add_group(
-		array(
-			'id'     => 'group-wpabout-additions-version',
-			'parent' => 'about',
-		)
-	);
-
-		$admin_bar->add_node(
-			array(
-				'id'     => 'wpabout-release-notes',
-				'parent' => 'group-wpabout-additions-version',
-				'title'  => esc_attr__( 'Release Notes', 'toolbar-extras' ),
-				'href'   => ddw_tbex_is_classicpress_install() ? esc_url( $version_url_cp ) : esc_url( $version_url_wp ),
-				'meta'   => array(
-					'target' => ddw_tbex_meta_target(),
-					'title'  => ddw_tbex_is_classicpress_install() ? $title_attr_cp : $title_attr_wp,
-				)
-			)
-		);
-
-		if ( ddw_tbex_is_wp52_install() ) {
-
-			$admin_bar->add_node(
-				array(
-					'id'     => 'wpabout-system-info',
-					'parent' => 'group-wpabout-additions-version',
-					'title'  => esc_attr__( 'System Info', 'toolbar-extras' ),
-					'href'   => esc_url( admin_url( 'site-health.php?tab=debug' ) ),
-					'meta'   => array(
-						'target' => '',
-						'title'  => esc_attr__( 'System Info - Site Health Status', 'toolbar-extras' ),
-					)
-				)
-			);
-
-		}  // end if
-
-	/** About sub items */
-	$admin_bar->add_group(
-		array(
-			'id'     => 'group-wpabout-additions-sub',
-			'parent' => 'about',
-			'meta'   => array( 'class' => 'tbex-group-resources-divider' ),
-		)
-	);
-
-		$admin_bar->add_node(
-			array(
-				'id'     => 'wpabout-privacy',
-				'parent' => 'group-wpabout-additions-sub',
-				'title'  => esc_attr__( 'Privacy Notice', 'toolbar-extras' ),
-				'href'   => esc_url( admin_url( 'freedoms.php?privacy-notice' ) ),
-				'meta'   => array(
-					'target' => '',
-					'title'  => esc_attr__( 'Privacy Notice - Data Usage Info', 'toolbar-extras' ),
-				)
-			)
-		);
-
-		$admin_bar->add_node(
-			array(
-				'id'     => 'wpabout-whats-new',
-				'parent' => 'group-wpabout-additions-sub',
-				'title'  => esc_attr__( 'What\'s New', 'toolbar-extras' ),
-				'href'   => esc_url( admin_url( 'about.php' ) ),
-				'meta'   => array(
-					'target' => '',
-					'title'  => esc_attr__( 'What\'s New - Release Feature Info', 'toolbar-extras' ),
-				)
-			)
-		);
-
-		$admin_bar->add_node(
-			array(
-				'id'     => 'wpabout-credits',
-				'parent' => 'group-wpabout-additions-sub',
-				'title'  => esc_attr__( 'Contributors', 'toolbar-extras' ),
-				'href'   => esc_url( admin_url( 'credits.php' ) ),
-				'meta'   => array(
-					'target' => '',
-					'title'  => esc_attr__( 'List of Release Contributors', 'toolbar-extras' ),
-				)
-			)
-		);
-
-		$admin_bar->add_node(
-			array(
-				'id'     => 'wpabout-freedoms',
-				'parent' => 'group-wpabout-additions-sub',
-				'title'  => esc_attr__( 'Freedoms', 'toolbar-extras' ),
-				'href'   => esc_url( admin_url( 'freedoms.php' ) ),
-				'meta'   => array(
-					'target' => '',
-					'title'  => esc_attr__( 'Freedoms - GPL License Info', 'toolbar-extras' ),
-				)
-			)
-		);
-
-		if ( ddw_tbex_is_classicpress_install() ) {
-
-			$admin_bar->add_node(
-				array(
-					'id'     => 'wpabout-cpdonate',
-					'parent' => 'group-wpabout-additions-sub',
-					'title'  => esc_attr__( 'Donate', 'toolbar-extras' ),
-					'href'   => 'https://donate.classicpress.net/',
-					'meta'   => array(
-						'target' => ddw_tbex_meta_target(),
-						'title'  => esc_attr__( 'Donate to the ClassicPress Project', 'toolbar-extras' ),
-					)
-				)
-			);
-
-		}  // end if
 
 }  // end function

@@ -18,12 +18,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_regenerate_thumbnails' );
  *
  * @since 1.0.0
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_regenerate_thumbnails() {
+function ddw_tbex_site_items_regenerate_thumbnails( $admin_bar ) {
 
 	/** For: Manage Content */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'regenerate-thumbnails',
 			'parent' => 'manage-content-media',
@@ -31,7 +31,7 @@ function ddw_tbex_site_items_regenerate_thumbnails() {
 			'href'   => esc_url( admin_url( 'tools.php?page=regenerate-thumbnails' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Regenerate Thumbnails', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Regenerate Thumbnails', 'toolbar-extras' ),
 			)
 		)
 	);

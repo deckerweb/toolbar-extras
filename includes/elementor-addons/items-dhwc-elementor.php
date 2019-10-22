@@ -22,12 +22,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_dhwc_elementor', 100 );
  * @uses ddw_tbex_display_items_resources()
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_dhwc_elementor() {
+function ddw_tbex_aoitems_dhwc_elementor( $admin_bar ) {
 
 	/** Plugin's Templates Content */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'ao-dhwce',
 			'parent' => 'group-creative-content',
@@ -35,12 +35,12 @@ function ddw_tbex_aoitems_dhwc_elementor() {
 			'href'   => esc_url( admin_url( 'edit.php?post_type=dhwc_template' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_premium_addon_title_attr( __( 'WooCommerce Product Templates', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_premium_addon_title_attr( __( 'WooCommerce Product Templates', 'toolbar-extras' ) ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-dhwce-all',
 				'parent' => 'ao-dhwce',
@@ -48,12 +48,12 @@ function ddw_tbex_aoitems_dhwc_elementor() {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=dhwc_template' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'All Templates', 'toolbar-extras' )
+					'title'  => esc_attr__( 'All Templates', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-dhwce-new',
 				'parent' => 'ao-dhwce',
@@ -61,14 +61,14 @@ function ddw_tbex_aoitems_dhwc_elementor() {
 				'href'   => esc_url( admin_url( 'post-new.php?post_type=dhwc_template' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'New Template', 'toolbar-extras' )
+					'title'  => esc_attr__( 'New Template', 'toolbar-extras' ),
 				)
 			)
 		);
 
 		if ( ddw_tbex_is_elementor_active() && \Elementor\User::is_current_user_can_edit_post_type( 'dhwc_template' ) ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ao-dhwce-builder',
 					'parent' => 'ao-dhwce',
@@ -76,7 +76,7 @@ function ddw_tbex_aoitems_dhwc_elementor() {
 					'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'dhwc_template' ) ),
 					'meta'   => array(
 						'target' => ddw_tbex_meta_target( 'builder' ),
-						'title'  => esc_attr__( 'New Template Builder', 'toolbar-extras' )
+						'title'  => esc_attr__( 'New Template Builder', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -86,7 +86,7 @@ function ddw_tbex_aoitems_dhwc_elementor() {
 		/** Template categories, via BTC plugin */
 		if ( ddw_tbex_is_btcplugin_active() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ao-dhwce-categories',
 					'parent' => 'ao-dhwce',
@@ -94,14 +94,14 @@ function ddw_tbex_aoitems_dhwc_elementor() {
 					'href'   => esc_url( admin_url( 'edit-tags.php?taxonomy=builder-template-category&post_type=dhwc_template' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_html( ddw_btc_string_template( 'template' ) )
+						'title'  => esc_html( ddw_btc_string_template( 'template' ) ),
 					)
 				)
 			);
 
 		}  // end if
-		
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-dhwce-settings',
 				'parent' => 'ao-dhwce',
@@ -109,19 +109,19 @@ function ddw_tbex_aoitems_dhwc_elementor() {
 				'href'   => esc_url( admin_url( 'admin.php?page=wc-settings&tab=products' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Template Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Template Settings', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		/** Group: Plugin's Resources */
+		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-dhwce-resources',
 					'parent' => 'ao-dhwce',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 
@@ -150,16 +150,16 @@ add_action( 'admin_bar_menu', 'ddw_tbex_new_content_dhwc_elementor' );
  *
  * @since 1.2.0
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_new_content_dhwc_elementor() {
+function ddw_tbex_new_content_dhwc_elementor( $admin_bar ) {
 
 	/** Bail early if items display is not wanted */
 	if ( ! ddw_tbex_display_items_new_content() || ! \Elementor\User::is_current_user_can_edit_post_type( 'dhwc_template' ) ) {
-		return;
+		return $admin_bar;
 	}
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'dhwce-with-builder',
 			'parent' => 'new-dhwc_template',
@@ -167,9 +167,9 @@ function ddw_tbex_new_content_dhwc_elementor() {
 			'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'dhwc_template' ) ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target( 'builder' ),
-				'title'  => ddw_tbex_string_newcontent_create_with_builder()
+				'title'  => ddw_tbex_string_newcontent_create_with_builder(),
 			)
 		)
 	);
 
-}  // end if
+}  // end function

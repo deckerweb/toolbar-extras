@@ -18,10 +18,6 @@ add_action( 'init', 'ddw_tbex_maybe_remove_tsg_adminbar_item', 15 );
  *   feature and use ours instead.
  *
  * @since 1.3.2
- *
- * @uses ddw_tbex_use_tweak_wplogo()
- *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
 function ddw_tbex_maybe_remove_tsg_adminbar_item() {
 
@@ -41,9 +37,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_blocks_edit_switcher', 120 );
  *
  * @since 1.3.2
  *
- * @global int    $GLOBALS[ 'post_id' ]
  * @global object $GLOBALS[ 'wp_the_query' ]
- * @global mixed  $GLOBALS[ 'wp_admin_bar' ]
  *
  * @param object $admin_bar Object of Toolbar nodes.
  */

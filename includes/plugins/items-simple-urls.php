@@ -18,12 +18,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_simple_urls', 20 );
  *
  * @since 1.0.0
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_simple_urls() {
+function ddw_tbex_site_items_simple_urls( $admin_bar ) {
 
 	/** For: Manage Content */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'manage-content-surl',
 			'parent' => 'manage-content',
@@ -31,7 +31,7 @@ function ddw_tbex_site_items_simple_urls() {
 			'href'   => esc_url( admin_url( 'edit.php?post_type=surl' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Edit URLs', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Edit URLs', 'toolbar-extras' ),
 			)
 		)
 	);

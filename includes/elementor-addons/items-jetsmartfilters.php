@@ -35,7 +35,7 @@ function ddw_tbex_aoitems_jetsmartfilters( $admin_bar ) {
 			'href'   => esc_url( admin_url( 'edit.php?post_type=' . $post_type ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_premium_addon_title_attr( __( 'JetSmartFilters', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_premium_addon_title_attr( __( 'JetSmartFilters', 'toolbar-extras' ) ),
 			)
 		)
 	);
@@ -48,7 +48,7 @@ function ddw_tbex_aoitems_jetsmartfilters( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=' . $post_type ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'All Filters', 'toolbar-extras' )
+					'title'  => esc_attr__( 'All Filters', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -61,7 +61,7 @@ function ddw_tbex_aoitems_jetsmartfilters( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'post-new.php?post_type=' . $post_type ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'New Filter', 'toolbar-extras' )
+					'title'  => esc_attr__( 'New Filter', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -77,7 +77,7 @@ function ddw_tbex_aoitems_jetsmartfilters( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'edit-tags.php?taxonomy=builder-template-category&post_type=' . $post_type ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_html( ddw_btc_string_template( 'filter' ) )
+						'title'  => esc_html( ddw_btc_string_template( 'filter' ) ),
 					)
 				)
 			);
@@ -92,7 +92,7 @@ function ddw_tbex_aoitems_jetsmartfilters( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'admin.php?page=jet-smart-filters-settings' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -104,7 +104,7 @@ function ddw_tbex_aoitems_jetsmartfilters( $admin_bar ) {
 				array(
 					'id'     => 'group-jetsmartfilters-resources',
 					'parent' => 'ao-jetsmartfilters',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 
@@ -126,7 +126,8 @@ function ddw_tbex_aoitems_jetsmartfilters( $admin_bar ) {
 				'changelog',
 				'jetsmartfilters-changelog',
 				'group-jetsmartfilters-resources',
-				'http://documentation.zemez.io/wordpress/index.php?project=jetsmartfilters&lang=en&section=jetsmartfilters-changelog'
+				'http://documentation.zemez.io/wordpress/index.php?project=jetsmartfilters&lang=en&section=jetsmartfilters-changelog',
+				ddw_tbex_string_version_history( 'addon' )
 			);
 
 			ddw_tbex_resource_item(

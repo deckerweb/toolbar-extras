@@ -20,11 +20,11 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_gutenberg_ramp', 10 );
  *
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar']
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_gutenberg_ramp() {
-	
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+function ddw_tbex_site_items_gutenberg_ramp( $admin_bar ) {
+
+	$admin_bar->add_node(
 		array(
 			'id'     => 'tbex-gbramp',
 			'parent' => 'tbex-sitegroup-tools',
@@ -32,12 +32,12 @@ function ddw_tbex_site_items_gutenberg_ramp() {
 			'href'   => esc_url( admin_url( 'options-writing.php#ping_sites' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Gutenberg Ramp', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Gutenberg Ramp', 'toolbar-extras' ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'gbramp-settings',
 				'parent' => 'tbex-gbramp',
@@ -45,7 +45,7 @@ function ddw_tbex_site_items_gutenberg_ramp() {
 				'href'   => esc_url( admin_url( 'options-writing.php#ping_sites' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -53,11 +53,11 @@ function ddw_tbex_site_items_gutenberg_ramp() {
 		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-gbramp-resources',
 					'parent' => 'tbex-gbramp',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

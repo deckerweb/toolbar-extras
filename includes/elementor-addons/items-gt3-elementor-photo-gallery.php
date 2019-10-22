@@ -20,13 +20,13 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_gt3_elementor_photo_gallery', 15
  *
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_gt3_elementor_photo_gallery() {
+function ddw_tbex_aoitems_gt3_elementor_photo_gallery( $admin_bar ) {
 
 	$post_type = 'gt3_gallery';
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'ao-gt3elegallery',
 			'parent' => 'group-creative-content',
@@ -34,12 +34,12 @@ function ddw_tbex_aoitems_gt3_elementor_photo_gallery() {
 			'href'   => esc_url( admin_url( 'edit.php?post_type=' . $post_type ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'GT3 Galleries', 'toolbar-extras' )
+				'title'  => esc_attr__( 'GT3 Galleries', 'toolbar-extras' ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-gt3elegallery-all',
 				'parent' => 'ao-gt3elegallery',
@@ -47,12 +47,12 @@ function ddw_tbex_aoitems_gt3_elementor_photo_gallery() {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=' . $post_type ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'All Galleries', 'toolbar-extras' )
+					'title'  => esc_attr__( 'All Galleries', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-gt3elegallery-new',
 				'parent' => 'ao-gt3elegallery',
@@ -60,7 +60,7 @@ function ddw_tbex_aoitems_gt3_elementor_photo_gallery() {
 				'href'   => esc_url( admin_url( 'post-new.php?post_type=' . $post_type ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'New Gallery', 'toolbar-extras' )
+					'title'  => esc_attr__( 'New Gallery', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -68,11 +68,11 @@ function ddw_tbex_aoitems_gt3_elementor_photo_gallery() {
 		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-gt3elegallery-resources',
 					'parent' => 'ao-gt3elegallery',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

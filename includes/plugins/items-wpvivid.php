@@ -46,7 +46,7 @@ function ddw_tbex_site_items_wpvivid_resources( $admin_bar ) {
 
 	/** Bail early if no resources display wanted */
 	if ( ! ddw_tbex_display_items_resources() ) {
-		return;
+		return $admin_bar;
 	}
 
 	/** Group: Plugin's resources */

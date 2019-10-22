@@ -42,7 +42,7 @@ function ddw_tbex_aoitems_builder_template_categories( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'edit-tags.php?taxonomy=builder-template-category&post_type=' . $post_type ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => ddw_tbex_string_block_editor() . ': ' . esc_html( ddw_btc_string_template( 'block' ) )
+					'title'  => ddw_tbex_string_block_editor() . ': ' . esc_html( ddw_btc_string_template( 'block' ) ),
 				)
 			)
 		);
@@ -54,7 +54,7 @@ function ddw_tbex_aoitems_builder_template_categories( $admin_bar ) {
 				array(
 					'id'     => 'group-btcplugin-resources',
 					'parent' => 'blockeditor-reusable-blocks',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 
@@ -67,7 +67,7 @@ function ddw_tbex_aoitems_builder_template_categories( $admin_bar ) {
 					'meta'   => array(
 						'rel'    => ddw_tbex_meta_rel(),
 						'target' => ddw_tbex_meta_target(),
-						'title'  => esc_attr__( 'Tutorial', 'toolbar-extras' ) . ': ' . esc_attr__( 'Reusable Blocks', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Tutorial', 'toolbar-extras' ) . ': ' . esc_attr__( 'Reusable Blocks', 'toolbar-extras' ),
 					)
 				)
 			);

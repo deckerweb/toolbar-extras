@@ -20,11 +20,11 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_eleslider', 150 );
  *
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_eleslider() {
+function ddw_tbex_aoitems_eleslider( $admin_bar ) {
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'ao-eleslider',
 			'parent' => 'group-creative-content',
@@ -32,12 +32,12 @@ function ddw_tbex_aoitems_eleslider() {
 			'href'   => esc_url( admin_url( 'edit.php?post_type=wpm_ele_slider' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Eleslider', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Eleslider', 'toolbar-extras' ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-eleslider-posts-all',
 				'parent' => 'ao-eleslider',
@@ -45,12 +45,12 @@ function ddw_tbex_aoitems_eleslider() {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=wpm_ele_slider' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'All Slide Posts', 'toolbar-extras' )
+					'title'  => esc_attr__( 'All Slide Posts', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-eleslider-posts-new',
 				'parent' => 'ao-eleslider',
@@ -58,14 +58,14 @@ function ddw_tbex_aoitems_eleslider() {
 				'href'   => esc_url( admin_url( 'post-new.php?post_type=wpm_ele_slider' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'New Slide Post', 'toolbar-extras' )
+					'title'  => esc_attr__( 'New Slide Post', 'toolbar-extras' ),
 				)
 			)
 		);
 
 		if ( \Elementor\User::is_current_user_can_edit_post_type( 'wpm_ele_slider' ) ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ao-eleslider-posts-builder',
 					'parent' => 'ao-eleslider',
@@ -73,7 +73,7 @@ function ddw_tbex_aoitems_eleslider() {
 					'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'wpm_ele_slider' ) ),
 					'meta'   => array(
 						'target' => ddw_tbex_meta_target( 'builder' ),
-						'title'  => esc_attr__( 'New Slide Builder', 'toolbar-extras' )
+						'title'  => esc_attr__( 'New Slide Builder', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -83,11 +83,11 @@ function ddw_tbex_aoitems_eleslider() {
 		/** Group: Resources for Eleslider */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-eleslider-resources',
 					'parent' => 'ao-eleslider',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 
@@ -116,16 +116,16 @@ add_action( 'admin_bar_menu', 'ddw_tbex_new_content_eleslider', 140 );
  *
  * @since 1.2.0
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_new_content_eleslider() {
+function ddw_tbex_new_content_eleslider( $admin_bar ) {
 
 	/** Bail early if items display is not wanted */
 	if ( ! ddw_tbex_display_items_new_content() || ! \Elementor\User::is_current_user_can_edit_post_type( 'wpm_ele_slider' ) ) {
-		return;
+		return $admin_bar;
 	}
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'eleslider-with-builder',
 			'parent' => 'new-wpm_ele_slider',
@@ -133,7 +133,7 @@ function ddw_tbex_new_content_eleslider() {
 			'href'   => esc_attr( \Elementor\Utils::get_create_new_post_url( 'wpm_ele_slider' ) ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target( 'builder' ),
-				'title'  => ddw_tbex_string_newcontent_create_with_builder()
+				'title'  => ddw_tbex_string_newcontent_create_with_builder(),
 			)
 		)
 	);

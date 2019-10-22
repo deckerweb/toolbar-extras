@@ -257,7 +257,7 @@ function ddw_tbex_register_settings_general() {
 		// tbex-heading-elementor-name
 		add_settings_section( 
 			'tbex-section-builder-name',
-			'<h3 class="tbex-settings-section tbex-heading-builder-name">' . __( 'Page Builder Name', 'toolbar-extras' ) . '</h3>',
+			'<h3 id="tbex-settings-builder-name" class="tbex-settings-section tbex-heading-builder-name">' . __( 'Page Builder Name', 'toolbar-extras' ) . '</h3>',
 			'ddw_tbex_settings_section_info_builder_name',
 			'tbex_group_general'
 		);

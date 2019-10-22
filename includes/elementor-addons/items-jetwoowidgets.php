@@ -20,15 +20,15 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_jetwoowidgets', 100 );
  *
  * @uses   ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_jetwoowidgets() {
+function ddw_tbex_aoitems_jetwoowidgets( $admin_bar ) {
 
 	/** Use Add-On hook place */
 	add_filter( 'tbex_filter_is_addon', '__return_empty_string' );
 
 	/** Plugin's settings */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'ao-jetwoowidgets',
 			'parent' => 'tbex-addons',
@@ -36,12 +36,12 @@ function ddw_tbex_aoitems_jetwoowidgets() {
 			'href'   => esc_url( admin_url( 'admin.php?page=jet-widgets-settings' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_free_addon_title_attr( __( 'JetWoo Widgets', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_free_addon_title_attr( __( 'JetWoo Widgets', 'toolbar-extras' ) ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-jetwoowidgets-settings',
 				'parent' => 'ao-jetwoowidgets',
@@ -49,12 +49,12 @@ function ddw_tbex_aoitems_jetwoowidgets() {
 				'href'   => esc_url( admin_url( 'admin.php?page=jet-widgets-settings' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-jetwoowidgets-products',
 				'parent' => 'ao-jetwoowidgets',
@@ -62,7 +62,7 @@ function ddw_tbex_aoitems_jetwoowidgets() {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=product' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Edit Products', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Edit Products', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -70,11 +70,11 @@ function ddw_tbex_aoitems_jetwoowidgets() {
 		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-jetwoowidgets-resources',
 					'parent' => 'ao-jetwoowidgets',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

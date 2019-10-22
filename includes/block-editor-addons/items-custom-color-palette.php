@@ -23,12 +23,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_custom_color_palette', 110 );
  * @uses ddw_tbex_resources_color_wheel()
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_custom_color_palette() {
+function ddw_tbex_aoitems_custom_color_palette( $admin_bar ) {
 
 	/** Plugin's settings */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'ao-customcolorpalette',
 			'parent' => 'group-active-theme',
@@ -37,12 +37,12 @@ function ddw_tbex_aoitems_custom_color_palette() {
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
 				'rel'    => ddw_tbex_meta_rel(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Custom Color Palette', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_customize_attr( __( 'Custom Color Palette', 'toolbar-extras' ) ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-customcolorpalette-colors-define',
 				'parent' => 'ao-customcolorpalette',
@@ -51,12 +51,12 @@ function ddw_tbex_aoitems_custom_color_palette() {
 				'meta'   => array(
 					'target' => ddw_tbex_meta_target(),
 					'rel'    => ddw_tbex_meta_rel(),
-					'title'  => esc_attr__( 'Define Colors', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Define Colors', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-customcolorpalette-colors-main',
 				'parent' => 'ao-customcolorpalette',
@@ -65,12 +65,12 @@ function ddw_tbex_aoitems_custom_color_palette() {
 				'meta'   => array(
 					'target' => ddw_tbex_meta_target(),
 					'rel'    => ddw_tbex_meta_rel(),
-					'title'  => ddw_tbex_string_customize_attr( __( 'Main Colors', 'toolbar-extras' ) )
+					'title'  => ddw_tbex_string_customize_attr( __( 'Main Colors', 'toolbar-extras' ) ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-customcolorpalette-colors-grayscale',
 				'parent' => 'ao-customcolorpalette',
@@ -79,12 +79,12 @@ function ddw_tbex_aoitems_custom_color_palette() {
 				'meta'   => array(
 					'target' => ddw_tbex_meta_target(),
 					'rel'    => ddw_tbex_meta_rel(),
-					'title'  => ddw_tbex_string_customize_attr( __( 'Grayscale Colors', 'toolbar-extras' ) )
+					'title'  => ddw_tbex_string_customize_attr( __( 'Grayscale Colors', 'toolbar-extras' ) ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-customcolorpalette-colors-primary',
 				'parent' => 'ao-customcolorpalette',
@@ -93,22 +93,22 @@ function ddw_tbex_aoitems_custom_color_palette() {
 				'meta'   => array(
 					'target' => ddw_tbex_meta_target(),
 					'rel'    => ddw_tbex_meta_rel(),
-					'title'  => ddw_tbex_string_customize_attr( __( 'Primary Colors', 'toolbar-extras' ) )
+					'title'  => ddw_tbex_string_customize_attr( __( 'Primary Colors', 'toolbar-extras' ) ),
 				)
 			)
 		);
 
 		/** Color Wheel Resources */
-		ddw_tbex_resources_color_wheel( 'customcolorpalette', 'ao-customcolorpalette' );
-		
+		ddw_tbex_resources_color_wheel( $admin_bar, 'customcolorpalette', 'ao-customcolorpalette' );
+
 		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-customcolorpalette-resources',
 					'parent' => 'ao-customcolorpalette',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

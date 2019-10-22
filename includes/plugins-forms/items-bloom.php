@@ -18,12 +18,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_bloom', 20 );
  *
  * @since 1.3.1
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_bloom() {
+function ddw_tbex_site_items_bloom( $admin_bar ) {
 
 	/** For: Forms */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'forms-bloom',
 			'parent' => 'tbex-sitegroup-forms',
@@ -31,12 +31,12 @@ function ddw_tbex_site_items_bloom() {
 			'href'   => esc_url( admin_url( 'admin.php?page=et_bloom_options' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Bloom', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Bloom', 'toolbar-extras' ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-bloom-optins',
 				'parent' => 'forms-bloom',
@@ -44,12 +44,12 @@ function ddw_tbex_site_items_bloom() {
 				'href'   => esc_url( admin_url( 'admin.php?page=et_bloom_options' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Optins', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Optins', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-bloom-email-accounts',
 				'parent' => 'forms-bloom',
@@ -57,12 +57,12 @@ function ddw_tbex_site_items_bloom() {
 				'href'   => esc_url( admin_url( 'admin.php?page=et_bloom_options#tab_et_dashboard_tab_content_header_accounts' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Email Accounts', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Email Accounts', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-bloom-statistics',
 				'parent' => 'forms-bloom',
@@ -70,12 +70,12 @@ function ddw_tbex_site_items_bloom() {
 				'href'   => esc_url( admin_url( 'admin.php?page=et_bloom_options#tab_et_dashboard_tab_content_header_stats' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Statistics', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Statistics', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-bloom-import-export',
 				'parent' => 'forms-bloom',
@@ -83,7 +83,7 @@ function ddw_tbex_site_items_bloom() {
 				'href'   => esc_url( admin_url( 'admin.php?page=et_bloom_options#tab_et_dashboard_tab_content_header_importexport' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Import &amp; Export', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Import &amp; Export', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -91,14 +91,14 @@ function ddw_tbex_site_items_bloom() {
 		/** Group: Resources for Bloom */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-bloom-resources',
 					'parent' => 'forms-bloom',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
-			
+
 			ddw_tbex_resource_item(
 				'support-contact',
 				'bloom-contact',

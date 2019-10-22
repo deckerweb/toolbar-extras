@@ -12,103 +12,51 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 
-add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_slush_pro_customize', 90 );
+add_filter( 'tbex_filter_items_theme_customizer_deep', 'ddw_tbex_themeitems_slush_pro_customize', 90 );
 /**
  * Customize items for Genesis Child Theme:
  *   Slush Pro (Premium, by zigzagpress)
  *
  * @since 1.2.0
+ * @since 1.4.8 Refactored using filter/array declaration.
  *
- * @uses ddw_tbex_customizer_focus()
- * @uses ddw_tbex_string_customize_attr()
- *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param array $items Existing array of params for creating Toolbar nodes.
+ * @return array Tweaked array of params for creating Toolbar nodes.
  */
-function ddw_tbex_themeitems_slush_pro_customize() {
+function ddw_tbex_themeitems_slush_pro_customize( array $items ) {
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
-		array(
-			'id'     => 'slushpro-body-style',
-			'parent' => 'theme-creative-customize',
-			/* translators: Autofocus section in the Customizer */
-			'title'  => esc_attr__( 'Body Style', 'toolbar-extras' ),
-			'href'   => ddw_tbex_customizer_focus( 'section', 'body_style' ),
-			'meta'   => array(
-				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Body Style', 'toolbar-extras' ) )
-			)
-		)
+	/** Declare child theme's items */
+	$slushpro_items = array(
+		'body_style' => array(
+			'type'  => 'section',
+			'title' => __( 'Body Style', 'toolbar-extras' ),
+			'id'    => 'slushpro-body-style',
+		),
+		'heading_style' => array(
+			'type'  => 'section',
+			'title' => __( 'Heading Style', 'toolbar-extras' ),
+			'id'    => 'slushpro-heading-style',
+		),
+		'zp_accent_color' => array(
+			'type'  => 'section',
+			'title' => __( 'Accent Colors', 'toolbar-extras' ),
+			'id'    => 'slushpro-accent-colors',
+		),
+		'zp_footer_settings' => array(
+			'type'  => 'section',
+			'title' => __( 'Footer Settings', 'toolbar-extras' ),
+			'id'    => 'slushpro-footer-settings',
+		),
+		'zp_blog_settings' => array(
+			'type'        => 'section',
+			'title'       => __( 'Blog Settings', 'toolbar-extras' ),
+			'id'          => 'slushpro-blog-settings',
+			'preview_url' => get_post_type_archive_link( 'post' ),
+		),
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
-		array(
-			'id'     => 'slushpro-heading-style',
-			'parent' => 'theme-creative-customize',
-			/* translators: Autofocus section in the Customizer */
-			'title'  => esc_attr__( 'Heading Style', 'toolbar-extras' ),
-			'href'   => ddw_tbex_customizer_focus( 'section', 'heading_style' ),
-			'meta'   => array(
-				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Heading Style', 'toolbar-extras' ) )
-			)
-		)
-	);
-
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
-		array(
-			'id'     => 'slushpro-accent-colors',
-			'parent' => 'theme-creative-customize',
-			/* translators: Autofocus section in the Customizer */
-			'title'  => esc_attr__( 'Accent Colors', 'toolbar-extras' ),
-			'href'   => ddw_tbex_customizer_focus( 'section', 'zp_accent_color' ),
-			'meta'   => array(
-				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Accent Colors', 'toolbar-extras' ) )
-			)
-		)
-	);
-
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
-		array(
-			'id'     => 'slushpro-footer-settings',
-			'parent' => 'theme-creative-customize',
-			/* translators: Autofocus section in the Customizer */
-			'title'  => esc_attr__( 'Footer Settings', 'toolbar-extras' ),
-			'href'   => ddw_tbex_customizer_focus( 'section', 'zp_footer_settings' ),
-			'meta'   => array(
-				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Footer Settings', 'toolbar-extras' ) )
-			)
-		)
-	);
-
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
-		array(
-			'id'     => 'slushpro-blog-settings',
-			'parent' => 'theme-creative-customize',
-			/* translators: Autofocus section in the Customizer */
-			'title'  => esc_attr__( 'Blog Settings', 'toolbar-extras' ),
-			'href'   => ddw_tbex_customizer_focus( 'section', 'zp_blog_settings', get_post_type_archive_link( 'post' ) ),
-			'meta'   => array(
-				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Blog Settings', 'toolbar-extras' ) )
-			)
-		)
-	);
-
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
-		array(
-			'id'     => 'slushpro-site-identity',
-			'parent' => 'theme-creative-customize',
-			/* translators: Autofocus section in the Customizer */
-			'title'  => esc_attr__( 'Site Identity', 'toolbar-extras' ),
-			'href'   => ddw_tbex_customizer_focus( 'section', 'title_tagline' ),
-			'meta'   => array(
-				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Site Identity', 'toolbar-extras' ) )
-			)
-		)
-	);
+	/** Merge and return with all items */
+	return array_merge( $items, $slushpro_items );
 
 }  // end function
 

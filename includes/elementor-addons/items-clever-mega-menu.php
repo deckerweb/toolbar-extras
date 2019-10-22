@@ -45,7 +45,7 @@ function ddw_tbex_aoitems_clever_mega_menu( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=cmm4e_menu_theme' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'All Skins for Mega Menus', 'toolbar-extras' )
+					'title'  => esc_attr__( 'All Skins for Mega Menus', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -58,7 +58,7 @@ function ddw_tbex_aoitems_clever_mega_menu( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'post-new.php?post_type=cmm4e_menu_theme' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'New Skin for Mega Menu', 'toolbar-extras' )
+					'title'  => esc_attr__( 'New Skin for Mega Menu', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -71,7 +71,7 @@ function ddw_tbex_aoitems_clever_mega_menu( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'nav-menus.php' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Add &amp; Edit Menus as Mega Menu', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Add &amp; Edit Menus as Mega Menu', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -83,7 +83,7 @@ function ddw_tbex_aoitems_clever_mega_menu( $admin_bar ) {
 				array(
 					'id'     => 'group-clevermegamenu-resources',
 					'parent' => 'ao-clevermegamenu',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

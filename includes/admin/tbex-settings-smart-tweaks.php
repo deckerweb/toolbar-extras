@@ -515,7 +515,7 @@ function ddw_tbex_register_settings_smart_tweaks() {
 		/** Smart Tweaks: 5th section - Page Builder behavior */
 		add_settings_section( 
 			'tbex-section-pagebuilder',
-			'<h3 class="tbex-settings-section">' . __( 'Change Page Builder Behavior', 'toolbar-extras' ) . '</h3>',
+			'<h3 id="tbex-settings-builder-behavior" class="tbex-settings-section">' . __( 'Change Page Builder Behavior', 'toolbar-extras' ) . '</h3>',
 			'ddw_tbex_settings_section_info_pagebuilder',
 			'tbex_group_smart_tweaks'
 		);

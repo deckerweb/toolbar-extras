@@ -12,88 +12,44 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 
-add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_outfitter_pro_customize', 90 );
+add_filter( 'tbex_filter_items_theme_customizer_deep', 'ddw_tbex_themeitems_outfitter_pro_customize', 90 );
 /**
  * Customize items for Genesis Child Theme:
  *   Outfitter Pro (Premium, by StudioPress)
  *
  * @since 1.2.0
+ * @since 1.4.8 Refactored using filter/array declaration.
  *
- * @uses ddw_tbex_customizer_focus()
- * @uses ddw_tbex_string_customize_attr()
- *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param array $items Existing array of params for creating Toolbar nodes.
+ * @return array Tweaked array of params for creating Toolbar nodes.
  */
-function ddw_tbex_themeitems_outfitter_pro_customize() {
+function ddw_tbex_themeitems_outfitter_pro_customize( array $items ) {
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
-		array(
-			'id'     => 'outfitterpro-settings',
-			'parent' => 'theme-creative-customize',
-			/* translators: Autofocus section in the Customizer */
-			'title'  => ddw_tbex_string_genesis_child_theme_settings(),
-			'href'   => ddw_tbex_customizer_focus( 'section', 'outfitter_theme_options' ),
-			'meta'   => array(
-				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( ddw_tbex_string_genesis_child_theme_settings() )
-			)
-		)
+	/** Declare child theme's items */
+	$outfitterpro_items = array(
+		'outfitter_theme_options' => array(
+			'type'  => 'section',
+			'title' => ddw_tbex_string_genesis_child_theme_settings(),
+			'id'    => 'outfitterpro-settings',
+		),
+		'colors' => array(
+			'type'  => 'section',
+			'title' => __( 'Colors', 'toolbar-extras' ),
+			'id'    => 'outfitterpro-colors',
+		),
+		'header_image' => array(
+			'type'  => 'section',
+			'title' => __( 'Header Image', 'toolbar-extras' ),
+			'id'    => 'outfitterpro-header-image',
+		),
+		'background_image' => array(
+			'type'  => 'section',
+			'title' => __( 'Background Image', 'toolbar-extras' ),
+			'id'    => 'outfitterpro-background-image',
+		),
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
-		array(
-			'id'     => 'outfitterpro-colors',
-			'parent' => 'theme-creative-customize',
-			/* translators: Autofocus section in the Customizer */
-			'title'  => esc_attr__( 'Colors', 'toolbar-extras' ),
-			'href'   => ddw_tbex_customizer_focus( 'section', 'colors' ),
-			'meta'   => array(
-				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Colors', 'toolbar-extras' ) )
-			)
-		)
-	);
-
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
-		array(
-			'id'     => 'outfitterpro-header-image',
-			'parent' => 'theme-creative-customize',
-			/* translators: Autofocus section in the Customizer */
-			'title'  => esc_attr__( 'Header Image', 'toolbar-extras' ),
-			'href'   => ddw_tbex_customizer_focus( 'section', 'header_image' ),
-			'meta'   => array(
-				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Header Image', 'toolbar-extras' ) )
-			)
-		)
-	);
-
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
-		array(
-			'id'     => 'outfitterpro-background-image',
-			'parent' => 'theme-creative-customize',
-			/* translators: Autofocus section in the Customizer */
-			'title'  => esc_attr__( 'Background Image', 'toolbar-extras' ),
-			'href'   => ddw_tbex_customizer_focus( 'section', 'background_image' ),
-			'meta'   => array(
-				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Background Image', 'toolbar-extras' ) )
-			)
-		)
-	);
-
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
-		array(
-			'id'     => 'outfitterpro-site-identity',
-			'parent' => 'theme-creative-customize',
-			/* translators: Autofocus section in the Customizer */
-			'title'  => esc_attr__( 'Site Identity', 'toolbar-extras' ),
-			'href'   => ddw_tbex_customizer_focus( 'section', 'title_tagline' ),
-			'meta'   => array(
-				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Site Identity', 'toolbar-extras' ) )
-			)
-		)
-	);
+	/** Merge and return with all items */
+	return array_merge( $items, $outfitterpro_items );
 
 }  // end function

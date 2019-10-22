@@ -18,12 +18,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_safe_redirect_manager', 35 );
  *
  * @since 1.4.0
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_safe_redirect_manager() {
+function ddw_tbex_site_items_safe_redirect_manager( $admin_bar ) {
 
 	/** For: Tools */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'safe-redirect-manager',
 			'parent' => 'tbex-sitegroup-tools',
@@ -31,12 +31,12 @@ function ddw_tbex_site_items_safe_redirect_manager() {
 			'href'   => esc_url( admin_url( 'edit.php?post_type=redirect_rule' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr_x( 'Safe Redirect Manager', 'A plugin name', 'toolbar-extras' )
+				'title'  => esc_attr_x( 'Safe Redirect Manager', 'A plugin name', 'toolbar-extras' ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'safe-redirect-manager-all',
 				'parent' => 'safe-redirect-manager',
@@ -44,12 +44,12 @@ function ddw_tbex_site_items_safe_redirect_manager() {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=redirect_rule' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'All Redirect Rules', 'toolbar-extras' )
+					'title'  => esc_attr__( 'All Redirect Rules', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'safe-redirect-manager-new',
 				'parent' => 'safe-redirect-manager',
@@ -57,7 +57,7 @@ function ddw_tbex_site_items_safe_redirect_manager() {
 				'href'   => esc_url( admin_url( 'post-new.php?post_type=redirect_rule' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'New Redirect Rule', 'toolbar-extras' )
+					'title'  => esc_attr__( 'New Redirect Rule', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -65,14 +65,14 @@ function ddw_tbex_site_items_safe_redirect_manager() {
 		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-saferedirects-resources',
 					'parent' => 'safe-redirect-manager',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
-			
+
 			ddw_tbex_resource_item(
 				'support-forum',
 				'saferedirects-support',

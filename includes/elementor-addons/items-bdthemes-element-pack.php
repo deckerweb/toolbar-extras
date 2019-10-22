@@ -203,7 +203,7 @@ function ddw_tbex_aoitems_bdthemes_element_pack( $admin_bar ) {
 					'bdepack-changelogs',
 					'group-bdepack-resources',
 					'https://elementpack.pro/change-log/',
-					ddw_tbex_string_version_history( 'addon' )
+					ddw_tbex_string_version_history( 'pro-addon' )
 				);
 
 				ddw_tbex_resource_item(

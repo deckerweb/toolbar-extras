@@ -20,13 +20,13 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_lazy_blocks', 150 );
  *
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar']
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_lazy_blocks() {
+function ddw_tbex_aoitems_lazy_blocks( $admin_bar ) {
 
 	$post_type = 'lazyblocks';
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'lazy-blocks',
 			'parent' => 'group-creative-content',
@@ -34,12 +34,12 @@ function ddw_tbex_aoitems_lazy_blocks() {
 			'href'   => esc_url( admin_url( 'edit.php?post_type=' . $post_type ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_free_addon_title_attr( __( 'Lazy Blocks', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_free_addon_title_attr( __( 'Lazy Blocks', 'toolbar-extras' ) ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'lazy-blocks-all',
 				'parent' => 'lazy-blocks',
@@ -47,12 +47,12 @@ function ddw_tbex_aoitems_lazy_blocks() {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=' . $post_type ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'All Lazy Blocks', 'toolbar-extras' )
+					'title'  => esc_attr__( 'All Lazy Blocks', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'lazy-blocks-new',
 				'parent' => 'lazy-blocks',
@@ -60,12 +60,12 @@ function ddw_tbex_aoitems_lazy_blocks() {
 				'href'   => esc_url( admin_url( 'post-new.php?post_type=' . $post_type ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'New Lazy Block', 'toolbar-extras' )
+					'title'  => esc_attr__( 'New Lazy Block', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'lazy-blocks-templates',
 				'parent' => 'lazy-blocks',
@@ -73,7 +73,7 @@ function ddw_tbex_aoitems_lazy_blocks() {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=lazyblocks_templates' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Block Templates', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Block Templates', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -81,7 +81,7 @@ function ddw_tbex_aoitems_lazy_blocks() {
 		/** Template categories, via BTC plugin */
 		if ( ddw_tbex_is_btcplugin_active() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'lazy-blocks-categories',
 					'parent' => 'lazy-blocks',
@@ -89,14 +89,14 @@ function ddw_tbex_aoitems_lazy_blocks() {
 					'href'   => esc_url( admin_url( 'edit-tags.php?taxonomy=builder-template-category&post_type=' . $post_type ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_html( ddw_btc_string_template( 'template' ) )
+						'title'  => esc_html( ddw_btc_string_template( 'template' ) ),
 					)
 				)
 			);
 
 		}  // end if
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'lazy-blocks-tools',
 				'parent' => 'lazy-blocks',
@@ -104,7 +104,7 @@ function ddw_tbex_aoitems_lazy_blocks() {
 				'href'   => esc_url( admin_url( 'admin.php?page=lazyblocks_tools' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Tools', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Tools', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -112,11 +112,11 @@ function ddw_tbex_aoitems_lazy_blocks() {
 		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-lazyblocks-resources',
 					'parent' => 'lazy-blocks',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

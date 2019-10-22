@@ -65,7 +65,7 @@ function ddw_tbex_site_items_everest_forms( $admin_bar ) {
 
 				$form_id    = absint( $form->ID );
 				$form_title = esc_attr( $form->post_title );
-				
+
 				/** Add item per form */
 				$admin_bar->add_node(
 					array(
@@ -244,7 +244,7 @@ function ddw_tbex_site_items_everest_forms( $admin_bar ) {
 		);
 
 		/** Optionally, let other Everest Forms Add-Ons hook in */
-		do_action( 'tbex_after_everestforms_settings' );
+		do_action( 'tbex_after_everestforms_settings', $admin_bar );
 
 		/** Group: Resources for Everest Forms */
 		if ( ddw_tbex_display_items_resources() ) {
@@ -256,7 +256,7 @@ function ddw_tbex_site_items_everest_forms( $admin_bar ) {
 					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
-			
+
 			ddw_tbex_resource_item(
 				'support-forum',
 				'everestforms-support',

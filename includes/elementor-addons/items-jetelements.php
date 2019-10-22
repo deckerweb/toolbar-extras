@@ -36,7 +36,7 @@ function ddw_tbex_aoitems_jetelements( $admin_bar ) {
 			'href'   => esc_url( admin_url( 'admin.php?page=jet-elements-settings' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_premium_addon_title_attr( __( 'JetElements', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_premium_addon_title_attr( __( 'JetElements', 'toolbar-extras' ) ),
 			)
 		)
 	);
@@ -49,19 +49,19 @@ function ddw_tbex_aoitems_jetelements( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'admin.php?page=jet-elements-settings' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		/** Group: Resources for JetElements */
+		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
 			$admin_bar->add_group(
 				array(
 					'id'     => 'group-jetelements-resources',
 					'parent' => 'ao-jetelements',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 
@@ -83,7 +83,8 @@ function ddw_tbex_aoitems_jetelements( $admin_bar ) {
 				'changelog',
 				'jetelements-changelog',
 				'group-jetelements-resources',
-				'https://documentation.zemez.io/wordpress/index.php?project=jetelements&lang=en&section=jetelements-changelog'
+				'https://documentation.zemez.io/wordpress/index.php?project=jetelements&lang=en&section=jetelements-changelog',
+				ddw_tbex_string_version_history( 'addon' )
 			);
 
 			ddw_tbex_resource_item(

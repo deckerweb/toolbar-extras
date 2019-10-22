@@ -46,9 +46,9 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_genesis_jessica', 110 );
  *
  * @uses genesis_get_option()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_genesis_jessica() {
+function ddw_tbex_themeitems_genesis_jessica( $admin_bar ) {
 
 	$title = sprintf(
 		/* translators: %s - title of Child Theme, i.e. "Jessica" */
@@ -56,7 +56,7 @@ function ddw_tbex_themeitems_genesis_jessica() {
 		'Jessica'
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'jessica-settings',
 			'parent' => 'theme-creative',
@@ -79,7 +79,7 @@ function ddw_tbex_themeitems_genesis_jessica() {
 
 	if ( 1 !== $jessica_updates ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'jessica-update-info',
 				'parent' => 'theme-creative',

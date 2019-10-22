@@ -79,7 +79,7 @@ function ddw_tbex_toolbar_styles() {
 
 	/**
      * For WordPress Toolbar Area
-     *   Style handle: 'tbex-toolbar-styles' (WordPress Core)
+     *   Style handle: 'tbex-toolbar-styles' (TBEX Core)
      */
     $inline_css = sprintf(
     	'

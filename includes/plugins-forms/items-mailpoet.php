@@ -21,12 +21,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_mailpoet' );
  * @uses \MailPoet\Models\Newsletter::getPublished()
  * @uses \MailPoet\Models\Form::getPublished()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_mailpoet() {
+function ddw_tbex_site_items_mailpoet( $admin_bar ) {
 
 	/** For: Forms hook place */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'forms-mailpoet',
 			'parent' => 'tbex-sitegroup-forms',
@@ -34,21 +34,21 @@ function ddw_tbex_site_items_mailpoet() {
 			'href'   => esc_url( admin_url( 'admin.php?page=mailpoet-newsletters' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'MailPoet', 'toolbar-extras' )
+				'title'  => esc_attr__( 'MailPoet', 'toolbar-extras' ),
 			)
 		)
 	);
 
 		/** MailPoet dynamics - add group */
-		$GLOBALS[ 'wp_admin_bar' ]->add_group(
+		$admin_bar->add_group(
 			array(
 				'id'     => 'group-mailpoet-dynamic',
-				'parent' => 'forms-mailpoet'
+				'parent' => 'forms-mailpoet',
 			)
 		);
 
 		/** Newsletters (Emails/ Campaigns) */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'mailpoet-newsletters-overview',
 				'parent' => 'group-mailpoet-dynamic',
@@ -56,7 +56,7 @@ function ddw_tbex_site_items_mailpoet() {
 				'href'   => esc_url( admin_url( 'admin.php?page=mailpoet-newsletters' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'E-Mail Newsletters', 'toolbar-extras' )
+					'title'  => esc_attr__( 'E-Mail Newsletters', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -76,7 +76,7 @@ function ddw_tbex_site_items_mailpoet() {
 					$newsletter_id    = (int) $newsletter[ 'id' ];
 
 					/** Add item per newsletter */
-					$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					$admin_bar->add_node(
 						array(
 							'id'     => 'mailpoet-newsletter-' . $newsletter_id,
 							'parent' => 'mailpoet-newsletters-overview',
@@ -84,12 +84,12 @@ function ddw_tbex_site_items_mailpoet() {
 							'href'   => esc_url( admin_url( 'admin.php?page=mailpoet-newsletter-editor&id=' . $newsletter_id ) ),
 							'meta'   => array(
 								'target' => '',
-								'title'  => esc_attr__( 'Edit Newsletter', 'toolbar-extras' ) . ': ' . $newsletter_title
+								'title'  => esc_attr__( 'Edit Newsletter', 'toolbar-extras' ) . ': ' . $newsletter_title,
 							)
 						)
 					);
 
-						$GLOBALS[ 'wp_admin_bar' ]->add_node(
+						$admin_bar->add_node(
 							array(
 								'id'     => 'mailpoet-newsletter-' . $newsletter_id . '-edit',
 								'parent' => 'mailpoet-newsletter-' . $newsletter_id,
@@ -97,7 +97,7 @@ function ddw_tbex_site_items_mailpoet() {
 								'href'   => esc_url( admin_url( 'admin.php?page=mailpoet-newsletter-editor&id=' . $newsletter_id ) ),
 								'meta'   => array(
 									'target' => '',
-									'title'  => esc_attr__( 'Edit Newsletter', 'toolbar-extras' ) . ': ' . $newsletter_title
+									'title'  => esc_attr__( 'Edit Newsletter', 'toolbar-extras' ) . ': ' . $newsletter_title,
 								)
 							)
 						);
@@ -107,7 +107,7 @@ function ddw_tbex_site_items_mailpoet() {
 							\MailPoet\Models\Newsletter::findOne( $newsletter_id )
 						);
 
-						$GLOBALS[ 'wp_admin_bar' ]->add_node(
+						$admin_bar->add_node(
 							array(
 								'id'     => 'mailpoet-newsletter-' . $newsletter_id . '-preview',
 								'parent' => 'mailpoet-newsletter-' . $newsletter_id,
@@ -115,7 +115,7 @@ function ddw_tbex_site_items_mailpoet() {
 								'href'   => esc_url( $preview_url ),
 								'meta'   => array(
 									'target' => ddw_tbex_meta_target(),
-									'title'  => esc_attr__( 'Preview', 'toolbar-extras' )
+									'title'  => esc_attr__( 'Preview', 'toolbar-extras' ),
 								)
 							)
 						);
@@ -125,7 +125,7 @@ function ddw_tbex_site_items_mailpoet() {
 			}  // end if
 
 		/** Forms */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'mailpoet-forms-overview',
 				'parent' => 'group-mailpoet-dynamic',
@@ -133,7 +133,7 @@ function ddw_tbex_site_items_mailpoet() {
 				'href'   => esc_url( admin_url( 'admin.php?page=mailpoet-forms' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Forms', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Forms', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -153,7 +153,7 @@ function ddw_tbex_site_items_mailpoet() {
 					$form_id    = (int) $form[ 'id' ];
 
 					/** Add item per form */
-					$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					$admin_bar->add_node(
 						array(
 							'id'     => 'mailpoet-form-' . $form_id,
 							'parent' => 'mailpoet-forms-overview',
@@ -161,7 +161,7 @@ function ddw_tbex_site_items_mailpoet() {
 							'href'   => esc_url( admin_url( 'admin.php?page=mailpoet-form-editor&id=' . $form_id ) ),
 							'meta'   => array(
 								'target' => '',
-								'title'  => esc_attr__( 'Edit Form', 'toolbar-extras' ) . ': ' . $form_title
+								'title'  => esc_attr__( 'Edit Form', 'toolbar-extras' ) . ': ' . $form_title,
 							)
 						)
 					);
@@ -171,7 +171,7 @@ function ddw_tbex_site_items_mailpoet() {
 			}  // end if
 
 		/** Segments (Lists): Add group */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'mailpoet-segments-overview',
 				'parent' => 'group-mailpoet-dynamic',
@@ -179,7 +179,7 @@ function ddw_tbex_site_items_mailpoet() {
 				'href'   => esc_url( admin_url( 'admin.php?page=mailpoet-segments' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Segments', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Segments', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -199,7 +199,7 @@ function ddw_tbex_site_items_mailpoet() {
 					$segment_id    = (int) $segment[ 'id' ];
 
 					/** Add item per segment */
-					$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					$admin_bar->add_node(
 						array(
 							'id'     => 'mailpoet-segment-' . $segment_id,
 							'parent' => 'mailpoet-segments-overview',
@@ -207,7 +207,7 @@ function ddw_tbex_site_items_mailpoet() {
 							'href'   => esc_url( admin_url( 'admin.php?page=mailpoet-segments#/edit/' . $segment_id ) ),
 							'meta'   => array(
 								'target' => '',
-								'title'  => esc_attr__( 'Edit Segment', 'toolbar-extras' ) . ': ' . $segment_title
+								'title'  => esc_attr__( 'Edit Segment', 'toolbar-extras' ) . ': ' . $segment_title,
 							)
 						)
 					);
@@ -217,7 +217,7 @@ function ddw_tbex_site_items_mailpoet() {
 			}  // end if
 
 		/** Newsletters (general) */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-mailpoet-all-newsletters',
 				'parent' => 'forms-mailpoet',
@@ -225,12 +225,12 @@ function ddw_tbex_site_items_mailpoet() {
 				'href'   => esc_url( admin_url( 'admin.php?page=mailpoet-newsletters' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'All Newsletters', 'toolbar-extras' )
+					'title'  => esc_attr__( 'All Newsletters', 'toolbar-extras' ),
 				)
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-mailpoet-standard-newsletters',
 					'parent' => 'forms-mailpoet-all-newsletters',
@@ -238,12 +238,12 @@ function ddw_tbex_site_items_mailpoet() {
 					'href'   => esc_url( admin_url( 'admin.php?page=mailpoet-newsletters#/standard' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Newsletters', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Newsletters', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-mailpoet-welcome-emails',
 					'parent' => 'forms-mailpoet-all-newsletters',
@@ -251,12 +251,12 @@ function ddw_tbex_site_items_mailpoet() {
 					'href'   => esc_url( admin_url( 'admin.php?page=mailpoet-newsletters#/welcome' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Welcome Emails', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Welcome Emails', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-mailpoet-post-notifications',
 					'parent' => 'forms-mailpoet-all-newsletters',
@@ -264,12 +264,12 @@ function ddw_tbex_site_items_mailpoet() {
 					'href'   => esc_url( admin_url( 'admin.php?page=mailpoet-newsletters#/notification' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Post Notifications', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Post Notifications', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-mailpoet-new-newsletter',
 					'parent' => 'forms-mailpoet-all-newsletters',
@@ -277,13 +277,13 @@ function ddw_tbex_site_items_mailpoet() {
 					'href'   => esc_url( admin_url( 'admin.php?page=mailpoet-newsletters#/new' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'New Newsletter', 'toolbar-extras' )
+						'title'  => esc_attr__( 'New Newsletter', 'toolbar-extras' ),
 					)
 				)
 			);
 
 		/** Forms (general) */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-mailpoet-all-forms',
 				'parent' => 'forms-mailpoet',
@@ -291,13 +291,13 @@ function ddw_tbex_site_items_mailpoet() {
 				'href'   => esc_url( admin_url( 'admin.php?page=mailpoet-forms' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'All Forms', 'toolbar-extras' )
+					'title'  => esc_attr__( 'All Forms', 'toolbar-extras' ),
 				)
 			)
 		);
 
 		/** Subscribers (general) */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-mailpoet-all-subsribers',
 				'parent' => 'forms-mailpoet',
@@ -305,12 +305,12 @@ function ddw_tbex_site_items_mailpoet() {
 				'href'   => esc_url( admin_url( 'admin.php?page=mailpoet-subscribers#/page[1]/sort_by[created_at]/sort_order[desc]/group[all]' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'All Subscribers', 'toolbar-extras' )
+					'title'  => esc_attr__( 'All Subscribers', 'toolbar-extras' ),
 				)
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-mailpoet-subsribers',
 					'parent' => 'forms-mailpoet-all-subsribers',
@@ -318,12 +318,12 @@ function ddw_tbex_site_items_mailpoet() {
 					'href'   => esc_url( admin_url( 'admin.php?page=mailpoet-subscribers#/page[1]/sort_by[created_at]/sort_order[desc]/group[subscribed]' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Subscribers', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Subscribers', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-mailpoet-new-subsriber',
 					'parent' => 'forms-mailpoet-all-subsribers',
@@ -331,12 +331,12 @@ function ddw_tbex_site_items_mailpoet() {
 					'href'   => esc_url( admin_url( 'admin.php?page=mailpoet-subscribers#/new' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'New Subscriber', 'toolbar-extras' )
+						'title'  => esc_attr__( 'New Subscriber', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-mailpoet-import-subscribers',
 					'parent' => 'forms-mailpoet-all-subsribers',
@@ -344,12 +344,12 @@ function ddw_tbex_site_items_mailpoet() {
 					'href'   => esc_url( admin_url( 'admin.php?page=mailpoet-import#step1' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Import', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Import', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-mailpoet-export-subscribers',
 					'parent' => 'forms-mailpoet-all-subsribers',
@@ -357,13 +357,13 @@ function ddw_tbex_site_items_mailpoet() {
 					'href'   => esc_url( admin_url( 'admin.php?page=mailpoet-export' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Export', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Export', 'toolbar-extras' ),
 					)
 				)
 			);
 
 		/** Segments (general) */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-mailpoet-all-segments',
 				'parent' => 'forms-mailpoet',
@@ -371,12 +371,12 @@ function ddw_tbex_site_items_mailpoet() {
 				'href'   => esc_url( admin_url( 'admin.php?page=mailpoet-segments#/' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'All Segments', 'toolbar-extras' )
+					'title'  => esc_attr__( 'All Segments', 'toolbar-extras' ),
 				)
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-mailpoet-segments',
 					'parent' => 'forms-mailpoet-all-segments',
@@ -384,12 +384,12 @@ function ddw_tbex_site_items_mailpoet() {
 					'href'   => esc_url( admin_url( 'admin.php?page=mailpoet-segments#/' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Segments', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Segments', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-mailpoet-new-segment',
 					'parent' => 'forms-mailpoet-all-segments',
@@ -397,13 +397,13 @@ function ddw_tbex_site_items_mailpoet() {
 					'href'   => esc_url( admin_url( 'admin.php?page=mailpoet-segments#/new' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'New Segment', 'toolbar-extras' )
+						'title'  => esc_attr__( 'New Segment', 'toolbar-extras' ),
 					)
 				)
 			);
 
 		/** Settings */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-mailpoet-settings',
 				'parent' => 'forms-mailpoet',
@@ -411,12 +411,12 @@ function ddw_tbex_site_items_mailpoet() {
 				'href'   => esc_url( admin_url( 'admin.php?page=mailpoet-settings' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
 				)
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-mailpoet-settings-basics',
 					'parent' => 'forms-mailpoet-settings',
@@ -424,12 +424,12 @@ function ddw_tbex_site_items_mailpoet() {
 					'href'   => esc_url( admin_url( 'admin.php?page=mailpoet-settings#basics' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Basics', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Basics', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-mailpoet-settings-signup',
 					'parent' => 'forms-mailpoet-settings',
@@ -437,12 +437,12 @@ function ddw_tbex_site_items_mailpoet() {
 					'href'   => esc_url( admin_url( 'admin.php?page=mailpoet-settings#signup' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Sign-up Confirmation', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Sign-up Confirmation', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-mailpoet-settings-send-with',
 					'parent' => 'forms-mailpoet-settings',
@@ -450,12 +450,12 @@ function ddw_tbex_site_items_mailpoet() {
 					'href'   => esc_url( admin_url( 'admin.php?page=mailpoet-settings#mta' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Send with ...', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Send with ...', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-mailpoet-settings-advanced',
 					'parent' => 'forms-mailpoet-settings',
@@ -463,12 +463,12 @@ function ddw_tbex_site_items_mailpoet() {
 					'href'   => esc_url( admin_url( 'admin.php?page=mailpoet-settings#advanced' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Advanced', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Advanced', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-mailpoet-settings-license',
 					'parent' => 'forms-mailpoet-settings',
@@ -476,13 +476,13 @@ function ddw_tbex_site_items_mailpoet() {
 					'href'   => esc_url( admin_url( 'admin.php?page=mailpoet-settings#premium' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'License', 'toolbar-extras' )
+						'title'  => esc_attr__( 'License', 'toolbar-extras' ),
 					)
 				)
 			);
 
 		/** Help */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-mailpoet-help',
 				'parent' => 'forms-mailpoet',
@@ -490,12 +490,12 @@ function ddw_tbex_site_items_mailpoet() {
 				'href'   => esc_url( admin_url( 'admin.php?page=mailpoet-help' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Help', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Help', 'toolbar-extras' ),
 				)
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-mailpoet-help-system-status',
 					'parent' => 'forms-mailpoet-help',
@@ -503,12 +503,12 @@ function ddw_tbex_site_items_mailpoet() {
 					'href'   => esc_url( admin_url( 'admin.php?page=mailpoet-help#/systemStatus' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'System Status', 'toolbar-extras' )
+						'title'  => esc_attr__( 'System Status', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-mailpoet-help-system-info',
 					'parent' => 'forms-mailpoet-help',
@@ -516,22 +516,22 @@ function ddw_tbex_site_items_mailpoet() {
 					'href'   => esc_url( admin_url( 'admin.php?page=mailpoet-help#/systemInfo' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'System Info', 'toolbar-extras' )
+						'title'  => esc_attr__( 'System Info', 'toolbar-extras' ),
 					)
 				)
 			);
 
 		/** Optionally, let other MailPoet Add-Ons hook in */
-		do_action( 'tbex_after_mailpoet_settings' );
+		do_action( 'tbex_after_mailpoet_settings', $admin_bar );
 
 		/** Group: Resources for Quform */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-mailpoet-resources',
 					'parent' => 'forms-mailpoet',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 
@@ -581,16 +581,16 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_new_content_mailpoet', 80 );
  *
  * @since 1.4.0
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_new_content_mailpoet() {
+function ddw_tbex_aoitems_new_content_mailpoet( $admin_bar ) {
 
 	/** Bail early if items display is not wanted */
 	if ( ! ddw_tbex_display_items_new_content() || is_network_admin() ) {
-		return;
+		return $admin_bar;
 	}
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'tbex-mailpoet-dynamic',
 			'parent' => 'new-content',
@@ -598,12 +598,12 @@ function ddw_tbex_aoitems_new_content_mailpoet() {
 			'href'   => esc_url( admin_url( 'admin.php?page=mailpoet-newsletters#/new' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Add New MailPoet Campaign Data', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Add New MailPoet Campaign Data', 'toolbar-extras' ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'mailpoet-new-newsletter',
 				'parent' => 'tbex-mailpoet-dynamic',
@@ -611,12 +611,12 @@ function ddw_tbex_aoitems_new_content_mailpoet() {
 				'href'   => esc_url( admin_url( 'admin.php?page=mailpoet-newsletters#/new' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Add New MailPoet Newsletter', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Add New MailPoet Newsletter', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'mailpoet-new-segment',
 				'parent' => 'tbex-mailpoet-dynamic',
@@ -624,12 +624,12 @@ function ddw_tbex_aoitems_new_content_mailpoet() {
 				'href'   => esc_url( admin_url( 'admin.php?page=mailpoet-segments#/new' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Add New MailPoet Segment (List)', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Add New MailPoet Segment (List)', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'mailpoet-new-subsriber',
 				'parent' => 'tbex-mailpoet-dynamic',
@@ -637,7 +637,7 @@ function ddw_tbex_aoitems_new_content_mailpoet() {
 				'href'   => esc_url( admin_url( 'admin.php?page=mailpoet-subscribers#/new' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Add New Subscriber in MailPoet', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Add New Subscriber in MailPoet', 'toolbar-extras' ),
 				)
 			)
 		);

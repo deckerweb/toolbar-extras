@@ -19,12 +19,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_formcraft' );
  * @since 1.3.2
  * @since 1.4.2 Security enhancements.
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_formcraft() {
+function ddw_tbex_site_items_formcraft( $admin_bar ) {
 
 	/** For: Forms */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'forms-formcraft',
 			'parent' => 'tbex-sitegroup-forms',
@@ -49,10 +49,10 @@ function ddw_tbex_site_items_formcraft() {
 		if ( $forms ) {
 
 			/** Add group */
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-formcraft-edit-forms',
-					'parent' => 'forms-formcraft'
+					'parent' => 'forms-formcraft',
 				)
 			);
 
@@ -62,7 +62,7 @@ function ddw_tbex_site_items_formcraft() {
 				$form_title  = esc_attr( $form_value[ 'name' ] );
 
 				/** Add item per form */
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'forms-formcraft-form-' . $form_id,
 						'parent' => 'group-formcraft-edit-forms',
@@ -70,12 +70,12 @@ function ddw_tbex_site_items_formcraft() {
 						'href'   => esc_url( admin_url( 'admin.php?page=formcraft-dashboard&id=' . $form_id ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'Edit Form', 'toolbar-extras' ) . ': ' . $form_title
+							'title'  => esc_attr__( 'Edit Form', 'toolbar-extras' ) . ': ' . $form_title,
 						)
 					)
 				);
 
-					$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					$admin_bar->add_node(
 						array(
 							'id'     => 'forms-formcraft-form-' . $form_id . '-builder',
 							'parent' => 'forms-formcraft-form-' . $form_id,
@@ -83,12 +83,12 @@ function ddw_tbex_site_items_formcraft() {
 							'href'   => esc_url( admin_url( 'admin.php?page=formcraft-dashboard&id=' . $form_id ) ),
 							'meta'   => array(
 								'target' => '',
-								'title'  => esc_attr__( 'Form Builder', 'toolbar-extras' )
+								'title'  => esc_attr__( 'Form Builder', 'toolbar-extras' ),
 							)
 						)
 					);
 
-					$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					$admin_bar->add_node(
 						array(
 							'id'     => 'forms-formcraft-form-' . $form_id . '-preview',
 							'parent' => 'forms-formcraft-form-' . $form_id,
@@ -96,7 +96,7 @@ function ddw_tbex_site_items_formcraft() {
 							'href'   => esc_url( site_url( '/form-view/' . $form_id . '?preview=true' ) ),
 							'meta'   => array(
 								'target' => ddw_tbex_meta_target(),
-								'title'  => esc_attr__( 'Preview', 'toolbar-extras' )
+								'title'  => esc_attr__( 'Preview', 'toolbar-extras' ),
 							)
 						)
 					);
@@ -106,7 +106,7 @@ function ddw_tbex_site_items_formcraft() {
 		}  // end if
 
 		/** General FormCraft Forms items */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-formcraft-all-forms',
 				'parent' => 'forms-formcraft',
@@ -114,12 +114,12 @@ function ddw_tbex_site_items_formcraft() {
 				'href'   => esc_url( admin_url( 'admin.php?page=formcraft-dashboard' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'All Forms', 'toolbar-extras' )
+					'title'  => esc_attr__( 'All Forms', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-formcraft-all-entries',
 				'parent' => 'forms-formcraft',
@@ -127,12 +127,12 @@ function ddw_tbex_site_items_formcraft() {
 				'href'   => esc_url( admin_url( 'admin.php?page=formcraft-entries' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'All Entries', 'toolbar-extras' )
+					'title'  => esc_attr__( 'All Entries', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-formcraft-insights',
 				'parent' => 'forms-formcraft',
@@ -140,12 +140,12 @@ function ddw_tbex_site_items_formcraft() {
 				'href'   => esc_url( admin_url( 'admin.php?page=formcraft-insights' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Insights', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Insights', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-formcraft-uploads',
 				'parent' => 'forms-formcraft',
@@ -153,12 +153,12 @@ function ddw_tbex_site_items_formcraft() {
 				'href'   => esc_url( admin_url( 'admin.php?page=formcraft-uploads' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Uploads', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Uploads', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-formcraft-license',
 				'parent' => 'forms-formcraft',
@@ -166,22 +166,22 @@ function ddw_tbex_site_items_formcraft() {
 				'href'   => esc_url( admin_url( 'admin.php?page=formcraft-license' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'License', 'toolbar-extras' )
+					'title'  => esc_attr__( 'License', 'toolbar-extras' ),
 				)
 			)
 		);
 
 		/** Optionally, let other FormCraft Forms Add-Ons hook in */
-		do_action( 'tbex_after_formcraft_settings' );
+		do_action( 'tbex_after_formcraft_settings', $admin_bar );
 
 		/** Group: Resources for FormCraft Forms */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-formcraft-resources',
 					'parent' => 'forms-formcraft',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

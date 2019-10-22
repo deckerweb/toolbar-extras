@@ -19,12 +19,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_bsf_wp_portfolio' );
  *
  * @since 1.3.2
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_bsf_wp_portfolio() {
+function ddw_tbex_site_items_bsf_wp_portfolio( $admin_bar ) {
 
 	/** For: Manage Content */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'manage-content-wpportfolio',
 			'parent' => 'manage-content',
@@ -32,7 +32,7 @@ function ddw_tbex_site_items_bsf_wp_portfolio() {
 			'href'   => esc_url( admin_url( 'edit.php?post_type=astra-portfolio' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Edit Portfolio Content', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Edit Portfolio Content', 'toolbar-extras' ),
 			)
 		)
 	);
@@ -47,19 +47,19 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_bsf_wp_portfolio', 110 );
  *
  * @since 1.3.2
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_bsf_wp_portfolio() {
+function ddw_tbex_themeitems_bsf_wp_portfolio( $admin_bar ) {
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_group(
+	$admin_bar->add_group(
 		array(
 			'id'     => 'group-wpportfolio-content',
-			'parent' => 'theme-creative'
+			'parent' => 'theme-creative',
 		)
 	);
 
 	/** For: Theme Creative */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'wpportfolio-content',
 			'parent' => 'group-wpportfolio-content',
@@ -67,12 +67,12 @@ function ddw_tbex_themeitems_bsf_wp_portfolio() {
 			'href'   => esc_url( admin_url( 'edit.php?post_type=astra-portfolio' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'All Portfolio Items', 'toolbar-extras' )
+				'title'  => esc_attr__( 'All Portfolio Items', 'toolbar-extras' ),
 			)
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'wpportfolio-content-new',
 			'parent' => 'group-wpportfolio-content',
@@ -80,12 +80,12 @@ function ddw_tbex_themeitems_bsf_wp_portfolio() {
 			'href'   => esc_url( admin_url( 'edit.php?post_type=astra-portfolio&page=astra-portfolio-add-new' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'New Portfolio Item', 'toolbar-extras' )
+				'title'  => esc_attr__( 'New Portfolio Item', 'toolbar-extras' ),
 			)
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'wpportfolio-content-settings',
 			'parent' => 'group-wpportfolio-content',
@@ -93,7 +93,7 @@ function ddw_tbex_themeitems_bsf_wp_portfolio() {
 			'href'   => esc_url( admin_url( 'edit.php?post_type=astra-portfolio&page=astra-portfolio' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
 			)
 		)
 	);

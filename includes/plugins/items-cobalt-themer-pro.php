@@ -22,11 +22,11 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_themer_pro', 102 );
  * @uses ddw_tbex_display_items_resources()
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_themer_pro() {
+function ddw_tbex_aoitems_themer_pro( $admin_bar ) {
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'ca-themerpro',
 			'parent' => 'group-active-theme',
@@ -34,14 +34,14 @@ function ddw_tbex_aoitems_themer_pro() {
 			'href'   => esc_url( admin_url( 'admin.php?page=themer-pro-dashboard' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Themer Pro', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Themer Pro', 'toolbar-extras' ),
 			)
 		)
 	);
 
 		if ( themer_pro_get_settings( 'enable_child_theme_editor' ) ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ca-themerpro-editor-child',
 					'parent' => 'ca-themerpro',
@@ -49,12 +49,12 @@ function ddw_tbex_aoitems_themer_pro() {
 					'href'   => esc_url( admin_url( 'admin.php?page=themer-pro-child-editor' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Child Theme Editor', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Child Theme Editor', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ca-themerpro-editor-child-full',
 					'parent' => 'ca-themerpro',
@@ -62,7 +62,7 @@ function ddw_tbex_aoitems_themer_pro() {
 					'href'   => esc_url( admin_url( 'admin.php?page=themer-pro-child-editor&activefile=functions-php&subdir&fullscreen=1' ) ),
 					'meta'   => array(
 						'target' => ddw_tbex_meta_target(),
-						'title'  => esc_attr__( 'Child Theme Editor Full View', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Child Theme Editor Full View', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -71,7 +71,7 @@ function ddw_tbex_aoitems_themer_pro() {
 
 		if ( themer_pro_get_settings( 'enable_parent_theme_editor' ) ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ca-themerpro-editor-parent',
 					'parent' => 'ca-themerpro',
@@ -79,7 +79,7 @@ function ddw_tbex_aoitems_themer_pro() {
 					'href'   => esc_url( admin_url( 'admin.php?page=themer-pro-parent-editor' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Parent Theme Editor', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Parent Theme Editor', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -88,7 +88,7 @@ function ddw_tbex_aoitems_themer_pro() {
 
 		if ( themer_pro_get_settings( 'enable_child_image_manager' ) ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ca-themerpro-image-manager',
 					'parent' => 'ca-themerpro',
@@ -96,14 +96,14 @@ function ddw_tbex_aoitems_themer_pro() {
 					'href'   => esc_url( admin_url( 'admin.php?page=themer-pro-image-manager' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Child Theme Image Manager', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Child Theme Image Manager', 'toolbar-extras' ),
 					)
 				)
 			);
 
 		}  // end if
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ca-themerpro-creatur',
 				'parent' => 'ca-themerpro',
@@ -111,12 +111,12 @@ function ddw_tbex_aoitems_themer_pro() {
 				'href'   => esc_url( admin_url( 'admin.php?page=themer-pro-export' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Child Theme Creator', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Child Theme Creator', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ca-themerpro-general',
 				'parent' => 'ca-themerpro',
@@ -124,7 +124,7 @@ function ddw_tbex_aoitems_themer_pro() {
 				'href'   => esc_url( admin_url( 'admin.php?page=themer-pro-dashboard' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'General Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'General Settings', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -132,11 +132,11 @@ function ddw_tbex_aoitems_themer_pro() {
 		/** Group: Resources for Themer Pro */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-catpro-resources',
 					'parent' => 'ca-themerpro',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 
@@ -175,28 +175,28 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_devmode_themer_pro' );
  * @uses ddw_tbex_display_items_dev_mode()
  * @uses themer_pro_get_settings()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_devmode_themer_pro() {
+function ddw_tbex_site_items_devmode_themer_pro( $admin_bar ) {
 
 	/** Bail early if Dev Mode is disabled */
 	if ( ! ddw_tbex_display_items_dev_mode() ) {
-		return;
+		return $admin_bar;
 	}
 
 	add_filter( 'tbex_filter_is_dev_mode', '__return_empty_string' );
 
 	/** Group */
-	$GLOBALS[ 'wp_admin_bar' ]->add_group(
+	$admin_bar->add_group(
 		array(
 			'id'     => 'group-themer-pro',
-			'parent' => 'rapid-dev'
+			'parent' => 'rapid-dev',
 		)
 	);
 
 	if ( themer_pro_get_settings( 'enable_child_theme_editor' ) ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'catpro-editor-child',
 				'parent' => 'group-themer-pro',
@@ -204,7 +204,7 @@ function ddw_tbex_site_items_devmode_themer_pro() {
 				'href'   => esc_url( admin_url( 'admin.php?page=themer-pro-child-editor' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Child Theme Editor', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Child Theme Editor', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -213,7 +213,7 @@ function ddw_tbex_site_items_devmode_themer_pro() {
 
 	if ( themer_pro_get_settings( 'enable_parent_theme_editor' ) ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'catpro-editor-parent',
 				'parent' => 'group-themer-pro',
@@ -221,7 +221,7 @@ function ddw_tbex_site_items_devmode_themer_pro() {
 				'href'   => esc_url( admin_url( 'admin.php?page=themer-pro-parent-editor' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Parent Theme Editor', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Parent Theme Editor', 'toolbar-extras' ),
 				)
 			)
 		);

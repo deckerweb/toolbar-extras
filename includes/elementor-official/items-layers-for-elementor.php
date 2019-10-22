@@ -23,12 +23,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_layers_for_elementor', 100 );
  * @uses ddw_tbex_customizer_start()
  * @uses ddw_tbex_item_theme_creative_customize()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_layers_for_elementor() {
+function ddw_tbex_themeitems_layers_for_elementor( $admin_bar ) {
 
 	/** Theme creative */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'theme-creative',
 			'parent' => 'group-active-theme',
@@ -44,7 +44,7 @@ function ddw_tbex_themeitems_layers_for_elementor() {
 		/** Theme customize */
 		ddw_tbex_item_theme_creative_customize();
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'theme-creative-layers-setup',
 				'parent' => 'theme-creative',
@@ -52,7 +52,7 @@ function ddw_tbex_themeitems_layers_for_elementor() {
 				'href'   => esc_url( admin_url( 'admin.php?page=layerswp-get-started' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Layers Setup', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Layers Setup', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -118,43 +118,43 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_layers_for_elementor_resource
  * @uses ddw_tbex_resource_item()
  * @uses ddw_tbex_get_resource_url()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_layers_for_elementor_resources() {
+function ddw_tbex_themeitems_layers_for_elementor_resources( $admin_bar ) {
 
 	/** Bail early if no resources display active */
 	if ( ! ddw_tbex_display_items_resources() ) {
-		return;
+		return $admin_bar;
 	}
 
 	/** Group: Resources for Layers for Elementor Theme */
-	$GLOBALS[ 'wp_admin_bar' ]->add_group(
+	$admin_bar->add_group(
 		array(
 			'id'     => 'group-theme-resources',
 			'parent' => 'theme-creative',
-			'meta'   => array( 'class' => 'ab-sub-secondary' )
+			'meta'   => array( 'class' => 'ab-sub-secondary' ),
 		)
 	);
 
-	ddw_tbex_resource_item(
-		'documentation',
-		'elayers-docs',
-		'group-theme-resources',
-		ddw_tbex_get_resource_url( 'elementor', 'url_layers_docs' )
-	);
+		ddw_tbex_resource_item(
+			'documentation',
+			'elayers-docs',
+			'group-theme-resources',
+			ddw_tbex_get_resource_url( 'elementor', 'url_layers_docs' )
+		);
 
-	ddw_tbex_resource_item(
-		'facebook-group',
-		'elayers-fbgroup',
-		'group-theme-resources',
-		ddw_tbex_get_resource_url( 'elementor', 'url_fb_group' )
-	);
+		ddw_tbex_resource_item(
+			'facebook-group',
+			'elayers-fbgroup',
+			'group-theme-resources',
+			ddw_tbex_get_resource_url( 'elementor', 'url_fb_group' )
+		);
 
-	ddw_tbex_resource_item(
-		'official-site',
-		'elayers-site',
-		'group-theme-resources',
-		ddw_tbex_get_resource_url( 'elementor', 'url_layers_site' )
-	);
+		ddw_tbex_resource_item(
+			'official-site',
+			'elayers-site',
+			'group-theme-resources',
+			ddw_tbex_get_resource_url( 'elementor', 'url_layers_site' )
+		);
 
 }  // end function

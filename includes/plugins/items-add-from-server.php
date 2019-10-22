@@ -20,19 +20,19 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_addfromserver', 15 );
  *
  * @uses ddw_tbex_display_items_new_content()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_addfromserver() {
+function ddw_tbex_site_items_addfromserver( $admin_bar ) {
 
 	/** For: Elements */
-	$GLOBALS[ 'wp_admin_bar' ]->add_group(
+	$admin_bar->add_group(
 		array(
 			'id'     => 'group-addfromserver',
-			'parent' => 'manage-content-media'
+			'parent' => 'manage-content-media',
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'media-addfromserver',
 			'parent' => 'group-addfromserver',
@@ -40,12 +40,12 @@ function ddw_tbex_site_items_addfromserver() {
 			'href'   => esc_url( admin_url( 'upload.php?page=add-from-server' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Add From Server', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Add From Server', 'toolbar-extras' ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'media-addfromserver-settings',
 				'parent' => 'group-addfromserver',
@@ -53,7 +53,7 @@ function ddw_tbex_site_items_addfromserver() {
 				'href'   => esc_url( admin_url( 'options-general.php?page=add-from-server-settings' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -61,7 +61,7 @@ function ddw_tbex_site_items_addfromserver() {
 	/** For: New Content */
 	if ( ddw_tbex_display_items_new_content() ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'tbex-addfromserver',
 				'parent' => 'new-media',
@@ -69,7 +69,7 @@ function ddw_tbex_site_items_addfromserver() {
 				'href'   => esc_url( admin_url( 'upload.php?page=add-from-server' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr_x( 'Add From Server', 'Toolbar New Content section', 'toolbar-extras' )
+					'title'  => esc_attr_x( 'Add From Server', 'Toolbar New Content section', 'toolbar-extras' ),
 				)
 			)
 		);

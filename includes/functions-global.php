@@ -302,6 +302,28 @@ function ddw_tbex_id_sites_browser() {
 
 
 /**
+ * Helper: Parent ID string for our own Tools Group to hook in.
+ *
+ * @since 1.4.8
+ *
+ * @return string ID of site group item.
+ */
+function ddw_tbex_parent_id_tools_group() {
+
+	return strtolower(
+		sanitize_html_class(
+			apply_filters(
+				'tbex_filter_parent_id_tools_group',
+				''
+			),
+			''		// fallback
+		)
+	);
+
+}  // end function
+
+
+/**
  * To get filterable hook priority for "Website Settings" item in the Site Group.
  *   Default: 32 - that means after "Dashboard" and "Visit Store" items.
  *
@@ -657,11 +679,13 @@ function ddw_tbex_get_german_locales() {
  * Helper function to determine if in a German locale based environment.
  *
  * @since 1.0.0
+ * @since 1.4.8 Use determine_locale() if available.
  *
  * @uses ddw_tbex_get_german_locales()
  * @uses get_option()
  * @uses get_site_option()
- * @uses get_locale()
+ * @uses determine_locale()
+ * @uses get_user_locale()
  * @uses ICL_LANGUAGE_CODE Constant of WPML premium plugin, if defined.
  *
  * @return bool If German-based locale, return TRUE, FALSE otherwise.
@@ -675,6 +699,8 @@ function ddw_tbex_is_german() {
 	$option_wplang      = get_option( 'WPLANG' );
 	$site_option_wplang = get_site_option( 'WPLANG' );
 
+	$locale = function_exists( 'determine_locale' ) ? determine_locale() : get_user_locale();
+
 	/**
 	 * Check for German-based environment/ context in locale/ WPLANG setting
 	 *    and/ or within WPML (premium plugin).
@@ -682,7 +708,7 @@ function ddw_tbex_is_german() {
 	 * NOTE: This is very important for multilingual sites and/or Multisite
 	 *       installs.
 	 */
-	if ( ( in_array( get_locale(), $german_locales )
+	if ( ( in_array( $locale, $german_locales )
 				|| ( $option_wplang && in_array( $option_wplang, $german_locales ) )
 				|| ( $site_option_wplang && in_array( $site_option_wplang, $german_locales ) )
 			)
@@ -799,23 +825,25 @@ function ddw_tbex_custom_url_test( $type = '', $option_key = '' ) {
  *
  * @since 1.4.0
  * @since 1.4.2 Added Cloudflare Color Tools.
+ * @since 1.4.8 Added $admin_bar paramenter.
  *
- * @param string $suffix String for suffix for Toolbar node ID and group ID.
- * @param string $parent String for Toolbar parent node.
+ * @param string $suffix    String for suffix for Toolbar node ID and group ID.
+ * @param string $parent    String for Toolbar parent node.
+ * @param object $admin_bar Object of Toolbar nodes.
  * @return void|object $GLOBALS[ 'wp_admin_bar' ] object to build new Toolbar nodes.
  */
-function ddw_tbex_resources_color_wheel( $suffix = '', $parent = '' ) {
+function ddw_tbex_resources_color_wheel( $admin_bar, $suffix = '', $parent = '' ) {
 
 	/** Bail early if no resources display wanted */
 	if ( ! ddw_tbex_display_items_resources() ) {
-		return;
+		return $admin_bar;
 	}
 
 	/** Set suffix */
 	$suffix = '-' . sanitize_key( $suffix );
 
 	/** Create group */
-	$GLOBALS[ 'wp_admin_bar' ]->add_group(
+	$admin_bar->add_group(
 		array(
 			'id'     => 'group-resources-colorwheel' . $suffix,
 			'parent' => sanitize_key( $parent ),
@@ -823,7 +851,7 @@ function ddw_tbex_resources_color_wheel( $suffix = '', $parent = '' ) {
 	);
 
 		/** Adobe Color CC */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'cw-resource-adobe-colorcc' . $suffix,
 				'parent' => 'group-resources-colorwheel' . $suffix,
@@ -832,13 +860,13 @@ function ddw_tbex_resources_color_wheel( $suffix = '', $parent = '' ) {
 				'meta'   => array(
 					'rel'    => ddw_tbex_meta_rel(),
 					'target' => ddw_tbex_meta_target(),
-					'title'  => esc_attr__( 'Color Wheel &amp; Color Schemes', 'toolbar-extras' ) . ' - ' . 'Adobe Color CC'
+					'title'  => esc_attr__( 'Color Wheel &amp; Color Schemes', 'toolbar-extras' ) . ' - ' . 'Adobe Color CC',
 				)
 			)
 		);
 
 		/** Paletton.com */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'cw-resource-paletton' . $suffix,
 				'parent' => 'group-resources-colorwheel' . $suffix,
@@ -847,13 +875,13 @@ function ddw_tbex_resources_color_wheel( $suffix = '', $parent = '' ) {
 				'meta'   => array(
 					'rel'    => ddw_tbex_meta_rel(),
 					'target' => ddw_tbex_meta_target(),
-					'title'  => esc_attr__( 'Color Scheme Designer', 'toolbar-extras' ) . ' - ' . 'paletton.com'
+					'title'  => esc_attr__( 'Color Scheme Designer', 'toolbar-extras' ) . ' - ' . 'paletton.com',
 				)
 			)
 		);
 
 		/** Cloudflare Design - Color */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'cw-resource-cloudflare' . $suffix,
 				'parent' => 'group-resources-colorwheel' . $suffix,
@@ -862,7 +890,7 @@ function ddw_tbex_resources_color_wheel( $suffix = '', $parent = '' ) {
 				'meta'   => array(
 					'rel'    => ddw_tbex_meta_rel(),
 					'target' => ddw_tbex_meta_target(),
-					'title'  => esc_attr__( 'Color Tools', 'toolbar-extras' ) . ' - ' . 'Cloudflare Design'
+					'title'  => esc_attr__( 'Color Tools', 'toolbar-extras' ) . ' - ' . 'Cloudflare Design',
 				)
 			)
 		);
@@ -987,5 +1015,65 @@ function ddw_tbex_plugin_install_link( $plugin_slug = '' ) {
 function ddw_tbex_get_styles_suffix() {
 
 	return ddw_tbex_is_wp_dev_mode() ? '' : '.min';
+
+}  // end function
+
+
+/**
+ * Get the Blog ID of the main site in a multisite network.
+ *
+ * @since 1.4.8
+ *
+ * @return int The blog_id of the main site.
+ */
+function ddw_tbex_get_main_site_blog_id() {
+
+	return (int) get_network()->site_id;
+
+}  // end function
+
+
+/**
+ * Build plugin's settings URL, optionally for a given tab.
+ *
+ * @since 1.4.8
+ *
+ * @param string $tab    Optional, ID/string of a given settings tab.
+ * @param string $render Flag string to optionally echo string (not returning).
+ * @return string $url Settings URL for the plugin, optional for given tab.
+ */
+function ddw_tbex_get_settings_url( $tab = '', $render = '' ) {
+
+	$tab = sanitize_key( $tab );
+
+	$url = admin_url( 'options-general.php?page=toolbar-extras' );
+
+	$possible_tabs = array(
+		/** current */
+		'general', 'smart-tweaks', 'development', 'addons', 'import-export', 'about-support',
+
+		/** upcoming */
+		'tools',
+
+		/** Add-Ons */
+		'oxygen', 'mainwp', 'givewp', 'simplepress', 'brizy', 'glotpress', 'multisite', 'thrive', 'beaver', 'divi', 'woocommerce',
+	);
+
+	if ( in_array( $tab, $possible_tabs ) ) {
+
+		$url = add_query_arg(
+			array(
+				'tab' => $tab,
+			),
+			$url
+		);
+
+	}  // end if
+
+	if ( 'echo' === sanitize_key( $render ) ) {
+		echo esc_url( $url );
+	}
+
+	return esc_url( $url );
 
 }  // end function

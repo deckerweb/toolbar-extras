@@ -26,7 +26,7 @@ function ddw_tbex_aoitems_easy_blocks_pro( $admin_bar ) {
 
 	/** Use Add-On hook place */
 	add_filter( 'tbex_filter_is_addon', '__return_empty_string' );
-	
+
 	$admin_bar->add_node(
 		array(
 			'id'     => 'tbex-easyblockspro',
@@ -35,7 +35,7 @@ function ddw_tbex_aoitems_easy_blocks_pro( $admin_bar ) {
 			'href'   => esc_url( admin_url( 'admin.php?page=srxgb-setting' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_free_addon_title_attr( esc_attr__( 'Easy Blocks Pro', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_free_addon_title_attr( esc_attr__( 'Easy Blocks Pro', 'toolbar-extras' ) ),
 			)
 		)
 	);
@@ -48,7 +48,7 @@ function ddw_tbex_aoitems_easy_blocks_pro( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'admin.php?page=srxgb-setting' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Activate Blocks', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Activate Blocks', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -60,7 +60,7 @@ function ddw_tbex_aoitems_easy_blocks_pro( $admin_bar ) {
 				array(
 					'id'     => 'group-easyblockspro-resources',
 					'parent' => 'tbex-easyblockspro',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

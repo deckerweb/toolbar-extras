@@ -36,7 +36,7 @@ function ddw_tbex_aoitems_briefcase_elementor_widgets( $admin_bar ) {
 			'href'   => 'https://briefcasewp.com/your-account/',
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_premium_addon_title_attr( __( 'Briefcase Widgets', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_premium_addon_title_attr( __( 'Briefcase Widgets', 'toolbar-extras' ) ),
 			)
 		)
 	);
@@ -49,7 +49,7 @@ function ddw_tbex_aoitems_briefcase_elementor_widgets( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=elementor_library' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Templates', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Templates', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -70,7 +70,7 @@ function ddw_tbex_aoitems_briefcase_elementor_widgets( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'edit.php?post_type=product' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => $woo_products_title
+						'title'  => $woo_products_title,
 					)
 				)
 			);
@@ -93,7 +93,7 @@ function ddw_tbex_aoitems_briefcase_elementor_widgets( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'edit.php?post_type=download' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => $edd_products_title
+						'title'  => $edd_products_title,
 					)
 				)
 			);
@@ -107,7 +107,7 @@ function ddw_tbex_aoitems_briefcase_elementor_widgets( $admin_bar ) {
 				array(
 					'id'     => 'group-briefcasewp-resources',
 					'parent' => 'ao-briefcasewp',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

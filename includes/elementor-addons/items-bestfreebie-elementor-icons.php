@@ -36,7 +36,7 @@ function ddw_tbex_aoitems_bestfreebie_elementor_icons( $admin_bar ) {
 			'href'   => esc_url( admin_url( 'admin.php?page=bestfreebie-elementor-custom-icons' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_free_addon_title_attr( __( 'Setup an Elementor Icon Set', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_free_addon_title_attr( __( 'Setup an Elementor Icon Set', 'toolbar-extras' ) ),
 			)
 		)
 	);
@@ -49,7 +49,7 @@ function ddw_tbex_aoitems_bestfreebie_elementor_icons( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'admin.php?page=bestfreebie-elementor-custom-icons' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -61,7 +61,7 @@ function ddw_tbex_aoitems_bestfreebie_elementor_icons( $admin_bar ) {
 				array(
 					'id'     => 'group-bestfreebieicons-resources',
 					'parent' => 'ao-bestfreebieicons',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

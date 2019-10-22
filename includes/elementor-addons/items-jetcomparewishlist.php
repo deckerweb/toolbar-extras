@@ -20,15 +20,15 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_jetcomparewishlist', 100 );
  *
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_jetcomparewishlist() {
+function ddw_tbex_aoitems_jetcomparewishlist( $admin_bar ) {
 
 	/** Use Add-On hook place */
 	add_filter( 'tbex_filter_is_addon', '__return_empty_string' );
 
 	/** Plugin's settings */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'ao-jetcomparewishlist',
 			'parent' => 'tbex-addons',
@@ -36,7 +36,7 @@ function ddw_tbex_aoitems_jetcomparewishlist() {
 			'href'   => esc_url( admin_url( 'admin.php?page=jet-cw-settings' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_premium_addon_title_attr( __( 'JetCompareWishlist', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_premium_addon_title_attr( __( 'JetCompareWishlist', 'toolbar-extras' ) ),
 			)
 		)
 	);
@@ -49,7 +49,7 @@ function ddw_tbex_aoitems_jetcomparewishlist() {
 		/** Compare */
 		if ( 'true' === sanitize_key( $cw_settings[ 'enable_compare' ] ) ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ao-jetcomparewishlist-compare',
 					'parent' => 'ao-jetcomparewishlist',
@@ -57,12 +57,12 @@ function ddw_tbex_aoitems_jetcomparewishlist() {
 					'href'   => esc_url( get_permalink( $cw_compare ) ),
 					'meta'   => array(
 						'target' => ! is_admin() ? '' : ddw_tbex_meta_target(),
-						'title'  => esc_attr__( 'Compare', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Compare', 'toolbar-extras' ),
 					)
 				)
 			);
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'ao-jetcomparewishlist-compare-view',
 						'parent' => 'ao-jetcomparewishlist-compare',
@@ -70,12 +70,12 @@ function ddw_tbex_aoitems_jetcomparewishlist() {
 						'href'   => esc_url( get_permalink( $cw_compare ) ),
 						'meta'   => array(
 							'target' => ! is_admin() ? '' : ddw_tbex_meta_target(),
-							'title'  => esc_attr__( 'View Page', 'toolbar-extras' )
+							'title'  => esc_attr__( 'View Page', 'toolbar-extras' ),
 						)
 					)
 				);
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'ao-jetcomparewishlist-compare-edit',
 						'parent' => 'ao-jetcomparewishlist-compare',
@@ -83,13 +83,13 @@ function ddw_tbex_aoitems_jetcomparewishlist() {
 						'href'   => esc_url( get_edit_post_link( $cw_compare ) ),
 						'meta'   => array(
 							'target' => is_admin() ? '' : ddw_tbex_meta_target(),
-							'title'  => esc_attr__( 'Edit Page', 'toolbar-extras' )
+							'title'  => esc_attr__( 'Edit Page', 'toolbar-extras' ),
 						)
 					)
 				);
 
 				/** For WooCommerce Shop item - as sub item */
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'woo-shop-compare-view',
 						'parent' => 'view-store',
@@ -97,7 +97,7 @@ function ddw_tbex_aoitems_jetcomparewishlist() {
 						'href'   => esc_url( get_permalink( $cw_compare ) ),
 						'meta'   => array(
 							'target' => ! is_admin() ? '' : ddw_tbex_meta_target(),
-							'title'  => esc_attr__( 'Compare Page', 'toolbar-extras' )
+							'title'  => esc_attr__( 'Compare Page', 'toolbar-extras' ),
 						)
 					)
 				);
@@ -107,7 +107,7 @@ function ddw_tbex_aoitems_jetcomparewishlist() {
 		/** Wishlist */
 		if ( 'true' === sanitize_key( $cw_settings[ 'enable_wishlist' ] ) ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ao-jetcomparewishlist-wishlist',
 					'parent' => 'ao-jetcomparewishlist',
@@ -115,12 +115,12 @@ function ddw_tbex_aoitems_jetcomparewishlist() {
 					'href'   => esc_url( get_permalink( $cw_wishlist ) ),
 					'meta'   => array(
 						'target' => ! is_admin() ? '' : ddw_tbex_meta_target(),
-						'title'  => esc_attr__( 'Wishlist', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Wishlist', 'toolbar-extras' ),
 					)
 				)
 			);
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'ao-jetcomparewishlist-wishlist-view',
 						'parent' => 'ao-jetcomparewishlist-wishlist',
@@ -128,12 +128,12 @@ function ddw_tbex_aoitems_jetcomparewishlist() {
 						'href'   => esc_url( get_permalink( $cw_wishlist ) ),
 						'meta'   => array(
 							'target' => ! is_admin() ? '' : ddw_tbex_meta_target(),
-							'title'  => esc_attr__( 'View Page', 'toolbar-extras' )
+							'title'  => esc_attr__( 'View Page', 'toolbar-extras' ),
 						)
 					)
 				);
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'ao-jetcomparewishlist-wishlist-edit',
 						'parent' => 'ao-jetcomparewishlist-wishlist',
@@ -141,13 +141,13 @@ function ddw_tbex_aoitems_jetcomparewishlist() {
 						'href'   => esc_url( get_edit_post_link( $cw_wishlist ) ),
 						'meta'   => array(
 							'target' => is_admin() ? '' : ddw_tbex_meta_target(),
-							'title'  => esc_attr__( 'Edit Page', 'toolbar-extras' )
+							'title'  => esc_attr__( 'Edit Page', 'toolbar-extras' ),
 						)
 					)
 				);
 
 				/** For WooCommerce Shop item - as sub item */
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'woo-shop-wishlist-view',
 						'parent' => 'view-store',
@@ -155,7 +155,7 @@ function ddw_tbex_aoitems_jetcomparewishlist() {
 						'href'   => esc_url( get_permalink( $cw_wishlist ) ),
 						'meta'   => array(
 							'target' => ! is_admin() ? '' : ddw_tbex_meta_target(),
-							'title'  => esc_attr__( 'Wishlist Page', 'toolbar-extras' )
+							'title'  => esc_attr__( 'Wishlist Page', 'toolbar-extras' ),
 						)
 					)
 				);
@@ -163,7 +163,7 @@ function ddw_tbex_aoitems_jetcomparewishlist() {
 		}  // end if
 
 		/** Settings */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-jetcomparewishlist-settings',
 				'parent' => 'ao-jetcomparewishlist',
@@ -171,7 +171,7 @@ function ddw_tbex_aoitems_jetcomparewishlist() {
 				'href'   => esc_url( admin_url( 'admin.php?page=jet-cw-settings' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -179,11 +179,11 @@ function ddw_tbex_aoitems_jetcomparewishlist() {
 		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-jetcomparewishlist-resources',
 					'parent' => 'ao-jetcomparewishlist',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

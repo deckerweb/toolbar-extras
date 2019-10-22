@@ -21,15 +21,15 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_press_elements', 100 );
  *
  * @usesddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_press_elements() {
+function ddw_tbex_aoitems_press_elements( $admin_bar ) {
 
 	/** Use Add-On hook place */
 	add_filter( 'tbex_filter_is_addon', '__return_empty_string' );
 
 	/** Plugin's Settings */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'ao-presselements',
 			'parent' => 'tbex-addons',
@@ -37,12 +37,12 @@ function ddw_tbex_aoitems_press_elements() {
 			'href'   => esc_url( admin_url( 'options-general.php?page=press-elements' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_addon_title_attr( __( 'Press Elements – Widgets for Elementor', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_addon_title_attr( __( 'Press Elements – Widgets for Elementor', 'toolbar-extras' ) ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-presselements-info',
 				'parent' => 'ao-presselements',
@@ -50,14 +50,14 @@ function ddw_tbex_aoitems_press_elements() {
 				'href'   => esc_url( admin_url( 'options-general.php?page=press-elements' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Widget Info', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Widget Info', 'toolbar-extras' ),
 				)
 			)
 		);
 
 		if ( in_array( 'press-elements-premium/press-elements.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
-			
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ao-presselements-account',
 					'parent' => 'ao-presselements',
@@ -65,7 +65,7 @@ function ddw_tbex_aoitems_press_elements() {
 					'href'   => esc_url( admin_url( 'options-general.php?page=press-elements-account' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Account &amp; License', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Account &amp; License', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -75,11 +75,11 @@ function ddw_tbex_aoitems_press_elements() {
 		/** Group: Plugin's Resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-presselements-resources',
 					'parent' => 'ao-presselements',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

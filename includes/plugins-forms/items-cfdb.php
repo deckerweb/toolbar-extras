@@ -21,12 +21,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_cfdb', 100 );
  * @uses ddw_tbex_string_elementor()
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_cfdb() {
+function ddw_tbex_aoitems_cfdb( $admin_bar ) {
 
 	/** For: Forms */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'ao-cfdb',
 			'parent' => 'tbex-sitegroup-forms',
@@ -34,12 +34,12 @@ function ddw_tbex_aoitems_cfdb() {
 			'href'   => esc_url( admin_url( 'admin.php?page=CF7DBPluginSubmissions' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Contact Form DB', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Contact Form DB', 'toolbar-extras' ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-cfdb-all',
 				'parent' => 'ao-cfdb',
@@ -47,12 +47,12 @@ function ddw_tbex_aoitems_cfdb() {
 				'href'   => esc_url( admin_url( 'admin.php?page=CF7DBPluginSubmissions' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'All Submissions', 'toolbar-extras' )
+					'title'  => esc_attr__( 'All Submissions', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-cfdb-advanced',
 				'parent' => 'ao-cfdb',
@@ -60,12 +60,12 @@ function ddw_tbex_aoitems_cfdb() {
 				'href'   => esc_url( admin_url( 'admin.php?page=CF7DBPluginShortCodeBuilder' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Shortcode, Export', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Shortcode, Export', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-cfdb-settings',
 				'parent' => 'ao-cfdb',
@@ -73,7 +73,7 @@ function ddw_tbex_aoitems_cfdb() {
 				'href'   => esc_url( admin_url( 'admin.php?page=CF7DBPluginSettings' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -81,11 +81,11 @@ function ddw_tbex_aoitems_cfdb() {
 		/** Group: Resources for plugin */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-cfdb-resources',
 					'parent' => 'ao-cfdb',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

@@ -18,12 +18,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_wpmudev_dashboard', 99 );
  *
  * @since 1.3.2
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_wpmudev_dashboard() {
+function ddw_tbex_site_items_wpmudev_dashboard( $admin_bar ) {
 
 	/** For: Forms */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'wpmudev-install-plugin',
 			'parent' => 'install-plugin',
@@ -31,7 +31,7 @@ function ddw_tbex_site_items_wpmudev_dashboard() {
 			'href'   => esc_url( network_admin_url( 'admin.php?page=wpmudev-plugins' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Install Plugins via WPMU DEV', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Install Plugins via WPMU DEV', 'toolbar-extras' ),
 			)
 		)
 	);

@@ -702,7 +702,23 @@ if ( ! class_exists( 'DDW_Toolbar_Extras_Plugin_Manager' ) ) {
 					$actions['details']['class'] = 'thickbox open-plugin-details-modal';
 				}
 				*/
-			}
+
+				/** Addition by deckerweb: */
+				if ( $is_wp ) {
+
+					$actions['modal'] = array(
+						'url'    => esc_url( admin_url( 'plugin-install.php?tab=plugin-information&plugin=' . $plugin['slug'] . '&TB_iframe=true&width=772&height=1275' ) ),
+						'text'   => __( 'Modal Info', 'toolbar-extras' ),
+						// translators: 1: name of plugin
+						'label'  => sprintf( __( 'More Information about %s', 'toolbar-extras' ), $plugin['name'] ),
+						'target' => '_self',
+						'nonce'  => null,
+						'class'  => 'thickbox open-plugin-details-modal',
+					);
+
+				}  // end if
+
+			}  // end if
 
 			/*
 			 * Add "Install" or "Get Plugin" link.
@@ -887,7 +903,7 @@ if ( ! class_exists( 'DDW_Toolbar_Extras_Plugin_Manager' ) ) {
 					}
 
 					$item = sprintf(
-						'<span class="has-link %s"><a href="%s" class="edit %s" aria-label="%s" target="%s">%s</a></span>',
+						'<span class="has-link %1$s"><a href="%2$s" class="edit %3$s" aria-label="%4$s" title="%4$s" target="%5$s">%6$s</a></span>',
 						$key,
 						esc_url( $action['url'] ),
 						esc_attr( $class ),

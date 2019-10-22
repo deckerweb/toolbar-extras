@@ -21,11 +21,11 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_extender_pro', 102 );
  * @uses ddw_tbex_display_items_resources()
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_extender_pro() {
+function ddw_tbex_aoitems_extender_pro( $admin_bar ) {
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'ca-extenderpro',
 			'parent' => 'group-active-theme',
@@ -33,12 +33,12 @@ function ddw_tbex_aoitems_extender_pro() {
 			'href'   => esc_url( admin_url( 'admin.php?page=extender-pro-dashboard' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Extender Pro', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Extender Pro', 'toolbar-extras' ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ca-extenderpro-custom',
 				'parent' => 'ca-extenderpro',
@@ -46,12 +46,12 @@ function ddw_tbex_aoitems_extender_pro() {
 				'href'   => esc_url( admin_url( 'admin.php?page=extender-pro-custom' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Custom Options', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Custom Options', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ca-extenderpro-custompreview',
 				'parent' => 'ca-extenderpro',
@@ -59,12 +59,12 @@ function ddw_tbex_aoitems_extender_pro() {
 				'href'   => esc_url( admin_url( 'admin.php?page=extender-pro-custom&iframe=active' ) ),
 				'meta'   => array(
 					'target' => ddw_tbex_meta_target(),
-					'title'  => esc_attr__( 'Custom: Full View', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Custom: Full View', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ca-extenderpro-image-manager',
 				'parent' => 'ca-extenderpro',
@@ -72,12 +72,12 @@ function ddw_tbex_aoitems_extender_pro() {
 				'href'   => esc_url( admin_url( 'admin.php?page=extender-pro-image-manager' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Image Manager', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Image Manager', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ca-extenderpro-import-export',
 				'parent' => 'ca-extenderpro',
@@ -85,12 +85,12 @@ function ddw_tbex_aoitems_extender_pro() {
 				'href'   => esc_url( admin_url( 'admin.php?page=extender-pro-import-export' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Import &amp; Export', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Import &amp; Export', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ca-extenderpro-general',
 				'parent' => 'ca-extenderpro',
@@ -98,19 +98,19 @@ function ddw_tbex_aoitems_extender_pro() {
 				'href'   => esc_url( admin_url( 'admin.php?page=extender-pro-dashboard' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'General Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'General Settings', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		/** Group: Resources for Extender Pro */
+		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-caepro-resources',
 					'parent' => 'ca-extenderpro',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

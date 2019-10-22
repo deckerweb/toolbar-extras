@@ -197,7 +197,7 @@ function ddw_tbex_tweak_remove_items_user_newcontent() {
 }  // end function
 
 
-add_filter( 'wp_before_admin_bar_render', 'ddw_tbex_maybe_tweak_howdy_welcome' );
+add_action( 'wp_before_admin_bar_render', 'ddw_tbex_maybe_tweak_howdy_welcome' );
 /**
  * Optionally tweak the "My Account" item - remove or replace the ridiculous
  *   "Howdy" string, and more.
@@ -213,14 +213,13 @@ add_filter( 'wp_before_admin_bar_render', 'ddw_tbex_maybe_tweak_howdy_welcome' )
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  *
- * @param WP_Admin_Bar $wp_admin_bar
  * @return object Tweaked Toolbar node.
  */
-function ddw_tbex_maybe_tweak_howdy_welcome( $wp_admin_bar ) {
+function ddw_tbex_maybe_tweak_howdy_welcome() {
 
 	/** Bail early if tweak shouldn't be used */
 	if ( ! ddw_tbex_use_tweak_myaccount_item() ) {
-		return $wp_admin_bar;
+		return;
 	}
 
 	/** Get current user */
@@ -229,7 +228,7 @@ function ddw_tbex_maybe_tweak_howdy_welcome( $wp_admin_bar ) {
 
 	/** Bail early if no user */
 	if ( ! $user_id ) {
-		return $wp_admin_bar;
+		return;
 	}
 
 	/** Default: Get the user's profile URL */
@@ -264,7 +263,7 @@ function ddw_tbex_maybe_tweak_howdy_welcome( $wp_admin_bar ) {
 	$use_howdy_replace = ddw_tbex_get_option( 'tweaks', 'use_howdy_replace' );
 
 	if ( 'replace' === $use_howdy_replace ) {
-		
+
 		$title = sprintf(
 			'%1$s %2$s',
 			wp_filter_nohtml_kses( do_shortcode( ddw_tbex_get_option( 'tweaks', 'howdy_replacement' ) ) ),
@@ -272,7 +271,7 @@ function ddw_tbex_maybe_tweak_howdy_welcome( $wp_admin_bar ) {
 		);
 
 	} elseif ( 'custom' === $use_howdy_replace ) {
-		
+
 		$title = wp_filter_nohtml_kses( do_shortcode( ddw_tbex_get_option( 'tweaks', 'custom_welcome' ) ) );
 
 	}  // end if
@@ -734,7 +733,7 @@ function ddw_tbex_rehook_items_elementor_inspector( $wp_admin_bar ) {
 	}
 
 	/** Re-hook for: Build Group -> Creative Content, on the top */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$wp_admin_bar->add_node(
 		array(
 			'id'     => 'elementor_inspector',		// same as original!
 			'parent' => 'group-creative-content',	//'group-elementor-inspector',

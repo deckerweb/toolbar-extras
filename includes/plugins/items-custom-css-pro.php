@@ -20,11 +20,11 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_custom_css_pro', 105 );
  *
  * @uses ddw_tbex_meta_target()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_custom_css_pro() {
+function ddw_tbex_aoitems_custom_css_pro( $admin_bar ) {
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'ao-ccsspro',
 			'parent' => 'group-active-theme',
@@ -32,7 +32,7 @@ function ddw_tbex_aoitems_custom_css_pro() {
 			'href'   => esc_url( admin_url( 'admin.php?page=ccp-editor' ) ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => esc_attr__( 'Custom CSS Pro - Live Editor', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Custom CSS Pro - Live Editor', 'toolbar-extras' ),
 			)
 		)
 	);

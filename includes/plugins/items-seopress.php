@@ -26,7 +26,7 @@ function ddw_tbex_is_seopress_pro_active() {
 }  // end function
 
 
-add_filter( 'wp_before_admin_bar_render', 'ddw_tbex_site_items_rehook_seopress' );
+add_action( 'wp_before_admin_bar_render', 'ddw_tbex_site_items_rehook_seopress' );
 /**
  * Items for Plugin: SEOPress (Pro) (free/ Premium, by Benjamin Denis)
  *   If tweak setting is active then re-hook from the top to the tools hook
@@ -37,19 +37,18 @@ add_filter( 'wp_before_admin_bar_render', 'ddw_tbex_site_items_rehook_seopress' 
  *
  * @uses ddw_tbex_use_tweak_seopress()
  *
- * @global mixed  $GLOBALS[ 'wp_admin_bar' ]
- * @param object $wp_admin_bar Holds all nodes of the Toolbar.
+ * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
-function ddw_tbex_site_items_rehook_seopress( $wp_admin_bar ) {
+function ddw_tbex_site_items_rehook_seopress() {
 
 	/** Bail early if SEOPress Toolbar items are deactivated */
 	if ( function_exists( 'seopress_advanced_appearance_adminbar_option' ) && '' != seopress_advanced_appearance_adminbar_option() ) {
-		return $wp_admin_bar;
+		return;
 	}
 
 	/** Bail early if SEOPress tweak should NOT be used */
 	if ( ! ddw_tbex_use_tweak_seopress() ) {
-		return $wp_admin_bar;
+		return;
 	}
 
 	/** Re-hook for: Site Group */
@@ -60,7 +59,7 @@ function ddw_tbex_site_items_rehook_seopress( $wp_admin_bar ) {
 			'title'  => esc_attr__( 'SEOPress', 'toolbar-extras' ),
 			'meta'   => array(
 				'class'  => 'tbex-seopress',
-				'title'  => esc_attr__( 'SEOPress', 'toolbar-extras' )
+				'title'  => esc_attr__( 'SEOPress', 'toolbar-extras' ),
 			)
 		)
 	);
@@ -76,13 +75,13 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_seopress', 100 );
  *
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar']
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_seopress() {
+function ddw_tbex_site_items_seopress( $admin_bar ) {
 
 	/** Bail early if SEOPress Toolbar items are deactivated */
 	if ( function_exists( 'seopress_advanced_appearance_adminbar_option' ) && '' != seopress_advanced_appearance_adminbar_option() ) {
-		return;
+		return $admin_bar;
 	}
 
 	/** Get SEOPress options which feature (aka "toggle") is activated */
@@ -91,7 +90,7 @@ function ddw_tbex_site_items_seopress() {
 	/** Redirections */
 	if ( '1' == $sp_options[ 'toggle-404' ] ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'tbex-seopress-redirections-all',
 				'parent' => 'seopress_custom_sub_menu_404',
@@ -99,12 +98,12 @@ function ddw_tbex_site_items_seopress() {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=seopress_404' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'All Redirections', 'toolbar-extras' )
+					'title'  => esc_attr__( 'All Redirections', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'tbex-seopress-redirections-new',
 				'parent' => 'seopress_custom_sub_menu_404',
@@ -112,7 +111,7 @@ function ddw_tbex_site_items_seopress() {
 				'href'   => esc_url( admin_url( 'post-new.php?post_type=seopress_404' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'New Redirection', 'toolbar-extras' )
+					'title'  => esc_attr__( 'New Redirection', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -120,7 +119,7 @@ function ddw_tbex_site_items_seopress() {
 	}  // end if
 
 	/** Broken Links */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'tbex-seopress-brokenlinks-all',
 			'parent' => 'seopress_custom_sub_menu_broken_links',
@@ -128,12 +127,12 @@ function ddw_tbex_site_items_seopress() {
 			'href'   => esc_url( admin_url( 'edit.php?post_type=seopress_bot' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'All Broken Links', 'toolbar-extras' )
+				'title'  => esc_attr__( 'All Broken Links', 'toolbar-extras' ),
 			)
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'tbex-seopress-brokenlinks-scan',
 			'parent' => 'seopress_custom_sub_menu_broken_links',
@@ -141,7 +140,7 @@ function ddw_tbex_site_items_seopress() {
 			'href'   => esc_url( admin_url( 'admin.php?page=seopress-bot-batch' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Start Scan', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Start Scan', 'toolbar-extras' ),
 			)
 		)
 	);
@@ -149,11 +148,11 @@ function ddw_tbex_site_items_seopress() {
 	/** Group: Resources for SEOPress */
 	if ( ddw_tbex_display_items_resources() ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_group(
+		$admin_bar->add_group(
 			array(
 				'id'     => 'group-wpseopress-resources',
 				'parent' => 'seopress_custom_top_level',	// same as original
-				'meta'   => array( 'class' => 'ab-sub-secondary' )
+				'meta'   => array( 'class' => 'ab-sub-secondary' ),
 			)
 		);
 
@@ -210,11 +209,11 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_seopress_dashboard', 10 );
  *
  * @since 1.3.2
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_seopress_dashboard() {
+function ddw_tbex_site_items_seopress_dashboard( $admin_bar ) {
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'tbex-seopress-dashboard',
 			'parent' => 'seopress_custom_top_level',
@@ -222,7 +221,7 @@ function ddw_tbex_site_items_seopress_dashboard() {
 			'href'   => esc_url( admin_url( 'admin.php?page=seopress-option' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Dashboard', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Dashboard', 'toolbar-extras' ),
 			)
 		)
 	);
@@ -236,18 +235,18 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_new_content_seopress_pro', 100 )
  *
  * @since 1.3.2
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_new_content_seopress_pro() {
+function ddw_tbex_aoitems_new_content_seopress_pro( $admin_bar ) {
 
 	/** Bail early if items display is not wanted */
 	if ( ! ddw_tbex_display_items_new_content() || is_network_admin() ) {
-		return;
+		return $admin_bar;
 	}
 
 	if ( ddw_tbex_display_items_dev_mode() ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'tbex-seopresspro-404-redirection',
 				'parent' => 'new-content',
@@ -255,7 +254,7 @@ function ddw_tbex_aoitems_new_content_seopress_pro() {
 				'href'   => esc_url( admin_url( 'post-new.php?post_type=seopress_404' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => ddw_tbex_string_add_new_item( __( '404 Redirection', 'toolbar-extras' ) )
+					'title'  => ddw_tbex_string_add_new_item( __( '404 Redirection', 'toolbar-extras' ) ),
 				)
 			)
 		);
@@ -288,7 +287,7 @@ function ddw_tbex_maybe_remove_items_seopress() {
 
 	/** Loop through all toggles */
 	foreach ( $sp_options as $toggle => $value ) {
-		
+
 		/* For those toggles deactivated make further checks */
 		if ( ! $value ) {
 
@@ -332,5 +331,5 @@ function ddw_tbex_maybe_remove_items_seopress() {
 	if ( is_network_admin() ) {
 		$GLOBALS[ 'wp_admin_bar' ]->remove_node( 'seopress_custom_top_level' );
 	}
-	
+
 }  // end function

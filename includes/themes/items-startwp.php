@@ -92,7 +92,7 @@ function ddw_tbex_themeitems_startwp_customize( $admin_bar ) {
 			'href'   => ddw_tbex_customizer_focus( 'section', 'general' ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'General', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_customize_attr( __( 'General', 'toolbar-extras' ) ),
 			)
 		)
 	);
@@ -106,7 +106,7 @@ function ddw_tbex_themeitems_startwp_customize( $admin_bar ) {
 			'href'   => ddw_tbex_customizer_focus( 'section', 'header' ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Header', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_customize_attr( __( 'Header', 'toolbar-extras' ) ),
 			)
 		)
 	);
@@ -120,7 +120,7 @@ function ddw_tbex_themeitems_startwp_customize( $admin_bar ) {
 			'href'   => ddw_tbex_customizer_focus( 'section', 'start_menu' ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Menu', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_customize_attr( __( 'Menu', 'toolbar-extras' ) ),
 			)
 		)
 	);
@@ -134,7 +134,7 @@ function ddw_tbex_themeitems_startwp_customize( $admin_bar ) {
 			'href'   => ddw_tbex_customizer_focus( 'section', 'blog_archive', get_post_type_archive_link( 'post' ) ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Blog / Archive / Single', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_customize_attr( __( 'Blog / Archive / Single', 'toolbar-extras' ) ),
 			)
 		)
 	);
@@ -148,7 +148,7 @@ function ddw_tbex_themeitems_startwp_customize( $admin_bar ) {
 			'href'   => ddw_tbex_customizer_focus( 'section', 'sidebar' ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Sidebar', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_customize_attr( __( 'Sidebar', 'toolbar-extras' ) ),
 			)
 		)
 	);
@@ -165,7 +165,7 @@ function ddw_tbex_themeitems_startwp_customize( $admin_bar ) {
 			'href'   => ddw_tbex_customizer_focus( 'section', '404', $url_404_live ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( '404 Page', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_customize_attr( __( '404 Page', 'toolbar-extras' ) ),
 			)
 		)
 	);
@@ -179,7 +179,7 @@ function ddw_tbex_themeitems_startwp_customize( $admin_bar ) {
 			'href'   => ddw_tbex_customizer_focus( 'section', 'search_archive' ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Search', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_customize_attr( __( 'Search', 'toolbar-extras' ) ),
 			)
 		)
 	);
@@ -193,7 +193,7 @@ function ddw_tbex_themeitems_startwp_customize( $admin_bar ) {
 			'href'   => ddw_tbex_customizer_focus( 'section', 'footer' ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Footer', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_customize_attr( __( 'Footer', 'toolbar-extras' ) ),
 			)
 		)
 	);
@@ -207,7 +207,7 @@ function ddw_tbex_themeitems_startwp_customize( $admin_bar ) {
 			'href'   => ddw_tbex_customizer_focus( 'section', 'copyright' ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Copyright', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_customize_attr( __( 'Copyright', 'toolbar-extras' ) ),
 			)
 		)
 	);
@@ -221,7 +221,7 @@ function ddw_tbex_themeitems_startwp_customize( $admin_bar ) {
 			'href'   => ddw_tbex_customizer_focus( 'section', 'hooks' ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => ddw_tbex_string_customize_attr( __( 'Hooks', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_customize_attr( __( 'Hooks', 'toolbar-extras' ) ),
 			)
 		)
 	);
@@ -272,7 +272,7 @@ function ddw_tbex_themeitems_startwp_resources( $admin_bar ) {
 		'https://headwayapp.co/startwp-changelog',
 		ddw_tbex_string_version_history( 'theme' )
 	);
-	
+
 	ddw_tbex_resource_item(
 		'translations-community',
 		'theme-translate',
@@ -317,7 +317,7 @@ function ddw_tbex_themeitems_startwp_extended( $admin_bar ) {
 			'href'   => esc_url( admin_url( 'themes.php?page=startwpextensions' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'StartWP Extended Settings', 'toolbar-extras' )
+				'title'  => esc_attr__( 'StartWP Extended Settings', 'toolbar-extras' ),
 			)
 		)
 	);
@@ -330,7 +330,7 @@ function ddw_tbex_themeitems_startwp_extended( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'themes.php?page=startwpextensions' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Activate Extensions', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Activate Extensions', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -349,7 +349,7 @@ function ddw_tbex_themeitems_startwp_extended( $admin_bar ) {
 				'href'   => ddw_tbex_customizer_focus( 'section', 'swp_woocommerce_general', get_post_type_archive_link( 'product' ) ),
 				'meta'   => array(
 					'target' => ddw_tbex_meta_target(),
-					'title'  => ddw_tbex_string_customize_attr( __( 'Woo General', 'toolbar-extras' ) )
+					'title'  => ddw_tbex_string_customize_attr( __( 'Woo General', 'toolbar-extras' ) ),
 				)
 			)
 		);
@@ -363,7 +363,7 @@ function ddw_tbex_themeitems_startwp_extended( $admin_bar ) {
 				'href'   => ddw_tbex_customizer_focus( 'section', 'swp_woocommerce_archive', get_post_type_archive_link( 'product' ) ),
 				'meta'   => array(
 					'target' => ddw_tbex_meta_target(),
-					'title'  => ddw_tbex_string_customize_attr( __( 'Woo Archive', 'toolbar-extras' ) )
+					'title'  => ddw_tbex_string_customize_attr( __( 'Woo Archive', 'toolbar-extras' ) ),
 				)
 			)
 		);
@@ -377,7 +377,7 @@ function ddw_tbex_themeitems_startwp_extended( $admin_bar ) {
 				'href'   => ddw_tbex_customizer_focus( 'section', 'swp_woocommerce_single', get_post_type_archive_link( 'product' ) ),
 				'meta'   => array(
 					'target' => ddw_tbex_meta_target(),
-					'title'  => ddw_tbex_string_customize_attr( __( 'Woo Single', 'toolbar-extras' ) )
+					'title'  => ddw_tbex_string_customize_attr( __( 'Woo Single', 'toolbar-extras' ) ),
 				)
 			)
 		);
@@ -398,7 +398,7 @@ function ddw_tbex_themeitems_startwp_extended( $admin_bar ) {
 				'href'   => ddw_tbex_customizer_focus( 'section', 'swp_edd_archive', get_post_type_archive_link( 'download' ) ),
 				'meta'   => array(
 					'target' => ddw_tbex_meta_target(),
-					'title'  => ddw_tbex_string_customize_attr( __( 'EDD Archive', 'toolbar-extras' ) )
+					'title'  => ddw_tbex_string_customize_attr( __( 'EDD Archive', 'toolbar-extras' ) ),
 				)
 			)
 		);
@@ -412,7 +412,7 @@ function ddw_tbex_themeitems_startwp_extended( $admin_bar ) {
 				'href'   => ddw_tbex_customizer_focus( 'section', 'swp_edd_single', get_post_type_archive_link( 'download' ) ),
 				'meta'   => array(
 					'target' => ddw_tbex_meta_target(),
-					'title'  => ddw_tbex_string_customize_attr( __( 'EDD Single', 'toolbar-extras' ) )
+					'title'  => ddw_tbex_string_customize_attr( __( 'EDD Single', 'toolbar-extras' ) ),
 				)
 			)
 		);

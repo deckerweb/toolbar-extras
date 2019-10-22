@@ -55,12 +55,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_rife', 100 );
  * @uses ddw_tbex_string_theme_title()
  * @uses ddw_tbex_customizer_start()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_rife() {
+function ddw_tbex_themeitems_rife( $admin_bar ) {
 
 	/** Theme creative */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'theme-creative',
 			'parent' => 'group-active-theme',
@@ -185,17 +185,17 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_apollo13_framework', 120 );
  * @uses ddw_tbex_display_items_new_content()
  * @uses ddw_tbex_display_items_demo_import()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_apollo13_framework() {
+function ddw_tbex_themeitems_apollo13_framework( $admin_bar ) {
 
 	/** Bail early if Theme framework extension plugin is not active */
 	if ( ! ddw_tbex_is_a13fe_active() ) {
-		return;
+		return $admin_bar;
 	}
 
 	/** Theme creative */
-	$GLOBALS[ 'wp_admin_bar' ]->add_group(
+	$admin_bar->add_group(
 		array(
 			'id'     => 'group-rife-posttypes',
 			'parent' => 'theme-creative',
@@ -239,7 +239,7 @@ function ddw_tbex_themeitems_apollo13_framework() {
 				$type_single
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'rifecpts-' . $type_slug,
 					'parent' => 'group-rife-posttypes',
@@ -247,12 +247,12 @@ function ddw_tbex_themeitems_apollo13_framework() {
 					'href'   => esc_url( admin_url( 'edit.php?post_type=' . $rife_type ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => $type_name
+						'title'  => $type_name,
 					)
 				)
 			);
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'rifecpts-' . $type_slug . '-all',
 						'parent' => 'rifecpts-' . $type_slug,
@@ -265,7 +265,7 @@ function ddw_tbex_themeitems_apollo13_framework() {
 					)
 				);
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'rifecpts-' . $type_slug . '-new',
 						'parent' => 'rifecpts-' . $type_slug,
@@ -280,7 +280,7 @@ function ddw_tbex_themeitems_apollo13_framework() {
 
 				if ( ddw_tbex_is_elementor_active() && \Elementor\User::is_current_user_can_edit_post_type( $rife_type ) ) {
 
-					$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					$admin_bar->add_node(
 						array(
 							'id'     => 'rifecpts-' . $type_slug . '-builder',
 							'parent' => 'rifecpts-' . $type_slug,
@@ -295,7 +295,7 @@ function ddw_tbex_themeitems_apollo13_framework() {
 
 					if ( ddw_tbex_display_items_new_content() ) {
 
-						$GLOBALS[ 'wp_admin_bar' ]->add_node(
+						$admin_bar->add_node(
 							array(
 								'id'     => 'new-rife-' . $type_slug . '-with-builder',
 								'parent' => 'new-' . $rife_type,
@@ -312,7 +312,7 @@ function ddw_tbex_themeitems_apollo13_framework() {
 
 				}  // end if Elementor builder check
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'manage-content-rife-' . $type_slug,
 						'parent' => 'manage-content',
@@ -329,7 +329,7 @@ function ddw_tbex_themeitems_apollo13_framework() {
 
 
 	/** Theme settings */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'theme-settings',
 			'parent' => 'group-active-theme',
@@ -337,12 +337,12 @@ function ddw_tbex_themeitems_apollo13_framework() {
 			'href'   => esc_url( admin_url( 'themes.php?page=apollo13_pages' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Rife Settings', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Rife Settings', 'toolbar-extras' ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'theme-settings-export-import',
 				'parent' => 'theme-settings',
@@ -350,12 +350,12 @@ function ddw_tbex_themeitems_apollo13_framework() {
 				'href'   => esc_url( admin_url( 'themes.php?page=apollo13_pages&subpage=export' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Export &amp; Import', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Export &amp; Import', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'theme-settings-info',
 				'parent' => 'theme-settings',
@@ -363,7 +363,7 @@ function ddw_tbex_themeitems_apollo13_framework() {
 				'href'   => esc_url( admin_url( 'themes.php?page=apollo13_pages&subpage=info' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Theme Info', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Theme Info', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -372,7 +372,7 @@ function ddw_tbex_themeitems_apollo13_framework() {
 	/** Design Importer (Demos) */
 	if ( ddw_tbex_display_items_demo_import() ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => ddw_tbex_id_sites_browser(),
 				'parent' => 'group-demo-import',
@@ -384,7 +384,7 @@ function ddw_tbex_themeitems_apollo13_framework() {
 				'href'   => esc_url( admin_url( 'themes.php?page=apollo13_pages&subpage=import' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Rife Design Importer', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Rife Design Importer', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -404,20 +404,22 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_rife_resources', 120 );
  * @uses ddw_tbex_is_a13fe_active()
  * @uses ddw_tbex_display_items_resources()
  * @uses ddw_tbex_resource_item()
+ *
+ * @param object $admin_bar Object of Toolbar nodes.
  */
 function ddw_tbex_themeitems_rife_resources() {
 
 	/** Bail early if no resources display active */
-	if ( ! ddw_tbex_display_items_resources() ) {
-		return;
+	if ( ! ddw_tbex_display_items_resources( $admin_bar ) ) {
+		return $admin_bar;
 	}
 
 	/** Group: Resources for Rife */
-	$GLOBALS[ 'wp_admin_bar' ]->add_group(
+	$admin_bar->add_group(
 		array(
 			'id'     => 'group-theme-resources',
 			'parent' => ddw_tbex_is_a13fe_active() ? 'theme-settings' : 'theme-creative',
-			'meta'   => array( 'class' => 'ab-sub-secondary' )
+			'meta'   => array( 'class' => 'ab-sub-secondary' ),
 		)
 	);
 

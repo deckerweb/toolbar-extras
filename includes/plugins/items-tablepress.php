@@ -18,17 +18,17 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_tablepress', 20 );
  *
  * @since 1.0.0
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_tablepress() {
+function ddw_tbex_site_items_tablepress( $admin_bar ) {
 
 	/** Bail early if user has no permissions for TablePress */
 	if ( ! current_user_can( 'tablepress_list_tables' ) ) {
-		return;
+		return $admin_bar;
 	}
 
 	/** For: Manage Content */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'manage-content-tablepress',
 			'parent' => 'manage-content',
@@ -36,7 +36,7 @@ function ddw_tbex_site_items_tablepress() {
 			'href'   => esc_url( TablePress::url() ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Edit Tables', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Edit Tables', 'toolbar-extras' ),
 			)
 		)
 	);

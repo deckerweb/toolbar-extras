@@ -18,12 +18,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_instagram_feed', 15 );
  *
  * @since 1.4.2
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_instagram_feed() {
+function ddw_tbex_site_items_instagram_feed( $admin_bar ) {
 
 	/** For: Manage Content */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'instagramfeed',
 			'parent' => 'gallery-slider-addons',
@@ -36,7 +36,7 @@ function ddw_tbex_site_items_instagram_feed() {
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'instagramfeed-configure',
 				'parent' => 'instagramfeed',
@@ -49,7 +49,7 @@ function ddw_tbex_site_items_instagram_feed() {
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'instagramfeed-customize',
 				'parent' => 'instagramfeed',
@@ -61,8 +61,8 @@ function ddw_tbex_site_items_instagram_feed() {
 				)
 			)
 		);
-			
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+
+		$admin_bar->add_node(
 			array(
 				'id'     => 'instagramfeed-display',
 				'parent' => 'instagramfeed',
@@ -75,7 +75,7 @@ function ddw_tbex_site_items_instagram_feed() {
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'instagramfeed-support-system',
 				'parent' => 'instagramfeed',
@@ -90,7 +90,7 @@ function ddw_tbex_site_items_instagram_feed() {
 
 		if ( function_exists( 'sb_instagram_activate_pro' ) ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'instagramfeed-license',
 					'parent' => 'instagramfeed',
@@ -108,11 +108,11 @@ function ddw_tbex_site_items_instagram_feed() {
 		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-instagramfeed-resources',
 					'parent' => 'instagramfeed',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

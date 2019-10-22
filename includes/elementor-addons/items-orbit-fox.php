@@ -20,15 +20,15 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_orbit_fox', 100 );
  *
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_orbit_fox() {
+function ddw_tbex_aoitems_orbit_fox( $admin_bar ) {
 
 	/** Use Add-On hook place */
 	add_filter( 'tbex_filter_is_addon', '__return_empty_string' );
 
 	/** Sizzify Lite Settings */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'ao-orbitfox',
 			'parent' => 'tbex-addons',
@@ -36,12 +36,12 @@ function ddw_tbex_aoitems_orbit_fox() {
 			'href'   => esc_url( admin_url( 'admin.php?page=obfx_template_dir' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_addon_title_attr( esc_attr__( 'Orbit Fox', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_addon_title_attr( esc_attr__( 'Orbit Fox', 'toolbar-extras' ) ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-orbitfox-settings',
 				'parent' => 'ao-orbitfox',
@@ -49,7 +49,7 @@ function ddw_tbex_aoitems_orbit_fox() {
 				'href'   => esc_url( admin_url( 'admin.php?page=obfx_companion' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'General Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'General Settings', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -58,7 +58,7 @@ function ddw_tbex_aoitems_orbit_fox() {
 
 		if ( isset( $obfx_templates[ 'module_status' ][ 'template-directory' ][ 'active' ] ) && $obfx_templates[ 'module_status' ][ 'template-directory' ][ 'active' ] ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'ao-orbitfox-templates',
 					'parent' => 'ao-orbitfox',
@@ -66,21 +66,21 @@ function ddw_tbex_aoitems_orbit_fox() {
 					'href'   => esc_url( admin_url( 'admin.php?page=obfx_template_dir' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Template Import', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Template Import', 'toolbar-extras' ),
 					)
 				)
 			);
 
 		}  // end if
 
-		/** Group: Resources for Orbit Fox */
+		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-orbitfox-resources',
 					'parent' => 'ao-orbitfox',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

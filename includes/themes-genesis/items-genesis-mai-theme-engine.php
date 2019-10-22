@@ -126,16 +126,16 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_mai_demo_importer', 100 );
  * @uses ddw_tbex_display_items_demo_import()
  * @uses ddw_tbex_item_title_with_settings_icon()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_mai_demo_importer() {
+function ddw_tbex_aoitems_mai_demo_importer( $admin_bar ) {
 
 	/** Bail early if no display of Demo Import items */
 	if ( ! ddw_tbex_display_items_demo_import() || ! class_exists( 'Mai_Demo_Importer' ) ) {
-		return;
+		return $admin_bar;
 	}
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => ddw_tbex_id_sites_browser(),
 			'parent' => 'group-demo-import',
@@ -143,7 +143,7 @@ function ddw_tbex_aoitems_mai_demo_importer() {
 			'href'   => esc_url( admin_url( 'admin.php?page=mai-demo-importer' ) ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target(),
-				'title'  => esc_attr__( 'Import Demo Data', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Import Demo Data', 'toolbar-extras' ),
 			)
 		)
 	);
@@ -183,7 +183,7 @@ function ddw_tbex_aoitems_mai_extensions( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=' . $type_favorites ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Manage Mai Favorites', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Manage Mai Favorites', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -196,7 +196,7 @@ function ddw_tbex_aoitems_mai_extensions( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'edit.php?post_type=' . $type_favorites ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'All Favorites', 'toolbar-extras' )
+						'title'  => esc_attr__( 'All Favorites', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -209,7 +209,7 @@ function ddw_tbex_aoitems_mai_extensions( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'post-new.php?post_type=' . $type_favorites ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'New Favorite', 'toolbar-extras' )
+						'title'  => esc_attr__( 'New Favorite', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -222,7 +222,7 @@ function ddw_tbex_aoitems_mai_extensions( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'edit-tags.php?taxonomy=favorite_cat&post_type=' . $type_favorites ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Favorite Categories', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Favorite Categories', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -236,7 +236,7 @@ function ddw_tbex_aoitems_mai_extensions( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'edit.php?post_type=' . $type_favorites ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Edit Favorites', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Edit Favorites', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -256,7 +256,7 @@ function ddw_tbex_aoitems_mai_extensions( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=' . $type_testimonials ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Manage Mai Testimonials', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Manage Mai Testimonials', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -269,7 +269,7 @@ function ddw_tbex_aoitems_mai_extensions( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'edit.php?post_type=' . $type_testimonials ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'All Testimonials', 'toolbar-extras' )
+						'title'  => esc_attr__( 'All Testimonials', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -282,7 +282,7 @@ function ddw_tbex_aoitems_mai_extensions( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'post-new.php?post_type=' . $type_testimonials ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'New Testimonial', 'toolbar-extras' )
+						'title'  => esc_attr__( 'New Testimonial', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -295,7 +295,7 @@ function ddw_tbex_aoitems_mai_extensions( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'edit-tags.php?taxonomy=testimonial_cat&post_type=' . $type_testimonials ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Testimonial Categories', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Testimonial Categories', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -309,7 +309,7 @@ function ddw_tbex_aoitems_mai_extensions( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'edit.php?post_type=' . $type_testimonials ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Edit Testimonials', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Edit Testimonials', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -327,7 +327,7 @@ function ddw_tbex_aoitems_mai_extensions( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'admin.php?page=mai_aec' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Manage Mai Ads &amp; Extra Content', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Manage Mai Ads &amp; Extra Content', 'toolbar-extras' ),
 				)
 			)
 		);

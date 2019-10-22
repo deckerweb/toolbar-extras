@@ -52,12 +52,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_ninja_forms' );
  * @since 1.3.1
  * @since 1.4.2 Security enhancements.
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_ninja_forms() {
+function ddw_tbex_site_items_ninja_forms( $admin_bar ) {
 
 	/** For: Forms */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'forms-ninjaforms',
 			'parent' => 'tbex-sitegroup-forms',
@@ -65,7 +65,7 @@ function ddw_tbex_site_items_ninja_forms() {
 			'href'   => esc_url( admin_url( 'admin.php?page=ninja-forms' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_forms_system( 'Ninja' )
+				'title'  => ddw_tbex_string_forms_system( 'Ninja' ),
 			)
 		)
 	);
@@ -82,10 +82,10 @@ function ddw_tbex_site_items_ninja_forms() {
 		if ( $forms ) {
 
 			/** Add group */
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-ninjaforms-edit-forms',
-					'parent' => 'forms-ninjaforms'
+					'parent' => 'forms-ninjaforms',
 				)
 			);
 
@@ -95,7 +95,7 @@ function ddw_tbex_site_items_ninja_forms() {
 				$form_title = esc_attr( $form->title );
 
 				/** Add item per form */
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'forms-ninjaforms-form-' . $form_id,
 						'parent' => 'group-ninjaforms-edit-forms',
@@ -103,12 +103,12 @@ function ddw_tbex_site_items_ninja_forms() {
 						'href'   => esc_url( admin_url( 'admin.php?page=ninja-forms&form_id=' . $form_id ) ),
 						'meta'   => array(
 							'target' => ddw_tbex_meta_target( 'builder' ),
-							'title'  => esc_attr__( 'Edit Form', 'toolbar-extras' ) . ': ' . $form_title
+							'title'  => esc_attr__( 'Edit Form', 'toolbar-extras' ) . ': ' . $form_title,
 						)
 					)
 				);
 
-					$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					$admin_bar->add_node(
 						array(
 							'id'     => 'forms-ninjaforms-form-' . $form_id . '-builder',
 							'parent' => 'forms-ninjaforms-form-' . $form_id,
@@ -116,12 +116,12 @@ function ddw_tbex_site_items_ninja_forms() {
 							'href'   => esc_url( admin_url( 'admin.php?page=ninja-forms&form_id=' . $form_id ) ),
 							'meta'   => array(
 								'target' => ddw_tbex_meta_target( 'builder' ),
-								'title'  => esc_attr__( 'Form Builder', 'toolbar-extras' )
+								'title'  => esc_attr__( 'Form Builder', 'toolbar-extras' ),
 							)
 						)
 					);
 
-					$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					$admin_bar->add_node(
 						array(
 							'id'     => 'forms-ninjaforms-form-' . $form_id . '-preview',
 							'parent' => 'forms-ninjaforms-form-' . $form_id,
@@ -129,12 +129,12 @@ function ddw_tbex_site_items_ninja_forms() {
 							'href'   => esc_url( site_url( '/?nf_preview_form=' . $form_id ) ),
 							'meta'   => array(
 								'target' => ddw_tbex_meta_target(),
-								'title'  => esc_attr__( 'Preview', 'toolbar-extras' )
+								'title'  => esc_attr__( 'Preview', 'toolbar-extras' ),
 							)
 						)
 					);
 
-					$GLOBALS[ 'wp_admin_bar' ]->add_node(
+					$admin_bar->add_node(
 						array(
 							'id'     => 'forms-ninjaforms-form-' . $form_id . '-submissions',
 							'parent' => 'forms-ninjaforms-form-' . $form_id,
@@ -142,7 +142,7 @@ function ddw_tbex_site_items_ninja_forms() {
 							'href'   => esc_url( admin_url( 'edit.php?post_status=all&post_type=nf_sub&form_id=' . $form_id ) ),
 							'meta'   => array(
 								'target' => '',
-								'title'  => esc_attr__( 'Submissions', 'toolbar-extras' )
+								'title'  => esc_attr__( 'Submissions', 'toolbar-extras' ),
 							)
 						)
 					);
@@ -152,7 +152,7 @@ function ddw_tbex_site_items_ninja_forms() {
 		}  // end if
 
 		/** General Ninja Forms items */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-ninjaforms-all-forms',
 				'parent' => 'forms-ninjaforms',
@@ -160,12 +160,12 @@ function ddw_tbex_site_items_ninja_forms() {
 				'href'   => esc_url( admin_url( 'admin.php?page=ninja-forms' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'All Forms', 'toolbar-extras' )
+					'title'  => esc_attr__( 'All Forms', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-ninjaforms-new-form',
 				'parent' => 'forms-ninjaforms',
@@ -173,12 +173,12 @@ function ddw_tbex_site_items_ninja_forms() {
 				'href'   => esc_url( admin_url( 'admin.php?page=ninja-forms#new-form' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'New Form', 'toolbar-extras' )
+					'title'  => esc_attr__( 'New Form', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-ninjaforms-all-submissions',
 				'parent' => 'forms-ninjaforms',
@@ -186,15 +186,15 @@ function ddw_tbex_site_items_ninja_forms() {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=nf_sub' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'All Submissions', 'toolbar-extras' )
+					'title'  => esc_attr__( 'All Submissions', 'toolbar-extras' ),
 				)
 			)
 		);
 
 		/** Pro Add-On: Layout & Styles */
 		if ( ddw_tbex_is_ninjaforms_pro_addon_active( 'layout-styles' ) )  {
-			
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-ninjaforms-styling',
 					'parent' => 'forms-ninjaforms',
@@ -202,12 +202,12 @@ function ddw_tbex_site_items_ninja_forms() {
 					'href'   => esc_url( admin_url( 'admin.php?page=nf-styling' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Styling', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Styling', 'toolbar-extras' ),
 					)
 				)
 			);
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'forms-ninjaforms-styling-forms',
 						'parent' => 'forms-ninjaforms-styling',
@@ -215,12 +215,12 @@ function ddw_tbex_site_items_ninja_forms() {
 						'href'   => esc_url( admin_url( 'admin.php?page=nf-styling&tab=form_settings' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'Form Styles', 'toolbar-extras' )
+							'title'  => esc_attr__( 'Form Styles', 'toolbar-extras' ),
 						)
 					)
 				);
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'forms-ninjaforms-styling-fields',
 						'parent' => 'forms-ninjaforms-styling',
@@ -228,12 +228,12 @@ function ddw_tbex_site_items_ninja_forms() {
 						'href'   => esc_url( admin_url( 'admin.php?page=nf-styling&tab=field_settings' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'Default Field Styles', 'toolbar-extras' )
+							'title'  => esc_attr__( 'Default Field Styles', 'toolbar-extras' ),
 						)
 					)
 				);
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'forms-ninjaforms-styling-field-types',
 						'parent' => 'forms-ninjaforms-styling',
@@ -241,12 +241,12 @@ function ddw_tbex_site_items_ninja_forms() {
 						'href'   => esc_url( admin_url( 'admin.php?page=nf-styling&tab=field_type' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'Field Type Styles', 'toolbar-extras' )
+							'title'  => esc_attr__( 'Field Type Styles', 'toolbar-extras' ),
 						)
 					)
 				);
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'forms-ninjaforms-styling-errors',
 						'parent' => 'forms-ninjaforms-styling',
@@ -254,12 +254,12 @@ function ddw_tbex_site_items_ninja_forms() {
 						'href'   => esc_url( admin_url( 'admin.php?page=nf-styling&tab=error_settings' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'Error Styles', 'toolbar-extras' )
+							'title'  => esc_attr__( 'Error Styles', 'toolbar-extras' ),
 						)
 					)
 				);
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'forms-ninjaforms-styling-datepickers',
 						'parent' => 'forms-ninjaforms-styling',
@@ -267,7 +267,7 @@ function ddw_tbex_site_items_ninja_forms() {
 						'href'   => esc_url( admin_url( 'admin.php?page=nf-styling&tab=datepicker_settings' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'DatePicker Styles', 'toolbar-extras' )
+							'title'  => esc_attr__( 'DatePicker Styles', 'toolbar-extras' ),
 						)
 					)
 				);
@@ -277,7 +277,7 @@ function ddw_tbex_site_items_ninja_forms() {
 		/** Pro Add-On: File Uploads */
 		if ( ddw_tbex_is_ninjaforms_pro_addon_active( 'file-uploads' ) )  {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-ninjaforms-fileuploads',
 					'parent' => 'forms-ninjaforms',
@@ -285,12 +285,12 @@ function ddw_tbex_site_items_ninja_forms() {
 					'href'   => esc_url( admin_url( 'admin.php?page=ninja-forms-uploads' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'File Uploads', 'toolbar-extras' )
+						'title'  => esc_attr__( 'File Uploads', 'toolbar-extras' ),
 					)
 				)
 			);
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'forms-ninjaforms-fileuploads-browse',
 						'parent' => 'forms-ninjaforms-fileuploads',
@@ -298,12 +298,12 @@ function ddw_tbex_site_items_ninja_forms() {
 						'href'   => esc_url( admin_url( 'admin.php?page=ninja-forms-uploads&tab=browse' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'View Uploads', 'toolbar-extras' )
+							'title'  => esc_attr__( 'View Uploads', 'toolbar-extras' ),
 						)
 					)
 				);
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'forms-ninjaforms-fileuploads-settings',
 						'parent' => 'forms-ninjaforms-fileuploads',
@@ -311,12 +311,12 @@ function ddw_tbex_site_items_ninja_forms() {
 						'href'   => esc_url( admin_url( 'admin.php?page=ninja-forms-uploads&tab=settings' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'Upload Settings', 'toolbar-extras' )
+							'title'  => esc_attr__( 'Upload Settings', 'toolbar-extras' ),
 						)
 					)
 				);
 
-				$GLOBALS[ 'wp_admin_bar' ]->add_node(
+				$admin_bar->add_node(
 					array(
 						'id'     => 'forms-ninjaforms-fileuploads-services',
 						'parent' => 'forms-ninjaforms-fileuploads',
@@ -324,7 +324,7 @@ function ddw_tbex_site_items_ninja_forms() {
 						'href'   => esc_url( admin_url( 'admin.php?page=ninja-forms-uploads&tab=external' ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'External Services', 'toolbar-extras' )
+							'title'  => esc_attr__( 'External Services', 'toolbar-extras' ),
 						)
 					)
 				);
@@ -332,7 +332,7 @@ function ddw_tbex_site_items_ninja_forms() {
 		}  // end if
 
 		/** Import/ Export */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-ninjaforms-import-export',
 				'parent' => 'forms-ninjaforms',
@@ -340,12 +340,12 @@ function ddw_tbex_site_items_ninja_forms() {
 				'href'   => esc_url( admin_url( 'admin.php?page=nf-import-export' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Import &amp; Export', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Import &amp; Export', 'toolbar-extras' ),
 				)
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-ninjaforms-import-export-forms',
 					'parent' => 'forms-ninjaforms-import-export',
@@ -353,12 +353,12 @@ function ddw_tbex_site_items_ninja_forms() {
 					'href'   => esc_url( admin_url( 'admin.php?page=nf-import-export&tab=formst' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Forms', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Forms', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-ninjaforms-import-export-fields',
 					'parent' => 'forms-ninjaforms-import-export',
@@ -366,13 +366,13 @@ function ddw_tbex_site_items_ninja_forms() {
 					'href'   => esc_url( admin_url( 'admin.php?page=nf-import-export&tab=favorite_fields' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Favorite Fields', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Favorite Fields', 'toolbar-extras' ),
 					)
 				)
 			);
 
 		/** Settings */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-ninjaforms-settings',
 				'parent' => 'forms-ninjaforms',
@@ -380,12 +380,12 @@ function ddw_tbex_site_items_ninja_forms() {
 				'href'   => esc_url( admin_url( 'admin.php?page=nf-settings' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
 				)
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-ninjaforms-settings-general',
 					'parent' => 'forms-ninjaforms-settings',
@@ -393,12 +393,12 @@ function ddw_tbex_site_items_ninja_forms() {
 					'href'   => esc_url( admin_url( 'admin.php?page=nf-settings&tab=settings' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'General Settings', 'toolbar-extras' )
+						'title'  => esc_attr__( 'General Settings', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'forms-ninjaforms-settings-licenses',
 					'parent' => 'forms-ninjaforms-settings',
@@ -406,13 +406,13 @@ function ddw_tbex_site_items_ninja_forms() {
 					'href'   => esc_url( admin_url( 'admin.php?page=nf-settings&tab=licenses' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Licenses', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Licenses', 'toolbar-extras' ),
 					)
 				)
 			);
 
 		/** System Status */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-ninjaforms-system-status',
 				'parent' => 'forms-ninjaforms',
@@ -420,25 +420,25 @@ function ddw_tbex_site_items_ninja_forms() {
 				'href'   => esc_url( admin_url( 'admin.php?page=nf-system-status' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'System Info', 'toolbar-extras' )
+					'title'  => esc_attr__( 'System Info', 'toolbar-extras' ),
 				)
 			)
 		);
 
 		/** Optionally, let other Ninja Forms Add-Ons hook in */
-		do_action( 'tbex_after_ninjaforms_settings' );
+		do_action( 'tbex_after_ninjaforms_settings', $admin_bar );
 
 		/** Group: Resources for Ninja Forms */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-ninjaforms-resources',
 					'parent' => 'forms-ninjaforms',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
-			
+
 			ddw_tbex_resource_item(
 				'support-forum',
 				'ninjaforms-support',
@@ -492,16 +492,16 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_new_content_ninja_forms', 80 );
  *
  * @since 1.3.1
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_new_content_ninja_forms() {
+function ddw_tbex_aoitems_new_content_ninja_forms( $admin_bar ) {
 
 	/** Bail early if items display is not wanted */
 	if ( ! ddw_tbex_display_items_new_content() || is_network_admin() ) {
-		return;
+		return $admin_bar;
 	}
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'tbex-ninja-form',
 			'parent' => 'new-content',
@@ -509,7 +509,7 @@ function ddw_tbex_aoitems_new_content_ninja_forms() {
 			'href'   => esc_url( admin_url( 'admin.php?page=ninja-forms#new-form' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_add_new_item( ddw_tbex_string_new_form( 'Ninja' ) )
+				'title'  => ddw_tbex_string_add_new_item( ddw_tbex_string_new_form( 'Ninja' ) ),
 			)
 		)
 	);

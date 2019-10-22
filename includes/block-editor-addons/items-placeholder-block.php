@@ -20,13 +20,13 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_placeholder_block', 150 );
  *
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar']
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_placeholder_block() {
+function ddw_tbex_aoitems_placeholder_block( $admin_bar ) {
 
 	$post_type = 'placeholder';
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'sqhplaceholder-block',
 			'parent' => 'group-creative-content',
@@ -34,12 +34,12 @@ function ddw_tbex_aoitems_placeholder_block() {
 			'href'   => esc_url( admin_url( 'edit.php?post_type=' . $post_type ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_free_addon_title_attr( __( 'Placeholder Blocks', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_free_addon_title_attr( __( 'Placeholder Blocks', 'toolbar-extras' ) ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'sqhplaceholder-block-all',
 				'parent' => 'sqhplaceholder-block',
@@ -47,12 +47,12 @@ function ddw_tbex_aoitems_placeholder_block() {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=' . $post_type ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'All Placeholder Blocks', 'toolbar-extras' )
+					'title'  => esc_attr__( 'All Placeholder Blocks', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'sqhplaceholder-block-new',
 				'parent' => 'sqhplaceholder-block',
@@ -60,7 +60,7 @@ function ddw_tbex_aoitems_placeholder_block() {
 				'href'   => esc_url( admin_url( 'post-new.php?post_type=' . $post_type ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'New Placeholder Block', 'toolbar-extras' )
+					'title'  => esc_attr__( 'New Placeholder Block', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -68,7 +68,7 @@ function ddw_tbex_aoitems_placeholder_block() {
 		/** Block categories, via BTC plugin */
 		if ( ddw_tbex_is_btcplugin_active() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'sqhplaceholder-block-categories',
 					'parent' => 'sqhplaceholder-block',
@@ -76,14 +76,14 @@ function ddw_tbex_aoitems_placeholder_block() {
 					'href'   => esc_url( admin_url( 'edit-tags.php?taxonomy=builder-template-category&post_type=' . $post_type ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_html( ddw_btc_string_template( 'block' ) )
+						'title'  => esc_html( ddw_btc_string_template( 'block' ) ),
 					)
 				)
 			);
 
 		}  // end if
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'sqhplaceholder-block-help',
 				'parent' => 'sqhplaceholder-block',
@@ -91,7 +91,7 @@ function ddw_tbex_aoitems_placeholder_block() {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=placeholder&page=placeholder_settings' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Plugin Help', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Plugin Help', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -99,11 +99,11 @@ function ddw_tbex_aoitems_placeholder_block() {
 		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-sqhplaceholder-resources',
 					'parent' => 'sqhplaceholder-block',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

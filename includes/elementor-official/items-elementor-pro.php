@@ -24,19 +24,19 @@ add_action( 'admin_bar_menu', 'ddw_tbex_items_elementor_pro_theme_builder', 99 )
  * @uses ddw_tbex_string_elementor()
  * @uses ddw_tbex_meta_target()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_items_elementor_pro_theme_builder() {
+function ddw_tbex_items_elementor_pro_theme_builder( $admin_bar ) {
 
 	/** Bail early if Elementor is not set as default page builder */
 	if ( 'elementor' !== ddw_tbex_get_default_pagebuilder()
 		|| ! ddw_tbex_use_tweak_elementor_display_tbuilder()
 		|| ! ddw_tbex_is_elementor_version( 'core', TBEX_ELEMENTOR_240_BETA, '>=' )
 	) {
-		return;
+		return $admin_bar;
 	}
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'elementor-themebuilder',
 			'parent' => 'group-creative-content',
@@ -48,12 +48,12 @@ function ddw_tbex_items_elementor_pro_theme_builder() {
 					/* translators: %s - word "Elementor" */
 					esc_attr__( '%s Theme Builder', 'toolbar-extras' ),
 					ddw_tbex_string_elementor()
-				)
+				),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'elementor-themebuilder-all',
 				'parent' => 'elementor-themebuilder',
@@ -61,12 +61,12 @@ function ddw_tbex_items_elementor_pro_theme_builder() {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=elementor_library&tabs_group=theme' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'All Theme Areas', 'toolbar-extras' )
+					'title'  => esc_attr__( 'All Theme Areas', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'elementor-themebuilder-new',
 				'parent' => 'elementor-themebuilder',
@@ -74,13 +74,13 @@ function ddw_tbex_items_elementor_pro_theme_builder() {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=elementor_library&tabs_group=theme#add_new' ) ),
 				'meta'   => array(
 					'target' => ddw_tbex_meta_target( 'builder' ),
-					'title'  => esc_attr__( 'New Theme Area', 'toolbar-extras' )
+					'title'  => esc_attr__( 'New Theme Area', 'toolbar-extras' ),
 				)
 			)
 		);
 
 		/** New Theme Area type - splitted in single items */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'elementor-themebuilder-type',
 				'parent' => 'elementor-themebuilder',
@@ -88,12 +88,12 @@ function ddw_tbex_items_elementor_pro_theme_builder() {
 				'href'   => '',
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'New Theme Area Type', 'toolbar-extras' )
+					'title'  => esc_attr__( 'New Theme Area Type', 'toolbar-extras' ),
 				)
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'elementor-themebuilder-type-header',
 					'parent' => 'elementor-themebuilder-type',
@@ -101,12 +101,12 @@ function ddw_tbex_items_elementor_pro_theme_builder() {
 					'href'   => esc_url( admin_url( 'edit.php?post_type=elementor_library&elementor_library_type=header#add_new' ) ),
 					'meta'   => array(
 						'target' => ddw_tbex_meta_target( 'builder' ),
-						'title'  => esc_attr__( 'Template Type: Header Sections', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Template Type: Header Sections', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'elementor-themebuilder-type-footer',
 					'parent' => 'elementor-themebuilder-type',
@@ -114,12 +114,12 @@ function ddw_tbex_items_elementor_pro_theme_builder() {
 					'href'   => esc_url( admin_url( 'edit.php?post_type=elementor_library&elementor_library_type=footer#add_new' ) ),
 					'meta'   => array(
 						'target' => ddw_tbex_meta_target( 'builder' ),
-						'title'  => esc_attr__( 'Template Type: Footer Sections', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Template Type: Footer Sections', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'elementor-themebuilder-type-single',
 					'parent' => 'elementor-themebuilder-type',
@@ -127,12 +127,12 @@ function ddw_tbex_items_elementor_pro_theme_builder() {
 					'href'   => esc_url( admin_url( 'edit.php?post_type=elementor_library&elementor_library_type=single#add_new' ) ),
 					'meta'   => array(
 						'target' => ddw_tbex_meta_target( 'builder' ),
-						'title'  => esc_attr__( 'Template Type: Single Content Blocks', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Template Type: Single Content Blocks', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'elementor-themebuilder-type-archives',
 					'parent' => 'elementor-themebuilder-type',
@@ -140,12 +140,12 @@ function ddw_tbex_items_elementor_pro_theme_builder() {
 					'href'   => esc_url( admin_url( 'edit.php?post_type=elementor_library&elementor_library_type=archive#add_new' ) ),
 					'meta'   => array(
 						'target' => ddw_tbex_meta_target( 'builder' ),
-						'title'  => esc_attr__( 'Template Type: Archive Content Blocks', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Template Type: Archive Content Blocks', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'elementor-themebuilder-type-product',
 					'parent' => 'elementor-themebuilder-type',
@@ -153,12 +153,12 @@ function ddw_tbex_items_elementor_pro_theme_builder() {
 					'href'   => esc_url( admin_url( 'edit.php?post_type=elementor_library&elementor_library_type=product#add_new' ) ),
 					'meta'   => array(
 						'target' => ddw_tbex_meta_target( 'builder' ),
-						'title'  => esc_attr__( 'Template Type: Product Content Blocks', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Template Type: Product Content Blocks', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'elementor-themebuilder-type-product-archives',
 					'parent' => 'elementor-themebuilder-type',
@@ -166,7 +166,7 @@ function ddw_tbex_items_elementor_pro_theme_builder() {
 					'href'   => esc_url( admin_url( 'edit.php?post_type=elementor_library&elementor_library_type=product-archive#add_new' ) ),
 					'meta'   => array(
 						'target' => ddw_tbex_meta_target( 'builder' ),
-						'title'  => esc_attr__( 'Template Type: Product Archive Content Blocks', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Template Type: Product Archive Content Blocks', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -186,19 +186,19 @@ add_action( 'admin_bar_menu', 'ddw_tbex_items_elementor_pro_popups', 99 );
  * @uses ddw_tbex_string_elementor()
  * @uses ddw_tbex_meta_target()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_items_elementor_pro_popups() {
+function ddw_tbex_items_elementor_pro_popups( $admin_bar ) {
 
 	/** Bail early if Elementor is not set as default page builder */
 	if ( 'elementor' !== ddw_tbex_get_default_pagebuilder()
 		|| ! ddw_tbex_use_tweak_elementor_display_popups()
 		|| ! ddw_tbex_is_elementor_version( 'core', TBEX_ELEMENTOR_240_BETA, '>=' )
 	) {
-		return;
+		return $admin_bar;
 	}
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'elementor-popups',
 			'parent' => 'group-creative-content',
@@ -210,12 +210,12 @@ function ddw_tbex_items_elementor_pro_popups() {
 					/* translators: %s - word "Elementor" */
 					esc_attr__( '%s Popups', 'toolbar-extras' ),
 					ddw_tbex_string_elementor()
-				)
+				),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'elementor-popups-all',
 				'parent' => 'elementor-popups',
@@ -223,12 +223,12 @@ function ddw_tbex_items_elementor_pro_popups() {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=elementor_library&tabs_group=popup&elementor_library_type=popup' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'All Popups', 'toolbar-extras' )
+					'title'  => esc_attr__( 'All Popups', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'elementor-popups-new',
 				'parent' => 'elementor-popups',
@@ -236,14 +236,14 @@ function ddw_tbex_items_elementor_pro_popups() {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=elementor_library&elementor_library_type=popup#add_new' ) ),
 				'meta'   => array(
 					'target' => ddw_tbex_meta_target( 'builder' ),
-					'title'  => esc_attr__( 'New Popup', 'toolbar-extras' )
+					'title'  => esc_attr__( 'New Popup', 'toolbar-extras' ),
 				)
 			)
 		);
 
 		if ( \Elementor\User::is_current_user_can_edit_post_type( 'elementor_library' ) ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'elementor-popups-with-builder',
 					'parent' => 'elementor-popups',
@@ -251,7 +251,7 @@ function ddw_tbex_items_elementor_pro_popups() {
 					'href'   => ddw_tbex_get_elementor_template_add_new_url( 'popup' ),
 					'meta'   => array(
 						'target' => ddw_tbex_meta_target( 'builder' ),
-						'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Popup', 'Elementor Template type', 'toolbar-extras' ) )
+						'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Popup', 'Elementor Template type', 'toolbar-extras' ) ),
 					)
 				)
 			);
@@ -272,16 +272,16 @@ add_action( 'tbex_before_elementor_library_new', 'ddw_tbex_items_elementor_pro_l
  *
  * @uses ddw_tbex_is_elementor_version()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_items_elementor_pro_library_types() {
+function ddw_tbex_items_elementor_pro_library_types( $admin_bar ) {
 
 	/** Display only for Elementor 2.0+ */
 	if ( ! ddw_tbex_is_elementor_version( 'pro', '2.0.0', '>=' ) ) {
-		return;
+		return $admin_bar;
 	}
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'elementor-library-widgets',
 			'parent' => 'elibrary-types',
@@ -290,14 +290,14 @@ function ddw_tbex_items_elementor_pro_library_types() {
 			'href'   => esc_url( admin_url( 'edit.php?post_type=elementor_library&elementor_library_type=widget' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Template Type: Widget Blocks', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Template Type: Widget Blocks', 'toolbar-extras' ),
 			)
 		)
 	);
 
 	if ( ddw_tbex_is_elementor_version( 'pro', TBEX_ELEMENTOR_240_BETA, '>=' ) ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'elementor-library-popups',
 				'parent' => 'elibrary-types',
@@ -306,14 +306,14 @@ function ddw_tbex_items_elementor_pro_library_types() {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=elementor_library&tabs_group=popup&elementor_library_type=popup' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Template Type: Popups', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Template Type: Popups', 'toolbar-extras' ),
 				)
 			)
 		);
 
 	}  // end if
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'elementor-library-headers',
 			'parent' => 'elibrary-types',
@@ -322,12 +322,12 @@ function ddw_tbex_items_elementor_pro_library_types() {
 			'href'   => esc_url( admin_url( 'edit.php?post_type=elementor_library&elementor_library_type=header' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Template Type: Header Sections', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Template Type: Header Sections', 'toolbar-extras' ),
 			)
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'elementor-library-footers',
 			'parent' => 'elibrary-types',
@@ -336,12 +336,12 @@ function ddw_tbex_items_elementor_pro_library_types() {
 			'href'   => esc_url( admin_url( 'edit.php?post_type=elementor_library&elementor_library_type=footer' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Template Type: Footer Sections', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Template Type: Footer Sections', 'toolbar-extras' ),
 			)
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'elementor-library-single',
 			'parent' => 'elibrary-types',
@@ -350,12 +350,12 @@ function ddw_tbex_items_elementor_pro_library_types() {
 			'href'   => esc_url( admin_url( 'edit.php?post_type=elementor_library&elementor_library_type=single' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Template Type: Single Content Blocks', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Template Type: Single Content Blocks', 'toolbar-extras' ),
 			)
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'elementor-library-archives',
 			'parent' => 'elibrary-types',
@@ -364,7 +364,7 @@ function ddw_tbex_items_elementor_pro_library_types() {
 			'href'   => esc_url( admin_url( 'edit.php?post_type=elementor_library&elementor_library_type=archive' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Template Type: Archive Content Blocks', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Template Type: Archive Content Blocks', 'toolbar-extras' ),
 			)
 		)
 	);
@@ -373,7 +373,7 @@ function ddw_tbex_items_elementor_pro_library_types() {
 		&& ddw_tbex_is_woocommerce_active()
 	) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'elementor-library-product-single',
 				'parent' => 'elibrary-types',
@@ -382,12 +382,12 @@ function ddw_tbex_items_elementor_pro_library_types() {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=elementor_library&elementor_library_type=prodcut' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Template Type: Product Content Blocks', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Template Type: Product Content Blocks', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'elementor-library-product-archives',
 				'parent' => 'elibrary-types',
@@ -396,7 +396,7 @@ function ddw_tbex_items_elementor_pro_library_types() {
 				'href'   => esc_url( admin_url( 'edit.php?post_type=elementor_library&elementor_library_type=product-archive' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Template Type: Product Archive Content Blocks', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Template Type: Product Archive Content Blocks', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -415,13 +415,13 @@ add_action( 'tbex_after_elementor_library_builder', 'ddw_tbex_items_elementor_pr
  * @since 1.1.0
  * @since 1.4.0 Added Popup template type.
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_items_elementor_pro_add_library_types_with_builder() {
+function ddw_tbex_items_elementor_pro_add_library_types_with_builder( $admin_bar ) {
 
 	if ( ddw_tbex_is_elementor_version( 'pro', TBEX_ELEMENTOR_240_BETA, '>=' ) ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'et-build-template-popup',
 				'parent' => 'elementor-library-new-builder',
@@ -429,14 +429,14 @@ function ddw_tbex_items_elementor_pro_add_library_types_with_builder() {
 				'href'   => ddw_tbex_get_elementor_template_add_new_url( 'popup' ),
 				'meta'   => array(
 					'target' => ddw_tbex_meta_target( 'builder' ),
-					'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Popup', 'Elementor Template type', 'toolbar-extras' ) )
+					'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Popup', 'Elementor Template type', 'toolbar-extras' ) ),
 				)
 			)
 		);
 
 	}  // end if
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'et-build-template-header',
 			'parent' => 'elementor-library-new-builder',
@@ -444,12 +444,12 @@ function ddw_tbex_items_elementor_pro_add_library_types_with_builder() {
 			'href'   => ddw_tbex_get_elementor_template_add_new_url( 'header' ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target( 'builder' ),
-				'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Header', 'Elementor Template type', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Header', 'Elementor Template type', 'toolbar-extras' ) ),
 			)
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'et-build-template-footer',
 			'parent' => 'elementor-library-new-builder',
@@ -457,12 +457,12 @@ function ddw_tbex_items_elementor_pro_add_library_types_with_builder() {
 			'href'   => ddw_tbex_get_elementor_template_add_new_url( 'footer' ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target( 'builder' ),
-				'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Footer', 'Elementor Template type', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Footer', 'Elementor Template type', 'toolbar-extras' ) ),
 			)
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'et-build-template-single',
 			'parent' => 'elementor-library-new-builder',
@@ -470,12 +470,12 @@ function ddw_tbex_items_elementor_pro_add_library_types_with_builder() {
 			'href'   => ddw_tbex_get_elementor_template_add_new_url( 'single' ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target( 'builder' ),
-				'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Single', 'Elementor Template type', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Single', 'Elementor Template type', 'toolbar-extras' ) ),
 			)
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'et-build-template-archive',
 			'parent' => 'elementor-library-new-builder',
@@ -483,7 +483,7 @@ function ddw_tbex_items_elementor_pro_add_library_types_with_builder() {
 			'href'   => ddw_tbex_get_elementor_template_add_new_url( 'archive' ),
 			'meta'   => array(
 				'target' => ddw_tbex_meta_target( 'builder' ),
-				'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Archive', 'Elementor Template type', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Archive', 'Elementor Template type', 'toolbar-extras' ) ),
 			)
 		)
 	);
@@ -492,7 +492,7 @@ function ddw_tbex_items_elementor_pro_add_library_types_with_builder() {
 		&& ddw_tbex_is_woocommerce_active()
 	) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'et-build-template-product',
 				'parent' => 'elementor-library-new-builder',
@@ -500,12 +500,12 @@ function ddw_tbex_items_elementor_pro_add_library_types_with_builder() {
 				'href'   => ddw_tbex_get_elementor_template_add_new_url( 'product' ),
 				'meta'   => array(
 					'target' => ddw_tbex_meta_target( 'builder' ),
-					'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Product', 'Elementor Template type', 'toolbar-extras' ) )
+					'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Product', 'Elementor Template type', 'toolbar-extras' ) ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'et-build-template-product-archive',
 				'parent' => 'elementor-library-new-builder',
@@ -513,7 +513,7 @@ function ddw_tbex_items_elementor_pro_add_library_types_with_builder() {
 				'href'   => ddw_tbex_get_elementor_template_add_new_url( 'product-archive' ),
 				'meta'   => array(
 					'target' => ddw_tbex_meta_target( 'builder' ),
-					'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Product Archive', 'Elementor Template type', 'toolbar-extras' ) )
+					'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Product Archive', 'Elementor Template type', 'toolbar-extras' ) ),
 				)
 			)
 		);
@@ -529,12 +529,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_items_elementor_pro', 100 );
  *
  * @since 1.0.0
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_items_elementor_pro() {
+function ddw_tbex_items_elementor_pro( $admin_bar ) {
 
 	/** Pro: Integrations */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'elementor-settings-integrations',
 			'parent' => 'elementor-settings',
@@ -542,13 +542,13 @@ function ddw_tbex_items_elementor_pro() {
 			'href'   => esc_url( admin_url( 'admin.php?page=elementor#tab-integrations' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Pro: Integrations &amp; APIs', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Pro: Integrations &amp; APIs', 'toolbar-extras' ),
 			)
 		)
 	);
 
 	/** Pro: License */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'elementor-tools-license',
 			'parent' => 'elementor-tools',
@@ -556,7 +556,7 @@ function ddw_tbex_items_elementor_pro() {
 			'href'   => esc_url( admin_url( 'admin.php?page=elementor-license' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Pro: License', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Pro: License', 'toolbar-extras' ),
 			)
 		)
 	);
@@ -571,12 +571,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_items_elementor_pro_fonts', 130 );
  *
  * @since 1.0.0
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_items_elementor_pro_fonts() {
+function ddw_tbex_items_elementor_pro_fonts( $admin_bar ) {
 
 	/** Group: Pro Custom Fonts */
-	$GLOBALS[ 'wp_admin_bar' ]->add_group(
+	$admin_bar->add_group(
 		array(
 			'id'     => 'group-elementor-fonts',
 			'parent' => 'elementor-library',
@@ -584,7 +584,7 @@ function ddw_tbex_items_elementor_pro_fonts() {
 	);
 
 	/** Pro: Custom Fonts */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'elementor-fonts-all',
 			'parent' => 'group-elementor-fonts',
@@ -592,12 +592,12 @@ function ddw_tbex_items_elementor_pro_fonts() {
 			'href'   => esc_url( admin_url( 'edit.php?post_type=elementor_font' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'All Fonts', 'toolbar-extras' )
+				'title'  => esc_attr__( 'All Fonts', 'toolbar-extras' ),
 			)
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'elementor-fonts-new',
 			'parent' => 'group-elementor-fonts',
@@ -605,7 +605,7 @@ function ddw_tbex_items_elementor_pro_fonts() {
 			'href'   => esc_url( admin_url( 'post-new.php?post_type=elementor_font' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Upload New Font', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Upload New Font', 'toolbar-extras' ),
 			)
 		)
 	);
@@ -620,19 +620,19 @@ add_action( 'admin_bar_menu', 'ddw_tbex_items_elementor_pro_icons', 131 );
  *
  * @since 1.4.5
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_items_elementor_pro_icons() {
+function ddw_tbex_items_elementor_pro_icons( $admin_bar ) {
 
 	$type = 'elementor_icons';
 
 	/** Bail early if post type does not exist */
 	if ( ! post_type_exists( $type ) ) {
-		return;
+		return $admin_bar;
 	}
 
 	/** Group: Pro Custom Fonts */
-	$GLOBALS[ 'wp_admin_bar' ]->add_group(
+	$admin_bar->add_group(
 		array(
 			'id'     => 'group-elementor-icons',
 			'parent' => 'elementor-library',
@@ -640,7 +640,7 @@ function ddw_tbex_items_elementor_pro_icons() {
 	);
 
 	/** Pro: Custom Fonts */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'elementor-icons-all',
 			'parent' => 'group-elementor-icons',
@@ -648,12 +648,12 @@ function ddw_tbex_items_elementor_pro_icons() {
 			'href'   => esc_url( admin_url( 'edit.php?post_type=' . $type ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'All Custom Icon Sets', 'toolbar-extras' )
+				'title'  => esc_attr__( 'All Custom Icon Sets', 'toolbar-extras' ),
 			)
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'elementor-icons-new',
 			'parent' => 'group-elementor-icons',
@@ -661,7 +661,7 @@ function ddw_tbex_items_elementor_pro_icons() {
 			'href'   => esc_url( admin_url( 'post-new.php?post_type=' . $type ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Upload New Custom Icon Set', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Upload New Custom Icon Set', 'toolbar-extras' ),
 			)
 		)
 	);
@@ -679,17 +679,17 @@ add_action( 'tbex_after_elementor_resources', 'ddw_tbex_items_elementor_pro_reso
  * @uses ddw_tbex_resource_item()
  * @uses ddw_tbex_get_resource_url()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_items_elementor_pro_resources() {
+function ddw_tbex_items_elementor_pro_resources( $admin_bar ) {
 
 	/** Bail early if resources display is disabled */
 	if ( ! ddw_tbex_display_items_resources() ) {
-		return;
+		return $admin_bar;
 	}
 
 	/** Add Toolbar nodes */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'epro-resources',
 			'parent' => 'group-pagebuilder-resources',
@@ -698,7 +698,7 @@ function ddw_tbex_items_elementor_pro_resources() {
 			'meta'   => array(
 				'rel'    => ddw_tbex_meta_rel(),
 				'target' => ddw_tbex_meta_target(),
-				'title'  => esc_attr__( 'Pro Resources', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Pro Resources', 'toolbar-extras' ),
 			)
 		)
 	);
@@ -749,13 +749,13 @@ add_action( 'admin_bar_menu', 'ddw_tbex_items_elementor_pro_developers', 99 );
  * @uses ddw_tbex_resource_item()
  * @uses ddw_tbex_get_resource_url()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_items_elementor_pro_developers() {
+function ddw_tbex_items_elementor_pro_developers( $admin_bar ) {
 
 	/** Bail early if Dev Mode & Resources display are disabled */
 	if ( ! ddw_tbex_display_items_dev_mode() && ! ddw_tbex_display_items_resources() ) {
-		return;
+		return $admin_bar;
 	}
 
 	ddw_tbex_resource_item(
@@ -775,15 +775,15 @@ add_action( 'admin_bar_menu', 'ddw_tbex_items_elementor_pro_new_content', 130 );
  * @since 1.1.0
  * @since 1.4.0 Added Popup template type.
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_items_elementor_pro_new_content() {
+function ddw_tbex_items_elementor_pro_new_content( $admin_bar ) {
 
 	/** Bail early if items display is not wanted */
 	if ( ! ddw_tbex_display_items_new_content()
 		|| ! class_exists( '\Elementor\User' )
 	) {
-		return;
+		return $admin_bar;
 	}
 
 	if ( \Elementor\User::is_current_user_can_edit_post_type( 'elementor_library' ) ) {
@@ -792,7 +792,7 @@ function ddw_tbex_items_elementor_pro_new_content() {
 		if ( ddw_tbex_is_elementor_version( 'pro', TBEX_ELEMENTOR_240_BETA, '>=' ) ) {
 
 			/** For: Build Group as sub item */
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'eltpl-popup-with-builder',
 					'parent' => ddw_tbex_elementor_addnew_parent(),		//'tbex-elementor-template',
@@ -800,13 +800,13 @@ function ddw_tbex_items_elementor_pro_new_content() {
 					'href'   => ddw_tbex_get_elementor_template_add_new_url( 'popup' ),
 					'meta'   => array(
 						'target' => ddw_tbex_meta_target( 'builder' ),
-						'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Popup', 'Elementor Template type', 'toolbar-extras' ) )
+						'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Popup', 'Elementor Template type', 'toolbar-extras' ) ),
 					)
 				)
 			);
 
 			/** For: New Content as sub item */
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'elementor-nclib-new-popup',
 					'parent' => 'group-elementor-nclib',
@@ -814,14 +814,14 @@ function ddw_tbex_items_elementor_pro_new_content() {
 					'href'   => esc_url( admin_url( 'edit.php?post_type=elementor_library&elementor_library_type=popup#add_new' ) ),
 					'meta'   => array(
 						'target' => ddw_tbex_meta_target( 'builder' ),
-						'title'  => esc_attr_x( 'Popup', 'Elementor - in Toolbar New Content section', 'toolbar-extras' )
+						'title'  => esc_attr_x( 'Popup', 'Elementor - in Toolbar New Content section', 'toolbar-extras' ),
 					)
 				)
 			);
 
 		}  // end if
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'eltpl-header-with-builder',
 				'parent' => ddw_tbex_elementor_addnew_parent(),		//'tbex-elementor-template',
@@ -829,12 +829,12 @@ function ddw_tbex_items_elementor_pro_new_content() {
 				'href'   => ddw_tbex_get_elementor_template_add_new_url( 'header' ),
 				'meta'   => array(
 					'target' => ddw_tbex_meta_target( 'builder' ),
-					'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Header', 'Elementor Template type', 'toolbar-extras' ) )
+					'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Header', 'Elementor Template type', 'toolbar-extras' ) ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'eltpl-footer-with-builder',
 				'parent' => ddw_tbex_elementor_addnew_parent(),		//'tbex-elementor-template',
@@ -842,12 +842,12 @@ function ddw_tbex_items_elementor_pro_new_content() {
 				'href'   => ddw_tbex_get_elementor_template_add_new_url( 'footer' ),
 				'meta'   => array(
 					'target' => ddw_tbex_meta_target( 'builder' ),
-					'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Footer', 'Elementor Template type', 'toolbar-extras' ) )
+					'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Footer', 'Elementor Template type', 'toolbar-extras' ) ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'eltpl-single-with-builder',
 				'parent' => ddw_tbex_elementor_addnew_parent(),		//'tbex-elementor-template',
@@ -855,12 +855,12 @@ function ddw_tbex_items_elementor_pro_new_content() {
 				'href'   => ddw_tbex_get_elementor_template_add_new_url( 'single' ),
 				'meta'   => array(
 					'target' => ddw_tbex_meta_target( 'builder' ),
-					'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Single', 'Elementor Template type', 'toolbar-extras' ) )
+					'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Single', 'Elementor Template type', 'toolbar-extras' ) ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'eltpl-archive-with-builder',
 				'parent' => ddw_tbex_elementor_addnew_parent(),		//'tbex-elementor-template',
@@ -868,7 +868,7 @@ function ddw_tbex_items_elementor_pro_new_content() {
 				'href'   => ddw_tbex_get_elementor_template_add_new_url( 'archive' ),
 				'meta'   => array(
 					'target' => ddw_tbex_meta_target( 'builder' ),
-					'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Archive', 'Elementor Template type', 'toolbar-extras' ) )
+					'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Archive', 'Elementor Template type', 'toolbar-extras' ) ),
 				)
 			)
 		);
@@ -878,7 +878,7 @@ function ddw_tbex_items_elementor_pro_new_content() {
 			&& ddw_tbex_is_woocommerce_active()
 		) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'eltpl-product-with-builder',
 					'parent' => ddw_tbex_elementor_addnew_parent(),		//'tbex-elementor-template',
@@ -886,12 +886,12 @@ function ddw_tbex_items_elementor_pro_new_content() {
 					'href'   => ddw_tbex_get_elementor_template_add_new_url( 'product' ),
 					'meta'   => array(
 						'target' => ddw_tbex_meta_target( 'builder' ),
-						'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Product', 'Elementor Template type', 'toolbar-extras' ) )
+						'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Product', 'Elementor Template type', 'toolbar-extras' ) ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'eltpl-product-archive-with-builder',
 					'parent' => ddw_tbex_elementor_addnew_parent(),		//'tbex-elementor-template',
@@ -899,7 +899,7 @@ function ddw_tbex_items_elementor_pro_new_content() {
 					'href'   => ddw_tbex_get_elementor_template_add_new_url( 'product-archive' ),
 					'meta'   => array(
 						'target' => ddw_tbex_meta_target( 'builder' ),
-						'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Product Archive', 'Elementor Template type', 'toolbar-extras' ) )
+						'title'  => ddw_tbex_string_elementor_template_create_with_builder( _x( 'Product Archive', 'Elementor Template type', 'toolbar-extras' ) ),
 					)
 				)
 			);

@@ -24,7 +24,6 @@ add_filter( 'admin_bar_menu', 'ddw_tbex_site_items_smartslider' );
  *
  * @uses ddw_tbex_use_tweak_smartslider()
  *
- * @global mixed  $GLOBALS[ 'wp_admin_bar' ]
  * @param object $wp_admin_bar Holds all nodes of the Toolbar.
  */
 function ddw_tbex_site_items_smartslider( $wp_admin_bar ) {
@@ -35,7 +34,7 @@ function ddw_tbex_site_items_smartslider( $wp_admin_bar ) {
 	}
 
 	/** Re-hook for: Manage Content */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$wp_admin_bar->add_node(
 		array(
 			'id'     => 'smart_slider_3',			// same as original!
 			'parent' => 'gallery-slider-addons',
@@ -44,7 +43,7 @@ function ddw_tbex_site_items_smartslider( $wp_admin_bar ) {
 			'meta'   => array(
 				'class'  => 'tbex-smartslider3',
 				'target' => '',
-				'title'  => esc_attr__( 'Smart Sliders (via Smart Slider 3)', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Smart Sliders (via Smart Slider 3)', 'toolbar-extras' ),
 			)
 		)
 	);
@@ -58,11 +57,11 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_smartslider_extend', 100 );
  *
  * @since 1.0.0
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
 function ddw_tbex_site_items_smartslider_extend() {
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'smartslider-settings',
 			'parent' => 'smart_slider_3',
@@ -70,12 +69,12 @@ function ddw_tbex_site_items_smartslider_extend() {
 			'href'   => esc_url( admin_url( 'admin.php?page=nextend&nextendcontroller=settings&nextendaction=index' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'General Settings', 'toolbar-extras' )
+				'title'  => esc_attr__( 'General Settings', 'toolbar-extras' ),
 			)
 		)
 	);
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'smartslider-fonts',
 			'parent' => 'smart_slider_3',
@@ -83,7 +82,7 @@ function ddw_tbex_site_items_smartslider_extend() {
 			'href'   => esc_url( admin_url( 'admin.php?page=nextend&nextendcontroller=settings&nextendaction=fonts' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Fonts Settings', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Fonts Settings', 'toolbar-extras' ),
 			)
 		)
 	);
@@ -100,18 +99,18 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_smartslider_resources', 200 )
  * @uses ddw_tbex_display_items_resources()
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_smartslider_resources() {
+function ddw_tbex_site_items_smartslider_resources( $admin_bar ) {
 
 	/** Group: Resources for Smart Slider 3 */
 	if ( ddw_tbex_display_items_resources() ) {
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_group(
+		$admin_bar->add_group(
 			array(
 				'id'     => 'group-smartslider-resources',
 				'parent' => 'smart_slider_3',
-				'meta'   => array( 'class' => 'ab-sub-secondary' )
+				'meta'   => array( 'class' => 'ab-sub-secondary' ),
 			)
 		);
 

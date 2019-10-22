@@ -20,12 +20,12 @@ add_action( 'tbex_after_site_group_update_check', 'ddw_tbex_site_items_easy_upda
  *
  * @see plugin file /includes/items-site-group.php
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_easy_updates_manager() {
+function ddw_tbex_site_items_easy_updates_manager( $admin_bar ) {
 
 	/** For: More stuff */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'easy-updates-manager',
 			'parent' => 'tbex-sitegroup-stuff',
@@ -33,13 +33,13 @@ function ddw_tbex_site_items_easy_updates_manager() {
 			'href'   => esc_url( admin_url( 'index.php?page=mpsum-update-options' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr_x( 'Easy Updates Manager', 'A plugin name', 'toolbar-extras' )
+				'title'  => esc_attr_x( 'Easy Updates Manager', 'A plugin name', 'toolbar-extras' ),
 			)
 		)
 	);
 
 		/** General */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'easy-updates-manager-general',
 				'parent' => 'easy-updates-manager',
@@ -47,13 +47,13 @@ function ddw_tbex_site_items_easy_updates_manager() {
 				'href'   => esc_url( admin_url( 'index.php?page=mpsum-update-options&tab=general' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'General Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'General Settings', 'toolbar-extras' ),
 				)
 			)
 		);
 
 		/** Plugins */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'easy-updates-manager-plugins',
 				'parent' => 'easy-updates-manager',
@@ -61,12 +61,12 @@ function ddw_tbex_site_items_easy_updates_manager() {
 				'href'   => esc_url( admin_url( 'index.php?page=mpsum-update-options&tab=plugins' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Manage Plugin Updates', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Manage Plugin Updates', 'toolbar-extras' ),
 				)
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'easy-updates-manager-plugins-all',
 					'parent' => 'easy-updates-manager-plugins',
@@ -74,12 +74,12 @@ function ddw_tbex_site_items_easy_updates_manager() {
 					'href'   => esc_url( admin_url( 'index.php?page=mpsum-update-options&tab=plugins&view=all' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'View: All Plugins', 'toolbar-extras' )
+						'title'  => esc_attr__( 'View: All Plugins', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'easy-updates-manager-plugins-updates-enabled',
 					'parent' => 'easy-updates-manager-plugins',
@@ -87,12 +87,12 @@ function ddw_tbex_site_items_easy_updates_manager() {
 					'href'   => esc_url( admin_url( 'index.php?page=mpsum-update-options&tab=plugins&view=update_enabled' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'View: Plugins with Updates enabled', 'toolbar-extras' )
+						'title'  => esc_attr__( 'View: Plugins with Updates enabled', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'easy-updates-manager-plugins-updates-disabled',
 					'parent' => 'easy-updates-manager-plugins',
@@ -100,13 +100,13 @@ function ddw_tbex_site_items_easy_updates_manager() {
 					'href'   => esc_url( admin_url( 'index.php?page=mpsum-update-options&tab=plugins&view=update_disabled' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'View: Plugins with Updates disabled', 'toolbar-extras' )
+						'title'  => esc_attr__( 'View: Plugins with Updates disabled', 'toolbar-extras' ),
 					)
 				)
 			);
 
 		/** Themes */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'easy-updates-manager-themes',
 				'parent' => 'easy-updates-manager',
@@ -114,12 +114,12 @@ function ddw_tbex_site_items_easy_updates_manager() {
 				'href'   => esc_url( admin_url( 'index.php?page=mpsum-update-options&tab=plugins' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Manage Theme Updates', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Manage Theme Updates', 'toolbar-extras' ),
 				)
 			)
 		);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'easy-updates-manager-themes-all',
 					'parent' => 'easy-updates-manager-themes',
@@ -127,12 +127,12 @@ function ddw_tbex_site_items_easy_updates_manager() {
 					'href'   => esc_url( admin_url( 'index.php?page=mpsum-update-options&tab=themes&view=all' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'View: All Themes', 'toolbar-extras' )
+						'title'  => esc_attr__( 'View: All Themes', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'easy-updates-manager-themes-updates-enabled',
 					'parent' => 'easy-updates-manager-themes',
@@ -140,12 +140,12 @@ function ddw_tbex_site_items_easy_updates_manager() {
 					'href'   => esc_url( admin_url( 'index.php?page=mpsum-update-options&tab=themes&view=update_enabled' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'View: Themes with Updates enabled', 'toolbar-extras' )
+						'title'  => esc_attr__( 'View: Themes with Updates enabled', 'toolbar-extras' ),
 					)
 				)
 			);
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_node(
+			$admin_bar->add_node(
 				array(
 					'id'     => 'easy-updates-manager-themes-updates-disabled',
 					'parent' => 'easy-updates-manager-themes',
@@ -153,13 +153,13 @@ function ddw_tbex_site_items_easy_updates_manager() {
 					'href'   => esc_url( admin_url( 'index.php?page=mpsum-update-options&tab=themes&view=update_disabled' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'View: Themes with Updates disabled', 'toolbar-extras' )
+						'title'  => esc_attr__( 'View: Themes with Updates disabled', 'toolbar-extras' ),
 					)
 				)
 			);
 
 		/** Logs */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'easy-updates-manager-logs',
 				'parent' => 'easy-updates-manager',
@@ -167,13 +167,13 @@ function ddw_tbex_site_items_easy_updates_manager() {
 				'href'   => esc_url( admin_url( 'index.php?page=mpsum-update-options&tab=logs' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Logs', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Logs', 'toolbar-extras' ),
 				)
 			)
 		);
 
 		/** Advanced */
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'easy-updates-manager-advanced',
 				'parent' => 'easy-updates-manager',
@@ -181,7 +181,7 @@ function ddw_tbex_site_items_easy_updates_manager() {
 				'href'   => esc_url( admin_url( 'index.php?page=mpsum-update-options&tab=advanced' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Advanced Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Advanced Settings', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -189,14 +189,14 @@ function ddw_tbex_site_items_easy_updates_manager() {
 		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-easyupdatesmanager-resources',
 					'parent' => 'easy-updates-manager',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
-			
+
 			ddw_tbex_resource_item(
 				'support-forum',
 				'easyupdatesmanager-support',

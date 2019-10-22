@@ -18,12 +18,12 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_delightful_downloads', 20 );
  *
  * @since 1.0.0
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_delightful_downloads() {
+function ddw_tbex_aoitems_delightful_downloads( $admin_bar ) {
 
 	/** For: Manage Content */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'manage-content-dedo',
 			'parent' => 'manage-content',
@@ -31,7 +31,7 @@ function ddw_tbex_aoitems_delightful_downloads() {
 			'href'   => esc_url( admin_url( 'edit.php?post_type=dedo_download' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Edit Downloads', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Edit Downloads', 'toolbar-extras' ),
 			)
 		)
 	);

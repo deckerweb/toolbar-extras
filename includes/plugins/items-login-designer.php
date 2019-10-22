@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 //add_action( 'admin_bar_menu', 'ddw_tbex_site_items_login_designer', 105 );
 //add_filter( 'admin_bar_menu', 'ddw_tbex_site_items_login_designer', 105 );
-add_filter( 'wp_before_admin_bar_render', 'ddw_tbex_site_items_login_designer', 105 );
+add_action( 'wp_before_admin_bar_render', 'ddw_tbex_site_items_login_designer', 105 );
 /**
  * Items for Plugin: Login Designer (free, by Rich Tabor from ThatPluginCompany)
  *
@@ -28,7 +28,7 @@ add_filter( 'wp_before_admin_bar_render', 'ddw_tbex_site_items_login_designer', 
  *
  * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_login_designer( $admin_bar ) {
+function ddw_tbex_site_items_login_designer() {
 
 	$customizer_url = ddw_tbex_customizer_focus(
 		'panel',

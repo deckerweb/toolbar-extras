@@ -32,7 +32,7 @@ function ddw_tbex_site_items_forminator( $admin_bar ) {
 			'href'   => esc_url( admin_url( 'admin.php?page=forminator' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Forminator', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Forminator', 'toolbar-extras' ),
 			)
 		)
 	);
@@ -50,7 +50,7 @@ function ddw_tbex_site_items_forminator( $admin_bar ) {
 			$admin_bar->add_group(
 				array(
 					'id'     => 'group-forminator-edit-forms',
-					'parent' => 'forms-forminator'
+					'parent' => 'forms-forminator',
 				)
 			);
 
@@ -72,7 +72,7 @@ function ddw_tbex_site_items_forminator( $admin_bar ) {
 						'href'   => esc_url( admin_url( 'admin.php?page=forminator-cform-wizard&id=' . $form_id ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'Edit Form', 'toolbar-extras' ) . ': ' . $form_title
+							'title'  => esc_attr__( 'Edit Form', 'toolbar-extras' ) . ': ' . $form_title,
 						)
 					)
 				);
@@ -85,7 +85,7 @@ function ddw_tbex_site_items_forminator( $admin_bar ) {
 							'href'   => esc_url( admin_url( 'admin.php?page=forminator-cform-wizard&id=' . $form_id ) ),
 							'meta'   => array(
 								'target' => '',
-								'title'  => esc_attr__( 'Form Builder', 'toolbar-extras' )
+								'title'  => esc_attr__( 'Form Builder', 'toolbar-extras' ),
 							)
 						)
 					);
@@ -98,7 +98,7 @@ function ddw_tbex_site_items_forminator( $admin_bar ) {
 							'href'   => esc_url( admin_url( 'admin.php?page=forminator-cform-view&form_id=' . $form_id ) ),
 							'meta'   => array(
 								'target' => '',
-								'title'  => esc_attr__( 'Entries', 'toolbar-extras' )
+								'title'  => esc_attr__( 'Entries', 'toolbar-extras' ),
 							)
 						)
 					);
@@ -120,7 +120,7 @@ function ddw_tbex_site_items_forminator( $admin_bar ) {
 			$admin_bar->add_group(
 				array(
 					'id'     => 'group-forminator-edit-polls',
-					'parent' => 'forms-forminator'
+					'parent' => 'forms-forminator',
 				)
 			);
 
@@ -128,7 +128,7 @@ function ddw_tbex_site_items_forminator( $admin_bar ) {
 
 				$poll_id    = $poll->id;
 				$poll_title = $poll->name;
-				
+
 				if ( isset( $poll->settings[ 'formName' ] ) && ! empty( $poll->settings[ 'formName' ] ) ) {
 					$poll_title = $poll->settings[ 'formName' ];
 				}
@@ -142,7 +142,7 @@ function ddw_tbex_site_items_forminator( $admin_bar ) {
 						'href'   => esc_url( admin_url( 'admin.php?page=forminator-poll-wizard&id=' . $poll_id ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'Edit Poll', 'toolbar-extras' ) . ': ' . $poll_title
+							'title'  => esc_attr__( 'Edit Poll', 'toolbar-extras' ) . ': ' . $poll_title,
 						)
 					)
 				);
@@ -155,7 +155,7 @@ function ddw_tbex_site_items_forminator( $admin_bar ) {
 							'href'   => esc_url( admin_url( 'admin.php?page=forminator-poll-wizard&id=' . $poll_id ) ),
 							'meta'   => array(
 								'target' => '',
-								'title'  => esc_attr__( 'Poll Builder', 'toolbar-extras' )
+								'title'  => esc_attr__( 'Poll Builder', 'toolbar-extras' ),
 							)
 						)
 					);
@@ -168,7 +168,7 @@ function ddw_tbex_site_items_forminator( $admin_bar ) {
 							'href'   => esc_url( admin_url( 'admin.php?page=forminator-poll-view&form_id=' . $poll_id ) ),
 							'meta'   => array(
 								'target' => '',
-								'title'  => esc_attr__( 'Entries', 'toolbar-extras' )
+								'title'  => esc_attr__( 'Entries', 'toolbar-extras' ),
 							)
 						)
 					);
@@ -190,7 +190,7 @@ function ddw_tbex_site_items_forminator( $admin_bar ) {
 			$admin_bar->add_group(
 				array(
 					'id'     => 'group-forminator-edit-quizzes',
-					'parent' => 'forms-forminator'
+					'parent' => 'forms-forminator',
 				)
 			);
 
@@ -213,7 +213,7 @@ function ddw_tbex_site_items_forminator( $admin_bar ) {
 						'href'   => esc_url( admin_url( 'admin.php?page=forminator-' . $quiz_type . '-wizard&id=' . $quiz_id ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'Edit Quiz', 'toolbar-extras' ) . ': ' . $quiz_title
+							'title'  => esc_attr__( 'Edit Quiz', 'toolbar-extras' ) . ': ' . $quiz_title,
 						)
 					)
 				);
@@ -226,7 +226,7 @@ function ddw_tbex_site_items_forminator( $admin_bar ) {
 							'href'   => esc_url( admin_url( 'admin.php?page=forminator-' . $quiz_type . '-wizard&id=' . $quiz_id ) ),
 							'meta'   => array(
 								'target' => '',
-								'title'  => esc_attr__( 'Quiz Builder', 'toolbar-extras' )
+								'title'  => esc_attr__( 'Quiz Builder', 'toolbar-extras' ),
 							)
 						)
 					);
@@ -239,7 +239,7 @@ function ddw_tbex_site_items_forminator( $admin_bar ) {
 							'href'   => esc_url( admin_url( 'admin.php?page=forminator-quiz-view&form_id=' . $quiz_id ) ),
 							'meta'   => array(
 								'target' => '',
-								'title'  => esc_attr__( 'Entries', 'toolbar-extras' )
+								'title'  => esc_attr__( 'Entries', 'toolbar-extras' ),
 							)
 						)
 					);
@@ -257,7 +257,7 @@ function ddw_tbex_site_items_forminator( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'admin.php?page=forminator' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Dashboard', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Dashboard', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -271,7 +271,7 @@ function ddw_tbex_site_items_forminator( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'admin.php?page=forminator-cform' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Type: Forms', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Type: Forms', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -284,7 +284,7 @@ function ddw_tbex_site_items_forminator( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'admin.php?page=forminator-cform' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'All Forms', 'toolbar-extras' )
+						'title'  => esc_attr__( 'All Forms', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -297,7 +297,7 @@ function ddw_tbex_site_items_forminator( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'admin.php?page=forminator-cform-wizard' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'New Form', 'toolbar-extras' )
+						'title'  => esc_attr__( 'New Form', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -311,7 +311,7 @@ function ddw_tbex_site_items_forminator( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'admin.php?page=forminator-poll' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Type: Polls', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Type: Polls', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -324,7 +324,7 @@ function ddw_tbex_site_items_forminator( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'admin.php?page=forminator-poll' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'All Polls', 'toolbar-extras' )
+						'title'  => esc_attr__( 'All Polls', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -337,7 +337,7 @@ function ddw_tbex_site_items_forminator( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'admin.php?page=forminator-poll-wizard' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'New Poll', 'toolbar-extras' )
+						'title'  => esc_attr__( 'New Poll', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -351,7 +351,7 @@ function ddw_tbex_site_items_forminator( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'admin.php?page=forminator-quiz' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Type: Quizzes', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Type: Quizzes', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -364,7 +364,7 @@ function ddw_tbex_site_items_forminator( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'admin.php?page=forminator-quiz' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'All Quizzes', 'toolbar-extras' )
+						'title'  => esc_attr__( 'All Quizzes', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -377,7 +377,7 @@ function ddw_tbex_site_items_forminator( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'admin.php?page=forminator-nowrong-wizard' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'New Quiz: No Wrong Answer', 'toolbar-extras' )
+						'title'  => esc_attr__( 'New Quiz: No Wrong Answer', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -390,7 +390,7 @@ function ddw_tbex_site_items_forminator( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'admin.php?page=forminator-knowledge-wizard' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'New Quiz: Knowledge', 'toolbar-extras' )
+						'title'  => esc_attr__( 'New Quiz: Knowledge', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -404,7 +404,7 @@ function ddw_tbex_site_items_forminator( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'admin.php?page=forminator-entries' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'All Entries', 'toolbar-extras' )
+					'title'  => esc_attr__( 'All Entries', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -418,7 +418,7 @@ function ddw_tbex_site_items_forminator( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'admin.php?page=forminator-integrations' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Integrations', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Integrations', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -432,7 +432,7 @@ function ddw_tbex_site_items_forminator( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'admin.php?page=forminator-settings' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -445,7 +445,7 @@ function ddw_tbex_site_items_forminator( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'admin.php?page=forminator-settings&section=dashboard' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Dashboard', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Dashboard', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -458,7 +458,7 @@ function ddw_tbex_site_items_forminator( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'admin.php?page=forminator-settings&section=emails' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Emails', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Emails', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -471,7 +471,7 @@ function ddw_tbex_site_items_forminator( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'admin.php?page=forminator-settings&section=recaptcha' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Google reCAPTCHA', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Google reCAPTCHA', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -484,7 +484,7 @@ function ddw_tbex_site_items_forminator( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'admin.php?page=forminator-settings&section=data' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Data', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Data', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -497,7 +497,7 @@ function ddw_tbex_site_items_forminator( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'admin.php?page=forminator-settings&section=submissions' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Submissions', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Submissions', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -510,7 +510,7 @@ function ddw_tbex_site_items_forminator( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'admin.php?page=forminator-settings&section=payments' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Payments', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Payments', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -523,7 +523,7 @@ function ddw_tbex_site_items_forminator( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'admin.php?page=forminator-settings&section=accessibility' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Accessibility', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Accessibility', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -536,13 +536,13 @@ function ddw_tbex_site_items_forminator( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'admin.php?page=forminator-settings&section=pagination' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'Pagination', 'toolbar-extras' )
+						'title'  => esc_attr__( 'Pagination', 'toolbar-extras' ),
 					)
 				)
 			);
 
 		/** Optionally, let other WPForms Add-Ons hook in */
-		do_action( 'tbex_after_forminator_settings' );
+		do_action( 'tbex_after_forminator_settings', $admin_bar );
 
 		/** Group: Resources for WPForms */
 		if ( ddw_tbex_display_items_resources() ) {
@@ -551,10 +551,10 @@ function ddw_tbex_site_items_forminator( $admin_bar ) {
 				array(
 					'id'     => 'group-forminator-resources',
 					'parent' => 'forms-forminator',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
-			
+
 			ddw_tbex_resource_item(
 				'support-forum',
 				'forminator-support',
@@ -600,7 +600,7 @@ function ddw_tbex_aoitems_new_content_forminator( $admin_bar ) {
 
 	/** Bail early if items display is not wanted */
 	if ( ! ddw_tbex_display_items_new_content() || is_network_admin() ) {
-		return;
+		return $admin_bar;
 	}
 
 	$admin_bar->add_node(
@@ -611,7 +611,7 @@ function ddw_tbex_aoitems_new_content_forminator( $admin_bar ) {
 			'href'   => esc_url( admin_url( 'admin.php?page=forminator-cform-wizard' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_add_new_item( ddw_tbex_string_new_form( 'Forminator' ) )
+				'title'  => ddw_tbex_string_add_new_item( ddw_tbex_string_new_form( 'Forminator' ) ),
 			)
 		)
 	);
@@ -624,7 +624,7 @@ function ddw_tbex_aoitems_new_content_forminator( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'admin.php?page=forminator-cform-wizard' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Contact Form', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Contact Form', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -637,7 +637,7 @@ function ddw_tbex_aoitems_new_content_forminator( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'admin.php?page=forminator-poll-wizard' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Poll', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Poll', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -650,7 +650,7 @@ function ddw_tbex_aoitems_new_content_forminator( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'admin.php?page=forminator-nowrong-wizard' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Quiz: No Wrong Answer', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Quiz: No Wrong Answer', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -663,7 +663,7 @@ function ddw_tbex_aoitems_new_content_forminator( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'admin.php?page=forminator-knowledge-wizard' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Quiz: Knowledge', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Quiz: Knowledge', 'toolbar-extras' ),
 				)
 			)
 		);

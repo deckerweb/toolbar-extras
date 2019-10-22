@@ -20,15 +20,15 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_sj_elementor_addon', 100 );
  *
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_sj_elementor_addon() {
+function ddw_tbex_aoitems_sj_elementor_addon( $admin_bar ) {
 
 	/** Use Add-On hook place */
 	add_filter( 'tbex_filter_is_addon', '__return_empty_string' );
 
 	/** Plugin's Settings */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'ao-sjelao',
 			'parent' => 'tbex-addons',
@@ -36,12 +36,12 @@ function ddw_tbex_aoitems_sj_elementor_addon() {
 			'href'   => esc_url( admin_url( 'options-general.php?page=sjea' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'SJ Elementor Addon', 'toolbar-extras' )
+				'title'  => esc_attr__( 'SJ Elementor Addon', 'toolbar-extras' ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-sjelao-forms',
 				'parent' => 'ao-sjelao',
@@ -49,12 +49,12 @@ function ddw_tbex_aoitems_sj_elementor_addon() {
 				'href'   => esc_url( admin_url( 'options-general.php?page=sjea&action=connection' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Form Connections', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Form Connections', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-sjelao-info',
 				'parent' => 'ao-sjelao',
@@ -62,7 +62,7 @@ function ddw_tbex_aoitems_sj_elementor_addon() {
 				'href'   => esc_url( admin_url( 'options-general.php?page=sjea&action=welcome' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Plugin Info', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Plugin Info', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -70,11 +70,11 @@ function ddw_tbex_aoitems_sj_elementor_addon() {
 		/** Group: Plugin's Resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-sjelao-resources',
 					'parent' => 'ao-sjelao',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

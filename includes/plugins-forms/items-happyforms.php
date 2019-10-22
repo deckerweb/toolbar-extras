@@ -240,7 +240,7 @@ function ddw_tbex_site_items_happyforms( $admin_bar ) {
 		}  // end if
 
 		/** Optionally, let other HappyForms Add-Ons hook in */
-		do_action( 'tbex_after_happyforms_settings' );
+		do_action( 'tbex_after_happyforms_settings', $admin_bar );
 
 		/** Group: Resources for Everest Forms */
 		if ( ddw_tbex_display_items_resources() ) {
@@ -252,7 +252,7 @@ function ddw_tbex_site_items_happyforms( $admin_bar ) {
 					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
-			
+
 			ddw_tbex_resource_item(
 				'support-forum',
 				'happyforms-support',

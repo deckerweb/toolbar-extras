@@ -20,11 +20,11 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_wp_mobile_menu', 105 );
  *
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_wp_mobile_menu() {
+function ddw_tbex_aoitems_wp_mobile_menu( $admin_bar ) {
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'ao-wpmobilemenu',
 			'parent' => 'group-active-theme',
@@ -32,12 +32,12 @@ function ddw_tbex_aoitems_wp_mobile_menu() {
 			'href'   => esc_url( admin_url( 'admin.php?page=mobile-menu-options' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_addon_title_attr( __( 'Mobile Menu', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_addon_title_attr( __( 'Mobile Menu', 'toolbar-extras' ) ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-wpmobilemenu-header',
 				'parent' => 'ao-wpmobilemenu',
@@ -45,12 +45,12 @@ function ddw_tbex_aoitems_wp_mobile_menu() {
 				'href'   => esc_url( admin_url( 'admin.php?page=mobile-menu-options&tab=header' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Header', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Header', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-wpmobilemenu-menu-left',
 				'parent' => 'ao-wpmobilemenu',
@@ -58,12 +58,12 @@ function ddw_tbex_aoitems_wp_mobile_menu() {
 				'href'   => esc_url( admin_url( 'admin.php?page=mobile-menu-options&tab=left-menu' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Left Menu', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Left Menu', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-wpmobilemenu-menu-right',
 				'parent' => 'ao-wpmobilemenu',
@@ -71,12 +71,12 @@ function ddw_tbex_aoitems_wp_mobile_menu() {
 				'href'   => esc_url( admin_url( 'admin.php?page=mobile-menu-options&tab=right-menu' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Right Menu', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Right Menu', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-wpmobilemenu-colors',
 				'parent' => 'ao-wpmobilemenu',
@@ -84,12 +84,12 @@ function ddw_tbex_aoitems_wp_mobile_menu() {
 				'href'   => esc_url( admin_url( 'admin.php?page=mobile-menu-options&tab=colors' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Colors', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Colors', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-wpmobilemenu-settings',
 				'parent' => 'ao-wpmobilemenu',
@@ -97,7 +97,7 @@ function ddw_tbex_aoitems_wp_mobile_menu() {
 				'href'   => esc_url( admin_url( 'admin.php?page=mobile-menu-options&tab=general-options' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'General Options', 'toolbar-extras' )
+					'title'  => esc_attr__( 'General Options', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -105,11 +105,11 @@ function ddw_tbex_aoitems_wp_mobile_menu() {
 		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-wpmobilemenu-resources',
 					'parent' => 'ao-wpmobilemenu',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

@@ -20,14 +20,14 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_theme_support_gutenberg', 10 );
  *
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar']
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_theme_support_gutenberg() {
+function ddw_tbex_aoitems_theme_support_gutenberg( $admin_bar ) {
 
 	/** Use Add-On hook place */
 	add_filter( 'tbex_filter_is_addon', '__return_empty_string' );
-	
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+
+	$admin_bar->add_node(
 		array(
 			'id'     => 'tbex-tsforgb',
 			'parent' => 'group-tbex-addons-blockeditor',
@@ -35,12 +35,12 @@ function ddw_tbex_aoitems_theme_support_gutenberg() {
 			'href'   => esc_url( admin_url( 'themes.php?page=tsg_page' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_free_addon_title_attr( esc_attr__( 'Theme Support for Gutenberg', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_free_addon_title_attr( esc_attr__( 'Theme Support for Gutenberg', 'toolbar-extras' ) ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'tsforgb-options',
 				'parent' => 'tbex-tsforgb',
@@ -48,12 +48,12 @@ function ddw_tbex_aoitems_theme_support_gutenberg() {
 				'href'   => esc_url( admin_url( 'themes.php?page=tsg_page#tab-options' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Options', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Options', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'tsforgb-quick-help',
 				'parent' => 'tbex-tsforgb',
@@ -61,7 +61,7 @@ function ddw_tbex_aoitems_theme_support_gutenberg() {
 				'href'   => esc_url( admin_url( 'themes.php?page=tsg_page#tab-help' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Quick Help', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Quick Help', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -69,11 +69,11 @@ function ddw_tbex_aoitems_theme_support_gutenberg() {
 		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-tsforgb-resources',
 					'parent' => 'tbex-tsforgb',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

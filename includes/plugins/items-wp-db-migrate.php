@@ -22,14 +22,14 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_wpmigratedb', 19 );
  * @uses ddw_tbex_display_items_resources()
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar']
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_wpmigratedb() {
+function ddw_tbex_site_items_wpmigratedb( $admin_bar ) {
 
 	$type = function_exists( 'wp_migrate_db_pro_loaded' ) ? '-pro' : '';
 
 	/** For: Site Group - More Stuff */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'wpdbmigrate',
 			'parent' => 'tbex-sitegroup-tools',
@@ -37,12 +37,12 @@ function ddw_tbex_site_items_wpmigratedb() {
 			'href'   => is_multisite() ? esc_url( network_admin_url( 'settings.php?page=wp-migrate-db' . $type ) ) : esc_url( admin_url( 'tools.php?page=wp-migrate-db' . $type ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'DB Migrate', 'toolbar-extras' )
+				'title'  => esc_attr__( 'DB Migrate', 'toolbar-extras' ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'wpdbmigrate-migrate',
 				'parent' => 'wpdbmigrate',
@@ -51,12 +51,12 @@ function ddw_tbex_site_items_wpmigratedb() {
 				'meta'   => array(
 					'class'  => 'js-action-link migrate',
 					'target' => '',
-					'title'  => esc_attr__( 'Migrate', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Migrate', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'wpdbmigrate-settings',
 				'parent' => 'wpdbmigrate',
@@ -65,12 +65,12 @@ function ddw_tbex_site_items_wpmigratedb() {
 				'meta'   => array(
 					'class'  => 'js-action-link settings',
 					'target' => '',
-					'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
 				)
 			)
 		);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'wpdbmigrate-help',
 				'parent' => 'wpdbmigrate',
@@ -79,7 +79,7 @@ function ddw_tbex_site_items_wpmigratedb() {
 				'meta'   => array(
 					'class'  => 'js-action-link help',
 					'target' => '',
-					'title'  => esc_attr__( 'Help', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Help', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -87,11 +87,11 @@ function ddw_tbex_site_items_wpmigratedb() {
 		/** Group: Resources for WP Migrate DB */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-wpdbmigrate-resources',
 					'parent' => 'wpdbmigrate',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

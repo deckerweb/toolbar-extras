@@ -20,15 +20,15 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_jetreviews', 100 );
  *
  * @uses ddw_tbex_resource_item()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_jetreviews() {
+function ddw_tbex_aoitems_jetreviews( $admin_bar ) {
 
 	/** Use Add-On hook place */
 	add_filter( 'tbex_filter_is_addon', '__return_empty_string' );
 
 	/** JetReviews Settings */
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'ao-jetreviews',
 			'parent' => 'tbex-addons',
@@ -36,12 +36,12 @@ function ddw_tbex_aoitems_jetreviews() {
 			'href'   => esc_url( admin_url( 'admin.php?page=jet-reviews-settings' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_premium_addon_title_attr( __( 'JetReviews', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_premium_addon_title_attr( __( 'JetReviews', 'toolbar-extras' ) ),
 			)
 		)
 	);
 
-		$GLOBALS[ 'wp_admin_bar' ]->add_node(
+		$admin_bar->add_node(
 			array(
 				'id'     => 'ao-jetreviews-settings',
 				'parent' => 'ao-jetreviews',
@@ -49,7 +49,7 @@ function ddw_tbex_aoitems_jetreviews() {
 				'href'   => esc_url( admin_url( 'admin.php?page=jet-reviews-settings' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -57,11 +57,11 @@ function ddw_tbex_aoitems_jetreviews() {
 		/** Group: Resources for JetReviews */
 		if ( ddw_tbex_display_items_resources() ) {
 
-			$GLOBALS[ 'wp_admin_bar' ]->add_group(
+			$admin_bar->add_group(
 				array(
 					'id'     => 'group-jetreviews-resources',
 					'parent' => 'ao-jetreviews',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 
@@ -83,9 +83,10 @@ function ddw_tbex_aoitems_jetreviews() {
 				'changelog',
 				'jetreviews-changelog',
 				'group-jetreviews-resources',
-				'http://documentation.zemez.io/wordpress/index.php?project=jetreviews&lang=en&section=jetreviews-changelog'
+				'http://documentation.zemez.io/wordpress/index.php?project=jetreviews&lang=en&section=jetreviews-changelog',
+				ddw_tbex_string_version_history( 'addon' )
 			);
-			
+
 			ddw_tbex_resource_item(
 				'official-site',
 				'jetreviews-site',

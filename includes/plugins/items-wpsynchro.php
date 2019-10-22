@@ -32,7 +32,7 @@ function ddw_tbex_site_items_wpsynchro( $admin_bar ) {
 			'href'   => esc_url( admin_url( 'admin.php?page=wpsynchro_menu' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'WP Synchro', 'toolbar-extras' )
+				'title'  => esc_attr__( 'WP Synchro', 'toolbar-extras' ),
 			)
 		)
 	);
@@ -51,7 +51,7 @@ function ddw_tbex_site_items_wpsynchro( $admin_bar ) {
 			$admin_bar->add_group(
 				array(
 					'id'     => 'group-wpsynchro-installs',
-					'parent' => 'wpsynchro'
+					'parent' => 'wpsynchro',
 				)
 			);
 
@@ -68,7 +68,7 @@ function ddw_tbex_site_items_wpsynchro( $admin_bar ) {
 						'href'   => esc_url( admin_url( 'admin.php?page=wpsynchro_addedit&syncid=' . $install->id ) ),
 						'meta'   => array(
 							'target' => '',
-							'title'  => esc_attr__( 'Edit Installation', 'toolbar-extras' ) . ': ' . $install_title
+							'title'  => esc_attr__( 'Edit Installation', 'toolbar-extras' ) . ': ' . $install_title,
 						)
 					)
 				);
@@ -81,7 +81,7 @@ function ddw_tbex_site_items_wpsynchro( $admin_bar ) {
 							'href'   => esc_url( admin_url( 'admin.php?page=wpsynchro_addedit&syncid=' . $install->id ) ),
 							'meta'   => array(
 								'target' => '',
-								'title'  => esc_attr__( 'Edit', 'toolbar-extras' )
+								'title'  => esc_attr__( 'Edit', 'toolbar-extras' ),
 							)
 						)
 					);
@@ -94,7 +94,7 @@ function ddw_tbex_site_items_wpsynchro( $admin_bar ) {
 							'href'   => esc_url( admin_url( 'admin.php?page=wpsynchro_run&syncid=' . $install->id . '&jobid=' . uniqid() ) ),
 							'meta'   => array(
 								'target' => '',
-								'title'  => esc_attr__( 'Run Now', 'toolbar-extras' )
+								'title'  => esc_attr__( 'Run Now', 'toolbar-extras' ),
 							)
 						)
 					);
@@ -112,7 +112,7 @@ function ddw_tbex_site_items_wpsynchro( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'admin.php?page=wpsynchro_overview' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Sync Installs', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Sync Installs', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -125,7 +125,7 @@ function ddw_tbex_site_items_wpsynchro( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'admin.php?page=wpsynchro_overview' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'All Sync Jobs', 'toolbar-extras' )
+						'title'  => esc_attr__( 'All Sync Jobs', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -138,7 +138,7 @@ function ddw_tbex_site_items_wpsynchro( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'admin.php?page=wpsynchro_overview&type=PULL&paged=1' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'PULL Jobs', 'toolbar-extras' )
+						'title'  => esc_attr__( 'PULL Jobs', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -151,7 +151,7 @@ function ddw_tbex_site_items_wpsynchro( $admin_bar ) {
 					'href'   => esc_url( admin_url( 'admin.php?page=wpsynchro_overview&type=PUSH&paged=1' ) ),
 					'meta'   => array(
 						'target' => '',
-						'title'  => esc_attr__( 'PUSH Jobs', 'toolbar-extras' )
+						'title'  => esc_attr__( 'PUSH Jobs', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -164,7 +164,7 @@ function ddw_tbex_site_items_wpsynchro( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'admin.php?page=wpsynchro_addedit' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Add New Install', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Add New Install', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -177,7 +177,7 @@ function ddw_tbex_site_items_wpsynchro( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'admin.php?page=wpsynchro_log' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Logs', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Logs', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -190,7 +190,7 @@ function ddw_tbex_site_items_wpsynchro( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'admin.php?page=wpsynchro_setup' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Setup', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Setup', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -203,7 +203,7 @@ function ddw_tbex_site_items_wpsynchro( $admin_bar ) {
 				'href'   => esc_url( admin_url( '/admin.php?page=wpsynchro_support' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'System Info &amp; Support', 'toolbar-extras' )
+					'title'  => esc_attr__( 'System Info &amp; Support', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -211,14 +211,14 @@ function ddw_tbex_site_items_wpsynchro( $admin_bar ) {
 		/** Optionally, let other WPSynchro Add-Ons hook in */
 		do_action( 'tbex_after_wpsynchro_settings' );
 
-		/** Group: Resources for WPSynchro */
+		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
 			$admin_bar->add_group(
 				array(
 					'id'     => 'group-wpsynchro-resources',
 					'parent' => 'wpsynchro',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 
@@ -260,7 +260,7 @@ function ddw_tbex_aoitems_new_content_wpsynchro( $admin_bar ) {
 
 	/** Bail early if items display is not wanted */
 	if ( ! ddw_tbex_display_items_new_content() ) {
-		return;
+		return $admin_bar;
 	}
 
 	$admin_bar->add_node(
@@ -271,7 +271,7 @@ function ddw_tbex_aoitems_new_content_wpsynchro( $admin_bar ) {
 			'href'   => esc_url( admin_url( 'admin.php?page=wpsynchro_addedit' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_add_new_item( __( 'WP Synchro Install', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_add_new_item( __( 'WP Synchro Install', 'toolbar-extras' ) ),
 			)
 		)
 	);

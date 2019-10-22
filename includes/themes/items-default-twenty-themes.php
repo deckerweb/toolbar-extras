@@ -37,7 +37,7 @@ function ddw_tbex_themeitems_default_twenty( $admin_bar ) {
 			'href'   => ddw_tbex_customizer_start(),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_theme_title( 'attr', 'child' )
+				'title'  => ddw_tbex_string_theme_title( 'attr', 'child' ),
 			)
 		)
 	);
@@ -187,7 +187,7 @@ function ddw_tbex_themeitems_default_twenty_resources( $admin_bar ) {
 
 	//$theme_slug = get_stylesheet();
 	$theme_slug = wp_basename( get_template_directory() );
-	
+
 	ddw_tbex_resource_item(
 		'support-forum',
 		$theme_slug . '-support',

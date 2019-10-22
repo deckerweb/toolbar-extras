@@ -21,9 +21,9 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_oneclick_demo_import', 100 );
  * @uses ddw_tbex_display_items_demo_import()
  * @uses ddw_tbex_item_title_with_settings_icon()
  *
- * @global mixed $GLOBALS[ 'wp_admin_bar' ]
+ * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_oneclick_demo_import() {
+function ddw_tbex_aoitems_oneclick_demo_import( $admin_bar ) {
 
 	/** Bail early if no display of Demo Import items */
 	if ( ! ddw_tbex_display_items_demo_import() ) {
@@ -33,7 +33,7 @@ function ddw_tbex_aoitems_oneclick_demo_import() {
 	$ocdi_obj          = \OCDI\OneClickDemoImport::get_instance();
 	$predefined_themes = $ocdi_obj->import_files;
 
-	$GLOBALS[ 'wp_admin_bar' ]->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => ddw_tbex_id_sites_browser(),
 			'parent' => 'group-demo-import',
@@ -41,7 +41,7 @@ function ddw_tbex_aoitems_oneclick_demo_import() {
 			'href'   => empty( $predefined_themes ) ? esc_url( admin_url( 'themes.php?page=pt-one-click-demo-import&import-mode=manual' ) ) : esc_url( admin_url( 'themes.php?page=pt-one-click-demo-import' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => esc_attr__( 'Install Demo Data', 'toolbar-extras' )
+				'title'  => esc_attr__( 'Install Demo Data', 'toolbar-extras' ),
 			)
 		)
 	);

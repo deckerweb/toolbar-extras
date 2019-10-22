@@ -36,7 +36,7 @@ function ddw_tbex_aoitems_natalie_theme_builder( $admin_bar ) {
 			'href'   => esc_url( admin_url( 'admin.php?page=xl_options' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_premium_addon_title_attr( __( 'Natalie Theme Builder', 'toolbar-extras' ) )
+				'title'  => ddw_tbex_string_premium_addon_title_attr( __( 'Natalie Theme Builder', 'toolbar-extras' ) ),
 			)
 		)
 	);
@@ -49,7 +49,7 @@ function ddw_tbex_aoitems_natalie_theme_builder( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'admin.php?page=xl_options' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Options', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Options', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -61,7 +61,7 @@ function ddw_tbex_aoitems_natalie_theme_builder( $admin_bar ) {
 				array(
 					'id'     => 'group-natalie-tb-resources',
 					'parent' => 'ao-natalie-tb',
-					'meta'   => array( 'class' => 'ab-sub-secondary' )
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
 			);
 

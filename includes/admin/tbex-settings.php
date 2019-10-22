@@ -19,12 +19,12 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 1.0.0
  * @since 1.4.0 Splitted into individual files.
  * @since 1.4.2 Added "Add-Ons" tab.
+ * @since 1.4.7 Added "Import/Export" tab.
  */
 require_once TBEX_PLUGIN_DIR . 'includes/admin/tbex-settings-general.php';
 require_once TBEX_PLUGIN_DIR . 'includes/admin/tbex-settings-smart-tweaks.php';
 require_once TBEX_PLUGIN_DIR . 'includes/admin/tbex-settings-development.php';
 //require_once TBEX_PLUGIN_DIR . 'includes/admin/tbex-settings-tools.php';
-
 require_once TBEX_PLUGIN_DIR . 'includes/admin/class-settings-import-export.php';
 require_once TBEX_PLUGIN_DIR . 'includes/admin/tbex-addons.php';
 
@@ -618,12 +618,18 @@ function ddw_tbex_admin_localize_script() {
  * @since 1.0.0
  * @since 1.4.2 Added "Add-Ons" tab.
  * @since 1.4.7 Added "Import/Export" tab.
+ * @since 1.4.8 Added capability check as per https://developer.wordpress.org/reference/functions/add_menu_page/#more-information
  *
  * @see ddw_tbex_settings_add_admin_page()
  *
  * @uses ddw_tbex_string_save_changes()
  */
 function ddw_tbex_settings_create_admin_page() {
+
+	/** Bail early if current user doesn't have administrative permissions */
+	if ( ! current_user_can( 'manage_options' ) ) {
+		return;
+	}
 
 	$settings_base = admin_url( 'options-general.php' );
 
@@ -633,8 +639,6 @@ function ddw_tbex_settings_create_admin_page() {
 	$url_addons        = esc_url( add_query_arg( array( 'page' => 'toolbar-extras', 'tab'  => 'addons' ), $settings_base ) );
 	$url_import_export = esc_url( add_query_arg( array( 'page' => 'toolbar-extras', 'tab'  => 'import-export' ), $settings_base ) );
 	$url_about_support = esc_url( add_query_arg( array( 'page' => 'toolbar-extras', 'tab'  => 'about-support' ), $settings_base ) );
-
-	
 
 	/** Render settings page */
 	?>
@@ -817,6 +821,8 @@ add_action( 'personal_options', 'ddw_tbex_user_profile_settings_link' );
  *
  * @see ddw_tbex_inline_styles_user_profile_page()
  *
+ * @uses ddw_tbex_display_settings_shortcuts()
+ * @uses ddw_tbex_get_settings_url()
  * @uses ddw_tbex_abbr()
  * @uses ddw_tbex_string_toolbar_extras()
  *
@@ -826,7 +832,9 @@ add_action( 'personal_options', 'ddw_tbex_user_profile_settings_link' );
 function ddw_tbex_user_profile_settings_link( $user_id ) {
 
 	/** Bail early if current user doesn't have administrative permissions */
-	if ( ! current_user_can( 'manage_options' ) ) {
+	if ( ! current_user_can( 'manage_options' )
+		|| ! ddw_tbex_display_settings_shortcuts()
+	) {
 		return;
 	}
 
@@ -860,11 +868,11 @@ function ddw_tbex_user_profile_settings_link( $user_id ) {
 	$settings_buttons_render = '';
 
 	foreach ( $settings_buttons as $settings_key => $settings_data ) {
-		
+
 		$settings_buttons_render .= sprintf(
 			'<a class="button dashicons-before dashicons-%1$s tbex-user-profile" href="%2$s" title="%3$s">%4$s</a>',
 			sanitize_html_class( $settings_data[ 'dashicon' ] ),
-			esc_url( admin_url( 'options-general.php?page=toolbar-extras&tab=' . sanitize_key( $settings_key ) ) ),
+			ddw_tbex_get_settings_url( sanitize_key( $settings_key ) ),		// esc_url( admin_url( 'options-general.php?page=toolbar-extras&tab=' . sanitize_key( $settings_key ) ) ),
 			$settings_data[ 'title_attr' ],
 			$settings_data[ 'label' ]
 		);
@@ -967,13 +975,21 @@ function ddw_tbex_inline_styles_user_profile_page() {
 
 add_action( 'admin_menu', 'ddw_tbex_add_tools_submenu' );
 /**
- * Add additional admin menu items to make Toolbar settings more accessable.
+ * Add additional admin sub menu item under "Tools" to make Toolbar settings
+ *   more accessible.
  *
  * @since 1.4.0
  *
+ * @uses ddw_tbex_display_settings_shortcuts()
  * @uses add_management_page()
+ * @uses ddw_tbex_get_settings_url()
  */
 function ddw_tbex_add_tools_submenu() {
+
+	/** Bail early if display not wanted */
+	if ( ! ddw_tbex_display_settings_shortcuts() ) {
+		return;
+	}
 
 	/** Add to Core's Tools left-hand admin menu */
 	$menu_title = esc_html_x( 'Toolbar Tools', 'Admin menu title', 'toolbar-extras' );
@@ -982,7 +998,41 @@ function ddw_tbex_add_tools_submenu() {
 		$menu_title,
 		$menu_title,
 		'manage_options',
-		esc_url( admin_url( 'options-general.php?page=toolbar-extras&tab=smart-tweaks' ) )
+		ddw_tbex_get_settings_url( 'smart-tweaks' )	//esc_url( admin_url( 'options-general.php?page=toolbar-extras&tab=smart-tweaks' ) )
+	);
+
+}  // end function
+
+
+add_action( 'network_admin_menu', 'ddw_tbex_add_multisite_settings_submenu' );
+/**
+ * Add additional Network Admin settings sub menu item to make Toolbar settings
+ *   more accessible.
+ *
+ * @since 1.4.8
+ *
+ * @uses ddw_tbex_display_settings_shortcuts()
+ * @uses add_submenu_page()
+ * @uses ddw_tbex_get_main_site_blog_id()
+ */
+function ddw_tbex_add_multisite_settings_submenu() {
+
+	/** Bail early if display not wanted */
+	if ( ! ddw_tbex_display_settings_shortcuts() ) {
+		return;
+	}
+
+	/** Add to Core's Tools left-hand admin menu */
+	$menu_title = esc_html_x( 'Toolbar Settings', 'Admin menu title', 'toolbar-extras' );
+
+	$tbex_url = get_admin_url( ddw_tbex_get_main_site_blog_id(), 'options-general.php?page=toolbar-extras' );
+
+	add_submenu_page(
+		'settings.php',
+		$menu_title,
+		$menu_title,
+		'manage_options',
+		esc_url( $tbex_url )
 	);
 
 }  // end function
@@ -1053,3 +1103,43 @@ function ddw_tbex_builder_logic_for_builtin( $is_active ) {
 	return TRUE;
 
 }  // end function
+
+
+/**
+ * Add optional security info page for ClassicPress installs.
+ *
+ * @since 1.4.8
+ */
+if ( is_admin() && function_exists( '\add_security_page' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/admin/tbex-security-info.php';
+}
+
+
+/**
+ * Display our own Dashboard Widget for News & Updates - only load for admins.
+ *
+ * @since 1.4.8
+ */
+if ( ( is_admin() || is_network_admin() ) && ddw_tbex_display_dashboard_additions() ) {
+
+	if ( ( ! is_multisite() && current_user_can( 'manage_options' ) )
+		|| ( is_multisite()
+			&& current_user_can( 'manage_network' )
+			&& is_plugin_active_for_network( TBEX_PLUGIN_BASEDIR . 'toolbar-extras.php' )
+		)
+	) {
+		require_once TBEX_PLUGIN_DIR . 'includes/admin/class-dashboard-widget.php';
+	}
+
+}  // end if
+
+
+/**
+ * Add settings info tab for Toolbar Extras on Elementor General Settings admin
+ *   page.
+ *
+ * @since 1.4.8
+ */
+if ( is_admin() && ddw_tbex_is_elementor_active() && ddw_tbex_display_settings_shortcuts() ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/admin/views/elementor-settings-tab-info.php';
+}

@@ -94,7 +94,7 @@ function ddw_tbex_themeitems_coblocks_resources( $admin_bar ) {
 
 	/** Bail early if no resources display active */
 	if ( ! ddw_tbex_display_items_resources() ) {
-		return;
+		return $admin_bar;
 	}
 
 	/** Group: Resources for CoBlocks */
