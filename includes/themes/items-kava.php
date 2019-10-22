@@ -82,7 +82,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_kava_customize', 100 );
  *
  * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_kava_customize() {
+function ddw_tbex_themeitems_kava_customize( $admin_bar ) {
 
 	$admin_bar->add_node(
 		array(
@@ -273,7 +273,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_kava_pro_settings', 100 );
  *
  * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_kava_pro_settings() {
+function ddw_tbex_themeitems_kava_pro_settings( $admin_bar ) {
 
 	/** Bail early if Kava Premium extensions are not active */
 	if ( ! ddw_tbex_is_addon_jetthemecore() && ! ddw_tbex_is_addon_kava_extra() ) {

@@ -24,17 +24,17 @@ add_filter( 'admin_bar_menu', 'ddw_tbex_site_items_smartslider' );
  *
  * @uses ddw_tbex_use_tweak_smartslider()
  *
- * @param object $wp_admin_bar Holds all nodes of the Toolbar.
+ * @param object $admin_bar Holds all nodes of the Toolbar.
  */
-function ddw_tbex_site_items_smartslider( $wp_admin_bar ) {
+function ddw_tbex_site_items_smartslider( $admin_bar ) {
 
 	/** Bail early if Smart Slider 3 tweak should NOT be used */
 	if ( ! ddw_tbex_use_tweak_smartslider() ) {
-		return $wp_admin_bar;
+		return $admin_bar;
 	}
 
 	/** Re-hook for: Manage Content */
-	$wp_admin_bar->add_node(
+	$admin_bar->add_node(
 		array(
 			'id'     => 'smart_slider_3',			// same as original!
 			'parent' => 'gallery-slider-addons',
@@ -59,7 +59,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_smartslider_extend', 100 );
  *
  * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_site_items_smartslider_extend() {
+function ddw_tbex_site_items_smartslider_extend( $admin_bar ) {
 
 	$admin_bar->add_node(
 		array(

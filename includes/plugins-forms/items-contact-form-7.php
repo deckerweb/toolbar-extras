@@ -268,7 +268,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_new_content_cf7_form', 80 );
  *
  * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_aoitems_new_content_cf7_form() {
+function ddw_tbex_aoitems_new_content_cf7_form( $admin_bar ) {
 
 	/** Bail early if items display is not wanted */
 	if ( ! ddw_tbex_display_items_new_content() ) {

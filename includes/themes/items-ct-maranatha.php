@@ -63,7 +63,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_ct_maranatha_license', 111 );
  *
  * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_ct_maranatha_license() {
+function ddw_tbex_themeitems_ct_maranatha_license( $admin_bar ) {
 
 	$admin_bar->add_node(
 		array(

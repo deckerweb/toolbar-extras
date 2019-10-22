@@ -407,7 +407,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_rife_resources', 120 );
  *
  * @param object $admin_bar Object of Toolbar nodes.
  */
-function ddw_tbex_themeitems_rife_resources() {
+function ddw_tbex_themeitems_rife_resources( $admin_bar ) {
 
 	/** Bail early if no resources display active */
 	if ( ! ddw_tbex_display_items_resources( $admin_bar ) ) {
