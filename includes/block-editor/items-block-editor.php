@@ -158,7 +158,7 @@ function ddw_tbex_items_block_editor_core( $admin_bar ) {
 	 *   Note: This optionally filters the existing item (via "Gutenberg" plugin
 	 *         for example).
 	 */
-	if ( ddw_tbex_display_items_new_content() ) {
+	if ( ddw_tbex_display_items_new_content() && ! is_network_admin() ) {
 
 		$admin_bar->add_node(
 			array(

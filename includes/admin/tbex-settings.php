@@ -1119,8 +1119,13 @@ if ( is_admin() && function_exists( '\add_security_page' ) ) {
  * Display our own Dashboard Widget for News & Updates - only load for admins.
  *
  * @since 1.4.8
+ * @since 1.4.9 Tweaked for proper Multisite usage.
  */
 if ( ( is_admin() || is_network_admin() ) && ddw_tbex_display_dashboard_additions() ) {
+
+	if ( ! function_exists( 'is_plugin_active_for_network' ) ) {
+    	require_once ABSPATH . '/wp-admin/includes/plugin.php';
+	}
 
 	if ( ( ! is_multisite() && current_user_can( 'manage_options' ) )
 		|| ( is_multisite()

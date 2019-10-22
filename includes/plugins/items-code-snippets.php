@@ -273,7 +273,7 @@ function ddw_tbex_aoitems_new_content_code_snippet( $admin_bar ) {
 			'id'     => 'tbex-code-snippet',
 			'parent' => 'new-content',
 			'title'  => esc_attr_x( 'Code Snippet', 'Toolbar New Content section', 'toolbar-extras' ),
-			'href'   => esc_url( admin_url( 'admin.php?page=add-snippet' ) ),
+			'href'   => esc_url( network_admin_url( 'admin.php?page=add-snippet' ) ),
 			'meta'   => array(
 				'target' => '',
 				'title'  => esc_attr_x( 'Add new Code Snippet', 'Toolbar New Content section', 'toolbar-extras' ),

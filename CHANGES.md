@@ -16,12 +16,12 @@
 
 ### ⚡ 1.4.8 - 2019-10-22 
 
-* New: Added "News & Updates" Dashboard widget - only viewable for (Super) Admins, can easily be disabled via "Screen Options" (top right corner) - Note: settings integration will follow, though
-* New: Added way more specific, helpful resources within the WordPress Logo/ About group (finishing the work that began with plugin version 1.4.5)
+* New: Added **"News & Updates" Dashboard widget** - only viewable for (Super) Admins, can easily be disabled via "Screen Options" (top right corner) - Note: settings integration will follow, though
+* New: Added way **more specific, helpful resources within the WordPress Logo/ About group** (finishing the work that began with plugin version 1.4.5)
 * New: Added shortcut to plugin's settings in Multisite Network Admin (only to the main site of the Network, though)
-* New: Added shortcuts to plugin's settings tabs on the Elementor "General Settings" admin page (as extra tab there)
-* New: For [ClassicPress](https://www.classicpress.net/) installs added new "Toolbar Extras" info page under "Security" admin menu (for ClassicPress v1.1.0+)
-* New: You can now also leverage "WPCore Plugin Manager" plugin to bulk install plugins - if active, new item and sub items appear within the "New Content" Group
+* New: Added **shortcuts to plugin's settings** tabs on the **Elementor "General Settings"** admin page (as extra tab there)
+* New: **For [ClassicPress](https://www.classicpress.net/) installs** added new "Toolbar Extras" **info page under "Security"** admin menu (for ClassicPress v1.1.0+)
+* New: You can now also leverage **"WPCore Plugin Manager" plugin to bulk install plugins** - if active, new item and sub items appear within the "New Content" Group
 * Tweak: Extended "WP About" sub items with more stuff when *Dev Mode* is enabled
 * Tweak: Refined "Mailster" plugin support, added new sub items (Setup Wizard, Tests) and one new resource item (Changelog)
 * Tweak: Refined "Formidable Forms" plugin support, added new sub items for Pro version and 2 Pro Add-Ons, plus one new resource item (Changelog)
