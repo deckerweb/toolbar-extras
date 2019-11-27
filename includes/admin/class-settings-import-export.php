@@ -256,7 +256,7 @@ class Settings_Import_Export {
 			return;
 		}
 
-		if ( ! current_user_can( 'manage_options' ) ) {
+		if ( ! current_user_can( 'manage_options' ) || ! current_user_can( 'upload_files' ) ) {
 			return;
 		}
 

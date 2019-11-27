@@ -90,20 +90,25 @@ function ddw_tbex_items_view_archives() {
 	$post_type        = sanitize_key( get_query_var( 'post_type' ) );
 	$post_type_object = get_post_type_object( $post_type );
 
+	if ( 'wp_block' === $post_type ) {
+		$GLOBALS[ 'wp_admin_bar' ]->remove_node( 'archive' );
+	}
+
 	$post_types_no_archive = apply_filters(
 		'tbex_filter_post_types_no_archive',
 		array(
-			'page', 'post',				// WordPress built-in post-types
+			'page', 'post', 'wp_block',	// WordPress built-in post-types
 			'elementor_library',		// Elementor
 			'oceanwp_library',			// OceanWP Library
 			'astra-advanced-hook',		// Astra Custom Layouts (Astra Pro)
 			'gp_elements',				// GeneratePress Elements (GP Premium)
-			'jet-theme-core',			// JetThemeCore (Kava Pro/ CrocoBlock)
+			'jet-theme-core',			// JetThemeCore (Kava Pro/ Crocoblock)
 			'customify_hook',			// Customify (Customify Pro)
 			'wpbf_hooks',				// Page Builder Framework Sections (WPBF Premium)
 			'ae_global_templates',		// AnyWhere Elementor plugin
 			'ct_template',				// Oxygen Builder
 			'brizy_template',			// Brizy
+			'neve_custom_layouts',		// Neve Custom Layouts (Neve Pro)
 		)
 	);
 

@@ -136,7 +136,7 @@ function ddw_tbex_settings_section_info_demo_import() {
 			<?php echo sprintf(
 				/* translators: %1$s - List of supported Themes (names) / %2$s - Name of supported plugin */
 				__( 'Currently supported for the Themes %1$s and the plugins %2$s.', 'toolbar-extras' ),
-				'<em>Astra, OceanWP, GeneratePress, Customify, Phlox, Kava Pro (CrocoBlock), BuildWall, Mai Child Themes (Genesis)</em>',
+				'<em>Astra, OceanWP, GeneratePress, Customify, Phlox, Kava Pro (Crocoblock), BuildWall, Mai Child Themes (Genesis)</em>',
 				'<em>One Click Demo Import, Envato Elements Template Kits</em>'
 			); ?> (<?php _e( 'Note: These settings are only in effect once a supported entity is active and installed.'); ?>)
 		</p>

@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_jetwoobuilder', 100 );
 /**
- * Items for Add-On: JetWooBuilder (Premium, by Zemez Jet/ CrocoBlock)
+ * Items for Add-On: JetWooBuilder (Premium, by Zemez Jet/ Crocoblock)
  *
  * @since 1.2.0
  * @since 1.3.5 Added BTC plugin support.

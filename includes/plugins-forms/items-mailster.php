@@ -20,10 +20,13 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_mailster' );
  * @since 1.4.8 Added "Setup Wizard" and "Self Test" items.
  *
  * @uses mailster()
+ * @uses ddw_tbex_rand()
  *
  * @param object $admin_bar Object of Toolbar nodes.
  */
 function ddw_tbex_site_items_mailster( $admin_bar ) {
+
+	$rand = ddw_tbex_rand();
 
 	/** For: Forms hook place */
 	$admin_bar->add_node(
@@ -624,7 +627,7 @@ function ddw_tbex_site_items_mailster( $admin_bar ) {
 					'id'     => 'forms-mailster-wizard-basic',
 					'parent' => 'forms-mailster-wizard',
 					'title'  => esc_attr__( 'Step 1: Basic Information', 'toolbar-extras' ),
-					'href'   => esc_url( admin_url( 'admin.php?page=mailster_setup#basics' ) ),
+					'href'   => esc_url( admin_url( 'admin.php?page=mailster_setup&rand=' . $rand . '#basics' ) ),
 					'meta'   => array(
 						'target' => '',
 						'title'  => esc_attr__( 'Step 1: Basic Information', 'toolbar-extras' ),
@@ -637,7 +640,7 @@ function ddw_tbex_site_items_mailster( $admin_bar ) {
 					'id'     => 'forms-mailster-wizard-homepage',
 					'parent' => 'forms-mailster-wizard',
 					'title'  => esc_attr__( 'Step 2: Newsletter Homepage', 'toolbar-extras' ),
-					'href'   => esc_url( admin_url( 'admin.php?page=mailster_setup#homepage' ) ),
+					'href'   => esc_url( admin_url( 'admin.php?page=mailster_setup&rand=' . $rand . '#homepage' ) ),
 					'meta'   => array(
 						'target' => '',
 						'title'  => esc_attr__( 'Step 2: Newsletter Homepage', 'toolbar-extras' ),
@@ -650,7 +653,7 @@ function ddw_tbex_site_items_mailster( $admin_bar ) {
 					'id'     => 'forms-mailster-wizard-delivery',
 					'parent' => 'forms-mailster-wizard',
 					'title'  => esc_attr__( 'Step 3: Delivery', 'toolbar-extras' ),
-					'href'   => esc_url( admin_url( 'admin.php?page=mailster_setup#delivery' ) ),
+					'href'   => esc_url( admin_url( 'admin.php?page=mailster_setup&rand=' . $rand . '#delivery' ) ),
 					'meta'   => array(
 						'target' => '',
 						'title'  => esc_attr__( 'Step 3: Email Delivery', 'toolbar-extras' ),
@@ -663,7 +666,7 @@ function ddw_tbex_site_items_mailster( $admin_bar ) {
 					'id'     => 'forms-mailster-wizard-privacy',
 					'parent' => 'forms-mailster-wizard',
 					'title'  => esc_attr__( 'Step 4: Privacy', 'toolbar-extras' ),
-					'href'   => esc_url( admin_url( 'admin.php?page=mailster_setup#privacy' ) ),
+					'href'   => esc_url( admin_url( 'admin.php?page=mailster_setup&rand=' . $rand . '#privacy' ) ),
 					'meta'   => array(
 						'target' => '',
 						'title'  => esc_attr__( 'Step 4: Privacy Settings', 'toolbar-extras' ),
@@ -676,7 +679,7 @@ function ddw_tbex_site_items_mailster( $admin_bar ) {
 					'id'     => 'forms-mailster-wizard-validation',
 					'parent' => 'forms-mailster-wizard',
 					'title'  => esc_attr__( 'Step 5: License', 'toolbar-extras' ),
-					'href'   => esc_url( admin_url( 'admin.php?page=mailster_setup#validation' ) ),
+					'href'   => esc_url( admin_url( 'admin.php?page=mailster_setup&rand=' . $rand . '#validation' ) ),
 					'meta'   => array(
 						'target' => '',
 						'title'  => esc_attr__( 'Step 5: License Validation', 'toolbar-extras' ),
@@ -689,7 +692,7 @@ function ddw_tbex_site_items_mailster( $admin_bar ) {
 					'id'     => 'forms-mailster-wizard-ready',
 					'parent' => 'forms-mailster-wizard',
 					'title'  => esc_attr__( 'Step 6 (finish): Ready', 'toolbar-extras' ),
-					'href'   => esc_url( admin_url( 'admin.php?page=mailster_setup#finish' ) ),
+					'href'   => esc_url( admin_url( 'admin.php?page=mailster_setup&rand=' . $rand . '#finish' ) ),
 					'meta'   => array(
 						'target' => '',
 						'title'  => esc_attr__( 'Step 6 (finish): Ready', 'toolbar-extras' ),
@@ -733,7 +736,7 @@ function ddw_tbex_site_items_mailster( $admin_bar ) {
 					'id'     => 'forms-mailster-tools-output',
 					'parent' => 'forms-mailster-tools',
 					'title'  => esc_attr__( 'Test Results: Output', 'toolbar-extras' ),
-					'href'   => esc_url( admin_url( 'edit.php?post_type=newsletter&page=mailster_tests#selftest' ) ),
+					'href'   => esc_url( admin_url( 'edit.php?post_type=newsletter&page=mailster_tests&rand=' . $rand . '#selftest' ) ),
 					'meta'   => array(
 						'target' => '',
 						'title'  => esc_attr__( 'Test Results: Output', 'toolbar-extras' ),
@@ -746,7 +749,7 @@ function ddw_tbex_site_items_mailster( $admin_bar ) {
 					'id'     => 'forms-mailster-tools-text-output',
 					'parent' => 'forms-mailster-tools',
 					'title'  => esc_attr__( 'Test Results: Text Output', 'toolbar-extras' ),
-					'href'   => esc_url( admin_url( 'edit.php?post_type=newsletter&page=mailster_tests#textoutput' ) ),
+					'href'   => esc_url( admin_url( 'edit.php?post_type=newsletter&page=mailster_tests&rand=' . $rand . '#textoutput' ) ),
 					'meta'   => array(
 						'target' => '',
 						'title'  => esc_attr__( 'Test Results: Text Output', 'toolbar-extras' ),
@@ -759,7 +762,7 @@ function ddw_tbex_site_items_mailster( $admin_bar ) {
 					'id'     => 'forms-mailster-tools-system-info',
 					'parent' => 'forms-mailster-tools',
 					'title'  => esc_attr__( 'System Info', 'toolbar-extras' ),
-					'href'   => esc_url( admin_url( 'edit.php?post_type=newsletter&page=mailster_tests#systeminfo' ) ),
+					'href'   => esc_url( admin_url( 'edit.php?post_type=newsletter&page=mailster_tests&rand=' . $rand . '#systeminfo' ) ),
 					'meta'   => array(
 						'target' => '',
 						'title'  => esc_attr__( 'System Info', 'toolbar-extras' ),
@@ -827,6 +830,8 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_mailster_settings' );
  *
  * @see ddw_tbex_site_items_mailster()
  *
+ * @uses ddw_tbex_rand()
+ *
  * @param object $admin_bar Object of Toolbar nodes.
  */
 function ddw_tbex_site_items_mailster_settings( $admin_bar ) {
@@ -852,6 +857,8 @@ function ddw_tbex_site_items_mailster_settings( $admin_bar ) {
 		)
 	);
 
+	$rand = ddw_tbex_rand();
+
 	foreach ( $settings as $setting => $label ) {
 
 		$setting = sanitize_key( $setting );
@@ -861,7 +868,7 @@ function ddw_tbex_site_items_mailster_settings( $admin_bar ) {
 				'id'     => 'forms-mailster-settings-' . $setting,
 				'parent' => 'forms-mailster-settings',
 				'title'  => esc_attr( $label ),
-				'href'   => esc_url( admin_url( 'edit.php?post_type=newsletter&page=mailster_settings#' . $setting ) ),
+				'href'   => esc_url( admin_url( 'edit.php?post_type=newsletter&page=mailster_settings&rand=' . $rand . '#' . $setting ) ),
 				'meta'   => array(
 					'title'  => esc_attr__( 'Mailster Settings', 'toolbar-extras' ) . ': ' . esc_attr( $label ),
 				)
@@ -936,12 +943,15 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_mailster_addon_settings', 200
  * @since 1.4.0
  *
  * @uses ddw_tbex_get_mailster_addons()
+ * @uses ddw_tbex_rand()
  *
  * @param object $admin_bar Object of Toolbar nodes.
  */
 function ddw_tbex_site_items_mailster_addon_settings( $admin_bar ) {
 
 	$addons = ddw_tbex_get_mailster_addons();
+
+	$rand = ddw_tbex_rand();
 
 	if ( ! empty( ddw_tbex_get_mailster_addons() ) ) {
 
@@ -955,7 +965,7 @@ function ddw_tbex_site_items_mailster_addon_settings( $admin_bar ) {
 					'id'     => 'forms-mailster-addon-' . $addon,
 					'parent' => 'forms-mailster-addon-settings',
 					'title'  => esc_attr( $label ),
-					'href'   => esc_url( admin_url( 'edit.php?post_type=newsletter&page=mailster_settings#' . $addon ) ),
+					'href'   => esc_url( admin_url( 'edit.php?post_type=newsletter&page=mailster_settings&rand=' . $rand . '#' . $addon ) ),
 					'meta'   => array(
 						'title'  => esc_attr__( 'Mailster Add-On Settings', 'toolbar-extras' ) . ': ' . esc_attr( $label ),
 					)

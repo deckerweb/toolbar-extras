@@ -134,7 +134,7 @@ function ddw_tbex_themeitems_responsive_resources( $admin_bar ) {
 		return $admin_bar;
 	}
 
-	/** Group: Resources for Responsive Theme */
+	/** Group: Theme's resources */
 	$admin_bar->add_group(
 		array(
 			'id'     => 'group-theme-resources',

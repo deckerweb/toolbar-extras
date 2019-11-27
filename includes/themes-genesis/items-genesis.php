@@ -517,8 +517,18 @@ if ( ddw_tbex_is_genesis_onboarding_active() ) :
 	 *   menu.
 	 *
 	 * @since 1.4.2
+	 * @since 1.4.9 Added additional submenu check.
+	 *
+	 * @uses ddw_tbex_get_submenu_slugs()
+	 * @uses remove_submenu_page()
+	 * @uses add_submenu_page()
 	 */
 	function ddw_tbex_genesis_onboarding_submenu() {
+
+		/** Bail early if this admin page already exists */
+		if ( in_array( 'genesis-getting-started', ddw_tbex_get_submenu_slugs( 'genesis' ) ) ) {
+			return;
+		}
 
 		remove_submenu_page( null, 'genesis-getting-started' );
 
@@ -539,7 +549,9 @@ if ( ddw_tbex_is_genesis_onboarding_active() ) :
 	 *   onboarding page.
 	 *
 	 * @since 1.4.2
+	 * @since 1.4.9 Added additional submenu check.
 	 *
+	 * @uses ddw_tbex_get_submenu_slugs()
 	 * @uses get_current_screen()
 	 *
 	 * @global string $GLOBALS[ 'submenu_file' ]
@@ -548,6 +560,11 @@ if ( ddw_tbex_is_genesis_onboarding_active() ) :
 	 * @return string $parent_file The tweaked filename of the parent menu.
 	 */
 	function ddw_tbex_parent_submenu_tweaks_genesis( $parent_file ) {
+
+		/** Bail early if this admin page already exists */
+		if ( in_array( 'genesis-getting-started', ddw_tbex_get_submenu_slugs( 'genesis' ) ) ) {
+			return $parent_file;
+		}
 
 		if ( 'admin_page_genesis-getting-started' === get_current_screen()->id ) {
 

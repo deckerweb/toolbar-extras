@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_jetsmartfilters', 100 );
 /**
- * Items for Add-On: JetSmartFilters (Premium, by Zemez Jet/ CrocoBlock)
+ * Items for Add-On: JetSmartFilters (Premium, by Zemez Jet/ Crocoblock)
  *
  * @since 1.4.0
  *

@@ -58,6 +58,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_items_elementor_core', 99 );
  * @since 1.3.5 Added BTC plugin support.
  * @since 1.4.0 Added 2 tasks from Elementor Tools (for Admin only).
  *
+ * @uses ddw_tbex_rand()
  * @uses ddw_tbex_get_default_pagebuilder()
  * @uses ddw_tbex_is_elementor_version()
  * @uses ddw_tbex_string_elementor()
@@ -74,6 +75,9 @@ function ddw_tbex_items_elementor_core( $admin_bar ) {
 	if ( 'elementor' !== ddw_tbex_get_default_pagebuilder() ) {
 		return $admin_bar;
 	}
+
+	/** Assists reload when already on settings page */
+	$rand = ddw_tbex_rand();
 
 	/** Elementor Library */
 	$admin_bar->add_node(
@@ -269,7 +273,7 @@ function ddw_tbex_items_elementor_core( $admin_bar ) {
 				'id'     => 'elementor-settings-general',
 				'parent' => 'elementor-settings',
 				'title'  => esc_attr__( 'General', 'toolbar-extras' ),
-				'href'   => esc_url( admin_url( 'admin.php?page=elementor#tab-general' ) ),
+				'href'   => esc_url( admin_url( 'admin.php?page=elementor&rand=' . $rand . '#tab-general' ) ),
 				'meta'   => array(
 					'target' => '',
 					'title'  => esc_attr__( 'General', 'toolbar-extras' ),
@@ -282,7 +286,7 @@ function ddw_tbex_items_elementor_core( $admin_bar ) {
 				'id'     => 'elementor-settings-style',
 				'parent' => 'elementor-settings',
 				'title'  => esc_attr__( 'Style', 'toolbar-extras' ),
-				'href'   => esc_url( admin_url( 'admin.php?page=elementor#tab-style' ) ),
+				'href'   => esc_url( admin_url( 'admin.php?page=elementor&rand=' . $rand . '#tab-style' ) ),
 				'meta'   => array(
 					'target' => '',
 					'title'  => esc_attr__( 'Style', 'toolbar-extras' ),
@@ -295,7 +299,7 @@ function ddw_tbex_items_elementor_core( $admin_bar ) {
 				'id'     => 'elementor-settings-advanced',
 				'parent' => 'elementor-settings',
 				'title'  => esc_attr__( 'Advanced', 'toolbar-extras' ),
-				'href'   => esc_url( admin_url( 'admin.php?page=elementor#tab-advanced' ) ),
+				'href'   => esc_url( admin_url( 'admin.php?page=elementor&rand=' . $rand . '#tab-advanced' ) ),
 				'meta'   => array(
 					'target' => '',
 					'title'  => esc_attr__( 'Advanced', 'toolbar-extras' ),
@@ -340,7 +344,7 @@ function ddw_tbex_items_elementor_core( $admin_bar ) {
 				'id'     => 'elementor-tools-general',
 				'parent' => 'elementor-tools',
 				'title'  => esc_attr__( 'General Tools', 'toolbar-extras' ),
-				'href'   => esc_url( admin_url( 'admin.php?page=elementor-tools#tab-general' ) ),
+				'href'   => esc_url( admin_url( 'admin.php?page=elementor-tools&rand=' . $rand . '#tab-general' ) ),
 				'meta'   => array(
 					'target' => '',
 					'title'  => esc_attr__( 'General Tools', 'toolbar-extras' ),
@@ -353,7 +357,7 @@ function ddw_tbex_items_elementor_core( $admin_bar ) {
 				'id'     => 'elementor-tools-replace-url',
 				'parent' => 'elementor-tools',
 				'title'  => esc_attr__( 'Replace URL', 'toolbar-extras' ),
-				'href'   => esc_url( admin_url( 'admin.php?page=elementor-tools#tab-replace_url' ) ),
+				'href'   => esc_url( admin_url( 'admin.php?page=elementor-tools&rand=' . $rand . '#tab-replace_url' ) ),
 				'meta'   => array(
 					'target' => '',
 					'title'  => esc_attr__( 'Replace URL', 'toolbar-extras' ),
@@ -366,7 +370,7 @@ function ddw_tbex_items_elementor_core( $admin_bar ) {
 				'id'     => 'elementor-tools-versions',
 				'parent' => 'elementor-tools',
 				'title'  => esc_attr__( 'Version Control', 'toolbar-extras' ),
-				'href'   => esc_url( admin_url( 'admin.php?page=elementor-tools#tab-versions' ) ),
+				'href'   => esc_url( admin_url( 'admin.php?page=elementor-tools&rand=' . $rand . '#tab-versions' ) ),
 				'meta'   => array(
 					'target' => '',
 					'title'  => esc_attr__( 'Version Control', 'toolbar-extras' ),
@@ -379,7 +383,7 @@ function ddw_tbex_items_elementor_core( $admin_bar ) {
 				'id'     => 'elementor-tools-maintenance-mode',
 				'parent' => 'elementor-tools',
 				'title'  => esc_attr__( 'Maintenance Mode', 'toolbar-extras' ),
-				'href'   => esc_url( admin_url( 'admin.php?page=elementor-tools#tab-maintenance_mode' ) ),
+				'href'   => esc_url( admin_url( 'admin.php?page=elementor-tools&rand=' . $rand . '#tab-maintenance_mode' ) ),
 				'meta'   => array(
 					'target' => '',
 					'title'  => esc_attr__( 'Maintenance Mode', 'toolbar-extras' ),

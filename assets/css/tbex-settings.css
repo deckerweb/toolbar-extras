@@ -35,6 +35,11 @@
 	color: #c56cd7;
 }
 
+.button.dashicons-picker:active,
+.button.dashicons-picker:focus {
+	color: #eee;
+}
+
 .tbex-icon:before {
 	display: inline-block;
 	margin-right: 3px;

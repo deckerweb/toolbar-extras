@@ -18,9 +18,13 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_bsf_aiosrs' );
  *
  * @since 1.3.2
  *
+ * @uses ddw_tbex_rand()
+ *
  * @param object $admin_bar Object of Toolbar nodes.
  */
 function ddw_tbex_site_items_bsf_aiosrs( $admin_bar ) {
+
+	$rand = ddw_tbex_rand();
 
 	/** For: Elements */
 	$admin_bar->add_node(
@@ -49,7 +53,7 @@ function ddw_tbex_site_items_bsf_aiosrs( $admin_bar ) {
 				'id'     => 'bsf-aiosrs-configuration',
 				'parent' => 'group-aiosrs-settings',
 				'title'  => esc_attr__( 'Configuration', 'toolbar-extras' ),
-				'href'   => esc_url( admin_url( 'admin.php?page=rich_snippet_dashboard#tab-1' ) ),
+				'href'   => esc_url( admin_url( 'admin.php?page=rich_snippet_dashboard&rand=' . $rand . '#tab-1' ) ),
 				'meta'   => array(
 					'target' => '',
 					'title'  => esc_attr__( 'Configuration', 'toolbar-extras' ),
@@ -62,7 +66,7 @@ function ddw_tbex_site_items_bsf_aiosrs( $admin_bar ) {
 				'id'     => 'bsf-aiosrs-customization',
 				'parent' => 'group-aiosrs-settings',
 				'title'  => esc_attr__( 'Customization', 'toolbar-extras' ),
-				'href'   => esc_url( admin_url( 'admin.php?page=rich_snippet_dashboard#tab-4' ) ),
+				'href'   => esc_url( admin_url( 'admin.php?page=rich_snippet_dashboard&rand=' . $rand . '#tab-4' ) ),
 				'meta'   => array(
 					'target' => '',
 					'title'  => esc_attr__( 'Customization', 'toolbar-extras' ),
@@ -75,7 +79,7 @@ function ddw_tbex_site_items_bsf_aiosrs( $admin_bar ) {
 				'id'     => 'bsf-aiosrs-usage',
 				'parent' => 'group-aiosrs-settings',
 				'title'  => esc_attr__( 'How to use?', 'toolbar-extras' ),
-				'href'   => esc_url( admin_url( 'admin.php?page=rich_snippet_dashboard#tab-2' ) ),
+				'href'   => esc_url( admin_url( 'admin.php?page=rich_snippet_dashboard&rand=' . $rand . '#tab-2' ) ),
 				'meta'   => array(
 					'target' => '',
 					'title'  => esc_attr__( 'How to use?', 'toolbar-extras' ),
@@ -88,7 +92,7 @@ function ddw_tbex_site_items_bsf_aiosrs( $admin_bar ) {
 				'id'     => 'bsf-aiosrs-faqs',
 				'parent' => 'group-aiosrs-settings',
 				'title'  => esc_attr__( 'FAQs', 'toolbar-extras' ),
-				'href'   => esc_url( admin_url( 'admin.php?page=rich_snippet_dashboard#tab-3' ) ),
+				'href'   => esc_url( admin_url( 'admin.php?page=rich_snippet_dashboard&rand=' . $rand . '#tab-3' ) ),
 				'meta'   => array(
 					'target' => '',
 					'title'  => esc_attr__( 'FAQs', 'toolbar-extras' ),

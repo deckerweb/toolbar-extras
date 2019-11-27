@@ -216,7 +216,7 @@ function ddw_tbex_themeitems_flexia_resources( $admin_bar ) {
 		return $admin_bar;
 	}
 
-	/** Group: Resources for Flexia Theme */
+	/** Group: Theme's resources */
 	$admin_bar->add_group(
 		array(
 			'id'     => 'group-theme-resources',

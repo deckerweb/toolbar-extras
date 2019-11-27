@@ -3,7 +3,7 @@
  * Main plugin file.
  * @package           Toolbar Extras
  * @author            David Decker
- * @copyright         Copyright (c) 2012-2019, David Decker - DECKERWEB
+ * @copyright         Copyright (c) 2012-2020, David Decker - DECKERWEB
  * @license           GPL-2.0-or-later
  * @link              https://deckerweb.de/twitter
  * @link              https://www.facebook.com/groups/ToolbarExtras/
@@ -12,7 +12,7 @@
  * Plugin Name:       Toolbar Extras
  * Plugin URI:        https://toolbarextras.com/
  * Description:       This plugins adds a lot of quick jump links to the WordPress Toolbar helpful for Site Builders who use Elementor and its ecosystem of add-ons and from the theme space.
- * Version:           1.4.8
+ * Version:           1.4.9
  * Author:            David Decker - DECKERWEB
  * Author URI:        https://toolbarextras.com/
  * License:           GPL-2.0-or-later
@@ -20,9 +20,10 @@
  * Text Domain:       toolbar-extras
  * Domain Path:       /languages/
  * Requires WP:       4.7
+ * Requires at least: 4.7
  * Requires PHP:      5.6
  *
- * Copyright (c) 2012-2019 David Decker - DECKERWEB
+ * Copyright (c) 2012-2020 David Decker - DECKERWEB
  */
 
 /**
@@ -39,7 +40,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 1.0.0
  */
 /** Plugin version */
-define( 'TBEX_PLUGIN_VERSION', '1.4.8' );
+define( 'TBEX_PLUGIN_VERSION', '1.4.9' );
 
 /** Plugin directory */
 define( 'TBEX_PLUGIN_DIR', trailingslashit( dirname( __FILE__ ) ) );
@@ -235,6 +236,11 @@ function ddw_tbex_setup_plugin() {
 			/** All Genesis-specific Plugins */
 			if ( ddw_tbex_is_genesis_active() ) {
 				require_once TBEX_PLUGIN_DIR . 'includes/items-plugins-genesis.php';
+			}
+
+			/** All OTGS vendor-specific plugins (Toolset & WPML suites) */
+			if ( ddw_tbex_detect_toolset_plugins() || ddw_tbex_is_wpml_active() ) {
+				require_once TBEX_PLUGIN_DIR . 'includes/plugins-otgs/items-plugins-otgs.php';	
 			}
 
 		}  // end if

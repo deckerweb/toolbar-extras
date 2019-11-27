@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_jettabs', 100 );
 /**
- * Items for Add-On: JetTabs (Premium, by Zemez Jet/ CrocoBlock)
+ * Items for Add-On: JetTabs (Premium, by Zemez Jet/ Crocoblock)
  *
  * @since 1.4.5
  *

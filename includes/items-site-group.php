@@ -320,6 +320,50 @@ function ddw_tbex_site_items_website_settings( $admin_bar ) {
 				)
 			);
 
+		/** Group: Optional resources */
+		if ( ddw_tbex_display_items_resources() ) {
+
+			$admin_bar->add_group(
+				array(
+					'id'     => 'group-website-settings-' . $site_key . '-resources',
+					'parent' => 'website-settings-' . $site_key,
+					'meta'   => array( 'class' => 'ab-sub-secondary' ),
+				)
+			);
+
+			/** For Nginx Server Environments */
+			if ( $GLOBALS[ 'is_nginx' ] ) {
+
+				$admin_bar->add_node(
+					array(
+						'id'     => 'website-settings-resources-' . $site_key . '-nginx-server',
+						'parent' => 'group-website-settings-' . $site_key . '-resources',
+						'title'  => esc_attr__( 'Nginx Server Environment', 'toolbar-extras' ),
+						'href'   => 'https://wordpress.org/support/article/nginx/',
+						'meta'   => array(
+							'target' => ddw_tbex_meta_target(),
+							'title'  => esc_attr__( 'Nginx Server Environment', 'toolbar-extras' ),
+						)
+					)
+				);
+
+				$admin_bar->add_node(
+					array(
+						'id'     => 'website-settings-resources-' . $site_key . '-nginx-permalinks',
+						'parent' => 'group-website-settings-' . $site_key . '-resources',
+						'title'  => esc_attr__( 'Nginx Library: WordPress Permalinks', 'toolbar-extras' ),
+						'href'   => 'https://nginxlibrary.com/wordpress-permalinks/',
+						'meta'   => array(
+							'target' => ddw_tbex_meta_target(),
+							'title'  => esc_attr__( 'Nginx Library: WordPress Permalinks', 'toolbar-extras' ),
+						)
+					)
+				);
+
+			}  // end if
+
+		}  // end if
+
 }  // end function
 
 
@@ -415,8 +459,10 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_manage_content' );
  * Items in the type of "Manage Content"
  *
  * @since 1.0.0
+ * @since 1.4.9 Added items for file type views.
  *
  * @uses ddw_tbex_use_hook_place_gallery_slider()
+ * @uses ddw_tbex_media_items_mime_type()
  *
  * @param object $admin_bar Object of Toolbar nodes.
  */
@@ -526,6 +572,18 @@ function ddw_tbex_site_items_manage_content( $admin_bar ) {
 				)
 			)
 		);
+
+		$admin_bar->add_group(
+			array(
+				'id'     => 'group-managecontent-media-types',
+				'parent' => 'manage-content-media',
+			)
+		);
+
+			ddw_tbex_media_items_mime_type( 'image', $admin_bar, 'mlimages', 'group-managecontent-media-types' );
+			ddw_tbex_media_items_mime_type( 'pdf', $admin_bar, 'mlpdfs', 'group-managecontent-media-types' );
+			ddw_tbex_media_items_mime_type( 'audio', $admin_bar, 'mlaudio', 'group-managecontent-media-types' );
+			ddw_tbex_media_items_mime_type( 'video', $admin_bar, 'mlvideo', 'group-managecontent-media-types' );
 
 }  // end function
 

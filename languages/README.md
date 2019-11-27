@@ -1,11 +1,13 @@
-# .pot File
+# Toolbar Extras Plugin - Custom Translations - Language Packs
+
+## .pot File
 
 The .pot file is always included in:
   `/toolbar-extras/languages/toolbar-extras.pot`
 
 --------------------------------------------------------------------------------
 
-# Language Packs 
+### Language Packs 
 
 Community Translations for this plugin are handled via:
 https://translate.wordpress.org/projects/wp-plugins/toolbar-extras
@@ -18,7 +20,7 @@ Thank you for your contribution!
 
 --------------------------------------------------------------------------------
 
-# Custom Translations
+### Custom Translations
 
 If you want or need custom translations different from the Community
 translations above, you can do that easily:

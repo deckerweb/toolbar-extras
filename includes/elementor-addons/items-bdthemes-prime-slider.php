@@ -36,6 +36,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_bdthemes_prime_slider', 100 );
  *
  * @since 1.4.8
  *
+ * @uses ddw_tbex_rand()
  * @uses ddw_tbex_get_prime_slider_version()
  * @uses ddw_tbex_string_premium_addon_title_attr()
  * @uses ddw_tbex_string_free_addon_title_attr()
@@ -45,6 +46,9 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_bdthemes_prime_slider', 100 );
  */
 function ddw_tbex_aoitems_bdthemes_prime_slider( $admin_bar ) {
 
+	/** Assists reload when already on settings page */
+	$rand = ddw_tbex_rand();
+	
 	/** Use Add-On hook place */
 	add_filter( 'tbex_filter_is_addon', '__return_empty_string' );
 
@@ -77,7 +81,7 @@ function ddw_tbex_aoitems_bdthemes_prime_slider( $admin_bar ) {
 				'id'     => 'ao-bdprimeslider-widgets',
 				'parent' => 'ao-bdprimeslider',
 				'title'  => esc_attr__( 'Activate Widgets', 'toolbar-extras' ),
-				'href'   => esc_url( admin_url( 'admin.php?page=prime_slider_options#prime_slider_active_modules' ) ),
+				'href'   => esc_url( admin_url( 'admin.php?page=prime_slider_options&rand=' . $rand . '#widgets' ) ),
 				'meta'   => array(
 					'target' => '',
 					'title'  => esc_attr__( 'Activate Widgets', 'toolbar-extras' ),

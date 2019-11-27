@@ -401,8 +401,9 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_rife_resources', 120 );
  *
  * @since 1.4.2
  *
- * @uses ddw_tbex_is_a13fe_active()
  * @uses ddw_tbex_display_items_resources()
+ * @uses ddw_tbex_is_rife_pro_active()
+ * @uses ddw_tbex_is_a13fe_active()
  * @uses ddw_tbex_resource_item()
  *
  * @param object $admin_bar Object of Toolbar nodes.
@@ -410,11 +411,11 @@ add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_rife_resources', 120 );
 function ddw_tbex_themeitems_rife_resources( $admin_bar ) {
 
 	/** Bail early if no resources display active */
-	if ( ! ddw_tbex_display_items_resources( $admin_bar ) ) {
+	if ( ! ddw_tbex_display_items_resources() ) {
 		return $admin_bar;
 	}
 
-	/** Group: Resources for Rife */
+	/** Group: Theme's resources */
 	$admin_bar->add_group(
 		array(
 			'id'     => 'group-theme-resources',

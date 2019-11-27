@@ -117,7 +117,7 @@ function ddw_tbex_themeitems_airi_resources( $admin_bar ) {
 		return $admin_bar;
 	}
 
-	/** Group: Resources for Airi Theme */
+	/** Group: Theme's resources */
 	$admin_bar->add_group(
 		array(
 			'id'     => 'group-theme-resources',

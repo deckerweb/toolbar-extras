@@ -19,12 +19,15 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_wp_security_audit_log', 100 )
  * @since 1.4.0
  * @since 1.4.4 Added new item.
  *
+ * @uses ddw_tbex_rand()
  * @uses ddw_tbex_resource_item()
  *
  * @param object $admin_bar Object of Toolbar nodes.
  */
 function ddw_tbex_site_items_wp_security_audit_log( $admin_bar ) {
 
+	$rand = ddw_tbex_rand();
+	
 	/** Plugin's items */
 	$admin_bar->add_node(
 		array(
@@ -72,7 +75,7 @@ function ddw_tbex_site_items_wp_security_audit_log( $admin_bar ) {
 					'id'     => 'wp-security-auditlog-events-user',
 					'parent' => 'wp-security-auditlog-events',
 					'title'  => esc_attr__( 'User Profiles &amp; Activity', 'toolbar-extras' ),
-					'href'   => esc_url( admin_url( 'admin.php?page=wsal-togglealerts#tab-users-profiles---activity' ) ),
+					'href'   => esc_url( admin_url( 'admin.php?page=wsal-togglealerts&rand=' . $rand . '#tab-users-profiles---activity' ) ),
 					'meta'   => array(
 						'target' => '',
 						'title'  => esc_attr__( 'User Profiles &amp; Activity', 'toolbar-extras' ),
@@ -85,7 +88,7 @@ function ddw_tbex_site_items_wp_security_audit_log( $admin_bar ) {
 					'id'     => 'wp-security-auditlog-events-content',
 					'parent' => 'wp-security-auditlog-events',
 					'title'  => esc_attr__( 'Content &amp; Comments', 'toolbar-extras' ),
-					'href'   => esc_url( admin_url( 'admin.php?page=wsal-togglealerts#tab-content---comments' ) ),
+					'href'   => esc_url( admin_url( 'admin.php?page=wsal-togglealerts&rand=' . $rand . '#tab-content---comments' ) ),
 					'meta'   => array(
 						'target' => '',
 						'title'  => esc_attr__( 'Content &amp; Comments', 'toolbar-extras' ),
@@ -98,7 +101,7 @@ function ddw_tbex_site_items_wp_security_audit_log( $admin_bar ) {
 					'id'     => 'wp-security-auditlog-events-wpinstall',
 					'parent' => 'wp-security-auditlog-events',
 					'title'  => esc_attr__( 'WordPress Install', 'toolbar-extras' ),
-					'href'   => esc_url( admin_url( 'admin.php?page=wsal-togglealerts#tab-wordpress-install' ) ),
+					'href'   => esc_url( admin_url( 'admin.php?page=wsal-togglealerts&rand=' . $rand . '#tab-wordpress-install' ) ),
 					'meta'   => array(
 						'target' => '',
 						'title'  => esc_attr__( 'WordPress Install', 'toolbar-extras' ),
@@ -113,7 +116,7 @@ function ddw_tbex_site_items_wp_security_audit_log( $admin_bar ) {
 						'id'     => 'wp-security-auditlog-events-multisite',
 						'parent' => 'wp-security-auditlog-events',
 						'title'  => esc_attr__( 'Multisite Network', 'toolbar-extras' ),
-						'href'   => esc_url( admin_url( 'admin.php?page=wsal-togglealerts#tab-multisite-network' ) ),
+						'href'   => esc_url( admin_url( 'admin.php?page=wsal-togglealerts&rand=' . $rand . '#tab-multisite-network' ) ),
 						'meta'   => array(
 							'target' => '',
 							'title'  => esc_attr__( 'Multisite Network', 'toolbar-extras' ),
@@ -128,7 +131,7 @@ function ddw_tbex_site_items_wp_security_audit_log( $admin_bar ) {
 					'id'     => 'wp-security-auditlog-events-plugins',
 					'parent' => 'wp-security-auditlog-events',
 					'title'  => esc_attr__( 'Third Party Plugins', 'toolbar-extras' ),
-					'href'   => esc_url( admin_url( 'admin.php?page=wsal-togglealerts#tab-third-party-plugins' ) ),
+					'href'   => esc_url( admin_url( 'admin.php?page=wsal-togglealerts&rand=' . $rand . '#tab-third-party-plugins' ) ),
 					'meta'   => array(
 						'target' => '',
 						'title'  => esc_attr__( 'Third Party Plugins', 'toolbar-extras' ),

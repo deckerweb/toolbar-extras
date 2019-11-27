@@ -77,6 +77,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_genesis_design_palette_pro', 105
  * @since 1.4.0 Added Design Builder sub sections; integrated Customizer support
  *              (currently in beta in GDPP).
  * @since 1.4.3 Added "Fonts" item, plus Add-On support.
+ * @since 1.4.9 Added "Blocks" item.
  *
  * @uses ddw_tbex_is_gdpp_customizer_active()
  * @uses ddw_tbex_customizer_focus()
@@ -98,7 +99,7 @@ function ddw_tbex_aoitems_genesis_design_palette_pro( $admin_bar ) {
 			'href'   => esc_url( admin_url( 'admin.php?page=genesis-palette-pro' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => $string_style
+				'title'  => $string_style,
 			)
 		)
 	);
@@ -107,7 +108,7 @@ function ddw_tbex_aoitems_genesis_design_palette_pro( $admin_bar ) {
 		$admin_bar->add_group(
 			array(
 				'id'     => 'group-gdppro-designer',
-				'parent' => 'genesis-design-palette-pro'
+				'parent' => 'genesis-design-palette-pro',
 			)
 		);
 
@@ -123,7 +124,7 @@ function ddw_tbex_aoitems_genesis_design_palette_pro( $admin_bar ) {
 					'href'   => $url_designer,
 					'meta'   => array(
 						'target' => ddw_tbex_meta_target( 'builder' ),
-						'title'  => $string_style
+						'title'  => $string_style,
 					)
 				)
 			);
@@ -139,7 +140,7 @@ function ddw_tbex_aoitems_genesis_design_palette_pro( $admin_bar ) {
 							'href'   => esc_url( admin_url( 'admin.php?page=genesis-palette-pro&section=general_body' ) ),
 							'meta'   => array(
 								'target' => ddw_tbex_meta_target( 'builder' ),
-								'title'  => ddw_tbex_string_customize_attr( __( 'General Body', 'toolbar-extras' ) )
+								'title'  => ddw_tbex_string_customize_attr( __( 'General Body', 'toolbar-extras' ) ),
 							)
 						)
 					);
@@ -152,7 +153,7 @@ function ddw_tbex_aoitems_genesis_design_palette_pro( $admin_bar ) {
 							'href'   => esc_url( admin_url( 'admin.php?page=genesis-palette-pro&section=header_area' ) ),
 							'meta'   => array(
 								'target' => ddw_tbex_meta_target( 'builder' ),
-								'title'  => ddw_tbex_string_customize_attr( __( 'Header Area', 'toolbar-extras' ) )
+								'title'  => ddw_tbex_string_customize_attr( __( 'Header Area', 'toolbar-extras' ) ),
 							)
 						)
 					);
@@ -165,7 +166,7 @@ function ddw_tbex_aoitems_genesis_design_palette_pro( $admin_bar ) {
 							'href'   => esc_url( admin_url( 'admin.php?page=genesis-palette-pro&section=navigation' ) ),
 							'meta'   => array(
 								'target' => ddw_tbex_meta_target( 'builder' ),
-								'title'  => ddw_tbex_string_customize_attr( __( 'Navigation', 'toolbar-extras' ) )
+								'title'  => ddw_tbex_string_customize_attr( __( 'Navigation', 'toolbar-extras' ) ),
 							)
 						)
 					);
@@ -178,7 +179,7 @@ function ddw_tbex_aoitems_genesis_design_palette_pro( $admin_bar ) {
 							'href'   => esc_url( admin_url( 'admin.php?page=genesis-palette-pro&section=post_content' ) ),
 							'meta'   => array(
 								'target' => ddw_tbex_meta_target( 'builder' ),
-								'title'  => ddw_tbex_string_customize_attr( __( 'Content Area', 'toolbar-extras' ) )
+								'title'  => ddw_tbex_string_customize_attr( __( 'Content Area', 'toolbar-extras' ) ),
 							)
 						)
 					);
@@ -194,7 +195,7 @@ function ddw_tbex_aoitems_genesis_design_palette_pro( $admin_bar ) {
 								'href'   => esc_url( admin_url( 'admin.php?page=genesis-palette-pro&section=entry_content' ) ),
 								'meta'   => array(
 									'target' => ddw_tbex_meta_target( 'builder' ),
-									'title'  => ddw_tbex_string_customize_attr( __( 'Entry Content', 'toolbar-extras' ) )
+									'title'  => ddw_tbex_string_customize_attr( __( 'Entry Content', 'toolbar-extras' ) ),
 								)
 							)
 						);
@@ -209,10 +210,27 @@ function ddw_tbex_aoitems_genesis_design_palette_pro( $admin_bar ) {
 							'href'   => esc_url( admin_url( 'admin.php?page=genesis-palette-pro&section=content_extras' ) ),
 							'meta'   => array(
 								'target' => ddw_tbex_meta_target( 'builder' ),
-								'title'  => ddw_tbex_string_customize_attr( __( 'Content Extras', 'toolbar-extras' ) )
+								'title'  => ddw_tbex_string_customize_attr( __( 'Content Extras', 'toolbar-extras' ) ),
 							)
 						)
 					);
+
+					if ( ddw_tbex_is_block_editor_active() ) {
+
+						$admin_bar->add_node(
+							array(
+								'id'     => 'genesis-design-palette-pro-design-blocks',
+								'parent' => 'genesis-design-palette-pro-design',
+								'title'  => esc_attr__( 'Blocks', 'toolbar-extras' ),
+								'href'   => esc_url( admin_url( 'admin.php?page=genesis-palette-pro&section=blocks' ) ),
+								'meta'   => array(
+									'target' => ddw_tbex_meta_target( 'builder' ),
+									'title'  => ddw_tbex_string_customize_attr( __( 'Blocks', 'toolbar-extras' ) ),
+								)
+							)
+						);
+
+					}  // end if
 
 					$admin_bar->add_node(
 						array(
@@ -222,7 +240,7 @@ function ddw_tbex_aoitems_genesis_design_palette_pro( $admin_bar ) {
 							'href'   => esc_url( admin_url( 'admin.php?page=genesis-palette-pro&section=comments_area' ) ),
 							'meta'   => array(
 								'target' => ddw_tbex_meta_target( 'builder' ),
-								'title'  => ddw_tbex_string_customize_attr( __( 'Comments', 'toolbar-extras' ) )
+								'title'  => ddw_tbex_string_customize_attr( __( 'Comments', 'toolbar-extras' ) ),
 							)
 						)
 					);
@@ -235,7 +253,7 @@ function ddw_tbex_aoitems_genesis_design_palette_pro( $admin_bar ) {
 							'href'   => esc_url( admin_url( 'admin.php?page=genesis-palette-pro&section=sidebar_main' ) ),
 							'meta'   => array(
 								'target' => ddw_tbex_meta_target( 'builder' ),
-								'title'  => ddw_tbex_string_customize_attr( __( 'Sidebar', 'toolbar-extras' ) )
+								'title'  => ddw_tbex_string_customize_attr( __( 'Sidebar', 'toolbar-extras' ) ),
 							)
 						)
 					);
@@ -251,7 +269,7 @@ function ddw_tbex_aoitems_genesis_design_palette_pro( $admin_bar ) {
 								'href'   => esc_url( admin_url( 'admin.php?page=genesis-palette-pro&section=genesis_widgets' ) ),
 								'meta'   => array(
 									'target' => ddw_tbex_meta_target( 'builder' ),
-									'title'  => ddw_tbex_string_customize_attr( __( 'Genesis Widgets', 'toolbar-extras' ) )
+									'title'  => ddw_tbex_string_customize_attr( __( 'Genesis Widgets', 'toolbar-extras' ) ),
 								)
 							)
 						);
@@ -266,7 +284,7 @@ function ddw_tbex_aoitems_genesis_design_palette_pro( $admin_bar ) {
 							'href'   => esc_url( admin_url( 'admin.php?page=genesis-palette-pro&section=footer_widgets' ) ),
 							'meta'   => array(
 								'target' => ddw_tbex_meta_target( 'builder' ),
-								'title'  => ddw_tbex_string_customize_attr( __( 'Footer Widgets', 'toolbar-extras' ) )
+								'title'  => ddw_tbex_string_customize_attr( __( 'Footer Widgets', 'toolbar-extras' ) ),
 							)
 						)
 					);
@@ -279,7 +297,7 @@ function ddw_tbex_aoitems_genesis_design_palette_pro( $admin_bar ) {
 							'href'   => esc_url( admin_url( 'admin.php?page=genesis-palette-pro&section=footer_main' ) ),
 							'meta'   => array(
 								'target' => ddw_tbex_meta_target( 'builder' ),
-								'title'  => ddw_tbex_string_customize_attr( __( 'Footer Area', 'toolbar-extras' ) )
+								'title'  => ddw_tbex_string_customize_attr( __( 'Footer Area', 'toolbar-extras' ) ),
 							)
 						)
 					);
@@ -292,7 +310,7 @@ function ddw_tbex_aoitems_genesis_design_palette_pro( $admin_bar ) {
 							'href'   => esc_url( admin_url( 'admin.php?page=genesis-palette-pro&section=build_settings' ) ),
 							'meta'   => array(
 								'target' => ddw_tbex_meta_target( 'builder' ),
-								'title'  => ddw_tbex_string_customize_attr( __( 'Tools', 'toolbar-extras' ) )
+								'title'  => ddw_tbex_string_customize_attr( __( 'Tools', 'toolbar-extras' ) ),
 							)
 						)
 					);
@@ -308,7 +326,7 @@ function ddw_tbex_aoitems_genesis_design_palette_pro( $admin_bar ) {
 								'href'   => esc_url( admin_url( 'admin.php?page=genesis-palette-pro&section=freeform_css' ) ),
 								'meta'   => array(
 									'target' => ddw_tbex_meta_target( 'builder' ),
-									'title'  => ddw_tbex_string_customize_attr( __( 'Freeform CSS', 'toolbar-extras' ) )
+									'title'  => ddw_tbex_string_customize_attr( __( 'Freeform CSS', 'toolbar-extras' ) ),
 								)
 							)
 						);
@@ -326,7 +344,7 @@ function ddw_tbex_aoitems_genesis_design_palette_pro( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'admin.php?page=genesis-palette-pro&current-tab=genesis-palette-pro-settings' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Settings', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -339,7 +357,7 @@ function ddw_tbex_aoitems_genesis_design_palette_pro( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'admin.php?page=genesis-palette-pro&current-tab=genesis-palette-pro-utilities' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Utilities', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Utilities', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -352,7 +370,7 @@ function ddw_tbex_aoitems_genesis_design_palette_pro( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'admin.php?page=genesis-palette-pro&current-tab=genesis-palette-pro-fonts' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Fonts', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Fonts', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -365,7 +383,7 @@ function ddw_tbex_aoitems_genesis_design_palette_pro( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'admin.php?page=genesis-palette-pro&current-tab=genesis-design-palette-pro-license' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'License', 'toolbar-extras' )
+					'title'  => esc_attr__( 'License', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -378,7 +396,7 @@ function ddw_tbex_aoitems_genesis_design_palette_pro( $admin_bar ) {
 				'href'   => esc_url( admin_url( 'admin.php?page=genesis-palette-pro&current-tab=genesis-design-palette-pro-support' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Support', 'toolbar-extras' )
+					'title'  => esc_attr__( 'Support', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -419,6 +437,7 @@ add_filter( 'tbex_filter_items_theme_customizer_deep', 'ddw_tbex_themeitems_gene
  *
  * @since 1.4.0
  * @since 1.4.3 Added Add-On support.
+ * @since 1.4.9 Added "Block Styles" item.
  *
  * @see ddw_tbex_aoitems_genesis_design_palette_pro()
  *
@@ -492,13 +511,26 @@ function ddw_tbex_themeitems_genesis_dppro_customizer( array $items ) {
 		),
 	);
 
+	/** For: Block Editor */
+	if ( ddw_tbex_is_block_editor_active() ) {
+
+		$gdpp_items[ 'blocks' ] = array(
+			'type'   => 'section',
+			'title'  => __( 'Block Styles', 'toolbar-extras' ),
+			'id'     => 'gdpprocmz-block-styles',
+			'parent' => $parent,
+		);
+
+	}  // end if
+
 	/** Add-On: Entry Content */
 	if ( ddw_tbex_is_gdpp_entry_content_addon() ) {
 
 		$gdpp_items[ 'entry_content' ] = array(
-			'type'  => 'section',
-			'title' => __( 'Entry Content', 'toolbar-extras' ),
-			'id'    => 'gdpprocmz-entry-content',
+			'type'   => 'section',
+			'title'  => __( 'Entry Content', 'toolbar-extras' ),
+			'id'     => 'gdpprocmz-entry-content',
+			'parent' => $parent,
 		);
 
 	}  // end if
@@ -507,9 +539,10 @@ function ddw_tbex_themeitems_genesis_dppro_customizer( array $items ) {
 	if ( ddw_tbex_is_gdpp_enews_addon() ) {
 
 		$gdpp_items[ 'genesis_widgets' ] = array(
-			'type'  => 'section',
-			'title' => __( 'Genesis Widgets', 'toolbar-extras' ),
-			'id'    => 'gdpprocmz-genesis-widgets',
+			'type'   => 'section',
+			'title'  => __( 'Genesis Widgets', 'toolbar-extras' ),
+			'id'     => 'gdpprocmz-genesis-widgets',
+			'parent' => $parent,
 		);
 
 	}  // end if
@@ -518,9 +551,10 @@ function ddw_tbex_themeitems_genesis_dppro_customizer( array $items ) {
 	if ( ddw_tbex_is_gdpp_freeform_style_addon() ) {
 
 		$gdpp_items[ 'freeform_css' ] = array(
-			'type'  => 'section',
-			'title' => __( 'Freeform CSS', 'toolbar-extras' ),
-			'id'    => 'gdpprocmz-freeform-css',
+			'type'   => 'section',
+			'title'  => __( 'Freeform CSS', 'toolbar-extras' ),
+			'id'     => 'gdpprocmz-freeform-css',
+			'parent' => $parent,
 		);
 
 	}  // end if

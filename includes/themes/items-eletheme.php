@@ -89,7 +89,7 @@ function ddw_tbex_themeitems_eletheme_resources( $admin_bar ) {
 		return $admin_bar;
 	}
 
-	/** Group: Resources for Eletheme */
+	/** Group: Theme's resources */
 	$admin_bar->add_group(
 		array(
 			'id'     => 'group-theme-resources',

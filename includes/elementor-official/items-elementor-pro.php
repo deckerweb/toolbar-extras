@@ -529,9 +529,14 @@ add_action( 'admin_bar_menu', 'ddw_tbex_items_elementor_pro', 100 );
  *
  * @since 1.0.0
  *
+ * @uses ddw_tbex_rand()
+ *
  * @param object $admin_bar Object of Toolbar nodes.
  */
 function ddw_tbex_items_elementor_pro( $admin_bar ) {
+
+	/** Assists reload when already on settings page */
+	$rand = ddw_tbex_rand();
 
 	/** Pro: Integrations */
 	$admin_bar->add_node(
@@ -539,7 +544,7 @@ function ddw_tbex_items_elementor_pro( $admin_bar ) {
 			'id'     => 'elementor-settings-integrations',
 			'parent' => 'elementor-settings',
 			'title'  => esc_attr__( 'Pro: Integrations', 'toolbar-extras' ),
-			'href'   => esc_url( admin_url( 'admin.php?page=elementor#tab-integrations' ) ),
+			'href'   => esc_url( admin_url( 'admin.php?page=elementor&rand=' . $rand . '#tab-integrations' ) ),
 			'meta'   => array(
 				'target' => '',
 				'title'  => esc_attr__( 'Pro: Integrations &amp; APIs', 'toolbar-extras' ),

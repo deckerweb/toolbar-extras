@@ -69,7 +69,7 @@ function ddw_tbex_aoitems_natalie_theme_builder( $admin_bar ) {
 				'support-contact',
 				'natalie-tb-contact',
 				'group-natalie-tb-resources',
-				'https://codecanyon.net/item/natalie-personal-theme-builder-for-elementor/22150814/support?ref=deckerweb'
+				'https://1.envato.market/eGJbz'
 			);
 
 			ddw_tbex_resource_item(

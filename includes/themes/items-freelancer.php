@@ -118,7 +118,7 @@ function ddw_tbex_themeitems_freelancer_resources( $admin_bar ) {
 		return $admin_bar;
 	}
 
-	/** Group: Resources for Freelancer Theme */
+	/** Group: Theme's resources */
 	$admin_bar->add_group(
 		array(
 			'id'     => 'group-theme-resources',

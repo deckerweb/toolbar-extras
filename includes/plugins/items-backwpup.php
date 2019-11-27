@@ -18,9 +18,13 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_backwpup' );
  *
  * @since 1.3.2
  *
+ * @uses ddw_tbex_rand()
+ *
  * @param object $admin_bar Object of Toolbar nodes.
  */
 function ddw_tbex_site_items_backwpup( $admin_bar ) {
+
+	$rand = ddw_tbex_rand();
 
 	$admin_bar->add_node(
 		array(
@@ -187,7 +191,7 @@ function ddw_tbex_site_items_backwpup( $admin_bar ) {
 					'id'     => 'backwpup-settings-general',
 					'parent' => 'backwpup-settings',
 					'title'  => esc_attr__( 'General', 'toolbar-extras' ),
-					'href'   => esc_url( network_admin_url( 'admin.php?page=backwpupsettings#backwpup-tab-general' ) ),
+					'href'   => esc_url( network_admin_url( 'admin.php?page=backwpupsettings&rand=' . $rand . '#backwpup-tab-general' ) ),
 					'meta'   => array(
 						'target' => '',
 						'title'  => esc_attr__( 'General', 'toolbar-extras' ),
@@ -200,7 +204,7 @@ function ddw_tbex_site_items_backwpup( $admin_bar ) {
 					'id'     => 'backwpup-settings-jobs',
 					'parent' => 'backwpup-settings',
 					'title'  => esc_attr__( 'Jobs', 'toolbar-extras' ),
-					'href'   => esc_url( network_admin_url( 'admin.php?page=backwpupsettings#backwpup-tab-job' ) ),
+					'href'   => esc_url( network_admin_url( 'admin.php?page=backwpupsettings&rand=' . $rand . '#backwpup-tab-job' ) ),
 					'meta'   => array(
 						'target' => '',
 						'title'  => esc_attr__( 'Jobs', 'toolbar-extras' ),
@@ -213,7 +217,7 @@ function ddw_tbex_site_items_backwpup( $admin_bar ) {
 					'id'     => 'backwpup-settings-logs',
 					'parent' => 'backwpup-settings',
 					'title'  => esc_attr__( 'Log Files', 'toolbar-extras' ),
-					'href'   => esc_url( network_admin_url( 'admin.php?page=backwpupsettings#backwpup-tab-log' ) ),
+					'href'   => esc_url( network_admin_url( 'admin.php?page=backwpupsettings&rand=' . $rand . '#backwpup-tab-log' ) ),
 					'meta'   => array(
 						'target' => '',
 						'title'  => esc_attr__( 'Log Files', 'toolbar-extras' ),
@@ -226,7 +230,7 @@ function ddw_tbex_site_items_backwpup( $admin_bar ) {
 					'id'     => 'backwpup-settings-network',
 					'parent' => 'backwpup-settings',
 					'title'  => esc_attr__( 'Network', 'toolbar-extras' ),
-					'href'   => esc_url( network_admin_url( 'admin.php?page=backwpupsettings#backwpup-tab-net' ) ),
+					'href'   => esc_url( network_admin_url( 'admin.php?page=backwpupsettings&rand=' . $rand . '#backwpup-tab-net' ) ),
 					'meta'   => array(
 						'target' => '',
 						'title'  => esc_attr__( 'Network', 'toolbar-extras' ),
@@ -239,7 +243,7 @@ function ddw_tbex_site_items_backwpup( $admin_bar ) {
 					'id'     => 'backwpup-settings-api',
 					'parent' => 'backwpup-settings',
 					'title'  => esc_attr__( 'API Keys', 'toolbar-extras' ),
-					'href'   => esc_url( network_admin_url( 'admin.php?page=backwpupsettings#backwpup-tab-apikey' ) ),
+					'href'   => esc_url( network_admin_url( 'admin.php?page=backwpupsettings&rand=' . $rand . '#backwpup-tab-apikey' ) ),
 					'meta'   => array(
 						'target' => '',
 						'title'  => esc_attr__( 'API Keys', 'toolbar-extras' ),
@@ -252,7 +256,7 @@ function ddw_tbex_site_items_backwpup( $admin_bar ) {
 					'id'     => 'backwpup-settings-systeminfo',
 					'parent' => 'backwpup-settings',
 					'title'  => esc_attr__( 'System Info', 'toolbar-extras' ),
-					'href'   => esc_url( network_admin_url( 'admin.php?page=backwpupsettings#backwpup-tab-information' ) ),
+					'href'   => esc_url( network_admin_url( 'admin.php?page=backwpupsettings&rand=' . $rand . '#backwpup-tab-information' ) ),
 					'meta'   => array(
 						'target' => '',
 						'title'  => esc_attr__( 'System Info', 'toolbar-extras' ),

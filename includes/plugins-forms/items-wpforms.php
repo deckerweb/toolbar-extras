@@ -33,6 +33,34 @@ function ddw_tbex_is_wpforms_pro_active() {
 
 
 /**
+ * Check if WPForms Conversational Forms Add-On plugin is active or not.
+ *
+ * @since 1.4.9
+ *
+ * @return bool TRUE if conditions are met, FALSE otherwise.
+ */
+function ddw_tbex_is_wpforms_conversational_active() {
+
+	return defined( 'WPFORMS_CONVERSATIONAL_FORMS_VERSION' );
+
+}  // end function
+
+
+/**
+ * Check if WPForms Form Pages Add-On plugin is active or not.
+ *
+ * @since 1.4.9
+ *
+ * @return bool TRUE if conditions are met, FALSE otherwise.
+ */
+function ddw_tbex_is_wpforms_formpages_active() {
+
+	return defined( 'WPFORMS_FORM_PAGES_VERSION' );
+
+}  // end function
+
+
+/**
  * Check if Entries for WPForms plugin is active or not.
  *
  * @since 1.4.3
@@ -62,9 +90,17 @@ function ddw_tbex_is_database_for_wpforms_active() {
 
 add_action( 'admin_bar_menu', 'ddw_tbex_site_items_wpforms' );
 /**
- * Items for Plugin: WPForms Lite/Pro (free/Premium, by WPForms)
+ * Items for Plugin: WPForms Lite/Pro (free/Premium, by WPForms LLC)
  *
  * @since 1.3.1
+ * @since 1.4.9 Added Pro Add-Ons integration; added/tweaked resources.
+ *
+ * @uses wpforms_decode()	// by WPForms!
+ * @uses ddw_tbex_is_wpforms_conversational_active()
+ * @uses ddw_tbex_is_wpforms_formpages_active()
+ * @uses ddw_tbex_is_wpforms_pro_active()
+ * @uses ddw_tbex_is_entries_for_wpforms_active()
+ * @uses ddw_tbex_is_database_for_wpforms_active()
  *
  * @param object $admin_bar Object of Toolbar nodes.
  */
@@ -85,9 +121,10 @@ function ddw_tbex_site_items_wpforms( $admin_bar ) {
 	);
 
 		/**
-		 * Add each individual form as an item.
+		 * Dynamic section: Add each individual form as an item.
 		 *   Forms are saved as a post type therefore a query necessary.
 		 * @since 1.3.1
+		 * @since 1.4.9 Lots of additions; "Special Forms" and Add-Ons.
 		 */
 		$args = array(
 			'post_type'      => 'wpforms',
@@ -97,7 +134,7 @@ function ddw_tbex_site_items_wpforms( $admin_bar ) {
 		$forms = get_posts( $args );
 
 		/** Proceed only if there are any forms */
-		if ( $forms ) {
+		if ( $forms && function_exists( 'wpforms_decode' ) ) {
 
 			/** Add group */
 			$admin_bar->add_group(
@@ -107,10 +144,26 @@ function ddw_tbex_site_items_wpforms( $admin_bar ) {
 				)
 			);
 
+			/** Add optional group */
+			if ( ddw_tbex_is_wpforms_conversational_active() || ddw_tbex_is_wpforms_formpages_active() ) {
+
+				$admin_bar->add_group(
+					array(
+						'id'     => 'group-wpforms-special-forms',
+						'parent' => 'forms-wpforms',
+					)
+				);
+
+			}  // end if
+
+			/** Loop through all forms */
 			foreach ( $forms as $form ) {
 
 				$form_title = esc_attr( $form->post_title );
 				$form_id    = absint( $form->ID );
+
+				/** Needed for Add-Ons support! */
+				$form_data = ! empty( $form->post_content ) ? wpforms_decode( $form->post_content ) : array();
 
 				/** Add item per form */
 				$admin_bar->add_node(
@@ -151,6 +204,50 @@ function ddw_tbex_site_items_wpforms( $admin_bar ) {
 							)
 						)
 					);
+
+					/** Pro Add-On: Conversational Forms (extra view) */
+					if ( ddw_tbex_is_wpforms_conversational_active() ) {
+
+						if ( ! empty( $form_data[ 'settings' ][ 'conversational_forms_enable' ] ) ) {
+
+							$admin_bar->add_node(
+								array(
+									'id'     => 'forms-wpforms-form-' . $form_id . '-conversational-view',
+									'parent' => 'forms-wpforms-form-' . $form_id,
+									'title'  => esc_attr__( 'Conversational View', 'toolbar-extras' ),
+									'href'   => esc_url( home_url( $form->post_name ) ),
+									'meta'   => array(
+										'target' => ddw_tbex_meta_target(),
+										'title'  => esc_attr__( 'Conversational View', 'toolbar-extras' ),
+									)
+								)
+							);
+
+						}  // end if
+
+					}  // end if
+
+					/** Pro Add-On: Form Pages (extra view) */
+					if ( ddw_tbex_is_wpforms_formpages_active() ) {
+
+						if ( ! empty( $form_data[ 'settings' ][ 'form_pages_enable' ] ) ) {
+
+							$admin_bar->add_node(
+								array(
+									'id'     => 'forms-wpforms-form-' . $form_id . '-formpage-view',
+									'parent' => 'forms-wpforms-form-' . $form_id,
+									'title'  => esc_attr__( 'Form Page View', 'toolbar-extras' ),
+									'href'   => esc_url( home_url( $form->post_name ) ),
+									'meta'   => array(
+										'target' => ddw_tbex_meta_target(),
+										'title'  => esc_attr__( 'Form Page View', 'toolbar-extras' ),
+									)
+								)
+							);
+
+						}  // end if
+
+					}  // end if
 
 					/** Entries (Pro feature) */
 					if ( ddw_tbex_is_wpforms_pro_active() ) {
@@ -212,9 +309,133 @@ function ddw_tbex_site_items_wpforms( $admin_bar ) {
 
 					}  // end if
 
-			}  // end foreach
+				/**
+				 * Optional "collectors group" for Special Forms:
+				 *   Conversational Forms & Form Pages (both via Add-Ons)
+				 * @since 1.4.9
+				 */
+				if ( ddw_tbex_is_wpforms_conversational_active() || ddw_tbex_is_wpforms_formpages_active() ) {
 
-		}  // end if
+					/** Conversational Forms */
+					if ( ! empty( $form_data[ 'settings' ][ 'conversational_forms_enable' ] ) ) {
+
+						$admin_bar->add_node(
+							array(
+								'id'     => 'forms-wpforms-conversational-forms',
+								'parent' => 'group-wpforms-special-forms',
+								'title'  => esc_attr__( 'Conversational Forms', 'toolbar-extras' ),
+								'href'   => FALSE,
+								'meta'   => array(
+									'target' => '',
+									'title'  => esc_attr__( 'Conversational Forms', 'toolbar-extras' ),
+								)
+							)
+						);
+
+							$admin_bar->add_node(
+								array(
+									'id'     => 'forms-wpforms-conversational-forms-' . $form_id,
+									'parent' => 'forms-wpforms-conversational-forms',
+									'title'  => $form_title,
+									'href'   => esc_url( home_url( $form->post_name ) ),
+									'meta'   => array(
+										'target' => ddw_tbex_meta_target(),
+										'title'  => esc_attr__( 'Conversational Form', 'toolbar-extras' ) . ': ' . $form_title,
+									)
+								)
+							);
+
+								$admin_bar->add_node(
+									array(
+										'id'     => 'forms-wpforms-conversational-forms-' . $form_id . '-view',
+										'parent' => 'forms-wpforms-conversational-forms-' . $form_id,
+										'title'  => esc_attr__( 'View Form Page', 'toolbar-extras' ),
+										'href'   => esc_url( home_url( $form->post_name ) ),
+										'meta'   => array(
+											'target' => ddw_tbex_meta_target(),
+											'title'  => esc_attr__( 'Conversational View', 'toolbar-extras' ),
+										)
+									)
+								);
+
+								$admin_bar->add_node(
+									array(
+										'id'     => 'forms-wpforms-conversational-forms-' . $form_id . '-edit',
+										'parent' => 'forms-wpforms-conversational-forms-' . $form_id,
+										'title'  => esc_attr__( 'Edit Form', 'toolbar-extras' ),
+										'href'   => esc_url( admin_url( 'admin.php?page=wpforms-builder&view=fields&form_id=' . $form_id ) ),
+										'meta'   => array(
+											'target' => ddw_tbex_meta_target( 'builder' ),
+											'title'  => esc_attr__( 'Edit Conversational Form', 'toolbar-extras' ),
+										)
+									)
+								);
+
+					}  // end if Special: Conversational
+
+					/** Form Pages */
+					if ( ! empty( $form_data[ 'settings' ][ 'form_pages_enable' ] ) ) {
+
+						$admin_bar->add_node(
+							array(
+								'id'     => 'forms-wpforms-formpage-forms',
+								'parent' => 'group-wpforms-special-forms',
+								'title'  => esc_attr__( 'Form Pages', 'toolbar-extras' ),
+								'href'   => FALSE,
+								'meta'   => array(
+									'target' => '',
+									'title'  => esc_attr__( 'Form Pages', 'toolbar-extras' ),
+								)
+							)
+						);
+
+							$admin_bar->add_node(
+								array(
+									'id'     => 'forms-wpforms-formpage-forms-' . $form_id,
+									'parent' => 'forms-wpforms-formpage-forms',
+									'title'  => $form_title,
+									'href'   => esc_url( home_url( $form->post_name ) ),
+									'meta'   => array(
+										'target' => ddw_tbex_meta_target(),
+										'title'  => esc_attr__( 'Form Page', 'toolbar-extras' ) . ': ' . $form_title,
+									)
+								)
+							);
+
+								$admin_bar->add_node(
+									array(
+										'id'     => 'forms-wpforms-formpage-forms-' . $form_id . '-view',
+										'parent' => 'forms-wpforms-formpage-forms-' . $form_id,
+										'title'  => esc_attr__( 'View Form Page', 'toolbar-extras' ),
+										'href'   => esc_url( home_url( $form->post_name ) ),
+										'meta'   => array(
+											'target' => ddw_tbex_meta_target(),
+											'title'  => esc_attr__( 'Form Page View', 'toolbar-extras' ),
+										)
+									)
+								);
+
+								$admin_bar->add_node(
+									array(
+										'id'     => 'forms-wpforms-formpage-forms-' . $form_id . '-edit',
+										'parent' => 'forms-wpforms-formpage-forms-' . $form_id,
+										'title'  => esc_attr__( 'Edit Form', 'toolbar-extras' ),
+										'href'   => esc_url( admin_url( 'admin.php?page=wpforms-builder&view=fields&form_id=' . $form_id ) ),
+										'meta'   => array(
+											'target' => ddw_tbex_meta_target( 'builder' ),
+											'title'  => esc_attr__( 'Edit Form Page', 'toolbar-extras' ),
+										)
+									)
+								);
+
+					}  // end if Special: Form Pages
+
+				}  // end if Special Forms
+
+			}  // end foreach Forms loop
+
+		}  // end if Forms exist check
+
 
 		/** General WPForms items */
 		$admin_bar->add_node(
@@ -528,6 +749,13 @@ function ddw_tbex_site_items_wpforms( $admin_bar ) {
 				'https://wpforms.com/docs/'
 			);
 
+			ddw_tbex_resource_item(
+				'facebook-group',
+				'wpforms-fbgroup',
+				'group-wpforms-resources',
+				'https://www.facebook.com/groups/wpformsvip/'
+			);
+
 			if ( ! ddw_tbex_is_wpforms_pro_active() ) {
 
 				ddw_tbex_resource_item(
@@ -553,7 +781,7 @@ function ddw_tbex_site_items_wpforms( $admin_bar ) {
 					'documentation-dev',
 					'wpforms-developer-docs',
 					'group-wpforms-resources',
-					'https://developers.wpforms.com/'
+					'https://wpforms.com/developers/'		// 'https://developers.wpforms.com/'
 				);
 
 			}  // end if
@@ -568,6 +796,8 @@ add_action( 'wp_before_admin_bar_render', 'ddw_tbex_remove_original_wpforms_newc
  * Remove original "WPForms" item from New Content Group.
  *
  * @since 1.3.1
+ *
+ * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  */
 function ddw_tbex_remove_original_wpforms_newcontent() {
 
@@ -606,6 +836,43 @@ function ddw_tbex_aoitems_new_content_wpforms( $admin_bar ) {
 				'target' => ddw_tbex_meta_target( 'builder' ),
 				'title'  => ddw_tbex_string_add_new_item( ddw_tbex_string_new_form( 'WPForms' ) ),
 			)
+		)
+	);
+
+}  // end function
+
+
+add_action( 'admin_init', 'ddw_tbex_plugins_view_filter_wpforms_pro', 100 );
+/**
+ * On the Plugins page add a new filter view to only list all
+ *   (official) WPForms Main & Add-On plugins by WPForms LLC.
+ *
+ * @since 1.4.9
+ *
+ * @uses \DDW\TBEX\Group_Plugins()
+ */
+function ddw_tbex_plugins_view_filter_wpforms_pro() {
+
+	/** Bail early if not in a WPForms Pro context */
+	if ( ! ddw_tbex_is_wpforms_pro_active() ) {
+		return;
+	}
+
+	/** Load the class */
+	if ( ! class_exists( '\DDW\TBEX\Group_Plugins' ) ) {
+		require_once TBEX_PLUGIN_DIR . 'includes/class-group-plugins.php';
+	}
+
+	/** Instantiate the class with given params */
+	$wpml_plugins = new \DDW\TBEX\Group_Plugins();
+	$wpml_plugins->init(
+		'wpforms-pro',
+		'WPForms',
+		array(
+			'author-name'      => 'WPForms',
+			'plugin-name'      => 'WPForms',
+			//'description-word' => '',
+			'check-type'       => 'and',
 		)
 	);
 

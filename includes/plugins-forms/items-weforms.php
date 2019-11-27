@@ -12,11 +12,26 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 
+/**
+ * Check if "weForms Pro - Professional" Add-On plugin is active or not.
+ *
+ * @since 1.4.9
+ *
+ * @return bool TRUE if class exists, FALSE otherwise.
+ */
+function ddw_tbex_is_weforms_pro_active() {
+
+	return class_exists( 'WeForms_Pro' );
+
+}  // end function
+
+
 add_action( 'admin_bar_menu', 'ddw_tbex_site_items_weforms' );
 /**
  * Items for Plugin: weForms (free, by weDevs)
  *
  * @since 1.4.8
+ * @since 1.4.9 Added support for Pro Add-On.
  *
  * @uses weforms()->form->all()
  *
@@ -113,6 +128,23 @@ function ddw_tbex_site_items_weforms( $admin_bar ) {
 						)
 					);
 
+					if ( ddw_tbex_is_weforms_pro_active() ) {
+
+						$admin_bar->add_node(
+							array(
+								'id'     => 'forms-weforms-form-' . $form_id . '-reports',
+								'parent' => 'forms-weforms-form-' . $form_id,
+								'title'  => esc_attr__( 'Reports', 'toolbar-extras' ),
+								'href'   => esc_url( admin_url( 'admin.php?page=weforms#/form/' . $form_id . '/report' ) ),
+								'meta'   => array(
+									'target' => '',
+									'title'  => esc_attr__( 'Reports', 'toolbar-extras' ),
+								)
+							)
+						);
+
+					}  // end if
+
 			}  // end foreach
 
 		}  // end if
@@ -144,6 +176,24 @@ function ddw_tbex_site_items_weforms( $admin_bar ) {
 			)
 		);
 
+		/** Pro: Transactions */
+		if ( ddw_tbex_is_weforms_pro_active() ) {
+
+			$admin_bar->add_node(
+				array(
+					'id'     => 'forms-weforms-transactions',
+					'parent' => 'forms-weforms',
+					'title'  => esc_attr__( 'Transactions', 'toolbar-extras' ),
+					'href'   => esc_url( admin_url( 'admin.php?page=weforms#/transactions' ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => esc_attr__( 'Transactions', 'toolbar-extras' ),
+					)
+				)
+			);	
+
+		}  // end if
+
 		/** Tools */
 		$admin_bar->add_node(
 			array(
@@ -171,6 +221,50 @@ function ddw_tbex_site_items_weforms( $admin_bar ) {
 				)
 			)
 		);
+
+			/** Pro: Modules & License */
+			if ( ddw_tbex_is_weforms_pro_active() ) {
+
+				$admin_bar->add_node(
+					array(
+						'id'     => 'forms-weforms-settings-general',
+						'parent' => 'forms-weforms-settings',
+						'title'  => esc_attr__( 'General Settings', 'toolbar-extras' ),
+						'href'   => esc_url( admin_url( 'admin.php?page=weforms#/settings' ) ),
+						'meta'   => array(
+							'target' => '',
+							'title'  => esc_attr__( 'General Settings', 'toolbar-extras' ),
+						)
+					)
+				);
+
+				$admin_bar->add_node(
+					array(
+						'id'     => 'forms-weforms-settings-modules',
+						'parent' => 'forms-weforms-settings',
+						'title'  => esc_attr__( 'Modules', 'toolbar-extras' ),
+						'href'   => esc_url( admin_url( 'admin.php?page=weforms#/modules' ) ),
+						'meta'   => array(
+							'target' => '',
+							'title'  => esc_attr__( 'Modules', 'toolbar-extras' ),
+						)
+					)
+				);
+
+				$admin_bar->add_node(
+					array(
+						'id'     => 'forms-weforms-settings-license',
+						'parent' => 'forms-weforms-settings',
+						'title'  => esc_attr__( 'License', 'toolbar-extras' ),
+						'href'   => esc_url( admin_url( 'admin.php?page=weforms#/license' ) ),
+						'meta'   => array(
+							'target' => '',
+							'title'  => esc_attr__( 'License', 'toolbar-extras' ),
+						)
+					)
+				);
+
+			}  // end if
 
 		/** Optionally, let other Form Maker Add-Ons hook in */
 		do_action( 'tbex_after_weforms_options', $admin_bar );

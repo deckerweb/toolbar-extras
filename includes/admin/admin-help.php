@@ -219,7 +219,7 @@ add_action( 'after_menu_locations_table', 'ddw_tbex_help_info_menu_locations' );
  * @uses ddw_tbex_string_super_admin_menu_location()
  * @uses ddw_tbex_string_toolbar_extras()
  *
- * @return string HTML content.
+ * @return void
  */
 function ddw_tbex_help_info_menu_locations() {
 

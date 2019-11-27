@@ -727,7 +727,7 @@ function ddw_tbex_settings_create_admin_page() {
 							do_action( 'tbex_after_settings_general_view' );
 
 							submit_button( ddw_tbex_string_save_changes() );
-						break;
+							break;
 
 						/**
 						 * 2) Tab Smart Tweaks
@@ -744,7 +744,7 @@ function ddw_tbex_settings_create_admin_page() {
 							do_action( 'tbex_after_settings_tweaks_view' );
 
 							submit_button( ddw_tbex_string_save_changes() );
-						break;
+							break;
 
 						/**
 						 * 3) Tab Development
@@ -761,7 +761,7 @@ function ddw_tbex_settings_create_admin_page() {
 							do_action( 'tbex_after_settings_development_view' );
 
 							submit_button( ddw_tbex_string_save_changes() );
-						break;
+							break;
 
 						/** 4) Tab Tools (upcoming) 'tools' */
 						// coming...
@@ -773,7 +773,7 @@ function ddw_tbex_settings_create_admin_page() {
 						case 'addons' :
 							do_action( 'tbex_settings_tab_addons_list' );
 							require_once TBEX_PLUGIN_DIR . 'includes/admin/tbex-addons.php';
-						break;
+							break;
 
 						/**
 						 * 6) Tab Export & Import 'export-import'
@@ -784,7 +784,7 @@ function ddw_tbex_settings_create_admin_page() {
 						case 'import-export' :
 							require_once TBEX_PLUGIN_DIR . 'includes/admin/views/settings-tab-import-export.php';
 							do_action( 'tbex_settings_tab_import_export' );
-						break;
+							break;
 
 						/**
 						 * 7) Tab About & Support - only text, no submit button!
@@ -794,12 +794,12 @@ function ddw_tbex_settings_create_admin_page() {
 							do_action( 'tbex_before_settings_about_support_view' );
 							require_once TBEX_PLUGIN_DIR . 'includes/admin/views/settings-tab-about-support.php';
 							do_action( 'tbex_after_settings_about_support_view' );
-						break;
+							break;
 
 						/** 8) For Add-Ons */
 						case $active_tab :
 							do_action( 'tbex_settings_tab_addon_' . $active_tab );
-						break;
+							break;
 
 					endswitch;
 				?>

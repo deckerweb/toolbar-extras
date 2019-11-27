@@ -16,6 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Get the version of Element Pack to determine lite or pro versions.
  *
  * @since 1.4.7
+ * @since 1.4.9 Added support for Pro Version 4.x
  *
  * @see plugin file: includes/items-plugins-elementor-addons.php
  * @uses BDTEP_VER
@@ -29,8 +30,10 @@ function ddw_tbex_get_element_pack_version() {
 		return 'not-defined';
 	}
 
-	if ( version_compare( BDTEP_VER, '3.0', '>=' ) ) {
-		return 'pro';
+	if ( version_compare( BDTEP_VER, '4.0', '>=' ) ) {
+		return 'pro4';
+	} elseif ( version_compare( BDTEP_VER, '3.0', '>=' ) ) {
+		return 'pro3';
 	} elseif ( version_compare( BDTEP_VER, '1.0.2', '>=' ) && version_compare( BDTEP_VER, '2.0', '<' ) ) {
 		return 'lite';
 	}
@@ -41,11 +44,12 @@ function ddw_tbex_get_element_pack_version() {
 add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_bdthemes_element_pack', 100 );
 /**
  * Items for Add-Ons:
- *   - Element Pack (Pro) (Premium, by BdThemes)
+ *   - Element Pack (Pro) (Premium, by BdThemes) - Pro 3.x and Pro 4.x only!
  *   - Element Pack Lite (free, by BdThemes)
  *
  * @since 1.0.0
  * @since 1.4.7 Added support for Lite version of this Add-On plugin.
+ * @since 1.4.9 Added support for Pro Version 4.x; admin URL enhancements.
  *
  * @uses ddw_tbex_get_element_pack_version()
  * @uses ddw_tbex_string_premium_addon_title_attr()
@@ -55,6 +59,9 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_bdthemes_element_pack', 100 );
  * @param object $admin_bar Object of Toolbar nodes.
  */
 function ddw_tbex_aoitems_bdthemes_element_pack( $admin_bar ) {
+
+	/** Assists reload when already on settings page */
+	$rand = rand( 0, 9999999 );
 
 	/** Use Add-On hook place */
 	add_filter( 'tbex_filter_is_addon', '__return_empty_string' );
@@ -68,6 +75,8 @@ function ddw_tbex_aoitems_bdthemes_element_pack( $admin_bar ) {
 		$ep_title      = esc_attr__( 'Element Pack Lite', 'toolbar-extras' );
 		$ep_title_attr = ddw_tbex_string_free_addon_title_attr( $ep_title );
 	}
+
+// &rand=' . $rand . '
 
 	/** Extras Settings */
 	$admin_bar->add_node(
@@ -97,7 +106,7 @@ function ddw_tbex_aoitems_bdthemes_element_pack( $admin_bar ) {
 		);
 
 		/** Pro-only settings */
-		if ( 'pro' === $ep_version ) {
+		if ( 'pro3' === $ep_version || 'pro4' === $ep_version ) {
 
 			$admin_bar->add_node(
 				array(
@@ -140,18 +149,43 @@ function ddw_tbex_aoitems_bdthemes_element_pack( $admin_bar ) {
 
 		}  // end if
 
-		$admin_bar->add_node(
-			array(
-				'id'     => 'ao-bdepack-settings-other',
-				'parent' => 'ao-bdepack',
-				'title'  => esc_attr__( 'Other Settings', 'toolbar-extras' ),
-				'href'   => esc_url( admin_url( 'admin.php?page=element_pack_options#element_pack_other_settings' ) ),
-				'meta'   => array(
-					'target' => '',
+		/** Only for Lite Version and Pro Version 3.x */
+		if ( 'pro4' !== $ep_version ) {
+
+			$admin_bar->add_node(
+				array(
+					'id'     => 'ao-bdepack-settings-other',
+					'parent' => 'ao-bdepack',
 					'title'  => esc_attr__( 'Other Settings', 'toolbar-extras' ),
+					'href'   => esc_url( admin_url( 'admin.php?page=element_pack_options#element_pack_other_settings' ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => esc_attr__( 'Other Settings', 'toolbar-extras' ),
+					)
 				)
-			)
-		);
+			);
+
+		}  // end if
+
+		/** Pro-only settings */
+		if ( 'pro3' === $ep_version || 'pro4' === $ep_version ) {
+
+			$admin_bar->add_node(
+				array(
+					'id'     => 'ao-bdepack-license',
+					'parent' => 'ao-bdepack',
+					'title'  => esc_attr__( 'License', 'toolbar-extras' ),
+					'href'   => ( 'pro4' === $ep_version )
+						? esc_url( admin_url( 'admin.php?page=element_pack_options#license' ) )
+						: esc_url( admin_url( 'admin.php?page=element-pack-license' ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => esc_attr__( 'License', 'toolbar-extras' ),
+					)
+				)
+			);
+
+		}  // end if
 
 		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
@@ -164,7 +198,7 @@ function ddw_tbex_aoitems_bdthemes_element_pack( $admin_bar ) {
 				)
 			);
 
-			if ( 'pro' !== $ep_version ) {
+			if ( 'pro3' !== $ep_version || 'pro4' !== $ep_version ) {
 
 				ddw_tbex_resource_item(
 					'support-forum',
@@ -196,7 +230,7 @@ function ddw_tbex_aoitems_bdthemes_element_pack( $admin_bar ) {
 				'https://elementpack.pro/support/'
 			);
 
-			if ( 'pro' === $ep_version ) {
+			if ( 'pro3' === $ep_version || 'pro4' === $ep_version ) {
 
 				ddw_tbex_resource_item(
 					'changelog',

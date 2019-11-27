@@ -22,7 +22,7 @@ if ( ddw_tbex_is_gravityforms_active() ) {
 
 
 /**
- * Plugin: WPForms Lite/Pro (free/Premium, by WPForms)
+ * Plugin: WPForms Lite/Pro (free/Premium, by WPForms LLC)
  * @since 1.3.1
  */
 if ( ddw_tbex_is_wpforms_active() ) {
@@ -312,7 +312,7 @@ if ( function_exists( 'post_start' ) ) {
 
 
 /**
- * Plugin: WP Mail SMTP (free, by WPForms)
+ * Plugin: WP Mail SMTP (free, by WPForms LLC)
  * @since 1.4.2
  */
 if ( defined( 'WPMS_PLUGIN_VER' ) ) {

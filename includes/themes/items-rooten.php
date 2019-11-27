@@ -221,7 +221,7 @@ function ddw_tbex_themeitems_rooten_resources( $admin_bar ) {
 		return $admin_bar;
 	}
 
-	/** Group: Resources for Rooten */
+	/** Group: Theme's resources */
 	$admin_bar->add_group(
 		array(
 			'id'     => 'group-theme-resources',

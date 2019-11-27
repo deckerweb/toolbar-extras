@@ -114,7 +114,7 @@ function ddw_tbex_get_jetthemecore_template_add_new_url( $type = '', $name = '' 
 
 add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_jetthemecore', 100 );
 /**
- * Items for Add-On: JetThemeCore (Premium, by Zemez Jet/ CrocoBlock)
+ * Items for Add-On: JetThemeCore (Premium, by Zemez Jet/ Crocoblock)
  *
  * @since 1.3.0
  * @since 1.3.2 Added new template types.

@@ -35,9 +35,11 @@ class Items_CPT_Generic {
 	 * @since 1.4.2
 	 * @since 1.4.7 Added new parameters.
 	 *
-	 * @param string $type     Unique ID of the post type (handle).
-	 * @param string $label    Optional custom label for the post type.
-	 * @param int    $priority Priority for 'admin_bar_menu' hook.
+	 * @param string $type       Unique ID of the post type (handle).
+	 * @param string $label      Optional custom label for the post type.
+	 * @param int    $priority   Priority for 'admin_bar_menu' hook.
+	 * @param string $parent     String for Toolbar parent node.
+	 * @param string $unique_key Unique string ID used as suffix for Toolbar node ID and group ID.
 	 */
 	public function init( $type = '', $label = '', $priority = 115, $parent = '', $unique_key = '' ) {
 
@@ -90,13 +92,13 @@ class Items_CPT_Generic {
 		$title_edit = sprintf(
 			/* translators: %s - name of a post type (plural label) */
 			esc_attr__( 'Edit %s Items', 'toolbar-extras' ),
-			$type_name
+			$type_single	//$type_name
 		);
 
 		$title_all = sprintf(
 			/* translators: %s - name of a post type (plural label) */
 			esc_attr__( 'All %s Items', 'toolbar-extras' ),
-			$type_name
+			$type_single	//$type_name
 		);
 
 		$title_new = sprintf(

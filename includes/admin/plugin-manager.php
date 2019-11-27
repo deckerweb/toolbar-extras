@@ -112,6 +112,7 @@ add_action( 'after_setup_theme', 'ddw_tbex_plugin_manager' );
  *
  * @since 1.4.2
  * @since 1.4.8 Refinements for labels, descriptions and minimum versions.
+ * @since 1.4.9 Added additional capability checks.
  *
  * @see DDW_Toolbar_Extras_Plugin_Manager
  * @link http://mypluginmanager.com
@@ -120,8 +121,10 @@ add_action( 'after_setup_theme', 'ddw_tbex_plugin_manager' );
  */
 function ddw_tbex_plugin_manager() {
 
-	/** Bail early if not in WP-Admin */
-	if ( ! is_admin() ) {
+	/** Bail early if not in WP-Admin or no proper capabilities */
+	if ( ! ( is_admin() || is_network_admin() )
+		|| ! ( current_user_can( 'install_plugins' ) || current_user_can( 'activate_plugins' ) )
+	) {
 		return;
 	}
 

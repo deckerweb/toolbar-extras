@@ -775,7 +775,7 @@ function ddw_tbex_remove_tooltips_title_attr( $wp_admin_bar ) {
  * Get the default editor type: "Blocks" (Gutenberg) or Classic.
  *
  * @since 1.4.0
- * @todo Settings integration!
+ * @todo TODO: Settings integration!
  */
 function ddw_tbex_get_default_editor_type() {
 
@@ -822,6 +822,10 @@ function ddw_tbex_custom_url_test( $type = '', $option_key = '' ) {
 
 /**
  * Add additional color wheel resources to certain add-ons for color palettes.
+ *
+ *   Note: This function needs to be called within a callback of the
+ *         'admin_bar_menu' hook or one of its "deratives" of the Toolbar Extras
+ *         plugin that fire within that hook also.
  *
  * @since 1.4.0
  * @since 1.4.2 Added Cloudflare Color Tools.
@@ -915,22 +919,22 @@ function ddw_tbex_get_pages_with_shortcode( $shortcode, $args = array() ) {
 	$shortcode = sanitize_key( $shortcode );
 
 	/** Bail early if Shortcode was not yet registered */
-    if ( ! shortcode_exists( $shortcode ) ) {
-        return null;
-    }
+	if ( ! shortcode_exists( $shortcode ) ) {
+		return null;
+	}
 
-    $pages = get_pages( $args );
-    $list  = array();
+	$pages = get_pages( $args );
+	$list  = array();
 
-    foreach ( $pages as $page ) {
+	foreach ( $pages as $page ) {
 
-        if ( has_shortcode( $page->post_content, $shortcode ) ) {
-            $list[] = $page;
-        }
+		if ( has_shortcode( $page->post_content, $shortcode ) ) {
+			$list[] = $page;
+		}
 
-    }  // end foreach
+	}  // end foreach
 
-    return $list;
+	return $list;
 
 }  // end function
 
@@ -1075,5 +1079,319 @@ function ddw_tbex_get_settings_url( $tab = '', $render = '' ) {
 	}
 
 	return esc_url( $url );
+
+}  // end function
+
+
+/**
+ * Get a random number.
+ *
+ * @since 1.4.9
+ *
+ * @param int $min Minimum value.
+ * @param int $max Maximum value.
+ * @return int Random integer number.
+ */
+function ddw_tbex_rand( $min = 0, $max = 9999999 ) {
+
+	return mt_rand( absint( $min ), absint( $max ) );
+
+}  // end function
+
+
+/**
+ * Get all submenu slugs (IDs) for a given parent admin menu page.
+ *
+ * @since 1.4.9
+ *
+ * @param string $parent_menu_slug Given slug ID from an existing parent menu page.
+ * @return array $submenu_slugs Array of all submenu slugs for the given Admin Menu page.
+ */
+function ddw_tbex_get_submenu_slugs( $parent_menu_slug = '' ) {
+
+	$parent_menu_slug = sanitize_key( $parent_menu_slug );
+
+	$submenu_slugs = array();
+
+	foreach ( $GLOBALS[ 'submenu' ][ $parent_menu_slug ] as $subkey => $subval ) {
+		$submenu_slugs[] = $subval[2];
+	}
+
+	return $submenu_slugs;
+
+}  // end function
+
+
+/**
+ * Declare a list of Mime Type IDs plus labels for reusage.
+ *
+ * @link https://wpengine.com/support/mime-types-wordpress/
+ *
+ * @since 1.4.9
+ *
+ * @return array $mime_type_ids Filterable array.
+ */
+function ddw_tbex_get_mime_type_ids() {
+
+	return apply_filters(
+		'tbex_filter_mime_types_reusage',
+		array(
+			'pdf'          => array(
+				'id'    => 'application/pdf',
+				'label' => esc_attr__( 'PDF', 'toolbar-extras' ),
+			),
+			'document'     => array(
+				'id'    => 'application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document, application/vnd.oasis.opendocument.text',
+				'label' => esc_attr__( 'Document', 'toolbar-extras' ),
+			),
+			'spreadsheet'  => array(
+				'id'    => 'application/excel, application/vnd.ms-excel, application/x-excel, application/x-msexcel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+				'label' => esc_attr__( 'Spreadsheet', 'toolbar-extras' ),
+			),
+			'presentation' => array(
+				'id'    => 'application/mspowerpoint, application/powerpoint, application/vnd.ms-powerpoint, application/x-mspowerpoint, application/vnd.openxmlformats-officedocument.presentationml.presentation, application/mspowerpoint, application/vnd.ms-powerpoint, application/vnd.openxmlformats-officedocument.presentationml.slideshow',
+				'label' => esc_attr__( 'Presentation', 'toolbar-extras' ),
+			),
+			'jpg'          => array(
+				'id'    => 'image/jpeg, image/pjpeg',
+				'label' => esc_attr__( 'JPG', 'toolbar-extras' ),
+			),
+			'png'          => array(
+				'id'    => 'image/png',
+				'label' => esc_attr__( 'PNG', 'toolbar-extras' ),
+			),
+			'gif'          => array(
+				'id'    => 'image/gif',
+				'label' => esc_attr__( 'Gif', 'toolbar-extras' ),
+			),
+			'webp'         => array(
+				'id'    => 'image/webp',
+				'label' => esc_attr__( 'WebP', 'toolbar-extras' ),
+			),
+			'image'        => array(
+				'id'    => 'image',
+				'label' => esc_attr__( 'Image', 'toolbar-extras' ),
+			),
+			'audio'        => array(
+				'id'    => 'audio',
+				'label' => esc_attr__( 'Audio', 'toolbar-extras' ),
+			),
+			'video'        => array(
+				'id'    => 'video',
+				'label' => esc_attr__( 'Video', 'toolbar-extras' ),
+			),
+		)
+	);
+
+	return $mime_type_ids;
+
+}  // end function
+
+
+add_filter( 'post_mime_types', 'ddw_tbex_modify_post_mime_types' );
+/**
+ * Tweak the list of Mime Types that can be filtered for within the Media
+ *   Library views (List & Grid). This allows a user for fine grained filtering
+ *   after various file types, now including PDFs for example.
+ *
+ * @since 1.4.9
+ *
+ * @uses ddw_tbex_get_mime_type_ids()
+ *
+ * @param array $post_mime_types Array of Attachment filter types.
+ * @return array $post_mime_types Modified array of Attachment filter types.
+ */
+function ddw_tbex_modify_post_mime_types( $post_mime_types ) {
+
+	/** Get our list of supported Mime Type IDs */
+	$mime_type_ids = (array) ddw_tbex_get_mime_type_ids();
+
+	/** Build array of Mime Types "IDs" and labels */
+	$new_mime_types_regular = array(
+		$mime_type_ids[ 'jpg' ][ 'id' ] => array(
+			'title'    => __( 'Image: JPGs', 'toolbar-extras' ),
+			'singular' => __( 'JPG', 'toolbar-extras' ),
+			'plural'   => __( 'JPGs', 'toolbar-extras' ),
+		),
+		$mime_type_ids[ 'png' ][ 'id' ] => array(
+			'title'    => __( 'Image: PNGs', 'toolbar-extras' ),
+			'singular' => __( 'PNG', 'toolbar-extras' ),
+			'plural'   => __( 'PNGs', 'toolbar-extras' ),
+		),
+		$mime_type_ids[ 'gif' ][ 'id' ] => array(
+			'title'    => __( 'Image: Gifs', 'toolbar-extras' ),
+			'singular' => __( 'Gif', 'toolbar-extras' ),
+			'plural'   => __( 'Gifs', 'toolbar-extras' ),
+		),
+		$mime_type_ids[ 'webp' ][ 'id' ] => array(
+			'title'    => __( 'Image: WebPs', 'toolbar-extras' ),
+			'singular' => __( 'WebP', 'toolbar-extras' ),
+			'plural'   => __( 'WebPs', 'toolbar-extras' ),
+		),
+		$mime_type_ids[ 'pdf' ][ 'id' ] => array(
+			'singular' => __( 'PDF', 'toolbar-extras' ),
+			'plural'   => __( 'PDFs', 'toolbar-extras' ),
+		),
+
+	);
+
+	$new_mime_types_before53 = array();
+
+	if ( version_compare( $GLOBALS[ 'wp_version' ], '5.3', '<' ) ) {
+
+		$new_mime_types_before53 = array(
+			$mime_type_ids[ 'document' ][ 'id' ] => array(
+				'singular' => __( 'Document', 'toolbar-extras' ),
+				'plural'   => __( 'Documents', 'toolbar-extras' ),
+			),
+			$mime_type_ids[ 'spreadsheet' ][ 'id' ] => array(
+				'singular' => __( 'Spreadsheet', 'toolbar-extras' ),
+				'plural'   => __( 'Spreadsheets', 'toolbar-extras' ),
+			),
+			$mime_type_ids[ 'presentation' ][ 'id' ] => array(
+				'singular' => __( 'Presentation', 'toolbar-extras' ),
+				'plural'   => __( 'Presentations', 'toolbar-extras' ),
+			),
+		);
+
+	}  // end if
+
+	$new_mime_types = ( ! is_null( $new_mime_types_before53 ) )
+		? array_merge( $new_mime_types_regular, $new_mime_types_before53 )
+		: $new_mime_types_regular;
+
+	/** Loop through all given Mime Types and add attachment filter support */
+	foreach ( $new_mime_types as $mime_type_id => $mime_type_label ) {
+
+		$post_mime_types[ $mime_type_id ] = array(
+			isset( $mime_type_label[ 'title' ] ) ? $mime_type_label[ 'title' ] : $mime_type_label[ 'plural' ],
+			/* translators: %s - label for Mime Type, for example "Documents" */
+			sprintf( __( 'Manage %s', 'toolbar-extras' ), $mime_type_label[ 'plural' ] ),
+			_n_noop( $mime_type_label[ 'singular' ] . ' <span class="count">(%s)</span>', $mime_type_label[ 'plural' ] . ' <span class="count">(%s)</span>', 'toolbar-extras' )
+		);
+
+	}  // end foreach
+
+	/** Return modified array of Mime Types for filtering */
+	return $post_mime_types;
+ 
+}  // end function
+
+
+/**
+ * Add additional Toolbar items for media library file views for certain mime
+ *   type items.
+ *
+ *   Note: This function needs to be called within a callback of the
+ *         'admin_bar_menu' hook or one of its "deratives" of the Toolbar Extras
+ *         plugin that fire within that hook also.
+ *
+ * @since 1.4.9
+ *
+ * @link https://www.obkb.com/dcljr/charstxt.html 	// for colon entity
+ *
+ * @uses ddw_tbex_get_mime_type_ids()
+ *
+ * @param string $mime_type String for defining the Mime Type (file type).
+ * @param object $admin_bar Object of Toolbar nodes.
+ * @param string $suffix    String for suffix for Toolbar node ID and group ID.
+ * @param string $parent    String for Toolbar parent node.
+ * @return void|object WP Toolbar object to build new Toolbar nodes.
+ */
+function ddw_tbex_media_items_mime_type( $mime_type = '', $admin_bar, $suffix = '', $parent = '' ) {
+
+	/** Get our list of supported Mime Type IDs */
+	$mime_type_ids = (array) ddw_tbex_get_mime_type_ids();
+
+	$mime_type = sanitize_key( $mime_type );
+
+	/** Bail early if given Mime Type is not in our supported list of types */
+	if ( in_array( $mime_type, $mime_type_ids ) ) {
+		return $admin_bar;
+	}
+
+	/** Get Mime Type "ID" and label for reusage */
+	$mime_type_id    = $mime_type_ids[ $mime_type ][ 'id' ];
+	$mime_type_id    = str_replace( '/', '%2F', $mime_type_id );
+	$mime_type_label = $mime_type_ids[ $mime_type ][ 'label' ];
+
+	/**
+	 * If given Mime Type is empty (not set) use the "All Media" label
+	 *   (like WP Core itself does).
+	 */
+	if ( '' === $mime_type ) {
+		$mime_type_label = esc_attr__( 'All Media', 'toolbar-extras' );
+	}
+
+	/** Mime type to filter URL */
+	$mime_type_url = sprintf(
+		'post_mime_type%1$s%2$s',
+		'%3A',	// colon character
+		$mime_type_id
+	);
+
+	/** Grid View URL */
+	$url_grid = add_query_arg(
+		array(
+			'mode'              => 'grid',
+			'attachment-filter' => $mime_type_url,
+		),
+		admin_url( 'upload.php' )
+	);
+
+	/** List View URL */
+	$url_list = add_query_arg(
+		array(
+			'mode'              => 'list',
+			'attachment-filter' => $mime_type_url,
+		),
+		admin_url( 'upload.php' )
+	);
+
+	/** Build item main title */
+	$media_title = ddw_tbex_string_dynamic( [ 'string' => $mime_type_label, 'addition' => __( 'Files', 'toolbar-extras' ) ] );
+
+	/** Set suffix */
+	$suffix = '-' . sanitize_key( $suffix );
+
+	/** Build Toolbar Nodes */
+	$admin_bar->add_node(
+		array(
+			'id'     => 'tbex-media-' . $mime_type_id . $suffix,
+			'parent' => sanitize_key( $parent ),
+			'title'  => $media_title,
+			'href'   => esc_url( $url_grid ),
+			'meta'   => array(
+				'target' => '',
+				'title'  => esc_attr__( 'Media Library', 'toolbar-extras' ) . ': ' . $media_title,
+			)
+		)
+	);
+
+		$admin_bar->add_node(
+			array(
+				'id'     => 'tbex-media-' . $mime_type_id . $suffix . '-grid',
+				'parent' => 'tbex-media-' . $mime_type_id . $suffix,
+				'title'  => esc_attr( 'Grid View', 'toolbar-extras' ),
+				'href'   => esc_url( $url_grid ),
+				'meta'   => array(
+					'target' => '',
+					'title'  => $media_title . ': ' . esc_attr( 'Grid View', 'toolbar-extras' ),
+				)
+			)
+		);
+
+		$admin_bar->add_node(
+			array(
+				'id'     => 'tbex-media-' . $mime_type_id . $suffix . '-list',
+				'parent' => 'tbex-media-' . $mime_type_id . $suffix,
+				'title'  => esc_attr( 'List View', 'toolbar-extras' ),
+				'href'   => esc_url( $url_list ),
+				'meta'   => array(
+					'target' => '',
+					'title'  => $media_title . ': ' . esc_attr( 'List View', 'toolbar-extras' ),
+				)
+			)
+		);
 
 }  // end function

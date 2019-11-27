@@ -28,8 +28,11 @@ add_action( 'network_admin_notices', 'ddw_tbex_notice_plugins_welcome' );	// als
  *   Gets displayed and once dismissed will never show again.
  *
  * @since 1.4.0
+ * @since 1.4.9 Added capability checks.
  */
-require_once TBEX_PLUGIN_DIR . 'includes/admin/views/notice-plugin-review.php';
+if ( current_user_can( 'manage_options' ) || current_user_can( 'install_plugins' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/admin/views/notice-plugin-review.php';
+}
 
 
 /**
@@ -368,7 +371,7 @@ function ddw_tbex_site_health_add_debug_info( $debug_info ) {
 	/** Add our Debug info */
 	$debug_info[ 'toolbar-extras' ] = array(
 		'label'       => ddw_tbex_string_toolbar_extras() . ' (' . esc_html__( 'Plugin', 'toolbar-extras' ) . ')',
-		'description' => ddw_tbex_string_debug_diagnostic(),
+		'description' => ddw_tbex_string_debug_diagnostic( 'tbex', 'general' ),
 		'fields'      => array(
 
 			/** Various values, including important plugin options */
@@ -566,8 +569,7 @@ add_action( 'in_plugin_update_message-' . TBEX_PLUGIN_BASEDIR . 'toolbar-extras.
  *
  * @param object $data
  * @param object $response
- * @return string Echoed string and markup for the plugin's upgrade/update
- *                notice.
+ * @return void
  */
 function ddw_tbex_plugin_update_message( $data, $response ) {
 
@@ -595,8 +597,7 @@ add_action( 'after_plugin_row_wp-' . TBEX_PLUGIN_BASEDIR . 'toolbar-extras.php',
  *
  * @param string $file
  * @param object $plugin
- * @return string Echoed string and markup for the plugin's upgrade/update
- *                notice.
+ * @return void
  */
 function ddw_tbex_multisite_subsite_plugin_update_message( $file, $plugin ) {
 

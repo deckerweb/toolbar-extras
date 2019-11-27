@@ -18,10 +18,14 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_bloom', 20 );
  *
  * @since 1.3.1
  *
+ * @uses ddw_tbex_rand()
+ *
  * @param object $admin_bar Object of Toolbar nodes.
  */
 function ddw_tbex_site_items_bloom( $admin_bar ) {
 
+	$rand = ddw_tbex_rand();
+	
 	/** For: Forms */
 	$admin_bar->add_node(
 		array(
@@ -54,7 +58,7 @@ function ddw_tbex_site_items_bloom( $admin_bar ) {
 				'id'     => 'forms-bloom-email-accounts',
 				'parent' => 'forms-bloom',
 				'title'  => esc_attr__( 'Email Accounts', 'toolbar-extras' ),
-				'href'   => esc_url( admin_url( 'admin.php?page=et_bloom_options#tab_et_dashboard_tab_content_header_accounts' ) ),
+				'href'   => esc_url( admin_url( 'admin.php?page=et_bloom_options&rand=' . $rand . '#tab_et_dashboard_tab_content_header_accounts' ) ),
 				'meta'   => array(
 					'target' => '',
 					'title'  => esc_attr__( 'Email Accounts', 'toolbar-extras' ),
@@ -67,7 +71,7 @@ function ddw_tbex_site_items_bloom( $admin_bar ) {
 				'id'     => 'forms-bloom-statistics',
 				'parent' => 'forms-bloom',
 				'title'  => esc_attr__( 'Statistics', 'toolbar-extras' ),
-				'href'   => esc_url( admin_url( 'admin.php?page=et_bloom_options#tab_et_dashboard_tab_content_header_stats' ) ),
+				'href'   => esc_url( admin_url( 'admin.php?page=et_bloom_options&rand=' . $rand . '#tab_et_dashboard_tab_content_header_stats' ) ),
 				'meta'   => array(
 					'target' => '',
 					'title'  => esc_attr__( 'Statistics', 'toolbar-extras' ),
@@ -80,7 +84,7 @@ function ddw_tbex_site_items_bloom( $admin_bar ) {
 				'id'     => 'forms-bloom-import-export',
 				'parent' => 'forms-bloom',
 				'title'  => esc_attr__( 'Import &amp; Export', 'toolbar-extras' ),
-				'href'   => esc_url( admin_url( 'admin.php?page=et_bloom_options#tab_et_dashboard_tab_content_header_importexport' ) ),
+				'href'   => esc_url( admin_url( 'admin.php?page=et_bloom_options&rand=' . $rand . '#tab_et_dashboard_tab_content_header_importexport' ) ),
 				'meta'   => array(
 					'target' => '',
 					'title'  => esc_attr__( 'Import &amp; Export', 'toolbar-extras' ),

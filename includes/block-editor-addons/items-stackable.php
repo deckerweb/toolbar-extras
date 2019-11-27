@@ -14,10 +14,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_stackable', 10 );
 /**
- * Site items for Plugin: Stackable Gutenberg Blocks (free, by Gambit Technologies, Inc.)
+ * Site items for Plugin:
+ *   Stackable Gutenberg Blocks (free, by Gambit Technologies, Inc.)
  *
  * @since 1.4.0
+ * @since 1.4.9 Added new resources.
  *
+ * @uses ddw_tbex_display_items_resources()
  * @uses ddw_tbex_resource_item()
  *
  * @param object $admin_bar Object of Toolbar nodes.
@@ -35,7 +38,7 @@ function ddw_tbex_aoitems_stackable( $admin_bar ) {
 			'href'   => esc_url( admin_url( 'admin.php?page=stackable' ) ),
 			'meta'   => array(
 				'target' => '',
-				'title'  => ddw_tbex_string_free_addon_title_attr( esc_attr__( 'Stackable Gutenberg Blocks', 'toolbar-extras' ) ),
+				'title'  => ddw_tbex_string_free_addon_title_attr( __( 'Stackable Gutenberg Blocks', 'toolbar-extras' ) ),
 			)
 		)
 	);
@@ -69,6 +72,20 @@ function ddw_tbex_aoitems_stackable( $admin_bar ) {
 				'stackable-support',
 				'group-stackable-resources',
 				'https://wordpress.org/support/plugin/stackable-ultimate-gutenberg-blocks'
+			);
+
+			ddw_tbex_resource_item(
+				'documentation',
+				'stackable-docs',
+				'group-stackable-resources',
+				'https://wpstackable.com/documentation/'
+			);
+
+			ddw_tbex_resource_item(
+				'facebook-group',
+				'stackable-fbgroup',
+				'group-stackable-resources',
+				'https://www.facebook.com/groups/wpstackable'
 			);
 
 			ddw_tbex_resource_item(

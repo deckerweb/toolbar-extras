@@ -95,7 +95,7 @@ function ddw_tbex_aoitems_trg_elementor( $admin_bar ) {
 				'support-contact',
 				'trgel-contact',
 				'group-trgel-resources',
-				'https://codecanyon.net/item/total-recipe-generator-wordpress-recipe-maker-with-schema-and-nutrition-facts-elementor-addon/21445400/support?ref=deckerweb'
+				'https://1.envato.market/53mxN'
 			);
 
 			ddw_tbex_resource_item(

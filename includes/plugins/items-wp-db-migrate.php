@@ -19,6 +19,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_wpmigratedb', 19 );
  *
  * @since 1.0.0
  *
+ * @uses ddw_tbex_rand()
  * @uses ddw_tbex_display_items_resources()
  * @uses ddw_tbex_resource_item()
  *
@@ -27,6 +28,8 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_wpmigratedb', 19 );
 function ddw_tbex_site_items_wpmigratedb( $admin_bar ) {
 
 	$type = function_exists( 'wp_migrate_db_pro_loaded' ) ? '-pro' : '';
+
+	$rand = ddw_tbex_rand();
 
 	/** For: Site Group - More Stuff */
 	$admin_bar->add_node(
@@ -47,7 +50,7 @@ function ddw_tbex_site_items_wpmigratedb( $admin_bar ) {
 				'id'     => 'wpdbmigrate-migrate',
 				'parent' => 'wpdbmigrate',
 				'title'  => esc_attr__( 'Migrate', 'toolbar-extras' ),
-				'href'   => is_multisite() ? esc_url( network_admin_url( 'settings.php?page=wp-migrate-db' . $type . '#migrate' ) ) : esc_url( admin_url( 'tools.php?page=wp-migrate-db' . $type . '#migrate' ) ),
+				'href'   => is_multisite() ? esc_url( network_admin_url( 'settings.php?page=wp-migrate-db' . $type . '&rand=' . $rand . '#migrate' ) ) : esc_url( admin_url( 'tools.php?page=wp-migrate-db' . $type . '&rand=' . $rand . '#migrate' ) ),
 				'meta'   => array(
 					'class'  => 'js-action-link migrate',
 					'target' => '',
@@ -61,7 +64,7 @@ function ddw_tbex_site_items_wpmigratedb( $admin_bar ) {
 				'id'     => 'wpdbmigrate-settings',
 				'parent' => 'wpdbmigrate',
 				'title'  => esc_attr__( 'Settings', 'toolbar-extras' ),
-				'href'   => is_multisite() ? esc_url( network_admin_url( 'settings.php?page=wp-migrate-db' . $type . '#settings' ) ) : esc_url( admin_url( 'tools.php?page=wp-migrate-db' . $type . '#settings' ) ),
+				'href'   => is_multisite() ? esc_url( network_admin_url( 'settings.php?page=wp-migrate-db' . $type . '&rand=' . $rand . '#settings' ) ) : esc_url( admin_url( 'tools.php?page=wp-migrate-db' . $type . '&rand=' . $rand . '#settings' ) ),
 				'meta'   => array(
 					'class'  => 'js-action-link settings',
 					'target' => '',
@@ -75,7 +78,7 @@ function ddw_tbex_site_items_wpmigratedb( $admin_bar ) {
 				'id'     => 'wpdbmigrate-help',
 				'parent' => 'wpdbmigrate',
 				'title'  => esc_attr__( 'Help', 'toolbar-extras' ),
-				'href'   => is_multisite() ? esc_url( network_admin_url( 'settings.php?page=wp-migrate-db' . $type . '#help' ) ) : esc_url( admin_url( 'tools.php?page=wp-migrate-db' . $type . '#help' ) ),
+				'href'   => is_multisite() ? esc_url( network_admin_url( 'settings.php?page=wp-migrate-db' . $type . '&rand=' . $rand . '#help' ) ) : esc_url( admin_url( 'tools.php?page=wp-migrate-db' . $type . '&rand=' . $rand . '#help' ) ),
 				'meta'   => array(
 					'class'  => 'js-action-link help',
 					'target' => '',

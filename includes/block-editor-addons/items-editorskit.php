@@ -46,11 +46,11 @@ function ddw_tbex_aoitems_editorskit( $admin_bar ) {
 			array(
 				'id'     => 'tbex-editorskit-info',
 				'parent' => 'tbex-editorskit',
-				'title'  => esc_attr__( 'Plugin Info', 'toolbar-extras' ),
-				'href'   => esc_url( admin_url( 'index.php?page=editorskit-getting-started' ) ),
+				'title'  => esc_attr__( 'Manage Features &amp; Blocks', 'toolbar-extras' ),
+				'href'   => esc_url( admin_url( 'options-general.php?page=editorskit-getting-started' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Plugin Info', 'toolbar-extras' ),
+					'title'  => esc_attr__( 'Manage Features &amp; Blocks', 'toolbar-extras' ),
 				)
 			)
 		);

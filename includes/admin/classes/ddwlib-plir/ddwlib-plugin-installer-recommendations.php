@@ -21,7 +21,7 @@
  * @package DDWlib Plugin Installer Recommendations
  * @author  David Decker
  * @license http://www.gnu.org/licenses GNU General Public License
- * @version 1.5.0
+ * @version 1.5.1
  * @link    https://github.com/deckerweb/ddwlib-plugin-installer-recommendations
  */
 
@@ -211,6 +211,16 @@ if ( ! class_exists( 'DDWlib_Plugin_Installer_Recommendations' ) ) :
 					'featured'    => 'yes',
 					'recommended' => 'yes',
 					'popular'     => 'yes',
+				),
+				'wp-toolbelt' => array(
+					'featured'    => 'yes',
+					'recommended' => 'yes',
+					'popular'     => 'no',
+				),
+				'flying-pages' => array(
+					'featured'    => 'yes',
+					'recommended' => 'yes',
+					'popular'     => 'no',
 				),
 				'autoptimize' => array(
 					'featured'    => 'yes',
@@ -517,11 +527,15 @@ if ( ! class_exists( 'DDWlib_Plugin_Installer_Recommendations' ) ) :
 				return $action_links;
 			}
 
+			if ( ! isset( $plugin[ 'version' ] ) ) {
+				return $action_links;
+			}
+
 			/** Get array of label strings */
 			$labels = DDWlib_Plugin_Installer_Recommendations::get_strings();
 
 			/** Add to the action links */
-			$action_links[] = sprintf(
+			$action_links[ 'version' ] = sprintf(
 				'<div><small>%s %s</small></div>',
 				esc_attr( $labels[ 'version' ] ),
 				wp_kses_data( $plugin[ 'version' ] )

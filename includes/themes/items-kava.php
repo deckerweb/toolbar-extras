@@ -29,7 +29,7 @@ function ddw_tbex_is_theme_kava_pro() {
 
 add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_kava', 100 );
 /**
- * Items for Theme: Kava Theme free / Kava Pro Theme (free/Premium, by Zemez Jet & CrocoBlock)
+ * Items for Theme: Kava Theme free / Kava Pro Theme (free/Premium, by Zemez Jet & Crocoblock)
  *
  * @since 1.1.1
  *
@@ -214,7 +214,7 @@ function ddw_tbex_themeitems_kava_resources( $admin_bar ) {
 		return $admin_bar;
 	}
 
-	/** Group: Resources for Kava Theme */
+	/** Group: Theme's resources */
 	$admin_bar->add_group(
 		array(
 			'id'     => 'group-theme-resources',
@@ -318,11 +318,11 @@ function ddw_tbex_themeitems_kava_pro_settings( $admin_bar ) {
 			array(
 				'id'     => 'theme-settings',
 				'parent' => 'group-active-theme',
-				'title'  => esc_attr__( 'CrocoBlock Options', 'toolbar-extras' ),
+				'title'  => esc_attr__( 'Crocoblock Options', 'toolbar-extras' ),
 				'href'   => esc_url( admin_url( 'admin.php?page=jet-theme-core&tab=theme' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'CrocoBlock Options', 'toolbar-extras' ),
+					'title'  => esc_attr__( 'Crocoblock Options', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -453,9 +453,9 @@ function ddw_tbex_themeitems_kava_pro_settings( $admin_bar ) {
 add_action( 'admin_bar_menu', 'ddw_tbex_themeitems_kava_pro_sites_import', 100 );
 /**
  * Items for Demos & Skins Import - Plugins:
- *   Jet Plugins Wizard (Premium, by Zemez/ CrocoBlock)
- *   Jet Data Importer (Premium, by Zemez/ CrocoBlock)
- *   JetThemeCore (Premium, by Zemez/ CrocoBlock)
+ *   Jet Plugins Wizard (Premium, by Zemez/ Crocoblock)
+ *   Jet Data Importer (Premium, by Zemez/ Crocoblock)
+ *   JetThemeCore (Premium, by Zemez/ Crocoblock)
  *
  * @since 1.3.0
  *
@@ -533,7 +533,7 @@ function ddw_tbex_themeitems_kava_pro_sites_import( $admin_bar ) {
 
 
 /**
- * Items for Site Group: CrocoBlock Updates
+ * Items for Site Group: Crocoblock Updates
  *
  * @since 1.3.0
  *
@@ -553,7 +553,7 @@ function ddw_tbex_site_items_crocoblock_updates( $admin_bar ) {
 		return $admin_bar;
 	}
 
-	/** Group: CrocoBlock Update Checks */
+	/** Group: Crocoblock Update Checks */
 	$admin_bar->add_group(
 		array(
 			'id'     => 'group-crocoblock-updates',

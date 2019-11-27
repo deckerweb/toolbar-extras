@@ -254,3 +254,12 @@ if ( function_exists( 'genesis_devkit_compatible_theme_check' )
 if ( defined( 'GENEXT_VERSION' ) ) {
 	require_once TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-cobalt-genesis-extender.php';
 }
+
+
+/**
+ * Plugin: AgentPress Listings (free, by StudioPress)
+ * @since 1.4.9
+ */
+if ( function_exists( 'agentpress_listings_init' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/plugins-genesis/items-agentpress-listings.php';
+}

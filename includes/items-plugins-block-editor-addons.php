@@ -239,9 +239,10 @@ if ( class_exists( 'UAGB_Loader' ) ) {
 
 /**
  * Plugin: Kadence Blocks - Gutenberg Page Builder Toolkit (free, by Kadence Themes)
+ * Plugin: Kadence Blocks Pro (Premium, by Kadence Themes)
  * @since 1.4.0
  */
-if ( defined( 'KT_BLOCKS_VERSION' ) ) {
+if ( defined( 'KADENCE_BLOCKS_VERSION' ) ) {
 	require_once TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-kadence-blocks.php';
 }
 
@@ -465,10 +466,13 @@ if ( function_exists( 'caxton_init' ) ) {
 /**
  * Plugin: CoBlocks (free, by CoBlocks)
  * @since 1.4.3
+ * @since 1.4.9 Removed support as plugin no longer has any settings/ info page.
  */
-if ( class_exists( 'CoBlocks' ) ) {
-	require_once TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-coblocks.php';
-}
+/**
+	if ( class_exists( 'CoBlocks' ) ) {
+		//require_once TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-coblocks.php';
+	}
+*/
 
 
 /**
@@ -477,6 +481,15 @@ if ( class_exists( 'CoBlocks' ) ) {
  */
 if ( class_exists( '\CloudBlocks\CloudBlocks' ) ) {
 	require_once TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-cloud-blocks.php';
+}
+
+
+/**
+ * Plugin: GutenBee (free, by The CSSIgniter Team)
+ * @since 1.4.9
+ */
+if ( defined( 'GUTENBEE_PLUGIN_VERSION' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-gutenbee.php';
 }
 
 
@@ -495,6 +508,52 @@ if ( defined( 'GUTENTOR_VERSION' ) ) {
  */
 if ( function_exists( 'blpge_welcome_page_html' ) ) {
 	require_once TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-blockypage.php';
+}
+
+
+/**
+ * Plugin: WPBricks Readymade Custom Gutenberg Blocks (free, by Multidots)
+ * @since 1.4.9
+ */
+if ( defined( 'MDBP_VERSION' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-wpbricks.php';
+}
+
+
+/**
+ * Plugin: Kioken Blocks (free, by Kioken Theme)
+ * @since 1.4.9
+ */
+if ( defined( 'KK_BLOCKS_VERSION' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-kioken-blocks.php';
+}
+
+
+/**
+ * Plugin: Potter Kit (free, by Potter LLC)
+ * @since 1.4.9
+ */
+if ( defined( 'POTTER_KIT_VERSION' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-potter-kit.php';
+}
+
+
+/**
+ * Plugin: Foxdell Folio Block Editor Customiser (free, by Foxdell Folio)
+ * @since 1.4.9
+ */
+if ( class_exists( '\FoFoBec\FoFo_Bec' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-fofo-block-editor-customiser.php';
+}
+
+
+/**
+ * Dev Mode Add-On: Gutenberg (free, by Gutenberg Team)
+ *   Note: Will only be loaded if Dev Mode is active!
+ * @since 1.4.9
+ */
+if ( ddw_tbex_display_items_dev_mode() && defined( 'GUTENBERG_VERSION' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/block-editor-addons/items-gutenberg.php';
 }
 
 

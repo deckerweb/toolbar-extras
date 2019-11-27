@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 add_action( 'admin_bar_menu', 'ddw_tbex_site_items_wpmail_smtp', 50 );
 /**
- * Items for Plugin: WP Mail SMTP (free, by WPForms)
+ * Items for Plugin: WP Mail SMTP (free, by WPForms LLC)
  *
  * @since 1.4.2
  *

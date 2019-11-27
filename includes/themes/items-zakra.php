@@ -141,7 +141,7 @@ function ddw_tbex_themeitems_zakra_resources( $admin_bar ) {
 		return $admin_bar;
 	}
 
-	/** Group: Resources for Zakra Theme */
+	/** Group: Theme's resources */
 	$admin_bar->add_group(
 		array(
 			'id'     => 'group-theme-resources',

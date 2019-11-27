@@ -116,7 +116,7 @@ function ddw_tbex_themeitems_elementor_hello_resources( $admin_bar ) {
 		return;
 	}
 
-	/** Group: Resources for Elementor Hello Theme */
+	/** Group: Theme's resources */
 	$admin_bar->add_group(
 		array(
 			'id'     => 'group-theme-resources',

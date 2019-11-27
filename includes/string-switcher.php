@@ -1262,20 +1262,49 @@ function ddw_tbex_string_debug_info_link( $type = '', $source = 'tbex' ) {
  * Build Debug Info screen string: "Diagnostic information for this plugin ...".
  *
  * @since 1.4.3
+ * @since 1.4.9 Added additional param for settings tab; feature update.
  *
  * @uses ddw_tbex_string_debug_info_link()
+ * @uses ddw_tbex_get_settings_url()
+ * @uses ddw_tbex_meta_target()
  *
- * @param string $source Source from which to get the URL key value.
+ * @param string $source       Source from which to get the URL key value.
+ * @param string $settings_tab Optional, ID for a Toolbars Extras settings tab.
  * @return string HTML link markup and translatable string.
  */
-function ddw_tbex_string_debug_diagnostic( $source = 'tbex' ) {
+function ddw_tbex_string_debug_diagnostic( $source = 'tbex', $settings_tab = '' ) {
 
-	return sprintf(
+	/** Set the default debug/diagnostig string */
+	$string_debug_diagnostic = sprintf(
 		/* translators: 1 - label, "Support" / 2 - label, "User Group" */
 		__( 'Diagnostic information for this plugin, helpful for %s and %s', 'toolbar-extras' ),
 		ddw_tbex_string_debug_info_link( 'support', sanitize_key( $source ) ),
 		ddw_tbex_string_debug_info_link( 'usergroup' )
 	);
+
+	/** Prepare default output */
+	$output = $string_debug_diagnostic;
+
+	/** Prepare optional settings link string */
+	$string_settings_tab = sprintf(
+		/* translators: %s - label, "plugin's settings" (linked to settings page) */
+		__( 'To change option values, go to the %s', 'toolbar-extras' ),
+		'<a href="' . ddw_tbex_get_settings_url( sanitize_key( $settings_tab ) ) . '" target="' . ddw_tbex_meta_target() . '">' . __( 'plugin\'s settings', 'toolbar-extras' ) . '</a>'
+	);
+
+	/** Optional: link to plugin's settings */
+	if ( ! empty( $settings_tab ) ) {
+
+		$output = sprintf(
+			'<p>%s</p><p>%s</p>',
+			$string_debug_diagnostic,
+			$string_settings_tab
+		);
+
+	}  // end if
+
+	/** Render the output */
+	return $output;
 
 }  // end function
 
@@ -1696,5 +1725,39 @@ function ddw_tbex_string_json( $render = '' ) {
 	}
 
 	return $string;
+
+}  // end function
+
+
+/**
+ * Build a dynamic string.
+ *   - optional static string prefix
+ *   - optional static string suffix
+ *   - optional main string
+ *
+ * @since 1.4.9
+ *
+ * @param array $args Array holding all arguments for the string.
+ * @return string Modified string with optional parameters.
+ */
+function ddw_tbex_string_dynamic( array $args = [] ) {
+
+	$prefix = ( ! empty( $args[ 'prefix' ] ) ) ? wp_kses_post( $args[ 'prefix' ] ) : '';
+	$suffix = ( ! empty( $args[ 'suffix' ] ) ) ? wp_kses_post( $args[ 'suffix' ] ) : '';
+
+	$string = ( ! empty( $args[ 'string' ] ) ) ? $args[ 'string' ] : '';
+
+	if ( ! empty( $args[ 'addition' ] ) ) {
+
+		$string = sprintf(
+			/* translators: 1 - a string/ label or empty / 2 - custom additionally attached string */
+			__( '%1$s %2$s', 'toolbar-extras' ),
+			$string,
+			$args[ 'addition' ]
+		);
+
+	}  // end if
+
+	return $prefix . esc_attr( $string ) . $suffix;
 
 }  // end function

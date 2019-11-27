@@ -405,6 +405,30 @@ function ddw_tbex_is_theme_hestia() {
 
 
 /**
+ * Check if current Theme/ Child Theme has a ChurchThemes.com (ctcom) Parent
+ *   Theme or not.
+ *
+ * @since 1.4.9
+ *
+ * @return bool TRUE if current active Theme/ Child Theme is in the array of
+ *              supported themes, FALSE otherwise.
+ */
+function ddw_tbex_is_theme_ctcom() {
+
+	$supported_ct = array(
+		'jubilee',
+		'saved',
+		'maranatha',
+		'exodus',
+		'resurrect',
+	);
+
+	return in_array( wp_basename( get_template_directory() ), $supported_ct );
+
+}  // end function
+
+
+/**
  * Check if current Parent Theme belongs to the Framework Themes supported by
  *   Cobalt Apps plugins.
  *
@@ -1049,7 +1073,21 @@ function ddw_tbex_is_maxgalleria_active() {
  */
 function ddw_tbex_is_wp52_install() {
 
-	return version_compare( $GLOBALS[ 'wp_version' ], '5.2-beta', '>' );
+	return version_compare( $GLOBALS[ 'wp_version' ], '5.2', '>' );
+
+}  // end function
+
+
+/**
+ * Is the current install WordPress 5.3+ or not?
+ *
+ * @since 1.4.9
+ *
+ * @return bool TRUE if WordPress 5.2+ is active, FALSE otherwise.
+ */
+function ddw_tbex_is_wp53_install() {
+
+	return version_compare( $GLOBALS[ 'wp_version' ], '5.3', '>' );
 
 }  // end function
 
@@ -1140,5 +1178,136 @@ function ddw_tbex_is_rankmath_seo_active() {
 function ddw_tbex_is_rm_instant_indexing_active() {
 
 	return class_exists( 'RM_GIAPI' );
+
+}  // end function
+
+
+/**
+ * Detect any of the "main" plugins of the Toolset suite.
+ *
+ * @since 1.4.9
+ *
+ * @uses ddw_tbex_detect_plugin()
+ *
+ * @return bool TRUE if a plugin exists, or FALSE if no plugin constant, class
+ *              or function detected.
+ */
+function ddw_tbex_detect_toolset_plugins() {
+
+	return ddw_tbex_detect_plugin(
+
+		array(
+
+			/** Constants to detect */
+			'constants' => array(
+				'TYPES_VERSION',		// Types
+				'WPV_VERSION',			// Views
+				'CRED_FE_VERSION',		// Forms
+				'TACCESS_VERSION',		// Access
+				'WPDDL_VERSION',		// Layouts
+			),
+
+		)  // end array
+
+	);
+
+}  // end function
+
+
+/**
+ * Detect plugins of Toolset suite that are relevant for "New Content" group.
+ *
+ * @since 1.4.9
+ *
+ * @uses ddw_tbex_detect_plugin()
+ *
+ * @return bool TRUE if a plugin exists, or FALSE if no plugin constant, class
+ *              or function detected.
+ */
+function ddw_tbex_detect_toolset_new_content_plugins() {
+
+	return ddw_tbex_detect_plugin(
+
+		array(
+
+			/** Constants to detect */
+			'constants' => array(
+				'TYPES_VERSION',		// Types
+				'CRED_FE_VERSION',		// Forms
+			),
+
+		)  // end array
+
+	);
+
+}  // end function
+
+
+/**
+ * Is the Toolset Types plugin active or not?
+ *
+ * @since 1.4.9
+ *
+ * @return bool TRUE if plugin is active, FALSE otherwise.
+ */
+function ddw_tbex_is_toolset_types_active() {
+
+	return defined( 'TYPES_VERSION' );
+
+}  // end function
+
+
+/**
+ * Is the Toolset Views plugin active or not?
+ *
+ * @since 1.4.9
+ *
+ * @return bool TRUE if plugin is active, FALSE otherwise.
+ */
+function ddw_tbex_is_toolset_views_active() {
+
+	return defined( 'WPV_VERSION' );
+
+}  // end function
+
+
+/**
+ * Is the Toolset Forms plugin active or not?
+ *
+ * @since 1.4.9
+ *
+ * @return bool TRUE if plugin is active, FALSE otherwise.
+ */
+function ddw_tbex_is_toolset_forms_active() {
+
+	return defined( 'CRED_FE_VERSION' );
+
+}  // end function
+
+
+/**
+ * Is the WPML (main) plugin active or not?
+ *
+ * @since 1.4.9
+ *
+ * @return bool TRUE if plugin is active, FALSE otherwise.
+ */
+function ddw_tbex_is_wpml_active() {
+
+	return defined( 'ICL_SITEPRESS_VERSION' );
+
+}  // end function
+
+
+/**
+ * Is the WPML Translation Management plugin active or not?
+ *
+ * @since 1.4.9
+ *
+ * @return bool TRUE if plugin is active, FALSE otherwise.
+ */
+function ddw_tbex_is_wpml_translation_management_active() {
+
+	return defined( 'WPML_TM_VERSION' );
 
 }  // end function

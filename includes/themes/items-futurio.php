@@ -153,7 +153,7 @@ function ddw_tbex_themeitems_futurio_resources( $admin_bar ) {
 		return $admin_bar;
 	}
 
-	/** Group: Resources for Futurio Theme */
+	/** Group: Theme's resources */
 	$admin_bar->add_group(
 		array(
 			'id'     => 'group-theme-resources',

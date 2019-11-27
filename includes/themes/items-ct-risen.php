@@ -213,7 +213,7 @@ function ddw_tbex_themeitems_ct_risen_resources( $admin_bar ) {
 		return $admin_bar;
 	}
 
-	/** Group: Resources for Risen Theme */
+	/** Group: Theme's resources */
 	$admin_bar->add_group(
 		array(
 			'id'     => 'group-theme-resources',

@@ -105,7 +105,7 @@ function ddw_tbex_themeitems_stackable_resources( $admin_bar ) {
 		return $admin_bar;
 	}
 
-	/** Group: Resources for Stackable */
+	/** Group: Theme's resources */
 	$admin_bar->add_group(
 		array(
 			'id'     => 'group-theme-resources',
@@ -119,6 +119,13 @@ function ddw_tbex_themeitems_stackable_resources( $admin_bar ) {
 		'theme-support',
 		'group-theme-resources',
 		'https://wordpress.org/support/theme/stackable'
+	);
+
+	ddw_tbex_resource_item(
+		'facebook-group',
+		'theme-fbgroup',
+		'group-theme-resources',
+		'https://www.facebook.com/groups/wpstackable'
 	);
 
 	ddw_tbex_resource_item(

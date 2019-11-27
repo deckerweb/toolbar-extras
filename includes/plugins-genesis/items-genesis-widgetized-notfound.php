@@ -130,7 +130,7 @@ function ddw_tbex_aoitems_genesis_widgetized_notfound( $admin_bar ) {
 				)
 			);
 
-		/** Group: Resources for Genesis Widgetized Not Found & 404 */
+		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
 			$admin_bar->add_group(

@@ -19,6 +19,7 @@ add_action( 'admin_menu', 'ddw_tbex_add_classicpress_security_page' );
  * @since 1.4.8
  *
  * @uses \add_security_page()
+ * @uses ddw_tbex_string_toolbar_extras()
  */
 function ddw_tbex_add_classicpress_security_page() {
 

@@ -15,10 +15,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 add_action( 'wp_enqueue_scripts', 'ddw_tbex_toolbar_styles' );
 add_action( 'admin_enqueue_scripts', 'ddw_tbex_toolbar_styles' );
 /**
- * For viewports equal or wider than 783px load CSS styles to fix the overflow
- *   issue in WordPress Core Toolbar styling when there are too many items.
- *
- * Note: Code inspired by "Admin Bar Wrap Fix" plugin (GPLv2 or later).
+ * Add the needed CSS styles for Toolbar items of "Toolbar Extras" plugin.
+ * 
+ * @see https://developer.wordpress.org/resource/dashicons/
  *
  * @since 1.0.0
  * @since 1.4.7 Moved into own Stylesheet; plus inline styles - all enqueued via

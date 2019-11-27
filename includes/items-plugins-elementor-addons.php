@@ -134,7 +134,7 @@ if ( class_exists( '\CleverSoft\WpPlugin\Cmm4E\Plugin' ) ) {
 
 
 /**
- * Add-On: JetThemeCore (Premium, by Zemez Jet/ CrocoBlock)
+ * Add-On: JetThemeCore (Premium, by Zemez Jet/ Crocoblock)
  * @since 1.3.0
  */
 if ( ddw_tbex_is_addon_jetthemecore() ) {
@@ -143,7 +143,7 @@ if ( ddw_tbex_is_addon_jetthemecore() ) {
 
 
 /**
- * Add-On: JetWooBuilder (Premium, by Zemez Jet/ CrocoBlock)
+ * Add-On: JetWooBuilder (Premium, by Zemez Jet/ Crocoblock)
  * @since 1.2.0
  */
 if ( ddw_tbex_is_woocommerce_active()	// as it extends WooCommerce!
@@ -154,7 +154,7 @@ if ( ddw_tbex_is_woocommerce_active()	// as it extends WooCommerce!
 
 
 /**
- * Add-On: JetCompareWishlist (Premium, by Zemez Jet/ CrocoBlock)
+ * Add-On: JetCompareWishlist (Premium, by Zemez Jet/ Crocoblock)
  * @since 1.4.2
  */
 if ( ddw_tbex_is_woocommerce_active()	// as it extends WooCommerce!
@@ -165,7 +165,7 @@ if ( ddw_tbex_is_woocommerce_active()	// as it extends WooCommerce!
 
 
 /**
- * Add-On: JetWooProductGallery (Premium, by Zemez Jet/ CrocoBlock)
+ * Add-On: JetWooProductGallery (Premium, by Zemez Jet/ Crocoblock)
  * @since 1.4.0
  */
 if ( ddw_tbex_is_woocommerce_active()	// as it extends WooCommerce!
@@ -209,7 +209,7 @@ if ( ddw_tbex_is_woocommerce_active()	// as it extends WooCommerce!
 
 
 /**
- * Add-On: JetWoo Widgets for Elementor (Premium, by CrocoBlock/ Zemez Jet)
+ * Add-On: JetWoo Widgets for Elementor (Premium, by Crocoblock/ Zemez Jet)
  * @since 1.4.0
  */
 if ( ddw_tbex_is_woocommerce_active()	// as it extends WooCommerce!
@@ -229,7 +229,7 @@ if ( defined( 'VAKKA_PLUGIN_PATH' ) ) {
 
 
 /**
- * Add-On: JetPopup (Premium, by Zemez Jet/ CrocoBlock)
+ * Add-On: JetPopup (Premium, by Zemez Jet/ Crocoblock)
  * @since 1.4.0
  */
 if ( class_exists( 'Jet_Popup' ) ) {
@@ -238,7 +238,7 @@ if ( class_exists( 'Jet_Popup' ) ) {
 
 
 /**
- * Add-On: JetEngine (Premium, by Zemez Jet/ CrocoBlock)
+ * Add-On: JetEngine (Premium, by Zemez Jet/ Crocoblock)
  * @since 1.3.2
  */
 if ( class_exists( 'Jet_Engine' ) ) {
@@ -247,7 +247,7 @@ if ( class_exists( 'Jet_Engine' ) ) {
 
 
 /**
- * Add-On: JetSmartFilters (Premium, by Zemez Jet/ CrocoBlock)
+ * Add-On: JetSmartFilters (Premium, by Zemez Jet/ Crocoblock)
  * @since 1.4.0
  */
 if ( class_exists( 'Jet_Smart_Filters' ) ) {
@@ -385,7 +385,7 @@ if ( defined( 'BDTEP_VER' ) ) {
  * Add-On: Prime Slider Lite (free, by BdThemes)
  * @since 1.4.8
  */
-if ( defined( 'BDTEP_VER' ) ) {
+if ( defined( 'BDTPS_VER' ) ) {
 	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-bdthemes-prime-slider.php';
 }
 
@@ -535,7 +535,7 @@ if ( function_exists( 'elpug_register_settings' ) ) {
 
 
 /**
- * Add-On: JetElements (Premium, by Zemez Jet/ CrocoBlock)
+ * Add-On: JetElements (Premium, by Zemez Jet/ Crocoblock)
  * @since 1.1.0
  */
 if ( class_exists( 'Jet_Elements' ) ) {
@@ -544,7 +544,7 @@ if ( class_exists( 'Jet_Elements' ) ) {
 
 
 /**
- * Add-On: JetMenu (Premium, by Zemez Jet/ CrocoBlock)
+ * Add-On: JetMenu (Premium, by Zemez Jet/ Crocoblock)
  * @since 1.1.0
  */
 if ( class_exists( 'Jet_Menu' ) ) {
@@ -553,7 +553,7 @@ if ( class_exists( 'Jet_Menu' ) ) {
 
 
 /**
- * Add-On: JetBlog (Premium, by Zemez Jet/ CrocoBlock)
+ * Add-On: JetBlog (Premium, by Zemez Jet/ Crocoblock)
  * @since 1.1.0
  */
 if ( class_exists( 'Jet_Blog' ) ) {
@@ -562,7 +562,7 @@ if ( class_exists( 'Jet_Blog' ) ) {
 
 
 /**
- * Add-On: JetBlocks (Premium, by Zemez Jet/ CrocoBlock)
+ * Add-On: JetBlocks (Premium, by Zemez Jet/ Crocoblock)
  * @since 1.2.0
  */
 if ( class_exists( 'Jet_Blocks' ) ) {
@@ -571,7 +571,25 @@ if ( class_exists( 'Jet_Blocks' ) ) {
 
 
 /**
- * Add-On: JetReviews (Premium, by Zemez Jet/ CrocoBlock)
+ * Add-On: JetTabs (Premium, by Zemez Jet/ Crocoblock)
+ * @since 1.4.5
+ */
+if ( class_exists( 'Jet_Tabs' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-jettabs.php';
+}
+
+
+/**
+ * Add-On: JetTricks (Premium, by Zemez Jet/ Crocoblock)
+ * @since 1.4.9
+ */
+if ( class_exists( 'Jet_Tricks' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-jettricks.php';
+}
+
+
+/**
+ * Add-On: JetReviews (Premium, by Zemez Jet/ Crocoblock)
  * @since 1.1.0
  */
 if ( class_exists( 'Jet_Reviews' ) ) {
@@ -580,7 +598,7 @@ if ( class_exists( 'Jet_Reviews' ) ) {
 
 
 /**
- * Add-On: JetWidgets for Elementor (free, by CrocoBlock/ Zemez Jet)
+ * Add-On: JetWidgets for Elementor (free, by Crocoblock/ Zemez Jet)
  * @since 1.4.0
  */
 if ( class_exists( 'Jet_Widgets' ) ) {
@@ -706,6 +724,15 @@ if ( class_exists( '\Web_Disrupt_Funnelmentals\WDF_Core' ) ) {
 
 
 /**
+ * Add-On: WunderWP (free, by Artbees)
+ * @since 1.4.9
+ */
+if ( class_exists( 'WunderWP' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-wunderwp.php';
+}
+
+
+/**
  * Add-On: Briefcase Elementor Widgets (Premium, by BriefcaseWP)
  * @since 1.3.0
  */
@@ -745,6 +772,24 @@ if ( ( defined( 'HTBUILDER_VERSION' ) || defined( 'HTBUILDER_VERSION_PRO' ) ) ) 
  */
 if ( defined( 'ELEMENTOR_ADDON_PATH' ) ) {
 	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-webtechstreet-addons.php';
+}
+
+
+/**
+ * Add-On: Elementor Addons (free, by Oxilab/ biplob018)
+ * @since 1.4.9
+ */
+if ( defined( 'SA_EL_ADDONS_PLUGIN_VERSION' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-oxilab-addons.php';
+}
+
+
+/**
+ * Add-On: Extensions For Elementor (free, by mayanksdudakiya)
+ * @since 1.4.9
+ */
+if ( defined( 'ELEMENTOR_EXTENSIONS_VERSION' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-extensions-for-elementor.php';
 }
 
 
@@ -925,7 +970,7 @@ if ( defined( 'ELEMENTOR_WHITE_LABEL_VER' ) || defined( 'ELEMENTOR_WHITE_LABEL_P
 
 
 /**
- * Add-On: JetDesignKit (Premium, by Zemez Jet/ CrocoBlock)
+ * Add-On: JetDesignKit (Premium, by Zemez Jet/ Crocoblock)
  * @since 1.4.0
  */
 if ( class_exists( 'Jet_Design_Kit' ) ) {
@@ -966,6 +1011,15 @@ if ( defined( 'RUVUV_EXPAND_VERSION' ) ) {
  */
 if ( defined( 'HAPPY_ADDONS_VERSION' ) ) {
 	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-happy-addons.php';
+}
+
+
+/**
+ * Add-On: WPHobby Addons for Elementor (free, by WPHobby)
+ * @since 1.4.9
+ */
+if ( defined( 'WHAE_VERSION' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/elementor-addons/items-wphobby-addons.php';
 }
 
 

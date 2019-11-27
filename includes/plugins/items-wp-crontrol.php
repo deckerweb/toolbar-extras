@@ -19,11 +19,18 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_wpcrontrol', 50 );
  *
  * @since 1.4.7
  *
+ * @uses ddw_tbex_rand()
+ * @uses ddw_tbex_display_items_resources()
+ * @uses ddw_tbex_resource_item()
+ *
  * @param object $admin_bar Object of Toolbar nodes.
  */
 function ddw_tbex_site_items_wpcrontrol( $admin_bar ) {
 
 	add_filter( 'tbex_filter_is_dev_mode', '__return_empty_string' );
+
+	/** Assists reload when already on settings page */
+	$rand = ddw_tbex_rand();
 
 	/** Group */
 	$admin_bar->add_group(
@@ -79,7 +86,7 @@ function ddw_tbex_site_items_wpcrontrol( $admin_bar ) {
 					'id'     => 'wpcrontrol-cron-events-new',
 					'parent' => 'wpcrontrol-cron-events',
 					'title'  => esc_attr__( 'New Cron Event', 'toolbar-extras' ),
-					'href'   => esc_url( admin_url( 'tools.php?page=crontrol_admin_manage_page&action=new-cron#crontrol_form' ) ),
+					'href'   => esc_url( admin_url( 'tools.php?page=crontrol_admin_manage_page&action=new-cron&rand=' . $rand . '#crontrol_form' ) ),
 					'meta'   => array(
 						'target' => '',
 						'title'  => esc_attr__( 'New WP-Cron Event', 'toolbar-extras' ),
@@ -92,7 +99,7 @@ function ddw_tbex_site_items_wpcrontrol( $admin_bar ) {
 					'id'     => 'wpcrontrol-cron-events-new-php',
 					'parent' => 'wpcrontrol-cron-events',
 					'title'  => esc_attr__( 'New PHP Cron Event', 'toolbar-extras' ),
-					'href'   => esc_url( admin_url( 'tools.php?page=crontrol_admin_manage_page&action=new-php-cron#crontrol_form' ) ),
+					'href'   => esc_url( admin_url( 'tools.php?page=crontrol_admin_manage_page&action=new-php-cron&rand=' . $rand . '#crontrol_form' ) ),
 					'meta'   => array(
 						'target' => '',
 						'title'  => esc_attr__( 'New PHP Cron Event', 'toolbar-extras' ),

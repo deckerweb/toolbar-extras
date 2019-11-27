@@ -132,7 +132,7 @@ function ddw_tbex_themeitems_visual_composer_starter_resources( $admin_bar ) {
 		return $admin_bar;
 	}
 
-	/** Group: Resources for Visual Composer Starter Theme */
+	/** Group: Theme's resources */
 	$admin_bar->add_group(
 		array(
 			'id'     => 'group-theme-resources',

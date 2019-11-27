@@ -58,6 +58,7 @@ function ddw_tbex_aoitems_genesis_portfolio_pro( $admin_bar ) {
 		)
 	);
 
+	/** Optional: Elementor support */
 	if ( ddw_tbex_is_elementor_active() && \Elementor\User::is_current_user_can_edit_post_type( $type ) ) {
 
 		$admin_bar->add_node(
@@ -89,6 +90,7 @@ function ddw_tbex_aoitems_genesis_portfolio_pro( $admin_bar ) {
 
 	}  // end if
 
+	/** Optional: Genesis Archive Settings */
 	if ( post_type_supports( $type, 'genesis-cpt-archives-settings' ) ) {
 
 		$admin_bar->add_node(
@@ -105,5 +107,19 @@ function ddw_tbex_aoitems_genesis_portfolio_pro( $admin_bar ) {
 		);
 
 	}  // end if
+
+	/** For: Manage Content in Site Group */
+	$admin_bar->add_node(
+		array(
+			'id'     => 'manage-content-genesis-portfolio-pro',
+			'parent' => 'manage-content',
+			'title'  => esc_attr__( 'Edit Portfolio Items', 'toolbar-extras' ),
+			'href'   => esc_url( admin_url( 'edit.php?post_type=' . $type ) ),
+			'meta'   => array(
+				'target' => '',
+				'title'  => esc_attr__( 'Edit Portfolio Items', 'toolbar-extras' ),
+			)
+		)
+	);
 
 }  // end function

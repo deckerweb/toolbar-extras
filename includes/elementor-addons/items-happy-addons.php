@@ -19,6 +19,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_happy_addons', 100 );
  *
  * @since 1.4.8
  *
+ * @uses ddw_tbex_rand()
  * @uses ddw_tbex_display_items_resources()
  * @uses ddw_tbex_resource_item()
  *
@@ -28,6 +29,9 @@ function ddw_tbex_aoitems_happy_addons( $admin_bar ) {
 
 	/** Use Add-On hook place */
 	add_filter( 'tbex_filter_is_addon', '__return_empty_string' );
+
+	/** Assists reload when already on settings page */
+	$rand = ddw_tbex_rand();
 
 	$admin_bar->add_node(
 		array(
@@ -47,7 +51,7 @@ function ddw_tbex_aoitems_happy_addons( $admin_bar ) {
 				'id'     => 'happyaddons-widgets',
 				'parent' => 'happyaddons',
 				'title'  => esc_attr__( 'Activate Widgets', 'toolbar-extras' ),
-				'href'   => esc_url( admin_url( 'admin.php?page=happy-addons#widgets' ) ),
+				'href'   => esc_url( admin_url( 'admin.php?page=happy-addons&rand=' . $rand . '#widgets' ) ),
 				'meta'   => array(
 					'target' => '',
 					'title'  => esc_attr__( 'Activate Widgets', 'toolbar-extras' ),
@@ -60,7 +64,7 @@ function ddw_tbex_aoitems_happy_addons( $admin_bar ) {
 				'id'     => 'happyaddons-info',
 				'parent' => 'happyaddons',
 				'title'  => esc_attr__( 'Plugin Info', 'toolbar-extras' ),
-				'href'   => esc_url( admin_url( 'admin.php?page=happy-addons#home' ) ),
+				'href'   => esc_url( admin_url( 'admin.php?page=happy-addons&rand=' . $rand . '#home' ) ),
 				'meta'   => array(
 					'target' => '',
 					'title'  => esc_attr__( 'Plugin Info', 'toolbar-extras' ),
@@ -98,6 +102,13 @@ function ddw_tbex_aoitems_happy_addons( $admin_bar ) {
 			'happyaddons-docs',
 			'group-happyaddons-resources',
 			'https://happyaddons.com/docs/'
+		);
+
+		ddw_tbex_resource_item(
+			'facebook-group',
+			'happyaddons-fbgroup',
+			'group-happyaddons-resources',
+			'https://www.facebook.com/groups/HappyAddonsCommunity/'
 		);
 
 		ddw_tbex_resource_item(

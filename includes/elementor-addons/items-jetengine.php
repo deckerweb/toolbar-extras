@@ -51,7 +51,7 @@ function ddw_tbex_is_jetbooking_active() {
 
 add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_jetengine', 100 );
 /**
- * Items for Add-On: JetEngine (Premium, by Zemez Jet/ CrocoBlock)
+ * Items for Add-On: JetEngine (Premium, by Zemez Jet/ Crocoblock)
  *
  * @since 1.3.2
  * @since 1.3.5 Added BTC plugin support.
@@ -493,6 +493,13 @@ function ddw_tbex_aoitems_jetengine( $admin_bar ) {
 					'parent' => 'ao-jetengine',
 					'meta'   => array( 'class' => 'ab-sub-secondary' ),
 				)
+			);
+
+			ddw_tbex_resource_item(
+				'knowledge-base',
+				'jetengine-kb-articles',
+				'group-jetengine-resources',
+				'https://crocoblock.com/knowledge-base/article-category/jet-engine/' . ddw_tbex_afcroc()
 			);
 
 			ddw_tbex_resource_item(

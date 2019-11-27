@@ -137,7 +137,7 @@ function ddw_tbex_aoitems_metform( $admin_bar ) {
 						)
 					);
 
-					$form_settings = get_post_meta( $form_id, 'metform_form__form_setting', TRUE );
+					$form_settings = (array) get_post_meta( $form_id, 'metform_form__form_setting', TRUE );
 
 					if ( '1' === $form_settings[ 'store_entries' ] ) {
 

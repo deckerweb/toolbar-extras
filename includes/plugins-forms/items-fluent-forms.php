@@ -32,6 +32,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_fluent_forms' );
  *
  * @since 1.4.8
  *
+ * @uses ddw_tbex_rand()
  * @uses ddw_tbex_is_fluent_forms_pro_active()
  * @uses ddw_tbex_string_forms_system()
  *
@@ -40,6 +41,9 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_fluent_forms' );
  * @param object $admin_bar Object of Toolbar nodes.
  */
 function ddw_tbex_site_items_fluent_forms( $admin_bar ) {
+
+	/** Assists reload when already on settings page */
+	$rand = ddw_tbex_rand();
 
 	$title = ddw_tbex_is_fluent_forms_pro_active()
 		? ddw_tbex_string_forms_system( 'Fluent', 'pro' )
@@ -195,16 +199,16 @@ function ddw_tbex_site_items_fluent_forms( $admin_bar ) {
 			)
 		);
 
-		/** Export/Import */
+		/** Tools */
 		$admin_bar->add_node(
 			array(
 				'id'     => 'forms-fluentforms-transfer',
 				'parent' => 'forms-fluentforms',
-				'title'  => esc_attr__( 'Export/Import', 'toolbar-extras' ),
+				'title'  => esc_attr__( 'Tools', 'toolbar-extras' ),
 				'href'   => esc_url( admin_url( 'admin.php?page=fluent_forms_transfer' ) ),
 				'meta'   => array(
 					'target' => '',
-					'title'  => esc_attr__( 'Forms Export/Import', 'toolbar-extras' ),
+					'title'  => esc_attr__( 'Forms Tools', 'toolbar-extras' ),
 				)
 			)
 		);
@@ -214,7 +218,7 @@ function ddw_tbex_site_items_fluent_forms( $admin_bar ) {
 					'id'     => 'forms-fluentforms-transfer-export',
 					'parent' => 'forms-fluentforms-transfer',
 					'title'  => esc_attr__( 'Export Forms', 'toolbar-extras' ),
-					'href'   => esc_url( admin_url( 'admin.php?page=fluent_forms_transfer#exportforms' ) ),
+					'href'   => esc_url( admin_url( 'admin.php?page=fluent_forms_transfer&rand=' . $rand . '#exportforms' ) ),
 					'meta'   => array(
 						'target' => '',
 						'title'  => esc_attr__( 'Export Forms', 'toolbar-extras' ),
@@ -227,10 +231,23 @@ function ddw_tbex_site_items_fluent_forms( $admin_bar ) {
 					'id'     => 'forms-fluentforms-transfer-import',
 					'parent' => 'forms-fluentforms-transfer',
 					'title'  => esc_attr__( 'Import Forms', 'toolbar-extras' ),
-					'href'   => esc_url( admin_url( 'admin.php?page=fluent_forms_transfer#importforms' ) ),
+					'href'   => esc_url( admin_url( 'admin.php?page=fluent_forms_transfer&rand=' . $rand . '#importforms' ) ),
 					'meta'   => array(
 						'target' => '',
 						'title'  => esc_attr__( 'Import Forms', 'toolbar-extras' ),
+					)
+				)
+			);
+
+			$admin_bar->add_node(
+				array(
+					'id'     => 'forms-fluentforms-transfer-logs',
+					'parent' => 'forms-fluentforms-transfer',
+					'title'  => esc_attr__( 'Activity Logs', 'toolbar-extras' ),
+					'href'   => esc_url( admin_url( 'admin.php?page=fluent_forms_transfer&rand=' . $rand . '#activity-logs' ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => esc_attr__( 'Activity Logs', 'toolbar-extras' ),
 					)
 				)
 			);
@@ -306,6 +323,36 @@ function ddw_tbex_site_items_fluent_forms( $admin_bar ) {
 			)
 		);
 
+		if ( ddw_tbex_is_fluent_forms_pro_active() ) {
+
+			$admin_bar->add_node(
+				array(
+					'id'     => 'forms-fluentforms-modules-enable',
+					'parent' => 'forms-fluentforms-modules',
+					'title'  => esc_attr__( 'Enable Modules', 'toolbar-extras' ),
+					'href'   => esc_url( admin_url( 'admin.php?page=fluent_form_add_ons' ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => esc_attr__( 'Enable Modules', 'toolbar-extras' ),
+					)
+				)
+			);
+
+			$admin_bar->add_node(
+				array(
+					'id'     => 'forms-fluentforms-modules-license',
+					'parent' => 'forms-fluentforms-modules',
+					'title'  => esc_attr__( 'License', 'toolbar-extras' ),
+					'href'   => esc_url( admin_url( 'admin.php?page=fluent_form_add_ons&sub_page=fluentform-pro-add-on' ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => esc_attr__( 'License', 'toolbar-extras' ),
+					)
+				)
+			);
+
+		}  // end if
+		
 		/** Optionally, let other Fluent Forms Add-Ons hook in */
 		do_action( 'tbex_after_fluentforms_settings', $admin_bar );
 

@@ -22,7 +22,7 @@ add_action( 'admin_bar_menu', 'ddw_tbex_site_items_wpmudev_dashboard', 99 );
  */
 function ddw_tbex_site_items_wpmudev_dashboard( $admin_bar ) {
 
-	/** For: Forms */
+	/** For: Plugin Installer Group */
 	$admin_bar->add_node(
 		array(
 			'id'     => 'wpmudev-install-plugin',

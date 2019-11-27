@@ -121,7 +121,7 @@ function ddw_tbex_themeitems_chaplin_resources( $admin_bar ) {
 		return $admin_bar;
 	}
 
-	/** Group: Resources for Chaplin */
+	/** Group: Theme's resources */
 	$admin_bar->add_group(
 		array(
 			'id'     => 'group-theme-resources',

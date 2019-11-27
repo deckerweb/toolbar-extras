@@ -219,6 +219,15 @@ if ( function_exists( 'agentpress_theme_defaults' ) ) {
 
 
 /**
+ * Agent Focused Pro (Premium, by Marcy Diaz for Winning Agent)
+ * @since 1.4.9
+ */
+if ( function_exists( 'agentfocused_theme_support' ) ) {
+	require_once TBEX_PLUGIN_DIR . 'includes/themes-genesis/items-genesis-agent-focused-pro.php';
+}
+
+
+/**
  * Altitude Pro (Premium, by StudioPress)
  * @since 1.3.0
  */

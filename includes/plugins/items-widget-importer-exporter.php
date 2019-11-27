@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 add_action( 'admin_bar_menu', 'ddw_tbex_site_items_widget_importer_exporter' );
 /**
- * Items for Plugin: Widget Importer & Exporter (free, by churchthemes.com)
+ * Items for Plugin: Widget Importer & Exporter (free, by ChurchThemes.com LLC)
  *
  * @since 1.0.0
  *

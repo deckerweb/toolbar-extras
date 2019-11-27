@@ -47,6 +47,46 @@ function ddw_tbex_aoitems_elegant_blocks( $admin_bar ) {
 			)
 		);
 
+		/** Clients */
+		$admin_bar->add_node(
+			array(
+				'id'     => 'elegantblocks-clients',
+				'parent' => 'group-elegantblocks-creative',
+				'title'  => esc_attr__( 'Clients', 'toolbar-extras' ),
+				'href'   => esc_url( admin_url( 'edit.php?post_type=eb_clients' ) ),
+				'meta'   => array(
+					'target' => '',
+					'title'  => $string_elegant_blocks . ': ' . esc_attr__( 'Clients', 'toolbar-extras' ),
+				)
+			)
+		);
+
+			$admin_bar->add_node(
+				array(
+					'id'     => 'elegantblocks-clients-all',
+					'parent' => 'elegantblocks-clients',
+					'title'  => esc_attr__( 'All Clients', 'toolbar-extras' ),
+					'href'   => esc_url( admin_url( 'edit.php?post_type=eb_clients' ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => esc_attr__( 'All Clients', 'toolbar-extras' ),
+					)
+				)
+			);
+
+			$admin_bar->add_node(
+				array(
+					'id'     => 'elegantblocks-clients-new',
+					'parent' => 'elegantblocks-clients',
+					'title'  => esc_attr__( 'New Client', 'toolbar-extras' ),
+					'href'   => esc_url( admin_url( 'post-new.php?post_type=eb_clients' ) ),
+					'meta'   => array(
+						'target' => '',
+						'title'  => esc_attr__( 'New Client', 'toolbar-extras' ),
+					)
+				)
+			);
+
 		/** Services */
 		$admin_bar->add_node(
 			array(

@@ -32,15 +32,18 @@ function ddw_tbex_get_option( $type = '', $option_key = '' ) {
 
 
 /**
- * ???
+ * Set current minimum plugin versions for some recommended plugins for our
+ *   "Plugin Manager" script.
  *
  * @since 1.4.8
+ *
+ * @return array $versions Array of plugin versions.
  */
 function ddw_tbex_pm_min_versions() {
 
 	$versions = array(
 		'builder-template-categories' => '1.7.0',
-		'wp-asset-clean-up'           => '1.3.4.6',
+		'wp-asset-clean-up'           => '1.3.5.1',
 		'code-snippets'               => '2.13.3',
 		'members'                     => '2.2.0',
 	);
@@ -67,7 +70,7 @@ function ddw_tbex_info_values() {
 	/** Build Newsletter URL */
 	$url_nl = sprintf(
 		'https://deckerweb.us2.list-manage.com/subscribe?u=e09bef034abf80704e5ff9809&amp;id=380976af88&amp;MERGE0=%1$s&amp;MERGE1=%2$s',
-		esc_attr( $user->user_email ),
+		sanitize_email( $user->user_email ),
 		esc_attr( $user->user_firstname )
 	);
 
@@ -703,6 +706,7 @@ function ddw_tbex_get_resource_url( $type = '', $url_key = '', $raw = FALSE ) {
  * @since 1.4.1 Added type developer docs.
  * @since 1.4.3 Added type changelog.
  * @since 1.4.7 Added types dev-blog, bugs-features, feature-requests.
+ * @since 1.4.9 Added type faq.
  *
  * @global mixed $GLOBALS[ 'wp_admin_bar' ]
  *
@@ -823,12 +827,20 @@ function ddw_tbex_resource_item( $type = '', $id = '', $parent = '', $url = '', 
 			$title      = esc_attr__( 'Change Logs', 'toolbar-extras' );
 			$title_attr = ( ! empty( $title_attr ) ) ? esc_attr( $title_attr ) : esc_attr__( 'Version History', 'toolbar-extras' );
 			break;
+		case 'pro-changelog':
+			$title      = esc_attr__( 'Change Logs (Pro)', 'toolbar-extras' );
+			$title_attr = ( ! empty( $title_attr ) ) ? esc_attr( $title_attr ) : esc_attr__( 'Version History (Pro)', 'toolbar-extras' );
+			break;
 		case 'bugs-features':
 			$title      = esc_attr__( 'Bug Reports &amp; Feature Requests', 'toolbar-extras' );
 			$title_attr = ( ! empty( $title_attr ) ) ? esc_attr( $title_attr ) : esc_attr__( 'Bug Reports &amp; Feature Requests via GitHub Issues', 'toolbar-extras' );
 			break;
 		case 'feature-requests':
 			$title = esc_attr__( 'Feature Requests', 'toolbar-extras' );
+			break;
+		case 'faq':
+			$title      = esc_attr_x( 'FAQ', 'Resource item title', 'toolbar-extras' );
+			$title_attr = ( ! empty( $title_attr ) ) ? esc_attr( $title_attr ) : esc_attr__( 'Frequently Asked Questions - and Answers', 'toolbar-extras' );
 			break;
 		default:
 			$title = esc_attr__( 'External Resource', 'toolbar-extras' );
@@ -952,5 +964,19 @@ function ddw_tbex_resource_item_wporg( $type = '', $slug = '', $id = '', $parent
 		esc_url( $url ),
 		esc_attr( $title_attr )
 	);
+
+}  // end function
+
+
+/**
+ * Link addition(s) for "Crocoblock" vendor URLs.
+ *
+ * @since 1.4.9
+ *
+ * @return string String addition for URLs.
+ */
+function ddw_tbex_afcroc() {
+
+	return '?ref=3';
 
 }  // end function

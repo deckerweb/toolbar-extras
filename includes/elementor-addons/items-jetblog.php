@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_jetblog', 100 );
 /**
- * Items for Add-On: JetBlog (Premium, by Zemez Jet/ CrocoBlock)
+ * Items for Add-On: JetBlog (Premium, by Zemez Jet/ Crocoblock)
  *
  * @since 1.1.0
  *
