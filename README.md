@@ -11,7 +11,7 @@
 **Requires at least:** 4.7  
 **Tested up to:** 5.3  
 **Requires PHP:** 5.6  
-**Stable tag:** 1.4.8  
+**Stable tag:** 1.4.9  
 **License:** GPL-2.0-or-later  
 **License URI:** https://opensource.org/licenses/GPL-2.0  
 
