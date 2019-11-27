@@ -520,7 +520,7 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 ([For the full changelog of this plugin visit its website at ToolbarExtras.com](https://toolbarextras.com/changelogs/toolbar-extras/))
 
 
-### ⚡ 1.4.9 - 2019-11-27 
+### ⚡ 1.4.9 - 2019-11-28 
 
 * [Change log](https://toolbarextras.com/changelog/version-1-4-9/)
 * *New: Successfully tested with WordPress 5.3*

@@ -14,7 +14,7 @@
 
 ## Changelog of the Plugin
 
-### ⚡ 1.4.9 - 2019-11-27 
+### ⚡ 1.4.9 - 2019-11-28 
 
 * [Change log](https://toolbarextras.com/changelog/version-1-4-9/)
 * *New: Successfully tested with WordPress 5.3*

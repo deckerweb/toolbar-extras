@@ -421,7 +421,7 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 ([For the full changelog of this plugin visit its website at ToolbarExtras.com](https://toolbarextras.com/changelog/))
 
 
-= ⚡ 1.4.9 - 2019-11-27 =
+= ⚡ 1.4.9 - 2019-11-28 =
 * [Change log](https://toolbarextras.com/changelog/version-1-4-9/)
 * *New: Successfully tested with WordPress 5.3*
 * New: Added **sub items for file types (Mime Types)** to the Media Library within the Site Group - for Images, PDFs, Audio, Video - this allows for really convenient filtering ;-)
