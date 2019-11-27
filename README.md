@@ -541,6 +541,7 @@ See the full [tutorial on how to use Toolbar Extras on a WordPress.com Business 
 * Tweak: For Genesis Framework support, subtle improvements for tweaked admin menus, plus more refinements
 * Tweak: For Nginx Server Environments added two (optional) external resource items
 * Tweak: Subtle style improvements for WordPress 5.3+ (settings page)
+* Tweak: Updated bundled library DDWlib Plugin Installer Recommendations to latest version (v1.5.1)
 * Tweak: Updated `.pot` file plus all German translations (formal, informal) and language packs
 * Fix: Avoid any fatal error on Multisite (for Dashboard widget)
 * Fix: Fixed wrong German translations (grammar, typos)

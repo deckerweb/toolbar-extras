@@ -106,7 +106,7 @@ function ddw_tbex_aoitems_uael( $admin_bar ) {
 
 		}  // end if
 
-		/** Group: Resources for Ultimate Addons */
+		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
 			$admin_bar->add_group(

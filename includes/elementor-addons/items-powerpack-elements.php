@@ -104,7 +104,7 @@ function ddw_tbex_aoitems_powerpack_elements( $admin_bar ) {
 			)
 		);
 
-		/** Group: Resources for PowerPack Elements */
+		/** Group: Plugin's resources */
 		if ( ddw_tbex_display_items_resources() ) {
 
 			$admin_bar->add_group(
@@ -127,6 +127,14 @@ function ddw_tbex_aoitems_powerpack_elements( $admin_bar ) {
 				'powerpack-docs',
 				'group-powerpack-resources',
 				'https://powerpackelements.com/docs/'
+			);
+
+			ddw_tbex_resource_item(
+				'changelog',
+				'powerpack-changelogs',
+				'group-powerpack-resources',
+				'https://powerpackelements.com/change-logs/',
+				ddw_tbex_string_version_history( 'addon' )
 			);
 
 			ddw_tbex_resource_item(
