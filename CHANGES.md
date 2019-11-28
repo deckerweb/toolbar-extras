@@ -63,7 +63,7 @@
 
 **New, 1.4.9:** *Extended the general Plugin support for:*
 
-* Church Content Pro (Premium, by ChurchThemes.com)
+* Church Content Pro (Premium, by ChurchThemes.com LLC)
 * weForms Pro - Professional (Add-On) (Premium, by weDevs)
 * Ivory Search (free, by Ivory Search)
 * [qTranslate-XT (free, by qTranslate Community)](https://github.com/qtranslate/qtranslate-xt)
@@ -637,7 +637,7 @@
 * Theme Support for Gutenberg (free, by wpweaver)
 * Enable Gutenberg Theme Support (free, by Israel Escuer, Jose Angel Vidania)
 * UltraBlocks Free/Pro (free/Premium, by FestPlugins)
-* Kadence Blocks - Gutenberg Page Builder Toolkit (free, by Kadence Themes)
+* Kadence Blocks - Gutenberg Page Builder Toolkit (free, by Kadence WP)
 * Stag Blocks (free, by Codestag)
 * GutenBeGone (free, by Lee Rickler)
 * Gutenberg Manager (free, by unCommons Team)
@@ -953,8 +953,8 @@
 * **New:** *Extended the Plugin support for Elementor Add-Ons:*
   * JetThemeCore (Premium, by Zemez/ Crocoblock)
   * Briefcase Elementor Widgets (Premium, by BriefcaseWP)
-  * Kadence WooCommerce Elementor (free, by Kadence Themes)
-  * Kadence WooCommerce Elementor Pro (Premium, by Kadence Themes)
+  * Kadence WooCommerce Elementor (free, by Kadence WP)
+  * Kadence WooCommerce Elementor Pro (Premium, by Kadence WP)
   * Elementor Google Map Extended Pro (Premium, by InternetCSS)
 * **New:** *Extended the general Plugin support for:*
   * Kava Extra (Premium, by Zemez/ Crocoblock)

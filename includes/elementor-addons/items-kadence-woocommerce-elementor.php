@@ -29,8 +29,8 @@ function ddw_tbex_is_kwce_pro_active() {
 add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_kadence_woocommerce_elementor', 100 );
 /**
  * Items for Add-Ons:
- *   Kadence WooCommerce Elementor (free, by Kadence Themes)
- *   Kadence WooCommerce Elementor Pro (Premium, by Kadence Themes)
+ *   Kadence WooCommerce Elementor (free, by Kadence WP)
+ *   Kadence WooCommerce Elementor Pro (Premium, by Kadence WP)
  *
  * @since 1.3.0
  * @since 1.3.5 Added BTC plugin support.

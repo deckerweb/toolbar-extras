@@ -93,8 +93,8 @@ function ddw_tbex_aoitems_kadence_blocks_resources( $admin_bar, $suffix = '', $p
 add_action( 'admin_bar_menu', 'ddw_tbex_aoitems_kadence_blocks', 10 );
 /**
  * Site items for Plugins:
- *   - Kadence Blocks - Gutenberg Page Builder Toolkit (free, by Kadence Themes)
- *   - Kadence Blocks Pro (Add-On) (Premium, by Kadence Themes)
+ *   - Kadence Blocks - Gutenberg Page Builder Toolkit (free, by Kadence WP)
+ *   - Kadence Blocks Pro (Add-On) (Premium, by Kadence WP)
  *
  * @since 1.4.0
  * @since 1.4.9 Improved Pro integration & support.
