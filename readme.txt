@@ -256,7 +256,7 @@ You're right! If you're happy with one of the others then that's absolutely grea
 
 When I setup a new WordPress site I want to activate Toolbar Extras and instantly have my needed "Tools" (favorite plugins, themes) available as quick jump links from a central place at the top - the WordPress Toolbar, aka Admin Bar. So I can start my work and focus on building stuff rather than search for settings pages here and here and wasting time with senseless scrolling...!
 
-Plugin developer David Decker: *What has proved its day to day usage and usefullness on more than 100 installs before, could be used by many other site builders as well, right? 😊*
+Plugin developer David Decker: *What has proved its day to day usage and usefulness on more than 100 installs before, could be used by many other site builders as well, right? 😊*
 
 
 = Why is the Administrator Role required? =
