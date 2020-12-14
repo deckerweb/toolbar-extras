@@ -93,8 +93,8 @@ function ddw_tbex_get_addons_type( $type = '' ) {
 					continue;
 				}
 
-				$addons_{$type}[ $addon ] = $addon_data;
-				$addons_by_type = $addons_{$type};
+				$addons_[$type][ $addon ] = $addon_data;
+				$addons_by_type = $addons_[$type];
 
 			}  // end if
 
